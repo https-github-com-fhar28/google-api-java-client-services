@@ -956,27 +956,27 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
       }
 
       /**
-       * Field by which to sort the list. Acceptable values are: * `displayName` (default) *
-       * `entityStatus` * `updateTime` The default sorting order is ascending. To specify descending
-       * order for a field, a suffix "desc" should be added to the field name. For example,
-       * `displayName desc`.
+       * Field by which to sort the list. Acceptable values are: * `advertiserId` (default) *
+       * `displayName` * `entityStatus` * `updateTime` The default sorting order is ascending. To
+       * specify descending order for a field, a suffix "desc" should be added to the field name.
+       * For example, `displayName desc`.
        */
       @com.google.api.client.util.Key
       private java.lang.String orderBy;
 
-      /** Field by which to sort the list. Acceptable values are: * `displayName` (default) * `entityStatus`
-     * `updateTime` The default sorting order is ascending. To specify descending order for a field, a
-     suffix "desc" should be added to the field name. For example, `displayName desc`.
+      /** Field by which to sort the list. Acceptable values are: * `advertiserId` (default) * `displayName`
+     * `entityStatus` * `updateTime` The default sorting order is ascending. To specify descending order
+     for a field, a suffix "desc" should be added to the field name. For example, `displayName desc`.
        */
       public java.lang.String getOrderBy() {
         return orderBy;
       }
 
       /**
-       * Field by which to sort the list. Acceptable values are: * `displayName` (default) *
-       * `entityStatus` * `updateTime` The default sorting order is ascending. To specify descending
-       * order for a field, a suffix "desc" should be added to the field name. For example,
-       * `displayName desc`.
+       * Field by which to sort the list. Acceptable values are: * `advertiserId` (default) *
+       * `displayName` * `entityStatus` * `updateTime` The default sorting order is ascending. To
+       * specify descending order for a field, a suffix "desc" should be added to the field name.
+       * For example, `displayName desc`.
        */
       public List setOrderBy(java.lang.String orderBy) {
         this.orderBy = orderBy;
@@ -17431,7 +17431,7 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
          *        `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
          *        `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
          *        `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
-         *        `TARGETING_TYPE_KEYWORD`
+         *        `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
          * @param assignedTargetingOptionId Required. An identifier unique to the targeting type in this advertiser that identifies the assigned
          *        targeting option being requested.
          * @return the request
@@ -17470,7 +17470,7 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
          *        `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
          *        `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
          *        `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
-         *        `TARGETING_TYPE_KEYWORD`
+         *        `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
            * @param assignedTargetingOptionId Required. An identifier unique to the targeting type in this advertiser that identifies the assigned
          *        targeting option being requested.
            * @since 1.13
@@ -17578,7 +17578,7 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
            * types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
            * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
            * `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
-           * `TARGETING_TYPE_KEYWORD`
+           * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
            */
           @com.google.api.client.util.Key
           private java.lang.String targetingType;
@@ -17586,7 +17586,8 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
           /** Required. Identifies the type of this assigned targeting option. Supported targeting types: *
          `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID`
          * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_YOUTUBE_VIDEO` *
-         `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD`
+         `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD` *
+         `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
            */
           public java.lang.String getTargetingType() {
             return targetingType;
@@ -17597,7 +17598,7 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
            * types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
            * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
            * `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
-           * `TARGETING_TYPE_KEYWORD`
+           * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
            */
           public Get setTargetingType(java.lang.String targetingType) {
             if (!getSuppressPatternChecks()) {
@@ -17655,7 +17656,7 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
          *        `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
          *        `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
          *        `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
-         *        `TARGETING_TYPE_KEYWORD`
+         *        `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
          * @return the request
          */
         public List list(java.lang.Long advertiserId, java.lang.String targetingType) throws java.io.IOException {
@@ -17689,7 +17690,7 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
          *        `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
          *        `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
          *        `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
-         *        `TARGETING_TYPE_KEYWORD`
+         *        `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
            * @since 1.13
            */
           protected List(java.lang.Long advertiserId, java.lang.String targetingType) {
@@ -17789,7 +17790,8 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
            * targeting types: * `TARGETING_TYPE_CHANNEL` *
            * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
            * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_YOUTUBE_VIDEO` *
-           * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD`
+           * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD` *
+           * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
            */
           @com.google.api.client.util.Key
           private java.lang.String targetingType;
@@ -17797,7 +17799,8 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
           /** Required. Identifies the type of assigned targeting options to list. Supported targeting types: *
          `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID`
          * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_YOUTUBE_VIDEO` *
-         `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD`
+         `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD` *
+         `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
            */
           public java.lang.String getTargetingType() {
             return targetingType;
@@ -17808,7 +17811,8 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
            * targeting types: * `TARGETING_TYPE_CHANNEL` *
            * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
            * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_YOUTUBE_VIDEO` *
-           * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD`
+           * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD` *
+           * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`
            */
           public List setTargetingType(java.lang.String targetingType) {
             if (!getSuppressPatternChecks()) {
@@ -18927,7 +18931,8 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
     }
     /**
      * Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if
-     * successful.
+     * successful. Requests updating a custom bidding algorithm assigned to a line item will return an
+     * error.
      *
      * Create a request for the method "customBiddingAlgorithms.patch".
      *
@@ -18953,7 +18958,8 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
 
       /**
        * Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if
-       * successful.
+       * successful. Requests updating a custom bidding algorithm assigned to a line item will return an
+       * error.
        *
        * Create a request for the method "customBiddingAlgorithms.patch".
        *
@@ -19423,7 +19429,9 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
     public class Rules {
 
       /**
-       * Creates a new rules resource. Returns the newly created rules resource if successful.
+       * Creates a new rules resource. Returns the newly created rules resource if successful. Requests
+       * creating a custom bidding rules resource under an algorithm assigned to a line item will return
+       * an error.
        *
        * Create a request for the method "rules.create".
        *
@@ -19448,7 +19456,9 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
             java.util.regex.Pattern.compile("^[^/]+$");
 
         /**
-         * Creates a new rules resource. Returns the newly created rules resource if successful.
+         * Creates a new rules resource. Returns the newly created rules resource if successful. Requests
+         * creating a custom bidding rules resource under an algorithm assigned to a line item will return
+         * an error.
          *
          * Create a request for the method "rules.create".
          *
@@ -20026,7 +20036,8 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
     public class Scripts {
 
       /**
-       * Creates a new custom bidding script. Returns the newly created script if successful.
+       * Creates a new custom bidding script. Returns the newly created script if successful. Requests
+       * creating a custom bidding script under an algorithm assigned to a line item will return an error.
        *
        * Create a request for the method "scripts.create".
        *
@@ -20051,7 +20062,9 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
             java.util.regex.Pattern.compile("^[^/]+$");
 
         /**
-         * Creates a new custom bidding script. Returns the newly created script if successful.
+         * Creates a new custom bidding script. Returns the newly created script if successful. Requests
+         * creating a custom bidding script under an algorithm assigned to a line item will return an
+         * error.
          *
          * Create a request for the method "scripts.create".
          *
@@ -21648,22 +21661,22 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
       }
 
       /**
-       * Requested page size. Must be between `1` and `200`. If unspecified will default to `100`.
-       * Returns error code `INVALID_ARGUMENT` if an invalid value is specified.
+       * Requested page size. Must be between `1` and `5000`. If unspecified, this value defaults to
+       * `5000`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified.
        */
       @com.google.api.client.util.Key
       private java.lang.Integer pageSize;
 
-      /** Requested page size. Must be between `1` and `200`. If unspecified will default to `100`. Returns
-     error code `INVALID_ARGUMENT` if an invalid value is specified.
+      /** Requested page size. Must be between `1` and `5000`. If unspecified, this value defaults to `5000`.
+     Returns error code `INVALID_ARGUMENT` if an invalid value is specified.
        */
       public java.lang.Integer getPageSize() {
         return pageSize;
       }
 
       /**
-       * Requested page size. Must be between `1` and `200`. If unspecified will default to `100`.
-       * Returns error code `INVALID_ARGUMENT` if an invalid value is specified.
+       * Requested page size. Must be between `1` and `5000`. If unspecified, this value defaults to
+       * `5000`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified.
        */
       public List setPageSize(java.lang.Integer pageSize) {
         this.pageSize = pageSize;
@@ -30125,7 +30138,7 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
      * asynchronous operation. The metadata type of this operation is SdfDownloadTaskMetadata. If the
      * request is successful, the response type of the operation is SdfDownloadTask. The response will
      * not include the download files, which must be retrieved with media.download. The state of
-     * operation can be retrieved with sdfdownloadtask.operations.get. Any errors can be found in the
+     * operation can be retrieved with `sdfdownloadtasks.operations.get`. Any errors can be found in the
      * error.message. Note that error.details is expected to be empty.
      *
      * Create a request for the method "sdfdownloadtasks.create".
@@ -30151,8 +30164,8 @@ public class DisplayVideo extends com.google.api.client.googleapis.services.json
        * asynchronous operation. The metadata type of this operation is SdfDownloadTaskMetadata. If the
        * request is successful, the response type of the operation is SdfDownloadTask. The response will
        * not include the download files, which must be retrieved with media.download. The state of
-       * operation can be retrieved with sdfdownloadtask.operations.get. Any errors can be found in the
-       * error.message. Note that error.details is expected to be empty.
+       * operation can be retrieved with `sdfdownloadtasks.operations.get`. Any errors can be found in
+       * the error.message. Note that error.details is expected to be empty.
        *
        * Create a request for the method "sdfdownloadtasks.create".
        *

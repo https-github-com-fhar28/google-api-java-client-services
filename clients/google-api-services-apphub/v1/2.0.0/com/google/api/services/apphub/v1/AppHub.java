@@ -588,6 +588,29 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -1786,8 +1809,8 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
          * This request holds the parameters needed by the apphub server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Identifier. The resource name of an Application. Format: "projects/{host-project-
-         *        id}/locations/{location}/applications/{application-id}"
+         * @param name Identifier. The resource name of an Application. Format: `"projects/{host-project-
+         *        id}/locations/{location}/applications/{application-id}"`
          * @param content the {@link com.google.api.services.apphub.v1.model.Application}
          * @return the request
          */
@@ -1814,8 +1837,8 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Identifier. The resource name of an Application. Format: "projects/{host-project-
-         *        id}/locations/{location}/applications/{application-id}"
+           * @param name Identifier. The resource name of an Application. Format: `"projects/{host-project-
+         *        id}/locations/{location}/applications/{application-id}"`
            * @param content the {@link com.google.api.services.apphub.v1.model.Application}
            * @since 1.13
            */
@@ -1885,22 +1908,22 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
           }
 
           /**
-           * Identifier. The resource name of an Application. Format: "projects/{host-project-
-           * id}/locations/{location}/applications/{application-id}"
+           * Identifier. The resource name of an Application. Format: `"projects/{host-project-
+           * id}/locations/{location}/applications/{application-id}"`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Identifier. The resource name of an Application. Format: "projects/{host-project-
-         id}/locations/{location}/applications/{application-id}"
+          /** Identifier. The resource name of an Application. Format: `"projects/{host-project-
+         id}/locations/{location}/applications/{application-id}"`
            */
           public java.lang.String getName() {
             return name;
           }
 
           /**
-           * Identifier. The resource name of an Application. Format: "projects/{host-project-
-           * id}/locations/{location}/applications/{application-id}"
+           * Identifier. The resource name of an Application. Format: `"projects/{host-project-
+           * id}/locations/{location}/applications/{application-id}"`
            */
           public Patch setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -3080,8 +3103,8 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
            * This request holds the parameters needed by the apphub server.  After setting any optional
            * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
            *
-           * @param name Identifier. The resource name of a Service. Format: "projects/{host-project-
-           *        id}/locations/{location}/applications/{application-id}/services/{service-id}"
+           * @param name Identifier. The resource name of a Service. Format: `"projects/{host-project-
+           *        id}/locations/{location}/applications/{application-id}/services/{service-id}"`
            * @param content the {@link com.google.api.services.apphub.v1.model.Service}
            * @return the request
            */
@@ -3108,8 +3131,8 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
              * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
              * be called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param name Identifier. The resource name of a Service. Format: "projects/{host-project-
-           *        id}/locations/{location}/applications/{application-id}/services/{service-id}"
+             * @param name Identifier. The resource name of a Service. Format: `"projects/{host-project-
+           *        id}/locations/{location}/applications/{application-id}/services/{service-id}"`
              * @param content the {@link com.google.api.services.apphub.v1.model.Service}
              * @since 1.13
              */
@@ -3179,22 +3202,22 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
             }
 
             /**
-             * Identifier. The resource name of a Service. Format: "projects/{host-project-
-             * id}/locations/{location}/applications/{application-id}/services/{service-id}"
+             * Identifier. The resource name of a Service. Format: `"projects/{host-project-
+             * id}/locations/{location}/applications/{application-id}/services/{service-id}"`
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
-            /** Identifier. The resource name of a Service. Format: "projects/{host-project-
-           id}/locations/{location}/applications/{application-id}/services/{service-id}"
+            /** Identifier. The resource name of a Service. Format: `"projects/{host-project-
+           id}/locations/{location}/applications/{application-id}/services/{service-id}"`
              */
             public java.lang.String getName() {
               return name;
             }
 
             /**
-             * Identifier. The resource name of a Service. Format: "projects/{host-project-
-             * id}/locations/{location}/applications/{application-id}/services/{service-id}"
+             * Identifier. The resource name of a Service. Format: `"projects/{host-project-
+             * id}/locations/{location}/applications/{application-id}/services/{service-id}"`
              */
             public Patch setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -4077,8 +4100,8 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
            * This request holds the parameters needed by the apphub server.  After setting any optional
            * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
            *
-           * @param name Identifier. The resource name of the Workload. Format: "projects/{host-project-
-           *        id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+           * @param name Identifier. The resource name of the Workload. Format: `"projects/{host-project-
+           *        id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"`
            * @param content the {@link com.google.api.services.apphub.v1.model.Workload}
            * @return the request
            */
@@ -4105,8 +4128,8 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
              * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
              * be called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param name Identifier. The resource name of the Workload. Format: "projects/{host-project-
-           *        id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+             * @param name Identifier. The resource name of the Workload. Format: `"projects/{host-project-
+           *        id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"`
              * @param content the {@link com.google.api.services.apphub.v1.model.Workload}
              * @since 1.13
              */
@@ -4176,22 +4199,22 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
             }
 
             /**
-             * Identifier. The resource name of the Workload. Format: "projects/{host-project-
-             * id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+             * Identifier. The resource name of the Workload. Format: `"projects/{host-project-
+             * id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"`
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
-            /** Identifier. The resource name of the Workload. Format: "projects/{host-project-
-           id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+            /** Identifier. The resource name of the Workload. Format: `"projects/{host-project-
+           id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"`
              */
             public java.lang.String getName() {
               return name;
             }
 
             /**
-             * Identifier. The resource name of the Workload. Format: "projects/{host-project-
-             * id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+             * Identifier. The resource name of the Workload. Format: `"projects/{host-project-
+             * id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"`
              */
             public Patch setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -5431,7 +5454,7 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -5462,7 +5485,7 @@ public class AppHub extends com.google.api.client.googleapis.services.json.Abstr
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".

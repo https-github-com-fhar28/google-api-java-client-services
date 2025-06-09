@@ -17,7 +17,10 @@
 package com.google.api.services.dfareporting.model;
 
 /**
- * Contains additional information about cart data.
+ * *Beta:* This feature is currently in beta. Contains additional information about cart data. This
+ * field may only be used when calling batchinsert; it is not supported by batchupdate. Cart data
+ * reporting is only supported in SA360. [Learn
+ * more](https://support.google.com/sa360/topic/13425788)
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Campaign Manager 360 API. For a detailed explanation
@@ -39,8 +42,8 @@ public final class CartData extends com.google.api.client.json.GenericJson {
 
   /**
    * The feed labels associated with the feed where your items are uploaded. For more information,
-   * please refer to ​​ https://support.google.com/merchants/answer/12453549. This is a required
-   * field.
+   * please refer to ​​ https://support.google.com/merchants/answer/12453549. Providing the feed
+   * label reduces ambiguity in identifying the right offer details.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -48,15 +51,15 @@ public final class CartData extends com.google.api.client.json.GenericJson {
 
   /**
    * The language associated with the feed where your items are uploaded. Use ISO 639-1 language
-   * codes. This field is needed only when item IDs are not unique across multiple Merchant Center
-   * feeds.
+   * codes. Providing the feed language reduces ambiguity in identifying the right offer details.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String merchantFeedLanguage;
 
   /**
-   * The Merchant Center ID where the items are uploaded.
+   * The Merchant Center ID where the items are uploaded. Providing Merchant Center ID reduces
+   * ambiguity in identifying the right offer details.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
@@ -81,8 +84,8 @@ public final class CartData extends com.google.api.client.json.GenericJson {
 
   /**
    * The feed labels associated with the feed where your items are uploaded. For more information,
-   * please refer to ​​ https://support.google.com/merchants/answer/12453549. This is a required
-   * field.
+   * please refer to ​​ https://support.google.com/merchants/answer/12453549. Providing the feed
+   * label reduces ambiguity in identifying the right offer details.
    * @return value or {@code null} for none
    */
   public java.lang.String getMerchantFeedLabel() {
@@ -91,8 +94,8 @@ public final class CartData extends com.google.api.client.json.GenericJson {
 
   /**
    * The feed labels associated with the feed where your items are uploaded. For more information,
-   * please refer to ​​ https://support.google.com/merchants/answer/12453549. This is a required
-   * field.
+   * please refer to ​​ https://support.google.com/merchants/answer/12453549. Providing the feed
+   * label reduces ambiguity in identifying the right offer details.
    * @param merchantFeedLabel merchantFeedLabel or {@code null} for none
    */
   public CartData setMerchantFeedLabel(java.lang.String merchantFeedLabel) {
@@ -102,8 +105,7 @@ public final class CartData extends com.google.api.client.json.GenericJson {
 
   /**
    * The language associated with the feed where your items are uploaded. Use ISO 639-1 language
-   * codes. This field is needed only when item IDs are not unique across multiple Merchant Center
-   * feeds.
+   * codes. Providing the feed language reduces ambiguity in identifying the right offer details.
    * @return value or {@code null} for none
    */
   public java.lang.String getMerchantFeedLanguage() {
@@ -112,8 +114,7 @@ public final class CartData extends com.google.api.client.json.GenericJson {
 
   /**
    * The language associated with the feed where your items are uploaded. Use ISO 639-1 language
-   * codes. This field is needed only when item IDs are not unique across multiple Merchant Center
-   * feeds.
+   * codes. Providing the feed language reduces ambiguity in identifying the right offer details.
    * @param merchantFeedLanguage merchantFeedLanguage or {@code null} for none
    */
   public CartData setMerchantFeedLanguage(java.lang.String merchantFeedLanguage) {
@@ -122,7 +123,8 @@ public final class CartData extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The Merchant Center ID where the items are uploaded.
+   * The Merchant Center ID where the items are uploaded. Providing Merchant Center ID reduces
+   * ambiguity in identifying the right offer details.
    * @return value or {@code null} for none
    */
   public java.lang.Long getMerchantId() {
@@ -130,7 +132,8 @@ public final class CartData extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The Merchant Center ID where the items are uploaded.
+   * The Merchant Center ID where the items are uploaded. Providing Merchant Center ID reduces
+   * ambiguity in identifying the right offer details.
    * @param merchantId merchantId or {@code null} for none
    */
   public CartData setMerchantId(java.lang.Long merchantId) {

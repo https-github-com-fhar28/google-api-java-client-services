@@ -69,6 +69,13 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   private java.lang.String deleteAtTime;
 
   /**
+   * Specifies the deployment strategy for this reservation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String deploymentType;
+
+  /**
    * An optional description of this resource. Provide this property when you create the resource.
    * The value may be {@code null}.
    */
@@ -90,6 +97,14 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   private java.lang.String kind;
 
   /**
+   * [Output Only] Full or partial URL to parent commitments. This field displays for reservations
+   * that are tied to multiple commitments.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> linkedCommitments;
+
+  /**
    * The name of the resource, provided by the client when initially creating the resource. The
    * resource name must be 1-63 characters long, and comply with RFC1035. Specifically, the name
    * must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`
@@ -99,6 +114,13 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
+
+  /**
+   * [Output only] Indicates the reservation mode of the reservation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String reservationMode;
 
   /**
    * Specify the reservation sharing policy. If unspecified, the reservation will not be shared with
@@ -163,7 +185,10 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean specificReservationRequired;
 
   /**
-   * [Output Only] The status of the reservation.
+   * [Output Only] The status of the reservation. - CREATING: Reservation resources are being
+   * allocated. - READY: Reservation resources have been allocated, and the reservation is ready for
+   * use. - DELETING: Reservation deletion is in progress. - UPDATING: Reservation update is in
+   * progress.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -269,6 +294,23 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Specifies the deployment strategy for this reservation.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDeploymentType() {
+    return deploymentType;
+  }
+
+  /**
+   * Specifies the deployment strategy for this reservation.
+   * @param deploymentType deploymentType or {@code null} for none
+   */
+  public Reservation setDeploymentType(java.lang.String deploymentType) {
+    this.deploymentType = deploymentType;
+    return this;
+  }
+
+  /**
    * An optional description of this resource. Provide this property when you create the resource.
    * @return value or {@code null} for none
    */
@@ -320,6 +362,25 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * [Output Only] Full or partial URL to parent commitments. This field displays for reservations
+   * that are tied to multiple commitments.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getLinkedCommitments() {
+    return linkedCommitments;
+  }
+
+  /**
+   * [Output Only] Full or partial URL to parent commitments. This field displays for reservations
+   * that are tied to multiple commitments.
+   * @param linkedCommitments linkedCommitments or {@code null} for none
+   */
+  public Reservation setLinkedCommitments(java.util.List<java.lang.String> linkedCommitments) {
+    this.linkedCommitments = linkedCommitments;
+    return this;
+  }
+
+  /**
    * The name of the resource, provided by the client when initially creating the resource. The
    * resource name must be 1-63 characters long, and comply with RFC1035. Specifically, the name
    * must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`
@@ -341,6 +402,23 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
    */
   public Reservation setName(java.lang.String name) {
     this.name = name;
+    return this;
+  }
+
+  /**
+   * [Output only] Indicates the reservation mode of the reservation.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getReservationMode() {
+    return reservationMode;
+  }
+
+  /**
+   * [Output only] Indicates the reservation mode of the reservation.
+   * @param reservationMode reservationMode or {@code null} for none
+   */
+  public Reservation setReservationMode(java.lang.String reservationMode) {
+    this.reservationMode = reservationMode;
     return this;
   }
 
@@ -493,7 +571,10 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * [Output Only] The status of the reservation.
+   * [Output Only] The status of the reservation. - CREATING: Reservation resources are being
+   * allocated. - READY: Reservation resources have been allocated, and the reservation is ready for
+   * use. - DELETING: Reservation deletion is in progress. - UPDATING: Reservation update is in
+   * progress.
    * @return value or {@code null} for none
    */
   public java.lang.String getStatus() {
@@ -501,7 +582,10 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * [Output Only] The status of the reservation.
+   * [Output Only] The status of the reservation. - CREATING: Reservation resources are being
+   * allocated. - READY: Reservation resources have been allocated, and the reservation is ready for
+   * use. - DELETING: Reservation deletion is in progress. - UPDATING: Reservation update is in
+   * progress.
    * @param status status or {@code null} for none
    */
   public Reservation setStatus(java.lang.String status) {

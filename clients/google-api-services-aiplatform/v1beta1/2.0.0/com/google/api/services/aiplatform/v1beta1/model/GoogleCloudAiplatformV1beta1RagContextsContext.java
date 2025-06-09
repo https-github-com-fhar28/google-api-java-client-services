@@ -30,6 +30,13 @@ package com.google.api.services.aiplatform.v1beta1.model;
 public final class GoogleCloudAiplatformV1beta1RagContextsContext extends com.google.api.client.json.GenericJson {
 
   /**
+   * Context of the retrieved chunk.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RagChunk chunk;
+
+  /**
    * The distance between the query dense embedding vector and the context text vector.
    * The value may be {@code null}.
    */
@@ -37,9 +44,27 @@ public final class GoogleCloudAiplatformV1beta1RagContextsContext extends com.go
   private java.lang.Double distance;
 
   /**
-   * For vertex RagStore, if the file is imported from Cloud Storage or Google Drive, source_uri
-   * will be original file URI in Cloud Storage or Google Drive; if file is uploaded, source_uri
-   * will be file display name.
+   * According to the underlying Vector DB and the selected metric type, the score can be either the
+   * distance or the similarity between the query and the context and its range depends on the
+   * metric type. For example, if the metric type is COSINE_DISTANCE, it represents the distance
+   * between the query and the context. The larger the distance, the less relevant the context is to
+   * the query. The range is [0, 2], while 0 means the most relevant and 2 means the least relevant.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Double score;
+
+  /**
+   * The file display name.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String sourceDisplayName;
+
+  /**
+   * If the file is imported from Cloud Storage or Google Drive, source_uri will be original file
+   * URI in Cloud Storage or Google Drive; if file is uploaded, source_uri will be file display
+   * name.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -60,6 +85,23 @@ public final class GoogleCloudAiplatformV1beta1RagContextsContext extends com.go
   private java.lang.String text;
 
   /**
+   * Context of the retrieved chunk.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagChunk getChunk() {
+    return chunk;
+  }
+
+  /**
+   * Context of the retrieved chunk.
+   * @param chunk chunk or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagContextsContext setChunk(GoogleCloudAiplatformV1beta1RagChunk chunk) {
+    this.chunk = chunk;
+    return this;
+  }
+
+  /**
    * The distance between the query dense embedding vector and the context text vector.
    * @return value or {@code null} for none
    */
@@ -77,9 +119,51 @@ public final class GoogleCloudAiplatformV1beta1RagContextsContext extends com.go
   }
 
   /**
-   * For vertex RagStore, if the file is imported from Cloud Storage or Google Drive, source_uri
-   * will be original file URI in Cloud Storage or Google Drive; if file is uploaded, source_uri
-   * will be file display name.
+   * According to the underlying Vector DB and the selected metric type, the score can be either the
+   * distance or the similarity between the query and the context and its range depends on the
+   * metric type. For example, if the metric type is COSINE_DISTANCE, it represents the distance
+   * between the query and the context. The larger the distance, the less relevant the context is to
+   * the query. The range is [0, 2], while 0 means the most relevant and 2 means the least relevant.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Double getScore() {
+    return score;
+  }
+
+  /**
+   * According to the underlying Vector DB and the selected metric type, the score can be either the
+   * distance or the similarity between the query and the context and its range depends on the
+   * metric type. For example, if the metric type is COSINE_DISTANCE, it represents the distance
+   * between the query and the context. The larger the distance, the less relevant the context is to
+   * the query. The range is [0, 2], while 0 means the most relevant and 2 means the least relevant.
+   * @param score score or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagContextsContext setScore(java.lang.Double score) {
+    this.score = score;
+    return this;
+  }
+
+  /**
+   * The file display name.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSourceDisplayName() {
+    return sourceDisplayName;
+  }
+
+  /**
+   * The file display name.
+   * @param sourceDisplayName sourceDisplayName or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagContextsContext setSourceDisplayName(java.lang.String sourceDisplayName) {
+    this.sourceDisplayName = sourceDisplayName;
+    return this;
+  }
+
+  /**
+   * If the file is imported from Cloud Storage or Google Drive, source_uri will be original file
+   * URI in Cloud Storage or Google Drive; if file is uploaded, source_uri will be file display
+   * name.
    * @return value or {@code null} for none
    */
   public java.lang.String getSourceUri() {
@@ -87,9 +171,9 @@ public final class GoogleCloudAiplatformV1beta1RagContextsContext extends com.go
   }
 
   /**
-   * For vertex RagStore, if the file is imported from Cloud Storage or Google Drive, source_uri
-   * will be original file URI in Cloud Storage or Google Drive; if file is uploaded, source_uri
-   * will be file display name.
+   * If the file is imported from Cloud Storage or Google Drive, source_uri will be original file
+   * URI in Cloud Storage or Google Drive; if file is uploaded, source_uri will be file display
+   * name.
    * @param sourceUri sourceUri or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1RagContextsContext setSourceUri(java.lang.String sourceUri) {

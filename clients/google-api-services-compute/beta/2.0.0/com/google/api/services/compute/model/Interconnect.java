@@ -32,6 +32,13 @@ package com.google.api.services.compute.model;
 public final class Interconnect extends com.google.api.client.json.GenericJson {
 
   /**
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean aaiEnabled;
+
+  /**
    * Administrative status of the interconnect. When this is set to true, the Interconnect is
    * functional and can carry traffic. When set to false, no packets can be carried over the
    * interconnect and no BGP routes are exchanged over it. By default, the status is set to true.
@@ -39,6 +46,13 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean adminEnabled;
+
+  /**
+   * Configuration information for application awareness on this Cloud Interconnect.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private InterconnectApplicationAwareInterconnect applicationAwareInterconnect;
 
   /**
    * [Output only] List of features available for this Interconnect connection, which can take one
@@ -157,8 +171,9 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   /**
    * Type of link requested, which can take one of the following values: -
    * LINK_TYPE_ETHERNET_10G_LR: A 10G Ethernet with LR optics - LINK_TYPE_ETHERNET_100G_LR: A 100G
-   * Ethernet with LR optics. Note that this field indicates the speed of each of the links in the
-   * bundle, not the speed of the entire bundle.
+   * Ethernet with LR optics. - LINK_TYPE_ETHERNET_400G_LR4: A 400G Ethernet with LR4 optics. Note
+   * that this field indicates the speed of each of the links in the bundle, not the speed of the
+   * entire bundle.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -291,6 +306,31 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   private java.lang.String state;
 
   /**
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> wireGroups;
+
+  /**
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAaiEnabled() {
+    return aaiEnabled;
+  }
+
+  /**
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
+   * @param aaiEnabled aaiEnabled or {@code null} for none
+   */
+  public Interconnect setAaiEnabled(java.lang.Boolean aaiEnabled) {
+    this.aaiEnabled = aaiEnabled;
+    return this;
+  }
+
+  /**
    * Administrative status of the interconnect. When this is set to true, the Interconnect is
    * functional and can carry traffic. When set to false, no packets can be carried over the
    * interconnect and no BGP routes are exchanged over it. By default, the status is set to true.
@@ -308,6 +348,23 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
    */
   public Interconnect setAdminEnabled(java.lang.Boolean adminEnabled) {
     this.adminEnabled = adminEnabled;
+    return this;
+  }
+
+  /**
+   * Configuration information for application awareness on this Cloud Interconnect.
+   * @return value or {@code null} for none
+   */
+  public InterconnectApplicationAwareInterconnect getApplicationAwareInterconnect() {
+    return applicationAwareInterconnect;
+  }
+
+  /**
+   * Configuration information for application awareness on this Cloud Interconnect.
+   * @param applicationAwareInterconnect applicationAwareInterconnect or {@code null} for none
+   */
+  public Interconnect setApplicationAwareInterconnect(InterconnectApplicationAwareInterconnect applicationAwareInterconnect) {
+    this.applicationAwareInterconnect = applicationAwareInterconnect;
     return this;
   }
 
@@ -622,8 +679,9 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   /**
    * Type of link requested, which can take one of the following values: -
    * LINK_TYPE_ETHERNET_10G_LR: A 10G Ethernet with LR optics - LINK_TYPE_ETHERNET_100G_LR: A 100G
-   * Ethernet with LR optics. Note that this field indicates the speed of each of the links in the
-   * bundle, not the speed of the entire bundle.
+   * Ethernet with LR optics. - LINK_TYPE_ETHERNET_400G_LR4: A 400G Ethernet with LR4 optics. Note
+   * that this field indicates the speed of each of the links in the bundle, not the speed of the
+   * entire bundle.
    * @return value or {@code null} for none
    */
   public java.lang.String getLinkType() {
@@ -633,8 +691,9 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   /**
    * Type of link requested, which can take one of the following values: -
    * LINK_TYPE_ETHERNET_10G_LR: A 10G Ethernet with LR optics - LINK_TYPE_ETHERNET_100G_LR: A 100G
-   * Ethernet with LR optics. Note that this field indicates the speed of each of the links in the
-   * bundle, not the speed of the entire bundle.
+   * Ethernet with LR optics. - LINK_TYPE_ETHERNET_400G_LR4: A 400G Ethernet with LR4 optics. Note
+   * that this field indicates the speed of each of the links in the bundle, not the speed of the
+   * entire bundle.
    * @param linkType linkType or {@code null} for none
    */
   public Interconnect setLinkType(java.lang.String linkType) {
@@ -933,6 +992,25 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
    */
   public Interconnect setState(java.lang.String state) {
     this.state = state;
+    return this;
+  }
+
+  /**
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getWireGroups() {
+    return wireGroups;
+  }
+
+  /**
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * @param wireGroups wireGroups or {@code null} for none
+   */
+  public Interconnect setWireGroups(java.util.List<java.lang.String> wireGroups) {
+    this.wireGroups = wireGroups;
     return this;
   }
 

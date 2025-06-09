@@ -30,22 +30,22 @@ package com.google.api.services.healthcare.v1.model;
 public final class ParserConfig extends com.google.api.client.json.GenericJson {
 
   /**
-   * Determines whether messages with no header are allowed.
+   * Optional. Determines whether messages with no header are allowed.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean allowNullHeader;
 
   /**
-   * Schemas used to parse messages in this store, if schematized parsing is desired.
+   * Optional. Schemas used to parse messages in this store, if schematized parsing is desired.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private SchemaPackage schema;
 
   /**
-   * Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment terminator,
-   * matching the HL7 version 2 specification.
+   * Optional. Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment
+   * terminator, matching the HL7 version 2 specification.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -61,7 +61,7 @@ public final class ParserConfig extends com.google.api.client.json.GenericJson {
   private java.lang.String version;
 
   /**
-   * Determines whether messages with no header are allowed.
+   * Optional. Determines whether messages with no header are allowed.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAllowNullHeader() {
@@ -69,7 +69,7 @@ public final class ParserConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Determines whether messages with no header are allowed.
+   * Optional. Determines whether messages with no header are allowed.
    * @param allowNullHeader allowNullHeader or {@code null} for none
    */
   public ParserConfig setAllowNullHeader(java.lang.Boolean allowNullHeader) {
@@ -78,7 +78,7 @@ public final class ParserConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Schemas used to parse messages in this store, if schematized parsing is desired.
+   * Optional. Schemas used to parse messages in this store, if schematized parsing is desired.
    * @return value or {@code null} for none
    */
   public SchemaPackage getSchema() {
@@ -86,7 +86,7 @@ public final class ParserConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Schemas used to parse messages in this store, if schematized parsing is desired.
+   * Optional. Schemas used to parse messages in this store, if schematized parsing is desired.
    * @param schema schema or {@code null} for none
    */
   public ParserConfig setSchema(SchemaPackage schema) {
@@ -95,8 +95,8 @@ public final class ParserConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment terminator,
-   * matching the HL7 version 2 specification.
+   * Optional. Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment
+   * terminator, matching the HL7 version 2 specification.
    * @see #decodeSegmentTerminator()
    * @return value or {@code null} for none
    */
@@ -105,8 +105,8 @@ public final class ParserConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment terminator,
-   * matching the HL7 version 2 specification.
+   * Optional. Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment
+   * terminator, matching the HL7 version 2 specification.
    * @see #getSegmentTerminator()
    * @return Base64 decoded value or {@code null} for none
    *
@@ -117,8 +117,8 @@ public final class ParserConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment terminator,
-   * matching the HL7 version 2 specification.
+   * Optional. Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment
+   * terminator, matching the HL7 version 2 specification.
    * @see #encodeSegmentTerminator()
    * @param segmentTerminator segmentTerminator or {@code null} for none
    */
@@ -128,8 +128,8 @@ public final class ParserConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment terminator,
-   * matching the HL7 version 2 specification.
+   * Optional. Byte(s) to use as the segment terminator. If this is unset, '\r' is used as segment
+   * terminator, matching the HL7 version 2 specification.
    * @see #setSegmentTerminator()
    *
    * <p>

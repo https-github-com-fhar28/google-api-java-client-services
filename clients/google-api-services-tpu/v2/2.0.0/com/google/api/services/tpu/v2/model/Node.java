@@ -140,11 +140,27 @@ public final class Node extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
-   * Network configurations for the TPU node.
+   * Network configurations for the TPU node. network_config and network_configs are mutually
+   * exclusive, you can only specify one of them. If both are specified, an error will be returned.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private NetworkConfig networkConfig;
+
+  /**
+   * Optional. Repeated network configurations for the TPU node. This field is used to specify
+   * multiple networks configs for the TPU node. network_config and network_configs are mutually
+   * exclusive, you can only specify one of them. If both are specified, an error will be returned.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<NetworkConfig> networkConfigs;
+
+  static {
+    // hack to force ProGuard to consider NetworkConfig used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(NetworkConfig.class);
+  }
 
   /**
    * Output only. The network endpoints where TPU workers can be accessed and sent work. It is
@@ -217,6 +233,13 @@ public final class Node extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> tags;
+
+  /**
+   * Output only. Upcoming maintenance on this TPU node.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private UpcomingMaintenance upcomingMaintenance;
 
   /**
    * The AccleratorConfig for the TPU Node.
@@ -469,7 +492,8 @@ public final class Node extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Network configurations for the TPU node.
+   * Network configurations for the TPU node. network_config and network_configs are mutually
+   * exclusive, you can only specify one of them. If both are specified, an error will be returned.
    * @return value or {@code null} for none
    */
   public NetworkConfig getNetworkConfig() {
@@ -477,11 +501,33 @@ public final class Node extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Network configurations for the TPU node.
+   * Network configurations for the TPU node. network_config and network_configs are mutually
+   * exclusive, you can only specify one of them. If both are specified, an error will be returned.
    * @param networkConfig networkConfig or {@code null} for none
    */
   public Node setNetworkConfig(NetworkConfig networkConfig) {
     this.networkConfig = networkConfig;
+    return this;
+  }
+
+  /**
+   * Optional. Repeated network configurations for the TPU node. This field is used to specify
+   * multiple networks configs for the TPU node. network_config and network_configs are mutually
+   * exclusive, you can only specify one of them. If both are specified, an error will be returned.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<NetworkConfig> getNetworkConfigs() {
+    return networkConfigs;
+  }
+
+  /**
+   * Optional. Repeated network configurations for the TPU node. This field is used to specify
+   * multiple networks configs for the TPU node. network_config and network_configs are mutually
+   * exclusive, you can only specify one of them. If both are specified, an error will be returned.
+   * @param networkConfigs networkConfigs or {@code null} for none
+   */
+  public Node setNetworkConfigs(java.util.List<NetworkConfig> networkConfigs) {
+    this.networkConfigs = networkConfigs;
     return this;
   }
 
@@ -641,6 +687,23 @@ public final class Node extends com.google.api.client.json.GenericJson {
    */
   public Node setTags(java.util.List<java.lang.String> tags) {
     this.tags = tags;
+    return this;
+  }
+
+  /**
+   * Output only. Upcoming maintenance on this TPU node.
+   * @return value or {@code null} for none
+   */
+  public UpcomingMaintenance getUpcomingMaintenance() {
+    return upcomingMaintenance;
+  }
+
+  /**
+   * Output only. Upcoming maintenance on this TPU node.
+   * @param upcomingMaintenance upcomingMaintenance or {@code null} for none
+   */
+  public Node setUpcomingMaintenance(UpcomingMaintenance upcomingMaintenance) {
+    this.upcomingMaintenance = upcomingMaintenance;
     return this;
   }
 

@@ -18,7 +18,7 @@ package com.google.api.services.dataplex.v1.model;
 
 /**
  * These messages contain information about the execution of a datascan. The monitored resource is
- * 'DataScan' Next ID: 13
+ * 'DataScan'
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Cloud Dataplex API. For a detailed explanation see:
@@ -29,6 +29,13 @@ package com.google.api.services.dataplex.v1.model;
  */
 @SuppressWarnings("javadoc")
 public final class GoogleCloudDataplexV1DataScanEvent extends com.google.api.client.json.GenericJson {
+
+  /**
+   * The status of publishing the data scan to Catalog.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDataplexV1DataScanCatalogPublishingStatus catalogPublishingStatus;
 
   /**
    * The time when the data scan job was created.
@@ -141,6 +148,23 @@ public final class GoogleCloudDataplexV1DataScanEvent extends com.google.api.cli
    */
   @com.google.api.client.util.Key
   private java.lang.String type;
+
+  /**
+   * The status of publishing the data scan to Catalog.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDataplexV1DataScanCatalogPublishingStatus getCatalogPublishingStatus() {
+    return catalogPublishingStatus;
+  }
+
+  /**
+   * The status of publishing the data scan to Catalog.
+   * @param catalogPublishingStatus catalogPublishingStatus or {@code null} for none
+   */
+  public GoogleCloudDataplexV1DataScanEvent setCatalogPublishingStatus(GoogleCloudDataplexV1DataScanCatalogPublishingStatus catalogPublishingStatus) {
+    this.catalogPublishingStatus = catalogPublishingStatus;
+    return this;
+  }
 
   /**
    * The time when the data scan job was created.

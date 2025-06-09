@@ -30,35 +30,35 @@ package com.google.api.services.connectors.v1.model;
 public final class SshPublicKey extends com.google.api.client.json.GenericJson {
 
   /**
-   * Format of SSH Client cert.
+   * Optional. Format of SSH Client cert.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String certType;
 
   /**
-   * SSH Client Cert. It should contain both public and private key.
+   * Optional. SSH Client Cert. It should contain both public and private key.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Secret sshClientCert;
 
   /**
-   * Password (passphrase) for ssh client certificate if it has one.
+   * Optional. Password (passphrase) for ssh client certificate if it has one.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Secret sshClientCertPass;
 
   /**
-   * The user account used to authenticate.
+   * Optional. The user account used to authenticate.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String username;
 
   /**
-   * Format of SSH Client cert.
+   * Optional. Format of SSH Client cert.
    * @return value or {@code null} for none
    */
   public java.lang.String getCertType() {
@@ -66,7 +66,7 @@ public final class SshPublicKey extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Format of SSH Client cert.
+   * Optional. Format of SSH Client cert.
    * @param certType certType or {@code null} for none
    */
   public SshPublicKey setCertType(java.lang.String certType) {
@@ -75,7 +75,7 @@ public final class SshPublicKey extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * SSH Client Cert. It should contain both public and private key.
+   * Optional. SSH Client Cert. It should contain both public and private key.
    * @return value or {@code null} for none
    */
   public Secret getSshClientCert() {
@@ -83,7 +83,7 @@ public final class SshPublicKey extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * SSH Client Cert. It should contain both public and private key.
+   * Optional. SSH Client Cert. It should contain both public and private key.
    * @param sshClientCert sshClientCert or {@code null} for none
    */
   public SshPublicKey setSshClientCert(Secret sshClientCert) {
@@ -92,7 +92,7 @@ public final class SshPublicKey extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Password (passphrase) for ssh client certificate if it has one.
+   * Optional. Password (passphrase) for ssh client certificate if it has one.
    * @return value or {@code null} for none
    */
   public Secret getSshClientCertPass() {
@@ -100,7 +100,7 @@ public final class SshPublicKey extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Password (passphrase) for ssh client certificate if it has one.
+   * Optional. Password (passphrase) for ssh client certificate if it has one.
    * @param sshClientCertPass sshClientCertPass or {@code null} for none
    */
   public SshPublicKey setSshClientCertPass(Secret sshClientCertPass) {
@@ -109,7 +109,7 @@ public final class SshPublicKey extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The user account used to authenticate.
+   * Optional. The user account used to authenticate.
    * @return value or {@code null} for none
    */
   public java.lang.String getUsername() {
@@ -117,7 +117,7 @@ public final class SshPublicKey extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The user account used to authenticate.
+   * Optional. The user account used to authenticate.
    * @param username username or {@code null} for none
    */
   public SshPublicKey setUsername(java.lang.String username) {

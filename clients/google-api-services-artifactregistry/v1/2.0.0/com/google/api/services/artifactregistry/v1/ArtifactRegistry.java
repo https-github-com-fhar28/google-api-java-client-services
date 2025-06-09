@@ -883,6 +883,29 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -2972,7 +2995,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
 
           /**
            * Creates an attachment. The returned Operation will finish once the attachment has been created.
-           * Its response will be the created Attachment.
+           * Its response will be the created attachment.
            *
            * Create a request for the method "attachments.create".
            *
@@ -2998,7 +3021,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
 
             /**
              * Creates an attachment. The returned Operation will finish once the attachment has been created.
-             * Its response will be the created Attachment.
+             * Its response will be the created attachment.
              *
              * Create a request for the method "attachments.create".
              *
@@ -3121,7 +3144,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
           }
           /**
            * Deletes an attachment. The returned Operation will finish once the attachments has been deleted.
-           * It will not have any Operation metadata and will return a google.protobuf.Empty response.
+           * It will not have any Operation metadata and will return a `google.protobuf.Empty` response.
            *
            * Create a request for the method "attachments.delete".
            *
@@ -3146,7 +3169,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
 
             /**
              * Deletes an attachment. The returned Operation will finish once the attachments has been
-             * deleted. It will not have any Operation metadata and will return a google.protobuf.Empty
+             * deleted. It will not have any Operation metadata and will return a `google.protobuf.Empty`
              * response.
              *
              * Create a request for the method "attachments.delete".
@@ -3390,7 +3413,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
             }
           }
           /**
-           * Lists repositories.
+           * Lists attachments.
            *
            * Create a request for the method "attachments.list".
            *
@@ -3414,7 +3437,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
                 java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/repositories/[^/]+$");
 
             /**
-             * Lists repositories.
+             * Lists attachments.
              *
              * Create a request for the method "attachments.list".
              *
@@ -4842,7 +4865,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
             }
           }
           /**
-           * Directly uploads a File to a repository. The returned Operation will complete once the resources
+           * Directly uploads a file to a repository. The returned Operation will complete once the resources
            * are uploaded.
            *
            * Create a request for the method "files.upload".
@@ -4861,7 +4884,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
           }
 
           /**
-           * Directly uploads a File to a repository. The returned Operation will complete once the resources
+           * Directly uploads a file to a repository. The returned Operation will complete once the resources
            * are uploaded.
            *
            * Create a request for the method "files.upload".
@@ -4893,7 +4916,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
                 java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/repositories/[^/]+$");
 
             /**
-             * Directly uploads a File to a repository. The returned Operation will complete once the
+             * Directly uploads a file to a repository. The returned Operation will complete once the
              * resources are uploaded.
              *
              * Create a request for the method "files.upload".
@@ -4919,7 +4942,7 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
             }
 
             /**
-             * Directly uploads a File to a repository. The returned Operation will complete once the
+             * Directly uploads a file to a repository. The returned Operation will complete once the
              * resources are uploaded.
              *
              * Create a request for the method "files.upload".
@@ -9006,8 +9029,8 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
              * This request holds the parameters needed by the artifactregistry server.  After setting any
              * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
              *
-             * @param name The name of the version, for example: "projects/p1/locations/us-
-             *        central1/repositories/repo1/packages/pkg1/versions/art1". If the package or version ID
+             * @param name The name of the version, for example: `projects/p1/locations/us-
+             *        central1/repositories/repo1/packages/pkg1/versions/art1`. If the package or version ID
              *        parts contain slashes, the slashes are escaped.
              * @param content the {@link com.google.api.services.artifactregistry.v1.model.Version}
              * @return the request
@@ -9036,8 +9059,8 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
                * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
                * be called to initialize this instance immediately after invoking the constructor. </p>
                *
-               * @param name The name of the version, for example: "projects/p1/locations/us-
-             *        central1/repositories/repo1/packages/pkg1/versions/art1". If the package or version ID
+               * @param name The name of the version, for example: `projects/p1/locations/us-
+             *        central1/repositories/repo1/packages/pkg1/versions/art1`. If the package or version ID
              *        parts contain slashes, the slashes are escaped.
                * @param content the {@link com.google.api.services.artifactregistry.v1.model.Version}
                * @since 1.13
@@ -9108,15 +9131,15 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
               }
 
               /**
-               * The name of the version, for example: "projects/p1/locations/us-
-               * central1/repositories/repo1/packages/pkg1/versions/art1". If the package or version
+               * The name of the version, for example: `projects/p1/locations/us-
+               * central1/repositories/repo1/packages/pkg1/versions/art1`. If the package or version
                * ID parts contain slashes, the slashes are escaped.
                */
               @com.google.api.client.util.Key
               private java.lang.String name;
 
-              /** The name of the version, for example: "projects/p1/locations/us-
-             central1/repositories/repo1/packages/pkg1/versions/art1". If the package or version ID parts
+              /** The name of the version, for example: `projects/p1/locations/us-
+             central1/repositories/repo1/packages/pkg1/versions/art1`. If the package or version ID parts
              contain slashes, the slashes are escaped.
                */
               public java.lang.String getName() {
@@ -9124,8 +9147,8 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
               }
 
               /**
-               * The name of the version, for example: "projects/p1/locations/us-
-               * central1/repositories/repo1/packages/pkg1/versions/art1". If the package or version
+               * The name of the version, for example: `projects/p1/locations/us-
+               * central1/repositories/repo1/packages/pkg1/versions/art1`. If the package or version
                * ID parts contain slashes, the slashes are escaped.
                */
               public Patch setName(java.lang.String name) {
@@ -10122,8 +10145,8 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
            * This request holds the parameters needed by the artifactregistry server.  After setting any
            * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
            *
-           * @param name The name of the rule, for example: "projects/p1/locations/us-
-           *        central1/repositories/repo1/rules/rule1".
+           * @param name The name of the rule, for example: `projects/p1/locations/us-
+           *        central1/repositories/repo1/rules/rule1`.
            * @param content the {@link com.google.api.services.artifactregistry.v1.model.GoogleDevtoolsArtifactregistryV1Rule}
            * @return the request
            */
@@ -10151,8 +10174,8 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
              * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
              * be called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param name The name of the rule, for example: "projects/p1/locations/us-
-           *        central1/repositories/repo1/rules/rule1".
+             * @param name The name of the rule, for example: `projects/p1/locations/us-
+           *        central1/repositories/repo1/rules/rule1`.
              * @param content the {@link com.google.api.services.artifactregistry.v1.model.GoogleDevtoolsArtifactregistryV1Rule}
              * @since 1.13
              */
@@ -10222,22 +10245,22 @@ public class ArtifactRegistry extends com.google.api.client.googleapis.services.
             }
 
             /**
-             * The name of the rule, for example: "projects/p1/locations/us-
-             * central1/repositories/repo1/rules/rule1".
+             * The name of the rule, for example: `projects/p1/locations/us-
+             * central1/repositories/repo1/rules/rule1`.
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
-            /** The name of the rule, for example: "projects/p1/locations/us-
-           central1/repositories/repo1/rules/rule1".
+            /** The name of the rule, for example: `projects/p1/locations/us-
+           central1/repositories/repo1/rules/rule1`.
              */
             public java.lang.String getName() {
               return name;
             }
 
             /**
-             * The name of the rule, for example: "projects/p1/locations/us-
-             * central1/repositories/repo1/rules/rule1".
+             * The name of the rule, for example: `projects/p1/locations/us-
+             * central1/repositories/repo1/rules/rule1`.
              */
             public Patch setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {

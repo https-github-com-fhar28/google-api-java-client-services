@@ -33,6 +33,21 @@ package com.google.api.services.aiplatform.v1.model;
 public final class GoogleCloudAiplatformV1Tool extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. CodeExecution tool type. Enables the model to execute code as part of generation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1ToolCodeExecution codeExecution;
+
+  /**
+   * Optional. Tool to support searching public web data, powered by Vertex AI Search and Sec4
+   * compliance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1EnterpriseWebSearch enterpriseWebSearch;
+
+  /**
    * Optional. Function tool type. One or more function declarations to be passed to the model along
    * with the current user query. Model may decide to call a subset of these functions by populating
    * FunctionCall in the response. User should provide a FunctionResponse for each function call in
@@ -50,6 +65,13 @@ public final class GoogleCloudAiplatformV1Tool extends com.google.api.client.jso
   }
 
   /**
+   * Optional. GoogleSearch tool type. Tool to support Google Search in Model. Powered by Google.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1ToolGoogleSearch googleSearch;
+
+  /**
    * Optional. GoogleSearchRetrieval tool type. Specialized retrieval tool that is powered by Google
    * search.
    * The value may be {@code null}.
@@ -65,6 +87,42 @@ public final class GoogleCloudAiplatformV1Tool extends com.google.api.client.jso
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1Retrieval retrieval;
+
+  /**
+   * Optional. CodeExecution tool type. Enables the model to execute code as part of generation.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1ToolCodeExecution getCodeExecution() {
+    return codeExecution;
+  }
+
+  /**
+   * Optional. CodeExecution tool type. Enables the model to execute code as part of generation.
+   * @param codeExecution codeExecution or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1Tool setCodeExecution(GoogleCloudAiplatformV1ToolCodeExecution codeExecution) {
+    this.codeExecution = codeExecution;
+    return this;
+  }
+
+  /**
+   * Optional. Tool to support searching public web data, powered by Vertex AI Search and Sec4
+   * compliance.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EnterpriseWebSearch getEnterpriseWebSearch() {
+    return enterpriseWebSearch;
+  }
+
+  /**
+   * Optional. Tool to support searching public web data, powered by Vertex AI Search and Sec4
+   * compliance.
+   * @param enterpriseWebSearch enterpriseWebSearch or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1Tool setEnterpriseWebSearch(GoogleCloudAiplatformV1EnterpriseWebSearch enterpriseWebSearch) {
+    this.enterpriseWebSearch = enterpriseWebSearch;
+    return this;
+  }
 
   /**
    * Optional. Function tool type. One or more function declarations to be passed to the model along
@@ -88,6 +146,23 @@ public final class GoogleCloudAiplatformV1Tool extends com.google.api.client.jso
    */
   public GoogleCloudAiplatformV1Tool setFunctionDeclarations(java.util.List<GoogleCloudAiplatformV1FunctionDeclaration> functionDeclarations) {
     this.functionDeclarations = functionDeclarations;
+    return this;
+  }
+
+  /**
+   * Optional. GoogleSearch tool type. Tool to support Google Search in Model. Powered by Google.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1ToolGoogleSearch getGoogleSearch() {
+    return googleSearch;
+  }
+
+  /**
+   * Optional. GoogleSearch tool type. Tool to support Google Search in Model. Powered by Google.
+   * @param googleSearch googleSearch or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1Tool setGoogleSearch(GoogleCloudAiplatformV1ToolGoogleSearch googleSearch) {
+    this.googleSearch = googleSearch;
     return this;
   }
 

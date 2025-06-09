@@ -20,7 +20,7 @@ package com.google.api.services.retail.v2alpha.model;
  * Response message for SearchService.Search method.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the Vertex AI Search for Retail API. For a detailed
+ * transmitted over HTTP when working with the Vertex AI Search for commerce API. For a detailed
  * explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
@@ -64,7 +64,7 @@ public final class GoogleCloudRetailV2alphaSearchResponse extends com.google.api
   private java.lang.String correctedQuery;
 
   /**
-   * Metadata related to A/B testing Experiment associated with this response. Only exists when an
+   * Metadata related to A/B testing experiment associated with this response. Only exists when an
    * experiment is triggered.
    * The value may be {@code null}.
    */
@@ -104,6 +104,15 @@ public final class GoogleCloudRetailV2alphaSearchResponse extends com.google.api
    */
   @com.google.api.client.util.Key
   private java.lang.String nextPageToken;
+
+  /**
+   * Metadata for pin controls which were applicable to the request. This contains two map fields,
+   * one for all matched pins and one for pins which were matched but not applied. The two maps are
+   * keyed by pin position, and the values are the product ids which were matched to that pin.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudRetailV2alphaPinControlMetadata pinControlMetadata;
 
   /**
    * Query expansion information for the returned results.
@@ -222,7 +231,7 @@ public final class GoogleCloudRetailV2alphaSearchResponse extends com.google.api
   }
 
   /**
-   * Metadata related to A/B testing Experiment associated with this response. Only exists when an
+   * Metadata related to A/B testing experiment associated with this response. Only exists when an
    * experiment is triggered.
    * @return value or {@code null} for none
    */
@@ -231,7 +240,7 @@ public final class GoogleCloudRetailV2alphaSearchResponse extends com.google.api
   }
 
   /**
-   * Metadata related to A/B testing Experiment associated with this response. Only exists when an
+   * Metadata related to A/B testing experiment associated with this response. Only exists when an
    * experiment is triggered.
    * @param experimentInfo experimentInfo or {@code null} for none
    */
@@ -290,6 +299,27 @@ public final class GoogleCloudRetailV2alphaSearchResponse extends com.google.api
    */
   public GoogleCloudRetailV2alphaSearchResponse setNextPageToken(java.lang.String nextPageToken) {
     this.nextPageToken = nextPageToken;
+    return this;
+  }
+
+  /**
+   * Metadata for pin controls which were applicable to the request. This contains two map fields,
+   * one for all matched pins and one for pins which were matched but not applied. The two maps are
+   * keyed by pin position, and the values are the product ids which were matched to that pin.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudRetailV2alphaPinControlMetadata getPinControlMetadata() {
+    return pinControlMetadata;
+  }
+
+  /**
+   * Metadata for pin controls which were applicable to the request. This contains two map fields,
+   * one for all matched pins and one for pins which were matched but not applied. The two maps are
+   * keyed by pin position, and the values are the product ids which were matched to that pin.
+   * @param pinControlMetadata pinControlMetadata or {@code null} for none
+   */
+  public GoogleCloudRetailV2alphaSearchResponse setPinControlMetadata(GoogleCloudRetailV2alphaPinControlMetadata pinControlMetadata) {
+    this.pinControlMetadata = pinControlMetadata;
     return this;
   }
 

@@ -140,7 +140,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private java.lang.String etag;
 
   /**
-   * Optional. Configuration parameters related to the Gemini in Databases add-on.
+   * Optional. Deprecated and unused. This field will be removed in the near future.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -249,6 +249,15 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private SecondaryConfig secondaryConfig;
 
   /**
+   * Output only. AlloyDB per-cluster service agent email. This service account is created per-
+   * cluster per-project, and is different from that of the primary service agent which is created
+   * per-project. The service account naming format is subject to change.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String serviceAccountEmail;
+
+  /**
    * SSL configuration for this AlloyDB cluster.
    * The value may be {@code null}.
    */
@@ -268,6 +277,14 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String subscriptionType;
+
+  /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> tags;
 
   /**
    * Output only. Metadata for free trial clusters
@@ -550,7 +567,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Configuration parameters related to the Gemini in Databases add-on.
+   * Optional. Deprecated and unused. This field will be removed in the near future.
    * @return value or {@code null} for none
    */
   public GeminiClusterConfig getGeminiConfig() {
@@ -558,7 +575,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Configuration parameters related to the Gemini in Databases add-on.
+   * Optional. Deprecated and unused. This field will be removed in the near future.
    * @param geminiConfig geminiConfig or {@code null} for none
    */
   public Cluster setGeminiConfig(GeminiClusterConfig geminiConfig) {
@@ -810,6 +827,27 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. AlloyDB per-cluster service agent email. This service account is created per-
+   * cluster per-project, and is different from that of the primary service agent which is created
+   * per-project. The service account naming format is subject to change.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getServiceAccountEmail() {
+    return serviceAccountEmail;
+  }
+
+  /**
+   * Output only. AlloyDB per-cluster service agent email. This service account is created per-
+   * cluster per-project, and is different from that of the primary service agent which is created
+   * per-project. The service account naming format is subject to change.
+   * @param serviceAccountEmail serviceAccountEmail or {@code null} for none
+   */
+  public Cluster setServiceAccountEmail(java.lang.String serviceAccountEmail) {
+    this.serviceAccountEmail = serviceAccountEmail;
+    return this;
+  }
+
+  /**
    * SSL configuration for this AlloyDB cluster.
    * @return value or {@code null} for none
    */
@@ -857,6 +895,25 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setSubscriptionType(java.lang.String subscriptionType) {
     this.subscriptionType = subscriptionType;
+    return this;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getTags() {
+    return tags;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * @param tags tags or {@code null} for none
+   */
+  public Cluster setTags(java.util.Map<String, java.lang.String> tags) {
+    this.tags = tags;
     return this;
   }
 

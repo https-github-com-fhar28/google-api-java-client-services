@@ -134,6 +134,817 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
   }
 
   /**
+   * An accessor for creating requests from the Backups collection.
+   *
+   * <p>The typical use is:</p>
+   * <pre>
+   *   {@code SQLAdmin sqladmin = new SQLAdmin(...);}
+   *   {@code SQLAdmin.Backups.List request = sqladmin.backups().list(parameters ...)}
+   * </pre>
+   *
+   * @return the resource collection
+   */
+  public Backups backups() {
+    return new Backups();
+  }
+
+  /**
+   * The "Backups" collection of methods.
+   */
+  public class Backups {
+
+    /**
+     * Creates a backup for a Cloud SQL instance. This API can be used only to create on-demand backups.
+     *
+     * Create a request for the method "Backups.CreateBackup".
+     *
+     * This request holds the parameters needed by the sqladmin server.  After setting any optional
+     * parameters, call the {@link CreateBackup#execute()} method to invoke the remote operation.
+     *
+     * @param parent Required. The parent resource where this backup is created. Format: projects/{project}
+     * @param content the {@link com.google.api.services.sqladmin.model.Backup}
+     * @return the request
+     */
+    public CreateBackup createBackup(java.lang.String parent, com.google.api.services.sqladmin.model.Backup content) throws java.io.IOException {
+      CreateBackup result = new CreateBackup(parent, content);
+      initialize(result);
+      return result;
+    }
+
+    public class CreateBackup extends SQLAdminRequest<com.google.api.services.sqladmin.model.Operation> {
+
+      private static final String REST_PATH = "v1/{+parent}/backups";
+
+      private final java.util.regex.Pattern PARENT_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+$");
+
+      /**
+       * Creates a backup for a Cloud SQL instance. This API can be used only to create on-demand
+       * backups.
+       *
+       * Create a request for the method "Backups.CreateBackup".
+       *
+       * This request holds the parameters needed by the the sqladmin server.  After setting any
+       * optional parameters, call the {@link CreateBackup#execute()} method to invoke the remote
+       * operation. <p> {@link
+       * CreateBackup#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+       * must be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param parent Required. The parent resource where this backup is created. Format: projects/{project}
+       * @param content the {@link com.google.api.services.sqladmin.model.Backup}
+       * @since 1.13
+       */
+      protected CreateBackup(java.lang.String parent, com.google.api.services.sqladmin.model.Backup content) {
+        super(SQLAdmin.this, "POST", REST_PATH, content, com.google.api.services.sqladmin.model.Operation.class);
+        this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+              "Parameter parent must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+      }
+
+      @Override
+      public CreateBackup set$Xgafv(java.lang.String $Xgafv) {
+        return (CreateBackup) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public CreateBackup setAccessToken(java.lang.String accessToken) {
+        return (CreateBackup) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public CreateBackup setAlt(java.lang.String alt) {
+        return (CreateBackup) super.setAlt(alt);
+      }
+
+      @Override
+      public CreateBackup setCallback(java.lang.String callback) {
+        return (CreateBackup) super.setCallback(callback);
+      }
+
+      @Override
+      public CreateBackup setFields(java.lang.String fields) {
+        return (CreateBackup) super.setFields(fields);
+      }
+
+      @Override
+      public CreateBackup setKey(java.lang.String key) {
+        return (CreateBackup) super.setKey(key);
+      }
+
+      @Override
+      public CreateBackup setOauthToken(java.lang.String oauthToken) {
+        return (CreateBackup) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public CreateBackup setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (CreateBackup) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public CreateBackup setQuotaUser(java.lang.String quotaUser) {
+        return (CreateBackup) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public CreateBackup setUploadType(java.lang.String uploadType) {
+        return (CreateBackup) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public CreateBackup setUploadProtocol(java.lang.String uploadProtocol) {
+        return (CreateBackup) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /** Required. The parent resource where this backup is created. Format: projects/{project} */
+      @com.google.api.client.util.Key
+      private java.lang.String parent;
+
+      /** Required. The parent resource where this backup is created. Format: projects/{project}
+       */
+      public java.lang.String getParent() {
+        return parent;
+      }
+
+      /** Required. The parent resource where this backup is created. Format: projects/{project} */
+      public CreateBackup setParent(java.lang.String parent) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+              "Parameter parent must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+        this.parent = parent;
+        return this;
+      }
+
+      @Override
+      public CreateBackup set(String parameterName, Object value) {
+        return (CreateBackup) super.set(parameterName, value);
+      }
+    }
+    /**
+     * Deletes the backup.
+     *
+     * Create a request for the method "Backups.DeleteBackup".
+     *
+     * This request holds the parameters needed by the sqladmin server.  After setting any optional
+     * parameters, call the {@link DeleteBackup#execute()} method to invoke the remote operation.
+     *
+     * @param name Required. The name of the backup to delete. Format: projects/{project}/backups/{backup}
+     * @return the request
+     */
+    public DeleteBackup deleteBackup(java.lang.String name) throws java.io.IOException {
+      DeleteBackup result = new DeleteBackup(name);
+      initialize(result);
+      return result;
+    }
+
+    public class DeleteBackup extends SQLAdminRequest<com.google.api.services.sqladmin.model.Operation> {
+
+      private static final String REST_PATH = "v1/{+name}";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+/backups/[^/]+$");
+
+      /**
+       * Deletes the backup.
+       *
+       * Create a request for the method "Backups.DeleteBackup".
+       *
+       * This request holds the parameters needed by the the sqladmin server.  After setting any
+       * optional parameters, call the {@link DeleteBackup#execute()} method to invoke the remote
+       * operation. <p> {@link
+       * DeleteBackup#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+       * must be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param name Required. The name of the backup to delete. Format: projects/{project}/backups/{backup}
+       * @since 1.13
+       */
+      protected DeleteBackup(java.lang.String name) {
+        super(SQLAdmin.this, "DELETE", REST_PATH, null, com.google.api.services.sqladmin.model.Operation.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+/backups/[^/]+$");
+        }
+      }
+
+      @Override
+      public DeleteBackup set$Xgafv(java.lang.String $Xgafv) {
+        return (DeleteBackup) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public DeleteBackup setAccessToken(java.lang.String accessToken) {
+        return (DeleteBackup) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public DeleteBackup setAlt(java.lang.String alt) {
+        return (DeleteBackup) super.setAlt(alt);
+      }
+
+      @Override
+      public DeleteBackup setCallback(java.lang.String callback) {
+        return (DeleteBackup) super.setCallback(callback);
+      }
+
+      @Override
+      public DeleteBackup setFields(java.lang.String fields) {
+        return (DeleteBackup) super.setFields(fields);
+      }
+
+      @Override
+      public DeleteBackup setKey(java.lang.String key) {
+        return (DeleteBackup) super.setKey(key);
+      }
+
+      @Override
+      public DeleteBackup setOauthToken(java.lang.String oauthToken) {
+        return (DeleteBackup) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public DeleteBackup setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (DeleteBackup) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public DeleteBackup setQuotaUser(java.lang.String quotaUser) {
+        return (DeleteBackup) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public DeleteBackup setUploadType(java.lang.String uploadType) {
+        return (DeleteBackup) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public DeleteBackup setUploadProtocol(java.lang.String uploadProtocol) {
+        return (DeleteBackup) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The name of the backup to delete. Format: projects/{project}/backups/{backup}
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Required. The name of the backup to delete. Format: projects/{project}/backups/{backup}
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Required. The name of the backup to delete. Format: projects/{project}/backups/{backup}
+       */
+      public DeleteBackup setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+/backups/[^/]+$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      @Override
+      public DeleteBackup set(String parameterName, Object value) {
+        return (DeleteBackup) super.set(parameterName, value);
+      }
+    }
+    /**
+     * Retrieves a resource containing information about a backup.
+     *
+     * Create a request for the method "Backups.GetBackup".
+     *
+     * This request holds the parameters needed by the sqladmin server.  After setting any optional
+     * parameters, call the {@link GetBackup#execute()} method to invoke the remote operation.
+     *
+     * @param name Required. The name of the backup to retrieve. Format: projects/{project}/backups/{backup}
+     * @return the request
+     */
+    public GetBackup getBackup(java.lang.String name) throws java.io.IOException {
+      GetBackup result = new GetBackup(name);
+      initialize(result);
+      return result;
+    }
+
+    public class GetBackup extends SQLAdminRequest<com.google.api.services.sqladmin.model.Backup> {
+
+      private static final String REST_PATH = "v1/{+name}";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+/backups/[^/]+$");
+
+      /**
+       * Retrieves a resource containing information about a backup.
+       *
+       * Create a request for the method "Backups.GetBackup".
+       *
+       * This request holds the parameters needed by the the sqladmin server.  After setting any
+       * optional parameters, call the {@link GetBackup#execute()} method to invoke the remote
+       * operation. <p> {@link
+       * GetBackup#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+       * must be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param name Required. The name of the backup to retrieve. Format: projects/{project}/backups/{backup}
+       * @since 1.13
+       */
+      protected GetBackup(java.lang.String name) {
+        super(SQLAdmin.this, "GET", REST_PATH, null, com.google.api.services.sqladmin.model.Backup.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+/backups/[^/]+$");
+        }
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public GetBackup set$Xgafv(java.lang.String $Xgafv) {
+        return (GetBackup) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public GetBackup setAccessToken(java.lang.String accessToken) {
+        return (GetBackup) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public GetBackup setAlt(java.lang.String alt) {
+        return (GetBackup) super.setAlt(alt);
+      }
+
+      @Override
+      public GetBackup setCallback(java.lang.String callback) {
+        return (GetBackup) super.setCallback(callback);
+      }
+
+      @Override
+      public GetBackup setFields(java.lang.String fields) {
+        return (GetBackup) super.setFields(fields);
+      }
+
+      @Override
+      public GetBackup setKey(java.lang.String key) {
+        return (GetBackup) super.setKey(key);
+      }
+
+      @Override
+      public GetBackup setOauthToken(java.lang.String oauthToken) {
+        return (GetBackup) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public GetBackup setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (GetBackup) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public GetBackup setQuotaUser(java.lang.String quotaUser) {
+        return (GetBackup) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public GetBackup setUploadType(java.lang.String uploadType) {
+        return (GetBackup) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public GetBackup setUploadProtocol(java.lang.String uploadProtocol) {
+        return (GetBackup) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The name of the backup to retrieve. Format: projects/{project}/backups/{backup}
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Required. The name of the backup to retrieve. Format: projects/{project}/backups/{backup}
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Required. The name of the backup to retrieve. Format: projects/{project}/backups/{backup}
+       */
+      public GetBackup setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+/backups/[^/]+$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      @Override
+      public GetBackup set(String parameterName, Object value) {
+        return (GetBackup) super.set(parameterName, value);
+      }
+    }
+    /**
+     * Lists all backups associated with the project.
+     *
+     * Create a request for the method "Backups.ListBackups".
+     *
+     * This request holds the parameters needed by the sqladmin server.  After setting any optional
+     * parameters, call the {@link ListBackups#execute()} method to invoke the remote operation.
+     *
+     * @param parent Required. The parent that owns this collection of backups. Format: projects/{project}
+     * @return the request
+     */
+    public ListBackups listBackups(java.lang.String parent) throws java.io.IOException {
+      ListBackups result = new ListBackups(parent);
+      initialize(result);
+      return result;
+    }
+
+    public class ListBackups extends SQLAdminRequest<com.google.api.services.sqladmin.model.ListBackupsResponse> {
+
+      private static final String REST_PATH = "v1/{+parent}/backups";
+
+      private final java.util.regex.Pattern PARENT_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+$");
+
+      /**
+       * Lists all backups associated with the project.
+       *
+       * Create a request for the method "Backups.ListBackups".
+       *
+       * This request holds the parameters needed by the the sqladmin server.  After setting any
+       * optional parameters, call the {@link ListBackups#execute()} method to invoke the remote
+       * operation. <p> {@link
+       * ListBackups#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+       * must be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param parent Required. The parent that owns this collection of backups. Format: projects/{project}
+       * @since 1.13
+       */
+      protected ListBackups(java.lang.String parent) {
+        super(SQLAdmin.this, "GET", REST_PATH, null, com.google.api.services.sqladmin.model.ListBackupsResponse.class);
+        this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+              "Parameter parent must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public ListBackups set$Xgafv(java.lang.String $Xgafv) {
+        return (ListBackups) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public ListBackups setAccessToken(java.lang.String accessToken) {
+        return (ListBackups) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public ListBackups setAlt(java.lang.String alt) {
+        return (ListBackups) super.setAlt(alt);
+      }
+
+      @Override
+      public ListBackups setCallback(java.lang.String callback) {
+        return (ListBackups) super.setCallback(callback);
+      }
+
+      @Override
+      public ListBackups setFields(java.lang.String fields) {
+        return (ListBackups) super.setFields(fields);
+      }
+
+      @Override
+      public ListBackups setKey(java.lang.String key) {
+        return (ListBackups) super.setKey(key);
+      }
+
+      @Override
+      public ListBackups setOauthToken(java.lang.String oauthToken) {
+        return (ListBackups) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public ListBackups setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (ListBackups) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public ListBackups setQuotaUser(java.lang.String quotaUser) {
+        return (ListBackups) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public ListBackups setUploadType(java.lang.String uploadType) {
+        return (ListBackups) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public ListBackups setUploadProtocol(java.lang.String uploadProtocol) {
+        return (ListBackups) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /** Required. The parent that owns this collection of backups. Format: projects/{project} */
+      @com.google.api.client.util.Key
+      private java.lang.String parent;
+
+      /** Required. The parent that owns this collection of backups. Format: projects/{project}
+       */
+      public java.lang.String getParent() {
+        return parent;
+      }
+
+      /** Required. The parent that owns this collection of backups. Format: projects/{project} */
+      public ListBackups setParent(java.lang.String parent) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+              "Parameter parent must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+        this.parent = parent;
+        return this;
+      }
+
+      /**
+       * Multiple filter queries are separated by spaces. For example, 'instance:abc AND type:FINAL,
+       * 'location:us', 'backupInterval.startTime>=1950-01-01T01:01:25.771Z'. You can filter by
+       * type, instance, backupInterval.startTime (creation time), or location.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String filter;
+
+      /** Multiple filter queries are separated by spaces. For example, 'instance:abc AND type:FINAL,
+     'location:us', 'backupInterval.startTime>=1950-01-01T01:01:25.771Z'. You can filter by type,
+     instance, backupInterval.startTime (creation time), or location.
+       */
+      public java.lang.String getFilter() {
+        return filter;
+      }
+
+      /**
+       * Multiple filter queries are separated by spaces. For example, 'instance:abc AND type:FINAL,
+       * 'location:us', 'backupInterval.startTime>=1950-01-01T01:01:25.771Z'. You can filter by
+       * type, instance, backupInterval.startTime (creation time), or location.
+       */
+      public ListBackups setFilter(java.lang.String filter) {
+        this.filter = filter;
+        return this;
+      }
+
+      /**
+       * The maximum number of backups to return per response. The service might return fewer
+       * backups than this value. If a value for this parameter isn't specified, then, at most, 500
+       * backups are returned. The maximum value is 2,000. Any values that you set, which are
+       * greater than 2,000, are changed to 2,000.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.Integer pageSize;
+
+      /** The maximum number of backups to return per response. The service might return fewer backups than
+     this value. If a value for this parameter isn't specified, then, at most, 500 backups are returned.
+     The maximum value is 2,000. Any values that you set, which are greater than 2,000, are changed to
+     2,000.
+       */
+      public java.lang.Integer getPageSize() {
+        return pageSize;
+      }
+
+      /**
+       * The maximum number of backups to return per response. The service might return fewer
+       * backups than this value. If a value for this parameter isn't specified, then, at most, 500
+       * backups are returned. The maximum value is 2,000. Any values that you set, which are
+       * greater than 2,000, are changed to 2,000.
+       */
+      public ListBackups setPageSize(java.lang.Integer pageSize) {
+        this.pageSize = pageSize;
+        return this;
+      }
+
+      /**
+       * A page token, received from a previous `ListBackups` call. Provide this to retrieve the
+       * subsequent page. When paginating, all other parameters provided to `ListBackups` must match
+       * the call that provided the page token.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String pageToken;
+
+      /** A page token, received from a previous `ListBackups` call. Provide this to retrieve the subsequent
+     page. When paginating, all other parameters provided to `ListBackups` must match the call that
+     provided the page token.
+       */
+      public java.lang.String getPageToken() {
+        return pageToken;
+      }
+
+      /**
+       * A page token, received from a previous `ListBackups` call. Provide this to retrieve the
+       * subsequent page. When paginating, all other parameters provided to `ListBackups` must match
+       * the call that provided the page token.
+       */
+      public ListBackups setPageToken(java.lang.String pageToken) {
+        this.pageToken = pageToken;
+        return this;
+      }
+
+      @Override
+      public ListBackups set(String parameterName, Object value) {
+        return (ListBackups) super.set(parameterName, value);
+      }
+    }
+    /**
+     * Updates the retention period and description of the backup. You can use this API to update final
+     * backups only.
+     *
+     * Create a request for the method "Backups.UpdateBackup".
+     *
+     * This request holds the parameters needed by the sqladmin server.  After setting any optional
+     * parameters, call the {@link UpdateBackup#execute()} method to invoke the remote operation.
+     *
+     * @param name Output only. The resource name of the backup. Format: projects/{project}/backups/{backup}.
+     * @param content the {@link com.google.api.services.sqladmin.model.Backup}
+     * @return the request
+     */
+    public UpdateBackup updateBackup(java.lang.String name, com.google.api.services.sqladmin.model.Backup content) throws java.io.IOException {
+      UpdateBackup result = new UpdateBackup(name, content);
+      initialize(result);
+      return result;
+    }
+
+    public class UpdateBackup extends SQLAdminRequest<com.google.api.services.sqladmin.model.Operation> {
+
+      private static final String REST_PATH = "v1/{+name}";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+/backups/[^/]+$");
+
+      /**
+       * Updates the retention period and description of the backup. You can use this API to update
+       * final backups only.
+       *
+       * Create a request for the method "Backups.UpdateBackup".
+       *
+       * This request holds the parameters needed by the the sqladmin server.  After setting any
+       * optional parameters, call the {@link UpdateBackup#execute()} method to invoke the remote
+       * operation. <p> {@link
+       * UpdateBackup#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+       * must be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param name Output only. The resource name of the backup. Format: projects/{project}/backups/{backup}.
+       * @param content the {@link com.google.api.services.sqladmin.model.Backup}
+       * @since 1.13
+       */
+      protected UpdateBackup(java.lang.String name, com.google.api.services.sqladmin.model.Backup content) {
+        super(SQLAdmin.this, "PATCH", REST_PATH, content, com.google.api.services.sqladmin.model.Operation.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+/backups/[^/]+$");
+        }
+      }
+
+      @Override
+      public UpdateBackup set$Xgafv(java.lang.String $Xgafv) {
+        return (UpdateBackup) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public UpdateBackup setAccessToken(java.lang.String accessToken) {
+        return (UpdateBackup) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public UpdateBackup setAlt(java.lang.String alt) {
+        return (UpdateBackup) super.setAlt(alt);
+      }
+
+      @Override
+      public UpdateBackup setCallback(java.lang.String callback) {
+        return (UpdateBackup) super.setCallback(callback);
+      }
+
+      @Override
+      public UpdateBackup setFields(java.lang.String fields) {
+        return (UpdateBackup) super.setFields(fields);
+      }
+
+      @Override
+      public UpdateBackup setKey(java.lang.String key) {
+        return (UpdateBackup) super.setKey(key);
+      }
+
+      @Override
+      public UpdateBackup setOauthToken(java.lang.String oauthToken) {
+        return (UpdateBackup) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public UpdateBackup setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (UpdateBackup) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public UpdateBackup setQuotaUser(java.lang.String quotaUser) {
+        return (UpdateBackup) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public UpdateBackup setUploadType(java.lang.String uploadType) {
+        return (UpdateBackup) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public UpdateBackup setUploadProtocol(java.lang.String uploadProtocol) {
+        return (UpdateBackup) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Output only. The resource name of the backup. Format: projects/{project}/backups/{backup}.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Output only. The resource name of the backup. Format: projects/{project}/backups/{backup}.
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Output only. The resource name of the backup. Format: projects/{project}/backups/{backup}.
+       */
+      public UpdateBackup setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+/backups/[^/]+$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      /**
+       * The list of fields that you can update. You can update only the description and retention
+       * period of the final backup.
+       */
+      @com.google.api.client.util.Key
+      private String updateMask;
+
+      /** The list of fields that you can update. You can update only the description and retention period of
+     the final backup.
+       */
+      public String getUpdateMask() {
+        return updateMask;
+      }
+
+      /**
+       * The list of fields that you can update. You can update only the description and retention
+       * period of the final backup.
+       */
+      public UpdateBackup setUpdateMask(String updateMask) {
+        this.updateMask = updateMask;
+        return this;
+      }
+
+      @Override
+      public UpdateBackup set(String parameterName, Object value) {
+        return (UpdateBackup) super.set(parameterName, value);
+      }
+    }
+
+  }
+
+  /**
    * An accessor for creating requests from the BackupRuns collection.
    *
    * <p>The typical use is:</p>
@@ -2207,6 +3018,29 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
         return this;
       }
 
+      /**
+       * Optional. Specify the scope of flags to be returned by SqlFlagsListService. Return list of
+       * database flags if unspecified.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String flagScope;
+
+      /** Optional. Specify the scope of flags to be returned by SqlFlagsListService. Return list of database
+     flags if unspecified.
+       */
+      public java.lang.String getFlagScope() {
+        return flagScope;
+      }
+
+      /**
+       * Optional. Specify the scope of flags to be returned by SqlFlagsListService. Return list of
+       * database flags if unspecified.
+       */
+      public List setFlagScope(java.lang.String flagScope) {
+        this.flagScope = flagScope;
+        return this;
+      }
+
       @Override
       public List set(String parameterName, Object value) {
         return (List) super.set(parameterName, value);
@@ -2239,7 +3073,8 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
      * Lists all versions of server certificates and certificate authorities (CAs) for the specified
      * instance. There can be up to three sets of certs listed: the certificate that is currently in
      * use, a future that has been added but not yet used to sign a certificate, and a certificate that
-     * has been rotated out.
+     * has been rotated out. For instances not using Certificate Authority Service (CAS) server CA, use
+     * ListServerCas instead.
      *
      * Create a request for the method "instances.ListServerCertificates".
      *
@@ -2265,7 +3100,8 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
        * Lists all versions of server certificates and certificate authorities (CAs) for the specified
        * instance. There can be up to three sets of certs listed: the certificate that is currently in
        * use, a future that has been added but not yet used to sign a certificate, and a certificate
-       * that has been rotated out.
+       * that has been rotated out. For instances not using Certificate Authority Service (CAS) server
+       * CA, use ListServerCas instead.
        *
        * Create a request for the method "instances.ListServerCertificates".
        *
@@ -2389,8 +3225,8 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
     }
     /**
      * Rotates the server certificate version to one previously added with the addServerCertificate
-     * method. For instances not using Certificate Authority Service (CAS) server CA, please use
-     * RotateServerCa instead.
+     * method. For instances not using Certificate Authority Service (CAS) server CA, use RotateServerCa
+     * instead.
      *
      * Create a request for the method "instances.RotateServerCertificate".
      *
@@ -2415,7 +3251,7 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
 
       /**
        * Rotates the server certificate version to one previously added with the addServerCertificate
-       * method. For instances not using Certificate Authority Service (CAS) server CA, please use
+       * method. For instances not using Certificate Authority Service (CAS) server CA, use
        * RotateServerCa instead.
        *
        * Create a request for the method "instances.RotateServerCertificate".
@@ -2685,7 +3521,7 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
      * prepare for a certificate rotation. If a CA version was previously added but never used in a
      * certificate rotation, this operation replaces that version. There cannot be more than one CA
      * version waiting to be rotated in. For instances that have enabled Certificate Authority Service
-     * (CAS) based server CA, please use AddServerCertificate to add a new server certificate.
+     * (CAS) based server CA, use AddServerCertificate to add a new server certificate.
      *
      * Create a request for the method "instances.addServerCa".
      *
@@ -2711,7 +3547,7 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
        * prepare for a certificate rotation. If a CA version was previously added but never used in a
        * certificate rotation, this operation replaces that version. There cannot be more than one CA
        * version waiting to be rotated in. For instances that have enabled Certificate Authority Service
-       * (CAS) based server CA, please use AddServerCertificate to add a new server certificate.
+       * (CAS) based server CA, use AddServerCertificate to add a new server certificate.
        *
        * Create a request for the method "instances.addServerCa".
        *
@@ -2828,7 +3664,7 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
      * Authority Service (CAS) server CA. Required to prepare for a certificate rotation. If a server
      * certificate version was previously added but never used in a certificate rotation, this operation
      * replaces that version. There cannot be more than one certificate version waiting to be rotated
-     * in. For instances not using CAS server CA, please use AddServerCa instead.
+     * in. For instances not using CAS server CA, use AddServerCa instead.
      *
      * Create a request for the method "instances.addServerCertificate".
      *
@@ -2855,7 +3691,7 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
        * Authority Service (CAS) server CA. Required to prepare for a certificate rotation. If a server
        * certificate version was previously added but never used in a certificate rotation, this
        * operation replaces that version. There cannot be more than one certificate version waiting to
-       * be rotated in. For instances not using CAS server CA, please use AddServerCa instead.
+       * be rotated in. For instances not using CAS server CA, use AddServerCa instead.
        *
        * Create a request for the method "instances.addServerCertificate".
        *
@@ -4778,6 +5614,141 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
       }
     }
     /**
+     * Point in time restore for an instance managed by Google Cloud Backup and Disaster Recovery.
+     *
+     * Create a request for the method "instances.pointInTimeRestore".
+     *
+     * This request holds the parameters needed by the sqladmin server.  After setting any optional
+     * parameters, call the {@link PointInTimeRestore#execute()} method to invoke the remote operation.
+     *
+     * @param parent Required. The parent resource where you created this instance. Format: projects/{project}
+     * @param content the {@link com.google.api.services.sqladmin.model.PointInTimeRestoreContext}
+     * @return the request
+     */
+    public PointInTimeRestore pointInTimeRestore(java.lang.String parent, com.google.api.services.sqladmin.model.PointInTimeRestoreContext content) throws java.io.IOException {
+      PointInTimeRestore result = new PointInTimeRestore(parent, content);
+      initialize(result);
+      return result;
+    }
+
+    public class PointInTimeRestore extends SQLAdminRequest<com.google.api.services.sqladmin.model.Operation> {
+
+      private static final String REST_PATH = "v1/{+parent}:pointInTimeRestore";
+
+      private final java.util.regex.Pattern PARENT_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+$");
+
+      /**
+       * Point in time restore for an instance managed by Google Cloud Backup and Disaster Recovery.
+       *
+       * Create a request for the method "instances.pointInTimeRestore".
+       *
+       * This request holds the parameters needed by the the sqladmin server.  After setting any
+       * optional parameters, call the {@link PointInTimeRestore#execute()} method to invoke the remote
+       * operation. <p> {@link PointInTimeRestore#initialize(com.google.api.client.googleapis.services.A
+       * bstractGoogleClientRequest)} must be called to initialize this instance immediately after
+       * invoking the constructor. </p>
+       *
+       * @param parent Required. The parent resource where you created this instance. Format: projects/{project}
+       * @param content the {@link com.google.api.services.sqladmin.model.PointInTimeRestoreContext}
+       * @since 1.13
+       */
+      protected PointInTimeRestore(java.lang.String parent, com.google.api.services.sqladmin.model.PointInTimeRestoreContext content) {
+        super(SQLAdmin.this, "POST", REST_PATH, content, com.google.api.services.sqladmin.model.Operation.class);
+        this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+              "Parameter parent must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+      }
+
+      @Override
+      public PointInTimeRestore set$Xgafv(java.lang.String $Xgafv) {
+        return (PointInTimeRestore) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public PointInTimeRestore setAccessToken(java.lang.String accessToken) {
+        return (PointInTimeRestore) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public PointInTimeRestore setAlt(java.lang.String alt) {
+        return (PointInTimeRestore) super.setAlt(alt);
+      }
+
+      @Override
+      public PointInTimeRestore setCallback(java.lang.String callback) {
+        return (PointInTimeRestore) super.setCallback(callback);
+      }
+
+      @Override
+      public PointInTimeRestore setFields(java.lang.String fields) {
+        return (PointInTimeRestore) super.setFields(fields);
+      }
+
+      @Override
+      public PointInTimeRestore setKey(java.lang.String key) {
+        return (PointInTimeRestore) super.setKey(key);
+      }
+
+      @Override
+      public PointInTimeRestore setOauthToken(java.lang.String oauthToken) {
+        return (PointInTimeRestore) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public PointInTimeRestore setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (PointInTimeRestore) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public PointInTimeRestore setQuotaUser(java.lang.String quotaUser) {
+        return (PointInTimeRestore) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public PointInTimeRestore setUploadType(java.lang.String uploadType) {
+        return (PointInTimeRestore) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public PointInTimeRestore setUploadProtocol(java.lang.String uploadProtocol) {
+        return (PointInTimeRestore) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The parent resource where you created this instance. Format: projects/{project}
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String parent;
+
+      /** Required. The parent resource where you created this instance. Format: projects/{project}
+       */
+      public java.lang.String getParent() {
+        return parent;
+      }
+
+      /**
+       * Required. The parent resource where you created this instance. Format: projects/{project}
+       */
+      public PointInTimeRestore setParent(java.lang.String parent) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+              "Parameter parent must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+        this.parent = parent;
+        return this;
+      }
+
+      @Override
+      public PointInTimeRestore set(String parameterName, Object value) {
+        return (PointInTimeRestore) super.set(parameterName, value);
+      }
+    }
+    /**
      * Promotes the read replica instance to be an independent Cloud SQL primary instance. Using this
      * operation might cause your instance to restart.
      *
@@ -4910,31 +5881,30 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
       }
 
       /**
-       * Set to true to invoke a replica failover to the designated DR replica. As part of replica
-       * failover, the promote operation attempts to add the original primary instance as a replica
-       * of the promoted DR replica when the original primary instance comes back online. If set to
-       * false or not specified, then the original primary instance becomes an independent Cloud SQL
-       * primary instance. Only applicable to MySQL.
+       * Set to true to invoke a replica failover to the DR replica. As part of replica failover,
+       * the promote operation attempts to add the original primary instance as a replica of the
+       * promoted DR replica when the original primary instance comes back online. If set to false
+       * or not specified, then the original primary instance becomes an independent Cloud SQL
+       * primary instance.
        */
       @com.google.api.client.util.Key
       private java.lang.Boolean failover;
 
-      /** Set to true to invoke a replica failover to the designated DR replica. As part of replica failover,
-     the promote operation attempts to add the original primary instance as a replica of the promoted DR
+      /** Set to true to invoke a replica failover to the DR replica. As part of replica failover, the
+     promote operation attempts to add the original primary instance as a replica of the promoted DR
      replica when the original primary instance comes back online. If set to false or not specified,
-     then the original primary instance becomes an independent Cloud SQL primary instance. Only
-     applicable to MySQL.
+     then the original primary instance becomes an independent Cloud SQL primary instance.
        */
       public java.lang.Boolean getFailover() {
         return failover;
       }
 
       /**
-       * Set to true to invoke a replica failover to the designated DR replica. As part of replica
-       * failover, the promote operation attempts to add the original primary instance as a replica
-       * of the promoted DR replica when the original primary instance comes back online. If set to
-       * false or not specified, then the original primary instance becomes an independent Cloud SQL
-       * primary instance. Only applicable to MySQL.
+       * Set to true to invoke a replica failover to the DR replica. As part of replica failover,
+       * the promote operation attempts to add the original primary instance as a replica of the
+       * promoted DR replica when the original primary instance comes back online. If set to false
+       * or not specified, then the original primary instance becomes an independent Cloud SQL
+       * primary instance.
        */
       public PromoteReplica setFailover(java.lang.Boolean failover) {
         this.failover = failover;
@@ -5644,7 +6614,7 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
     /**
      * Rotates the server certificate to one signed by the Certificate Authority (CA) version previously
      * added with the addServerCA method. For instances that have enabled Certificate Authority Service
-     * (CAS) based server CA, please use RotateServerCertificate to rotate the server certificate.
+     * (CAS) based server CA, use RotateServerCertificate to rotate the server certificate.
      *
      * Create a request for the method "instances.rotateServerCa".
      *
@@ -5669,8 +6639,8 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
       /**
        * Rotates the server certificate to one signed by the Certificate Authority (CA) version
        * previously added with the addServerCA method. For instances that have enabled Certificate
-       * Authority Service (CAS) based server CA, please use RotateServerCertificate to rotate the
-       * server certificate.
+       * Authority Service (CAS) based server CA, use RotateServerCertificate to rotate the server
+       * certificate.
        *
        * Create a request for the method "instances.rotateServerCa".
        *
@@ -6054,7 +7024,7 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
       }
     }
     /**
-     * Switches over from the primary instance to the designated DR replica instance.
+     * Switches over from the primary instance to the DR replica instance.
      *
      * Create a request for the method "instances.switchover".
      *
@@ -6076,7 +7046,7 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
       private static final String REST_PATH = "v1/projects/{project}/instances/{instance}/switchover";
 
       /**
-       * Switches over from the primary instance to the designated DR replica instance.
+       * Switches over from the primary instance to the DR replica instance.
        *
        * Create a request for the method "instances.switchover".
        *
@@ -6184,24 +7154,25 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
       }
 
       /**
-       * Optional. (MySQL only) Cloud SQL instance operations timeout, which is a sum of all
-       * database operations. Default value is 10 minutes and can be modified to a maximum value of
-       * 24 hours.
+       * Optional. (MySQL and PostgreSQL only) Cloud SQL instance operations timeout, which is a sum
+       * of all database operations. Default value is 10 minutes and can be modified to a maximum
+       * value of 24 hours.
        */
       @com.google.api.client.util.Key
       private String dbTimeout;
 
-      /** Optional. (MySQL only) Cloud SQL instance operations timeout, which is a sum of all database
-     operations. Default value is 10 minutes and can be modified to a maximum value of 24 hours.
+      /** Optional. (MySQL and PostgreSQL only) Cloud SQL instance operations timeout, which is a sum of all
+     database operations. Default value is 10 minutes and can be modified to a maximum value of 24
+     hours.
        */
       public String getDbTimeout() {
         return dbTimeout;
       }
 
       /**
-       * Optional. (MySQL only) Cloud SQL instance operations timeout, which is a sum of all
-       * database operations. Default value is 10 minutes and can be modified to a maximum value of
-       * 24 hours.
+       * Optional. (MySQL and PostgreSQL only) Cloud SQL instance operations timeout, which is a sum
+       * of all database operations. Default value is 10 minutes and can be modified to a maximum
+       * value of 24 hours.
        */
       public Switchover setDbTimeout(String dbTimeout) {
         this.dbTimeout = dbTimeout;
@@ -6910,32 +7881,6 @@ public class SQLAdmin extends com.google.api.client.googleapis.services.json.Abs
       /** Project ID of the project that contains the instance. */
       public List setProject(java.lang.String project) {
         this.project = project;
-        return this;
-      }
-
-      /**
-       * Optional. A filter string that follows the rules of EBNF grammar
-       * (https://google.aip.dev/assets/misc/ebnf-filtering.txt). Cloud SQL provides filters for
-       * status, operationType, and startTime.
-       */
-      @com.google.api.client.util.Key
-      private java.lang.String filter;
-
-      /** Optional. A filter string that follows the rules of EBNF grammar
-     (https://google.aip.dev/assets/misc/ebnf-filtering.txt). Cloud SQL provides filters for status,
-     operationType, and startTime.
-       */
-      public java.lang.String getFilter() {
-        return filter;
-      }
-
-      /**
-       * Optional. A filter string that follows the rules of EBNF grammar
-       * (https://google.aip.dev/assets/misc/ebnf-filtering.txt). Cloud SQL provides filters for
-       * status, operationType, and startTime.
-       */
-      public List setFilter(java.lang.String filter) {
-        this.filter = filter;
         return this;
       }
 

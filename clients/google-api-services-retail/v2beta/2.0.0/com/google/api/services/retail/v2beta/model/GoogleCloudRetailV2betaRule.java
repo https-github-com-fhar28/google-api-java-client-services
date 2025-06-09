@@ -22,7 +22,7 @@ package com.google.api.services.retail.v2beta.model;
  * SOLUTION_TYPE_SEARCH.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the Vertex AI Search for Retail API. For a detailed
+ * transmitted over HTTP when working with the Vertex AI Search for commerce API. For a detailed
  * explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
@@ -82,6 +82,13 @@ public final class GoogleCloudRetailV2betaRule extends com.google.api.client.jso
    */
   @com.google.api.client.util.Key
   private GoogleCloudRetailV2betaRuleOnewaySynonymsAction onewaySynonymsAction;
+
+  /**
+   * Pins one or more specified products to a specific position in the results.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudRetailV2betaRulePinAction pinAction;
 
   /**
    * Redirects a shopper to a specific page.
@@ -231,6 +238,23 @@ public final class GoogleCloudRetailV2betaRule extends com.google.api.client.jso
    */
   public GoogleCloudRetailV2betaRule setOnewaySynonymsAction(GoogleCloudRetailV2betaRuleOnewaySynonymsAction onewaySynonymsAction) {
     this.onewaySynonymsAction = onewaySynonymsAction;
+    return this;
+  }
+
+  /**
+   * Pins one or more specified products to a specific position in the results.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudRetailV2betaRulePinAction getPinAction() {
+    return pinAction;
+  }
+
+  /**
+   * Pins one or more specified products to a specific position in the results.
+   * @param pinAction pinAction or {@code null} for none
+   */
+  public GoogleCloudRetailV2betaRule setPinAction(GoogleCloudRetailV2betaRulePinAction pinAction) {
+    this.pinAction = pinAction;
     return this;
   }
 

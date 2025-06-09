@@ -38,7 +38,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   private java.lang.Long advertiserId;
 
   /**
-   * The bidding strategy of the insertion order. By default, fixed_bid is set.
+   * Optional. The bidding strategy of the insertion order. By default, fixed_bid is set.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -93,15 +93,15 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   private java.lang.Long insertionOrderId;
 
   /**
-   * The type of insertion order. If this field is unspecified in creation, the value defaults to
-   * `RTB`.
+   * Optional. The type of insertion order. If this field is unspecified in creation, the value
+   * defaults to `RTB`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String insertionOrderType;
 
   /**
-   * Additional integration details of the insertion order.
+   * Optional. Additional integration details of the insertion order.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -123,26 +123,22 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   private java.lang.String name;
 
   /**
-   * Optional. The optimization objective of the insertion order. **This field is only available to
-   * allowlisted customers.** If a customer is not allowlisted, this field will be null and attempts
-   * to set it will return an error.
+   * Optional. Required. The optimization objective of the insertion order.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String optimizationObjective;
 
   /**
-   * Required. The budget spending speed setting of the insertion order. *Warning*: Starting on
-   * **November 5, 2024**, pacing_type `PACING_TYPE_ASAP` will no longer be compatible with
-   * pacing_period `PACING_PERIOD_FLIGHT`. [Read more about this announced change](/display-
-   * video/api/deprecations#features.io_asap).
+   * Required. The budget spending speed setting of the insertion order. pacing_type
+   * `PACING_TYPE_ASAP` is not compatible with pacing_period `PACING_PERIOD_FLIGHT`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Pacing pacing;
 
   /**
-   * The partner costs associated with the insertion order. If absent or empty in
+   * Optional. The partner costs associated with the insertion order. If absent or empty in
    * CreateInsertionOrder method, the newly created insertion order will inherit partner costs from
    * the partner settings.
    * The value may be {@code null}.
@@ -182,7 +178,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * The bidding strategy of the insertion order. By default, fixed_bid is set.
+   * Optional. The bidding strategy of the insertion order. By default, fixed_bid is set.
    * @return value or {@code null} for none
    */
   public BiddingStrategy getBidStrategy() {
@@ -190,7 +186,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * The bidding strategy of the insertion order. By default, fixed_bid is set.
+   * Optional. The bidding strategy of the insertion order. By default, fixed_bid is set.
    * @param bidStrategy bidStrategy or {@code null} for none
    */
   public InsertionOrder setBidStrategy(BiddingStrategy bidStrategy) {
@@ -313,8 +309,8 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * The type of insertion order. If this field is unspecified in creation, the value defaults to
-   * `RTB`.
+   * Optional. The type of insertion order. If this field is unspecified in creation, the value
+   * defaults to `RTB`.
    * @return value or {@code null} for none
    */
   public java.lang.String getInsertionOrderType() {
@@ -322,8 +318,8 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * The type of insertion order. If this field is unspecified in creation, the value defaults to
-   * `RTB`.
+   * Optional. The type of insertion order. If this field is unspecified in creation, the value
+   * defaults to `RTB`.
    * @param insertionOrderType insertionOrderType or {@code null} for none
    */
   public InsertionOrder setInsertionOrderType(java.lang.String insertionOrderType) {
@@ -332,7 +328,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Additional integration details of the insertion order.
+   * Optional. Additional integration details of the insertion order.
    * @return value or {@code null} for none
    */
   public IntegrationDetails getIntegrationDetails() {
@@ -340,7 +336,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Additional integration details of the insertion order.
+   * Optional. Additional integration details of the insertion order.
    * @param integrationDetails integrationDetails or {@code null} for none
    */
   public InsertionOrder setIntegrationDetails(IntegrationDetails integrationDetails) {
@@ -385,9 +381,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Optional. The optimization objective of the insertion order. **This field is only available to
-   * allowlisted customers.** If a customer is not allowlisted, this field will be null and attempts
-   * to set it will return an error.
+   * Optional. Required. The optimization objective of the insertion order.
    * @return value or {@code null} for none
    */
   public java.lang.String getOptimizationObjective() {
@@ -395,9 +389,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Optional. The optimization objective of the insertion order. **This field is only available to
-   * allowlisted customers.** If a customer is not allowlisted, this field will be null and attempts
-   * to set it will return an error.
+   * Optional. Required. The optimization objective of the insertion order.
    * @param optimizationObjective optimizationObjective or {@code null} for none
    */
   public InsertionOrder setOptimizationObjective(java.lang.String optimizationObjective) {
@@ -406,10 +398,8 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Required. The budget spending speed setting of the insertion order. *Warning*: Starting on
-   * **November 5, 2024**, pacing_type `PACING_TYPE_ASAP` will no longer be compatible with
-   * pacing_period `PACING_PERIOD_FLIGHT`. [Read more about this announced change](/display-
-   * video/api/deprecations#features.io_asap).
+   * Required. The budget spending speed setting of the insertion order. pacing_type
+   * `PACING_TYPE_ASAP` is not compatible with pacing_period `PACING_PERIOD_FLIGHT`.
    * @return value or {@code null} for none
    */
   public Pacing getPacing() {
@@ -417,10 +407,8 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Required. The budget spending speed setting of the insertion order. *Warning*: Starting on
-   * **November 5, 2024**, pacing_type `PACING_TYPE_ASAP` will no longer be compatible with
-   * pacing_period `PACING_PERIOD_FLIGHT`. [Read more about this announced change](/display-
-   * video/api/deprecations#features.io_asap).
+   * Required. The budget spending speed setting of the insertion order. pacing_type
+   * `PACING_TYPE_ASAP` is not compatible with pacing_period `PACING_PERIOD_FLIGHT`.
    * @param pacing pacing or {@code null} for none
    */
   public InsertionOrder setPacing(Pacing pacing) {
@@ -429,7 +417,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * The partner costs associated with the insertion order. If absent or empty in
+   * Optional. The partner costs associated with the insertion order. If absent or empty in
    * CreateInsertionOrder method, the newly created insertion order will inherit partner costs from
    * the partner settings.
    * @return value or {@code null} for none
@@ -439,7 +427,7 @@ public final class InsertionOrder extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * The partner costs associated with the insertion order. If absent or empty in
+   * Optional. The partner costs associated with the insertion order. If absent or empty in
    * CreateInsertionOrder method, the newly created insertion order will inherit partner costs from
    * the partner settings.
    * @param partnerCosts partnerCosts or {@code null} for none

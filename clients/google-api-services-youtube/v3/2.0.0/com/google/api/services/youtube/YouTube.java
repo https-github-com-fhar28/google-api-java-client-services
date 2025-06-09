@@ -3950,6 +3950,22 @@ public class YouTube extends com.google.api.client.googleapis.services.json.Abst
         return this;
       }
 
+      /** Returns the comment threads of the specified post. */
+      @com.google.api.client.util.Key
+      private java.lang.String postId;
+
+      /** Returns the comment threads of the specified post.
+       */
+      public java.lang.String getPostId() {
+        return postId;
+      }
+
+      /** Returns the comment threads of the specified post. */
+      public List setPostId(java.lang.String postId) {
+        this.postId = postId;
+        return this;
+      }
+
       /**
        * Limits the returned comment threads to those matching the specified key words. Not
        * compatible with the 'id' filter.
@@ -7869,13 +7885,13 @@ public class YouTube extends com.google.api.client.googleapis.services.json.Abst
 
       /**
        * The *maxResults* parameter specifies the maximum number of items that should be returned in
-       * the result set.
+       * the result set. Not used in the streaming RPC.
        */
       @com.google.api.client.util.Key
       private java.lang.Long maxResults;
 
       /** The *maxResults* parameter specifies the maximum number of items that should be returned in the
-     result set. [default: 500] [minimum: 200] [maximum: 2000]
+     result set. Not used in the streaming RPC. [default: 500] [minimum: 200] [maximum: 2000]
        */
       public java.lang.Long getMaxResults() {
         return maxResults;
@@ -7883,7 +7899,7 @@ public class YouTube extends com.google.api.client.googleapis.services.json.Abst
 
       /**
        * The *maxResults* parameter specifies the maximum number of items that should be returned in
-       * the result set.
+       * the result set. Not used in the streaming RPC.
        */
       public List setMaxResults(java.lang.Long maxResults) {
         this.maxResults = maxResults;
@@ -15771,6 +15787,151 @@ public class YouTube extends com.google.api.client.googleapis.services.json.Abst
       @Override
       public List set(String parameterName, Object value) {
         return (List) super.set(parameterName, value);
+      }
+    }
+
+  }
+
+  /**
+   * An accessor for creating requests from the VideoTrainability collection.
+   *
+   * <p>The typical use is:</p>
+   * <pre>
+   *   {@code YouTube youtube = new YouTube(...);}
+   *   {@code YouTube.VideoTrainability.List request = youtube.videoTrainability().list(parameters ...)}
+   * </pre>
+   *
+   * @return the resource collection
+   */
+  public VideoTrainability videoTrainability() {
+    return new VideoTrainability();
+  }
+
+  /**
+   * The "videoTrainability" collection of methods.
+   */
+  public class VideoTrainability {
+
+    /**
+     * Returns the trainability status of a video.
+     *
+     * Create a request for the method "videoTrainability.get".
+     *
+     * This request holds the parameters needed by the youtube server.  After setting any optional
+     * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+     *
+     * @return the request
+     */
+    public Get get() throws java.io.IOException {
+      Get result = new Get();
+      initialize(result);
+      return result;
+    }
+
+    public class Get extends YouTubeRequest<com.google.api.services.youtube.model.VideoTrainability> {
+
+      private static final String REST_PATH = "youtube/v3/videoTrainability";
+
+      /**
+       * Returns the trainability status of a video.
+       *
+       * Create a request for the method "videoTrainability.get".
+       *
+       * This request holds the parameters needed by the the youtube server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+       * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+       * called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @since 1.13
+       */
+      protected Get() {
+        super(YouTube.this, "GET", REST_PATH, null, com.google.api.services.youtube.model.VideoTrainability.class);
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public Get set$Xgafv(java.lang.String $Xgafv) {
+        return (Get) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public Get setAccessToken(java.lang.String accessToken) {
+        return (Get) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public Get setAlt(java.lang.String alt) {
+        return (Get) super.setAlt(alt);
+      }
+
+      @Override
+      public Get setCallback(java.lang.String callback) {
+        return (Get) super.setCallback(callback);
+      }
+
+      @Override
+      public Get setFields(java.lang.String fields) {
+        return (Get) super.setFields(fields);
+      }
+
+      @Override
+      public Get setKey(java.lang.String key) {
+        return (Get) super.setKey(key);
+      }
+
+      @Override
+      public Get setOauthToken(java.lang.String oauthToken) {
+        return (Get) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (Get) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public Get setQuotaUser(java.lang.String quotaUser) {
+        return (Get) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public Get setUploadType(java.lang.String uploadType) {
+        return (Get) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public Get setUploadProtocol(java.lang.String uploadProtocol) {
+        return (Get) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /** The ID of the video to retrieve. */
+      @com.google.api.client.util.Key
+      private java.lang.String id;
+
+      /** The ID of the video to retrieve.
+       */
+      public java.lang.String getId() {
+        return id;
+      }
+
+      /** The ID of the video to retrieve. */
+      public Get setId(java.lang.String id) {
+        this.id = id;
+        return this;
+      }
+
+      @Override
+      public Get set(String parameterName, Object value) {
+        return (Get) super.set(parameterName, value);
       }
     }
 

@@ -25,7 +25,7 @@ package com.google.api.services.drive;
  *
  * <p>
  * For more information about this service, see the
- * <a href="https://developers.google.com/drive/" target="_blank">API Documentation</a>
+ * <a href="https://developers.google.com/workspace/drive/" target="_blank">API Documentation</a>
  * </p>
  *
  * <p>
@@ -4971,7 +4971,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
     /**
      * Lists the user's shared drives. This method accepts the `q` parameter, which is a search query
      * combining one or more search terms. For more information, see the [Search for shared
-     * drives](/drive/api/guides/search-shareddrives) guide.
+     * drives](/workspace/drive/api/guides/search-shareddrives) guide.
      *
      * Create a request for the method "drives.list".
      *
@@ -4993,7 +4993,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       /**
        * Lists the user's shared drives. This method accepts the `q` parameter, which is a search query
        * combining one or more search terms. For more information, see the [Search for shared
-       * drives](/drive/api/guides/search-shareddrives) guide.
+       * drives](/workspace/drive/api/guides/search-shareddrives) guide.
        *
        * Create a request for the method "drives.list".
        *
@@ -6755,8 +6755,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * Gets a file's metadata or content by ID. If you provide the URL parameter `alt=media`, then the
      * response includes the file contents in the response body. Downloading content with `alt=media`
      * only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use
-     * [`files.export`](/drive/api/reference/rest/v2/files/export) instead. For more information, see
-     * [Download & export files](/drive/api/guides/manage-downloads).
+     * [`files.export`](/workspace/drive/api/reference/rest/v2/files/export) instead. For more
+     * information, see [Download & export files](/workspace/drive/api/guides/manage-downloads).
      *
      * Create a request for the method "files.get".
      *
@@ -6780,8 +6780,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * Gets a file's metadata or content by ID. If you provide the URL parameter `alt=media`, then the
        * response includes the file contents in the response body. Downloading content with `alt=media`
        * only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use
-       * [`files.export`](/drive/api/reference/rest/v2/files/export) instead. For more information, see
-       * [Download & export files](/drive/api/guides/manage-downloads).
+       * [`files.export`](/workspace/drive/api/reference/rest/v2/files/export) instead. For more
+       * information, see [Download & export files](/workspace/drive/api/guides/manage-downloads).
        *
        * Create a request for the method "files.get".
        *
@@ -7184,7 +7184,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*`
      * Note: Specify a valid MIME type, rather than the literal `*` value. The literal `*` is only used
      * to indicate that any valid MIME type can be uploaded. For more information on uploading files,
-     * see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
+     * see [Upload file data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts with
      * `files.insert` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should
      * specify a file extension in the `title` property when inserting files with the API. For example,
      * an operation to insert a JPEG file should specify something like `"title": "cat.jpg"` in the
@@ -7213,7 +7213,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*`
      * Note: Specify a valid MIME type, rather than the literal `*` value. The literal `*` is only used
      * to indicate that any valid MIME type can be uploaded. For more information on uploading files,
-     * see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
+     * see [Upload file data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts with
      * `files.insert` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should
      * specify a file extension in the `title` property when inserting files with the API. For example,
      * an operation to insert a JPEG file should specify something like `"title": "cat.jpg"` in the
@@ -7253,15 +7253,16 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*`
        * Note: Specify a valid MIME type, rather than the literal `*` value. The literal `*` is only
        * used to indicate that any valid MIME type can be uploaded. For more information on uploading
-       * files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
-       * `files.insert` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should
-       * specify a file extension in the `title` property when inserting files with the API. For
-       * example, an operation to insert a JPEG file should specify something like `"title": "cat.jpg"`
-       * in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property
-       * populated with the extension originally specified in the `title` property. When a Google Drive
-       * user requests to download a file, or when the file is downloaded through the sync client, Drive
-       * builds a full filename (with extension) based on the title. In cases where the extension is
-       * missing, Drive attempts to determine the extension based on the file's MIME type.
+       * files, see [Upload file data](/workspace/drive/api/guides/manage-uploads). Apps creating
+       * shortcuts with `files.insert` must specify the MIME type `application/vnd.google-
+       * apps.shortcut`. Apps should specify a file extension in the `title` property when inserting
+       * files with the API. For example, an operation to insert a JPEG file should specify something
+       * like `"title": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only
+       * `fileExtension` property populated with the extension originally specified in the `title`
+       * property. When a Google Drive user requests to download a file, or when the file is downloaded
+       * through the sync client, Drive builds a full filename (with extension) based on the title. In
+       * cases where the extension is missing, Drive attempts to determine the extension based on the
+       * file's MIME type.
        *
        * Create a request for the method "files.insert".
        *
@@ -7282,15 +7283,16 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*`
        * Note: Specify a valid MIME type, rather than the literal `*` value. The literal `*` is only
        * used to indicate that any valid MIME type can be uploaded. For more information on uploading
-       * files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
-       * `files.insert` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should
-       * specify a file extension in the `title` property when inserting files with the API. For
-       * example, an operation to insert a JPEG file should specify something like `"title": "cat.jpg"`
-       * in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property
-       * populated with the extension originally specified in the `title` property. When a Google Drive
-       * user requests to download a file, or when the file is downloaded through the sync client, Drive
-       * builds a full filename (with extension) based on the title. In cases where the extension is
-       * missing, Drive attempts to determine the extension based on the file's MIME type.
+       * files, see [Upload file data](/workspace/drive/api/guides/manage-uploads). Apps creating
+       * shortcuts with `files.insert` must specify the MIME type `application/vnd.google-
+       * apps.shortcut`. Apps should specify a file extension in the `title` property when inserting
+       * files with the API. For example, an operation to insert a JPEG file should specify something
+       * like `"title": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only
+       * `fileExtension` property populated with the extension originally specified in the `title`
+       * property. When a Google Drive user requests to download a file, or when the file is downloaded
+       * through the sync client, Drive builds a full filename (with extension) based on the title. In
+       * cases where the extension is missing, Drive attempts to determine the extension based on the
+       * file's MIME type.
        *
        * Create a request for the method "files.insert".
        *
@@ -7794,9 +7796,9 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
     /**
      * Lists the user's files. This method accepts the `q` parameter, which is a search query combining
      * one or more search terms. For more information, see the [Search for files &
-     * folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by
-     * default, including trashed files. If you don't want trashed files to appear in the list, use the
-     * `trashed=false` query parameter to remove trashed files from the results.
+     * folders](/workspace/drive/api/guides/search-files) guide. *Note:* This method returns *all* files
+     * by default, including trashed files. If you don't want trashed files to appear in the list, use
+     * the `trashed=false` query parameter to remove trashed files from the results.
      *
      * Create a request for the method "files.list".
      *
@@ -7818,9 +7820,9 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       /**
        * Lists the user's files. This method accepts the `q` parameter, which is a search query
        * combining one or more search terms. For more information, see the [Search for files &
-       * folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by
-       * default, including trashed files. If you don't want trashed files to appear in the list, use
-       * the `trashed=false` query parameter to remove trashed files from the results.
+       * folders](/workspace/drive/api/guides/search-files) guide. *Note:* This method returns *all*
+       * files by default, including trashed files. If you don't want trashed files to appear in the
+       * list, use the `trashed=false` query parameter to remove trashed files from the results.
        *
        * Create a request for the method "files.list".
        *
@@ -10133,7 +10135,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * size:* 5,120 GB - *Accepted Media MIME types:*`*` Note: Specify a valid MIME type, rather than
      * the literal `*` value. The literal `*` is only used to indicate that any valid MIME type can be
      * uploaded. For more information on uploading files, see [Upload file
-     * data](/drive/api/guides/manage-uploads).
+     * data](/workspace/drive/api/guides/manage-uploads).
      *
      * Create a request for the method "files.update".
      *
@@ -10158,7 +10160,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * size:* 5,120 GB - *Accepted Media MIME types:*`*` Note: Specify a valid MIME type, rather than
      * the literal `*` value. The literal `*` is only used to indicate that any valid MIME type can be
      * uploaded. For more information on uploading files, see [Upload file
-     * data](/drive/api/guides/manage-uploads).
+     * data](/workspace/drive/api/guides/manage-uploads).
      *
      * Create a request for the method "files.update".
      *
@@ -10193,7 +10195,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*` Note: Specify a valid MIME
        * type, rather than the literal `*` value. The literal `*` is only used to indicate that any
        * valid MIME type can be uploaded. For more information on uploading files, see [Upload file
-       * data](/drive/api/guides/manage-uploads).
+       * data](/workspace/drive/api/guides/manage-uploads).
        *
        * Create a request for the method "files.update".
        *
@@ -10219,7 +10221,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*` Note: Specify a valid MIME
        * type, rather than the literal `*` value. The literal `*` is only used to indicate that any
        * valid MIME type can be uploaded. For more information on uploading files, see [Upload file
-       * data](/drive/api/guides/manage-uploads).
+       * data](/workspace/drive/api/guides/manage-uploads).
        *
        * Create a request for the method "files.update".
        *
@@ -12217,6 +12219,49 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
         return this;
       }
 
+      /** Whether the request should enforce expansive access rules. */
+      @com.google.api.client.util.Key
+      private java.lang.Boolean enforceExpansiveAccess;
+
+      /** Whether the request should enforce expansive access rules. [default: false]
+       */
+      public java.lang.Boolean getEnforceExpansiveAccess() {
+        return enforceExpansiveAccess;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      public Delete setEnforceExpansiveAccess(java.lang.Boolean enforceExpansiveAccess) {
+        this.enforceExpansiveAccess = enforceExpansiveAccess;
+        return this;
+      }
+
+      /**
+       * Convenience method that returns only {@link Boolean#TRUE} or {@link Boolean#FALSE}.
+       *
+       * <p>
+       * Boolean properties can have four possible values:
+       * {@code null}, {@link com.google.api.client.util.Data#NULL_BOOLEAN}, {@link Boolean#TRUE}
+       * or {@link Boolean#FALSE}.
+       * </p>
+       *
+       * <p>
+       * This method returns {@link Boolean#TRUE} if the default of the property is {@link Boolean#TRUE}
+       * and it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * {@link Boolean#FALSE} is returned if the default of the property is {@link Boolean#FALSE} and
+       * it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * </p>
+       *
+       * <p>
+       * Whether the request should enforce expansive access rules.
+       * </p>
+       */
+      public boolean isEnforceExpansiveAccess() {
+        if (enforceExpansiveAccess == null || enforceExpansiveAccess == com.google.api.client.util.Data.NULL_BOOLEAN) {
+          return false;
+        }
+        return enforceExpansiveAccess;
+      }
+
       /** Whether the requesting application supports both My Drives and shared drives. */
       @com.google.api.client.util.Key
       private java.lang.Boolean supportsAllDrives;
@@ -12906,6 +12951,49 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       public Insert setEmailMessage(java.lang.String emailMessage) {
         this.emailMessage = emailMessage;
         return this;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      @com.google.api.client.util.Key
+      private java.lang.Boolean enforceExpansiveAccess;
+
+      /** Whether the request should enforce expansive access rules. [default: false]
+       */
+      public java.lang.Boolean getEnforceExpansiveAccess() {
+        return enforceExpansiveAccess;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      public Insert setEnforceExpansiveAccess(java.lang.Boolean enforceExpansiveAccess) {
+        this.enforceExpansiveAccess = enforceExpansiveAccess;
+        return this;
+      }
+
+      /**
+       * Convenience method that returns only {@link Boolean#TRUE} or {@link Boolean#FALSE}.
+       *
+       * <p>
+       * Boolean properties can have four possible values:
+       * {@code null}, {@link com.google.api.client.util.Data#NULL_BOOLEAN}, {@link Boolean#TRUE}
+       * or {@link Boolean#FALSE}.
+       * </p>
+       *
+       * <p>
+       * This method returns {@link Boolean#TRUE} if the default of the property is {@link Boolean#TRUE}
+       * and it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * {@link Boolean#FALSE} is returned if the default of the property is {@link Boolean#FALSE} and
+       * it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * </p>
+       *
+       * <p>
+       * Whether the request should enforce expansive access rules.
+       * </p>
+       */
+      public boolean isEnforceExpansiveAccess() {
+        if (enforceExpansiveAccess == null || enforceExpansiveAccess == com.google.api.client.util.Data.NULL_BOOLEAN) {
+          return false;
+        }
+        return enforceExpansiveAccess;
       }
 
       /** Deprecated: See `moveToNewOwnersRoot` for details. */
@@ -13680,6 +13768,49 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
         return this;
       }
 
+      /** Whether the request should enforce expansive access rules. */
+      @com.google.api.client.util.Key
+      private java.lang.Boolean enforceExpansiveAccess;
+
+      /** Whether the request should enforce expansive access rules. [default: false]
+       */
+      public java.lang.Boolean getEnforceExpansiveAccess() {
+        return enforceExpansiveAccess;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      public Patch setEnforceExpansiveAccess(java.lang.Boolean enforceExpansiveAccess) {
+        this.enforceExpansiveAccess = enforceExpansiveAccess;
+        return this;
+      }
+
+      /**
+       * Convenience method that returns only {@link Boolean#TRUE} or {@link Boolean#FALSE}.
+       *
+       * <p>
+       * Boolean properties can have four possible values:
+       * {@code null}, {@link com.google.api.client.util.Data#NULL_BOOLEAN}, {@link Boolean#TRUE}
+       * or {@link Boolean#FALSE}.
+       * </p>
+       *
+       * <p>
+       * This method returns {@link Boolean#TRUE} if the default of the property is {@link Boolean#TRUE}
+       * and it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * {@link Boolean#FALSE} is returned if the default of the property is {@link Boolean#FALSE} and
+       * it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * </p>
+       *
+       * <p>
+       * Whether the request should enforce expansive access rules.
+       * </p>
+       */
+      public boolean isEnforceExpansiveAccess() {
+        if (enforceExpansiveAccess == null || enforceExpansiveAccess == com.google.api.client.util.Data.NULL_BOOLEAN) {
+          return false;
+        }
+        return enforceExpansiveAccess;
+      }
+
       /** Whether to remove the expiration date. */
       @com.google.api.client.util.Key
       private java.lang.Boolean removeExpiration;
@@ -14051,6 +14182,49 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       public Update setPermissionId(java.lang.String permissionId) {
         this.permissionId = permissionId;
         return this;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      @com.google.api.client.util.Key
+      private java.lang.Boolean enforceExpansiveAccess;
+
+      /** Whether the request should enforce expansive access rules. [default: false]
+       */
+      public java.lang.Boolean getEnforceExpansiveAccess() {
+        return enforceExpansiveAccess;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      public Update setEnforceExpansiveAccess(java.lang.Boolean enforceExpansiveAccess) {
+        this.enforceExpansiveAccess = enforceExpansiveAccess;
+        return this;
+      }
+
+      /**
+       * Convenience method that returns only {@link Boolean#TRUE} or {@link Boolean#FALSE}.
+       *
+       * <p>
+       * Boolean properties can have four possible values:
+       * {@code null}, {@link com.google.api.client.util.Data#NULL_BOOLEAN}, {@link Boolean#TRUE}
+       * or {@link Boolean#FALSE}.
+       * </p>
+       *
+       * <p>
+       * This method returns {@link Boolean#TRUE} if the default of the property is {@link Boolean#TRUE}
+       * and it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * {@link Boolean#FALSE} is returned if the default of the property is {@link Boolean#FALSE} and
+       * it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * </p>
+       *
+       * <p>
+       * Whether the request should enforce expansive access rules.
+       * </p>
+       */
+      public boolean isEnforceExpansiveAccess() {
+        if (enforceExpansiveAccess == null || enforceExpansiveAccess == com.google.api.client.util.Data.NULL_BOOLEAN) {
+          return false;
+        }
+        return enforceExpansiveAccess;
       }
 
       /** Whether to remove the expiration date. */

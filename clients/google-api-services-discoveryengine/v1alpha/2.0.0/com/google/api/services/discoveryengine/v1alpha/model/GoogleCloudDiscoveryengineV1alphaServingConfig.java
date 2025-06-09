@@ -32,6 +32,13 @@ package com.google.api.services.discoveryengine.v1alpha.model;
 public final class GoogleCloudDiscoveryengineV1alphaServingConfig extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. The specification for answer generation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1alphaAnswerGenerationSpec answerGenerationSpec;
+
+  /**
    * Boost controls to use in serving path. All triggered boost controls will be applied. Boost
    * controls must be in the same data store as the serving config. Maximum of 20 boost controls.
    * The value may be {@code null}.
@@ -159,10 +166,26 @@ public final class GoogleCloudDiscoveryengineV1alphaServingConfig extends com.go
   private java.util.List<java.lang.String> onewaySynonymsControlIds;
 
   /**
+   * The specification for personalization spec. Notice that if both
+   * ServingConfig.personalization_spec and SearchRequest.personalization_spec are set,
+   * SearchRequest.personalization_spec overrides ServingConfig.personalization_spec.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1alphaSearchRequestPersonalizationSpec personalizationSpec;
+
+  /**
+   * Condition promote specifications. Maximum number of specifications is 100.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> promoteControlIds;
+
+  /**
    * The ranking expression controls the customized ranking on retrieval documents. To leverage
    * this, document embedding is required. The ranking expression setting in ServingConfig applies
    * to all search requests served by the serving config. However, if
-   * SearchRequest.ranking_expression is specified, it overrides the ServingConfig ranking
+   * `SearchRequest.ranking_expression` is specified, it overrides the ServingConfig ranking
    * expression. The ranking expression is a single function or multiple functions that are joined
    * by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double *
    * relevance_score * double * dotProduct(embedding_field_path) Function variables: *
@@ -216,6 +239,23 @@ public final class GoogleCloudDiscoveryengineV1alphaServingConfig extends com.go
    */
   @com.google.api.client.util.Key
   private String updateTime;
+
+  /**
+   * Optional. The specification for answer generation.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaAnswerGenerationSpec getAnswerGenerationSpec() {
+    return answerGenerationSpec;
+  }
+
+  /**
+   * Optional. The specification for answer generation.
+   * @param answerGenerationSpec answerGenerationSpec or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaServingConfig setAnswerGenerationSpec(GoogleCloudDiscoveryengineV1alphaAnswerGenerationSpec answerGenerationSpec) {
+    this.answerGenerationSpec = answerGenerationSpec;
+    return this;
+  }
 
   /**
    * Boost controls to use in serving path. All triggered boost controls will be applied. Boost
@@ -517,10 +557,48 @@ public final class GoogleCloudDiscoveryengineV1alphaServingConfig extends com.go
   }
 
   /**
+   * The specification for personalization spec. Notice that if both
+   * ServingConfig.personalization_spec and SearchRequest.personalization_spec are set,
+   * SearchRequest.personalization_spec overrides ServingConfig.personalization_spec.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaSearchRequestPersonalizationSpec getPersonalizationSpec() {
+    return personalizationSpec;
+  }
+
+  /**
+   * The specification for personalization spec. Notice that if both
+   * ServingConfig.personalization_spec and SearchRequest.personalization_spec are set,
+   * SearchRequest.personalization_spec overrides ServingConfig.personalization_spec.
+   * @param personalizationSpec personalizationSpec or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaServingConfig setPersonalizationSpec(GoogleCloudDiscoveryengineV1alphaSearchRequestPersonalizationSpec personalizationSpec) {
+    this.personalizationSpec = personalizationSpec;
+    return this;
+  }
+
+  /**
+   * Condition promote specifications. Maximum number of specifications is 100.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getPromoteControlIds() {
+    return promoteControlIds;
+  }
+
+  /**
+   * Condition promote specifications. Maximum number of specifications is 100.
+   * @param promoteControlIds promoteControlIds or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaServingConfig setPromoteControlIds(java.util.List<java.lang.String> promoteControlIds) {
+    this.promoteControlIds = promoteControlIds;
+    return this;
+  }
+
+  /**
    * The ranking expression controls the customized ranking on retrieval documents. To leverage
    * this, document embedding is required. The ranking expression setting in ServingConfig applies
    * to all search requests served by the serving config. However, if
-   * SearchRequest.ranking_expression is specified, it overrides the ServingConfig ranking
+   * `SearchRequest.ranking_expression` is specified, it overrides the ServingConfig ranking
    * expression. The ranking expression is a single function or multiple functions that are joined
    * by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double *
    * relevance_score * double * dotProduct(embedding_field_path) Function variables: *
@@ -539,7 +617,7 @@ public final class GoogleCloudDiscoveryengineV1alphaServingConfig extends com.go
    * The ranking expression controls the customized ranking on retrieval documents. To leverage
    * this, document embedding is required. The ranking expression setting in ServingConfig applies
    * to all search requests served by the serving config. However, if
-   * SearchRequest.ranking_expression is specified, it overrides the ServingConfig ranking
+   * `SearchRequest.ranking_expression` is specified, it overrides the ServingConfig ranking
    * expression. The ranking expression is a single function or multiple functions that are joined
    * by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double *
    * relevance_score * double * dotProduct(embedding_field_path) Function variables: *

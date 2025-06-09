@@ -20,7 +20,7 @@ package com.google.api.services.retail.v2alpha.model;
  * Metadata for active serving config A/B tests.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the Vertex AI Search for Retail API. For a detailed
+ * transmitted over HTTP when working with the Vertex AI Search for commerce API. For a detailed
  * explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
@@ -31,9 +31,9 @@ package com.google.api.services.retail.v2alpha.model;
 public final class GoogleCloudRetailV2alphaExperimentInfoServingConfigExperiment extends com.google.api.client.json.GenericJson {
 
   /**
-   * The fully qualified resource name of the serving config Experiment.VariantArm.serving_config_id
-   * responsible for generating the search response. For example:
-   * `projects/locations/catalogs/servingConfigs`.
+   * The fully qualified resource name of the serving config
+   * `Experiment.VariantArm.serving_config_id` responsible for generating the search response. For
+   * example: `projects/locations/catalogs/servingConfigs`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -49,9 +49,9 @@ public final class GoogleCloudRetailV2alphaExperimentInfoServingConfigExperiment
   private java.lang.String originalServingConfig;
 
   /**
-   * The fully qualified resource name of the serving config Experiment.VariantArm.serving_config_id
-   * responsible for generating the search response. For example:
-   * `projects/locations/catalogs/servingConfigs`.
+   * The fully qualified resource name of the serving config
+   * `Experiment.VariantArm.serving_config_id` responsible for generating the search response. For
+   * example: `projects/locations/catalogs/servingConfigs`.
    * @return value or {@code null} for none
    */
   public java.lang.String getExperimentServingConfig() {
@@ -59,9 +59,9 @@ public final class GoogleCloudRetailV2alphaExperimentInfoServingConfigExperiment
   }
 
   /**
-   * The fully qualified resource name of the serving config Experiment.VariantArm.serving_config_id
-   * responsible for generating the search response. For example:
-   * `projects/locations/catalogs/servingConfigs`.
+   * The fully qualified resource name of the serving config
+   * `Experiment.VariantArm.serving_config_id` responsible for generating the search response. For
+   * example: `projects/locations/catalogs/servingConfigs`.
    * @param experimentServingConfig experimentServingConfig or {@code null} for none
    */
   public GoogleCloudRetailV2alphaExperimentInfoServingConfigExperiment setExperimentServingConfig(java.lang.String experimentServingConfig) {

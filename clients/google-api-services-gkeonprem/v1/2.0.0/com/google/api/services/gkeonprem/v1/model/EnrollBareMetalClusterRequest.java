@@ -20,7 +20,7 @@ package com.google.api.services.gkeonprem.v1.model;
  * Message for enrolling an existing bare metal cluster to the Anthos On-Prem API.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the GDC Virtual API. For a detailed explanation see:
+ * transmitted over HTTP when working with the GKE On-Prem API. For a detailed explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
  *
@@ -57,6 +57,13 @@ public final class EnrollBareMetalClusterRequest extends com.google.api.client.j
    */
   @com.google.api.client.util.Key
   private java.lang.String localName;
+
+  /**
+   * Optional. The namespace of the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String localNamespace;
 
   /**
    * Required. The admin cluster this bare metal user cluster belongs to. This is the full resource
@@ -122,6 +129,23 @@ public final class EnrollBareMetalClusterRequest extends com.google.api.client.j
    */
   public EnrollBareMetalClusterRequest setLocalName(java.lang.String localName) {
     this.localName = localName;
+    return this;
+  }
+
+  /**
+   * Optional. The namespace of the cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getLocalNamespace() {
+    return localNamespace;
+  }
+
+  /**
+   * Optional. The namespace of the cluster.
+   * @param localNamespace localNamespace or {@code null} for none
+   */
+  public EnrollBareMetalClusterRequest setLocalNamespace(java.lang.String localNamespace) {
+    this.localNamespace = localNamespace;
     return this;
   }
 

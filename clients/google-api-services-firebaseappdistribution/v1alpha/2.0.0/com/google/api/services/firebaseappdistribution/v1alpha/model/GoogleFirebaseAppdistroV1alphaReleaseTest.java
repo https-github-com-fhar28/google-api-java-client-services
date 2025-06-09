@@ -58,6 +58,14 @@ public final class GoogleFirebaseAppdistroV1alphaReleaseTest extends com.google.
   }
 
   /**
+   * Optional. Display name of the release test. Required if the release test is created with
+   * multiple goals.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String displayName;
+
+  /**
    * Optional. Input only. Login credentials for the test. Input only.
    * The value may be {@code null}.
    */
@@ -71,6 +79,22 @@ public final class GoogleFirebaseAppdistroV1alphaReleaseTest extends com.google.
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
+
+  /**
+   * Optional. The test case that was used to generate this release test. Note: The test case may
+   * have changed or been deleted since the release test was created. Format:
+   * `projects/{project_number}/apps/{app}/testCases/{test_case}`
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String testCase;
+
+  /**
+   * Output only. The state of the release test.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String testState;
 
   /**
    * Optional. Instructions for AI driven test.
@@ -124,6 +148,25 @@ public final class GoogleFirebaseAppdistroV1alphaReleaseTest extends com.google.
   }
 
   /**
+   * Optional. Display name of the release test. Required if the release test is created with
+   * multiple goals.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDisplayName() {
+    return displayName;
+  }
+
+  /**
+   * Optional. Display name of the release test. Required if the release test is created with
+   * multiple goals.
+   * @param displayName displayName or {@code null} for none
+   */
+  public GoogleFirebaseAppdistroV1alphaReleaseTest setDisplayName(java.lang.String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
    * Optional. Input only. Login credentials for the test. Input only.
    * @return value or {@code null} for none
    */
@@ -156,6 +199,44 @@ public final class GoogleFirebaseAppdistroV1alphaReleaseTest extends com.google.
    */
   public GoogleFirebaseAppdistroV1alphaReleaseTest setName(java.lang.String name) {
     this.name = name;
+    return this;
+  }
+
+  /**
+   * Optional. The test case that was used to generate this release test. Note: The test case may
+   * have changed or been deleted since the release test was created. Format:
+   * `projects/{project_number}/apps/{app}/testCases/{test_case}`
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getTestCase() {
+    return testCase;
+  }
+
+  /**
+   * Optional. The test case that was used to generate this release test. Note: The test case may
+   * have changed or been deleted since the release test was created. Format:
+   * `projects/{project_number}/apps/{app}/testCases/{test_case}`
+   * @param testCase testCase or {@code null} for none
+   */
+  public GoogleFirebaseAppdistroV1alphaReleaseTest setTestCase(java.lang.String testCase) {
+    this.testCase = testCase;
+    return this;
+  }
+
+  /**
+   * Output only. The state of the release test.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getTestState() {
+    return testState;
+  }
+
+  /**
+   * Output only. The state of the release test.
+   * @param testState testState or {@code null} for none
+   */
+  public GoogleFirebaseAppdistroV1alphaReleaseTest setTestState(java.lang.String testState) {
+    this.testState = testState;
     return this;
   }
 

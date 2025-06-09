@@ -30,11 +30,18 @@ package com.google.api.services.dataform.v1beta1.model;
 public final class DataPreparation extends com.google.api.client.json.GenericJson {
 
   /**
-   * The data preparation definition, stored as a binary encoded proto.
+   * SQL definition for a Data Preparation. Contains a SQL query and additional context information.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.lang.String contents;
+  private SqlDefinition contentsSql;
+
+  /**
+   * The data preparation definition, stored as a YAML string.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String contentsYaml;
 
   /**
    * A list of actions that this action depends on.
@@ -58,47 +65,36 @@ public final class DataPreparation extends com.google.api.client.json.GenericJso
   private java.util.List<java.lang.String> tags;
 
   /**
-   * The data preparation definition, stored as a binary encoded proto.
-   * @see #decodeContents()
+   * SQL definition for a Data Preparation. Contains a SQL query and additional context information.
    * @return value or {@code null} for none
    */
-  public java.lang.String getContents() {
-    return contents;
+  public SqlDefinition getContentsSql() {
+    return contentsSql;
   }
 
   /**
-   * The data preparation definition, stored as a binary encoded proto.
-   * @see #getContents()
-   * @return Base64 decoded value or {@code null} for none
-   *
-   * @since 1.14
+   * SQL definition for a Data Preparation. Contains a SQL query and additional context information.
+   * @param contentsSql contentsSql or {@code null} for none
    */
-  public byte[] decodeContents() {
-    return com.google.api.client.util.Base64.decodeBase64(contents);
-  }
-
-  /**
-   * The data preparation definition, stored as a binary encoded proto.
-   * @see #encodeContents()
-   * @param contents contents or {@code null} for none
-   */
-  public DataPreparation setContents(java.lang.String contents) {
-    this.contents = contents;
+  public DataPreparation setContentsSql(SqlDefinition contentsSql) {
+    this.contentsSql = contentsSql;
     return this;
   }
 
   /**
-   * The data preparation definition, stored as a binary encoded proto.
-   * @see #setContents()
-   *
-   * <p>
-   * The value is encoded Base64 or {@code null} for none.
-   * </p>
-   *
-   * @since 1.14
+   * The data preparation definition, stored as a YAML string.
+   * @return value or {@code null} for none
    */
-  public DataPreparation encodeContents(byte[] contents) {
-    this.contents = com.google.api.client.util.Base64.encodeBase64URLSafeString(contents);
+  public java.lang.String getContentsYaml() {
+    return contentsYaml;
+  }
+
+  /**
+   * The data preparation definition, stored as a YAML string.
+   * @param contentsYaml contentsYaml or {@code null} for none
+   */
+  public DataPreparation setContentsYaml(java.lang.String contentsYaml) {
+    this.contentsYaml = contentsYaml;
     return this;
   }
 

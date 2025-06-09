@@ -57,6 +57,13 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private BackupSource backupSource;
 
   /**
+   * Output only. Cluster created from CloudSQL snapshot.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private CloudSQLBackupRunSource cloudsqlBackupRunSource;
+
+  /**
    * Output only. The type of the cluster. This is an output-only field and it's populated at the
    * Cluster creation time or the Cluster promotion time. The cluster type is determined by which
    * RPC was used to create the cluster (i.e. `CreateCluster` vs. `CreateSecondaryCluster`
@@ -256,6 +263,14 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private java.lang.String subscriptionType;
 
   /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> tags;
+
+  /**
    * Output only. Metadata for free trial clusters
    * The value may be {@code null}.
    */
@@ -333,6 +348,23 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setBackupSource(BackupSource backupSource) {
     this.backupSource = backupSource;
+    return this;
+  }
+
+  /**
+   * Output only. Cluster created from CloudSQL snapshot.
+   * @return value or {@code null} for none
+   */
+  public CloudSQLBackupRunSource getCloudsqlBackupRunSource() {
+    return cloudsqlBackupRunSource;
+  }
+
+  /**
+   * Output only. Cluster created from CloudSQL snapshot.
+   * @param cloudsqlBackupRunSource cloudsqlBackupRunSource or {@code null} for none
+   */
+  public Cluster setCloudsqlBackupRunSource(CloudSQLBackupRunSource cloudsqlBackupRunSource) {
+    this.cloudsqlBackupRunSource = cloudsqlBackupRunSource;
     return this;
   }
 
@@ -809,6 +841,25 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setSubscriptionType(java.lang.String subscriptionType) {
     this.subscriptionType = subscriptionType;
+    return this;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getTags() {
+    return tags;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * @param tags tags or {@code null} for none
+   */
+  public Cluster setTags(java.util.Map<String, java.lang.String> tags) {
+    this.tags = tags;
     return this;
   }
 

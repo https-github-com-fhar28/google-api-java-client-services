@@ -20,7 +20,7 @@ package com.google.api.services.gkeonprem.v1.model;
  * Resource that represents a bare metal user cluster.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the GDC Virtual API. For a detailed explanation see:
+ * transmitted over HTTP when working with the GKE On-Prem API. For a detailed explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
  *
@@ -148,6 +148,13 @@ public final class BareMetalCluster extends com.google.api.client.json.GenericJs
    */
   @com.google.api.client.util.Key
   private java.lang.String localName;
+
+  /**
+   * Output only. The namespace of the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String localNamespace;
 
   /**
    * Maintenance configuration.
@@ -550,6 +557,23 @@ public final class BareMetalCluster extends com.google.api.client.json.GenericJs
    */
   public BareMetalCluster setLocalName(java.lang.String localName) {
     this.localName = localName;
+    return this;
+  }
+
+  /**
+   * Output only. The namespace of the cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getLocalNamespace() {
+    return localNamespace;
+  }
+
+  /**
+   * Output only. The namespace of the cluster.
+   * @param localNamespace localNamespace or {@code null} for none
+   */
+  public BareMetalCluster setLocalNamespace(java.lang.String localNamespace) {
+    this.localNamespace = localNamespace;
     return this;
   }
 

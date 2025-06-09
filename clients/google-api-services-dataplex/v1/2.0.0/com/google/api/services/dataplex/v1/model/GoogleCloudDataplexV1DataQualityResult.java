@@ -30,6 +30,13 @@ package com.google.api.services.dataplex.v1.model;
 public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api.client.json.GenericJson {
 
   /**
+   * Output only. The status of publishing the data scan to Catalog.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDataplexV1DataScanCatalogPublishingStatus catalogPublishingStatus;
+
+  /**
    * Output only. A list of results at the column level.A column will have a corresponding
    * DataQualityColumnResult if and only if there is at least one rule with the 'column' field set
    * to it.
@@ -45,7 +52,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * A list of results at the dimension level.A dimension will have a corresponding
+   * Output only. A list of results at the dimension level.A dimension will have a corresponding
    * DataQualityDimensionResult if and only if there is at least one rule with the 'dimension' field
    * set to it.
    * The value may be {@code null}.
@@ -60,7 +67,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * Overall data quality result -- true if all rules passed.
+   * Output only. Overall data quality result -- true if all rules passed.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -74,21 +81,21 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   private GoogleCloudDataplexV1DataQualityResultPostScanActionsResult postScanActionsResult;
 
   /**
-   * The count of rows processed.
+   * Output only. The count of rows processed.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.lang.Long rowCount;
 
   /**
-   * A list of all the rules in a job, and their results.
+   * Output only. A list of all the rules in a job, and their results.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<GoogleCloudDataplexV1DataQualityRuleResult> rules;
 
   /**
-   * The data scanned for this result.
+   * Output only. The data scanned for this result.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -101,6 +108,23 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
    */
   @com.google.api.client.util.Key
   private java.lang.Float score;
+
+  /**
+   * Output only. The status of publishing the data scan to Catalog.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDataplexV1DataScanCatalogPublishingStatus getCatalogPublishingStatus() {
+    return catalogPublishingStatus;
+  }
+
+  /**
+   * Output only. The status of publishing the data scan to Catalog.
+   * @param catalogPublishingStatus catalogPublishingStatus or {@code null} for none
+   */
+  public GoogleCloudDataplexV1DataQualityResult setCatalogPublishingStatus(GoogleCloudDataplexV1DataScanCatalogPublishingStatus catalogPublishingStatus) {
+    this.catalogPublishingStatus = catalogPublishingStatus;
+    return this;
+  }
 
   /**
    * Output only. A list of results at the column level.A column will have a corresponding
@@ -124,7 +148,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * A list of results at the dimension level.A dimension will have a corresponding
+   * Output only. A list of results at the dimension level.A dimension will have a corresponding
    * DataQualityDimensionResult if and only if there is at least one rule with the 'dimension' field
    * set to it.
    * @return value or {@code null} for none
@@ -134,7 +158,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * A list of results at the dimension level.A dimension will have a corresponding
+   * Output only. A list of results at the dimension level.A dimension will have a corresponding
    * DataQualityDimensionResult if and only if there is at least one rule with the 'dimension' field
    * set to it.
    * @param dimensions dimensions or {@code null} for none
@@ -145,7 +169,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * Overall data quality result -- true if all rules passed.
+   * Output only. Overall data quality result -- true if all rules passed.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getPassed() {
@@ -153,7 +177,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * Overall data quality result -- true if all rules passed.
+   * Output only. Overall data quality result -- true if all rules passed.
    * @param passed passed or {@code null} for none
    */
   public GoogleCloudDataplexV1DataQualityResult setPassed(java.lang.Boolean passed) {
@@ -179,7 +203,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * The count of rows processed.
+   * Output only. The count of rows processed.
    * @return value or {@code null} for none
    */
   public java.lang.Long getRowCount() {
@@ -187,7 +211,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * The count of rows processed.
+   * Output only. The count of rows processed.
    * @param rowCount rowCount or {@code null} for none
    */
   public GoogleCloudDataplexV1DataQualityResult setRowCount(java.lang.Long rowCount) {
@@ -196,7 +220,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * A list of all the rules in a job, and their results.
+   * Output only. A list of all the rules in a job, and their results.
    * @return value or {@code null} for none
    */
   public java.util.List<GoogleCloudDataplexV1DataQualityRuleResult> getRules() {
@@ -204,7 +228,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * A list of all the rules in a job, and their results.
+   * Output only. A list of all the rules in a job, and their results.
    * @param rules rules or {@code null} for none
    */
   public GoogleCloudDataplexV1DataQualityResult setRules(java.util.List<GoogleCloudDataplexV1DataQualityRuleResult> rules) {
@@ -213,7 +237,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * The data scanned for this result.
+   * Output only. The data scanned for this result.
    * @return value or {@code null} for none
    */
   public GoogleCloudDataplexV1ScannedData getScannedData() {
@@ -221,7 +245,7 @@ public final class GoogleCloudDataplexV1DataQualityResult extends com.google.api
   }
 
   /**
-   * The data scanned for this result.
+   * Output only. The data scanned for this result.
    * @param scannedData scannedData or {@code null} for none
    */
   public GoogleCloudDataplexV1DataQualityResult setScannedData(GoogleCloudDataplexV1ScannedData scannedData) {

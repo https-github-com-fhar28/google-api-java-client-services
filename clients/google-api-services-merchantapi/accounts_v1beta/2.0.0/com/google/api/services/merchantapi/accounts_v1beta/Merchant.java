@@ -154,8 +154,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
   public class Accounts {
 
     /**
-     * Creates a standalone Merchant Center account with additional configuration. Adds the user that
-     * makes the request as an admin for the new account.
+     * Creates a Merchant Center account with additional configuration. Adds the user that makes the
+     * request as an admin for the new account.
      *
      * Create a request for the method "accounts.createAndConfigure".
      *
@@ -176,8 +176,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
       private static final String REST_PATH = "accounts/v1beta/accounts:createAndConfigure";
 
       /**
-       * Creates a standalone Merchant Center account with additional configuration. Adds the user that
-       * makes the request as an admin for the new account.
+       * Creates a Merchant Center account with additional configuration. Adds the user that makes the
+       * request as an admin for the new account.
        *
        * Create a request for the method "accounts.createAndConfigure".
        *
@@ -255,9 +255,11 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
       }
     }
     /**
-     * Deletes the specified account regardless of its type: standalone, MCA or sub-account. Deleting an
-     * MCA leads to the deletion of all of its sub-accounts. Executing this method requires admin
-     * access.
+     * Deletes the specified account regardless of its type: standalone, advanced account or sub-
+     * account. Deleting an advanced account leads to the deletion of all of its sub-accounts. Executing
+     * this method requires admin access. The deletion succeeds only if the account does not provide
+     * services to any other account and has no processed offers. You can use the `force` parameter to
+     * override this.
      *
      * Create a request for the method "accounts.delete".
      *
@@ -281,9 +283,11 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           java.util.regex.Pattern.compile("^accounts/[^/]+$");
 
       /**
-       * Deletes the specified account regardless of its type: standalone, MCA or sub-account. Deleting
-       * an MCA leads to the deletion of all of its sub-accounts. Executing this method requires admin
-       * access.
+       * Deletes the specified account regardless of its type: standalone, advanced account or sub-
+       * account. Deleting an advanced account leads to the deletion of all of its sub-accounts.
+       * Executing this method requires admin access. The deletion succeeds only if the account does not
+       * provide services to any other account and has no processed offers. You can use the `force`
+       * parameter to override this.
        *
        * Create a request for the method "accounts.delete".
        *
@@ -379,6 +383,29 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
               "^accounts/[^/]+$");
         }
         this.name = name;
+        return this;
+      }
+
+      /**
+       * Optional. If set to `true`, the account is deleted even if it provides services to other
+       * accounts or has processed offers.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.Boolean force;
+
+      /** Optional. If set to `true`, the account is deleted even if it provides services to other accounts
+     or has processed offers.
+       */
+      public java.lang.Boolean getForce() {
+        return force;
+      }
+
+      /**
+       * Optional. If set to `true`, the account is deleted even if it provides services to other
+       * accounts or has processed offers.
+       */
+      public Delete setForce(java.lang.Boolean force) {
+        this.force = force;
         return this;
       }
 
@@ -529,8 +556,14 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
     }
     /**
      * Lists accounts accessible to the calling user and matching the constraints of the request such as
-     * page size or filters. This is not just listing the sub-accounts of an MCA, but all accounts the
-     * calling user has access to including other MCAs, linked accounts, standalone accounts and so on.
+     * page size or filters. This is not just listing the sub-accounts of an advanced account, but all
+     * accounts the calling user has access to including other advanced accounts, linked accounts,
+     * standalone accounts and so on. If no filter is provided, then it returns all the accounts the
+     * user has access to. This method is eventually consistent, meaning changes such as creating,
+     * updating an account or a change of relationships between accounts may not show up in the results
+     * immediately. Instead, these changes propagate over a short period, after which the updated
+     * information can match the associated predicates. That means, that searching by account name might
+     * not return a recently changed account even though it satisfies the predicate.
      *
      * Create a request for the method "accounts.list".
      *
@@ -551,9 +584,14 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
       /**
        * Lists accounts accessible to the calling user and matching the constraints of the request such
-       * as page size or filters. This is not just listing the sub-accounts of an MCA, but all accounts
-       * the calling user has access to including other MCAs, linked accounts, standalone accounts and
-       * so on.
+       * as page size or filters. This is not just listing the sub-accounts of an advanced account, but
+       * all accounts the calling user has access to including other advanced accounts, linked accounts,
+       * standalone accounts and so on. If no filter is provided, then it returns all the accounts the
+       * user has access to. This method is eventually consistent, meaning changes such as creating,
+       * updating an account or a change of relationships between accounts may not show up in the
+       * results immediately. Instead, these changes propagate over a short period, after which the
+       * updated information can match the associated predicates. That means, that searching by account
+       * name might not return a recently changed account even though it satisfies the predicate.
        *
        * Create a request for the method "accounts.list".
        *
@@ -635,14 +673,17 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
       /**
        * Optional. Returns only accounts that match the
-       * [filter](/merchant/api/guides/accounts/filter). For more details, see the [filter syntax
-       * reference](/merchant/api/guides/accounts/filter-syntax).
+       * [filter](https://developers.google.com/merchant/api/guides/accounts/filter). For more
+       * details, see the [filter syntax
+       * reference](https://developers.google.com/merchant/api/guides/accounts/filter-syntax).
        */
       @com.google.api.client.util.Key
       private java.lang.String filter;
 
-      /** Optional. Returns only accounts that match the [filter](/merchant/api/guides/accounts/filter). For
-     more details, see the [filter syntax reference](/merchant/api/guides/accounts/filter-syntax).
+      /** Optional. Returns only accounts that match the
+     [filter](https://developers.google.com/merchant/api/guides/accounts/filter). For more details, see
+     the [filter syntax reference](https://developers.google.com/merchant/api/guides/accounts/filter-
+     syntax).
        */
       public java.lang.String getFilter() {
         return filter;
@@ -650,8 +691,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
       /**
        * Optional. Returns only accounts that match the
-       * [filter](/merchant/api/guides/accounts/filter). For more details, see the [filter syntax
-       * reference](/merchant/api/guides/accounts/filter-syntax).
+       * [filter](https://developers.google.com/merchant/api/guides/accounts/filter). For more
+       * details, see the [filter syntax
+       * reference](https://developers.google.com/merchant/api/guides/accounts/filter-syntax).
        */
       public List setFilter(java.lang.String filter) {
         this.filter = filter;
@@ -726,7 +768,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
      * This request holds the parameters needed by the merchantapi server.  After setting any optional
      * parameters, call the {@link ListSubaccounts#execute()} method to invoke the remote operation.
      *
-     * @param provider Required. The parent account. Format: `accounts/{account}`
+     * @param provider Required. The aggregation service provider. Format: `accounts/{accountId}`
      * @return the request
      */
     public ListSubaccounts listSubaccounts(java.lang.String provider) throws java.io.IOException {
@@ -756,7 +798,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
        * the constructor. </p>
        *
-       * @param provider Required. The parent account. Format: `accounts/{account}`
+       * @param provider Required. The aggregation service provider. Format: `accounts/{accountId}`
        * @since 1.13
        */
       protected ListSubaccounts(java.lang.String provider) {
@@ -834,17 +876,17 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         return (ListSubaccounts) super.setUploadProtocol(uploadProtocol);
       }
 
-      /** Required. The parent account. Format: `accounts/{account}` */
+      /** Required. The aggregation service provider. Format: `accounts/{accountId}` */
       @com.google.api.client.util.Key
       private java.lang.String provider;
 
-      /** Required. The parent account. Format: `accounts/{account}`
+      /** Required. The aggregation service provider. Format: `accounts/{accountId}`
        */
       public java.lang.String getProvider() {
         return provider;
       }
 
-      /** Required. The parent account. Format: `accounts/{account}` */
+      /** Required. The aggregation service provider. Format: `accounts/{accountId}` */
       public ListSubaccounts setProvider(java.lang.String provider) {
         if (!getSuppressPatternChecks()) {
           com.google.api.client.util.Preconditions.checkArgument(PROVIDER_PATTERN.matcher(provider).matches(),
@@ -913,8 +955,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
       }
     }
     /**
-     * Updates an account regardless of its type: standalone, MCA or sub-account. Executing this method
-     * requires admin access.
+     * Updates an account regardless of its type: standalone, advanced account or sub-account. Executing
+     * this method requires admin access.
      *
      * Create a request for the method "accounts.patch".
      *
@@ -939,8 +981,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           java.util.regex.Pattern.compile("^accounts/[^/]+$");
 
       /**
-       * Updates an account regardless of its type: standalone, MCA or sub-account. Executing this
-       * method requires admin access.
+       * Updates an account regardless of its type: standalone, advanced account or sub-account.
+       * Executing this method requires admin access.
        *
        * Create a request for the method "accounts.patch".
        *
@@ -1040,17 +1082,26 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         return this;
       }
 
-      /** Required. List of fields being updated. */
+      /**
+       * Optional. List of fields being updated. The following fields are supported (in both
+       * `snake_case` and `lowerCamelCase`): - `account_name` - `adult_content` - `language_code` -
+       * `time_zone`
+       */
       @com.google.api.client.util.Key
       private String updateMask;
 
-      /** Required. List of fields being updated.
+      /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+     and `lowerCamelCase`): - `account_name` - `adult_content` - `language_code` - `time_zone`
        */
       public String getUpdateMask() {
         return updateMask;
       }
 
-      /** Required. List of fields being updated. */
+      /**
+       * Optional. List of fields being updated. The following fields are supported (in both
+       * `snake_case` and `lowerCamelCase`): - `account_name` - `adult_content` - `language_code` -
+       * `time_zone`
+       */
       public Patch setUpdateMask(String updateMask) {
         this.updateMask = updateMask;
         return this;
@@ -1387,6 +1438,349 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
     }
     /**
+     * An accessor for creating requests from the AutomaticImprovements collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Merchant merchantapi = new Merchant(...);}
+     *   {@code Merchant.AutomaticImprovements.List request = merchantapi.automaticImprovements().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public AutomaticImprovements automaticImprovements() {
+      return new AutomaticImprovements();
+    }
+
+    /**
+     * The "automaticImprovements" collection of methods.
+     */
+    public class AutomaticImprovements {
+
+      /**
+       * Retrieves the automatic improvements of an account.
+       *
+       * Create a request for the method "automaticImprovements.getAutomaticImprovements".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link GetAutomaticImprovements#execute()} method to invoke the remote
+       * operation.
+       *
+       * @param name Required. The resource name of the automatic improvements. Format:
+       *        `accounts/{account}/automaticImprovements`
+       * @return the request
+       */
+      public GetAutomaticImprovements getAutomaticImprovements(java.lang.String name) throws java.io.IOException {
+        GetAutomaticImprovements result = new GetAutomaticImprovements(name);
+        initialize(result);
+        return result;
+      }
+
+      public class GetAutomaticImprovements extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.AutomaticImprovements> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/automaticImprovements$");
+
+        /**
+         * Retrieves the automatic improvements of an account.
+         *
+         * Create a request for the method "automaticImprovements.getAutomaticImprovements".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link GetAutomaticImprovements#execute()} method to invoke the
+         * remote operation. <p> {@link GetAutomaticImprovements#initialize(com.google.api.client.googleap
+         * is.services.AbstractGoogleClientRequest)} must be called to initialize this instance
+         * immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The resource name of the automatic improvements. Format:
+       *        `accounts/{account}/automaticImprovements`
+         * @since 1.13
+         */
+        protected GetAutomaticImprovements(java.lang.String name) {
+          super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.AutomaticImprovements.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/automaticImprovements$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public GetAutomaticImprovements set$Xgafv(java.lang.String $Xgafv) {
+          return (GetAutomaticImprovements) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public GetAutomaticImprovements setAccessToken(java.lang.String accessToken) {
+          return (GetAutomaticImprovements) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public GetAutomaticImprovements setAlt(java.lang.String alt) {
+          return (GetAutomaticImprovements) super.setAlt(alt);
+        }
+
+        @Override
+        public GetAutomaticImprovements setCallback(java.lang.String callback) {
+          return (GetAutomaticImprovements) super.setCallback(callback);
+        }
+
+        @Override
+        public GetAutomaticImprovements setFields(java.lang.String fields) {
+          return (GetAutomaticImprovements) super.setFields(fields);
+        }
+
+        @Override
+        public GetAutomaticImprovements setKey(java.lang.String key) {
+          return (GetAutomaticImprovements) super.setKey(key);
+        }
+
+        @Override
+        public GetAutomaticImprovements setOauthToken(java.lang.String oauthToken) {
+          return (GetAutomaticImprovements) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public GetAutomaticImprovements setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (GetAutomaticImprovements) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public GetAutomaticImprovements setQuotaUser(java.lang.String quotaUser) {
+          return (GetAutomaticImprovements) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public GetAutomaticImprovements setUploadType(java.lang.String uploadType) {
+          return (GetAutomaticImprovements) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public GetAutomaticImprovements setUploadProtocol(java.lang.String uploadProtocol) {
+          return (GetAutomaticImprovements) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The resource name of the automatic improvements. Format:
+         * `accounts/{account}/automaticImprovements`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The resource name of the automatic improvements. Format:
+       `accounts/{account}/automaticImprovements`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The resource name of the automatic improvements. Format:
+         * `accounts/{account}/automaticImprovements`
+         */
+        public GetAutomaticImprovements setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/automaticImprovements$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public GetAutomaticImprovements set(String parameterName, Object value) {
+          return (GetAutomaticImprovements) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Updates the automatic improvements of an account.
+       *
+       * Create a request for the method "automaticImprovements.updateAutomaticImprovements".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link UpdateAutomaticImprovements#execute()} method to invoke the remote
+       * operation.
+       *
+       * @param name Identifier. The resource name of the automatic improvements. Format:
+       *        `accounts/{account}/automaticImprovements`.
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.AutomaticImprovements}
+       * @return the request
+       */
+      public UpdateAutomaticImprovements updateAutomaticImprovements(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.AutomaticImprovements content) throws java.io.IOException {
+        UpdateAutomaticImprovements result = new UpdateAutomaticImprovements(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class UpdateAutomaticImprovements extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.AutomaticImprovements> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/automaticImprovements$");
+
+        /**
+         * Updates the automatic improvements of an account.
+         *
+         * Create a request for the method "automaticImprovements.updateAutomaticImprovements".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link UpdateAutomaticImprovements#execute()} method to invoke
+         * the remote operation. <p> {@link UpdateAutomaticImprovements#initialize(com.google.api.client.g
+         * oogleapis.services.AbstractGoogleClientRequest)} must be called to initialize this instance
+         * immediately after invoking the constructor. </p>
+         *
+         * @param name Identifier. The resource name of the automatic improvements. Format:
+       *        `accounts/{account}/automaticImprovements`.
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.AutomaticImprovements}
+         * @since 1.13
+         */
+        protected UpdateAutomaticImprovements(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.AutomaticImprovements content) {
+          super(Merchant.this, "PATCH", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.AutomaticImprovements.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/automaticImprovements$");
+          }
+        }
+
+        @Override
+        public UpdateAutomaticImprovements set$Xgafv(java.lang.String $Xgafv) {
+          return (UpdateAutomaticImprovements) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setAccessToken(java.lang.String accessToken) {
+          return (UpdateAutomaticImprovements) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setAlt(java.lang.String alt) {
+          return (UpdateAutomaticImprovements) super.setAlt(alt);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setCallback(java.lang.String callback) {
+          return (UpdateAutomaticImprovements) super.setCallback(callback);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setFields(java.lang.String fields) {
+          return (UpdateAutomaticImprovements) super.setFields(fields);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setKey(java.lang.String key) {
+          return (UpdateAutomaticImprovements) super.setKey(key);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setOauthToken(java.lang.String oauthToken) {
+          return (UpdateAutomaticImprovements) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (UpdateAutomaticImprovements) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setQuotaUser(java.lang.String quotaUser) {
+          return (UpdateAutomaticImprovements) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setUploadType(java.lang.String uploadType) {
+          return (UpdateAutomaticImprovements) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public UpdateAutomaticImprovements setUploadProtocol(java.lang.String uploadProtocol) {
+          return (UpdateAutomaticImprovements) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. The resource name of the automatic improvements. Format:
+         * `accounts/{account}/automaticImprovements`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. The resource name of the automatic improvements. Format:
+       `accounts/{account}/automaticImprovements`.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. The resource name of the automatic improvements. Format:
+         * `accounts/{account}/automaticImprovements`.
+         */
+        public UpdateAutomaticImprovements setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/automaticImprovements$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Required. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `item_updates` -
+         * `item_updates.account_level_settings` - `image_improvements` -
+         * `image_improvements.account_level_settings` - `shipping_improvements` -
+         * `shipping_improvements.allow_shipping_improvements`
+         */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** Required. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `item_updates` - `item_updates.account_level_settings` -
+       `image_improvements` - `image_improvements.account_level_settings` - `shipping_improvements` -
+       `shipping_improvements.allow_shipping_improvements`
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /**
+         * Required. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `item_updates` -
+         * `item_updates.account_level_settings` - `image_improvements` -
+         * `image_improvements.account_level_settings` - `shipping_improvements` -
+         * `shipping_improvements.allow_shipping_improvements`
+         */
+        public UpdateAutomaticImprovements setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public UpdateAutomaticImprovements set(String parameterName, Object value) {
+          return (UpdateAutomaticImprovements) super.set(parameterName, value);
+        }
+      }
+
+    }
+    /**
      * An accessor for creating requests from the BusinessIdentity collection.
      *
      * <p>The typical use is:</p>
@@ -1414,7 +1808,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link GetBusinessIdentity#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The resource name of the business identity. Format: `accounts/{account}/businessIdentity`
+       * @param name Required. The resource name of the business identity. Format: `accounts/{account}/businessIdentity`.
+       *        For example, `accounts/123456/businessIdentity`.
        * @return the request
        */
       public GetBusinessIdentity getBusinessIdentity(java.lang.String name) throws java.io.IOException {
@@ -1441,7 +1836,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * AbstractGoogleClientRequest)} must be called to initialize this instance immediately after
          * invoking the constructor. </p>
          *
-         * @param name Required. The resource name of the business identity. Format: `accounts/{account}/businessIdentity`
+         * @param name Required. The resource name of the business identity. Format: `accounts/{account}/businessIdentity`.
+       *        For example, `accounts/123456/businessIdentity`.
          * @since 1.13
          */
         protected GetBusinessIdentity(java.lang.String name) {
@@ -1521,12 +1917,13 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The resource name of the business identity. Format:
-         * `accounts/{account}/businessIdentity`
+         * `accounts/{account}/businessIdentity`. For example, `accounts/123456/businessIdentity`.
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The resource name of the business identity. Format: `accounts/{account}/businessIdentity`
+        /** Required. The resource name of the business identity. Format:
+       `accounts/{account}/businessIdentity`. For example, `accounts/123456/businessIdentity`.
          */
         public java.lang.String getName() {
           return name;
@@ -1534,7 +1931,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The resource name of the business identity. Format:
-         * `accounts/{account}/businessIdentity`
+         * `accounts/{account}/businessIdentity`. For example, `accounts/123456/businessIdentity`.
          */
         public GetBusinessIdentity setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -1687,17 +2084,27 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `black_owned` - `latino_owned` -
+         * `promotions_consent` - `small_business` - `veteran_owned` - `women_owned`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `black_owned` - `latino_owned` - `promotions_consent` - `small_business` -
+       `veteran_owned` - `women_owned`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `black_owned` - `latino_owned` -
+         * `promotions_consent` - `small_business` - `veteran_owned` - `women_owned`
+         */
         public UpdateBusinessIdentity setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -1738,7 +2145,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link GetBusinessInfo#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The resource name of the business info. Format: `accounts/{account}/businessInfo`
+       * @param name Required. The resource name of the business info. Format: `accounts/{account}/businessInfo`. For
+       *        example, `accounts/123456/businessInfo`.
        * @return the request
        */
       public GetBusinessInfo getBusinessInfo(java.lang.String name) throws java.io.IOException {
@@ -1765,7 +2173,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
          * the constructor. </p>
          *
-         * @param name Required. The resource name of the business info. Format: `accounts/{account}/businessInfo`
+         * @param name Required. The resource name of the business info. Format: `accounts/{account}/businessInfo`. For
+       *        example, `accounts/123456/businessInfo`.
          * @since 1.13
          */
         protected GetBusinessInfo(java.lang.String name) {
@@ -1845,12 +2254,13 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The resource name of the business info. Format:
-         * `accounts/{account}/businessInfo`
+         * `accounts/{account}/businessInfo`. For example, `accounts/123456/businessInfo`.
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The resource name of the business info. Format: `accounts/{account}/businessInfo`
+        /** Required. The resource name of the business info. Format: `accounts/{account}/businessInfo`. For
+       example, `accounts/123456/businessInfo`.
          */
         public java.lang.String getName() {
           return name;
@@ -1858,7 +2268,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The resource name of the business info. Format:
-         * `accounts/{account}/businessInfo`
+         * `accounts/{account}/businessInfo`. For example, `accounts/123456/businessInfo`.
          */
         public GetBusinessInfo setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -2007,17 +2417,26 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `address` - `customer_service` -
+         * `korean_business_registration_number`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `address` - `customer_service` - `korean_business_registration_number`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `address` - `customer_service` -
+         * `korean_business_registration_number`
+         */
         public UpdateBusinessInfo setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -2051,7 +2470,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
     public class EmailPreferences {
 
       /**
-       * Returns the email preferences for a Merchant Center account user. Use the
+       * Returns the email preferences for a Merchant Center account user. This service only permits
+       * retrieving and updating email preferences for the authenticated user. Use the
        * name=accounts/users/me/emailPreferences alias to get preferences for the authenticated user.
        *
        * Create a request for the method "emailPreferences.getEmailPreferences".
@@ -2077,7 +2497,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/users/[^/]+/emailPreferences$");
 
         /**
-         * Returns the email preferences for a Merchant Center account user. Use the
+         * Returns the email preferences for a Merchant Center account user. This service only permits
+         * retrieving and updating email preferences for the authenticated user. Use the
          * name=accounts/users/me/emailPreferences alias to get preferences for the authenticated user.
          *
          * Create a request for the method "emailPreferences.getEmailPreferences".
@@ -2201,11 +2622,11 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
       }
       /**
-       * Updates the email preferences for a Merchant Center account user. MCA users should specify the
-       * MCA account rather than a sub-account of the MCA. Preferences which are not explicitly selected
-       * in the update mask will not be updated. It is invalid for updates to specify an UNCONFIRMED opt-
-       * in status value. Use the name=accounts/users/me/emailPreferences alias to update preferences for
-       * the authenticated user.
+       * Updates the email preferences for a Merchant Center account user. Advanced account users should
+       * specify the advanced account rather than a sub-account of the advanced account. Preferences which
+       * are not explicitly selected in the update mask will not be updated. It is invalid for updates to
+       * specify an UNCONFIRMED opt-in status value. Use the name=accounts/users/me/emailPreferences alias
+       * to update preferences for the authenticated user.
        *
        * Create a request for the method "emailPreferences.updateEmailPreferences".
        *
@@ -2232,11 +2653,11 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/users/[^/]+/emailPreferences$");
 
         /**
-         * Updates the email preferences for a Merchant Center account user. MCA users should specify the
-         * MCA account rather than a sub-account of the MCA. Preferences which are not explicitly selected
-         * in the update mask will not be updated. It is invalid for updates to specify an UNCONFIRMED
-         * opt-in status value. Use the name=accounts/users/me/emailPreferences alias to update
-         * preferences for the authenticated user.
+         * Updates the email preferences for a Merchant Center account user. Advanced account users should
+         * specify the advanced account rather than a sub-account of the advanced account. Preferences
+         * which are not explicitly selected in the update mask will not be updated. It is invalid for
+         * updates to specify an UNCONFIRMED opt-in status value. Use the
+         * name=accounts/users/me/emailPreferences alias to update preferences for the authenticated user.
          *
          * Create a request for the method "emailPreferences.updateEmailPreferences".
          *
@@ -2344,17 +2765,24 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Required. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `news_and_tips`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Required. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `news_and_tips`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Required. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `news_and_tips`
+         */
         public UpdateEmailPreferences setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -2363,6 +2791,370 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         @Override
         public UpdateEmailPreferences set(String parameterName, Object value) {
           return (UpdateEmailPreferences) super.set(parameterName, value);
+        }
+      }
+
+    }
+    /**
+     * An accessor for creating requests from the GbpAccounts collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Merchant merchantapi = new Merchant(...);}
+     *   {@code Merchant.GbpAccounts.List request = merchantapi.gbpAccounts().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public GbpAccounts gbpAccounts() {
+      return new GbpAccounts();
+    }
+
+    /**
+     * The "gbpAccounts" collection of methods.
+     */
+    public class GbpAccounts {
+
+      /**
+       * Link the specified merchant to a GBP account for all countries.
+       *
+       * Create a request for the method "gbpAccounts.linkGbpAccount".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link LinkGbpAccount#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The name of the parent resource to which the GBP account is linked. Format:
+       *        `accounts/{account}`.
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.LinkGbpAccountRequest}
+       * @return the request
+       */
+      public LinkGbpAccount linkGbpAccount(java.lang.String parent, com.google.api.services.merchantapi.accounts_v1beta.model.LinkGbpAccountRequest content) throws java.io.IOException {
+        LinkGbpAccount result = new LinkGbpAccount(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class LinkGbpAccount extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.LinkGbpAccountResponse> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+parent}/gbpAccounts:linkGbpAccount";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * Link the specified merchant to a GBP account for all countries.
+         *
+         * Create a request for the method "gbpAccounts.linkGbpAccount".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link LinkGbpAccount#execute()} method to invoke the remote
+         * operation. <p> {@link LinkGbpAccount#initialize(com.google.api.client.googleapis.services.Abstr
+         * actGoogleClientRequest)} must be called to initialize this instance immediately after invoking
+         * the constructor. </p>
+         *
+         * @param parent Required. The name of the parent resource to which the GBP account is linked. Format:
+       *        `accounts/{account}`.
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.LinkGbpAccountRequest}
+         * @since 1.13
+         */
+        protected LinkGbpAccount(java.lang.String parent, com.google.api.services.merchantapi.accounts_v1beta.model.LinkGbpAccountRequest content) {
+          super(Merchant.this, "POST", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.LinkGbpAccountResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public LinkGbpAccount set$Xgafv(java.lang.String $Xgafv) {
+          return (LinkGbpAccount) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public LinkGbpAccount setAccessToken(java.lang.String accessToken) {
+          return (LinkGbpAccount) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public LinkGbpAccount setAlt(java.lang.String alt) {
+          return (LinkGbpAccount) super.setAlt(alt);
+        }
+
+        @Override
+        public LinkGbpAccount setCallback(java.lang.String callback) {
+          return (LinkGbpAccount) super.setCallback(callback);
+        }
+
+        @Override
+        public LinkGbpAccount setFields(java.lang.String fields) {
+          return (LinkGbpAccount) super.setFields(fields);
+        }
+
+        @Override
+        public LinkGbpAccount setKey(java.lang.String key) {
+          return (LinkGbpAccount) super.setKey(key);
+        }
+
+        @Override
+        public LinkGbpAccount setOauthToken(java.lang.String oauthToken) {
+          return (LinkGbpAccount) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public LinkGbpAccount setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (LinkGbpAccount) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public LinkGbpAccount setQuotaUser(java.lang.String quotaUser) {
+          return (LinkGbpAccount) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public LinkGbpAccount setUploadType(java.lang.String uploadType) {
+          return (LinkGbpAccount) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public LinkGbpAccount setUploadProtocol(java.lang.String uploadProtocol) {
+          return (LinkGbpAccount) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the parent resource to which the GBP account is linked. Format:
+         * `accounts/{account}`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The name of the parent resource to which the GBP account is linked. Format:
+       `accounts/{account}`.
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The name of the parent resource to which the GBP account is linked. Format:
+         * `accounts/{account}`.
+         */
+        public LinkGbpAccount setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        @Override
+        public LinkGbpAccount set(String parameterName, Object value) {
+          return (LinkGbpAccount) super.set(parameterName, value);
+        }
+      }
+      /**
+       * List the GBP accounts for a given merchant.
+       *
+       * Create a request for the method "gbpAccounts.list".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The name of the parent resource under which the GBP accounts are listed. Format:
+       *        `accounts/{account}`.
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.ListGbpAccountsResponse> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+parent}/gbpAccounts";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * List the GBP accounts for a given merchant.
+         *
+         * Create a request for the method "gbpAccounts.list".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+         * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The name of the parent resource under which the GBP accounts are listed. Format:
+       *        `accounts/{account}`.
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.ListGbpAccountsResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the parent resource under which the GBP accounts are listed.
+         * Format: `accounts/{account}`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The name of the parent resource under which the GBP accounts are listed. Format:
+       `accounts/{account}`.
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The name of the parent resource under which the GBP accounts are listed.
+         * Format: `accounts/{account}`.
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. The maximum number of `GbpAccount` resources to return. The service returns
+         * fewer than this value if the number of gbp accounts is less that than the `pageSize`. The
+         * default value is 50. The maximum value is 1000; If a value higher than the maximum is
+         * specified, then the `pageSize` will default to the maximum.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. The maximum number of `GbpAccount` resources to return. The service returns fewer than
+       this value if the number of gbp accounts is less that than the `pageSize`. The default value is 50.
+       The maximum value is 1000; If a value higher than the maximum is specified, then the `pageSize`
+       will default to the maximum.
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /**
+         * Optional. The maximum number of `GbpAccount` resources to return. The service returns
+         * fewer than this value if the number of gbp accounts is less that than the `pageSize`. The
+         * default value is 50. The maximum value is 1000; If a value higher than the maximum is
+         * specified, then the `pageSize` will default to the maximum.
+         */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListGbpAccounts` call. Provide the page
+         * token to retrieve the subsequent page. When paginating, all other parameters provided to
+         * `ListGbpAccounts` must match the call that provided the page token.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. A page token, received from a previous `ListGbpAccounts` call. Provide the page token to
+       retrieve the subsequent page. When paginating, all other parameters provided to `ListGbpAccounts`
+       must match the call that provided the page token.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListGbpAccounts` call. Provide the page
+         * token to retrieve the subsequent page. When paginating, all other parameters provided to
+         * `ListGbpAccounts` must match the call that provided the page token.
+         */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
         }
       }
 
@@ -2389,13 +3181,13 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
       /**
        * Claims a store's homepage. Executing this method requires admin access. If the homepage is
-       * already claimed, this will recheck the verification (unless the merchant is exempted from
+       * already claimed, this will recheck the verification (unless the business is exempted from
        * claiming, which also exempts from verification) and return a successful response. If ownership
        * can no longer be verified, it will return an error, but it won't clear the claim. In case of
-       * failure, a canonical error message will be returned: * PERMISSION_DENIED: user doesn't have the
-       * necessary permissions on this MC account; * FAILED_PRECONDITION: - The account is not a Merchant
-       * Center account; - MC account doesn't have a homepage; - claiming failed (in this case the error
-       * message will contain more details).
+       * failure, a canonical error message is returned: * PERMISSION_DENIED: User doesn't have the
+       * necessary permissions on this Merchant Center account. * FAILED_PRECONDITION: - The account is
+       * not a Merchant Center account. - Merchant Center account doesn't have a homepage. - Claiming
+       * failed (in this case the error message contains more details).
        *
        * Create a request for the method "homepage.claim".
        *
@@ -2421,13 +3213,13 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Claims a store's homepage. Executing this method requires admin access. If the homepage is
-         * already claimed, this will recheck the verification (unless the merchant is exempted from
+         * already claimed, this will recheck the verification (unless the business is exempted from
          * claiming, which also exempts from verification) and return a successful response. If ownership
          * can no longer be verified, it will return an error, but it won't clear the claim. In case of
-         * failure, a canonical error message will be returned: * PERMISSION_DENIED: user doesn't have the
-         * necessary permissions on this MC account; * FAILED_PRECONDITION: - The account is not a
-         * Merchant Center account; - MC account doesn't have a homepage; - claiming failed (in this case
-         * the error message will contain more details).
+         * failure, a canonical error message is returned: * PERMISSION_DENIED: User doesn't have the
+         * necessary permissions on this Merchant Center account. * FAILED_PRECONDITION: - The account is
+         * not a Merchant Center account. - Merchant Center account doesn't have a homepage. - Claiming
+         * failed (in this case the error message contains more details).
          *
          * Create a request for the method "homepage.claim".
          *
@@ -2938,17 +3730,24 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `uri`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `uri`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `uri`
+         */
         public UpdateHomepage setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -2982,7 +3781,10 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
     public class Issues {
 
       /**
-       * Lists all account issues of a Merchant Center account.
+       * Lists all account issues of a Merchant Center account. When called on a multi-client account,
+       * this method only returns issues belonging to that account, not its sub-accounts. To retrieve
+       * issues for sub-accounts, you must first call the accounts.listSubaccounts method to obtain a list
+       * of sub-accounts, and then call `accounts.issues.list` for each sub-account individually.
        *
        * Create a request for the method "issues.list".
        *
@@ -3006,7 +3808,10 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+$");
 
         /**
-         * Lists all account issues of a Merchant Center account.
+         * Lists all account issues of a Merchant Center account. When called on a multi-client account,
+         * this method only returns issues belonging to that account, not its sub-accounts. To retrieve
+         * issues for sub-accounts, you must first call the accounts.listSubaccounts method to obtain a
+         * list of sub-accounts, and then call `accounts.issues.list` for each sub-account individually.
          *
          * Create a request for the method "issues.list".
          *
@@ -3146,14 +3951,14 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Optional. The maximum number of issues to return. The service may return fewer than this
-         * value. If unspecified, at most 50 users will be returned. The maximum value is 100;
+         * value. If unspecified, at most 50 issues will be returned. The maximum value is 100;
          * values above 100 will be coerced to 100
          */
         @com.google.api.client.util.Key
         private java.lang.Integer pageSize;
 
         /** Optional. The maximum number of issues to return. The service may return fewer than this value. If
-       unspecified, at most 50 users will be returned. The maximum value is 100; values above 100 will be
+       unspecified, at most 50 issues will be returned. The maximum value is 100; values above 100 will be
        coerced to 100
          */
         public java.lang.Integer getPageSize() {
@@ -3162,7 +3967,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Optional. The maximum number of issues to return. The service may return fewer than this
-         * value. If unspecified, at most 50 users will be returned. The maximum value is 100;
+         * value. If unspecified, at most 50 issues will be returned. The maximum value is 100;
          * values above 100 will be coerced to 100
          */
         public List setPageSize(java.lang.Integer pageSize) {
@@ -3196,35 +4001,28 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** IANA Time Zone Database time zone, e.g. "America/New_York". */
-        @com.google.api.client.util.Key("timeZone.id")
-        private java.lang.String timeZoneId;
-
-        /** IANA Time Zone Database time zone, e.g. "America/New_York".
+        /**
+         * Optional. The [IANA](https://www.iana.org/time-zones) timezone used to localize times in
+         * human-readable fields. For example 'America/Los_Angeles'. If not set,
+         * 'America/Los_Angeles' will be used.
          */
-        public java.lang.String getTimeZoneId() {
-          return timeZoneId;
-        }
+        @com.google.api.client.util.Key
+        private java.lang.String timeZone;
 
-        /** IANA Time Zone Database time zone, e.g. "America/New_York". */
-        public List setTimeZoneId(java.lang.String timeZoneId) {
-          this.timeZoneId = timeZoneId;
-          return this;
-        }
-
-        /** Optional. IANA Time Zone Database version number, e.g. "2019a". */
-        @com.google.api.client.util.Key("timeZone.version")
-        private java.lang.String timeZoneVersion;
-
-        /** Optional. IANA Time Zone Database version number, e.g. "2019a".
+        /** Optional. The [IANA](https://www.iana.org/time-zones) timezone used to localize times in human-
+       readable fields. For example 'America/Los_Angeles'. If not set, 'America/Los_Angeles' will be used.
          */
-        public java.lang.String getTimeZoneVersion() {
-          return timeZoneVersion;
+        public java.lang.String getTimeZone() {
+          return timeZone;
         }
 
-        /** Optional. IANA Time Zone Database version number, e.g. "2019a". */
-        public List setTimeZoneVersion(java.lang.String timeZoneVersion) {
-          this.timeZoneVersion = timeZoneVersion;
+        /**
+         * Optional. The [IANA](https://www.iana.org/time-zones) timezone used to localize times in
+         * human-readable fields. For example 'America/Los_Angeles'. If not set,
+         * 'America/Los_Angeles' will be used.
+         */
+        public List setTimeZone(java.lang.String timeZone) {
+          this.timeZone = timeZone;
           return this;
         }
 
@@ -3234,6 +4032,1192 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
       }
 
+    }
+    /**
+     * An accessor for creating requests from the OmnichannelSettings collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Merchant merchantapi = new Merchant(...);}
+     *   {@code Merchant.OmnichannelSettings.List request = merchantapi.omnichannelSettings().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public OmnichannelSettings omnichannelSettings() {
+      return new OmnichannelSettings();
+    }
+
+    /**
+     * The "omnichannelSettings" collection of methods.
+     */
+    public class OmnichannelSettings {
+
+      /**
+       * Create the omnichannel settings for a given merchant.
+       *
+       * Create a request for the method "omnichannelSettings.create".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The parent resource where this omnichannel setting will be created. Format:
+       *        `accounts/{account}`
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting}
+       * @return the request
+       */
+      public Create create(java.lang.String parent, com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting content) throws java.io.IOException {
+        Create result = new Create(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Create extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+parent}/omnichannelSettings";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * Create the omnichannel settings for a given merchant.
+         *
+         * Create a request for the method "omnichannelSettings.create".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The parent resource where this omnichannel setting will be created. Format:
+       *        `accounts/{account}`
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting}
+         * @since 1.13
+         */
+        protected Create(java.lang.String parent, com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting content) {
+          super(Merchant.this, "POST", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public Create set$Xgafv(java.lang.String $Xgafv) {
+          return (Create) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Create setAccessToken(java.lang.String accessToken) {
+          return (Create) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Create setAlt(java.lang.String alt) {
+          return (Create) super.setAlt(alt);
+        }
+
+        @Override
+        public Create setCallback(java.lang.String callback) {
+          return (Create) super.setCallback(callback);
+        }
+
+        @Override
+        public Create setFields(java.lang.String fields) {
+          return (Create) super.setFields(fields);
+        }
+
+        @Override
+        public Create setKey(java.lang.String key) {
+          return (Create) super.setKey(key);
+        }
+
+        @Override
+        public Create setOauthToken(java.lang.String oauthToken) {
+          return (Create) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Create) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Create setQuotaUser(java.lang.String quotaUser) {
+          return (Create) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Create setUploadType(java.lang.String uploadType) {
+          return (Create) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Create setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Create) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The parent resource where this omnichannel setting will be created. Format:
+         * `accounts/{account}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The parent resource where this omnichannel setting will be created. Format:
+       `accounts/{account}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The parent resource where this omnichannel setting will be created. Format:
+         * `accounts/{account}`
+         */
+        public Create setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        @Override
+        public Create set(String parameterName, Object value) {
+          return (Create) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Get the omnichannel settings for a given merchant.
+       *
+       * Create a request for the method "omnichannelSettings.get".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The name of the omnichannel setting to retrieve. Format:
+       *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+       * @return the request
+       */
+      public Get get(java.lang.String name) throws java.io.IOException {
+        Get result = new Get(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Get extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/omnichannelSettings/[^/]+$");
+
+        /**
+         * Get the omnichannel settings for a given merchant.
+         *
+         * Create a request for the method "omnichannelSettings.get".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+         * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The name of the omnichannel setting to retrieve. Format:
+       *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         * @since 1.13
+         */
+        protected Get(java.lang.String name) {
+          super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/omnichannelSettings/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public Get set$Xgafv(java.lang.String $Xgafv) {
+          return (Get) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Get setAccessToken(java.lang.String accessToken) {
+          return (Get) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Get setAlt(java.lang.String alt) {
+          return (Get) super.setAlt(alt);
+        }
+
+        @Override
+        public Get setCallback(java.lang.String callback) {
+          return (Get) super.setCallback(callback);
+        }
+
+        @Override
+        public Get setFields(java.lang.String fields) {
+          return (Get) super.setFields(fields);
+        }
+
+        @Override
+        public Get setKey(java.lang.String key) {
+          return (Get) super.setKey(key);
+        }
+
+        @Override
+        public Get setOauthToken(java.lang.String oauthToken) {
+          return (Get) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Get) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Get setQuotaUser(java.lang.String quotaUser) {
+          return (Get) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Get setUploadType(java.lang.String uploadType) {
+          return (Get) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Get setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Get) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the omnichannel setting to retrieve. Format:
+         * `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The name of the omnichannel setting to retrieve. Format:
+       `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The name of the omnichannel setting to retrieve. Format:
+         * `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        public Get setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/omnichannelSettings/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Get set(String parameterName, Object value) {
+          return (Get) super.set(parameterName, value);
+        }
+      }
+      /**
+       * List all the omnichannel settings for a given merchant.
+       *
+       * Create a request for the method "omnichannelSettings.list".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The parent, which owns this collection of omnichannel settings. Format:
+       *        `accounts/{account}`
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.ListOmnichannelSettingsResponse> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+parent}/omnichannelSettings";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * List all the omnichannel settings for a given merchant.
+         *
+         * Create a request for the method "omnichannelSettings.list".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+         * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The parent, which owns this collection of omnichannel settings. Format:
+       *        `accounts/{account}`
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.ListOmnichannelSettingsResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The parent, which owns this collection of omnichannel settings. Format:
+         * `accounts/{account}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The parent, which owns this collection of omnichannel settings. Format:
+       `accounts/{account}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The parent, which owns this collection of omnichannel settings. Format:
+         * `accounts/{account}`
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. The maximum number of omnichannel settings to return. The service may return
+         * fewer than this value. If unspecified, at most 50 omnichannel settings will be returned.
+         * The maximum value is 1000; values above 1000 will be coerced to 1000.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. The maximum number of omnichannel settings to return. The service may return fewer than
+       this value. If unspecified, at most 50 omnichannel settings will be returned. The maximum value is
+       1000; values above 1000 will be coerced to 1000.
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /**
+         * Optional. The maximum number of omnichannel settings to return. The service may return
+         * fewer than this value. If unspecified, at most 50 omnichannel settings will be returned.
+         * The maximum value is 1000; values above 1000 will be coerced to 1000.
+         */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListOmnichannelSettings` call. Provide
+         * this to retrieve the subsequent page. When paginating, all other parameters provided to
+         * `ListOmnichannelSettings` must match the call that provided the page token.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. A page token, received from a previous `ListOmnichannelSettings` call. Provide this to
+       retrieve the subsequent page. When paginating, all other parameters provided to
+       `ListOmnichannelSettings` must match the call that provided the page token.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListOmnichannelSettings` call. Provide
+         * this to retrieve the subsequent page. When paginating, all other parameters provided to
+         * `ListOmnichannelSettings` must match the call that provided the page token.
+         */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Update the omnichannel setting for a given merchant in a given country.
+       *
+       * Create a request for the method "omnichannelSettings.patch".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+       *
+       * @param name Identifier. The resource name of the omnichannel setting. Format:
+       *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting}
+       * @return the request
+       */
+      public Patch patch(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting content) throws java.io.IOException {
+        Patch result = new Patch(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Patch extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/omnichannelSettings/[^/]+$");
+
+        /**
+         * Update the omnichannel setting for a given merchant in a given country.
+         *
+         * Create a request for the method "omnichannelSettings.patch".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Identifier. The resource name of the omnichannel setting. Format:
+       *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting}
+         * @since 1.13
+         */
+        protected Patch(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting content) {
+          super(Merchant.this, "PATCH", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.OmnichannelSetting.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/omnichannelSettings/[^/]+$");
+          }
+        }
+
+        @Override
+        public Patch set$Xgafv(java.lang.String $Xgafv) {
+          return (Patch) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Patch setAccessToken(java.lang.String accessToken) {
+          return (Patch) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Patch setAlt(java.lang.String alt) {
+          return (Patch) super.setAlt(alt);
+        }
+
+        @Override
+        public Patch setCallback(java.lang.String callback) {
+          return (Patch) super.setCallback(callback);
+        }
+
+        @Override
+        public Patch setFields(java.lang.String fields) {
+          return (Patch) super.setFields(fields);
+        }
+
+        @Override
+        public Patch setKey(java.lang.String key) {
+          return (Patch) super.setKey(key);
+        }
+
+        @Override
+        public Patch setOauthToken(java.lang.String oauthToken) {
+          return (Patch) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Patch) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Patch setQuotaUser(java.lang.String quotaUser) {
+          return (Patch) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Patch setUploadType(java.lang.String uploadType) {
+          return (Patch) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Patch) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. The resource name of the omnichannel setting. Format:
+         * `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. The resource name of the omnichannel setting. Format:
+       `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. The resource name of the omnichannel setting. Format:
+         * `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        public Patch setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/omnichannelSettings/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Required. The list of fields to be updated. The following fields are supported in
+         * snake_case only: - `lsf_type` - `in_stock` - `pickup` - `odo` - `about` -
+         * `inventory_verification` Full replacement with wildcard `*`is supported, while
+         * empty/implied update mask is not.
+         */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** Required. The list of fields to be updated. The following fields are supported in snake_case only:
+       - `lsf_type` - `in_stock` - `pickup` - `odo` - `about` - `inventory_verification` Full replacement
+       with wildcard `*`is supported, while empty/implied update mask is not.
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /**
+         * Required. The list of fields to be updated. The following fields are supported in
+         * snake_case only: - `lsf_type` - `in_stock` - `pickup` - `odo` - `about` -
+         * `inventory_verification` Full replacement with wildcard `*`is supported, while
+         * empty/implied update mask is not.
+         */
+        public Patch setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public Patch set(String parameterName, Object value) {
+          return (Patch) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Requests inventory verification for a given merchant in a given country.
+       *
+       * Create a request for the method "omnichannelSettings.requestInventoryVerification".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link RequestInventoryVerification#execute()} method to invoke the remote
+       * operation.
+       *
+       * @param name Required. The name of the omnichannel setting to request inventory verification. Format:
+       *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.RequestInventoryVerificationRequest}
+       * @return the request
+       */
+      public RequestInventoryVerification requestInventoryVerification(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.RequestInventoryVerificationRequest content) throws java.io.IOException {
+        RequestInventoryVerification result = new RequestInventoryVerification(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class RequestInventoryVerification extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.RequestInventoryVerificationResponse> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}:requestInventoryVerification";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/omnichannelSettings/[^/]+$");
+
+        /**
+         * Requests inventory verification for a given merchant in a given country.
+         *
+         * Create a request for the method "omnichannelSettings.requestInventoryVerification".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link RequestInventoryVerification#execute()} method to invoke
+         * the remote operation. <p> {@link RequestInventoryVerification#initialize(com.google.api.client.
+         * googleapis.services.AbstractGoogleClientRequest)} must be called to initialize this instance
+         * immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The name of the omnichannel setting to request inventory verification. Format:
+       *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.RequestInventoryVerificationRequest}
+         * @since 1.13
+         */
+        protected RequestInventoryVerification(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.RequestInventoryVerificationRequest content) {
+          super(Merchant.this, "POST", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.RequestInventoryVerificationResponse.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/omnichannelSettings/[^/]+$");
+          }
+        }
+
+        @Override
+        public RequestInventoryVerification set$Xgafv(java.lang.String $Xgafv) {
+          return (RequestInventoryVerification) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public RequestInventoryVerification setAccessToken(java.lang.String accessToken) {
+          return (RequestInventoryVerification) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public RequestInventoryVerification setAlt(java.lang.String alt) {
+          return (RequestInventoryVerification) super.setAlt(alt);
+        }
+
+        @Override
+        public RequestInventoryVerification setCallback(java.lang.String callback) {
+          return (RequestInventoryVerification) super.setCallback(callback);
+        }
+
+        @Override
+        public RequestInventoryVerification setFields(java.lang.String fields) {
+          return (RequestInventoryVerification) super.setFields(fields);
+        }
+
+        @Override
+        public RequestInventoryVerification setKey(java.lang.String key) {
+          return (RequestInventoryVerification) super.setKey(key);
+        }
+
+        @Override
+        public RequestInventoryVerification setOauthToken(java.lang.String oauthToken) {
+          return (RequestInventoryVerification) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public RequestInventoryVerification setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (RequestInventoryVerification) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public RequestInventoryVerification setQuotaUser(java.lang.String quotaUser) {
+          return (RequestInventoryVerification) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public RequestInventoryVerification setUploadType(java.lang.String uploadType) {
+          return (RequestInventoryVerification) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public RequestInventoryVerification setUploadProtocol(java.lang.String uploadProtocol) {
+          return (RequestInventoryVerification) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the omnichannel setting to request inventory verification. Format:
+         * `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The name of the omnichannel setting to request inventory verification. Format:
+       `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The name of the omnichannel setting to request inventory verification. Format:
+         * `accounts/{account}/omnichannelSettings/{omnichannel_setting}`
+         */
+        public RequestInventoryVerification setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/omnichannelSettings/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public RequestInventoryVerification set(String parameterName, Object value) {
+          return (RequestInventoryVerification) super.set(parameterName, value);
+        }
+      }
+
+      /**
+       * An accessor for creating requests from the LfpProviders collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code Merchant merchantapi = new Merchant(...);}
+       *   {@code Merchant.LfpProviders.List request = merchantapi.lfpProviders().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public LfpProviders lfpProviders() {
+        return new LfpProviders();
+      }
+
+      /**
+       * The "lfpProviders" collection of methods.
+       */
+      public class LfpProviders {
+
+        /**
+         * Find the LFP provider candidates in a given country.
+         *
+         * Create a request for the method "lfpProviders.find".
+         *
+         * This request holds the parameters needed by the merchantapi server.  After setting any optional
+         * parameters, call the {@link Find#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The name of the parent resource under which the LFP providers are found. Format:
+         *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}`.
+         * @return the request
+         */
+        public Find find(java.lang.String parent) throws java.io.IOException {
+          Find result = new Find(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class Find extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.FindLfpProvidersResponse> {
+
+          private static final String REST_PATH = "accounts/v1beta/{+parent}/lfpProviders:find";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^accounts/[^/]+/omnichannelSettings/[^/]+$");
+
+          /**
+           * Find the LFP provider candidates in a given country.
+           *
+           * Create a request for the method "lfpProviders.find".
+           *
+           * This request holds the parameters needed by the the merchantapi server.  After setting any
+           * optional parameters, call the {@link Find#execute()} method to invoke the remote operation. <p>
+           * {@link Find#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The name of the parent resource under which the LFP providers are found. Format:
+         *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}`.
+           * @since 1.13
+           */
+          protected Find(java.lang.String parent) {
+            super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.FindLfpProvidersResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^accounts/[^/]+/omnichannelSettings/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Find set$Xgafv(java.lang.String $Xgafv) {
+            return (Find) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Find setAccessToken(java.lang.String accessToken) {
+            return (Find) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Find setAlt(java.lang.String alt) {
+            return (Find) super.setAlt(alt);
+          }
+
+          @Override
+          public Find setCallback(java.lang.String callback) {
+            return (Find) super.setCallback(callback);
+          }
+
+          @Override
+          public Find setFields(java.lang.String fields) {
+            return (Find) super.setFields(fields);
+          }
+
+          @Override
+          public Find setKey(java.lang.String key) {
+            return (Find) super.setKey(key);
+          }
+
+          @Override
+          public Find setOauthToken(java.lang.String oauthToken) {
+            return (Find) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Find setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Find) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Find setQuotaUser(java.lang.String quotaUser) {
+            return (Find) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Find setUploadType(java.lang.String uploadType) {
+            return (Find) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Find setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Find) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the parent resource under which the LFP providers are found.
+           * Format: `accounts/{account}/omnichannelSettings/{omnichannel_setting}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The name of the parent resource under which the LFP providers are found. Format:
+         `accounts/{account}/omnichannelSettings/{omnichannel_setting}`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The name of the parent resource under which the LFP providers are found.
+           * Format: `accounts/{account}/omnichannelSettings/{omnichannel_setting}`.
+           */
+          public Find setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^accounts/[^/]+/omnichannelSettings/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. The maximum number of `LfpProvider` resources to return. The service returns
+           * fewer than this value if the number of lfp providers is less that than the `pageSize`.
+           * The default value is 50. The maximum value is 1000; If a value higher than the maximum
+           * is specified, then the `pageSize` will default to the maximum.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. The maximum number of `LfpProvider` resources to return. The service returns fewer than
+         this value if the number of lfp providers is less that than the `pageSize`. The default value is
+         50. The maximum value is 1000; If a value higher than the maximum is specified, then the `pageSize`
+         will default to the maximum.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. The maximum number of `LfpProvider` resources to return. The service returns
+           * fewer than this value if the number of lfp providers is less that than the `pageSize`.
+           * The default value is 50. The maximum value is 1000; If a value higher than the maximum
+           * is specified, then the `pageSize` will default to the maximum.
+           */
+          public Find setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `FindLfpProviders` call. Provide the
+           * page token to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `FindLfpProviders` must match the call that provided the page token.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `FindLfpProviders` call. Provide the page token to
+         retrieve the subsequent page. When paginating, all other parameters provided to `FindLfpProviders`
+         must match the call that provided the page token.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `FindLfpProviders` call. Provide the
+           * page token to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `FindLfpProviders` must match the call that provided the page token.
+           */
+          public Find setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public Find set(String parameterName, Object value) {
+            return (Find) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Link the specified merchant to a LFP provider for the specified country.
+         *
+         * Create a request for the method "lfpProviders.linkLfpProvider".
+         *
+         * This request holds the parameters needed by the merchantapi server.  After setting any optional
+         * parameters, call the {@link LinkLfpProvider#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the LFP provider resource to link. Format:
+         *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}/lfpProviders/{lfp_provider}`
+         *        . The `lfp_provider` is the LFP provider ID.
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.LinkLfpProviderRequest}
+         * @return the request
+         */
+        public LinkLfpProvider linkLfpProvider(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.LinkLfpProviderRequest content) throws java.io.IOException {
+          LinkLfpProvider result = new LinkLfpProvider(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class LinkLfpProvider extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.LinkLfpProviderResponse> {
+
+          private static final String REST_PATH = "accounts/v1beta/{+name}:linkLfpProvider";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^accounts/[^/]+/omnichannelSettings/[^/]+/lfpProviders/[^/]+$");
+
+          /**
+           * Link the specified merchant to a LFP provider for the specified country.
+           *
+           * Create a request for the method "lfpProviders.linkLfpProvider".
+           *
+           * This request holds the parameters needed by the the merchantapi server.  After setting any
+           * optional parameters, call the {@link LinkLfpProvider#execute()} method to invoke the remote
+           * operation. <p> {@link LinkLfpProvider#initialize(com.google.api.client.googleapis.services.Abst
+           * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
+           * the constructor. </p>
+           *
+           * @param name Required. The name of the LFP provider resource to link. Format:
+         *        `accounts/{account}/omnichannelSettings/{omnichannel_setting}/lfpProviders/{lfp_provider}`
+         *        . The `lfp_provider` is the LFP provider ID.
+           * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.LinkLfpProviderRequest}
+           * @since 1.13
+           */
+          protected LinkLfpProvider(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.LinkLfpProviderRequest content) {
+            super(Merchant.this, "POST", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.LinkLfpProviderResponse.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^accounts/[^/]+/omnichannelSettings/[^/]+/lfpProviders/[^/]+$");
+            }
+          }
+
+          @Override
+          public LinkLfpProvider set$Xgafv(java.lang.String $Xgafv) {
+            return (LinkLfpProvider) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public LinkLfpProvider setAccessToken(java.lang.String accessToken) {
+            return (LinkLfpProvider) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public LinkLfpProvider setAlt(java.lang.String alt) {
+            return (LinkLfpProvider) super.setAlt(alt);
+          }
+
+          @Override
+          public LinkLfpProvider setCallback(java.lang.String callback) {
+            return (LinkLfpProvider) super.setCallback(callback);
+          }
+
+          @Override
+          public LinkLfpProvider setFields(java.lang.String fields) {
+            return (LinkLfpProvider) super.setFields(fields);
+          }
+
+          @Override
+          public LinkLfpProvider setKey(java.lang.String key) {
+            return (LinkLfpProvider) super.setKey(key);
+          }
+
+          @Override
+          public LinkLfpProvider setOauthToken(java.lang.String oauthToken) {
+            return (LinkLfpProvider) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public LinkLfpProvider setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (LinkLfpProvider) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public LinkLfpProvider setQuotaUser(java.lang.String quotaUser) {
+            return (LinkLfpProvider) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public LinkLfpProvider setUploadType(java.lang.String uploadType) {
+            return (LinkLfpProvider) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public LinkLfpProvider setUploadProtocol(java.lang.String uploadProtocol) {
+            return (LinkLfpProvider) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the LFP provider resource to link. Format: `accounts/{account}/om
+           * nichannelSettings/{omnichannel_setting}/lfpProviders/{lfp_provider}`. The
+           * `lfp_provider` is the LFP provider ID.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the LFP provider resource to link. Format:
+         `accounts/{account}/omnichannelSettings/{omnichannel_setting}/lfpProviders/{lfp_provider}`. The
+         `lfp_provider` is the LFP provider ID.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the LFP provider resource to link. Format: `accounts/{account}/om
+           * nichannelSettings/{omnichannel_setting}/lfpProviders/{lfp_provider}`. The
+           * `lfp_provider` is the LFP provider ID.
+           */
+          public LinkLfpProvider setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^accounts/[^/]+/omnichannelSettings/[^/]+/lfpProviders/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public LinkLfpProvider set(String parameterName, Object value) {
+            return (LinkLfpProvider) super.set(parameterName, value);
+          }
+        }
+
+      }
     }
     /**
      * An accessor for creating requests from the OnlineReturnPolicies collection.
@@ -3256,7 +5240,285 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
     public class OnlineReturnPolicies {
 
       /**
-       * Gets an existing return policy.
+       * Creates a new return policy for a given business.
+       *
+       * Create a request for the method "onlineReturnPolicies.create".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The Merchant Center account for which the return policy will be created. Format:
+       *        `accounts/{account}`
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy}
+       * @return the request
+       */
+      public Create create(java.lang.String parent, com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy content) throws java.io.IOException {
+        Create result = new Create(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Create extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+parent}/onlineReturnPolicies";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * Creates a new return policy for a given business.
+         *
+         * Create a request for the method "onlineReturnPolicies.create".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The Merchant Center account for which the return policy will be created. Format:
+       *        `accounts/{account}`
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy}
+         * @since 1.13
+         */
+        protected Create(java.lang.String parent, com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy content) {
+          super(Merchant.this, "POST", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public Create set$Xgafv(java.lang.String $Xgafv) {
+          return (Create) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Create setAccessToken(java.lang.String accessToken) {
+          return (Create) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Create setAlt(java.lang.String alt) {
+          return (Create) super.setAlt(alt);
+        }
+
+        @Override
+        public Create setCallback(java.lang.String callback) {
+          return (Create) super.setCallback(callback);
+        }
+
+        @Override
+        public Create setFields(java.lang.String fields) {
+          return (Create) super.setFields(fields);
+        }
+
+        @Override
+        public Create setKey(java.lang.String key) {
+          return (Create) super.setKey(key);
+        }
+
+        @Override
+        public Create setOauthToken(java.lang.String oauthToken) {
+          return (Create) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Create) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Create setQuotaUser(java.lang.String quotaUser) {
+          return (Create) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Create setUploadType(java.lang.String uploadType) {
+          return (Create) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Create setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Create) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The Merchant Center account for which the return policy will be created.
+         * Format: `accounts/{account}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The Merchant Center account for which the return policy will be created. Format:
+       `accounts/{account}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The Merchant Center account for which the return policy will be created.
+         * Format: `accounts/{account}`
+         */
+        public Create setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        @Override
+        public Create set(String parameterName, Object value) {
+          return (Create) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Deletes an existing return policy.
+       *
+       * Create a request for the method "onlineReturnPolicies.delete".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The name of the return policy to delete. Format:
+       *        `accounts/{account}/onlineReturnPolicies/{return_policy}`
+       * @return the request
+       */
+      public Delete delete(java.lang.String name) throws java.io.IOException {
+        Delete result = new Delete(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Delete extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.Empty> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/onlineReturnPolicies/[^/]+$");
+
+        /**
+         * Deletes an existing return policy.
+         *
+         * Create a request for the method "onlineReturnPolicies.delete".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The name of the return policy to delete. Format:
+       *        `accounts/{account}/onlineReturnPolicies/{return_policy}`
+         * @since 1.13
+         */
+        protected Delete(java.lang.String name) {
+          super(Merchant.this, "DELETE", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.Empty.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/onlineReturnPolicies/[^/]+$");
+          }
+        }
+
+        @Override
+        public Delete set$Xgafv(java.lang.String $Xgafv) {
+          return (Delete) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Delete setAccessToken(java.lang.String accessToken) {
+          return (Delete) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Delete setAlt(java.lang.String alt) {
+          return (Delete) super.setAlt(alt);
+        }
+
+        @Override
+        public Delete setCallback(java.lang.String callback) {
+          return (Delete) super.setCallback(callback);
+        }
+
+        @Override
+        public Delete setFields(java.lang.String fields) {
+          return (Delete) super.setFields(fields);
+        }
+
+        @Override
+        public Delete setKey(java.lang.String key) {
+          return (Delete) super.setKey(key);
+        }
+
+        @Override
+        public Delete setOauthToken(java.lang.String oauthToken) {
+          return (Delete) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Delete) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Delete setQuotaUser(java.lang.String quotaUser) {
+          return (Delete) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Delete setUploadType(java.lang.String uploadType) {
+          return (Delete) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Delete) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the return policy to delete. Format:
+         * `accounts/{account}/onlineReturnPolicies/{return_policy}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The name of the return policy to delete. Format:
+       `accounts/{account}/onlineReturnPolicies/{return_policy}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The name of the return policy to delete. Format:
+         * `accounts/{account}/onlineReturnPolicies/{return_policy}`
+         */
+        public Delete setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/onlineReturnPolicies/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Delete set(String parameterName, Object value) {
+          return (Delete) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Gets an existing return policy for a given business.
        *
        * Create a request for the method "onlineReturnPolicies.get".
        *
@@ -3281,7 +5543,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/onlineReturnPolicies/[^/]+$");
 
         /**
-         * Gets an existing return policy.
+         * Gets an existing return policy for a given business.
          *
          * Create a request for the method "onlineReturnPolicies.get".
          *
@@ -3403,14 +5665,15 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
       }
       /**
-       * Lists all existing return policies.
+       * Lists all existing return policies for a given business.
        *
        * Create a request for the method "onlineReturnPolicies.list".
        *
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link List#execute()} method to invoke the remote operation.
        *
-       * @param parent Required. The merchant account for which to list return policies. Format: `accounts/{account}`
+       * @param parent Required. The Merchant Center account for which to list return policies. Format:
+       *        `accounts/{account}`
        * @return the request
        */
       public List list(java.lang.String parent) throws java.io.IOException {
@@ -3427,7 +5690,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+$");
 
         /**
-         * Lists all existing return policies.
+         * Lists all existing return policies for a given business.
          *
          * Create a request for the method "onlineReturnPolicies.list".
          *
@@ -3436,7 +5699,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
          * must be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. The merchant account for which to list return policies. Format: `accounts/{account}`
+         * @param parent Required. The Merchant Center account for which to list return policies. Format:
+       *        `accounts/{account}`
          * @since 1.13
          */
         protected List(java.lang.String parent) {
@@ -3515,20 +5779,21 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
 
         /**
-         * Required. The merchant account for which to list return policies. Format:
+         * Required. The Merchant Center account for which to list return policies. Format:
          * `accounts/{account}`
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. The merchant account for which to list return policies. Format: `accounts/{account}`
+        /** Required. The Merchant Center account for which to list return policies. Format:
+       `accounts/{account}`
          */
         public java.lang.String getParent() {
           return parent;
         }
 
         /**
-         * Required. The merchant account for which to list return policies. Format:
+         * Required. The Merchant Center account for which to list return policies. Format:
          * `accounts/{account}`
          */
         public List setParent(java.lang.String parent) {
@@ -3543,7 +5808,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Optional. The maximum number of `OnlineReturnPolicy` resources to return. The service
-         * returns fewer than this value if the number of return policies for the given merchant is
+         * returns fewer than this value if the number of return policies for the given business is
          * less that than the `pageSize`. The default value is 10. The maximum value is 100; If a
          * value higher than the maximum is specified, then the `pageSize` will default to the
          * maximum
@@ -3552,7 +5817,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         private java.lang.Integer pageSize;
 
         /** Optional. The maximum number of `OnlineReturnPolicy` resources to return. The service returns fewer
-       than this value if the number of return policies for the given merchant is less that than the
+       than this value if the number of return policies for the given business is less that than the
        `pageSize`. The default value is 10. The maximum value is 100; If a value higher than the maximum
        is specified, then the `pageSize` will default to the maximum
          */
@@ -3562,7 +5827,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Optional. The maximum number of `OnlineReturnPolicy` resources to return. The service
-         * returns fewer than this value if the number of return policies for the given merchant is
+         * returns fewer than this value if the number of return policies for the given business is
          * less that than the `pageSize`. The default value is 10. The maximum value is 100; If a
          * value higher than the maximum is specified, then the `pageSize` will default to the
          * maximum
@@ -3606,6 +5871,175 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return (List) super.set(parameterName, value);
         }
       }
+      /**
+       * Updates an existing return policy for a given business.
+       *
+       * Create a request for the method "onlineReturnPolicies.patch".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+       *
+       * @param name Identifier. The name of the `OnlineReturnPolicy` resource. Format:
+       *        `accounts/{account}/onlineReturnPolicies/{return_policy}`
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy}
+       * @return the request
+       */
+      public Patch patch(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy content) throws java.io.IOException {
+        Patch result = new Patch(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Patch extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/onlineReturnPolicies/[^/]+$");
+
+        /**
+         * Updates an existing return policy for a given business.
+         *
+         * Create a request for the method "onlineReturnPolicies.patch".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Identifier. The name of the `OnlineReturnPolicy` resource. Format:
+       *        `accounts/{account}/onlineReturnPolicies/{return_policy}`
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy}
+         * @since 1.13
+         */
+        protected Patch(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy content) {
+          super(Merchant.this, "PATCH", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.OnlineReturnPolicy.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/onlineReturnPolicies/[^/]+$");
+          }
+        }
+
+        @Override
+        public Patch set$Xgafv(java.lang.String $Xgafv) {
+          return (Patch) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Patch setAccessToken(java.lang.String accessToken) {
+          return (Patch) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Patch setAlt(java.lang.String alt) {
+          return (Patch) super.setAlt(alt);
+        }
+
+        @Override
+        public Patch setCallback(java.lang.String callback) {
+          return (Patch) super.setCallback(callback);
+        }
+
+        @Override
+        public Patch setFields(java.lang.String fields) {
+          return (Patch) super.setFields(fields);
+        }
+
+        @Override
+        public Patch setKey(java.lang.String key) {
+          return (Patch) super.setKey(key);
+        }
+
+        @Override
+        public Patch setOauthToken(java.lang.String oauthToken) {
+          return (Patch) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Patch) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Patch setQuotaUser(java.lang.String quotaUser) {
+          return (Patch) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Patch setUploadType(java.lang.String uploadType) {
+          return (Patch) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Patch) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. The name of the `OnlineReturnPolicy` resource. Format:
+         * `accounts/{account}/onlineReturnPolicies/{return_policy}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. The name of the `OnlineReturnPolicy` resource. Format:
+       `accounts/{account}/onlineReturnPolicies/{return_policy}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. The name of the `OnlineReturnPolicy` resource. Format:
+         * `accounts/{account}/onlineReturnPolicies/{return_policy}`
+         */
+        public Patch setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/onlineReturnPolicies/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `accept_defective_only` - `accept_exchange` -
+         * `item_conditions` - `policy` - `process_refund_days` - `restocking_fee` -
+         * `return_methods` - `return_policy_uri` - `return_shipping_fee`
+         */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `accept_defective_only` - `accept_exchange` - `item_conditions` - `policy`
+       - `process_refund_days` - `restocking_fee` - `return_methods` - `return_policy_uri` -
+       `return_shipping_fee`
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `accept_defective_only` - `accept_exchange` -
+         * `item_conditions` - `policy` - `process_refund_days` - `restocking_fee` -
+         * `return_methods` - `return_policy_uri` - `return_shipping_fee`
+         */
+        public Patch setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public Patch set(String parameterName, Object value) {
+          return (Patch) super.set(parameterName, value);
+        }
+      }
 
     }
     /**
@@ -3629,8 +6063,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
     public class Programs {
 
       /**
-       * Disable participation in the specified program for the account. Executing this method requires
-       * admin access.
+       * Disable participation in the specified program for the account.
        *
        * Create a request for the method "programs.disable".
        *
@@ -3638,7 +6071,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * parameters, call the {@link Disable#execute()} method to invoke the remote operation.
        *
        * @param name Required. The name of the program for which to disable participation for the given account. Format:
-       *        `accounts/{account}/programs/{program}`
+       *        `accounts/{account}/programs/{program}`. For example, `accounts/123456/programs/free-
+       *        listings`.
        * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.DisableProgramRequest}
        * @return the request
        */
@@ -3656,8 +6090,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/programs/[^/]+$");
 
         /**
-         * Disable participation in the specified program for the account. Executing this method requires
-         * admin access.
+         * Disable participation in the specified program for the account.
          *
          * Create a request for the method "programs.disable".
          *
@@ -3668,7 +6101,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. The name of the program for which to disable participation for the given account. Format:
-       *        `accounts/{account}/programs/{program}`
+       *        `accounts/{account}/programs/{program}`. For example, `accounts/123456/programs/free-
+       *        listings`.
          * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.DisableProgramRequest}
          * @since 1.13
          */
@@ -3739,13 +6173,14 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the program for which to disable participation for the given
-         * account. Format: `accounts/{account}/programs/{program}`
+         * account. Format: `accounts/{account}/programs/{program}`. For example,
+         * `accounts/123456/programs/free-listings`.
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. The name of the program for which to disable participation for the given account. Format:
-       `accounts/{account}/programs/{program}`
+       `accounts/{account}/programs/{program}`. For example, `accounts/123456/programs/free-listings`.
          */
         public java.lang.String getName() {
           return name;
@@ -3753,7 +6188,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the program for which to disable participation for the given
-         * account. Format: `accounts/{account}/programs/{program}`
+         * account. Format: `accounts/{account}/programs/{program}`. For example,
+         * `accounts/123456/programs/free-listings`.
          */
         public Disable setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -3771,8 +6207,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
       }
       /**
-       * Enable participation in the specified program for the account. Executing this method requires
-       * admin access.
+       * Enable participation in the specified program for the account.
        *
        * Create a request for the method "programs.enable".
        *
@@ -3780,7 +6215,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * parameters, call the {@link Enable#execute()} method to invoke the remote operation.
        *
        * @param name Required. The name of the program for which to enable participation for the given account. Format:
-       *        `accounts/{account}/programs/{program}`
+       *        `accounts/{account}/programs/{program}`. For example, `accounts/123456/programs/free-
+       *        listings`.
        * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.EnableProgramRequest}
        * @return the request
        */
@@ -3798,8 +6234,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/programs/[^/]+$");
 
         /**
-         * Enable participation in the specified program for the account. Executing this method requires
-         * admin access.
+         * Enable participation in the specified program for the account.
          *
          * Create a request for the method "programs.enable".
          *
@@ -3810,7 +6245,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. The name of the program for which to enable participation for the given account. Format:
-       *        `accounts/{account}/programs/{program}`
+       *        `accounts/{account}/programs/{program}`. For example, `accounts/123456/programs/free-
+       *        listings`.
          * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.EnableProgramRequest}
          * @since 1.13
          */
@@ -3881,13 +6317,14 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the program for which to enable participation for the given
-         * account. Format: `accounts/{account}/programs/{program}`
+         * account. Format: `accounts/{account}/programs/{program}`. For example,
+         * `accounts/123456/programs/free-listings`.
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. The name of the program for which to enable participation for the given account. Format:
-       `accounts/{account}/programs/{program}`
+       `accounts/{account}/programs/{program}`. For example, `accounts/123456/programs/free-listings`.
          */
         public java.lang.String getName() {
           return name;
@@ -3895,7 +6332,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the program for which to enable participation for the given
-         * account. Format: `accounts/{account}/programs/{program}`
+         * account. Format: `accounts/{account}/programs/{program}`. For example,
+         * `accounts/123456/programs/free-listings`.
          */
         public Enable setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -3920,7 +6358,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The name of the program to retrieve. Format: `accounts/{account}/programs/{program}`
+       * @param name Required. The name of the program to retrieve. Format: `accounts/{account}/programs/{program}`. For
+       *        example, `accounts/123456/programs/free-listings`.
        * @return the request
        */
       public Get get(java.lang.String name) throws java.io.IOException {
@@ -3946,7 +6385,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
          * must be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. The name of the program to retrieve. Format: `accounts/{account}/programs/{program}`
+         * @param name Required. The name of the program to retrieve. Format: `accounts/{account}/programs/{program}`. For
+       *        example, `accounts/123456/programs/free-listings`.
          * @since 1.13
          */
         protected Get(java.lang.String name) {
@@ -4026,12 +6466,14 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the program to retrieve. Format:
-         * `accounts/{account}/programs/{program}`
+         * `accounts/{account}/programs/{program}`. For example, `accounts/123456/programs/free-
+         * listings`.
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The name of the program to retrieve. Format: `accounts/{account}/programs/{program}`
+        /** Required. The name of the program to retrieve. Format: `accounts/{account}/programs/{program}`. For
+       example, `accounts/123456/programs/free-listings`.
          */
         public java.lang.String getName() {
           return name;
@@ -4039,7 +6481,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the program to retrieve. Format:
-         * `accounts/{account}/programs/{program}`
+         * `accounts/{account}/programs/{program}`. For example, `accounts/123456/programs/free-
+         * listings`.
          */
         public Get setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -5057,6 +7500,1304 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
     }
     /**
+     * An accessor for creating requests from the Relationships collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Merchant merchantapi = new Merchant(...);}
+     *   {@code Merchant.Relationships.List request = merchantapi.relationships().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public Relationships relationships() {
+      return new Relationships();
+    }
+
+    /**
+     * The "relationships" collection of methods.
+     */
+    public class Relationships {
+
+      /**
+       * Retrieve an account relationship.
+       *
+       * Create a request for the method "relationships.get".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The resource name of the account relationship to get. Format:
+       *        `accounts/{account}/relationships/{relationship}`. For example,
+       *        `accounts/123456/relationships/567890`.
+       * @return the request
+       */
+      public Get get(java.lang.String name) throws java.io.IOException {
+        Get result = new Get(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Get extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.AccountRelationship> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/relationships/[^/]+$");
+
+        /**
+         * Retrieve an account relationship.
+         *
+         * Create a request for the method "relationships.get".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+         * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The resource name of the account relationship to get. Format:
+       *        `accounts/{account}/relationships/{relationship}`. For example,
+       *        `accounts/123456/relationships/567890`.
+         * @since 1.13
+         */
+        protected Get(java.lang.String name) {
+          super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.AccountRelationship.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/relationships/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public Get set$Xgafv(java.lang.String $Xgafv) {
+          return (Get) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Get setAccessToken(java.lang.String accessToken) {
+          return (Get) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Get setAlt(java.lang.String alt) {
+          return (Get) super.setAlt(alt);
+        }
+
+        @Override
+        public Get setCallback(java.lang.String callback) {
+          return (Get) super.setCallback(callback);
+        }
+
+        @Override
+        public Get setFields(java.lang.String fields) {
+          return (Get) super.setFields(fields);
+        }
+
+        @Override
+        public Get setKey(java.lang.String key) {
+          return (Get) super.setKey(key);
+        }
+
+        @Override
+        public Get setOauthToken(java.lang.String oauthToken) {
+          return (Get) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Get) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Get setQuotaUser(java.lang.String quotaUser) {
+          return (Get) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Get setUploadType(java.lang.String uploadType) {
+          return (Get) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Get setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Get) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The resource name of the account relationship to get. Format:
+         * `accounts/{account}/relationships/{relationship}`. For example,
+         * `accounts/123456/relationships/567890`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The resource name of the account relationship to get. Format:
+       `accounts/{account}/relationships/{relationship}`. For example,
+       `accounts/123456/relationships/567890`.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The resource name of the account relationship to get. Format:
+         * `accounts/{account}/relationships/{relationship}`. For example,
+         * `accounts/123456/relationships/567890`.
+         */
+        public Get setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/relationships/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Get set(String parameterName, Object value) {
+          return (Get) super.set(parameterName, value);
+        }
+      }
+      /**
+       * List account relationships for the specified account.
+       *
+       * Create a request for the method "relationships.list".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The parent account of the account relationship to filter by. Format: `accounts/{account}`
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.ListAccountRelationshipsResponse> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+parent}/relationships";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * List account relationships for the specified account.
+         *
+         * Create a request for the method "relationships.list".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+         * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The parent account of the account relationship to filter by. Format: `accounts/{account}`
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.ListAccountRelationshipsResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The parent account of the account relationship to filter by. Format:
+         * `accounts/{account}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The parent account of the account relationship to filter by. Format: `accounts/{account}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The parent account of the account relationship to filter by. Format:
+         * `accounts/{account}`
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. The maximum number of elements to return in the response. Use for paging. If no
+         * `page_size` is specified, `100` is used as the default value. The maximum allowed value
+         * is `1000`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. The maximum number of elements to return in the response. Use for paging. If no
+       `page_size` is specified, `100` is used as the default value. The maximum allowed value is `1000`.
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /**
+         * Optional. The maximum number of elements to return in the response. Use for paging. If no
+         * `page_size` is specified, `100` is used as the default value. The maximum allowed value
+         * is `1000`.
+         */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /** Optional. The token returned by the previous `list` request. */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. The token returned by the previous `list` request.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /** Optional. The token returned by the previous `list` request. */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Updates the account relationship. Executing this method requires admin access.
+       *
+       * Create a request for the method "relationships.patch".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+       *
+       * @param name Identifier. The resource name of the account relationship. Format:
+       *        `accounts/{account}/relationships/{relationship}`. For example,
+       *        `accounts/123456/relationships/567890`.
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.AccountRelationship}
+       * @return the request
+       */
+      public Patch patch(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.AccountRelationship content) throws java.io.IOException {
+        Patch result = new Patch(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Patch extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.AccountRelationship> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/relationships/[^/]+$");
+
+        /**
+         * Updates the account relationship. Executing this method requires admin access.
+         *
+         * Create a request for the method "relationships.patch".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Identifier. The resource name of the account relationship. Format:
+       *        `accounts/{account}/relationships/{relationship}`. For example,
+       *        `accounts/123456/relationships/567890`.
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.AccountRelationship}
+         * @since 1.13
+         */
+        protected Patch(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.AccountRelationship content) {
+          super(Merchant.this, "PATCH", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.AccountRelationship.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/relationships/[^/]+$");
+          }
+        }
+
+        @Override
+        public Patch set$Xgafv(java.lang.String $Xgafv) {
+          return (Patch) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Patch setAccessToken(java.lang.String accessToken) {
+          return (Patch) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Patch setAlt(java.lang.String alt) {
+          return (Patch) super.setAlt(alt);
+        }
+
+        @Override
+        public Patch setCallback(java.lang.String callback) {
+          return (Patch) super.setCallback(callback);
+        }
+
+        @Override
+        public Patch setFields(java.lang.String fields) {
+          return (Patch) super.setFields(fields);
+        }
+
+        @Override
+        public Patch setKey(java.lang.String key) {
+          return (Patch) super.setKey(key);
+        }
+
+        @Override
+        public Patch setOauthToken(java.lang.String oauthToken) {
+          return (Patch) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Patch) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Patch setQuotaUser(java.lang.String quotaUser) {
+          return (Patch) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Patch setUploadType(java.lang.String uploadType) {
+          return (Patch) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Patch) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. The resource name of the account relationship. Format:
+         * `accounts/{account}/relationships/{relationship}`. For example,
+         * `accounts/123456/relationships/567890`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. The resource name of the account relationship. Format:
+       `accounts/{account}/relationships/{relationship}`. For example,
+       `accounts/123456/relationships/567890`.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. The resource name of the account relationship. Format:
+         * `accounts/{account}/relationships/{relationship}`. For example,
+         * `accounts/123456/relationships/567890`.
+         */
+        public Patch setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/relationships/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `account_id_alias`
+         */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `account_id_alias`
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `account_id_alias`
+         */
+        public Patch setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public Patch set(String parameterName, Object value) {
+          return (Patch) super.set(parameterName, value);
+        }
+      }
+
+    }
+    /**
+     * An accessor for creating requests from the Services collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Merchant merchantapi = new Merchant(...);}
+     *   {@code Merchant.Services.List request = merchantapi.services().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public Services services() {
+      return new Services();
+    }
+
+    /**
+     * The "services" collection of methods.
+     */
+    public class Services {
+
+      /**
+       * Approve an account service proposal.
+       *
+       * Create a request for the method "services.approve".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Approve#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The resource name of the account service to approve. Format:
+       *        `accounts/{account}/services/{service}`
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.ApproveAccountServiceRequest}
+       * @return the request
+       */
+      public Approve approve(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.ApproveAccountServiceRequest content) throws java.io.IOException {
+        Approve result = new Approve(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Approve extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.AccountService> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}:approve";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/services/[^/]+$");
+
+        /**
+         * Approve an account service proposal.
+         *
+         * Create a request for the method "services.approve".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Approve#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Approve#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The resource name of the account service to approve. Format:
+       *        `accounts/{account}/services/{service}`
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.ApproveAccountServiceRequest}
+         * @since 1.13
+         */
+        protected Approve(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.ApproveAccountServiceRequest content) {
+          super(Merchant.this, "POST", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.AccountService.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/services/[^/]+$");
+          }
+        }
+
+        @Override
+        public Approve set$Xgafv(java.lang.String $Xgafv) {
+          return (Approve) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Approve setAccessToken(java.lang.String accessToken) {
+          return (Approve) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Approve setAlt(java.lang.String alt) {
+          return (Approve) super.setAlt(alt);
+        }
+
+        @Override
+        public Approve setCallback(java.lang.String callback) {
+          return (Approve) super.setCallback(callback);
+        }
+
+        @Override
+        public Approve setFields(java.lang.String fields) {
+          return (Approve) super.setFields(fields);
+        }
+
+        @Override
+        public Approve setKey(java.lang.String key) {
+          return (Approve) super.setKey(key);
+        }
+
+        @Override
+        public Approve setOauthToken(java.lang.String oauthToken) {
+          return (Approve) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Approve setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Approve) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Approve setQuotaUser(java.lang.String quotaUser) {
+          return (Approve) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Approve setUploadType(java.lang.String uploadType) {
+          return (Approve) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Approve setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Approve) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The resource name of the account service to approve. Format:
+         * `accounts/{account}/services/{service}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The resource name of the account service to approve. Format:
+       `accounts/{account}/services/{service}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The resource name of the account service to approve. Format:
+         * `accounts/{account}/services/{service}`
+         */
+        public Approve setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/services/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Approve set(String parameterName, Object value) {
+          return (Approve) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Retrieve an account service.
+       *
+       * Create a request for the method "services.get".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The resource name of the account service to get. Format:
+       *        `accounts/{account}/services/{service}`
+       * @return the request
+       */
+      public Get get(java.lang.String name) throws java.io.IOException {
+        Get result = new Get(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Get extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.AccountService> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/services/[^/]+$");
+
+        /**
+         * Retrieve an account service.
+         *
+         * Create a request for the method "services.get".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+         * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The resource name of the account service to get. Format:
+       *        `accounts/{account}/services/{service}`
+         * @since 1.13
+         */
+        protected Get(java.lang.String name) {
+          super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.AccountService.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/services/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public Get set$Xgafv(java.lang.String $Xgafv) {
+          return (Get) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Get setAccessToken(java.lang.String accessToken) {
+          return (Get) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Get setAlt(java.lang.String alt) {
+          return (Get) super.setAlt(alt);
+        }
+
+        @Override
+        public Get setCallback(java.lang.String callback) {
+          return (Get) super.setCallback(callback);
+        }
+
+        @Override
+        public Get setFields(java.lang.String fields) {
+          return (Get) super.setFields(fields);
+        }
+
+        @Override
+        public Get setKey(java.lang.String key) {
+          return (Get) super.setKey(key);
+        }
+
+        @Override
+        public Get setOauthToken(java.lang.String oauthToken) {
+          return (Get) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Get) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Get setQuotaUser(java.lang.String quotaUser) {
+          return (Get) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Get setUploadType(java.lang.String uploadType) {
+          return (Get) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Get setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Get) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The resource name of the account service to get. Format:
+         * `accounts/{account}/services/{service}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The resource name of the account service to get. Format:
+       `accounts/{account}/services/{service}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The resource name of the account service to get. Format:
+         * `accounts/{account}/services/{service}`
+         */
+        public Get setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/services/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Get set(String parameterName, Object value) {
+          return (Get) super.set(parameterName, value);
+        }
+      }
+      /**
+       * List account services for the specified accounts. Supports filtering.
+       *
+       * Create a request for the method "services.list".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The parent account of the account service to filter by. Format: `accounts/{account}`
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.ListAccountServicesResponse> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+parent}/services";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * List account services for the specified accounts. Supports filtering.
+         *
+         * Create a request for the method "services.list".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+         * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The parent account of the account service to filter by. Format: `accounts/{account}`
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.ListAccountServicesResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The parent account of the account service to filter by. Format:
+         * `accounts/{account}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The parent account of the account service to filter by. Format: `accounts/{account}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The parent account of the account service to filter by. Format:
+         * `accounts/{account}`
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. The maximum number of elements to return in the response. Use for paging. If no
+         * `page_size` is specified, `100` is used as the default value. The maximum allowed value
+         * is `1000`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. The maximum number of elements to return in the response. Use for paging. If no
+       `page_size` is specified, `100` is used as the default value. The maximum allowed value is `1000`.
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /**
+         * Optional. The maximum number of elements to return in the response. Use for paging. If no
+         * `page_size` is specified, `100` is used as the default value. The maximum allowed value
+         * is `1000`.
+         */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /** Optional. The token returned by the previous `list` request. */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. The token returned by the previous `list` request.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /** Optional. The token returned by the previous `list` request. */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Propose an account service.
+       *
+       * Create a request for the method "services.propose".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Propose#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The resource name of the parent account for the service. Format: `accounts/{account}`
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.ProposeAccountServiceRequest}
+       * @return the request
+       */
+      public Propose propose(java.lang.String parent, com.google.api.services.merchantapi.accounts_v1beta.model.ProposeAccountServiceRequest content) throws java.io.IOException {
+        Propose result = new Propose(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Propose extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.AccountService> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+parent}/services:propose";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * Propose an account service.
+         *
+         * Create a request for the method "services.propose".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Propose#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Propose#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The resource name of the parent account for the service. Format: `accounts/{account}`
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.ProposeAccountServiceRequest}
+         * @since 1.13
+         */
+        protected Propose(java.lang.String parent, com.google.api.services.merchantapi.accounts_v1beta.model.ProposeAccountServiceRequest content) {
+          super(Merchant.this, "POST", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.AccountService.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public Propose set$Xgafv(java.lang.String $Xgafv) {
+          return (Propose) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Propose setAccessToken(java.lang.String accessToken) {
+          return (Propose) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Propose setAlt(java.lang.String alt) {
+          return (Propose) super.setAlt(alt);
+        }
+
+        @Override
+        public Propose setCallback(java.lang.String callback) {
+          return (Propose) super.setCallback(callback);
+        }
+
+        @Override
+        public Propose setFields(java.lang.String fields) {
+          return (Propose) super.setFields(fields);
+        }
+
+        @Override
+        public Propose setKey(java.lang.String key) {
+          return (Propose) super.setKey(key);
+        }
+
+        @Override
+        public Propose setOauthToken(java.lang.String oauthToken) {
+          return (Propose) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Propose setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Propose) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Propose setQuotaUser(java.lang.String quotaUser) {
+          return (Propose) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Propose setUploadType(java.lang.String uploadType) {
+          return (Propose) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Propose setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Propose) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The resource name of the parent account for the service. Format:
+         * `accounts/{account}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The resource name of the parent account for the service. Format: `accounts/{account}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The resource name of the parent account for the service. Format:
+         * `accounts/{account}`
+         */
+        public Propose setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        @Override
+        public Propose set(String parameterName, Object value) {
+          return (Propose) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Reject an account service (both proposed and approve services can be rejected).
+       *
+       * Create a request for the method "services.reject".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Reject#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The resource name of the account service to reject. Format:
+       *        `accounts/{account}/services/{service}`
+       * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.RejectAccountServiceRequest}
+       * @return the request
+       */
+      public Reject reject(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.RejectAccountServiceRequest content) throws java.io.IOException {
+        Reject result = new Reject(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Reject extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.Empty> {
+
+        private static final String REST_PATH = "accounts/v1beta/{+name}:reject";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/services/[^/]+$");
+
+        /**
+         * Reject an account service (both proposed and approve services can be rejected).
+         *
+         * Create a request for the method "services.reject".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Reject#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Reject#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The resource name of the account service to reject. Format:
+       *        `accounts/{account}/services/{service}`
+         * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.RejectAccountServiceRequest}
+         * @since 1.13
+         */
+        protected Reject(java.lang.String name, com.google.api.services.merchantapi.accounts_v1beta.model.RejectAccountServiceRequest content) {
+          super(Merchant.this, "POST", REST_PATH, content, com.google.api.services.merchantapi.accounts_v1beta.model.Empty.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/services/[^/]+$");
+          }
+        }
+
+        @Override
+        public Reject set$Xgafv(java.lang.String $Xgafv) {
+          return (Reject) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Reject setAccessToken(java.lang.String accessToken) {
+          return (Reject) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Reject setAlt(java.lang.String alt) {
+          return (Reject) super.setAlt(alt);
+        }
+
+        @Override
+        public Reject setCallback(java.lang.String callback) {
+          return (Reject) super.setCallback(callback);
+        }
+
+        @Override
+        public Reject setFields(java.lang.String fields) {
+          return (Reject) super.setFields(fields);
+        }
+
+        @Override
+        public Reject setKey(java.lang.String key) {
+          return (Reject) super.setKey(key);
+        }
+
+        @Override
+        public Reject setOauthToken(java.lang.String oauthToken) {
+          return (Reject) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Reject setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Reject) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Reject setQuotaUser(java.lang.String quotaUser) {
+          return (Reject) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Reject setUploadType(java.lang.String uploadType) {
+          return (Reject) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Reject setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Reject) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The resource name of the account service to reject. Format:
+         * `accounts/{account}/services/{service}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The resource name of the account service to reject. Format:
+       `accounts/{account}/services/{service}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The resource name of the account service to reject. Format:
+         * `accounts/{account}/services/{service}`
+         */
+        public Reject setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/services/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Reject set(String parameterName, Object value) {
+          return (Reject) super.set(parameterName, value);
+        }
+      }
+
+    }
+    /**
      * An accessor for creating requests from the ShippingSettings collection.
      *
      * <p>The typical use is:</p>
@@ -5084,7 +8825,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link GetShippingSettings#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The name of the shipping setting to retrieve. Format: `accounts/{account}/shippingsetting`
+       * @param name Required. The name of the shipping setting to retrieve. Format:
+       *        `accounts/{account}/shippingsettings`
        * @return the request
        */
       public GetShippingSettings getShippingSettings(java.lang.String name) throws java.io.IOException {
@@ -5111,7 +8853,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * AbstractGoogleClientRequest)} must be called to initialize this instance immediately after
          * invoking the constructor. </p>
          *
-         * @param name Required. The name of the shipping setting to retrieve. Format: `accounts/{account}/shippingsetting`
+         * @param name Required. The name of the shipping setting to retrieve. Format:
+       *        `accounts/{account}/shippingsettings`
          * @since 1.13
          */
         protected GetShippingSettings(java.lang.String name) {
@@ -5191,13 +8934,13 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the shipping setting to retrieve. Format:
-         * `accounts/{account}/shippingsetting`
+         * `accounts/{account}/shippingsettings`
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. The name of the shipping setting to retrieve. Format:
-       `accounts/{account}/shippingsetting`
+       `accounts/{account}/shippingsettings`
          */
         public java.lang.String getName() {
           return name;
@@ -5205,7 +8948,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the shipping setting to retrieve. Format:
-         * `accounts/{account}/shippingsetting`
+         * `accounts/{account}/shippingsettings`
          */
         public GetShippingSettings setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -5223,7 +8966,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
       }
       /**
-       * Replace the shipping setting of a merchant with the request shipping setting. Executing this
+       * Replace the shipping setting of a business with the request shipping setting. Executing this
        * method requires admin access.
        *
        * Create a request for the method "shippingSettings.insert".
@@ -5231,7 +8974,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link Insert#execute()} method to invoke the remote operation.
        *
-       * @param parent Required. The account where this product will be inserted. Format: accounts/{account}
+       * @param parent Required. The account for which this shipping setting will be inserted. If you are using an advanced
+       *        account, you must specify the unique identifier of the sub-account for which you want to
+       *        insert the shipping setting. Format: `accounts/{ACCOUNT_ID}`
        * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.ShippingSettings}
        * @return the request
        */
@@ -5249,7 +8994,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+$");
 
         /**
-         * Replace the shipping setting of a merchant with the request shipping setting. Executing this
+         * Replace the shipping setting of a business with the request shipping setting. Executing this
          * method requires admin access.
          *
          * Create a request for the method "shippingSettings.insert".
@@ -5260,7 +9005,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * Insert#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. The account where this product will be inserted. Format: accounts/{account}
+         * @param parent Required. The account for which this shipping setting will be inserted. If you are using an advanced
+       *        account, you must specify the unique identifier of the sub-account for which you want to
+       *        insert the shipping setting. Format: `accounts/{ACCOUNT_ID}`
          * @param content the {@link com.google.api.services.merchantapi.accounts_v1beta.model.ShippingSettings}
          * @since 1.13
          */
@@ -5330,19 +9077,25 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
 
         /**
-         * Required. The account where this product will be inserted. Format: accounts/{account}
+         * Required. The account for which this shipping setting will be inserted. If you are using
+         * an advanced account, you must specify the unique identifier of the sub-account for which
+         * you want to insert the shipping setting. Format: `accounts/{ACCOUNT_ID}`
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. The account where this product will be inserted. Format: accounts/{account}
+        /** Required. The account for which this shipping setting will be inserted. If you are using an
+       advanced account, you must specify the unique identifier of the sub-account for which you want to
+       insert the shipping setting. Format: `accounts/{ACCOUNT_ID}`
          */
         public java.lang.String getParent() {
           return parent;
         }
 
         /**
-         * Required. The account where this product will be inserted. Format: accounts/{account}
+         * Required. The account for which this shipping setting will be inserted. If you are using
+         * an advanced account, you must specify the unique identifier of the sub-account for which
+         * you want to insert the shipping setting. Format: `accounts/{ACCOUNT_ID}`
          */
         public Insert setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -5390,7 +9143,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
        * @param name Required. The resource name of the terms of service version. Format:
-       *        `accounts/{account}/termsOfServiceAgreementState/{identifier}` The identifier format is:
+       *        `accounts/{account}/termsOfServiceAgreementStates/{identifier}` The identifier format is:
        *        `{TermsOfServiceKind}-{country}`
        * @return the request
        */
@@ -5418,7 +9171,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * must be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. The resource name of the terms of service version. Format:
-       *        `accounts/{account}/termsOfServiceAgreementState/{identifier}` The identifier format is:
+       *        `accounts/{account}/termsOfServiceAgreementStates/{identifier}` The identifier format is:
        *        `{TermsOfServiceKind}-{country}`
          * @since 1.13
          */
@@ -5499,14 +9252,14 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The resource name of the terms of service version. Format:
-         * `accounts/{account}/termsOfServiceAgreementState/{identifier}` The identifier format is:
+         * `accounts/{account}/termsOfServiceAgreementStates/{identifier}` The identifier format is:
          * `{TermsOfServiceKind}-{country}`
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. The resource name of the terms of service version. Format:
-       `accounts/{account}/termsOfServiceAgreementState/{identifier}` The identifier format is:
+       `accounts/{account}/termsOfServiceAgreementStates/{identifier}` The identifier format is:
        `{TermsOfServiceKind}-{country}`
          */
         public java.lang.String getName() {
@@ -5515,7 +9268,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The resource name of the terms of service version. Format:
-         * `accounts/{account}/termsOfServiceAgreementState/{identifier}` The identifier format is:
+         * `accounts/{account}/termsOfServiceAgreementStates/{identifier}` The identifier format is:
          * `{TermsOfServiceKind}-{country}`
          */
         public Get setName(java.lang.String name) {
@@ -5858,7 +9611,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
       }
       /**
-       * Deletes a Merchant Center account user. Executing this method requires admin access.
+       * Deletes a Merchant Center account user. Executing this method requires admin access. The user to
+       * be deleted can't be the last admin user of that account. Also a user is protected from deletion
+       * if it is managed by Business Manager"
        *
        * Create a request for the method "users.delete".
        *
@@ -5884,7 +9639,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/users/[^/]+$");
 
         /**
-         * Deletes a Merchant Center account user. Executing this method requires admin access.
+         * Deletes a Merchant Center account user. Executing this method requires admin access. The user
+         * to be deleted can't be the last admin user of that account. Also a user is protected from
+         * deletion if it is managed by Business Manager"
          *
          * Create a request for the method "users.delete".
          *
@@ -6481,17 +10238,24 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `access_rights`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `access_rights`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `access_rights`
+         */
         public Patch setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -6543,7 +10307,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
       return result;
     }
 
-    public class Accept extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.Empty> {
+    public class Accept extends MerchantRequest<com.google.api.services.merchantapi.accounts_v1beta.model.AcceptTermsOfServiceResponse> {
 
       private static final String REST_PATH = "accounts/v1beta/{+name}:accept";
 
@@ -6565,23 +10329,13 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * @since 1.13
        */
       protected Accept(java.lang.String name) {
-        super(Merchant.this, "GET", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.Empty.class);
+        super(Merchant.this, "POST", REST_PATH, null, com.google.api.services.merchantapi.accounts_v1beta.model.AcceptTermsOfServiceResponse.class);
         this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
         if (!getSuppressPatternChecks()) {
           com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
               "Parameter name must conform to the pattern " +
               "^termsOfService/[^/]+$");
         }
-      }
-
-      @Override
-      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
-        return super.executeUsingHead();
-      }
-
-      @Override
-      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
-        return super.buildHttpRequestUsingHead();
       }
 
       @Override
@@ -6666,17 +10420,17 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         return this;
       }
 
-      /** Required. The account for which to accept the ToS. */
+      /** Required. The account for which to accept the ToS. Format: `accounts/{account}` */
       @com.google.api.client.util.Key
       private java.lang.String account;
 
-      /** Required. The account for which to accept the ToS.
+      /** Required. The account for which to accept the ToS. Format: `accounts/{account}`
        */
       public java.lang.String getAccount() {
         return account;
       }
 
-      /** Required. The account for which to accept the ToS. */
+      /** Required. The account for which to accept the ToS. Format: `accounts/{account}` */
       public Accept setAccount(java.lang.String account) {
         this.account = account;
         return this;
@@ -6956,39 +10710,39 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         return (RetrieveLatest) super.setUploadProtocol(uploadProtocol);
       }
 
-      /** The Kind this terms of service version applies to. */
+      /** Required. The Kind this terms of service version applies to. */
       @com.google.api.client.util.Key
       private java.lang.String kind;
 
-      /** The Kind this terms of service version applies to.
+      /** Required. The Kind this terms of service version applies to.
        */
       public java.lang.String getKind() {
         return kind;
       }
 
-      /** The Kind this terms of service version applies to. */
+      /** Required. The Kind this terms of service version applies to. */
       public RetrieveLatest setKind(java.lang.String kind) {
         this.kind = kind;
         return this;
       }
 
       /**
-       * Region code as defined by [CLDR](https://cldr.unicode.org/). This is either a country when
-       * the ToS applies specifically to that country or 001 when it applies globally.
+       * Required. Region code as defined by [CLDR](https://cldr.unicode.org/). This is either a
+       * country when the ToS applies specifically to that country or 001 when it applies globally.
        */
       @com.google.api.client.util.Key
       private java.lang.String regionCode;
 
-      /** Region code as defined by [CLDR](https://cldr.unicode.org/). This is either a country when the ToS
-     applies specifically to that country or 001 when it applies globally.
+      /** Required. Region code as defined by [CLDR](https://cldr.unicode.org/). This is either a country
+     when the ToS applies specifically to that country or 001 when it applies globally.
        */
       public java.lang.String getRegionCode() {
         return regionCode;
       }
 
       /**
-       * Region code as defined by [CLDR](https://cldr.unicode.org/). This is either a country when
-       * the ToS applies specifically to that country or 001 when it applies globally.
+       * Required. Region code as defined by [CLDR](https://cldr.unicode.org/). This is either a
+       * country when the ToS applies specifically to that country or 001 when it applies globally.
        */
       public RetrieveLatest setRegionCode(java.lang.String regionCode) {
         this.regionCode = regionCode;

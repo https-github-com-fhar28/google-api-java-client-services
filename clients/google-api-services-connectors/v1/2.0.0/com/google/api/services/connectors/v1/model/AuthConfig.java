@@ -30,21 +30,21 @@ package com.google.api.services.connectors.v1.model;
 public final class AuthConfig extends com.google.api.client.json.GenericJson {
 
   /**
-   * List containing additional auth configs.
+   * Optional. List containing additional auth configs.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<ConfigVariable> additionalVariables;
 
   /**
-   * Identifier key for auth config
+   * Optional. Identifier key for auth config
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String authKey;
 
   /**
-   * The type of authentication configured.
+   * Optional. The type of authentication configured.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -93,7 +93,7 @@ public final class AuthConfig extends com.google.api.client.json.GenericJson {
   private UserPassword userPassword;
 
   /**
-   * List containing additional auth configs.
+   * Optional. List containing additional auth configs.
    * @return value or {@code null} for none
    */
   public java.util.List<ConfigVariable> getAdditionalVariables() {
@@ -101,7 +101,7 @@ public final class AuthConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * List containing additional auth configs.
+   * Optional. List containing additional auth configs.
    * @param additionalVariables additionalVariables or {@code null} for none
    */
   public AuthConfig setAdditionalVariables(java.util.List<ConfigVariable> additionalVariables) {
@@ -110,7 +110,7 @@ public final class AuthConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Identifier key for auth config
+   * Optional. Identifier key for auth config
    * @return value or {@code null} for none
    */
   public java.lang.String getAuthKey() {
@@ -118,7 +118,7 @@ public final class AuthConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Identifier key for auth config
+   * Optional. Identifier key for auth config
    * @param authKey authKey or {@code null} for none
    */
   public AuthConfig setAuthKey(java.lang.String authKey) {
@@ -127,7 +127,7 @@ public final class AuthConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The type of authentication configured.
+   * Optional. The type of authentication configured.
    * @return value or {@code null} for none
    */
   public java.lang.String getAuthType() {
@@ -135,7 +135,7 @@ public final class AuthConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The type of authentication configured.
+   * Optional. The type of authentication configured.
    * @param authType authType or {@code null} for none
    */
   public AuthConfig setAuthType(java.lang.String authType) {

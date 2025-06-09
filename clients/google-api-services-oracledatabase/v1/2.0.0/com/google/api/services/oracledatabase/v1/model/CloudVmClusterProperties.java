@@ -45,6 +45,13 @@ public final class CloudVmClusterProperties extends com.google.api.client.json.G
   private java.lang.String compartmentId;
 
   /**
+   * Output only. The compute model of the VM Cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String computeModel;
+
+  /**
    * Required. Number of enabled CPU cores.
    * The value may be {@code null}.
    */
@@ -243,7 +250,7 @@ public final class CloudVmClusterProperties extends com.google.api.client.json.G
   private java.lang.Integer storageSizeGb;
 
   /**
-   * Output only. Operating system version of the image.
+   * Optional. Operating system version of the image.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -287,6 +294,23 @@ public final class CloudVmClusterProperties extends com.google.api.client.json.G
    */
   public CloudVmClusterProperties setCompartmentId(java.lang.String compartmentId) {
     this.compartmentId = compartmentId;
+    return this;
+  }
+
+  /**
+   * Output only. The compute model of the VM Cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getComputeModel() {
+    return computeModel;
+  }
+
+  /**
+   * Output only. The compute model of the VM Cluster.
+   * @param computeModel computeModel or {@code null} for none
+   */
+  public CloudVmClusterProperties setComputeModel(java.lang.String computeModel) {
+    this.computeModel = computeModel;
     return this;
   }
 
@@ -771,7 +795,7 @@ public final class CloudVmClusterProperties extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. Operating system version of the image.
+   * Optional. Operating system version of the image.
    * @return value or {@code null} for none
    */
   public java.lang.String getSystemVersion() {
@@ -779,7 +803,7 @@ public final class CloudVmClusterProperties extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. Operating system version of the image.
+   * Optional. Operating system version of the image.
    * @param systemVersion systemVersion or {@code null} for none
    */
   public CloudVmClusterProperties setSystemVersion(java.lang.String systemVersion) {

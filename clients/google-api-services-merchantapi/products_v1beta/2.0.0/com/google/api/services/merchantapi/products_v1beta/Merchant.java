@@ -183,7 +183,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
        *
        * @param name Required. The name of the product input resource to delete. Format:
-       *        accounts/{account}/productInputs/{product}
+       *        `accounts/{account}/productInputs/{product}` where the last section `product` consists of
+       *        4 parts: `channel~content_language~feed_label~offer_id` example for product name is
+       *        `accounts/123/productInputs/online~en~US~sku123`.
        * @return the request
        */
       public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -213,7 +215,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. The name of the product input resource to delete. Format:
-       *        accounts/{account}/productInputs/{product}
+       *        `accounts/{account}/productInputs/{product}` where the last section `product` consists of
+       *        4 parts: `channel~content_language~feed_label~offer_id` example for product name is
+       *        `accounts/123/productInputs/online~en~US~sku123`.
          * @since 1.13
          */
         protected Delete(java.lang.String name) {
@@ -283,13 +287,17 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the product input resource to delete. Format:
-         * accounts/{account}/productInputs/{product}
+         * `accounts/{account}/productInputs/{product}` where the last section `product` consists of
+         * 4 parts: `channel~content_language~feed_label~offer_id` example for product name is
+         * `accounts/123/productInputs/online~en~US~sku123`.
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. The name of the product input resource to delete. Format:
-       accounts/{account}/productInputs/{product}
+       `accounts/{account}/productInputs/{product}` where the last section `product` consists of 4 parts:
+       `channel~content_language~feed_label~offer_id` example for product name is
+       `accounts/123/productInputs/online~en~US~sku123`.
          */
         public java.lang.String getName() {
           return name;
@@ -297,7 +305,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the product input resource to delete. Format:
-         * accounts/{account}/productInputs/{product}
+         * `accounts/{account}/productInputs/{product}` where the last section `product` consists of
+         * 4 parts: `channel~content_language~feed_label~offer_id` example for product name is
+         * `accounts/123/productInputs/online~en~US~sku123`.
          */
         public Delete setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -311,13 +321,15 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The primary or supplemental data source from which the product input should be
-         * deleted. Format: `accounts/{account}/dataSources/{datasource}`.
+         * deleted. Format: `accounts/{account}/dataSources/{datasource}`. For example,
+         * `accounts/123456/dataSources/104628`.
          */
         @com.google.api.client.util.Key
         private java.lang.String dataSource;
 
         /** Required. The primary or supplemental data source from which the product input should be deleted.
-       Format: `accounts/{account}/dataSources/{datasource}`.
+       Format: `accounts/{account}/dataSources/{datasource}`. For example,
+       `accounts/123456/dataSources/104628`.
          */
         public java.lang.String getDataSource() {
           return dataSource;
@@ -325,7 +337,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The primary or supplemental data source from which the product input should be
-         * deleted. Format: `accounts/{account}/dataSources/{datasource}`.
+         * deleted. Format: `accounts/{account}/dataSources/{datasource}`. For example,
+         * `accounts/123456/dataSources/104628`.
          */
         public Delete setDataSource(java.lang.String dataSource) {
           this.dataSource = dataSource;
@@ -348,7 +361,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link Insert#execute()} method to invoke the remote operation.
        *
-       * @param parent Required. The account where this product will be inserted. Format: accounts/{account}
+       * @param parent Required. The account where this product will be inserted. Format: `accounts/{account}`
        * @param content the {@link com.google.api.services.merchantapi.products_v1beta.model.ProductInput}
        * @return the request
        */
@@ -379,7 +392,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * Insert#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. The account where this product will be inserted. Format: accounts/{account}
+         * @param parent Required. The account where this product will be inserted. Format: `accounts/{account}`
          * @param content the {@link com.google.api.services.merchantapi.products_v1beta.model.ProductInput}
          * @since 1.13
          */
@@ -449,19 +462,19 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
 
         /**
-         * Required. The account where this product will be inserted. Format: accounts/{account}
+         * Required. The account where this product will be inserted. Format: `accounts/{account}`
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. The account where this product will be inserted. Format: accounts/{account}
+        /** Required. The account where this product will be inserted. Format: `accounts/{account}`
          */
         public java.lang.String getParent() {
           return parent;
         }
 
         /**
-         * Required. The account where this product will be inserted. Format: accounts/{account}
+         * Required. The account where this product will be inserted. Format: `accounts/{account}`
          */
         public Insert setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -476,14 +489,17 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         /**
          * Required. The primary or supplemental product data source name. If the product already
          * exists and data source provided is different, then the product will be moved to a new
-         * data source. Format: `accounts/{account}/dataSources/{datasource}`.
+         * data source. Only API data sources are supported. Format:
+         * `accounts/{account}/dataSources/{datasource}`. For example,
+         * `accounts/123456/dataSources/104628`.
          */
         @com.google.api.client.util.Key
         private java.lang.String dataSource;
 
         /** Required. The primary or supplemental product data source name. If the product already exists and
-       data source provided is different, then the product will be moved to a new data source. Format:
-       `accounts/{account}/dataSources/{datasource}`.
+       data source provided is different, then the product will be moved to a new data source. Only API
+       data sources are supported. Format: `accounts/{account}/dataSources/{datasource}`. For example,
+       `accounts/123456/dataSources/104628`.
          */
         public java.lang.String getDataSource() {
           return dataSource;
@@ -492,7 +508,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         /**
          * Required. The primary or supplemental product data source name. If the product already
          * exists and data source provided is different, then the product will be moved to a new
-         * data source. Format: `accounts/{account}/dataSources/{datasource}`.
+         * data source. Only API data sources are supported. Format:
+         * `accounts/{account}/dataSources/{datasource}`. For example,
+         * `accounts/123456/dataSources/104628`.
          */
         public Insert setDataSource(java.lang.String dataSource) {
           this.dataSource = dataSource;
@@ -502,6 +520,226 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         @Override
         public Insert set(String parameterName, Object value) {
           return (Insert) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Updates the existing product input in your Merchant Center account. After inserting, updating, or
+       * deleting a product input, it may take several minutes before the processed product can be
+       * retrieved.
+       *
+       * Create a request for the method "productInputs.patch".
+       *
+       * This request holds the parameters needed by the merchantapi server.  After setting any optional
+       * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+       *
+       * @param name Identifier. The name of the product input. Format: `accounts/{account}/productInputs/{productinput}`
+       *        where the last section `productinput` consists of 4 parts:
+       *        `channel~content_language~feed_label~offer_id` example for product input name is
+       *        `accounts/123/productInputs/online~en~US~sku123`
+       * @param content the {@link com.google.api.services.merchantapi.products_v1beta.model.ProductInput}
+       * @return the request
+       */
+      public Patch patch(java.lang.String name, com.google.api.services.merchantapi.products_v1beta.model.ProductInput content) throws java.io.IOException {
+        Patch result = new Patch(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Patch extends MerchantRequest<com.google.api.services.merchantapi.products_v1beta.model.ProductInput> {
+
+        private static final String REST_PATH = "products/v1beta/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/productInputs/[^/]+$");
+
+        /**
+         * Updates the existing product input in your Merchant Center account. After inserting, updating,
+         * or deleting a product input, it may take several minutes before the processed product can be
+         * retrieved.
+         *
+         * Create a request for the method "productInputs.patch".
+         *
+         * This request holds the parameters needed by the the merchantapi server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Identifier. The name of the product input. Format: `accounts/{account}/productInputs/{productinput}`
+       *        where the last section `productinput` consists of 4 parts:
+       *        `channel~content_language~feed_label~offer_id` example for product input name is
+       *        `accounts/123/productInputs/online~en~US~sku123`
+         * @param content the {@link com.google.api.services.merchantapi.products_v1beta.model.ProductInput}
+         * @since 1.13
+         */
+        protected Patch(java.lang.String name, com.google.api.services.merchantapi.products_v1beta.model.ProductInput content) {
+          super(Merchant.this, "PATCH", REST_PATH, content, com.google.api.services.merchantapi.products_v1beta.model.ProductInput.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/productInputs/[^/]+$");
+          }
+        }
+
+        @Override
+        public Patch set$Xgafv(java.lang.String $Xgafv) {
+          return (Patch) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Patch setAccessToken(java.lang.String accessToken) {
+          return (Patch) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Patch setAlt(java.lang.String alt) {
+          return (Patch) super.setAlt(alt);
+        }
+
+        @Override
+        public Patch setCallback(java.lang.String callback) {
+          return (Patch) super.setCallback(callback);
+        }
+
+        @Override
+        public Patch setFields(java.lang.String fields) {
+          return (Patch) super.setFields(fields);
+        }
+
+        @Override
+        public Patch setKey(java.lang.String key) {
+          return (Patch) super.setKey(key);
+        }
+
+        @Override
+        public Patch setOauthToken(java.lang.String oauthToken) {
+          return (Patch) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Patch) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Patch setQuotaUser(java.lang.String quotaUser) {
+          return (Patch) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Patch setUploadType(java.lang.String uploadType) {
+          return (Patch) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Patch) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. The name of the product input. Format:
+         * `accounts/{account}/productInputs/{productinput}` where the last section `productinput`
+         * consists of 4 parts: `channel~content_language~feed_label~offer_id` example for product
+         * input name is `accounts/123/productInputs/online~en~US~sku123`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. The name of the product input. Format:
+       `accounts/{account}/productInputs/{productinput}` where the last section `productinput` consists of
+       4 parts: `channel~content_language~feed_label~offer_id` example for product input name is
+       `accounts/123/productInputs/online~en~US~sku123`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. The name of the product input. Format:
+         * `accounts/{account}/productInputs/{productinput}` where the last section `productinput`
+         * consists of 4 parts: `channel~content_language~feed_label~offer_id` example for product
+         * input name is `accounts/123/productInputs/online~en~US~sku123`
+         */
+        public Patch setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/productInputs/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Required. The primary or supplemental product data source where `data_source` name
+         * identifies the product input to be updated. Only API data sources are supported. Format:
+         * `accounts/{account}/dataSources/{datasource}`. For example,
+         * `accounts/123456/dataSources/104628`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String dataSource;
+
+        /** Required. The primary or supplemental product data source where `data_source` name identifies the
+       product input to be updated. Only API data sources are supported. Format:
+       `accounts/{account}/dataSources/{datasource}`. For example, `accounts/123456/dataSources/104628`.
+         */
+        public java.lang.String getDataSource() {
+          return dataSource;
+        }
+
+        /**
+         * Required. The primary or supplemental product data source where `data_source` name
+         * identifies the product input to be updated. Only API data sources are supported. Format:
+         * `accounts/{account}/dataSources/{datasource}`. For example,
+         * `accounts/123456/dataSources/104628`.
+         */
+        public Patch setDataSource(java.lang.String dataSource) {
+          this.dataSource = dataSource;
+          return this;
+        }
+
+        /**
+         * Optional. The list of product attributes to be updated. If the update mask is omitted,
+         * then it is treated as implied field mask equivalent to all fields that are populated
+         * (have a non-empty value). Attributes specified in the update mask without a value
+         * specified in the body will be deleted from the product. Update mask can only be specified
+         * for top level fields in attributes and custom attributes. To specify the update mask for
+         * custom attributes you need to add the `custom_attribute.` prefix. Providing special "*"
+         * value for full product replacement is not supported.
+         */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** Optional. The list of product attributes to be updated. If the update mask is omitted, then it is
+       treated as implied field mask equivalent to all fields that are populated (have a non-empty value).
+       Attributes specified in the update mask without a value specified in the body will be deleted from
+       the product. Update mask can only be specified for top level fields in attributes and custom
+       attributes. To specify the update mask for custom attributes you need to add the
+       `custom_attribute.` prefix. Providing special "*" value for full product replacement is not
+       supported.
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /**
+         * Optional. The list of product attributes to be updated. If the update mask is omitted,
+         * then it is treated as implied field mask equivalent to all fields that are populated
+         * (have a non-empty value). Attributes specified in the update mask without a value
+         * specified in the body will be deleted from the product. Update mask can only be specified
+         * for top level fields in attributes and custom attributes. To specify the update mask for
+         * custom attributes you need to add the `custom_attribute.` prefix. Providing special "*"
+         * value for full product replacement is not supported.
+         */
+        public Patch setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public Patch set(String parameterName, Object value) {
+          return (Patch) super.set(parameterName, value);
         }
       }
 
@@ -536,7 +774,10 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The name of the product to retrieve. Format: `accounts/{account}/products/{product}`
+       * @param name Required. The name of the product to retrieve. Format: `accounts/{account}/products/{product}` where
+       *        the last section `product` consists of 4 parts:
+       *        `channel~content_language~feed_label~offer_id` example for product name is
+       *        `accounts/123/products/online~en~US~sku123`
        * @return the request
        */
       public Get get(java.lang.String name) throws java.io.IOException {
@@ -564,7 +805,10 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
          * must be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. The name of the product to retrieve. Format: `accounts/{account}/products/{product}`
+         * @param name Required. The name of the product to retrieve. Format: `accounts/{account}/products/{product}` where
+       *        the last section `product` consists of 4 parts:
+       *        `channel~content_language~feed_label~offer_id` example for product name is
+       *        `accounts/123/products/online~en~US~sku123`
          * @since 1.13
          */
         protected Get(java.lang.String name) {
@@ -644,12 +888,17 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the product to retrieve. Format:
-         * `accounts/{account}/products/{product}`
+         * `accounts/{account}/products/{product}` where the last section `product` consists of 4
+         * parts: `channel~content_language~feed_label~offer_id` example for product name is
+         * `accounts/123/products/online~en~US~sku123`
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. The name of the product to retrieve. Format: `accounts/{account}/products/{product}`
+       where the last section `product` consists of 4 parts:
+       `channel~content_language~feed_label~offer_id` example for product name is
+       `accounts/123/products/online~en~US~sku123`
          */
         public java.lang.String getName() {
           return name;
@@ -657,7 +906,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Required. The name of the product to retrieve. Format:
-         * `accounts/{account}/products/{product}`
+         * `accounts/{account}/products/{product}` where the last section `product` consists of 4
+         * parts: `channel~content_language~feed_label~offer_id` example for product name is
+         * `accounts/123/products/online~en~US~sku123`
          */
         public Get setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -676,8 +927,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
       }
       /**
        * Lists the processed products in your Merchant Center account. The response might contain fewer
-       * items than specified by pageSize. Rely on pageToken to determine if there are more items to be
-       * requested. After inserting, updating, or deleting a product input, it may take several minutes
+       * items than specified by `pageSize`. Rely on `pageToken` to determine if there are more items to
+       * be requested. After inserting, updating, or deleting a product input, it may take several minutes
        * before the updated processed product can be retrieved.
        *
        * Create a request for the method "products.list".
@@ -685,7 +936,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * This request holds the parameters needed by the merchantapi server.  After setting any optional
        * parameters, call the {@link List#execute()} method to invoke the remote operation.
        *
-       * @param parent Required. The account to list processed products for. Format: accounts/{account}
+       * @param parent Required. The account to list processed products for. Format: `accounts/{account}`
        * @return the request
        */
       public List list(java.lang.String parent) throws java.io.IOException {
@@ -703,9 +954,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
 
         /**
          * Lists the processed products in your Merchant Center account. The response might contain fewer
-         * items than specified by pageSize. Rely on pageToken to determine if there are more items to be
-         * requested. After inserting, updating, or deleting a product input, it may take several minutes
-         * before the updated processed product can be retrieved.
+         * items than specified by `pageSize`. Rely on `pageToken` to determine if there are more items to
+         * be requested. After inserting, updating, or deleting a product input, it may take several
+         * minutes before the updated processed product can be retrieved.
          *
          * Create a request for the method "products.list".
          *
@@ -714,7 +965,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
          * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
          * must be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. The account to list processed products for. Format: accounts/{account}
+         * @param parent Required. The account to list processed products for. Format: `accounts/{account}`
          * @since 1.13
          */
         protected List(java.lang.String parent) {
@@ -792,17 +1043,17 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return (List) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** Required. The account to list processed products for. Format: accounts/{account} */
+        /** Required. The account to list processed products for. Format: `accounts/{account}` */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. The account to list processed products for. Format: accounts/{account}
+        /** Required. The account to list processed products for. Format: `accounts/{account}`
          */
         public java.lang.String getParent() {
           return parent;
         }
 
-        /** Required. The account to list processed products for. Format: accounts/{account} */
+        /** Required. The account to list processed products for. Format: `accounts/{account}` */
         public List setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),

@@ -214,351 +214,6 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
         public class PartnerTenants {
 
           /**
-           * Gets the access control policy for a resource. Returns an empty policy if the resource exists and
-           * does not have a policy set.
-           *
-           * Create a request for the method "partnerTenants.getIamPolicy".
-           *
-           * This request holds the parameters needed by the beyondcorp server.  After setting any optional
-           * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation.
-           *
-           * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
-           *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-           *        this field.
-           * @return the request
-           */
-          public GetIamPolicy getIamPolicy(java.lang.String resource) throws java.io.IOException {
-            GetIamPolicy result = new GetIamPolicy(resource);
-            initialize(result);
-            return result;
-          }
-
-          public class GetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
-
-            private static final String REST_PATH = "v1/{+resource}:getIamPolicy";
-
-            private final java.util.regex.Pattern RESOURCE_PATTERN =
-                java.util.regex.Pattern.compile("^organizations/[^/]+/locations/global/partnerTenants/[^/]+$");
-
-            /**
-             * Gets the access control policy for a resource. Returns an empty policy if the resource exists
-             * and does not have a policy set.
-             *
-             * Create a request for the method "partnerTenants.getIamPolicy".
-             *
-             * This request holds the parameters needed by the the beyondcorp server.  After setting any
-             * optional parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote
-             * operation. <p> {@link
-             * GetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-             * must be called to initialize this instance immediately after invoking the constructor. </p>
-             *
-             * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
-           *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-           *        this field.
-             * @since 1.13
-             */
-            protected GetIamPolicy(java.lang.String resource) {
-              super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
-              this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-              if (!getSuppressPatternChecks()) {
-                com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                    "Parameter resource must conform to the pattern " +
-                    "^organizations/[^/]+/locations/global/partnerTenants/[^/]+$");
-              }
-            }
-
-            @Override
-            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
-              return super.executeUsingHead();
-            }
-
-            @Override
-            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
-              return super.buildHttpRequestUsingHead();
-            }
-
-            @Override
-            public GetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-              return (GetIamPolicy) super.set$Xgafv($Xgafv);
-            }
-
-            @Override
-            public GetIamPolicy setAccessToken(java.lang.String accessToken) {
-              return (GetIamPolicy) super.setAccessToken(accessToken);
-            }
-
-            @Override
-            public GetIamPolicy setAlt(java.lang.String alt) {
-              return (GetIamPolicy) super.setAlt(alt);
-            }
-
-            @Override
-            public GetIamPolicy setCallback(java.lang.String callback) {
-              return (GetIamPolicy) super.setCallback(callback);
-            }
-
-            @Override
-            public GetIamPolicy setFields(java.lang.String fields) {
-              return (GetIamPolicy) super.setFields(fields);
-            }
-
-            @Override
-            public GetIamPolicy setKey(java.lang.String key) {
-              return (GetIamPolicy) super.setKey(key);
-            }
-
-            @Override
-            public GetIamPolicy setOauthToken(java.lang.String oauthToken) {
-              return (GetIamPolicy) super.setOauthToken(oauthToken);
-            }
-
-            @Override
-            public GetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-              return (GetIamPolicy) super.setPrettyPrint(prettyPrint);
-            }
-
-            @Override
-            public GetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-              return (GetIamPolicy) super.setQuotaUser(quotaUser);
-            }
-
-            @Override
-            public GetIamPolicy setUploadType(java.lang.String uploadType) {
-              return (GetIamPolicy) super.setUploadType(uploadType);
-            }
-
-            @Override
-            public GetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-              return (GetIamPolicy) super.setUploadProtocol(uploadProtocol);
-            }
-
-            /**
-             * REQUIRED: The resource for which the policy is being requested. See [Resource
-             * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-             * for this field.
-             */
-            @com.google.api.client.util.Key
-            private java.lang.String resource;
-
-            /** REQUIRED: The resource for which the policy is being requested. See [Resource
-           names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-           field.
-             */
-            public java.lang.String getResource() {
-              return resource;
-            }
-
-            /**
-             * REQUIRED: The resource for which the policy is being requested. See [Resource
-             * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-             * for this field.
-             */
-            public GetIamPolicy setResource(java.lang.String resource) {
-              if (!getSuppressPatternChecks()) {
-                com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                    "Parameter resource must conform to the pattern " +
-                    "^organizations/[^/]+/locations/global/partnerTenants/[^/]+$");
-              }
-              this.resource = resource;
-              return this;
-            }
-
-            /**
-             * Optional. The maximum policy version that will be used to format the policy. Valid
-             * values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
-             * Requests for policies with any conditional role bindings must specify version 3.
-             * Policies with no conditional role bindings may specify any valid value or leave the
-             * field unset. The policy in the response might use the policy version that you
-             * specified, or it might use a lower policy version. For example, if you specify
-             * version 3, but the policy has no conditional role bindings, the response uses version
-             * 1. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            @com.google.api.client.util.Key("options.requestedPolicyVersion")
-            private java.lang.Integer optionsRequestedPolicyVersion;
-
-            /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1,
-           and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
-           conditional role bindings must specify version 3. Policies with no conditional role bindings may
-           specify any valid value or leave the field unset. The policy in the response might use the policy
-           version that you specified, or it might use a lower policy version. For example, if you specify
-           version 3, but the policy has no conditional role bindings, the response uses version 1. To learn
-           which resources support conditions in their IAM policies, see the [IAM
-           documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            public java.lang.Integer getOptionsRequestedPolicyVersion() {
-              return optionsRequestedPolicyVersion;
-            }
-
-            /**
-             * Optional. The maximum policy version that will be used to format the policy. Valid
-             * values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
-             * Requests for policies with any conditional role bindings must specify version 3.
-             * Policies with no conditional role bindings may specify any valid value or leave the
-             * field unset. The policy in the response might use the policy version that you
-             * specified, or it might use a lower policy version. For example, if you specify
-             * version 3, but the policy has no conditional role bindings, the response uses version
-             * 1. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            public GetIamPolicy setOptionsRequestedPolicyVersion(java.lang.Integer optionsRequestedPolicyVersion) {
-              this.optionsRequestedPolicyVersion = optionsRequestedPolicyVersion;
-              return this;
-            }
-
-            @Override
-            public GetIamPolicy set(String parameterName, Object value) {
-              return (GetIamPolicy) super.set(parameterName, value);
-            }
-          }
-          /**
-           * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-           * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-           *
-           * Create a request for the method "partnerTenants.setIamPolicy".
-           *
-           * This request holds the parameters needed by the beyondcorp server.  After setting any optional
-           * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation.
-           *
-           * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-           *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-           *        this field.
-           * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
-           * @return the request
-           */
-          public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) throws java.io.IOException {
-            SetIamPolicy result = new SetIamPolicy(resource, content);
-            initialize(result);
-            return result;
-          }
-
-          public class SetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
-
-            private static final String REST_PATH = "v1/{+resource}:setIamPolicy";
-
-            private final java.util.regex.Pattern RESOURCE_PATTERN =
-                java.util.regex.Pattern.compile("^organizations/[^/]+/locations/global/partnerTenants/[^/]+$");
-
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-             * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-             *
-             * Create a request for the method "partnerTenants.setIamPolicy".
-             *
-             * This request holds the parameters needed by the the beyondcorp server.  After setting any
-             * optional parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote
-             * operation. <p> {@link
-             * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-             * must be called to initialize this instance immediately after invoking the constructor. </p>
-             *
-             * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-           *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-           *        this field.
-             * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
-             * @since 1.13
-             */
-            protected SetIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) {
-              super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
-              this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-              if (!getSuppressPatternChecks()) {
-                com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                    "Parameter resource must conform to the pattern " +
-                    "^organizations/[^/]+/locations/global/partnerTenants/[^/]+$");
-              }
-            }
-
-            @Override
-            public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-              return (SetIamPolicy) super.set$Xgafv($Xgafv);
-            }
-
-            @Override
-            public SetIamPolicy setAccessToken(java.lang.String accessToken) {
-              return (SetIamPolicy) super.setAccessToken(accessToken);
-            }
-
-            @Override
-            public SetIamPolicy setAlt(java.lang.String alt) {
-              return (SetIamPolicy) super.setAlt(alt);
-            }
-
-            @Override
-            public SetIamPolicy setCallback(java.lang.String callback) {
-              return (SetIamPolicy) super.setCallback(callback);
-            }
-
-            @Override
-            public SetIamPolicy setFields(java.lang.String fields) {
-              return (SetIamPolicy) super.setFields(fields);
-            }
-
-            @Override
-            public SetIamPolicy setKey(java.lang.String key) {
-              return (SetIamPolicy) super.setKey(key);
-            }
-
-            @Override
-            public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
-              return (SetIamPolicy) super.setOauthToken(oauthToken);
-            }
-
-            @Override
-            public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-              return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
-            }
-
-            @Override
-            public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-              return (SetIamPolicy) super.setQuotaUser(quotaUser);
-            }
-
-            @Override
-            public SetIamPolicy setUploadType(java.lang.String uploadType) {
-              return (SetIamPolicy) super.setUploadType(uploadType);
-            }
-
-            @Override
-            public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-              return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
-            }
-
-            /**
-             * REQUIRED: The resource for which the policy is being specified. See [Resource
-             * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-             * for this field.
-             */
-            @com.google.api.client.util.Key
-            private java.lang.String resource;
-
-            /** REQUIRED: The resource for which the policy is being specified. See [Resource
-           names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-           field.
-             */
-            public java.lang.String getResource() {
-              return resource;
-            }
-
-            /**
-             * REQUIRED: The resource for which the policy is being specified. See [Resource
-             * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-             * for this field.
-             */
-            public SetIamPolicy setResource(java.lang.String resource) {
-              if (!getSuppressPatternChecks()) {
-                com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                    "Parameter resource must conform to the pattern " +
-                    "^organizations/[^/]+/locations/global/partnerTenants/[^/]+$");
-              }
-              this.resource = resource;
-              return this;
-            }
-
-            @Override
-            public SetIamPolicy set(String parameterName, Object value) {
-              return (SetIamPolicy) super.set(parameterName, value);
-            }
-          }
-          /**
            * Returns permissions that a caller has on the specified resource. If the resource does not exist,
            * this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is
            * designed to be used for building permission-aware UIs and command-line tools, not for
@@ -730,353 +385,6 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
            */
           public class BrowserDlpRules {
 
-            /**
-             * Gets the access control policy for a resource. Returns an empty policy if the resource exists and
-             * does not have a policy set.
-             *
-             * Create a request for the method "browserDlpRules.getIamPolicy".
-             *
-             * This request holds the parameters needed by the beyondcorp server.  After setting any optional
-             * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation.
-             *
-             * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
-             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-             *        this field.
-             * @return the request
-             */
-            public GetIamPolicy getIamPolicy(java.lang.String resource) throws java.io.IOException {
-              GetIamPolicy result = new GetIamPolicy(resource);
-              initialize(result);
-              return result;
-            }
-
-            public class GetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
-
-              private static final String REST_PATH = "v1/{+resource}:getIamPolicy";
-
-              private final java.util.regex.Pattern RESOURCE_PATTERN =
-                  java.util.regex.Pattern.compile("^organizations/[^/]+/locations/global/partnerTenants/[^/]+/browserDlpRules/[^/]+$");
-
-              /**
-               * Gets the access control policy for a resource. Returns an empty policy if the resource exists
-               * and does not have a policy set.
-               *
-               * Create a request for the method "browserDlpRules.getIamPolicy".
-               *
-               * This request holds the parameters needed by the the beyondcorp server.  After setting any
-               * optional parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote
-               * operation. <p> {@link
-               * GetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-               * must be called to initialize this instance immediately after invoking the constructor. </p>
-               *
-               * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
-             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-             *        this field.
-               * @since 1.13
-               */
-              protected GetIamPolicy(java.lang.String resource) {
-                super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
-                this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-                if (!getSuppressPatternChecks()) {
-                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                      "Parameter resource must conform to the pattern " +
-                      "^organizations/[^/]+/locations/global/partnerTenants/[^/]+/browserDlpRules/[^/]+$");
-                }
-              }
-
-              @Override
-              public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
-                return super.executeUsingHead();
-              }
-
-              @Override
-              public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
-                return super.buildHttpRequestUsingHead();
-              }
-
-              @Override
-              public GetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-                return (GetIamPolicy) super.set$Xgafv($Xgafv);
-              }
-
-              @Override
-              public GetIamPolicy setAccessToken(java.lang.String accessToken) {
-                return (GetIamPolicy) super.setAccessToken(accessToken);
-              }
-
-              @Override
-              public GetIamPolicy setAlt(java.lang.String alt) {
-                return (GetIamPolicy) super.setAlt(alt);
-              }
-
-              @Override
-              public GetIamPolicy setCallback(java.lang.String callback) {
-                return (GetIamPolicy) super.setCallback(callback);
-              }
-
-              @Override
-              public GetIamPolicy setFields(java.lang.String fields) {
-                return (GetIamPolicy) super.setFields(fields);
-              }
-
-              @Override
-              public GetIamPolicy setKey(java.lang.String key) {
-                return (GetIamPolicy) super.setKey(key);
-              }
-
-              @Override
-              public GetIamPolicy setOauthToken(java.lang.String oauthToken) {
-                return (GetIamPolicy) super.setOauthToken(oauthToken);
-              }
-
-              @Override
-              public GetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-                return (GetIamPolicy) super.setPrettyPrint(prettyPrint);
-              }
-
-              @Override
-              public GetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-                return (GetIamPolicy) super.setQuotaUser(quotaUser);
-              }
-
-              @Override
-              public GetIamPolicy setUploadType(java.lang.String uploadType) {
-                return (GetIamPolicy) super.setUploadType(uploadType);
-              }
-
-              @Override
-              public GetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-                return (GetIamPolicy) super.setUploadProtocol(uploadProtocol);
-              }
-
-              /**
-               * REQUIRED: The resource for which the policy is being requested. See [Resource
-               * names](https://cloud.google.com/apis/design/resource_names) for the appropriate
-               * value for this field.
-               */
-              @com.google.api.client.util.Key
-              private java.lang.String resource;
-
-              /** REQUIRED: The resource for which the policy is being requested. See [Resource
-             names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-             field.
-               */
-              public java.lang.String getResource() {
-                return resource;
-              }
-
-              /**
-               * REQUIRED: The resource for which the policy is being requested. See [Resource
-               * names](https://cloud.google.com/apis/design/resource_names) for the appropriate
-               * value for this field.
-               */
-              public GetIamPolicy setResource(java.lang.String resource) {
-                if (!getSuppressPatternChecks()) {
-                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                      "Parameter resource must conform to the pattern " +
-                      "^organizations/[^/]+/locations/global/partnerTenants/[^/]+/browserDlpRules/[^/]+$");
-                }
-                this.resource = resource;
-                return this;
-              }
-
-              /**
-               * Optional. The maximum policy version that will be used to format the policy. Valid
-               * values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
-               * Requests for policies with any conditional role bindings must specify version 3.
-               * Policies with no conditional role bindings may specify any valid value or leave the
-               * field unset. The policy in the response might use the policy version that you
-               * specified, or it might use a lower policy version. For example, if you specify
-               * version 3, but the policy has no conditional role bindings, the response uses
-               * version 1. To learn which resources support conditions in their IAM policies, see
-               * the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-
-               * policies).
-               */
-              @com.google.api.client.util.Key("options.requestedPolicyVersion")
-              private java.lang.Integer optionsRequestedPolicyVersion;
-
-              /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1,
-             and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
-             conditional role bindings must specify version 3. Policies with no conditional role bindings may
-             specify any valid value or leave the field unset. The policy in the response might use the policy
-             version that you specified, or it might use a lower policy version. For example, if you specify
-             version 3, but the policy has no conditional role bindings, the response uses version 1. To learn
-             which resources support conditions in their IAM policies, see the [IAM
-             documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-               */
-              public java.lang.Integer getOptionsRequestedPolicyVersion() {
-                return optionsRequestedPolicyVersion;
-              }
-
-              /**
-               * Optional. The maximum policy version that will be used to format the policy. Valid
-               * values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
-               * Requests for policies with any conditional role bindings must specify version 3.
-               * Policies with no conditional role bindings may specify any valid value or leave the
-               * field unset. The policy in the response might use the policy version that you
-               * specified, or it might use a lower policy version. For example, if you specify
-               * version 3, but the policy has no conditional role bindings, the response uses
-               * version 1. To learn which resources support conditions in their IAM policies, see
-               * the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-
-               * policies).
-               */
-              public GetIamPolicy setOptionsRequestedPolicyVersion(java.lang.Integer optionsRequestedPolicyVersion) {
-                this.optionsRequestedPolicyVersion = optionsRequestedPolicyVersion;
-                return this;
-              }
-
-              @Override
-              public GetIamPolicy set(String parameterName, Object value) {
-                return (GetIamPolicy) super.set(parameterName, value);
-              }
-            }
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-             * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-             *
-             * Create a request for the method "browserDlpRules.setIamPolicy".
-             *
-             * This request holds the parameters needed by the beyondcorp server.  After setting any optional
-             * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation.
-             *
-             * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-             *        this field.
-             * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
-             * @return the request
-             */
-            public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) throws java.io.IOException {
-              SetIamPolicy result = new SetIamPolicy(resource, content);
-              initialize(result);
-              return result;
-            }
-
-            public class SetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
-
-              private static final String REST_PATH = "v1/{+resource}:setIamPolicy";
-
-              private final java.util.regex.Pattern RESOURCE_PATTERN =
-                  java.util.regex.Pattern.compile("^organizations/[^/]+/locations/global/partnerTenants/[^/]+/browserDlpRules/[^/]+$");
-
-              /**
-               * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-               * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-               *
-               * Create a request for the method "browserDlpRules.setIamPolicy".
-               *
-               * This request holds the parameters needed by the the beyondcorp server.  After setting any
-               * optional parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote
-               * operation. <p> {@link
-               * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-               * must be called to initialize this instance immediately after invoking the constructor. </p>
-               *
-               * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-             *        this field.
-               * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
-               * @since 1.13
-               */
-              protected SetIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) {
-                super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
-                this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-                if (!getSuppressPatternChecks()) {
-                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                      "Parameter resource must conform to the pattern " +
-                      "^organizations/[^/]+/locations/global/partnerTenants/[^/]+/browserDlpRules/[^/]+$");
-                }
-              }
-
-              @Override
-              public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-                return (SetIamPolicy) super.set$Xgafv($Xgafv);
-              }
-
-              @Override
-              public SetIamPolicy setAccessToken(java.lang.String accessToken) {
-                return (SetIamPolicy) super.setAccessToken(accessToken);
-              }
-
-              @Override
-              public SetIamPolicy setAlt(java.lang.String alt) {
-                return (SetIamPolicy) super.setAlt(alt);
-              }
-
-              @Override
-              public SetIamPolicy setCallback(java.lang.String callback) {
-                return (SetIamPolicy) super.setCallback(callback);
-              }
-
-              @Override
-              public SetIamPolicy setFields(java.lang.String fields) {
-                return (SetIamPolicy) super.setFields(fields);
-              }
-
-              @Override
-              public SetIamPolicy setKey(java.lang.String key) {
-                return (SetIamPolicy) super.setKey(key);
-              }
-
-              @Override
-              public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
-                return (SetIamPolicy) super.setOauthToken(oauthToken);
-              }
-
-              @Override
-              public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-                return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
-              }
-
-              @Override
-              public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-                return (SetIamPolicy) super.setQuotaUser(quotaUser);
-              }
-
-              @Override
-              public SetIamPolicy setUploadType(java.lang.String uploadType) {
-                return (SetIamPolicy) super.setUploadType(uploadType);
-              }
-
-              @Override
-              public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-                return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
-              }
-
-              /**
-               * REQUIRED: The resource for which the policy is being specified. See [Resource
-               * names](https://cloud.google.com/apis/design/resource_names) for the appropriate
-               * value for this field.
-               */
-              @com.google.api.client.util.Key
-              private java.lang.String resource;
-
-              /** REQUIRED: The resource for which the policy is being specified. See [Resource
-             names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-             field.
-               */
-              public java.lang.String getResource() {
-                return resource;
-              }
-
-              /**
-               * REQUIRED: The resource for which the policy is being specified. See [Resource
-               * names](https://cloud.google.com/apis/design/resource_names) for the appropriate
-               * value for this field.
-               */
-              public SetIamPolicy setResource(java.lang.String resource) {
-                if (!getSuppressPatternChecks()) {
-                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                      "Parameter resource must conform to the pattern " +
-                      "^organizations/[^/]+/locations/global/partnerTenants/[^/]+/browserDlpRules/[^/]+$");
-                }
-                this.resource = resource;
-                return this;
-              }
-
-              @Override
-              public SetIamPolicy set(String parameterName, Object value) {
-                return (SetIamPolicy) super.set(parameterName, value);
-              }
-            }
             /**
              * Returns permissions that a caller has on the specified resource. If the resource does not exist,
              * this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is
@@ -1250,353 +558,6 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
            */
           public class ProxyConfigs {
 
-            /**
-             * Gets the access control policy for a resource. Returns an empty policy if the resource exists and
-             * does not have a policy set.
-             *
-             * Create a request for the method "proxyConfigs.getIamPolicy".
-             *
-             * This request holds the parameters needed by the beyondcorp server.  After setting any optional
-             * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation.
-             *
-             * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
-             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-             *        this field.
-             * @return the request
-             */
-            public GetIamPolicy getIamPolicy(java.lang.String resource) throws java.io.IOException {
-              GetIamPolicy result = new GetIamPolicy(resource);
-              initialize(result);
-              return result;
-            }
-
-            public class GetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
-
-              private static final String REST_PATH = "v1/{+resource}:getIamPolicy";
-
-              private final java.util.regex.Pattern RESOURCE_PATTERN =
-                  java.util.regex.Pattern.compile("^organizations/[^/]+/locations/global/partnerTenants/[^/]+/proxyConfigs/[^/]+$");
-
-              /**
-               * Gets the access control policy for a resource. Returns an empty policy if the resource exists
-               * and does not have a policy set.
-               *
-               * Create a request for the method "proxyConfigs.getIamPolicy".
-               *
-               * This request holds the parameters needed by the the beyondcorp server.  After setting any
-               * optional parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote
-               * operation. <p> {@link
-               * GetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-               * must be called to initialize this instance immediately after invoking the constructor. </p>
-               *
-               * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
-             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-             *        this field.
-               * @since 1.13
-               */
-              protected GetIamPolicy(java.lang.String resource) {
-                super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
-                this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-                if (!getSuppressPatternChecks()) {
-                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                      "Parameter resource must conform to the pattern " +
-                      "^organizations/[^/]+/locations/global/partnerTenants/[^/]+/proxyConfigs/[^/]+$");
-                }
-              }
-
-              @Override
-              public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
-                return super.executeUsingHead();
-              }
-
-              @Override
-              public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
-                return super.buildHttpRequestUsingHead();
-              }
-
-              @Override
-              public GetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-                return (GetIamPolicy) super.set$Xgafv($Xgafv);
-              }
-
-              @Override
-              public GetIamPolicy setAccessToken(java.lang.String accessToken) {
-                return (GetIamPolicy) super.setAccessToken(accessToken);
-              }
-
-              @Override
-              public GetIamPolicy setAlt(java.lang.String alt) {
-                return (GetIamPolicy) super.setAlt(alt);
-              }
-
-              @Override
-              public GetIamPolicy setCallback(java.lang.String callback) {
-                return (GetIamPolicy) super.setCallback(callback);
-              }
-
-              @Override
-              public GetIamPolicy setFields(java.lang.String fields) {
-                return (GetIamPolicy) super.setFields(fields);
-              }
-
-              @Override
-              public GetIamPolicy setKey(java.lang.String key) {
-                return (GetIamPolicy) super.setKey(key);
-              }
-
-              @Override
-              public GetIamPolicy setOauthToken(java.lang.String oauthToken) {
-                return (GetIamPolicy) super.setOauthToken(oauthToken);
-              }
-
-              @Override
-              public GetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-                return (GetIamPolicy) super.setPrettyPrint(prettyPrint);
-              }
-
-              @Override
-              public GetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-                return (GetIamPolicy) super.setQuotaUser(quotaUser);
-              }
-
-              @Override
-              public GetIamPolicy setUploadType(java.lang.String uploadType) {
-                return (GetIamPolicy) super.setUploadType(uploadType);
-              }
-
-              @Override
-              public GetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-                return (GetIamPolicy) super.setUploadProtocol(uploadProtocol);
-              }
-
-              /**
-               * REQUIRED: The resource for which the policy is being requested. See [Resource
-               * names](https://cloud.google.com/apis/design/resource_names) for the appropriate
-               * value for this field.
-               */
-              @com.google.api.client.util.Key
-              private java.lang.String resource;
-
-              /** REQUIRED: The resource for which the policy is being requested. See [Resource
-             names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-             field.
-               */
-              public java.lang.String getResource() {
-                return resource;
-              }
-
-              /**
-               * REQUIRED: The resource for which the policy is being requested. See [Resource
-               * names](https://cloud.google.com/apis/design/resource_names) for the appropriate
-               * value for this field.
-               */
-              public GetIamPolicy setResource(java.lang.String resource) {
-                if (!getSuppressPatternChecks()) {
-                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                      "Parameter resource must conform to the pattern " +
-                      "^organizations/[^/]+/locations/global/partnerTenants/[^/]+/proxyConfigs/[^/]+$");
-                }
-                this.resource = resource;
-                return this;
-              }
-
-              /**
-               * Optional. The maximum policy version that will be used to format the policy. Valid
-               * values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
-               * Requests for policies with any conditional role bindings must specify version 3.
-               * Policies with no conditional role bindings may specify any valid value or leave the
-               * field unset. The policy in the response might use the policy version that you
-               * specified, or it might use a lower policy version. For example, if you specify
-               * version 3, but the policy has no conditional role bindings, the response uses
-               * version 1. To learn which resources support conditions in their IAM policies, see
-               * the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-
-               * policies).
-               */
-              @com.google.api.client.util.Key("options.requestedPolicyVersion")
-              private java.lang.Integer optionsRequestedPolicyVersion;
-
-              /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1,
-             and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
-             conditional role bindings must specify version 3. Policies with no conditional role bindings may
-             specify any valid value or leave the field unset. The policy in the response might use the policy
-             version that you specified, or it might use a lower policy version. For example, if you specify
-             version 3, but the policy has no conditional role bindings, the response uses version 1. To learn
-             which resources support conditions in their IAM policies, see the [IAM
-             documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-               */
-              public java.lang.Integer getOptionsRequestedPolicyVersion() {
-                return optionsRequestedPolicyVersion;
-              }
-
-              /**
-               * Optional. The maximum policy version that will be used to format the policy. Valid
-               * values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
-               * Requests for policies with any conditional role bindings must specify version 3.
-               * Policies with no conditional role bindings may specify any valid value or leave the
-               * field unset. The policy in the response might use the policy version that you
-               * specified, or it might use a lower policy version. For example, if you specify
-               * version 3, but the policy has no conditional role bindings, the response uses
-               * version 1. To learn which resources support conditions in their IAM policies, see
-               * the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-
-               * policies).
-               */
-              public GetIamPolicy setOptionsRequestedPolicyVersion(java.lang.Integer optionsRequestedPolicyVersion) {
-                this.optionsRequestedPolicyVersion = optionsRequestedPolicyVersion;
-                return this;
-              }
-
-              @Override
-              public GetIamPolicy set(String parameterName, Object value) {
-                return (GetIamPolicy) super.set(parameterName, value);
-              }
-            }
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-             * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-             *
-             * Create a request for the method "proxyConfigs.setIamPolicy".
-             *
-             * This request holds the parameters needed by the beyondcorp server.  After setting any optional
-             * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation.
-             *
-             * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-             *        this field.
-             * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
-             * @return the request
-             */
-            public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) throws java.io.IOException {
-              SetIamPolicy result = new SetIamPolicy(resource, content);
-              initialize(result);
-              return result;
-            }
-
-            public class SetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
-
-              private static final String REST_PATH = "v1/{+resource}:setIamPolicy";
-
-              private final java.util.regex.Pattern RESOURCE_PATTERN =
-                  java.util.regex.Pattern.compile("^organizations/[^/]+/locations/global/partnerTenants/[^/]+/proxyConfigs/[^/]+$");
-
-              /**
-               * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-               * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-               *
-               * Create a request for the method "proxyConfigs.setIamPolicy".
-               *
-               * This request holds the parameters needed by the the beyondcorp server.  After setting any
-               * optional parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote
-               * operation. <p> {@link
-               * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-               * must be called to initialize this instance immediately after invoking the constructor. </p>
-               *
-               * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-             *        this field.
-               * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
-               * @since 1.13
-               */
-              protected SetIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) {
-                super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
-                this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-                if (!getSuppressPatternChecks()) {
-                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                      "Parameter resource must conform to the pattern " +
-                      "^organizations/[^/]+/locations/global/partnerTenants/[^/]+/proxyConfigs/[^/]+$");
-                }
-              }
-
-              @Override
-              public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-                return (SetIamPolicy) super.set$Xgafv($Xgafv);
-              }
-
-              @Override
-              public SetIamPolicy setAccessToken(java.lang.String accessToken) {
-                return (SetIamPolicy) super.setAccessToken(accessToken);
-              }
-
-              @Override
-              public SetIamPolicy setAlt(java.lang.String alt) {
-                return (SetIamPolicy) super.setAlt(alt);
-              }
-
-              @Override
-              public SetIamPolicy setCallback(java.lang.String callback) {
-                return (SetIamPolicy) super.setCallback(callback);
-              }
-
-              @Override
-              public SetIamPolicy setFields(java.lang.String fields) {
-                return (SetIamPolicy) super.setFields(fields);
-              }
-
-              @Override
-              public SetIamPolicy setKey(java.lang.String key) {
-                return (SetIamPolicy) super.setKey(key);
-              }
-
-              @Override
-              public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
-                return (SetIamPolicy) super.setOauthToken(oauthToken);
-              }
-
-              @Override
-              public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-                return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
-              }
-
-              @Override
-              public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-                return (SetIamPolicy) super.setQuotaUser(quotaUser);
-              }
-
-              @Override
-              public SetIamPolicy setUploadType(java.lang.String uploadType) {
-                return (SetIamPolicy) super.setUploadType(uploadType);
-              }
-
-              @Override
-              public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-                return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
-              }
-
-              /**
-               * REQUIRED: The resource for which the policy is being specified. See [Resource
-               * names](https://cloud.google.com/apis/design/resource_names) for the appropriate
-               * value for this field.
-               */
-              @com.google.api.client.util.Key
-              private java.lang.String resource;
-
-              /** REQUIRED: The resource for which the policy is being specified. See [Resource
-             names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-             field.
-               */
-              public java.lang.String getResource() {
-                return resource;
-              }
-
-              /**
-               * REQUIRED: The resource for which the policy is being specified. See [Resource
-               * names](https://cloud.google.com/apis/design/resource_names) for the appropriate
-               * value for this field.
-               */
-              public SetIamPolicy setResource(java.lang.String resource) {
-                if (!getSuppressPatternChecks()) {
-                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                      "Parameter resource must conform to the pattern " +
-                      "^organizations/[^/]+/locations/global/partnerTenants/[^/]+/proxyConfigs/[^/]+$");
-                }
-                this.resource = resource;
-                return this;
-              }
-
-              @Override
-              public SetIamPolicy set(String parameterName, Object value) {
-                return (SetIamPolicy) super.set(parameterName, value);
-              }
-            }
             /**
              * Returns permissions that a caller has on the specified resource. If the resource does not exist,
              * this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is
@@ -1778,7 +739,7 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -1809,7 +770,7 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -2689,6 +1650,29 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
                 "^projects/[^/]+$");
           }
           this.name = name;
+          return this;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
           return this;
         }
 
@@ -7620,177 +6604,6 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
           }
         }
         /**
-         * Calls the Bouncer method ShouldThrottle to check if a request should be throttled.
-         *
-         * Create a request for the method "appGateways.shouldThrottle".
-         *
-         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
-         * parameters, call the {@link ShouldThrottle#execute()} method to invoke the remote operation.
-         *
-         * @param name Required. Name of the resource
-         * @return the request
-         */
-        public ShouldThrottle shouldThrottle(java.lang.String name) throws java.io.IOException {
-          ShouldThrottle result = new ShouldThrottle(name);
-          initialize(result);
-          return result;
-        }
-
-        public class ShouldThrottle extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.ShouldThrottleResponse> {
-
-          private static final String REST_PATH = "v1/{+name}:shouldThrottle";
-
-          private final java.util.regex.Pattern NAME_PATTERN =
-              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/appGateways/[^/]+$");
-
-          /**
-           * Calls the Bouncer method ShouldThrottle to check if a request should be throttled.
-           *
-           * Create a request for the method "appGateways.shouldThrottle".
-           *
-           * This request holds the parameters needed by the the beyondcorp server.  After setting any
-           * optional parameters, call the {@link ShouldThrottle#execute()} method to invoke the remote
-           * operation. <p> {@link ShouldThrottle#initialize(com.google.api.client.googleapis.services.Abstr
-           * actGoogleClientRequest)} must be called to initialize this instance immediately after invoking
-           * the constructor. </p>
-           *
-           * @param name Required. Name of the resource
-           * @since 1.13
-           */
-          protected ShouldThrottle(java.lang.String name) {
-            super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.ShouldThrottleResponse.class);
-            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
-                  "Parameter name must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/appGateways/[^/]+$");
-            }
-          }
-
-          @Override
-          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
-            return super.executeUsingHead();
-          }
-
-          @Override
-          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
-            return super.buildHttpRequestUsingHead();
-          }
-
-          @Override
-          public ShouldThrottle set$Xgafv(java.lang.String $Xgafv) {
-            return (ShouldThrottle) super.set$Xgafv($Xgafv);
-          }
-
-          @Override
-          public ShouldThrottle setAccessToken(java.lang.String accessToken) {
-            return (ShouldThrottle) super.setAccessToken(accessToken);
-          }
-
-          @Override
-          public ShouldThrottle setAlt(java.lang.String alt) {
-            return (ShouldThrottle) super.setAlt(alt);
-          }
-
-          @Override
-          public ShouldThrottle setCallback(java.lang.String callback) {
-            return (ShouldThrottle) super.setCallback(callback);
-          }
-
-          @Override
-          public ShouldThrottle setFields(java.lang.String fields) {
-            return (ShouldThrottle) super.setFields(fields);
-          }
-
-          @Override
-          public ShouldThrottle setKey(java.lang.String key) {
-            return (ShouldThrottle) super.setKey(key);
-          }
-
-          @Override
-          public ShouldThrottle setOauthToken(java.lang.String oauthToken) {
-            return (ShouldThrottle) super.setOauthToken(oauthToken);
-          }
-
-          @Override
-          public ShouldThrottle setPrettyPrint(java.lang.Boolean prettyPrint) {
-            return (ShouldThrottle) super.setPrettyPrint(prettyPrint);
-          }
-
-          @Override
-          public ShouldThrottle setQuotaUser(java.lang.String quotaUser) {
-            return (ShouldThrottle) super.setQuotaUser(quotaUser);
-          }
-
-          @Override
-          public ShouldThrottle setUploadType(java.lang.String uploadType) {
-            return (ShouldThrottle) super.setUploadType(uploadType);
-          }
-
-          @Override
-          public ShouldThrottle setUploadProtocol(java.lang.String uploadProtocol) {
-            return (ShouldThrottle) super.setUploadProtocol(uploadProtocol);
-          }
-
-          /** Required. Name of the resource */
-          @com.google.api.client.util.Key
-          private java.lang.String name;
-
-          /** Required. Name of the resource
-           */
-          public java.lang.String getName() {
-            return name;
-          }
-
-          /** Required. Name of the resource */
-          public ShouldThrottle setName(java.lang.String name) {
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
-                  "Parameter name must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/appGateways/[^/]+$");
-            }
-            this.name = name;
-            return this;
-          }
-
-          /** Optional. The port that is being throttled */
-          @com.google.api.client.util.Key
-          private java.lang.Integer port;
-
-          /** Optional. The port that is being throttled
-           */
-          public java.lang.Integer getPort() {
-            return port;
-          }
-
-          /** Optional. The port that is being throttled */
-          public ShouldThrottle setPort(java.lang.Integer port) {
-            this.port = port;
-            return this;
-          }
-
-          /** Optional. The current throughput through the port (mbps) */
-          @com.google.api.client.util.Key
-          private java.lang.Long requestedAmount;
-
-          /** Optional. The current throughput through the port (mbps)
-           */
-          public java.lang.Long getRequestedAmount() {
-            return requestedAmount;
-          }
-
-          /** Optional. The current throughput through the port (mbps) */
-          public ShouldThrottle setRequestedAmount(java.lang.Long requestedAmount) {
-            this.requestedAmount = requestedAmount;
-            return this;
-          }
-
-          @Override
-          public ShouldThrottle set(String parameterName, Object value) {
-            return (ShouldThrottle) super.set(parameterName, value);
-          }
-        }
-        /**
          * Returns permissions that a caller has on the specified resource. If the resource does not exist,
          * this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is
          * designed to be used for building permission-aware UIs and command-line tools, not for
@@ -8680,153 +7493,6 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
           }
         }
         /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-         * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-         *
-         * Create a request for the method "clientGateways.setIamPolicy".
-         *
-         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
-         * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation.
-         *
-         * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-         *        this field.
-         * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
-         * @return the request
-         */
-        public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) throws java.io.IOException {
-          SetIamPolicy result = new SetIamPolicy(resource, content);
-          initialize(result);
-          return result;
-        }
-
-        public class SetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
-
-          private static final String REST_PATH = "v1/{+resource}:setIamPolicy";
-
-          private final java.util.regex.Pattern RESOURCE_PATTERN =
-              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/clientGateways/[^/]+$");
-
-          /**
-           * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-           * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-           *
-           * Create a request for the method "clientGateways.setIamPolicy".
-           *
-           * This request holds the parameters needed by the the beyondcorp server.  After setting any
-           * optional parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote
-           * operation. <p> {@link
-           * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-           * must be called to initialize this instance immediately after invoking the constructor. </p>
-           *
-           * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-         *        this field.
-           * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
-           * @since 1.13
-           */
-          protected SetIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) {
-            super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
-            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                  "Parameter resource must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/clientGateways/[^/]+$");
-            }
-          }
-
-          @Override
-          public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-            return (SetIamPolicy) super.set$Xgafv($Xgafv);
-          }
-
-          @Override
-          public SetIamPolicy setAccessToken(java.lang.String accessToken) {
-            return (SetIamPolicy) super.setAccessToken(accessToken);
-          }
-
-          @Override
-          public SetIamPolicy setAlt(java.lang.String alt) {
-            return (SetIamPolicy) super.setAlt(alt);
-          }
-
-          @Override
-          public SetIamPolicy setCallback(java.lang.String callback) {
-            return (SetIamPolicy) super.setCallback(callback);
-          }
-
-          @Override
-          public SetIamPolicy setFields(java.lang.String fields) {
-            return (SetIamPolicy) super.setFields(fields);
-          }
-
-          @Override
-          public SetIamPolicy setKey(java.lang.String key) {
-            return (SetIamPolicy) super.setKey(key);
-          }
-
-          @Override
-          public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
-            return (SetIamPolicy) super.setOauthToken(oauthToken);
-          }
-
-          @Override
-          public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-            return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
-          }
-
-          @Override
-          public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-            return (SetIamPolicy) super.setQuotaUser(quotaUser);
-          }
-
-          @Override
-          public SetIamPolicy setUploadType(java.lang.String uploadType) {
-            return (SetIamPolicy) super.setUploadType(uploadType);
-          }
-
-          @Override
-          public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-            return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
-          }
-
-          /**
-           * REQUIRED: The resource for which the policy is being specified. See [Resource
-           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-           * for this field.
-           */
-          @com.google.api.client.util.Key
-          private java.lang.String resource;
-
-          /** REQUIRED: The resource for which the policy is being specified. See [Resource
-         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-         field.
-           */
-          public java.lang.String getResource() {
-            return resource;
-          }
-
-          /**
-           * REQUIRED: The resource for which the policy is being specified. See [Resource
-           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-           * for this field.
-           */
-          public SetIamPolicy setResource(java.lang.String resource) {
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                  "Parameter resource must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/clientGateways/[^/]+$");
-            }
-            this.resource = resource;
-            return this;
-          }
-
-          @Override
-          public SetIamPolicy set(String parameterName, Object value) {
-            return (SetIamPolicy) super.set(parameterName, value);
-          }
-        }
-        /**
          * Returns permissions that a caller has on the specified resource. If the resource does not exist,
          * this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is
          * designed to be used for building permission-aware UIs and command-line tools, not for
@@ -8980,6 +7646,604 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
 
       }
       /**
+       * An accessor for creating requests from the Global collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code BeyondCorp beyondcorp = new BeyondCorp(...);}
+       *   {@code BeyondCorp.Global.List request = beyondcorp.global().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public Global global() {
+        return new Global();
+      }
+
+      /**
+       * The "global" collection of methods.
+       */
+      public class Global {
+
+        /**
+         * An accessor for creating requests from the SecurityGateways collection.
+         *
+         * <p>The typical use is:</p>
+         * <pre>
+         *   {@code BeyondCorp beyondcorp = new BeyondCorp(...);}
+         *   {@code BeyondCorp.SecurityGateways.List request = beyondcorp.securityGateways().list(parameters ...)}
+         * </pre>
+         *
+         * @return the resource collection
+         */
+        public SecurityGateways securityGateways() {
+          return new SecurityGateways();
+        }
+
+        /**
+         * The "securityGateways" collection of methods.
+         */
+        public class SecurityGateways {
+
+          /**
+           * An accessor for creating requests from the Applications collection.
+           *
+           * <p>The typical use is:</p>
+           * <pre>
+           *   {@code BeyondCorp beyondcorp = new BeyondCorp(...);}
+           *   {@code BeyondCorp.Applications.List request = beyondcorp.applications().list(parameters ...)}
+           * </pre>
+           *
+           * @return the resource collection
+           */
+          public Applications applications() {
+            return new Applications();
+          }
+
+          /**
+           * The "applications" collection of methods.
+           */
+          public class Applications {
+
+            /**
+             * Creates a new Application in a given project and location.
+             *
+             * Create a request for the method "applications.create".
+             *
+             * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+             * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+             *
+             * @param parent Required. The resource name of the parent SecurityGateway using the form:
+             *        `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+             * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application}
+             * @return the request
+             */
+            public Create create(java.lang.String parent, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application content) throws java.io.IOException {
+              Create result = new Create(parent, content);
+              initialize(result);
+              return result;
+            }
+
+            public class Create extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation> {
+
+              private static final String REST_PATH = "v1/{+parent}/applications";
+
+              private final java.util.regex.Pattern PARENT_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/global/securityGateways/[^/]+$");
+
+              /**
+               * Creates a new Application in a given project and location.
+               *
+               * Create a request for the method "applications.create".
+               *
+               * This request holds the parameters needed by the the beyondcorp server.  After setting any
+               * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+               * <p> {@link
+               * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+               * be called to initialize this instance immediately after invoking the constructor. </p>
+               *
+               * @param parent Required. The resource name of the parent SecurityGateway using the form:
+             *        `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+               * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application}
+               * @since 1.13
+               */
+              protected Create(java.lang.String parent, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application content) {
+                super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation.class);
+                this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                      "Parameter parent must conform to the pattern " +
+                      "^projects/[^/]+/locations/global/securityGateways/[^/]+$");
+                }
+              }
+
+              @Override
+              public Create set$Xgafv(java.lang.String $Xgafv) {
+                return (Create) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public Create setAccessToken(java.lang.String accessToken) {
+                return (Create) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public Create setAlt(java.lang.String alt) {
+                return (Create) super.setAlt(alt);
+              }
+
+              @Override
+              public Create setCallback(java.lang.String callback) {
+                return (Create) super.setCallback(callback);
+              }
+
+              @Override
+              public Create setFields(java.lang.String fields) {
+                return (Create) super.setFields(fields);
+              }
+
+              @Override
+              public Create setKey(java.lang.String key) {
+                return (Create) super.setKey(key);
+              }
+
+              @Override
+              public Create setOauthToken(java.lang.String oauthToken) {
+                return (Create) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (Create) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public Create setQuotaUser(java.lang.String quotaUser) {
+                return (Create) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public Create setUploadType(java.lang.String uploadType) {
+                return (Create) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public Create setUploadProtocol(java.lang.String uploadProtocol) {
+                return (Create) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * Required. The resource name of the parent SecurityGateway using the form:
+               * `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String parent;
+
+              /** Required. The resource name of the parent SecurityGateway using the form:
+             `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+               */
+              public java.lang.String getParent() {
+                return parent;
+              }
+
+              /**
+               * Required. The resource name of the parent SecurityGateway using the form:
+               * `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+               */
+              public Create setParent(java.lang.String parent) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                      "Parameter parent must conform to the pattern " +
+                      "^projects/[^/]+/locations/global/securityGateways/[^/]+$");
+                }
+                this.parent = parent;
+                return this;
+              }
+
+              /**
+               * Optional. User-settable Application resource ID. * Must start with a letter. * Must
+               * contain between 4-63 characters from `/a-z-/`. * Must end with a number or letter.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String applicationId;
+
+              /** Optional. User-settable Application resource ID. * Must start with a letter. * Must contain between
+             4-63 characters from `/a-z-/`. * Must end with a number or letter.
+               */
+              public java.lang.String getApplicationId() {
+                return applicationId;
+              }
+
+              /**
+               * Optional. User-settable Application resource ID. * Must start with a letter. * Must
+               * contain between 4-63 characters from `/a-z-/`. * Must end with a number or letter.
+               */
+              public Create setApplicationId(java.lang.String applicationId) {
+                this.applicationId = applicationId;
+                return this;
+              }
+
+              /**
+               * Optional. An optional request ID to identify requests. Specify a unique request ID
+               * so that if you must retry your request, the server will know to ignore request if
+               * it has already been completed. The server will guarantee that for at least 60
+               * minutes since the first request.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String requestId;
+
+              /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+             must retry your request, the server will know to ignore request if it has already been completed.
+             The server will guarantee that for at least 60 minutes since the first request.
+               */
+              public java.lang.String getRequestId() {
+                return requestId;
+              }
+
+              /**
+               * Optional. An optional request ID to identify requests. Specify a unique request ID
+               * so that if you must retry your request, the server will know to ignore request if
+               * it has already been completed. The server will guarantee that for at least 60
+               * minutes since the first request.
+               */
+              public Create setRequestId(java.lang.String requestId) {
+                this.requestId = requestId;
+                return this;
+              }
+
+              @Override
+              public Create set(String parameterName, Object value) {
+                return (Create) super.set(parameterName, value);
+              }
+            }
+            /**
+             * Updates the parameters of a single Application.
+             *
+             * Create a request for the method "applications.patch".
+             *
+             * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+             * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+             *
+             * @param name Identifier. Name of the resource.
+             * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application}
+             * @return the request
+             */
+            public Patch patch(java.lang.String name, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application content) throws java.io.IOException {
+              Patch result = new Patch(name, content);
+              initialize(result);
+              return result;
+            }
+
+            public class Patch extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation> {
+
+              private static final String REST_PATH = "v1/{+name}";
+
+              private final java.util.regex.Pattern NAME_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/global/securityGateways/[^/]+/applications/[^/]+$");
+
+              /**
+               * Updates the parameters of a single Application.
+               *
+               * Create a request for the method "applications.patch".
+               *
+               * This request holds the parameters needed by the the beyondcorp server.  After setting any
+               * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+               * <p> {@link
+               * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+               * be called to initialize this instance immediately after invoking the constructor. </p>
+               *
+               * @param name Identifier. Name of the resource.
+               * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application}
+               * @since 1.13
+               */
+              protected Patch(java.lang.String name, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application content) {
+                super(BeyondCorp.this, "PATCH", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation.class);
+                this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                      "Parameter name must conform to the pattern " +
+                      "^projects/[^/]+/locations/global/securityGateways/[^/]+/applications/[^/]+$");
+                }
+              }
+
+              @Override
+              public Patch set$Xgafv(java.lang.String $Xgafv) {
+                return (Patch) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public Patch setAccessToken(java.lang.String accessToken) {
+                return (Patch) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public Patch setAlt(java.lang.String alt) {
+                return (Patch) super.setAlt(alt);
+              }
+
+              @Override
+              public Patch setCallback(java.lang.String callback) {
+                return (Patch) super.setCallback(callback);
+              }
+
+              @Override
+              public Patch setFields(java.lang.String fields) {
+                return (Patch) super.setFields(fields);
+              }
+
+              @Override
+              public Patch setKey(java.lang.String key) {
+                return (Patch) super.setKey(key);
+              }
+
+              @Override
+              public Patch setOauthToken(java.lang.String oauthToken) {
+                return (Patch) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (Patch) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public Patch setQuotaUser(java.lang.String quotaUser) {
+                return (Patch) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public Patch setUploadType(java.lang.String uploadType) {
+                return (Patch) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+                return (Patch) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /** Identifier. Name of the resource. */
+              @com.google.api.client.util.Key
+              private java.lang.String name;
+
+              /** Identifier. Name of the resource.
+               */
+              public java.lang.String getName() {
+                return name;
+              }
+
+              /** Identifier. Name of the resource. */
+              public Patch setName(java.lang.String name) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                      "Parameter name must conform to the pattern " +
+                      "^projects/[^/]+/locations/global/securityGateways/[^/]+/applications/[^/]+$");
+                }
+                this.name = name;
+                return this;
+              }
+
+              /**
+               * Optional. An optional request ID to identify requests. Specify a unique request ID
+               * so that if you must retry your request, the server will know to ignore the request
+               * if it has already been completed. The server will guarantee that for at least 60
+               * minutes after the first request. For example, consider a situation where you make
+               * an initial request and the request timed out. If you make the request again with
+               * the same request ID, the server can check if original operation with the same
+               * request ID was received, and if so, will ignore the second request. This prevents
+               * clients from accidentally creating duplicate commitments. The request ID must be a
+               * valid UUID with the exception that zero UUID is not supported
+               * (00000000-0000-0000-0000-000000000000).
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String requestId;
+
+              /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+             must retry your request, the server will know to ignore the request if it has already been
+             completed. The server will guarantee that for at least 60 minutes after the first request. For
+             example, consider a situation where you make an initial request and the request timed out. If you
+             make the request again with the same request ID, the server can check if original operation with
+             the same request ID was received, and if so, will ignore the second request. This prevents clients
+             from accidentally creating duplicate commitments. The request ID must be a valid UUID with the
+             exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+               */
+              public java.lang.String getRequestId() {
+                return requestId;
+              }
+
+              /**
+               * Optional. An optional request ID to identify requests. Specify a unique request ID
+               * so that if you must retry your request, the server will know to ignore the request
+               * if it has already been completed. The server will guarantee that for at least 60
+               * minutes after the first request. For example, consider a situation where you make
+               * an initial request and the request timed out. If you make the request again with
+               * the same request ID, the server can check if original operation with the same
+               * request ID was received, and if so, will ignore the second request. This prevents
+               * clients from accidentally creating duplicate commitments. The request ID must be a
+               * valid UUID with the exception that zero UUID is not supported
+               * (00000000-0000-0000-0000-000000000000).
+               */
+              public Patch setRequestId(java.lang.String requestId) {
+                this.requestId = requestId;
+                return this;
+              }
+
+              /** Optional. Mutable fields include: display_name. */
+              @com.google.api.client.util.Key
+              private String updateMask;
+
+              /** Optional. Mutable fields include: display_name.
+               */
+              public String getUpdateMask() {
+                return updateMask;
+              }
+
+              /** Optional. Mutable fields include: display_name. */
+              public Patch setUpdateMask(String updateMask) {
+                this.updateMask = updateMask;
+                return this;
+              }
+
+              @Override
+              public Patch set(String parameterName, Object value) {
+                return (Patch) super.set(parameterName, value);
+              }
+            }
+            /**
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist,
+             * this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is
+             * designed to be used for building permission-aware UIs and command-line tools, not for
+             * authorization checking. This operation may "fail open" without warning.
+             *
+             * Create a request for the method "applications.testIamPermissions".
+             *
+             * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+             * parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote operation.
+             *
+             * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
+             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+             *        this field.
+             * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsRequest}
+             * @return the request
+             */
+            public TestIamPermissions testIamPermissions(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsRequest content) throws java.io.IOException {
+              TestIamPermissions result = new TestIamPermissions(resource, content);
+              initialize(result);
+              return result;
+            }
+
+            public class TestIamPermissions extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsResponse> {
+
+              private static final String REST_PATH = "v1/{+resource}:testIamPermissions";
+
+              private final java.util.regex.Pattern RESOURCE_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/global/securityGateways/[^/]+/applications/[^/]+$");
+
+              /**
+               * Returns permissions that a caller has on the specified resource. If the resource does not
+               * exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+               * operation is designed to be used for building permission-aware UIs and command-line tools, not
+               * for authorization checking. This operation may "fail open" without warning.
+               *
+               * Create a request for the method "applications.testIamPermissions".
+               *
+               * This request holds the parameters needed by the the beyondcorp server.  After setting any
+               * optional parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote
+               * operation. <p> {@link TestIamPermissions#initialize(com.google.api.client.googleapis.services.A
+               * bstractGoogleClientRequest)} must be called to initialize this instance immediately after
+               * invoking the constructor. </p>
+               *
+               * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
+             *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+             *        this field.
+               * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsRequest}
+               * @since 1.13
+               */
+              protected TestIamPermissions(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsRequest content) {
+                super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsResponse.class);
+                this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                      "Parameter resource must conform to the pattern " +
+                      "^projects/[^/]+/locations/global/securityGateways/[^/]+/applications/[^/]+$");
+                }
+              }
+
+              @Override
+              public TestIamPermissions set$Xgafv(java.lang.String $Xgafv) {
+                return (TestIamPermissions) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public TestIamPermissions setAccessToken(java.lang.String accessToken) {
+                return (TestIamPermissions) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public TestIamPermissions setAlt(java.lang.String alt) {
+                return (TestIamPermissions) super.setAlt(alt);
+              }
+
+              @Override
+              public TestIamPermissions setCallback(java.lang.String callback) {
+                return (TestIamPermissions) super.setCallback(callback);
+              }
+
+              @Override
+              public TestIamPermissions setFields(java.lang.String fields) {
+                return (TestIamPermissions) super.setFields(fields);
+              }
+
+              @Override
+              public TestIamPermissions setKey(java.lang.String key) {
+                return (TestIamPermissions) super.setKey(key);
+              }
+
+              @Override
+              public TestIamPermissions setOauthToken(java.lang.String oauthToken) {
+                return (TestIamPermissions) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public TestIamPermissions setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (TestIamPermissions) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public TestIamPermissions setQuotaUser(java.lang.String quotaUser) {
+                return (TestIamPermissions) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public TestIamPermissions setUploadType(java.lang.String uploadType) {
+                return (TestIamPermissions) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public TestIamPermissions setUploadProtocol(java.lang.String uploadProtocol) {
+                return (TestIamPermissions) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * REQUIRED: The resource for which the policy detail is being requested. See
+               * [Resource names](https://cloud.google.com/apis/design/resource_names) for the
+               * appropriate value for this field.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String resource;
+
+              /** REQUIRED: The resource for which the policy detail is being requested. See [Resource
+             names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+             field.
+               */
+              public java.lang.String getResource() {
+                return resource;
+              }
+
+              /**
+               * REQUIRED: The resource for which the policy detail is being requested. See
+               * [Resource names](https://cloud.google.com/apis/design/resource_names) for the
+               * appropriate value for this field.
+               */
+              public TestIamPermissions setResource(java.lang.String resource) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                      "Parameter resource must conform to the pattern " +
+                      "^projects/[^/]+/locations/global/securityGateways/[^/]+/applications/[^/]+$");
+                }
+                this.resource = resource;
+                return this;
+              }
+
+              @Override
+              public TestIamPermissions set(String parameterName, Object value) {
+                return (TestIamPermissions) super.set(parameterName, value);
+              }
+            }
+
+          }
+        }
+      }
+      /**
        * An accessor for creating requests from the Operations collection.
        *
        * <p>The typical use is:</p>
@@ -9005,7 +8269,7 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -9036,7 +8300,7 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -9604,6 +8868,2470 @@ public class BeyondCorp extends com.google.api.client.googleapis.services.json.A
           }
         }
 
+      }
+      /**
+       * An accessor for creating requests from the SecurityGateways collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code BeyondCorp beyondcorp = new BeyondCorp(...);}
+       *   {@code BeyondCorp.SecurityGateways.List request = beyondcorp.securityGateways().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public SecurityGateways securityGateways() {
+        return new SecurityGateways();
+      }
+
+      /**
+       * The "securityGateways" collection of methods.
+       */
+      public class SecurityGateways {
+
+        /**
+         * Creates a new SecurityGateway in a given project and location.
+         *
+         * Create a request for the method "securityGateways.create".
+         *
+         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+         * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The resource project name of the SecurityGateway location using the form:
+         *        `projects/{project_id}/locations/{location_id}`
+         * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation> {
+
+          private static final String REST_PATH = "v1/{+parent}/securityGateways";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates a new SecurityGateway in a given project and location.
+           *
+           * Create a request for the method "securityGateways.create".
+           *
+           * This request holds the parameters needed by the the beyondcorp server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The resource project name of the SecurityGateway location using the form:
+         *        `projects/{project_id}/locations/{location_id}`
+           * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway content) {
+            super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The resource project name of the SecurityGateway location using the form:
+           * `projects/{project_id}/locations/{location_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The resource project name of the SecurityGateway location using the form:
+         `projects/{project_id}/locations/{location_id}`
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The resource project name of the SecurityGateway location using the form:
+           * `projects/{project_id}/locations/{location_id}`
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore request if it has
+           * already been completed. The server will guarantee that for at least 60 minutes since
+           * the first request.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server will know to ignore request if it has already been completed.
+         The server will guarantee that for at least 60 minutes since the first request.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore request if it has
+           * already been completed. The server will guarantee that for at least 60 minutes since
+           * the first request.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. User-settable SecurityGateway resource ID. * Must start with a letter. * Must
+           * contain between 4-63 characters from `/a-z-/`. * Must end with a number or letter.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String securityGatewayId;
+
+          /** Optional. User-settable SecurityGateway resource ID. * Must start with a letter. * Must contain
+         between 4-63 characters from `/a-z-/`. * Must end with a number or letter.
+           */
+          public java.lang.String getSecurityGatewayId() {
+            return securityGatewayId;
+          }
+
+          /**
+           * Optional. User-settable SecurityGateway resource ID. * Must start with a letter. * Must
+           * contain between 4-63 characters from `/a-z-/`. * Must end with a number or letter.
+           */
+          public Create setSecurityGatewayId(java.lang.String securityGatewayId) {
+            this.securityGatewayId = securityGatewayId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes a single SecurityGateway.
+         *
+         * Create a request for the method "securityGateways.delete".
+         *
+         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+         * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. BeyondCorp SecurityGateway name using the form:
+         *        `projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}`
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+
+          /**
+           * Deletes a single SecurityGateway.
+           *
+           * Create a request for the method "securityGateways.delete".
+           *
+           * This request holds the parameters needed by the the beyondcorp server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. BeyondCorp SecurityGateway name using the form:
+         *        `projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}`
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(BeyondCorp.this, "DELETE", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. BeyondCorp SecurityGateway name using the form:
+           * `projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. BeyondCorp SecurityGateway name using the form:
+         `projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}`
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. BeyondCorp SecurityGateway name using the form:
+           * `projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}`
+           */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the request if it
+           * has already been completed. The server will guarantee that for at least 60 minutes
+           * after the first request. For example, consider a situation where you make an initial
+           * request and the request times out. If you make the request again with the same request
+           * ID, the server can check if original operation with the same request ID was received,
+           * and if so, will ignore the second request. This prevents clients from accidentally
+           * creating duplicate commitments. The request ID must be a valid UUID with the exception
+           * that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server will know to ignore the request if it has already been
+         completed. The server will guarantee that for at least 60 minutes after the first request. For
+         example, consider a situation where you make an initial request and the request times out. If you
+         make the request again with the same request ID, the server can check if original operation with
+         the same request ID was received, and if so, will ignore the second request. This prevents clients
+         from accidentally creating duplicate commitments. The request ID must be a valid UUID with the
+         exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the request if it
+           * has already been completed. The server will guarantee that for at least 60 minutes
+           * after the first request. For example, consider a situation where you make an initial
+           * request and the request times out. If you make the request again with the same request
+           * ID, the server can check if original operation with the same request ID was received,
+           * and if so, will ignore the second request. This prevents clients from accidentally
+           * creating duplicate commitments. The request ID must be a valid UUID with the exception
+           * that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. If set, validates request by executing a dry-run which would not alter the
+           * resource in any way.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean validateOnly;
+
+          /** Optional. If set, validates request by executing a dry-run which would not alter the resource in
+         any way.
+           */
+          public java.lang.Boolean getValidateOnly() {
+            return validateOnly;
+          }
+
+          /**
+           * Optional. If set, validates request by executing a dry-run which would not alter the
+           * resource in any way.
+           */
+          public Delete setValidateOnly(java.lang.Boolean validateOnly) {
+            this.validateOnly = validateOnly;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets details of a single SecurityGateway.
+         *
+         * Create a request for the method "securityGateways.get".
+         *
+         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+         * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The resource name of the PartnerTenant using the form:
+         *        `projects/{project_id}/locations/{location_id}/securityGateway/{security_gateway_id}`
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+
+          /**
+           * Gets details of a single SecurityGateway.
+           *
+           * Create a request for the method "securityGateways.get".
+           *
+           * This request holds the parameters needed by the the beyondcorp server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The resource name of the PartnerTenant using the form:
+         *        `projects/{project_id}/locations/{location_id}/securityGateway/{security_gateway_id}`
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The resource name of the PartnerTenant using the form:
+           * `projects/{project_id}/locations/{location_id}/securityGateway/{security_gateway_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The resource name of the PartnerTenant using the form:
+         `projects/{project_id}/locations/{location_id}/securityGateway/{security_gateway_id}`
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The resource name of the PartnerTenant using the form:
+           * `projects/{project_id}/locations/{location_id}/securityGateway/{security_gateway_id}`
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets the access control policy for a resource. Returns an empty policy if the resource exists and
+         * does not have a policy set.
+         *
+         * Create a request for the method "securityGateways.getIamPolicy".
+         *
+         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+         * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation.
+         *
+         * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+         * @return the request
+         */
+        public GetIamPolicy getIamPolicy(java.lang.String resource) throws java.io.IOException {
+          GetIamPolicy result = new GetIamPolicy(resource);
+          initialize(result);
+          return result;
+        }
+
+        public class GetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
+
+          private static final String REST_PATH = "v1/{+resource}:getIamPolicy";
+
+          private final java.util.regex.Pattern RESOURCE_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+
+          /**
+           * Gets the access control policy for a resource. Returns an empty policy if the resource exists
+           * and does not have a policy set.
+           *
+           * Create a request for the method "securityGateways.getIamPolicy".
+           *
+           * This request holds the parameters needed by the the beyondcorp server.  After setting any
+           * optional parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote
+           * operation. <p> {@link
+           * GetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+           * @since 1.13
+           */
+          protected GetIamPolicy(java.lang.String resource) {
+            super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
+            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public GetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
+            return (GetIamPolicy) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public GetIamPolicy setAccessToken(java.lang.String accessToken) {
+            return (GetIamPolicy) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public GetIamPolicy setAlt(java.lang.String alt) {
+            return (GetIamPolicy) super.setAlt(alt);
+          }
+
+          @Override
+          public GetIamPolicy setCallback(java.lang.String callback) {
+            return (GetIamPolicy) super.setCallback(callback);
+          }
+
+          @Override
+          public GetIamPolicy setFields(java.lang.String fields) {
+            return (GetIamPolicy) super.setFields(fields);
+          }
+
+          @Override
+          public GetIamPolicy setKey(java.lang.String key) {
+            return (GetIamPolicy) super.setKey(key);
+          }
+
+          @Override
+          public GetIamPolicy setOauthToken(java.lang.String oauthToken) {
+            return (GetIamPolicy) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public GetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (GetIamPolicy) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public GetIamPolicy setQuotaUser(java.lang.String quotaUser) {
+            return (GetIamPolicy) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public GetIamPolicy setUploadType(java.lang.String uploadType) {
+            return (GetIamPolicy) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public GetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
+            return (GetIamPolicy) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy is being requested. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String resource;
+
+          /** REQUIRED: The resource for which the policy is being requested. See [Resource
+         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+         field.
+           */
+          public java.lang.String getResource() {
+            return resource;
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy is being requested. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          public GetIamPolicy setResource(java.lang.String resource) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+            this.resource = resource;
+            return this;
+          }
+
+          /**
+           * Optional. The maximum policy version that will be used to format the policy. Valid
+           * values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests
+           * for policies with any conditional role bindings must specify version 3. Policies with
+           * no conditional role bindings may specify any valid value or leave the field unset. The
+           * policy in the response might use the policy version that you specified, or it might use
+           * a lower policy version. For example, if you specify version 3, but the policy has no
+           * conditional role bindings, the response uses version 1. To learn which resources
+           * support conditions in their IAM policies, see the [IAM
+           * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+           */
+          @com.google.api.client.util.Key("options.requestedPolicyVersion")
+          private java.lang.Integer optionsRequestedPolicyVersion;
+
+          /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1,
+         and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+         conditional role bindings must specify version 3. Policies with no conditional role bindings may
+         specify any valid value or leave the field unset. The policy in the response might use the policy
+         version that you specified, or it might use a lower policy version. For example, if you specify
+         version 3, but the policy has no conditional role bindings, the response uses version 1. To learn
+         which resources support conditions in their IAM policies, see the [IAM
+         documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+           */
+          public java.lang.Integer getOptionsRequestedPolicyVersion() {
+            return optionsRequestedPolicyVersion;
+          }
+
+          /**
+           * Optional. The maximum policy version that will be used to format the policy. Valid
+           * values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests
+           * for policies with any conditional role bindings must specify version 3. Policies with
+           * no conditional role bindings may specify any valid value or leave the field unset. The
+           * policy in the response might use the policy version that you specified, or it might use
+           * a lower policy version. For example, if you specify version 3, but the policy has no
+           * conditional role bindings, the response uses version 1. To learn which resources
+           * support conditions in their IAM policies, see the [IAM
+           * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+           */
+          public GetIamPolicy setOptionsRequestedPolicyVersion(java.lang.Integer optionsRequestedPolicyVersion) {
+            this.optionsRequestedPolicyVersion = optionsRequestedPolicyVersion;
+            return this;
+          }
+
+          @Override
+          public GetIamPolicy set(String parameterName, Object value) {
+            return (GetIamPolicy) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists SecurityGateways in a given project and location.
+         *
+         * Create a request for the method "securityGateways.list".
+         *
+         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent location to which the resources belong.
+         *        `projects/{project_id}/locations/{location_id}/`
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1ListSecurityGatewaysResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/securityGateways";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists SecurityGateways in a given project and location.
+           *
+           * Create a request for the method "securityGateways.list".
+           *
+           * This request holds the parameters needed by the the beyondcorp server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent location to which the resources belong.
+         *        `projects/{project_id}/locations/{location_id}/`
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1ListSecurityGatewaysResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent location to which the resources belong.
+           * `projects/{project_id}/locations/{location_id}/`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent location to which the resources belong.
+         `projects/{project_id}/locations/{location_id}/`
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent location to which the resources belong.
+           * `projects/{project_id}/locations/{location_id}/`
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. A filter specifying constraints of a list operation. All fields in the
+           * SecurityGateway message are supported. For example, the following query will return the
+           * SecurityGateway with displayName "test-security-gateway" For more information, please
+           * refer to https://google.aip.dev/160.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. A filter specifying constraints of a list operation. All fields in the SecurityGateway
+         message are supported. For example, the following query will return the SecurityGateway with
+         displayName "test-security-gateway" For more information, please refer to
+         https://google.aip.dev/160.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. A filter specifying constraints of a list operation. All fields in the
+           * SecurityGateway message are supported. For example, the following query will return the
+           * SecurityGateway with displayName "test-security-gateway" For more information, please
+           * refer to https://google.aip.dev/160.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Specifies the ordering of results. See [Sorting
+           * order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more
+           * information.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Specifies the ordering of results. See [Sorting
+         order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more information.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Specifies the ordering of results. See [Sorting
+           * order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more
+           * information.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. The maximum number of items to return. If not specified, a default value of
+           * 50 will be used by the service. Regardless of the page_size value, the response may
+           * include a partial list and a caller should only rely on response's next_page_token to
+           * determine if there are more instances left to be queried.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. The maximum number of items to return. If not specified, a default value of 50 will be
+         used by the service. Regardless of the page_size value, the response may include a partial list and
+         a caller should only rely on response's next_page_token to determine if there are more instances
+         left to be queried.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. The maximum number of items to return. If not specified, a default value of
+           * 50 will be used by the service. Regardless of the page_size value, the response may
+           * include a partial list and a caller should only rely on response's next_page_token to
+           * determine if there are more instances left to be queried.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. The next_page_token value returned from a previous
+           * ListSecurityGatewayRequest, if any.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. The next_page_token value returned from a previous ListSecurityGatewayRequest, if any.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. The next_page_token value returned from a previous
+           * ListSecurityGatewayRequest, if any.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates the parameters of a single SecurityGateway.
+         *
+         * Create a request for the method "securityGateways.patch".
+         *
+         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+         * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Identifier. Name of the resource.
+         * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+
+          /**
+           * Updates the parameters of a single SecurityGateway.
+           *
+           * Create a request for the method "securityGateways.patch".
+           *
+           * This request holds the parameters needed by the the beyondcorp server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Identifier. Name of the resource.
+           * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway content) {
+            super(BeyondCorp.this, "PATCH", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Identifier. Name of the resource. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Identifier. Name of the resource.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Identifier. Name of the resource. */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the request if it
+           * has already been completed. The server will guarantee that for at least 60 minutes
+           * after the first request. For example, consider a situation where you make an initial
+           * request and the request timed out. If you make the request again with the same request
+           * ID, the server can check if original operation with the same request ID was received,
+           * and if so, will ignore the second request. This prevents clients from accidentally
+           * creating duplicate commitments. The request ID must be a valid UUID with the exception
+           * that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server will know to ignore the request if it has already been
+         completed. The server will guarantee that for at least 60 minutes after the first request. For
+         example, consider a situation where you make an initial request and the request timed out. If you
+         make the request again with the same request ID, the server can check if original operation with
+         the same request ID was received, and if so, will ignore the second request. This prevents clients
+         from accidentally creating duplicate commitments. The request ID must be a valid UUID with the
+         exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the request if it
+           * has already been completed. The server will guarantee that for at least 60 minutes
+           * after the first request. For example, consider a situation where you make an initial
+           * request and the request timed out. If you make the request again with the same request
+           * ID, the server can check if original operation with the same request ID was received,
+           * and if so, will ignore the second request. This prevents clients from accidentally
+           * creating duplicate commitments. The request ID must be a valid UUID with the exception
+           * that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /** Optional. Mutable fields include: display_name, hubs. */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. Mutable fields include: display_name, hubs.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /** Optional. Mutable fields include: display_name, hubs. */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Sets the access control policy on the specified resource. Replaces any existing policy. Can
+         * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+         *
+         * Create a request for the method "securityGateways.setIamPolicy".
+         *
+         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+         * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation.
+         *
+         * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+         * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
+         * @return the request
+         */
+        public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) throws java.io.IOException {
+          SetIamPolicy result = new SetIamPolicy(resource, content);
+          initialize(result);
+          return result;
+        }
+
+        public class SetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
+
+          private static final String REST_PATH = "v1/{+resource}:setIamPolicy";
+
+          private final java.util.regex.Pattern RESOURCE_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+
+          /**
+           * Sets the access control policy on the specified resource. Replaces any existing policy. Can
+           * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+           *
+           * Create a request for the method "securityGateways.setIamPolicy".
+           *
+           * This request holds the parameters needed by the the beyondcorp server.  After setting any
+           * optional parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote
+           * operation. <p> {@link
+           * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+           * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
+           * @since 1.13
+           */
+          protected SetIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) {
+            super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
+            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+          }
+
+          @Override
+          public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
+            return (SetIamPolicy) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public SetIamPolicy setAccessToken(java.lang.String accessToken) {
+            return (SetIamPolicy) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public SetIamPolicy setAlt(java.lang.String alt) {
+            return (SetIamPolicy) super.setAlt(alt);
+          }
+
+          @Override
+          public SetIamPolicy setCallback(java.lang.String callback) {
+            return (SetIamPolicy) super.setCallback(callback);
+          }
+
+          @Override
+          public SetIamPolicy setFields(java.lang.String fields) {
+            return (SetIamPolicy) super.setFields(fields);
+          }
+
+          @Override
+          public SetIamPolicy setKey(java.lang.String key) {
+            return (SetIamPolicy) super.setKey(key);
+          }
+
+          @Override
+          public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
+            return (SetIamPolicy) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
+            return (SetIamPolicy) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public SetIamPolicy setUploadType(java.lang.String uploadType) {
+            return (SetIamPolicy) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
+            return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy is being specified. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String resource;
+
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource
+         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+         field.
+           */
+          public java.lang.String getResource() {
+            return resource;
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy is being specified. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          public SetIamPolicy setResource(java.lang.String resource) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+            this.resource = resource;
+            return this;
+          }
+
+          @Override
+          public SetIamPolicy set(String parameterName, Object value) {
+            return (SetIamPolicy) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist,
+         * this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is
+         * designed to be used for building permission-aware UIs and command-line tools, not for
+         * authorization checking. This operation may "fail open" without warning.
+         *
+         * Create a request for the method "securityGateways.testIamPermissions".
+         *
+         * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+         * parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote operation.
+         *
+         * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+         * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsRequest}
+         * @return the request
+         */
+        public TestIamPermissions testIamPermissions(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsRequest content) throws java.io.IOException {
+          TestIamPermissions result = new TestIamPermissions(resource, content);
+          initialize(result);
+          return result;
+        }
+
+        public class TestIamPermissions extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsResponse> {
+
+          private static final String REST_PATH = "v1/{+resource}:testIamPermissions";
+
+          private final java.util.regex.Pattern RESOURCE_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+
+          /**
+           * Returns permissions that a caller has on the specified resource. If the resource does not
+           * exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+           * operation is designed to be used for building permission-aware UIs and command-line tools, not
+           * for authorization checking. This operation may "fail open" without warning.
+           *
+           * Create a request for the method "securityGateways.testIamPermissions".
+           *
+           * This request holds the parameters needed by the the beyondcorp server.  After setting any
+           * optional parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote
+           * operation. <p> {@link TestIamPermissions#initialize(com.google.api.client.googleapis.services.A
+           * bstractGoogleClientRequest)} must be called to initialize this instance immediately after
+           * invoking the constructor. </p>
+           *
+           * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+           * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsRequest}
+           * @since 1.13
+           */
+          protected TestIamPermissions(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsRequest content) {
+            super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleIamV1TestIamPermissionsResponse.class);
+            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+          }
+
+          @Override
+          public TestIamPermissions set$Xgafv(java.lang.String $Xgafv) {
+            return (TestIamPermissions) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public TestIamPermissions setAccessToken(java.lang.String accessToken) {
+            return (TestIamPermissions) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public TestIamPermissions setAlt(java.lang.String alt) {
+            return (TestIamPermissions) super.setAlt(alt);
+          }
+
+          @Override
+          public TestIamPermissions setCallback(java.lang.String callback) {
+            return (TestIamPermissions) super.setCallback(callback);
+          }
+
+          @Override
+          public TestIamPermissions setFields(java.lang.String fields) {
+            return (TestIamPermissions) super.setFields(fields);
+          }
+
+          @Override
+          public TestIamPermissions setKey(java.lang.String key) {
+            return (TestIamPermissions) super.setKey(key);
+          }
+
+          @Override
+          public TestIamPermissions setOauthToken(java.lang.String oauthToken) {
+            return (TestIamPermissions) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public TestIamPermissions setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (TestIamPermissions) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public TestIamPermissions setQuotaUser(java.lang.String quotaUser) {
+            return (TestIamPermissions) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public TestIamPermissions setUploadType(java.lang.String uploadType) {
+            return (TestIamPermissions) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public TestIamPermissions setUploadProtocol(java.lang.String uploadProtocol) {
+            return (TestIamPermissions) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy detail is being requested. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String resource;
+
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource
+         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+         field.
+           */
+          public java.lang.String getResource() {
+            return resource;
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy detail is being requested. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          public TestIamPermissions setResource(java.lang.String resource) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+            }
+            this.resource = resource;
+            return this;
+          }
+
+          @Override
+          public TestIamPermissions set(String parameterName, Object value) {
+            return (TestIamPermissions) super.set(parameterName, value);
+          }
+        }
+
+        /**
+         * An accessor for creating requests from the Applications collection.
+         *
+         * <p>The typical use is:</p>
+         * <pre>
+         *   {@code BeyondCorp beyondcorp = new BeyondCorp(...);}
+         *   {@code BeyondCorp.Applications.List request = beyondcorp.applications().list(parameters ...)}
+         * </pre>
+         *
+         * @return the resource collection
+         */
+        public Applications applications() {
+          return new Applications();
+        }
+
+        /**
+         * The "applications" collection of methods.
+         */
+        public class Applications {
+
+          /**
+           * Deletes a single Application.
+           *
+           * Create a request for the method "applications.delete".
+           *
+           * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+           * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Name of the resource.
+           * @return the request
+           */
+          public Delete delete(java.lang.String name) throws java.io.IOException {
+            Delete result = new Delete(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Delete extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation> {
+
+            private static final String REST_PATH = "v1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+
+            /**
+             * Deletes a single Application.
+             *
+             * Create a request for the method "applications.delete".
+             *
+             * This request holds the parameters needed by the the beyondcorp server.  After setting any
+             * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+             * <p> {@link
+             * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Name of the resource.
+             * @since 1.13
+             */
+            protected Delete(java.lang.String name) {
+              super(BeyondCorp.this, "DELETE", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleLongrunningOperation.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+              }
+            }
+
+            @Override
+            public Delete set$Xgafv(java.lang.String $Xgafv) {
+              return (Delete) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Delete setAccessToken(java.lang.String accessToken) {
+              return (Delete) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Delete setAlt(java.lang.String alt) {
+              return (Delete) super.setAlt(alt);
+            }
+
+            @Override
+            public Delete setCallback(java.lang.String callback) {
+              return (Delete) super.setCallback(callback);
+            }
+
+            @Override
+            public Delete setFields(java.lang.String fields) {
+              return (Delete) super.setFields(fields);
+            }
+
+            @Override
+            public Delete setKey(java.lang.String key) {
+              return (Delete) super.setKey(key);
+            }
+
+            @Override
+            public Delete setOauthToken(java.lang.String oauthToken) {
+              return (Delete) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Delete) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Delete setQuotaUser(java.lang.String quotaUser) {
+              return (Delete) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Delete setUploadType(java.lang.String uploadType) {
+              return (Delete) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Delete) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /** Required. Name of the resource. */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Name of the resource.
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /** Required. Name of the resource. */
+            public Delete setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            /**
+             * Optional. An optional request ID to identify requests. Specify a unique request ID so
+             * that if you must retry your request, the server will know to ignore the request if it
+             * has already been completed. The server will guarantee that for at least 60 minutes
+             * after the first request. For example, consider a situation where you make an initial
+             * request and the request times out. If you make the request again with the same
+             * request ID, the server can check if original operation with the same request ID was
+             * received, and if so, will ignore the second request. This prevents clients from
+             * accidentally creating duplicate commitments. The request ID must be a valid UUID with
+             * the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String requestId;
+
+            /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+           must retry your request, the server will know to ignore the request if it has already been
+           completed. The server will guarantee that for at least 60 minutes after the first request. For
+           example, consider a situation where you make an initial request and the request times out. If you
+           make the request again with the same request ID, the server can check if original operation with
+           the same request ID was received, and if so, will ignore the second request. This prevents clients
+           from accidentally creating duplicate commitments. The request ID must be a valid UUID with the
+           exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+             */
+            public java.lang.String getRequestId() {
+              return requestId;
+            }
+
+            /**
+             * Optional. An optional request ID to identify requests. Specify a unique request ID so
+             * that if you must retry your request, the server will know to ignore the request if it
+             * has already been completed. The server will guarantee that for at least 60 minutes
+             * after the first request. For example, consider a situation where you make an initial
+             * request and the request times out. If you make the request again with the same
+             * request ID, the server can check if original operation with the same request ID was
+             * received, and if so, will ignore the second request. This prevents clients from
+             * accidentally creating duplicate commitments. The request ID must be a valid UUID with
+             * the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+             */
+            public Delete setRequestId(java.lang.String requestId) {
+              this.requestId = requestId;
+              return this;
+            }
+
+            /**
+             * Optional. If set, validates request by executing a dry-run which would not alter the
+             * resource in any way.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.Boolean validateOnly;
+
+            /** Optional. If set, validates request by executing a dry-run which would not alter the resource in
+           any way.
+             */
+            public java.lang.Boolean getValidateOnly() {
+              return validateOnly;
+            }
+
+            /**
+             * Optional. If set, validates request by executing a dry-run which would not alter the
+             * resource in any way.
+             */
+            public Delete setValidateOnly(java.lang.Boolean validateOnly) {
+              this.validateOnly = validateOnly;
+              return this;
+            }
+
+            @Override
+            public Delete set(String parameterName, Object value) {
+              return (Delete) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Gets details of a single Application.
+           *
+           * Create a request for the method "applications.get".
+           *
+           * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+           * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. The resource name of the Application using the form: `projects/{project_id}/locations/glob
+           *        al/securityGateway/{security_gateway_id}/applications/{application_id}`
+           * @return the request
+           */
+          public Get get(java.lang.String name) throws java.io.IOException {
+            Get result = new Get(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Get extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application> {
+
+            private static final String REST_PATH = "v1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+
+            /**
+             * Gets details of a single Application.
+             *
+             * Create a request for the method "applications.get".
+             *
+             * This request holds the parameters needed by the the beyondcorp server.  After setting any
+             * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+             * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. The resource name of the Application using the form: `projects/{project_id}/locations/glob
+           *        al/securityGateway/{security_gateway_id}/applications/{application_id}`
+             * @since 1.13
+             */
+            protected Get(java.lang.String name) {
+              super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1Application.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public Get set$Xgafv(java.lang.String $Xgafv) {
+              return (Get) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Get setAccessToken(java.lang.String accessToken) {
+              return (Get) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Get setAlt(java.lang.String alt) {
+              return (Get) super.setAlt(alt);
+            }
+
+            @Override
+            public Get setCallback(java.lang.String callback) {
+              return (Get) super.setCallback(callback);
+            }
+
+            @Override
+            public Get setFields(java.lang.String fields) {
+              return (Get) super.setFields(fields);
+            }
+
+            @Override
+            public Get setKey(java.lang.String key) {
+              return (Get) super.setKey(key);
+            }
+
+            @Override
+            public Get setOauthToken(java.lang.String oauthToken) {
+              return (Get) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Get) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Get setQuotaUser(java.lang.String quotaUser) {
+              return (Get) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Get setUploadType(java.lang.String uploadType) {
+              return (Get) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Get setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Get) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The resource name of the Application using the form: `projects/{project_id}
+             * /locations/global/securityGateway/{security_gateway_id}/applications/{application_id}
+             * `
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. The resource name of the Application using the form: `projects/{project_id}/locations/glo
+           bal/securityGateway/{security_gateway_id}/applications/{application_id}`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. The resource name of the Application using the form: `projects/{project_id}
+             * /locations/global/securityGateway/{security_gateway_id}/applications/{application_id}
+             * `
+             */
+            public Get setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Get set(String parameterName, Object value) {
+              return (Get) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Gets the access control policy for a resource. Returns an empty policy if the resource exists and
+           * does not have a policy set.
+           *
+           * Create a request for the method "applications.getIamPolicy".
+           *
+           * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+           * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation.
+           *
+           * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
+           *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+           *        this field.
+           * @return the request
+           */
+          public GetIamPolicy getIamPolicy(java.lang.String resource) throws java.io.IOException {
+            GetIamPolicy result = new GetIamPolicy(resource);
+            initialize(result);
+            return result;
+          }
+
+          public class GetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
+
+            private static final String REST_PATH = "v1/{+resource}:getIamPolicy";
+
+            private final java.util.regex.Pattern RESOURCE_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+
+            /**
+             * Gets the access control policy for a resource. Returns an empty policy if the resource exists
+             * and does not have a policy set.
+             *
+             * Create a request for the method "applications.getIamPolicy".
+             *
+             * This request holds the parameters needed by the the beyondcorp server.  After setting any
+             * optional parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote
+             * operation. <p> {@link
+             * GetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
+           *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+           *        this field.
+             * @since 1.13
+             */
+            protected GetIamPolicy(java.lang.String resource) {
+              super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
+              this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                    "Parameter resource must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public GetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
+              return (GetIamPolicy) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public GetIamPolicy setAccessToken(java.lang.String accessToken) {
+              return (GetIamPolicy) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public GetIamPolicy setAlt(java.lang.String alt) {
+              return (GetIamPolicy) super.setAlt(alt);
+            }
+
+            @Override
+            public GetIamPolicy setCallback(java.lang.String callback) {
+              return (GetIamPolicy) super.setCallback(callback);
+            }
+
+            @Override
+            public GetIamPolicy setFields(java.lang.String fields) {
+              return (GetIamPolicy) super.setFields(fields);
+            }
+
+            @Override
+            public GetIamPolicy setKey(java.lang.String key) {
+              return (GetIamPolicy) super.setKey(key);
+            }
+
+            @Override
+            public GetIamPolicy setOauthToken(java.lang.String oauthToken) {
+              return (GetIamPolicy) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public GetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (GetIamPolicy) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public GetIamPolicy setQuotaUser(java.lang.String quotaUser) {
+              return (GetIamPolicy) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public GetIamPolicy setUploadType(java.lang.String uploadType) {
+              return (GetIamPolicy) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public GetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
+              return (GetIamPolicy) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * REQUIRED: The resource for which the policy is being requested. See [Resource
+             * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+             * for this field.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String resource;
+
+            /** REQUIRED: The resource for which the policy is being requested. See [Resource
+           names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+           field.
+             */
+            public java.lang.String getResource() {
+              return resource;
+            }
+
+            /**
+             * REQUIRED: The resource for which the policy is being requested. See [Resource
+             * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+             * for this field.
+             */
+            public GetIamPolicy setResource(java.lang.String resource) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                    "Parameter resource must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+              }
+              this.resource = resource;
+              return this;
+            }
+
+            /**
+             * Optional. The maximum policy version that will be used to format the policy. Valid
+             * values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
+             * Requests for policies with any conditional role bindings must specify version 3.
+             * Policies with no conditional role bindings may specify any valid value or leave the
+             * field unset. The policy in the response might use the policy version that you
+             * specified, or it might use a lower policy version. For example, if you specify
+             * version 3, but the policy has no conditional role bindings, the response uses version
+             * 1. To learn which resources support conditions in their IAM policies, see the [IAM
+             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             */
+            @com.google.api.client.util.Key("options.requestedPolicyVersion")
+            private java.lang.Integer optionsRequestedPolicyVersion;
+
+            /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1,
+           and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+           conditional role bindings must specify version 3. Policies with no conditional role bindings may
+           specify any valid value or leave the field unset. The policy in the response might use the policy
+           version that you specified, or it might use a lower policy version. For example, if you specify
+           version 3, but the policy has no conditional role bindings, the response uses version 1. To learn
+           which resources support conditions in their IAM policies, see the [IAM
+           documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             */
+            public java.lang.Integer getOptionsRequestedPolicyVersion() {
+              return optionsRequestedPolicyVersion;
+            }
+
+            /**
+             * Optional. The maximum policy version that will be used to format the policy. Valid
+             * values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
+             * Requests for policies with any conditional role bindings must specify version 3.
+             * Policies with no conditional role bindings may specify any valid value or leave the
+             * field unset. The policy in the response might use the policy version that you
+             * specified, or it might use a lower policy version. For example, if you specify
+             * version 3, but the policy has no conditional role bindings, the response uses version
+             * 1. To learn which resources support conditions in their IAM policies, see the [IAM
+             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             */
+            public GetIamPolicy setOptionsRequestedPolicyVersion(java.lang.Integer optionsRequestedPolicyVersion) {
+              this.optionsRequestedPolicyVersion = optionsRequestedPolicyVersion;
+              return this;
+            }
+
+            @Override
+            public GetIamPolicy set(String parameterName, Object value) {
+              return (GetIamPolicy) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Lists Applications in a given project and location.
+           *
+           * Create a request for the method "applications.list".
+           *
+           * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+           * parameters, call the {@link List#execute()} method to invoke the remote operation.
+           *
+           * @param parent Required. The parent location to which the resources belong.
+           *        `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+           * @return the request
+           */
+          public List list(java.lang.String parent) throws java.io.IOException {
+            List result = new List(parent);
+            initialize(result);
+            return result;
+          }
+
+          public class List extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1ListApplicationsResponse> {
+
+            private static final String REST_PATH = "v1/{+parent}/applications";
+
+            private final java.util.regex.Pattern PARENT_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+
+            /**
+             * Lists Applications in a given project and location.
+             *
+             * Create a request for the method "applications.list".
+             *
+             * This request holds the parameters needed by the the beyondcorp server.  After setting any
+             * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+             * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param parent Required. The parent location to which the resources belong.
+           *        `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+             * @since 1.13
+             */
+            protected List(java.lang.String parent) {
+              super(BeyondCorp.this, "GET", REST_PATH, null, com.google.api.services.beyondcorp.v1.model.GoogleCloudBeyondcorpSecuritygatewaysV1ListApplicationsResponse.class);
+              this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public List set$Xgafv(java.lang.String $Xgafv) {
+              return (List) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public List setAccessToken(java.lang.String accessToken) {
+              return (List) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public List setAlt(java.lang.String alt) {
+              return (List) super.setAlt(alt);
+            }
+
+            @Override
+            public List setCallback(java.lang.String callback) {
+              return (List) super.setCallback(callback);
+            }
+
+            @Override
+            public List setFields(java.lang.String fields) {
+              return (List) super.setFields(fields);
+            }
+
+            @Override
+            public List setKey(java.lang.String key) {
+              return (List) super.setKey(key);
+            }
+
+            @Override
+            public List setOauthToken(java.lang.String oauthToken) {
+              return (List) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (List) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public List setQuotaUser(java.lang.String quotaUser) {
+              return (List) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public List setUploadType(java.lang.String uploadType) {
+              return (List) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public List setUploadProtocol(java.lang.String uploadProtocol) {
+              return (List) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The parent location to which the resources belong.
+             * `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String parent;
+
+            /** Required. The parent location to which the resources belong.
+           `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+             */
+            public java.lang.String getParent() {
+              return parent;
+            }
+
+            /**
+             * Required. The parent location to which the resources belong.
+             * `projects/{project_id}/locations/global/securityGateways/{security_gateway_id}`
+             */
+            public List setParent(java.lang.String parent) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+$");
+              }
+              this.parent = parent;
+              return this;
+            }
+
+            /**
+             * Optional. A filter specifying constraints of a list operation. All fields in the
+             * Application message are supported. For example, the following query will return the
+             * Application with displayName "test-application" For more information, please refer to
+             * https://google.aip.dev/160.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String filter;
+
+            /** Optional. A filter specifying constraints of a list operation. All fields in the Application
+           message are supported. For example, the following query will return the Application with
+           displayName "test-application" For more information, please refer to https://google.aip.dev/160.
+             */
+            public java.lang.String getFilter() {
+              return filter;
+            }
+
+            /**
+             * Optional. A filter specifying constraints of a list operation. All fields in the
+             * Application message are supported. For example, the following query will return the
+             * Application with displayName "test-application" For more information, please refer to
+             * https://google.aip.dev/160.
+             */
+            public List setFilter(java.lang.String filter) {
+              this.filter = filter;
+              return this;
+            }
+
+            /**
+             * Optional. Specifies the ordering of results. See [Sorting
+             * order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more
+             * information.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String orderBy;
+
+            /** Optional. Specifies the ordering of results. See [Sorting
+           order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more information.
+             */
+            public java.lang.String getOrderBy() {
+              return orderBy;
+            }
+
+            /**
+             * Optional. Specifies the ordering of results. See [Sorting
+             * order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more
+             * information.
+             */
+            public List setOrderBy(java.lang.String orderBy) {
+              this.orderBy = orderBy;
+              return this;
+            }
+
+            /**
+             * Optional. The maximum number of items to return. If not specified, a default value of
+             * 50 will be used by the service. Regardless of the page_size value, the response may
+             * include a partial list and a caller should only rely on response's next_page_token to
+             * determine if there are more instances left to be queried.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.Integer pageSize;
+
+            /** Optional. The maximum number of items to return. If not specified, a default value of 50 will be
+           used by the service. Regardless of the page_size value, the response may include a partial list and
+           a caller should only rely on response's next_page_token to determine if there are more instances
+           left to be queried.
+             */
+            public java.lang.Integer getPageSize() {
+              return pageSize;
+            }
+
+            /**
+             * Optional. The maximum number of items to return. If not specified, a default value of
+             * 50 will be used by the service. Regardless of the page_size value, the response may
+             * include a partial list and a caller should only rely on response's next_page_token to
+             * determine if there are more instances left to be queried.
+             */
+            public List setPageSize(java.lang.Integer pageSize) {
+              this.pageSize = pageSize;
+              return this;
+            }
+
+            /**
+             * Optional. The next_page_token value returned from a previous ListApplicationsRequest,
+             * if any.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String pageToken;
+
+            /** Optional. The next_page_token value returned from a previous ListApplicationsRequest, if any.
+             */
+            public java.lang.String getPageToken() {
+              return pageToken;
+            }
+
+            /**
+             * Optional. The next_page_token value returned from a previous ListApplicationsRequest,
+             * if any.
+             */
+            public List setPageToken(java.lang.String pageToken) {
+              this.pageToken = pageToken;
+              return this;
+            }
+
+            @Override
+            public List set(String parameterName, Object value) {
+              return (List) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Sets the access control policy on the specified resource. Replaces any existing policy. Can
+           * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+           *
+           * Create a request for the method "applications.setIamPolicy".
+           *
+           * This request holds the parameters needed by the beyondcorp server.  After setting any optional
+           * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation.
+           *
+           * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
+           *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+           *        this field.
+           * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
+           * @return the request
+           */
+          public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) throws java.io.IOException {
+            SetIamPolicy result = new SetIamPolicy(resource, content);
+            initialize(result);
+            return result;
+          }
+
+          public class SetIamPolicy extends BeyondCorpRequest<com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy> {
+
+            private static final String REST_PATH = "v1/{+resource}:setIamPolicy";
+
+            private final java.util.regex.Pattern RESOURCE_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+
+            /**
+             * Sets the access control policy on the specified resource. Replaces any existing policy. Can
+             * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+             *
+             * Create a request for the method "applications.setIamPolicy".
+             *
+             * This request holds the parameters needed by the the beyondcorp server.  After setting any
+             * optional parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote
+             * operation. <p> {@link
+             * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
+           *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+           *        this field.
+             * @param content the {@link com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest}
+             * @since 1.13
+             */
+            protected SetIamPolicy(java.lang.String resource, com.google.api.services.beyondcorp.v1.model.GoogleIamV1SetIamPolicyRequest content) {
+              super(BeyondCorp.this, "POST", REST_PATH, content, com.google.api.services.beyondcorp.v1.model.GoogleIamV1Policy.class);
+              this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                    "Parameter resource must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+              }
+            }
+
+            @Override
+            public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
+              return (SetIamPolicy) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public SetIamPolicy setAccessToken(java.lang.String accessToken) {
+              return (SetIamPolicy) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public SetIamPolicy setAlt(java.lang.String alt) {
+              return (SetIamPolicy) super.setAlt(alt);
+            }
+
+            @Override
+            public SetIamPolicy setCallback(java.lang.String callback) {
+              return (SetIamPolicy) super.setCallback(callback);
+            }
+
+            @Override
+            public SetIamPolicy setFields(java.lang.String fields) {
+              return (SetIamPolicy) super.setFields(fields);
+            }
+
+            @Override
+            public SetIamPolicy setKey(java.lang.String key) {
+              return (SetIamPolicy) super.setKey(key);
+            }
+
+            @Override
+            public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
+              return (SetIamPolicy) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
+              return (SetIamPolicy) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public SetIamPolicy setUploadType(java.lang.String uploadType) {
+              return (SetIamPolicy) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
+              return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * REQUIRED: The resource for which the policy is being specified. See [Resource
+             * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+             * for this field.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String resource;
+
+            /** REQUIRED: The resource for which the policy is being specified. See [Resource
+           names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+           field.
+             */
+            public java.lang.String getResource() {
+              return resource;
+            }
+
+            /**
+             * REQUIRED: The resource for which the policy is being specified. See [Resource
+             * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+             * for this field.
+             */
+            public SetIamPolicy setResource(java.lang.String resource) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                    "Parameter resource must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/securityGateways/[^/]+/applications/[^/]+$");
+              }
+              this.resource = resource;
+              return this;
+            }
+
+            @Override
+            public SetIamPolicy set(String parameterName, Object value) {
+              return (SetIamPolicy) super.set(parameterName, value);
+            }
+          }
+
+        }
       }
     }
   }

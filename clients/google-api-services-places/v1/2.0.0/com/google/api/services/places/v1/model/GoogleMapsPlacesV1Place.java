@@ -53,6 +53,15 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private java.util.List<GoogleMapsPlacesV1PlaceAddressComponent> addressComponents;
 
   /**
+   * The address descriptor of the place. Address descriptors include additional information that
+   * help describe a location using landmarks and areas. See address descriptor regional coverage in
+   * https://developers.google.com/maps/documentation/geocoding/address-descriptors/coverage.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleMapsPlacesV1AddressDescriptor addressDescriptor;
+
+  /**
    * The place's address in adr microformat: http://microformats.org/wiki/adr.
    * The value may be {@code null}.
    */
@@ -67,15 +76,6 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private java.lang.Boolean allowsDogs;
 
   /**
-   * Experimental: See https://developers.google.com/maps/documentation/places/web-
-   * service/experimental/places-generative for more details. AI-generated summary of the area that
-   * the place is in.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private GoogleMapsPlacesV1PlaceAreaSummary areaSummary;
-
-  /**
    * A set of data provider that must be shown with this result.
    * The value may be {@code null}.
    */
@@ -88,6 +88,13 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   @com.google.api.client.util.Key
   private java.lang.String businessStatus;
+
+  /**
+   * List of places in which the current place is located.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GoogleMapsPlacesV1PlaceContainingPlace> containingPlaces;
 
   /**
    * Specifies if the business supports curbside pickup.
@@ -149,6 +156,13 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private GoogleTypeLocalizedText editorialSummary;
 
   /**
+   * The summary of amenities near the EV charging station.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleMapsPlacesV1PlaceEvChargeAmenitySummary evChargeAmenitySummary;
+
+  /**
    * Information of ev charging options.
    * The value may be {@code null}.
    */
@@ -171,8 +185,7 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private GoogleMapsPlacesV1FuelOptions fuelOptions;
 
   /**
-   * Experimental: See https://developers.google.com/maps/documentation/places/web-
-   * service/experimental/places-generative for more details. AI-generated summary of the place.
+   * AI-generated summary of the place.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -198,6 +211,13 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean goodForWatchingSports;
+
+  /**
+   * Links to trigger different Google Maps actions.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleMapsPlacesV1PlaceGoogleMapsLinks googleMapsLinks;
 
   /**
    * A URL providing more information about this place.
@@ -271,6 +291,13 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private java.lang.String nationalPhoneNumber;
 
   /**
+   * A summary of points of interest near the place.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleMapsPlacesV1PlaceNeighborhoodSummary neighborhoodSummary;
+
+  /**
    * Place provides outdoor seating.
    * The value may be {@code null}.
    */
@@ -314,11 +341,25 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private GoogleMapsPlacesV1PlacePlusCode plusCode;
 
   /**
+   * The address in postal address format.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleTypePostalAddress postalAddress;
+
+  /**
    * Price level of the place.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String priceLevel;
+
+  /**
+   * The price range associated with a Place.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleMapsPlacesV1PriceRange priceRange;
 
   /**
    * The primary type of the given result. This type must one of the Places API supported types. For
@@ -340,6 +381,16 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private GoogleTypeLocalizedText primaryTypeDisplayName;
 
   /**
+   * Indicates whether the place is a pure service area business. Pure service area business is a
+   * business that visits or delivers to customers directly but does not serve customers at their
+   * business address. For example, businesses like cleaning services or plumbers. Those businesses
+   * may not have a physical address or location on Google Maps.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean pureServiceAreaBusiness;
+
+  /**
    * A rating between 1.0 and 5.0, based on user reviews of this place.
    * The value may be {@code null}.
    */
@@ -347,7 +398,16 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private java.lang.Double rating;
 
   /**
-   * The regular hours of operation.
+   * The regular hours of operation. Note that if a place is always open (24 hours), the `close`
+   * field will not be set. Clients can rely on always open (24 hours) being represented as an
+   * [`open`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Period) period containing
+   * [`day`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`,
+   * [`hour`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`, and
+   * [`minute`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -377,6 +437,13 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean restroom;
+
+  /**
+   * AI-generated summary of the place using user reviews.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleMapsPlacesV1PlaceReviewSummary reviewSummary;
 
   /**
    * List of reviews about this place, sorted by relevance. A maximum of 5 reviews can be returned.
@@ -463,7 +530,7 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private java.lang.String shortFormattedAddress;
 
   /**
-   * A list of sub destinations related to the place.
+   * A list of sub-destinations related to the place.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -475,6 +542,13 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean takeout;
+
+  /**
+   * IANA Time Zone Database time zone. For example "America/New_York".
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleTypeTimeZone timeZone;
 
   /**
    * A set of type tags for this result. For example, "political" and "locality". For the complete
@@ -502,7 +576,8 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   private java.lang.Integer utcOffsetMinutes;
 
   /**
-   * A viewport suitable for displaying the place on an average-sized map.
+   * A viewport suitable for displaying the place on an average-sized map. This viewport should not
+   * be used as the physical boundary or the service area of the business.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -570,6 +645,27 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
+   * The address descriptor of the place. Address descriptors include additional information that
+   * help describe a location using landmarks and areas. See address descriptor regional coverage in
+   * https://developers.google.com/maps/documentation/geocoding/address-descriptors/coverage.
+   * @return value or {@code null} for none
+   */
+  public GoogleMapsPlacesV1AddressDescriptor getAddressDescriptor() {
+    return addressDescriptor;
+  }
+
+  /**
+   * The address descriptor of the place. Address descriptors include additional information that
+   * help describe a location using landmarks and areas. See address descriptor regional coverage in
+   * https://developers.google.com/maps/documentation/geocoding/address-descriptors/coverage.
+   * @param addressDescriptor addressDescriptor or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setAddressDescriptor(GoogleMapsPlacesV1AddressDescriptor addressDescriptor) {
+    this.addressDescriptor = addressDescriptor;
+    return this;
+  }
+
+  /**
    * The place's address in adr microformat: http://microformats.org/wiki/adr.
    * @return value or {@code null} for none
    */
@@ -604,27 +700,6 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * Experimental: See https://developers.google.com/maps/documentation/places/web-
-   * service/experimental/places-generative for more details. AI-generated summary of the area that
-   * the place is in.
-   * @return value or {@code null} for none
-   */
-  public GoogleMapsPlacesV1PlaceAreaSummary getAreaSummary() {
-    return areaSummary;
-  }
-
-  /**
-   * Experimental: See https://developers.google.com/maps/documentation/places/web-
-   * service/experimental/places-generative for more details. AI-generated summary of the area that
-   * the place is in.
-   * @param areaSummary areaSummary or {@code null} for none
-   */
-  public GoogleMapsPlacesV1Place setAreaSummary(GoogleMapsPlacesV1PlaceAreaSummary areaSummary) {
-    this.areaSummary = areaSummary;
-    return this;
-  }
-
-  /**
    * A set of data provider that must be shown with this result.
    * @return value or {@code null} for none
    */
@@ -655,6 +730,23 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   public GoogleMapsPlacesV1Place setBusinessStatus(java.lang.String businessStatus) {
     this.businessStatus = businessStatus;
+    return this;
+  }
+
+  /**
+   * List of places in which the current place is located.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GoogleMapsPlacesV1PlaceContainingPlace> getContainingPlaces() {
+    return containingPlaces;
+  }
+
+  /**
+   * List of places in which the current place is located.
+   * @param containingPlaces containingPlaces or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setContainingPlaces(java.util.List<GoogleMapsPlacesV1PlaceContainingPlace> containingPlaces) {
+    this.containingPlaces = containingPlaces;
     return this;
   }
 
@@ -798,6 +890,23 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
+   * The summary of amenities near the EV charging station.
+   * @return value or {@code null} for none
+   */
+  public GoogleMapsPlacesV1PlaceEvChargeAmenitySummary getEvChargeAmenitySummary() {
+    return evChargeAmenitySummary;
+  }
+
+  /**
+   * The summary of amenities near the EV charging station.
+   * @param evChargeAmenitySummary evChargeAmenitySummary or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setEvChargeAmenitySummary(GoogleMapsPlacesV1PlaceEvChargeAmenitySummary evChargeAmenitySummary) {
+    this.evChargeAmenitySummary = evChargeAmenitySummary;
+    return this;
+  }
+
+  /**
    * Information of ev charging options.
    * @return value or {@code null} for none
    */
@@ -851,8 +960,7 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * Experimental: See https://developers.google.com/maps/documentation/places/web-
-   * service/experimental/places-generative for more details. AI-generated summary of the place.
+   * AI-generated summary of the place.
    * @return value or {@code null} for none
    */
   public GoogleMapsPlacesV1PlaceGenerativeSummary getGenerativeSummary() {
@@ -860,8 +968,7 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * Experimental: See https://developers.google.com/maps/documentation/places/web-
-   * service/experimental/places-generative for more details. AI-generated summary of the place.
+   * AI-generated summary of the place.
    * @param generativeSummary generativeSummary or {@code null} for none
    */
   public GoogleMapsPlacesV1Place setGenerativeSummary(GoogleMapsPlacesV1PlaceGenerativeSummary generativeSummary) {
@@ -917,6 +1024,23 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   public GoogleMapsPlacesV1Place setGoodForWatchingSports(java.lang.Boolean goodForWatchingSports) {
     this.goodForWatchingSports = goodForWatchingSports;
+    return this;
+  }
+
+  /**
+   * Links to trigger different Google Maps actions.
+   * @return value or {@code null} for none
+   */
+  public GoogleMapsPlacesV1PlaceGoogleMapsLinks getGoogleMapsLinks() {
+    return googleMapsLinks;
+  }
+
+  /**
+   * Links to trigger different Google Maps actions.
+   * @param googleMapsLinks googleMapsLinks or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setGoogleMapsLinks(GoogleMapsPlacesV1PlaceGoogleMapsLinks googleMapsLinks) {
+    this.googleMapsLinks = googleMapsLinks;
     return this;
   }
 
@@ -1093,6 +1217,23 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
+   * A summary of points of interest near the place.
+   * @return value or {@code null} for none
+   */
+  public GoogleMapsPlacesV1PlaceNeighborhoodSummary getNeighborhoodSummary() {
+    return neighborhoodSummary;
+  }
+
+  /**
+   * A summary of points of interest near the place.
+   * @param neighborhoodSummary neighborhoodSummary or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setNeighborhoodSummary(GoogleMapsPlacesV1PlaceNeighborhoodSummary neighborhoodSummary) {
+    this.neighborhoodSummary = neighborhoodSummary;
+    return this;
+  }
+
+  /**
    * Place provides outdoor seating.
    * @return value or {@code null} for none
    */
@@ -1182,6 +1323,23 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
+   * The address in postal address format.
+   * @return value or {@code null} for none
+   */
+  public GoogleTypePostalAddress getPostalAddress() {
+    return postalAddress;
+  }
+
+  /**
+   * The address in postal address format.
+   * @param postalAddress postalAddress or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setPostalAddress(GoogleTypePostalAddress postalAddress) {
+    this.postalAddress = postalAddress;
+    return this;
+  }
+
+  /**
    * Price level of the place.
    * @return value or {@code null} for none
    */
@@ -1195,6 +1353,23 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   public GoogleMapsPlacesV1Place setPriceLevel(java.lang.String priceLevel) {
     this.priceLevel = priceLevel;
+    return this;
+  }
+
+  /**
+   * The price range associated with a Place.
+   * @return value or {@code null} for none
+   */
+  public GoogleMapsPlacesV1PriceRange getPriceRange() {
+    return priceRange;
+  }
+
+  /**
+   * The price range associated with a Place.
+   * @param priceRange priceRange or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setPriceRange(GoogleMapsPlacesV1PriceRange priceRange) {
+    this.priceRange = priceRange;
     return this;
   }
 
@@ -1243,6 +1418,29 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
+   * Indicates whether the place is a pure service area business. Pure service area business is a
+   * business that visits or delivers to customers directly but does not serve customers at their
+   * business address. For example, businesses like cleaning services or plumbers. Those businesses
+   * may not have a physical address or location on Google Maps.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getPureServiceAreaBusiness() {
+    return pureServiceAreaBusiness;
+  }
+
+  /**
+   * Indicates whether the place is a pure service area business. Pure service area business is a
+   * business that visits or delivers to customers directly but does not serve customers at their
+   * business address. For example, businesses like cleaning services or plumbers. Those businesses
+   * may not have a physical address or location on Google Maps.
+   * @param pureServiceAreaBusiness pureServiceAreaBusiness or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setPureServiceAreaBusiness(java.lang.Boolean pureServiceAreaBusiness) {
+    this.pureServiceAreaBusiness = pureServiceAreaBusiness;
+    return this;
+  }
+
+  /**
    * A rating between 1.0 and 5.0, based on user reviews of this place.
    * @return value or {@code null} for none
    */
@@ -1260,7 +1458,16 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * The regular hours of operation.
+   * The regular hours of operation. Note that if a place is always open (24 hours), the `close`
+   * field will not be set. Clients can rely on always open (24 hours) being represented as an
+   * [`open`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Period) period containing
+   * [`day`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`,
+   * [`hour`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`, and
+   * [`minute`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`.
    * @return value or {@code null} for none
    */
   public GoogleMapsPlacesV1PlaceOpeningHours getRegularOpeningHours() {
@@ -1268,7 +1475,16 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * The regular hours of operation.
+   * The regular hours of operation. Note that if a place is always open (24 hours), the `close`
+   * field will not be set. Clients can rely on always open (24 hours) being represented as an
+   * [`open`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Period) period containing
+   * [`day`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`,
+   * [`hour`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`, and
+   * [`minute`](https://developers.google.com/maps/documentation/places/web-
+   * service/reference/rest/v1/places#Point) with value `0`.
    * @param regularOpeningHours regularOpeningHours or {@code null} for none
    */
   public GoogleMapsPlacesV1Place setRegularOpeningHours(GoogleMapsPlacesV1PlaceOpeningHours regularOpeningHours) {
@@ -1332,6 +1548,23 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   public GoogleMapsPlacesV1Place setRestroom(java.lang.Boolean restroom) {
     this.restroom = restroom;
+    return this;
+  }
+
+  /**
+   * AI-generated summary of the place using user reviews.
+   * @return value or {@code null} for none
+   */
+  public GoogleMapsPlacesV1PlaceReviewSummary getReviewSummary() {
+    return reviewSummary;
+  }
+
+  /**
+   * AI-generated summary of the place using user reviews.
+   * @param reviewSummary reviewSummary or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setReviewSummary(GoogleMapsPlacesV1PlaceReviewSummary reviewSummary) {
+    this.reviewSummary = reviewSummary;
     return this;
   }
 
@@ -1540,7 +1773,7 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * A list of sub destinations related to the place.
+   * A list of sub-destinations related to the place.
    * @return value or {@code null} for none
    */
   public java.util.List<GoogleMapsPlacesV1PlaceSubDestination> getSubDestinations() {
@@ -1548,7 +1781,7 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * A list of sub destinations related to the place.
+   * A list of sub-destinations related to the place.
    * @param subDestinations subDestinations or {@code null} for none
    */
   public GoogleMapsPlacesV1Place setSubDestinations(java.util.List<GoogleMapsPlacesV1PlaceSubDestination> subDestinations) {
@@ -1570,6 +1803,23 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
    */
   public GoogleMapsPlacesV1Place setTakeout(java.lang.Boolean takeout) {
     this.takeout = takeout;
+    return this;
+  }
+
+  /**
+   * IANA Time Zone Database time zone. For example "America/New_York".
+   * @return value or {@code null} for none
+   */
+  public GoogleTypeTimeZone getTimeZone() {
+    return timeZone;
+  }
+
+  /**
+   * IANA Time Zone Database time zone. For example "America/New_York".
+   * @param timeZone timeZone or {@code null} for none
+   */
+  public GoogleMapsPlacesV1Place setTimeZone(GoogleTypeTimeZone timeZone) {
+    this.timeZone = timeZone;
     return this;
   }
 
@@ -1633,7 +1883,8 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * A viewport suitable for displaying the place on an average-sized map.
+   * A viewport suitable for displaying the place on an average-sized map. This viewport should not
+   * be used as the physical boundary or the service area of the business.
    * @return value or {@code null} for none
    */
   public GoogleGeoTypeViewport getViewport() {
@@ -1641,7 +1892,8 @@ public final class GoogleMapsPlacesV1Place extends com.google.api.client.json.Ge
   }
 
   /**
-   * A viewport suitable for displaying the place on an average-sized map.
+   * A viewport suitable for displaying the place on an average-sized map. This viewport should not
+   * be used as the physical boundary or the service area of the business.
    * @param viewport viewport or {@code null} for none
    */
   public GoogleMapsPlacesV1Place setViewport(GoogleGeoTypeViewport viewport) {

@@ -17,7 +17,7 @@
 package com.google.api.services.recaptchaenterprise.v1.model;
 
 /**
- * A redirect action returns a 307 (temporary redirect) response, pointing the user to a ReCaptcha
+ * A redirect action returns a 307 (temporary redirect) response, pointing the user to a reCAPTCHA
  * interstitial page to attach a token.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is

@@ -68,6 +68,14 @@ public final class GitRepositoryLink extends com.google.api.client.json.GenericJ
   private java.lang.String etag;
 
   /**
+   * Output only. URI to access the linked repository through the Git Proxy. This field is only
+   * populated if the git proxy is enabled for the connection.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String gitProxyUri;
+
+  /**
    * Optional. Labels as key value pairs
    * The value may be {@code null}.
    */
@@ -90,7 +98,7 @@ public final class GitRepositoryLink extends com.google.api.client.json.GenericJ
   private java.lang.Boolean reconciling;
 
   /**
-   * Output only. A system-assigned unique identifier for a the GitRepositoryLink.
+   * Output only. A system-assigned unique identifier for the GitRepositoryLink.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -102,6 +110,13 @@ public final class GitRepositoryLink extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key
   private String updateTime;
+
+  /**
+   * Output only. External ID of the webhook created for the repository.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String webhookId;
 
   /**
    * Optional. Allows clients to store small amounts of arbitrary data.
@@ -193,6 +208,25 @@ public final class GitRepositoryLink extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * Output only. URI to access the linked repository through the Git Proxy. This field is only
+   * populated if the git proxy is enabled for the connection.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getGitProxyUri() {
+    return gitProxyUri;
+  }
+
+  /**
+   * Output only. URI to access the linked repository through the Git Proxy. This field is only
+   * populated if the git proxy is enabled for the connection.
+   * @param gitProxyUri gitProxyUri or {@code null} for none
+   */
+  public GitRepositoryLink setGitProxyUri(java.lang.String gitProxyUri) {
+    this.gitProxyUri = gitProxyUri;
+    return this;
+  }
+
+  /**
    * Optional. Labels as key value pairs
    * @return value or {@code null} for none
    */
@@ -246,7 +280,7 @@ public final class GitRepositoryLink extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Output only. A system-assigned unique identifier for a the GitRepositoryLink.
+   * Output only. A system-assigned unique identifier for the GitRepositoryLink.
    * @return value or {@code null} for none
    */
   public java.lang.String getUid() {
@@ -254,7 +288,7 @@ public final class GitRepositoryLink extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Output only. A system-assigned unique identifier for a the GitRepositoryLink.
+   * Output only. A system-assigned unique identifier for the GitRepositoryLink.
    * @param uid uid or {@code null} for none
    */
   public GitRepositoryLink setUid(java.lang.String uid) {
@@ -276,6 +310,23 @@ public final class GitRepositoryLink extends com.google.api.client.json.GenericJ
    */
   public GitRepositoryLink setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
+    return this;
+  }
+
+  /**
+   * Output only. External ID of the webhook created for the repository.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getWebhookId() {
+    return webhookId;
+  }
+
+  /**
+   * Output only. External ID of the webhook created for the repository.
+   * @param webhookId webhookId or {@code null} for none
+   */
+  public GitRepositoryLink setWebhookId(java.lang.String webhookId) {
+    this.webhookId = webhookId;
     return this;
   }
 

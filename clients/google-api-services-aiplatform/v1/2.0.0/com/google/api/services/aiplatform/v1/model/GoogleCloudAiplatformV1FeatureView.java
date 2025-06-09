@@ -91,6 +91,13 @@ public final class GoogleCloudAiplatformV1FeatureView extends com.google.api.cli
   private java.lang.String name;
 
   /**
+   * Optional. Configuration for FeatureView created under Optimized FeatureOnlineStore.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1FeatureViewOptimizedConfig optimizedConfig;
+
+  /**
    * Output only. Reserved for future use.
    * The value may be {@code null}.
    */
@@ -103,6 +110,25 @@ public final class GoogleCloudAiplatformV1FeatureView extends com.google.api.cli
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean satisfiesPzs;
+
+  /**
+   * Output only. A Service Account unique to this FeatureView. The role bigquery.dataViewer should
+   * be granted to this service account to allow Vertex AI Feature Store to sync data to the online
+   * store.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String serviceAccountEmail;
+
+  /**
+   * Optional. Service agent type used during data sync. By default, the Vertex AI Service Agent is
+   * used. When using an IAM Policy to isolate this FeatureView within a project, a separate service
+   * account should be provisioned by setting this field to `SERVICE_AGENT_TYPE_FEATURE_VIEW`. This
+   * will generate a separate service account to access the BigQuery source table.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String serviceAgentType;
 
   /**
    * Configures when data is to be synced/updated for this FeatureView. At the end of the sync the
@@ -268,6 +294,23 @@ public final class GoogleCloudAiplatformV1FeatureView extends com.google.api.cli
   }
 
   /**
+   * Optional. Configuration for FeatureView created under Optimized FeatureOnlineStore.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1FeatureViewOptimizedConfig getOptimizedConfig() {
+    return optimizedConfig;
+  }
+
+  /**
+   * Optional. Configuration for FeatureView created under Optimized FeatureOnlineStore.
+   * @param optimizedConfig optimizedConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1FeatureView setOptimizedConfig(GoogleCloudAiplatformV1FeatureViewOptimizedConfig optimizedConfig) {
+    this.optimizedConfig = optimizedConfig;
+    return this;
+  }
+
+  /**
    * Output only. Reserved for future use.
    * @return value or {@code null} for none
    */
@@ -298,6 +341,50 @@ public final class GoogleCloudAiplatformV1FeatureView extends com.google.api.cli
    */
   public GoogleCloudAiplatformV1FeatureView setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
     this.satisfiesPzs = satisfiesPzs;
+    return this;
+  }
+
+  /**
+   * Output only. A Service Account unique to this FeatureView. The role bigquery.dataViewer should
+   * be granted to this service account to allow Vertex AI Feature Store to sync data to the online
+   * store.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getServiceAccountEmail() {
+    return serviceAccountEmail;
+  }
+
+  /**
+   * Output only. A Service Account unique to this FeatureView. The role bigquery.dataViewer should
+   * be granted to this service account to allow Vertex AI Feature Store to sync data to the online
+   * store.
+   * @param serviceAccountEmail serviceAccountEmail or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1FeatureView setServiceAccountEmail(java.lang.String serviceAccountEmail) {
+    this.serviceAccountEmail = serviceAccountEmail;
+    return this;
+  }
+
+  /**
+   * Optional. Service agent type used during data sync. By default, the Vertex AI Service Agent is
+   * used. When using an IAM Policy to isolate this FeatureView within a project, a separate service
+   * account should be provisioned by setting this field to `SERVICE_AGENT_TYPE_FEATURE_VIEW`. This
+   * will generate a separate service account to access the BigQuery source table.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getServiceAgentType() {
+    return serviceAgentType;
+  }
+
+  /**
+   * Optional. Service agent type used during data sync. By default, the Vertex AI Service Agent is
+   * used. When using an IAM Policy to isolate this FeatureView within a project, a separate service
+   * account should be provisioned by setting this field to `SERVICE_AGENT_TYPE_FEATURE_VIEW`. This
+   * will generate a separate service account to access the BigQuery source table.
+   * @param serviceAgentType serviceAgentType or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1FeatureView setServiceAgentType(java.lang.String serviceAgentType) {
+    this.serviceAgentType = serviceAgentType;
     return this;
   }
 

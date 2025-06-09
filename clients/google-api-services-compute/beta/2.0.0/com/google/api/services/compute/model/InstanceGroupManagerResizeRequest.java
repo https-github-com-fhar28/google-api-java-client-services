@@ -62,6 +62,15 @@ public final class InstanceGroupManagerResizeRequest extends com.google.api.clie
   private java.math.BigInteger id;
 
   /**
+   * The names of instances to be created by this resize request. The number of names specified
+   * determines the number of instances to create. The group's target size will be increased by this
+   * number. This field cannot be used together with 'resize_by'.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<PerInstanceConfig> instances;
+
+  /**
    * [Output Only] The resource type, which is always compute#instanceGroupManagerResizeRequest for
    * resize requests.
    * The value may be {@code null}.
@@ -76,6 +85,14 @@ public final class InstanceGroupManagerResizeRequest extends com.google.api.clie
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
+
+  /**
+   * [Output Only] The URL of a region where the resize request is located. Populated only for
+   * regional resize requests.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String region;
 
   /**
    * Requested run duration for instances that will be created by this request. At the end of the
@@ -200,6 +217,27 @@ public final class InstanceGroupManagerResizeRequest extends com.google.api.clie
   }
 
   /**
+   * The names of instances to be created by this resize request. The number of names specified
+   * determines the number of instances to create. The group's target size will be increased by this
+   * number. This field cannot be used together with 'resize_by'.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<PerInstanceConfig> getInstances() {
+    return instances;
+  }
+
+  /**
+   * The names of instances to be created by this resize request. The number of names specified
+   * determines the number of instances to create. The group's target size will be increased by this
+   * number. This field cannot be used together with 'resize_by'.
+   * @param instances instances or {@code null} for none
+   */
+  public InstanceGroupManagerResizeRequest setInstances(java.util.List<PerInstanceConfig> instances) {
+    this.instances = instances;
+    return this;
+  }
+
+  /**
    * [Output Only] The resource type, which is always compute#instanceGroupManagerResizeRequest for
    * resize requests.
    * @return value or {@code null} for none
@@ -234,6 +272,25 @@ public final class InstanceGroupManagerResizeRequest extends com.google.api.clie
    */
   public InstanceGroupManagerResizeRequest setName(java.lang.String name) {
     this.name = name;
+    return this;
+  }
+
+  /**
+   * [Output Only] The URL of a region where the resize request is located. Populated only for
+   * regional resize requests.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getRegion() {
+    return region;
+  }
+
+  /**
+   * [Output Only] The URL of a region where the resize request is located. Populated only for
+   * regional resize requests.
+   * @param region region or {@code null} for none
+   */
+  public InstanceGroupManagerResizeRequest setRegion(java.lang.String region) {
+    this.region = region;
     return this;
   }
 

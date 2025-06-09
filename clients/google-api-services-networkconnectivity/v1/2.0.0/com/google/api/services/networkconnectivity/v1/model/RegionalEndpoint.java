@@ -41,7 +41,8 @@ public final class RegionalEndpoint extends com.google.api.client.json.GenericJs
   /**
    * Optional. The IP Address of the Regional Endpoint. When no address is provided, an IP from the
    * subnetwork is allocated. Use one of the following formats: * IPv4 address as in `10.0.0.1` *
-   * Address resource URI as in `projects/{project}/regions/{region}/addresses/{address_name}`
+   * Address resource URI as in `projects/{project}/regions/{region}/addresses/{address_name}` for
+   * an IPv4 or IPv6 address.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -77,8 +78,8 @@ public final class RegionalEndpoint extends com.google.api.client.json.GenericJs
   private java.util.Map<String, java.lang.String> labels;
 
   /**
-   * Output only. The name of a RegionalEndpoint. Format:
-   * `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`.
+   * Output only. The name of a RegionalEndpoint. Pattern: `projects/{project}/locations/{location}/
+   * regionalEndpoints/^[-a-z0-9](?:[-a-z0-9]{0,44})[a-z0-9]$`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -146,7 +147,8 @@ public final class RegionalEndpoint extends com.google.api.client.json.GenericJs
   /**
    * Optional. The IP Address of the Regional Endpoint. When no address is provided, an IP from the
    * subnetwork is allocated. Use one of the following formats: * IPv4 address as in `10.0.0.1` *
-   * Address resource URI as in `projects/{project}/regions/{region}/addresses/{address_name}`
+   * Address resource URI as in `projects/{project}/regions/{region}/addresses/{address_name}` for
+   * an IPv4 or IPv6 address.
    * @return value or {@code null} for none
    */
   public java.lang.String getAddress() {
@@ -156,7 +158,8 @@ public final class RegionalEndpoint extends com.google.api.client.json.GenericJs
   /**
    * Optional. The IP Address of the Regional Endpoint. When no address is provided, an IP from the
    * subnetwork is allocated. Use one of the following formats: * IPv4 address as in `10.0.0.1` *
-   * Address resource URI as in `projects/{project}/regions/{region}/addresses/{address_name}`
+   * Address resource URI as in `projects/{project}/regions/{region}/addresses/{address_name}` for
+   * an IPv4 or IPv6 address.
    * @param address address or {@code null} for none
    */
   public RegionalEndpoint setAddress(java.lang.String address) {
@@ -235,8 +238,8 @@ public final class RegionalEndpoint extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Output only. The name of a RegionalEndpoint. Format:
-   * `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`.
+   * Output only. The name of a RegionalEndpoint. Pattern: `projects/{project}/locations/{location}/
+   * regionalEndpoints/^[-a-z0-9](?:[-a-z0-9]{0,44})[a-z0-9]$`.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -244,8 +247,8 @@ public final class RegionalEndpoint extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Output only. The name of a RegionalEndpoint. Format:
-   * `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`.
+   * Output only. The name of a RegionalEndpoint. Pattern: `projects/{project}/locations/{location}/
+   * regionalEndpoints/^[-a-z0-9](?:[-a-z0-9]{0,44})[a-z0-9]$`.
    * @param name name or {@code null} for none
    */
   public RegionalEndpoint setName(java.lang.String name) {

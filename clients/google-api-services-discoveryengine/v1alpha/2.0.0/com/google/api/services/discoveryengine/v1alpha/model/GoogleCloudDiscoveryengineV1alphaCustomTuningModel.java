@@ -30,7 +30,7 @@ package com.google.api.services.discoveryengine.v1alpha.model;
 public final class GoogleCloudDiscoveryengineV1alphaCustomTuningModel extends com.google.api.client.json.GenericJson {
 
   /**
-   * Timestamp the Model was created at.
+   * Deprecated: Timestamp the Model was created at.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -42,6 +42,13 @@ public final class GoogleCloudDiscoveryengineV1alphaCustomTuningModel extends co
    */
   @com.google.api.client.util.Key
   private java.lang.String displayName;
+
+  /**
+   * Currently this is only populated if the model state is `INPUT_VALIDATION_FAILED`.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String errorMessage;
 
   /**
    * The metrics of the trained model.
@@ -81,7 +88,7 @@ public final class GoogleCloudDiscoveryengineV1alphaCustomTuningModel extends co
   private String trainingStartTime;
 
   /**
-   * Timestamp the Model was created at.
+   * Deprecated: Timestamp the Model was created at.
    * @return value or {@code null} for none
    */
   public String getCreateTime() {
@@ -89,7 +96,7 @@ public final class GoogleCloudDiscoveryengineV1alphaCustomTuningModel extends co
   }
 
   /**
-   * Timestamp the Model was created at.
+   * Deprecated: Timestamp the Model was created at.
    * @param createTime createTime or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1alphaCustomTuningModel setCreateTime(String createTime) {
@@ -111,6 +118,23 @@ public final class GoogleCloudDiscoveryengineV1alphaCustomTuningModel extends co
    */
   public GoogleCloudDiscoveryengineV1alphaCustomTuningModel setDisplayName(java.lang.String displayName) {
     this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * Currently this is only populated if the model state is `INPUT_VALIDATION_FAILED`.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getErrorMessage() {
+    return errorMessage;
+  }
+
+  /**
+   * Currently this is only populated if the model state is `INPUT_VALIDATION_FAILED`.
+   * @param errorMessage errorMessage or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaCustomTuningModel setErrorMessage(java.lang.String errorMessage) {
+    this.errorMessage = errorMessage;
     return this;
   }
 

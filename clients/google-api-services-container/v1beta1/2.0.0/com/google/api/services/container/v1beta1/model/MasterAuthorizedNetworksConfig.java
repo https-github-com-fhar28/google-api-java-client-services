@@ -54,11 +54,18 @@ public final class MasterAuthorizedNetworksConfig extends com.google.api.client.
   private java.lang.Boolean enabled;
 
   /**
-   * Whether master is accessbile via Google Compute Engine Public IP addresses.
+   * Whether master is accessible via Google Compute Engine Public IP addresses.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean gcpPublicCidrsAccessEnabled;
+
+  /**
+   * Whether master authorized networks is enforced on private endpoint or not.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean privateEndpointEnforcementEnabled;
 
   /**
    * cidr_blocks define up to 10 external networks that could access Kubernetes master through
@@ -97,7 +104,7 @@ public final class MasterAuthorizedNetworksConfig extends com.google.api.client.
   }
 
   /**
-   * Whether master is accessbile via Google Compute Engine Public IP addresses.
+   * Whether master is accessible via Google Compute Engine Public IP addresses.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getGcpPublicCidrsAccessEnabled() {
@@ -105,11 +112,28 @@ public final class MasterAuthorizedNetworksConfig extends com.google.api.client.
   }
 
   /**
-   * Whether master is accessbile via Google Compute Engine Public IP addresses.
+   * Whether master is accessible via Google Compute Engine Public IP addresses.
    * @param gcpPublicCidrsAccessEnabled gcpPublicCidrsAccessEnabled or {@code null} for none
    */
   public MasterAuthorizedNetworksConfig setGcpPublicCidrsAccessEnabled(java.lang.Boolean gcpPublicCidrsAccessEnabled) {
     this.gcpPublicCidrsAccessEnabled = gcpPublicCidrsAccessEnabled;
+    return this;
+  }
+
+  /**
+   * Whether master authorized networks is enforced on private endpoint or not.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getPrivateEndpointEnforcementEnabled() {
+    return privateEndpointEnforcementEnabled;
+  }
+
+  /**
+   * Whether master authorized networks is enforced on private endpoint or not.
+   * @param privateEndpointEnforcementEnabled privateEndpointEnforcementEnabled or {@code null} for none
+   */
+  public MasterAuthorizedNetworksConfig setPrivateEndpointEnforcementEnabled(java.lang.Boolean privateEndpointEnforcementEnabled) {
+    this.privateEndpointEnforcementEnabled = privateEndpointEnforcementEnabled;
     return this;
   }
 

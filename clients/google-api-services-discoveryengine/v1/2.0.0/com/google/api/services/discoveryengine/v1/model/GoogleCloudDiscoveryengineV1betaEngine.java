@@ -59,7 +59,7 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   private String createTime;
 
   /**
-   * The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
+   * Optional. The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
    * SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with at most one data
    * store. If solution_type is SOLUTION_TYPE_CHAT, multiple DataStores in the same Collection can
    * be associated here. Note that when used in CreateEngineRequest, one DataStore id must be
@@ -70,6 +70,13 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   private java.util.List<java.lang.String> dataStoreIds;
 
   /**
+   * Optional. Whether to disable analytics for searches performed on this engine.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean disableAnalytics;
+
+  /**
    * Required. The display name of the engine. Should be human readable. UTF-8 encoded string with
    * limit of 1024 characters.
    * The value may be {@code null}.
@@ -78,17 +85,35 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   private java.lang.String displayName;
 
   /**
-   * The industry vertical that the engine registers. The restriction of the Engine industry
-   * vertical is based on DataStore: If unspecified, default to `GENERIC`. Vertical on Engine has to
-   * match vertical of the DataStore linked to the engine.
+   * Optional. Feature config for the engine to opt in or opt out of features. Supported keys: *
+   * `*`: all features, if it's present, all other feature state settings are ignored. * `agent-
+   * gallery` * `no-code-agent-builder` * `prompt-gallery` * `model-selector` * `notebook-lm` *
+   * `people-search` * `people-search-org-chart` * `bi-directional-audio` * `feedback`
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> features;
+
+  /**
+   * Optional. The industry vertical that the engine registers. The restriction of the Engine
+   * industry vertical is based on DataStore: Vertical on Engine has to match vertical of the
+   * DataStore linked to the engine.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String industryVertical;
 
   /**
-   * Immutable. The fully qualified resource name of the engine. This field must be a UTF-8 encoded
-   * string with a length limit of 1024 characters. Format:
+   * Configurations for the Media Engine. Only applicable on the data stores with solution_type
+   * SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA vertical.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig mediaRecommendationEngineConfig;
+
+  /**
+   * Immutable. Identifier. The fully qualified resource name of the engine. This field must be a
+   * UTF-8 encoded string with a length limit of 1024 characters. Format:
    * `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine
    * should be 1-63 characters, and valid characters are /a-z0-9. Otherwise, an INVALID_ARGUMENT
    * error is returned.
@@ -189,7 +214,7 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   }
 
   /**
-   * The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
+   * Optional. The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
    * SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with at most one data
    * store. If solution_type is SOLUTION_TYPE_CHAT, multiple DataStores in the same Collection can
    * be associated here. Note that when used in CreateEngineRequest, one DataStore id must be
@@ -201,7 +226,7 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   }
 
   /**
-   * The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
+   * Optional. The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
    * SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with at most one data
    * store. If solution_type is SOLUTION_TYPE_CHAT, multiple DataStores in the same Collection can
    * be associated here. Note that when used in CreateEngineRequest, one DataStore id must be
@@ -210,6 +235,23 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
    */
   public GoogleCloudDiscoveryengineV1betaEngine setDataStoreIds(java.util.List<java.lang.String> dataStoreIds) {
     this.dataStoreIds = dataStoreIds;
+    return this;
+  }
+
+  /**
+   * Optional. Whether to disable analytics for searches performed on this engine.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getDisableAnalytics() {
+    return disableAnalytics;
+  }
+
+  /**
+   * Optional. Whether to disable analytics for searches performed on this engine.
+   * @param disableAnalytics disableAnalytics or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1betaEngine setDisableAnalytics(java.lang.Boolean disableAnalytics) {
+    this.disableAnalytics = disableAnalytics;
     return this;
   }
 
@@ -233,9 +275,32 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   }
 
   /**
-   * The industry vertical that the engine registers. The restriction of the Engine industry
-   * vertical is based on DataStore: If unspecified, default to `GENERIC`. Vertical on Engine has to
-   * match vertical of the DataStore linked to the engine.
+   * Optional. Feature config for the engine to opt in or opt out of features. Supported keys: *
+   * `*`: all features, if it's present, all other feature state settings are ignored. * `agent-
+   * gallery` * `no-code-agent-builder` * `prompt-gallery` * `model-selector` * `notebook-lm` *
+   * `people-search` * `people-search-org-chart` * `bi-directional-audio` * `feedback`
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getFeatures() {
+    return features;
+  }
+
+  /**
+   * Optional. Feature config for the engine to opt in or opt out of features. Supported keys: *
+   * `*`: all features, if it's present, all other feature state settings are ignored. * `agent-
+   * gallery` * `no-code-agent-builder` * `prompt-gallery` * `model-selector` * `notebook-lm` *
+   * `people-search` * `people-search-org-chart` * `bi-directional-audio` * `feedback`
+   * @param features features or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1betaEngine setFeatures(java.util.Map<String, java.lang.String> features) {
+    this.features = features;
+    return this;
+  }
+
+  /**
+   * Optional. The industry vertical that the engine registers. The restriction of the Engine
+   * industry vertical is based on DataStore: Vertical on Engine has to match vertical of the
+   * DataStore linked to the engine.
    * @return value or {@code null} for none
    */
   public java.lang.String getIndustryVertical() {
@@ -243,9 +308,9 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   }
 
   /**
-   * The industry vertical that the engine registers. The restriction of the Engine industry
-   * vertical is based on DataStore: If unspecified, default to `GENERIC`. Vertical on Engine has to
-   * match vertical of the DataStore linked to the engine.
+   * Optional. The industry vertical that the engine registers. The restriction of the Engine
+   * industry vertical is based on DataStore: Vertical on Engine has to match vertical of the
+   * DataStore linked to the engine.
    * @param industryVertical industryVertical or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1betaEngine setIndustryVertical(java.lang.String industryVertical) {
@@ -254,8 +319,27 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   }
 
   /**
-   * Immutable. The fully qualified resource name of the engine. This field must be a UTF-8 encoded
-   * string with a length limit of 1024 characters. Format:
+   * Configurations for the Media Engine. Only applicable on the data stores with solution_type
+   * SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA vertical.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig getMediaRecommendationEngineConfig() {
+    return mediaRecommendationEngineConfig;
+  }
+
+  /**
+   * Configurations for the Media Engine. Only applicable on the data stores with solution_type
+   * SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA vertical.
+   * @param mediaRecommendationEngineConfig mediaRecommendationEngineConfig or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1betaEngine setMediaRecommendationEngineConfig(GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig mediaRecommendationEngineConfig) {
+    this.mediaRecommendationEngineConfig = mediaRecommendationEngineConfig;
+    return this;
+  }
+
+  /**
+   * Immutable. Identifier. The fully qualified resource name of the engine. This field must be a
+   * UTF-8 encoded string with a length limit of 1024 characters. Format:
    * `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine
    * should be 1-63 characters, and valid characters are /a-z0-9. Otherwise, an INVALID_ARGUMENT
    * error is returned.
@@ -266,8 +350,8 @@ public final class GoogleCloudDiscoveryengineV1betaEngine extends com.google.api
   }
 
   /**
-   * Immutable. The fully qualified resource name of the engine. This field must be a UTF-8 encoded
-   * string with a length limit of 1024 characters. Format:
+   * Immutable. Identifier. The fully qualified resource name of the engine. This field must be a
+   * UTF-8 encoded string with a length limit of 1024 characters. Format:
    * `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine
    * should be 1-63 characters, and valid characters are /a-z0-9. Otherwise, an INVALID_ARGUMENT
    * error is returned.

@@ -101,6 +101,13 @@ public final class UpdateNodePoolRequest extends com.google.api.client.json.Gene
   private FastSocket fastSocket;
 
   /**
+   * Flex Start flag for enabling Flex Start VM.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean flexStart;
+
+  /**
    * GCFS config.
    * The value may be {@code null}.
    */
@@ -172,6 +179,13 @@ public final class UpdateNodePoolRequest extends com.google.api.client.json.Gene
    */
   @com.google.api.client.util.Key
   private java.lang.String machineType;
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String maxRunDuration;
 
   /**
    * The name (project, location, cluster, node pool) of the node pool to update. Specified in the
@@ -450,6 +464,23 @@ public final class UpdateNodePoolRequest extends com.google.api.client.json.Gene
   }
 
   /**
+   * Flex Start flag for enabling Flex Start VM.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getFlexStart() {
+    return flexStart;
+  }
+
+  /**
+   * Flex Start flag for enabling Flex Start VM.
+   * @param flexStart flexStart or {@code null} for none
+   */
+  public UpdateNodePoolRequest setFlexStart(java.lang.Boolean flexStart) {
+    this.flexStart = flexStart;
+    return this;
+  }
+
+  /**
    * GCFS config.
    * @return value or {@code null} for none
    */
@@ -619,6 +650,23 @@ public final class UpdateNodePoolRequest extends com.google.api.client.json.Gene
    */
   public UpdateNodePoolRequest setMachineType(java.lang.String machineType) {
     this.machineType = machineType;
+    return this;
+  }
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * @return value or {@code null} for none
+   */
+  public String getMaxRunDuration() {
+    return maxRunDuration;
+  }
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * @param maxRunDuration maxRunDuration or {@code null} for none
+   */
+  public UpdateNodePoolRequest setMaxRunDuration(String maxRunDuration) {
+    this.maxRunDuration = maxRunDuration;
     return this;
   }
 

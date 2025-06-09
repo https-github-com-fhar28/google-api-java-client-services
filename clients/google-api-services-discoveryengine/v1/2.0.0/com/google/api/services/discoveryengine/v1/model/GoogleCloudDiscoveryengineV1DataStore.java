@@ -30,6 +30,38 @@ package com.google.api.services.discoveryengine.v1.model;
 public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.client.json.GenericJson {
 
   /**
+   * Immutable. Whether data in the DataStore has ACL information. If set to `true`, the source data
+   * must have ACL. ACL will be ingested when data is ingested by DocumentService.ImportDocuments
+   * methods. When ACL is enabled for the DataStore, Document can't be accessed by calling
+   * DocumentService.GetDocument or DocumentService.ListDocuments. Currently ACL is only supported
+   * in `GENERIC` industry vertical with non-`PUBLIC_WEBSITE` content config.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean aclEnabled;
+
+  /**
+   * Optional. Configuration for advanced site search.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1AdvancedSiteSearchConfig advancedSiteSearchConfig;
+
+  /**
+   * Output only. Data size estimation for billing.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1DataStoreBillingEstimation billingEstimation;
+
+  /**
+   * Output only. CMEK-related information for the DataStore.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1CmekConfig cmekConfig;
+
+  /**
    * Immutable. The content config of the data store. If this field is unset, the server behavior
    * defaults to ContentConfig.NO_CONTENT.
    * The value may be {@code null}.
@@ -45,7 +77,7 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
   private String createTime;
 
   /**
-   * Output only. The id of the default Schema asscociated to this data store.
+   * Output only. The id of the default Schema associated to this data store.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -67,6 +99,22 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
   private GoogleCloudDiscoveryengineV1DocumentProcessingConfig documentProcessingConfig;
 
   /**
+   * Optional. Configuration for `HEALTHCARE_FHIR` vertical.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1HealthcareFhirConfig healthcareFhirConfig;
+
+  /**
+   * Immutable. The fully qualified resource name of the associated IdentityMappingStore. This field
+   * can only be set for acl_enabled DataStores with `THIRD_PARTY` or `GSUITE` IdP. Format:
+   * `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String identityMappingStore;
+
+  /**
    * Immutable. The industry vertical that the data store registers.
    * The value may be {@code null}.
    */
@@ -74,9 +122,26 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
   private java.lang.String industryVertical;
 
   /**
-   * Immutable. The full resource name of the data store. Format: `projects/{project}/locations/{loc
-   * ation}/collections/{collection_id}/dataStores/{data_store_id}`. This field must be a UTF-8
-   * encoded string with a length limit of 1024 characters.
+   * Optional. If set, this DataStore is an Infobot FAQ DataStore.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean isInfobotFaqDataStore;
+
+  /**
+   * Input only. The KMS key to be used to protect this DataStore at creation time. Must be set for
+   * requests that need to comply with CMEK Org Policy protections. If this field is set and
+   * processed successfully, the DataStore will be protected by the KMS key, as indicated in the
+   * cmek_config field.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String kmsKeyName;
+
+  /**
+   * Immutable. Identifier. The full resource name of the data store. Format: `projects/{project}/lo
+   * cations/{location}/collections/{collection_id}/dataStores/{data_store_id}`. This field must be
+   * a UTF-8 encoded string with a length limit of 1024 characters.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -87,7 +152,7 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private GoogleCloudDiscoveryengineV1ServingConfigDataStore servingConfigDataStore;
+  private GoogleCloudDiscoveryengineV1DataStoreServingConfigDataStore servingConfigDataStore;
 
   /**
    * The solutions that the data store enrolls. Available solutions for each industry_vertical: *
@@ -117,6 +182,82 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
    */
   @com.google.api.client.util.Key
   private GoogleCloudDiscoveryengineV1WorkspaceConfig workspaceConfig;
+
+  /**
+   * Immutable. Whether data in the DataStore has ACL information. If set to `true`, the source data
+   * must have ACL. ACL will be ingested when data is ingested by DocumentService.ImportDocuments
+   * methods. When ACL is enabled for the DataStore, Document can't be accessed by calling
+   * DocumentService.GetDocument or DocumentService.ListDocuments. Currently ACL is only supported
+   * in `GENERIC` industry vertical with non-`PUBLIC_WEBSITE` content config.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAclEnabled() {
+    return aclEnabled;
+  }
+
+  /**
+   * Immutable. Whether data in the DataStore has ACL information. If set to `true`, the source data
+   * must have ACL. ACL will be ingested when data is ingested by DocumentService.ImportDocuments
+   * methods. When ACL is enabled for the DataStore, Document can't be accessed by calling
+   * DocumentService.GetDocument or DocumentService.ListDocuments. Currently ACL is only supported
+   * in `GENERIC` industry vertical with non-`PUBLIC_WEBSITE` content config.
+   * @param aclEnabled aclEnabled or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStore setAclEnabled(java.lang.Boolean aclEnabled) {
+    this.aclEnabled = aclEnabled;
+    return this;
+  }
+
+  /**
+   * Optional. Configuration for advanced site search.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1AdvancedSiteSearchConfig getAdvancedSiteSearchConfig() {
+    return advancedSiteSearchConfig;
+  }
+
+  /**
+   * Optional. Configuration for advanced site search.
+   * @param advancedSiteSearchConfig advancedSiteSearchConfig or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStore setAdvancedSiteSearchConfig(GoogleCloudDiscoveryengineV1AdvancedSiteSearchConfig advancedSiteSearchConfig) {
+    this.advancedSiteSearchConfig = advancedSiteSearchConfig;
+    return this;
+  }
+
+  /**
+   * Output only. Data size estimation for billing.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStoreBillingEstimation getBillingEstimation() {
+    return billingEstimation;
+  }
+
+  /**
+   * Output only. Data size estimation for billing.
+   * @param billingEstimation billingEstimation or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStore setBillingEstimation(GoogleCloudDiscoveryengineV1DataStoreBillingEstimation billingEstimation) {
+    this.billingEstimation = billingEstimation;
+    return this;
+  }
+
+  /**
+   * Output only. CMEK-related information for the DataStore.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1CmekConfig getCmekConfig() {
+    return cmekConfig;
+  }
+
+  /**
+   * Output only. CMEK-related information for the DataStore.
+   * @param cmekConfig cmekConfig or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStore setCmekConfig(GoogleCloudDiscoveryengineV1CmekConfig cmekConfig) {
+    this.cmekConfig = cmekConfig;
+    return this;
+  }
 
   /**
    * Immutable. The content config of the data store. If this field is unset, the server behavior
@@ -155,7 +296,7 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
   }
 
   /**
-   * Output only. The id of the default Schema asscociated to this data store.
+   * Output only. The id of the default Schema associated to this data store.
    * @return value or {@code null} for none
    */
   public java.lang.String getDefaultSchemaId() {
@@ -163,7 +304,7 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
   }
 
   /**
-   * Output only. The id of the default Schema asscociated to this data store.
+   * Output only. The id of the default Schema associated to this data store.
    * @param defaultSchemaId defaultSchemaId or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1DataStore setDefaultSchemaId(java.lang.String defaultSchemaId) {
@@ -208,6 +349,44 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
   }
 
   /**
+   * Optional. Configuration for `HEALTHCARE_FHIR` vertical.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1HealthcareFhirConfig getHealthcareFhirConfig() {
+    return healthcareFhirConfig;
+  }
+
+  /**
+   * Optional. Configuration for `HEALTHCARE_FHIR` vertical.
+   * @param healthcareFhirConfig healthcareFhirConfig or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStore setHealthcareFhirConfig(GoogleCloudDiscoveryengineV1HealthcareFhirConfig healthcareFhirConfig) {
+    this.healthcareFhirConfig = healthcareFhirConfig;
+    return this;
+  }
+
+  /**
+   * Immutable. The fully qualified resource name of the associated IdentityMappingStore. This field
+   * can only be set for acl_enabled DataStores with `THIRD_PARTY` or `GSUITE` IdP. Format:
+   * `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getIdentityMappingStore() {
+    return identityMappingStore;
+  }
+
+  /**
+   * Immutable. The fully qualified resource name of the associated IdentityMappingStore. This field
+   * can only be set for acl_enabled DataStores with `THIRD_PARTY` or `GSUITE` IdP. Format:
+   * `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`.
+   * @param identityMappingStore identityMappingStore or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStore setIdentityMappingStore(java.lang.String identityMappingStore) {
+    this.identityMappingStore = identityMappingStore;
+    return this;
+  }
+
+  /**
    * Immutable. The industry vertical that the data store registers.
    * @return value or {@code null} for none
    */
@@ -225,9 +404,49 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
   }
 
   /**
-   * Immutable. The full resource name of the data store. Format: `projects/{project}/locations/{loc
-   * ation}/collections/{collection_id}/dataStores/{data_store_id}`. This field must be a UTF-8
-   * encoded string with a length limit of 1024 characters.
+   * Optional. If set, this DataStore is an Infobot FAQ DataStore.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getIsInfobotFaqDataStore() {
+    return isInfobotFaqDataStore;
+  }
+
+  /**
+   * Optional. If set, this DataStore is an Infobot FAQ DataStore.
+   * @param isInfobotFaqDataStore isInfobotFaqDataStore or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStore setIsInfobotFaqDataStore(java.lang.Boolean isInfobotFaqDataStore) {
+    this.isInfobotFaqDataStore = isInfobotFaqDataStore;
+    return this;
+  }
+
+  /**
+   * Input only. The KMS key to be used to protect this DataStore at creation time. Must be set for
+   * requests that need to comply with CMEK Org Policy protections. If this field is set and
+   * processed successfully, the DataStore will be protected by the KMS key, as indicated in the
+   * cmek_config field.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getKmsKeyName() {
+    return kmsKeyName;
+  }
+
+  /**
+   * Input only. The KMS key to be used to protect this DataStore at creation time. Must be set for
+   * requests that need to comply with CMEK Org Policy protections. If this field is set and
+   * processed successfully, the DataStore will be protected by the KMS key, as indicated in the
+   * cmek_config field.
+   * @param kmsKeyName kmsKeyName or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1DataStore setKmsKeyName(java.lang.String kmsKeyName) {
+    this.kmsKeyName = kmsKeyName;
+    return this;
+  }
+
+  /**
+   * Immutable. Identifier. The full resource name of the data store. Format: `projects/{project}/lo
+   * cations/{location}/collections/{collection_id}/dataStores/{data_store_id}`. This field must be
+   * a UTF-8 encoded string with a length limit of 1024 characters.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -235,9 +454,9 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
   }
 
   /**
-   * Immutable. The full resource name of the data store. Format: `projects/{project}/locations/{loc
-   * ation}/collections/{collection_id}/dataStores/{data_store_id}`. This field must be a UTF-8
-   * encoded string with a length limit of 1024 characters.
+   * Immutable. Identifier. The full resource name of the data store. Format: `projects/{project}/lo
+   * cations/{location}/collections/{collection_id}/dataStores/{data_store_id}`. This field must be
+   * a UTF-8 encoded string with a length limit of 1024 characters.
    * @param name name or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1DataStore setName(java.lang.String name) {
@@ -249,7 +468,7 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
    * Optional. Stores serving config at DataStore level.
    * @return value or {@code null} for none
    */
-  public GoogleCloudDiscoveryengineV1ServingConfigDataStore getServingConfigDataStore() {
+  public GoogleCloudDiscoveryengineV1DataStoreServingConfigDataStore getServingConfigDataStore() {
     return servingConfigDataStore;
   }
 
@@ -257,7 +476,7 @@ public final class GoogleCloudDiscoveryengineV1DataStore extends com.google.api.
    * Optional. Stores serving config at DataStore level.
    * @param servingConfigDataStore servingConfigDataStore or {@code null} for none
    */
-  public GoogleCloudDiscoveryengineV1DataStore setServingConfigDataStore(GoogleCloudDiscoveryengineV1ServingConfigDataStore servingConfigDataStore) {
+  public GoogleCloudDiscoveryengineV1DataStore setServingConfigDataStore(GoogleCloudDiscoveryengineV1DataStoreServingConfigDataStore servingConfigDataStore) {
     this.servingConfigDataStore = servingConfigDataStore;
     return this;
   }

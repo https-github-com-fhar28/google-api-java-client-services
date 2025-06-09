@@ -17,9 +17,9 @@
 package com.google.api.services.analyticshub.v1.model;
 
 /**
- * A subscription resource. If none of `push_config`, `bigquery_config`, or `cloud_storage_config`
- * is set, then the subscriber will pull and ack messages using API methods. At most one of these
- * fields may be set.
+ * Defines the destination Pub/Sub subscription. If none of `push_config`, `bigquery_config`,
+ * `cloud_storage_config`, `pubsub_export_config`, or `pubsublite_export_config` is set, then the
+ * subscriber will pull and ack messages using API methods. At most one of these fields may be set.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Analytics Hub API. For a detailed explanation see:
@@ -48,14 +48,6 @@ public final class GooglePubsubV1Subscription extends com.google.api.client.json
    */
   @com.google.api.client.util.Key
   private java.lang.Integer ackDeadlineSeconds;
-
-  /**
-   * Output only. Information about the associated Analytics Hub subscription. Only set if the
-   * subscritpion is created by Analytics Hub.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private AnalyticsHubSubscriptionInfo analyticsHubSubscriptionInfo;
 
   /**
    * Optional. If delivery to BigQuery is used with this subscription, this field is used to
@@ -156,6 +148,14 @@ public final class GooglePubsubV1Subscription extends com.google.api.client.json
   private String messageRetentionDuration;
 
   /**
+   * Optional. Transforms to be applied to messages before they are delivered to subscribers.
+   * Transforms are applied in the order specified.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<MessageTransform> messageTransforms;
+
+  /**
    * Required. Name of the subscription. Format is `projects/{project}/subscriptions/{sub}`.
    * The value may be {@code null}.
    */
@@ -189,25 +189,6 @@ public final class GooglePubsubV1Subscription extends com.google.api.client.json
    */
   @com.google.api.client.util.Key
   private RetryPolicy retryPolicy;
-
-  /**
-   * Output only. An output-only field indicating whether or not the subscription can receive
-   * messages.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.lang.String state;
-
-  /**
-   * Output only. Indicates the minimum duration for which a message is retained after it is
-   * published to the subscription's topic. If this field is set, messages published to the
-   * subscription's topic in the last `topic_message_retention_duration` are always available to
-   * subscribers. See the `message_retention_duration` field in `Topic`. This field is set only in
-   * responses from the server; it is ignored if it is set in any requests.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private String topicMessageRetentionDuration;
 
   /**
    * Optional. The approximate amount of time (on a best-effort basis) Pub/Sub waits for the
@@ -245,25 +226,6 @@ public final class GooglePubsubV1Subscription extends com.google.api.client.json
    */
   public GooglePubsubV1Subscription setAckDeadlineSeconds(java.lang.Integer ackDeadlineSeconds) {
     this.ackDeadlineSeconds = ackDeadlineSeconds;
-    return this;
-  }
-
-  /**
-   * Output only. Information about the associated Analytics Hub subscription. Only set if the
-   * subscritpion is created by Analytics Hub.
-   * @return value or {@code null} for none
-   */
-  public AnalyticsHubSubscriptionInfo getAnalyticsHubSubscriptionInfo() {
-    return analyticsHubSubscriptionInfo;
-  }
-
-  /**
-   * Output only. Information about the associated Analytics Hub subscription. Only set if the
-   * subscritpion is created by Analytics Hub.
-   * @param analyticsHubSubscriptionInfo analyticsHubSubscriptionInfo or {@code null} for none
-   */
-  public GooglePubsubV1Subscription setAnalyticsHubSubscriptionInfo(AnalyticsHubSubscriptionInfo analyticsHubSubscriptionInfo) {
-    this.analyticsHubSubscriptionInfo = analyticsHubSubscriptionInfo;
     return this;
   }
 
@@ -494,6 +456,25 @@ public final class GooglePubsubV1Subscription extends com.google.api.client.json
   }
 
   /**
+   * Optional. Transforms to be applied to messages before they are delivered to subscribers.
+   * Transforms are applied in the order specified.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<MessageTransform> getMessageTransforms() {
+    return messageTransforms;
+  }
+
+  /**
+   * Optional. Transforms to be applied to messages before they are delivered to subscribers.
+   * Transforms are applied in the order specified.
+   * @param messageTransforms messageTransforms or {@code null} for none
+   */
+  public GooglePubsubV1Subscription setMessageTransforms(java.util.List<MessageTransform> messageTransforms) {
+    this.messageTransforms = messageTransforms;
+    return this;
+  }
+
+  /**
    * Required. Name of the subscription. Format is `projects/{project}/subscriptions/{sub}`.
    * @return value or {@code null} for none
    */
@@ -572,50 +553,6 @@ public final class GooglePubsubV1Subscription extends com.google.api.client.json
    */
   public GooglePubsubV1Subscription setRetryPolicy(RetryPolicy retryPolicy) {
     this.retryPolicy = retryPolicy;
-    return this;
-  }
-
-  /**
-   * Output only. An output-only field indicating whether or not the subscription can receive
-   * messages.
-   * @return value or {@code null} for none
-   */
-  public java.lang.String getState() {
-    return state;
-  }
-
-  /**
-   * Output only. An output-only field indicating whether or not the subscription can receive
-   * messages.
-   * @param state state or {@code null} for none
-   */
-  public GooglePubsubV1Subscription setState(java.lang.String state) {
-    this.state = state;
-    return this;
-  }
-
-  /**
-   * Output only. Indicates the minimum duration for which a message is retained after it is
-   * published to the subscription's topic. If this field is set, messages published to the
-   * subscription's topic in the last `topic_message_retention_duration` are always available to
-   * subscribers. See the `message_retention_duration` field in `Topic`. This field is set only in
-   * responses from the server; it is ignored if it is set in any requests.
-   * @return value or {@code null} for none
-   */
-  public String getTopicMessageRetentionDuration() {
-    return topicMessageRetentionDuration;
-  }
-
-  /**
-   * Output only. Indicates the minimum duration for which a message is retained after it is
-   * published to the subscription's topic. If this field is set, messages published to the
-   * subscription's topic in the last `topic_message_retention_duration` are always available to
-   * subscribers. See the `message_retention_duration` field in `Topic`. This field is set only in
-   * responses from the server; it is ignored if it is set in any requests.
-   * @param topicMessageRetentionDuration topicMessageRetentionDuration or {@code null} for none
-   */
-  public GooglePubsubV1Subscription setTopicMessageRetentionDuration(String topicMessageRetentionDuration) {
-    this.topicMessageRetentionDuration = topicMessageRetentionDuration;
     return this;
   }
 

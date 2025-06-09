@@ -32,7 +32,15 @@ package com.google.api.services.analyticshub.v1.model;
 public final class Listing extends com.google.api.client.json.GenericJson {
 
   /**
-   * Required. Shared dataset i.e. BigQuery dataset source.
+   * Optional. If true, the listing is only available to get the resource metadata. Listing is non
+   * subscribable.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean allowOnlyMetadataSharing;
+
+  /**
+   * Shared dataset i.e. BigQuery dataset source.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -44,6 +52,14 @@ public final class Listing extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> categories;
+
+  /**
+   * Output only. Commercial info contains the information about the commercial data products
+   * associated with the listing.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfo commercialInfo;
 
   /**
    * Optional. Details of the data provider who owns the source data.
@@ -95,8 +111,15 @@ public final class Listing extends com.google.api.client.json.GenericJson {
   private java.lang.String icon;
 
   /**
+   * Optional. By default, false. If true, the Listing has an email sharing mandate enabled.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean logLinkedDatasetQueryUserEmail;
+
+  /**
    * Output only. The resource name of the listing. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123/listings/456`
+   * `projects/myproject/locations/us/dataExchanges/123/listings/456`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -117,7 +140,7 @@ public final class Listing extends com.google.api.client.json.GenericJson {
   private Publisher publisher;
 
   /**
-   * Required. Pub/Sub topic source.
+   * Pub/Sub topic source.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -154,7 +177,26 @@ public final class Listing extends com.google.api.client.json.GenericJson {
   private java.lang.String state;
 
   /**
-   * Required. Shared dataset i.e. BigQuery dataset source.
+   * Optional. If true, the listing is only available to get the resource metadata. Listing is non
+   * subscribable.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAllowOnlyMetadataSharing() {
+    return allowOnlyMetadataSharing;
+  }
+
+  /**
+   * Optional. If true, the listing is only available to get the resource metadata. Listing is non
+   * subscribable.
+   * @param allowOnlyMetadataSharing allowOnlyMetadataSharing or {@code null} for none
+   */
+  public Listing setAllowOnlyMetadataSharing(java.lang.Boolean allowOnlyMetadataSharing) {
+    this.allowOnlyMetadataSharing = allowOnlyMetadataSharing;
+    return this;
+  }
+
+  /**
+   * Shared dataset i.e. BigQuery dataset source.
    * @return value or {@code null} for none
    */
   public BigQueryDatasetSource getBigqueryDataset() {
@@ -162,7 +204,7 @@ public final class Listing extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Shared dataset i.e. BigQuery dataset source.
+   * Shared dataset i.e. BigQuery dataset source.
    * @param bigqueryDataset bigqueryDataset or {@code null} for none
    */
   public Listing setBigqueryDataset(BigQueryDatasetSource bigqueryDataset) {
@@ -184,6 +226,25 @@ public final class Listing extends com.google.api.client.json.GenericJson {
    */
   public Listing setCategories(java.util.List<java.lang.String> categories) {
     this.categories = categories;
+    return this;
+  }
+
+  /**
+   * Output only. Commercial info contains the information about the commercial data products
+   * associated with the listing.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfo getCommercialInfo() {
+    return commercialInfo;
+  }
+
+  /**
+   * Output only. Commercial info contains the information about the commercial data products
+   * associated with the listing.
+   * @param commercialInfo commercialInfo or {@code null} for none
+   */
+  public Listing setCommercialInfo(GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfo commercialInfo) {
+    this.commercialInfo = commercialInfo;
     return this;
   }
 
@@ -338,8 +399,25 @@ public final class Listing extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. By default, false. If true, the Listing has an email sharing mandate enabled.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getLogLinkedDatasetQueryUserEmail() {
+    return logLinkedDatasetQueryUserEmail;
+  }
+
+  /**
+   * Optional. By default, false. If true, the Listing has an email sharing mandate enabled.
+   * @param logLinkedDatasetQueryUserEmail logLinkedDatasetQueryUserEmail or {@code null} for none
+   */
+  public Listing setLogLinkedDatasetQueryUserEmail(java.lang.Boolean logLinkedDatasetQueryUserEmail) {
+    this.logLinkedDatasetQueryUserEmail = logLinkedDatasetQueryUserEmail;
+    return this;
+  }
+
+  /**
    * Output only. The resource name of the listing. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123/listings/456`
+   * `projects/myproject/locations/us/dataExchanges/123/listings/456`
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -348,7 +426,7 @@ public final class Listing extends com.google.api.client.json.GenericJson {
 
   /**
    * Output only. The resource name of the listing. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123/listings/456`
+   * `projects/myproject/locations/us/dataExchanges/123/listings/456`
    * @param name name or {@code null} for none
    */
   public Listing setName(java.lang.String name) {
@@ -391,7 +469,7 @@ public final class Listing extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Pub/Sub topic source.
+   * Pub/Sub topic source.
    * @return value or {@code null} for none
    */
   public PubSubTopicSource getPubsubTopic() {
@@ -399,7 +477,7 @@ public final class Listing extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Pub/Sub topic source.
+   * Pub/Sub topic source.
    * @param pubsubTopic pubsubTopic or {@code null} for none
    */
   public Listing setPubsubTopic(PubSubTopicSource pubsubTopic) {

@@ -17,7 +17,7 @@
 package com.google.api.services.connectors.v1.model;
 
 /**
- * Eventing Configuration of a connection
+ * Eventing Configuration of a connection next: 19
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Connectors API. For a detailed explanation see:
@@ -30,7 +30,7 @@ package com.google.api.services.connectors.v1.model;
 public final class EventingConfig extends com.google.api.client.json.GenericJson {
 
   /**
-   * Additional eventing related field values
+   * Optional. Additional eventing related field values
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -43,7 +43,7 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Auth details for the webhook adapter.
+   * Optional. Auth details for the webhook adapter.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -57,7 +57,14 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   private DeadLetterConfig deadLetterConfig;
 
   /**
-   * Enrichment Enabled.
+   * Optional. Data enrichment configuration.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private EnrichmentConfig enrichmentConfig;
+
+  /**
+   * Optional. Enrichment Enabled.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -79,6 +86,14 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   private AuthConfig listenerAuthConfig;
 
   /**
+   * Optional. List of projects to be allowlisted for the service attachment created in the tenant
+   * project for eventing ingress.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> privateConnectivityAllowlistedProjects;
+
+  /**
    * Optional. Private Connectivity Enabled.
    * The value may be {@code null}.
    */
@@ -93,14 +108,21 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   private DestinationConfig proxyDestinationConfig;
 
   /**
-   * Registration endpoint for auto registration.
+   * Optional. Registration endpoint for auto registration.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private DestinationConfig registrationDestinationConfig;
 
   /**
-   * Additional eventing related field values
+   * Optional. Ssl config of a connection
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SslConfig sslConfig;
+
+  /**
+   * Optional. Additional eventing related field values
    * @return value or {@code null} for none
    */
   public java.util.List<ConfigVariable> getAdditionalVariables() {
@@ -108,7 +130,7 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Additional eventing related field values
+   * Optional. Additional eventing related field values
    * @param additionalVariables additionalVariables or {@code null} for none
    */
   public EventingConfig setAdditionalVariables(java.util.List<ConfigVariable> additionalVariables) {
@@ -117,7 +139,7 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Auth details for the webhook adapter.
+   * Optional. Auth details for the webhook adapter.
    * @return value or {@code null} for none
    */
   public AuthConfig getAuthConfig() {
@@ -125,7 +147,7 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Auth details for the webhook adapter.
+   * Optional. Auth details for the webhook adapter.
    * @param authConfig authConfig or {@code null} for none
    */
   public EventingConfig setAuthConfig(AuthConfig authConfig) {
@@ -151,7 +173,24 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Enrichment Enabled.
+   * Optional. Data enrichment configuration.
+   * @return value or {@code null} for none
+   */
+  public EnrichmentConfig getEnrichmentConfig() {
+    return enrichmentConfig;
+  }
+
+  /**
+   * Optional. Data enrichment configuration.
+   * @param enrichmentConfig enrichmentConfig or {@code null} for none
+   */
+  public EventingConfig setEnrichmentConfig(EnrichmentConfig enrichmentConfig) {
+    this.enrichmentConfig = enrichmentConfig;
+    return this;
+  }
+
+  /**
+   * Optional. Enrichment Enabled.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnrichmentEnabled() {
@@ -159,7 +198,7 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Enrichment Enabled.
+   * Optional. Enrichment Enabled.
    * @param enrichmentEnabled enrichmentEnabled or {@code null} for none
    */
   public EventingConfig setEnrichmentEnabled(java.lang.Boolean enrichmentEnabled) {
@@ -204,6 +243,25 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
+   * Optional. List of projects to be allowlisted for the service attachment created in the tenant
+   * project for eventing ingress.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getPrivateConnectivityAllowlistedProjects() {
+    return privateConnectivityAllowlistedProjects;
+  }
+
+  /**
+   * Optional. List of projects to be allowlisted for the service attachment created in the tenant
+   * project for eventing ingress.
+   * @param privateConnectivityAllowlistedProjects privateConnectivityAllowlistedProjects or {@code null} for none
+   */
+  public EventingConfig setPrivateConnectivityAllowlistedProjects(java.util.List<java.lang.String> privateConnectivityAllowlistedProjects) {
+    this.privateConnectivityAllowlistedProjects = privateConnectivityAllowlistedProjects;
+    return this;
+  }
+
+  /**
    * Optional. Private Connectivity Enabled.
    * @return value or {@code null} for none
    */
@@ -238,7 +296,7 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Registration endpoint for auto registration.
+   * Optional. Registration endpoint for auto registration.
    * @return value or {@code null} for none
    */
   public DestinationConfig getRegistrationDestinationConfig() {
@@ -246,11 +304,28 @@ public final class EventingConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Registration endpoint for auto registration.
+   * Optional. Registration endpoint for auto registration.
    * @param registrationDestinationConfig registrationDestinationConfig or {@code null} for none
    */
   public EventingConfig setRegistrationDestinationConfig(DestinationConfig registrationDestinationConfig) {
     this.registrationDestinationConfig = registrationDestinationConfig;
+    return this;
+  }
+
+  /**
+   * Optional. Ssl config of a connection
+   * @return value or {@code null} for none
+   */
+  public SslConfig getSslConfig() {
+    return sslConfig;
+  }
+
+  /**
+   * Optional. Ssl config of a connection
+   * @param sslConfig sslConfig or {@code null} for none
+   */
+  public EventingConfig setSslConfig(SslConfig sslConfig) {
+    this.sslConfig = sslConfig;
     return this;
   }
 

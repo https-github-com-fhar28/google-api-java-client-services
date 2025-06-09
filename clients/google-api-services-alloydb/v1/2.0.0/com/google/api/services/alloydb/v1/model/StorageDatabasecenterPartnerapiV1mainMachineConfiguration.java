@@ -30,14 +30,15 @@ package com.google.api.services.alloydb.v1.model;
 public final class StorageDatabasecenterPartnerapiV1mainMachineConfiguration extends com.google.api.client.json.GenericJson {
 
   /**
-   * The number of CPUs. TODO(b/342344482, b/342346271) add proto validations again after bug fix.
+   * The number of CPUs. Deprecated. Use vcpu_count instead. TODO(b/342344482) add proto validations
+   * again after bug fix.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Integer cpuCount;
 
   /**
-   * Memory size in bytes. TODO(b/342344482, b/342346271) add proto validations again after bug fix.
+   * Memory size in bytes. TODO(b/342344482) add proto validations again after bug fix.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
@@ -51,7 +52,15 @@ public final class StorageDatabasecenterPartnerapiV1mainMachineConfiguration ext
   private java.lang.Integer shardCount;
 
   /**
-   * The number of CPUs. TODO(b/342344482, b/342346271) add proto validations again after bug fix.
+   * Optional. The number of vCPUs. TODO(b/342344482) add proto validations again after bug fix.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Double vcpuCount;
+
+  /**
+   * The number of CPUs. Deprecated. Use vcpu_count instead. TODO(b/342344482) add proto validations
+   * again after bug fix.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getCpuCount() {
@@ -59,7 +68,8 @@ public final class StorageDatabasecenterPartnerapiV1mainMachineConfiguration ext
   }
 
   /**
-   * The number of CPUs. TODO(b/342344482, b/342346271) add proto validations again after bug fix.
+   * The number of CPUs. Deprecated. Use vcpu_count instead. TODO(b/342344482) add proto validations
+   * again after bug fix.
    * @param cpuCount cpuCount or {@code null} for none
    */
   public StorageDatabasecenterPartnerapiV1mainMachineConfiguration setCpuCount(java.lang.Integer cpuCount) {
@@ -68,7 +78,7 @@ public final class StorageDatabasecenterPartnerapiV1mainMachineConfiguration ext
   }
 
   /**
-   * Memory size in bytes. TODO(b/342344482, b/342346271) add proto validations again after bug fix.
+   * Memory size in bytes. TODO(b/342344482) add proto validations again after bug fix.
    * @return value or {@code null} for none
    */
   public java.lang.Long getMemorySizeInBytes() {
@@ -76,7 +86,7 @@ public final class StorageDatabasecenterPartnerapiV1mainMachineConfiguration ext
   }
 
   /**
-   * Memory size in bytes. TODO(b/342344482, b/342346271) add proto validations again after bug fix.
+   * Memory size in bytes. TODO(b/342344482) add proto validations again after bug fix.
    * @param memorySizeInBytes memorySizeInBytes or {@code null} for none
    */
   public StorageDatabasecenterPartnerapiV1mainMachineConfiguration setMemorySizeInBytes(java.lang.Long memorySizeInBytes) {
@@ -98,6 +108,23 @@ public final class StorageDatabasecenterPartnerapiV1mainMachineConfiguration ext
    */
   public StorageDatabasecenterPartnerapiV1mainMachineConfiguration setShardCount(java.lang.Integer shardCount) {
     this.shardCount = shardCount;
+    return this;
+  }
+
+  /**
+   * Optional. The number of vCPUs. TODO(b/342344482) add proto validations again after bug fix.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Double getVcpuCount() {
+    return vcpuCount;
+  }
+
+  /**
+   * Optional. The number of vCPUs. TODO(b/342344482) add proto validations again after bug fix.
+   * @param vcpuCount vcpuCount or {@code null} for none
+   */
+  public StorageDatabasecenterPartnerapiV1mainMachineConfiguration setVcpuCount(java.lang.Double vcpuCount) {
+    this.vcpuCount = vcpuCount;
     return this;
   }
 

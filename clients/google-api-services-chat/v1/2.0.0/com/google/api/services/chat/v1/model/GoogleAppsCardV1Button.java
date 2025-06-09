@@ -20,7 +20,7 @@ package com.google.api.services.chat.v1.model;
  * A text, icon, or text and icon button that users can click. For an example in Google Chat apps,
  * see [Add a button](https://developers.google.com/workspace/chat/design-interactive-card-
  * dialog#add_a_button). To make an image a clickable button, specify an `Image` (not an
- * `ImageComponent`) and set an `onClick` action. [Google Workspace Add-ons and Chat
+ * `ImageComponent`) and set an `onClick` action. [Google Workspace add-ons and Chat
  * apps](https://developers.google.com/workspace/extend):
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
@@ -87,6 +87,15 @@ public final class GoogleAppsCardV1Button extends com.google.api.client.json.Gen
    */
   @com.google.api.client.util.Key
   private java.lang.String text;
+
+  /**
+   * Optional. The type of a button. If unset, button type defaults to `OUTLINED`. If the `color`
+   * field is set, the button type is forced to `FILLED` and any value set for this field is
+   * ignored.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String type;
 
   /**
    * The alternative text that's used for accessibility. Set descriptive text that lets users know
@@ -213,6 +222,27 @@ public final class GoogleAppsCardV1Button extends com.google.api.client.json.Gen
    */
   public GoogleAppsCardV1Button setText(java.lang.String text) {
     this.text = text;
+    return this;
+  }
+
+  /**
+   * Optional. The type of a button. If unset, button type defaults to `OUTLINED`. If the `color`
+   * field is set, the button type is forced to `FILLED` and any value set for this field is
+   * ignored.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getType() {
+    return type;
+  }
+
+  /**
+   * Optional. The type of a button. If unset, button type defaults to `OUTLINED`. If the `color`
+   * field is set, the button type is forced to `FILLED` and any value set for this field is
+   * ignored.
+   * @param type type or {@code null} for none
+   */
+  public GoogleAppsCardV1Button setType(java.lang.String type) {
+    this.type = type;
     return this;
   }
 

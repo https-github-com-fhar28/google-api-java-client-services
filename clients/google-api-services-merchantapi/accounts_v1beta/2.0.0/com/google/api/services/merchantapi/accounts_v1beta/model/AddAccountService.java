@@ -30,38 +30,45 @@ package com.google.api.services.merchantapi.accounts_v1beta.model;
 public final class AddAccountService extends com.google.api.client.json.GenericJson {
 
   /**
-   * The provider is an aggregator for the account.
+   * The provider is an [aggregator](https://support.google.com/merchants/answer/188487) for the
+   * account. Payload for service type Account Aggregation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private Empty accountAggregation;
+  private AccountAggregation accountAggregation;
 
   /**
-   * Optional. The provider of the service. Format: `accounts/{account}`
+   * Required. The provider of the service. Either the reference to an account such as
+   * `providers/123` or a well-known service provider (one of `providers/GOOGLE_ADS` or
+   * `providers/GOOGLE_BUSINESS_PROFILE`).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String provider;
 
   /**
-   * The provider is an aggregator for the account.
+   * The provider is an [aggregator](https://support.google.com/merchants/answer/188487) for the
+   * account. Payload for service type Account Aggregation.
    * @return value or {@code null} for none
    */
-  public Empty getAccountAggregation() {
+  public AccountAggregation getAccountAggregation() {
     return accountAggregation;
   }
 
   /**
-   * The provider is an aggregator for the account.
+   * The provider is an [aggregator](https://support.google.com/merchants/answer/188487) for the
+   * account. Payload for service type Account Aggregation.
    * @param accountAggregation accountAggregation or {@code null} for none
    */
-  public AddAccountService setAccountAggregation(Empty accountAggregation) {
+  public AddAccountService setAccountAggregation(AccountAggregation accountAggregation) {
     this.accountAggregation = accountAggregation;
     return this;
   }
 
   /**
-   * Optional. The provider of the service. Format: `accounts/{account}`
+   * Required. The provider of the service. Either the reference to an account such as
+   * `providers/123` or a well-known service provider (one of `providers/GOOGLE_ADS` or
+   * `providers/GOOGLE_BUSINESS_PROFILE`).
    * @return value or {@code null} for none
    */
   public java.lang.String getProvider() {
@@ -69,7 +76,9 @@ public final class AddAccountService extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Optional. The provider of the service. Format: `accounts/{account}`
+   * Required. The provider of the service. Either the reference to an account such as
+   * `providers/123` or a well-known service provider (one of `providers/GOOGLE_ADS` or
+   * `providers/GOOGLE_BUSINESS_PROFILE`).
    * @param provider provider or {@code null} for none
    */
   public AddAccountService setProvider(java.lang.String provider) {

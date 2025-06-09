@@ -30,6 +30,13 @@ package com.google.api.services.datastream.v1.model;
 public final class SourceConfig extends com.google.api.client.json.GenericJson {
 
   /**
+   * MongoDB data source configuration.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MongodbSourceConfig mongodbSourceConfig;
+
+  /**
    * MySQL data source configuration.
    * The value may be {@code null}.
    */
@@ -51,7 +58,14 @@ public final class SourceConfig extends com.google.api.client.json.GenericJson {
   private PostgresqlSourceConfig postgresqlSourceConfig;
 
   /**
-   * Required. Source connection profile resoource. Format:
+   * Salesforce data source configuration.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SalesforceSourceConfig salesforceSourceConfig;
+
+  /**
+   * Required. Source connection profile resource. Format:
    * `projects/{project}/locations/{location}/connectionProfiles/{name}`
    * The value may be {@code null}.
    */
@@ -64,6 +78,23 @@ public final class SourceConfig extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private SqlServerSourceConfig sqlServerSourceConfig;
+
+  /**
+   * MongoDB data source configuration.
+   * @return value or {@code null} for none
+   */
+  public MongodbSourceConfig getMongodbSourceConfig() {
+    return mongodbSourceConfig;
+  }
+
+  /**
+   * MongoDB data source configuration.
+   * @param mongodbSourceConfig mongodbSourceConfig or {@code null} for none
+   */
+  public SourceConfig setMongodbSourceConfig(MongodbSourceConfig mongodbSourceConfig) {
+    this.mongodbSourceConfig = mongodbSourceConfig;
+    return this;
+  }
 
   /**
    * MySQL data source configuration.
@@ -117,7 +148,24 @@ public final class SourceConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Source connection profile resoource. Format:
+   * Salesforce data source configuration.
+   * @return value or {@code null} for none
+   */
+  public SalesforceSourceConfig getSalesforceSourceConfig() {
+    return salesforceSourceConfig;
+  }
+
+  /**
+   * Salesforce data source configuration.
+   * @param salesforceSourceConfig salesforceSourceConfig or {@code null} for none
+   */
+  public SourceConfig setSalesforceSourceConfig(SalesforceSourceConfig salesforceSourceConfig) {
+    this.salesforceSourceConfig = salesforceSourceConfig;
+    return this;
+  }
+
+  /**
+   * Required. Source connection profile resource. Format:
    * `projects/{project}/locations/{location}/connectionProfiles/{name}`
    * @return value or {@code null} for none
    */
@@ -126,7 +174,7 @@ public final class SourceConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Source connection profile resoource. Format:
+   * Required. Source connection profile resource. Format:
    * `projects/{project}/locations/{location}/connectionProfiles/{name}`
    * @param sourceConnectionProfile sourceConnectionProfile or {@code null} for none
    */

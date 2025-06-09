@@ -17,7 +17,7 @@
 package com.google.api.services.networkconnectivity.v1.model;
 
 /**
- * The ServiceConnectionMap resource. Next id: 15
+ * The ServiceConnectionMap resource.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Network Connectivity API. For a detailed explanation
@@ -132,7 +132,7 @@ public final class ServiceConnectionMap extends com.google.api.client.json.Gener
 
   /**
    * The token provided by the consumer. This token authenticates that the consumer can create a
-   * connecton within the specified project and network.
+   * connection within the specified project and network.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -344,7 +344,7 @@ public final class ServiceConnectionMap extends com.google.api.client.json.Gener
 
   /**
    * The token provided by the consumer. This token authenticates that the consumer can create a
-   * connecton within the specified project and network.
+   * connection within the specified project and network.
    * @return value or {@code null} for none
    */
   public java.lang.String getToken() {
@@ -353,7 +353,7 @@ public final class ServiceConnectionMap extends com.google.api.client.json.Gener
 
   /**
    * The token provided by the consumer. This token authenticates that the consumer can create a
-   * connecton within the specified project and network.
+   * connection within the specified project and network.
    * @param token token or {@code null} for none
    */
   public ServiceConnectionMap setToken(java.lang.String token) {

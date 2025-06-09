@@ -53,8 +53,7 @@ public final class Conversion extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean childDirectedTreatment;
 
   /**
-   * Custom floodlight variables. This field may only be used when calling batchinsert; it is not
-   * supported by batchupdate.
+   * Custom floodlight variables.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -185,6 +184,14 @@ public final class Conversion extends com.google.api.client.json.GenericJson {
   private java.lang.Long quantity;
 
   /**
+   * Session attributes for the conversion, encoded as based64 bytes. This field may only be used
+   * when calling batchinsert; it is not supported by batchupdate.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String sessionAttributesEncoded;
+
+  /**
    * The timestamp of conversion, in Unix epoch micros. This is a required field.
    * The value may be {@code null}.
    */
@@ -208,7 +215,8 @@ public final class Conversion extends com.google.api.client.json.GenericJson {
   private java.util.List<UserIdentifier> userIdentifiers;
 
   /**
-   * The value of the conversion. This is a required field.
+   * The value of the conversion. Interpreted in CM360 Floodlight config parent advertiser's
+   * currency code. This is a required field.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -268,8 +276,7 @@ public final class Conversion extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom floodlight variables. This field may only be used when calling batchinsert; it is not
-   * supported by batchupdate.
+   * Custom floodlight variables.
    * @return value or {@code null} for none
    */
   public java.util.List<CustomFloodlightVariable> getCustomVariables() {
@@ -277,8 +284,7 @@ public final class Conversion extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom floodlight variables. This field may only be used when calling batchinsert; it is not
-   * supported by batchupdate.
+   * Custom floodlight variables.
    * @param customVariables customVariables or {@code null} for none
    */
   public Conversion setCustomVariables(java.util.List<CustomFloodlightVariable> customVariables) {
@@ -577,6 +583,55 @@ public final class Conversion extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Session attributes for the conversion, encoded as based64 bytes. This field may only be used
+   * when calling batchinsert; it is not supported by batchupdate.
+   * @see #decodeSessionAttributesEncoded()
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSessionAttributesEncoded() {
+    return sessionAttributesEncoded;
+  }
+
+  /**
+   * Session attributes for the conversion, encoded as based64 bytes. This field may only be used
+   * when calling batchinsert; it is not supported by batchupdate.
+   * @see #getSessionAttributesEncoded()
+   * @return Base64 decoded value or {@code null} for none
+   *
+   * @since 1.14
+   */
+  public byte[] decodeSessionAttributesEncoded() {
+    return com.google.api.client.util.Base64.decodeBase64(sessionAttributesEncoded);
+  }
+
+  /**
+   * Session attributes for the conversion, encoded as based64 bytes. This field may only be used
+   * when calling batchinsert; it is not supported by batchupdate.
+   * @see #encodeSessionAttributesEncoded()
+   * @param sessionAttributesEncoded sessionAttributesEncoded or {@code null} for none
+   */
+  public Conversion setSessionAttributesEncoded(java.lang.String sessionAttributesEncoded) {
+    this.sessionAttributesEncoded = sessionAttributesEncoded;
+    return this;
+  }
+
+  /**
+   * Session attributes for the conversion, encoded as based64 bytes. This field may only be used
+   * when calling batchinsert; it is not supported by batchupdate.
+   * @see #setSessionAttributesEncoded()
+   *
+   * <p>
+   * The value is encoded Base64 or {@code null} for none.
+   * </p>
+   *
+   * @since 1.14
+   */
+  public Conversion encodeSessionAttributesEncoded(byte[] sessionAttributesEncoded) {
+    this.sessionAttributesEncoded = com.google.api.client.util.Base64.encodeBase64URLSafeString(sessionAttributesEncoded);
+    return this;
+  }
+
+  /**
    * The timestamp of conversion, in Unix epoch micros. This is a required field.
    * @return value or {@code null} for none
    */
@@ -632,7 +687,8 @@ public final class Conversion extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The value of the conversion. This is a required field.
+   * The value of the conversion. Interpreted in CM360 Floodlight config parent advertiser's
+   * currency code. This is a required field.
    * @return value or {@code null} for none
    */
   public java.lang.Double getValue() {
@@ -640,7 +696,8 @@ public final class Conversion extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The value of the conversion. This is a required field.
+   * The value of the conversion. Interpreted in CM360 Floodlight config parent advertiser's
+   * currency code. This is a required field.
    * @param value value or {@code null} for none
    */
   public Conversion setValue(java.lang.Double value) {

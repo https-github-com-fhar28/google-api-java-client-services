@@ -38,6 +38,21 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private AddonsConfig addonsConfig;
 
   /**
+   * The list of user specified Kubernetes feature gates. Each string represents the activation
+   * status of a feature gate (e.g. "featureX=true" or "featureX=false")
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> alphaClusterFeatureGates;
+
+  /**
+   * Configuration for limiting anonymous access to all endpoints except the health checks.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private AnonymousAuthenticationConfig anonymousAuthenticationConfig;
+
+  /**
    * Configuration controlling RBAC group membership information.
    * The value may be {@code null}.
    */
@@ -96,6 +111,13 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private ConfidentialNodes confidentialNodes;
+
+  /**
+   * Configuration for all cluster's control plane endpoints.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ControlPlaneEndpointsConfig controlPlaneEndpointsConfig;
 
   /**
    * Configuration for the fine-grained cost management feature.
@@ -177,7 +199,8 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean enableKubernetesAlpha;
 
   /**
-   * Enable the ability to use Cloud TPUs in this cluster.
+   * Enable the ability to use Cloud TPUs in this cluster. This field is deprecated due to the
+   * deprecation of 2VM TPU. The end of life date for 2VM TPU is 2025-04-25.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -352,7 +375,8 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private MasterAuth masterAuth;
 
   /**
-   * The configuration options for master authorized networks feature.
+   * The configuration options for master authorized networks feature. Deprecated: Use
+   * ControlPlaneEndpointsConfig.IPEndpointsConfig.authorized_networks_config instead.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -374,7 +398,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
 
   /**
    * The monitoring service the cluster should use to write metrics. Currently available options: *
-   * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a Kubernetes-native
+   * `monitoring.googleapis.com/kubernetes` - The Cloud Monitoring service with a Kubernetes-native
    * resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
    * available as of GKE 1.15). * `none` - No metrics will be exported from the cluster. If left as
    * an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or
@@ -477,6 +501,13 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private ParentProductConfig parentProductConfig;
+
+  /**
+   * The config for pod autoscaling.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private PodAutoscaling podAutoscaling;
 
   /**
    * Configuration for private cluster.
@@ -598,11 +629,19 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   /**
    * Output only. The IP address range of the Cloud TPUs in this cluster, in
    * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g.
-   * `1.2.3.4/29`).
+   * `1.2.3.4/29`). This field is deprecated due to the deprecation of 2VM TPU. The end of life date
+   * for 2VM TPU is 2025-04-25.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String tpuIpv4CidrBlock;
+
+  /**
+   * The Custom keys configuration for the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private UserManagedKeysConfig userManagedKeysConfig;
 
   /**
    * Cluster-level Vertical Pod Autoscaling configuration.
@@ -641,6 +680,42 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setAddonsConfig(AddonsConfig addonsConfig) {
     this.addonsConfig = addonsConfig;
+    return this;
+  }
+
+  /**
+   * The list of user specified Kubernetes feature gates. Each string represents the activation
+   * status of a feature gate (e.g. "featureX=true" or "featureX=false")
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getAlphaClusterFeatureGates() {
+    return alphaClusterFeatureGates;
+  }
+
+  /**
+   * The list of user specified Kubernetes feature gates. Each string represents the activation
+   * status of a feature gate (e.g. "featureX=true" or "featureX=false")
+   * @param alphaClusterFeatureGates alphaClusterFeatureGates or {@code null} for none
+   */
+  public Cluster setAlphaClusterFeatureGates(java.util.List<java.lang.String> alphaClusterFeatureGates) {
+    this.alphaClusterFeatureGates = alphaClusterFeatureGates;
+    return this;
+  }
+
+  /**
+   * Configuration for limiting anonymous access to all endpoints except the health checks.
+   * @return value or {@code null} for none
+   */
+  public AnonymousAuthenticationConfig getAnonymousAuthenticationConfig() {
+    return anonymousAuthenticationConfig;
+  }
+
+  /**
+   * Configuration for limiting anonymous access to all endpoints except the health checks.
+   * @param anonymousAuthenticationConfig anonymousAuthenticationConfig or {@code null} for none
+   */
+  public Cluster setAnonymousAuthenticationConfig(AnonymousAuthenticationConfig anonymousAuthenticationConfig) {
+    this.anonymousAuthenticationConfig = anonymousAuthenticationConfig;
     return this;
   }
 
@@ -785,6 +860,23 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setConfidentialNodes(ConfidentialNodes confidentialNodes) {
     this.confidentialNodes = confidentialNodes;
+    return this;
+  }
+
+  /**
+   * Configuration for all cluster's control plane endpoints.
+   * @return value or {@code null} for none
+   */
+  public ControlPlaneEndpointsConfig getControlPlaneEndpointsConfig() {
+    return controlPlaneEndpointsConfig;
+  }
+
+  /**
+   * Configuration for all cluster's control plane endpoints.
+   * @param controlPlaneEndpointsConfig controlPlaneEndpointsConfig or {@code null} for none
+   */
+  public Cluster setControlPlaneEndpointsConfig(ControlPlaneEndpointsConfig controlPlaneEndpointsConfig) {
+    this.controlPlaneEndpointsConfig = controlPlaneEndpointsConfig;
     return this;
   }
 
@@ -977,7 +1069,8 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Enable the ability to use Cloud TPUs in this cluster.
+   * Enable the ability to use Cloud TPUs in this cluster. This field is deprecated due to the
+   * deprecation of 2VM TPU. The end of life date for 2VM TPU is 2025-04-25.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnableTpu() {
@@ -985,7 +1078,8 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Enable the ability to use Cloud TPUs in this cluster.
+   * Enable the ability to use Cloud TPUs in this cluster. This field is deprecated due to the
+   * deprecation of 2VM TPU. The end of life date for 2VM TPU is 2025-04-25.
    * @param enableTpu enableTpu or {@code null} for none
    */
   public Cluster setEnableTpu(java.lang.Boolean enableTpu) {
@@ -1387,7 +1481,8 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The configuration options for master authorized networks feature.
+   * The configuration options for master authorized networks feature. Deprecated: Use
+   * ControlPlaneEndpointsConfig.IPEndpointsConfig.authorized_networks_config instead.
    * @return value or {@code null} for none
    */
   public MasterAuthorizedNetworksConfig getMasterAuthorizedNetworksConfig() {
@@ -1395,7 +1490,8 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The configuration options for master authorized networks feature.
+   * The configuration options for master authorized networks feature. Deprecated: Use
+   * ControlPlaneEndpointsConfig.IPEndpointsConfig.authorized_networks_config instead.
    * @param masterAuthorizedNetworksConfig masterAuthorizedNetworksConfig or {@code null} for none
    */
   public Cluster setMasterAuthorizedNetworksConfig(MasterAuthorizedNetworksConfig masterAuthorizedNetworksConfig) {
@@ -1439,7 +1535,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
 
   /**
    * The monitoring service the cluster should use to write metrics. Currently available options: *
-   * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a Kubernetes-native
+   * `monitoring.googleapis.com/kubernetes` - The Cloud Monitoring service with a Kubernetes-native
    * resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
    * available as of GKE 1.15). * `none` - No metrics will be exported from the cluster. If left as
    * an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or
@@ -1452,7 +1548,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
 
   /**
    * The monitoring service the cluster should use to write metrics. Currently available options: *
-   * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a Kubernetes-native
+   * `monitoring.googleapis.com/kubernetes` - The Cloud Monitoring service with a Kubernetes-native
    * resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
    * available as of GKE 1.15). * `none` - No metrics will be exported from the cluster. If left as
    * an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or
@@ -1682,6 +1778,23 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setParentProductConfig(ParentProductConfig parentProductConfig) {
     this.parentProductConfig = parentProductConfig;
+    return this;
+  }
+
+  /**
+   * The config for pod autoscaling.
+   * @return value or {@code null} for none
+   */
+  public PodAutoscaling getPodAutoscaling() {
+    return podAutoscaling;
+  }
+
+  /**
+   * The config for pod autoscaling.
+   * @param podAutoscaling podAutoscaling or {@code null} for none
+   */
+  public Cluster setPodAutoscaling(PodAutoscaling podAutoscaling) {
+    this.podAutoscaling = podAutoscaling;
     return this;
   }
 
@@ -1967,7 +2080,8 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   /**
    * Output only. The IP address range of the Cloud TPUs in this cluster, in
    * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g.
-   * `1.2.3.4/29`).
+   * `1.2.3.4/29`). This field is deprecated due to the deprecation of 2VM TPU. The end of life date
+   * for 2VM TPU is 2025-04-25.
    * @return value or {@code null} for none
    */
   public java.lang.String getTpuIpv4CidrBlock() {
@@ -1977,11 +2091,29 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   /**
    * Output only. The IP address range of the Cloud TPUs in this cluster, in
    * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g.
-   * `1.2.3.4/29`).
+   * `1.2.3.4/29`). This field is deprecated due to the deprecation of 2VM TPU. The end of life date
+   * for 2VM TPU is 2025-04-25.
    * @param tpuIpv4CidrBlock tpuIpv4CidrBlock or {@code null} for none
    */
   public Cluster setTpuIpv4CidrBlock(java.lang.String tpuIpv4CidrBlock) {
     this.tpuIpv4CidrBlock = tpuIpv4CidrBlock;
+    return this;
+  }
+
+  /**
+   * The Custom keys configuration for the cluster.
+   * @return value or {@code null} for none
+   */
+  public UserManagedKeysConfig getUserManagedKeysConfig() {
+    return userManagedKeysConfig;
+  }
+
+  /**
+   * The Custom keys configuration for the cluster.
+   * @param userManagedKeysConfig userManagedKeysConfig or {@code null} for none
+   */
+  public Cluster setUserManagedKeysConfig(UserManagedKeysConfig userManagedKeysConfig) {
+    this.userManagedKeysConfig = userManagedKeysConfig;
     return this;
   }
 

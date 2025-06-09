@@ -45,6 +45,19 @@ public final class InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy
   private java.lang.String name;
 
   /**
+   * [Output Only] The packet mirroring rules that apply to the instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<FirewallPolicyRule> packetMirroringRules;
+
+  static {
+    // hack to force ProGuard to consider FirewallPolicyRule used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(FirewallPolicyRule.class);
+  }
+
+  /**
    * [Output only] Priority of firewall policy association. Not applicable for type=HIERARCHY.
    * The value may be {@code null}.
    */
@@ -52,7 +65,9 @@ public final class InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy
   private java.lang.Integer priority;
 
   /**
-   * The rules that apply to the network.
+   * [Output Only] The rules that apply to the instance. Only rules that target the specific VM
+   * instance are returned if target service accounts or target secure tags are specified in the
+   * rules.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -116,6 +131,23 @@ public final class InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy
   }
 
   /**
+   * [Output Only] The packet mirroring rules that apply to the instance.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<FirewallPolicyRule> getPacketMirroringRules() {
+    return packetMirroringRules;
+  }
+
+  /**
+   * [Output Only] The packet mirroring rules that apply to the instance.
+   * @param packetMirroringRules packetMirroringRules or {@code null} for none
+   */
+  public InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy setPacketMirroringRules(java.util.List<FirewallPolicyRule> packetMirroringRules) {
+    this.packetMirroringRules = packetMirroringRules;
+    return this;
+  }
+
+  /**
    * [Output only] Priority of firewall policy association. Not applicable for type=HIERARCHY.
    * @return value or {@code null} for none
    */
@@ -133,7 +165,9 @@ public final class InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy
   }
 
   /**
-   * The rules that apply to the network.
+   * [Output Only] The rules that apply to the instance. Only rules that target the specific VM
+   * instance are returned if target service accounts or target secure tags are specified in the
+   * rules.
    * @return value or {@code null} for none
    */
   public java.util.List<FirewallPolicyRule> getRules() {
@@ -141,7 +175,9 @@ public final class InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy
   }
 
   /**
-   * The rules that apply to the network.
+   * [Output Only] The rules that apply to the instance. Only rules that target the specific VM
+   * instance are returned if target service accounts or target secure tags are specified in the
+   * rules.
    * @param rules rules or {@code null} for none
    */
   public InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy setRules(java.util.List<FirewallPolicyRule> rules) {

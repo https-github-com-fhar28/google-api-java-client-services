@@ -152,6 +152,15 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
   private java.lang.Double colsampleBytree;
 
   /**
+   * The contribution metric. Applies to contribution analysis models. Allowed formats supported are
+   * for summable and summable ratio contribution metrics. These include expressions such as
+   * `SUM(x)` or `SUM(x)/SUM(y)`, where x and y are column names from the base table.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String contributionMetric;
+
+  /**
    * Type of normalization algorithm for boosted tree models using dart booster.
    * The value may be {@code null}.
    */
@@ -171,8 +180,8 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    * value tag are eval data, and the false are training data. 2. When data_split_method is SEQ, the
    * first DATA_SPLIT_EVAL_FRACTION rows (from smallest to largest) in the corresponding column are
    * used as training data, and the rest are eval data. It respects the order in Orderable data
-   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#data-type-
-   * properties
+   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
+   * types#data_type_properties
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -200,6 +209,13 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean decomposeTimeSeries;
+
+  /**
+   * Optional. Names of the columns to slice on. Applies to contribution analysis models.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> dimensionIdColumns;
 
   /**
    * Distance type for clustering models.
@@ -243,6 +259,21 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean fitIntercept;
+
+  /**
+   * The forecast limit lower bound that was used during ARIMA model training with limits. To see
+   * more details of the algorithm: https://otexts.com/fpp2/limits.html
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Double forecastLimitLowerBound;
+
+  /**
+   * The forecast limit upper bound that was used during ARIMA model training with limits.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Double forecastLimitUpperBound;
 
   /**
    * Hidden units for dnn models.
@@ -314,6 +345,14 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.lang.Long integratedGradientsNumSteps;
+
+  /**
+   * Name of the column used to determine the rows corresponding to control and test. Applies to
+   * contribution analysis models.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String isTestColumn;
 
   /**
    * Item column specified for matrix factorization models.
@@ -416,6 +455,13 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.lang.Long maxTreeDepth;
+
+  /**
+   * The apriori support minimum. Applies to contribution analysis models.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Double minAprioriSupport;
 
   /**
    * When early_stop is true, stops training when accuracy improvement is less than
@@ -964,6 +1010,27 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
   }
 
   /**
+   * The contribution metric. Applies to contribution analysis models. Allowed formats supported are
+   * for summable and summable ratio contribution metrics. These include expressions such as
+   * `SUM(x)` or `SUM(x)/SUM(y)`, where x and y are column names from the base table.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getContributionMetric() {
+    return contributionMetric;
+  }
+
+  /**
+   * The contribution metric. Applies to contribution analysis models. Allowed formats supported are
+   * for summable and summable ratio contribution metrics. These include expressions such as
+   * `SUM(x)` or `SUM(x)/SUM(y)`, where x and y are column names from the base table.
+   * @param contributionMetric contributionMetric or {@code null} for none
+   */
+  public TrainingOptions setContributionMetric(java.lang.String contributionMetric) {
+    this.contributionMetric = contributionMetric;
+    return this;
+  }
+
+  /**
    * Type of normalization algorithm for boosted tree models using dart booster.
    * @return value or {@code null} for none
    */
@@ -1003,8 +1070,8 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    * value tag are eval data, and the false are training data. 2. When data_split_method is SEQ, the
    * first DATA_SPLIT_EVAL_FRACTION rows (from smallest to largest) in the corresponding column are
    * used as training data, and the rest are eval data. It respects the order in Orderable data
-   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#data-type-
-   * properties
+   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
+   * types#data_type_properties
    * @return value or {@code null} for none
    */
   public java.lang.String getDataSplitColumn() {
@@ -1017,8 +1084,8 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    * value tag are eval data, and the false are training data. 2. When data_split_method is SEQ, the
    * first DATA_SPLIT_EVAL_FRACTION rows (from smallest to largest) in the corresponding column are
    * used as training data, and the rest are eval data. It respects the order in Orderable data
-   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#data-type-
-   * properties
+   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
+   * types#data_type_properties
    * @param dataSplitColumn dataSplitColumn or {@code null} for none
    */
   public TrainingOptions setDataSplitColumn(java.lang.String dataSplitColumn) {
@@ -1078,6 +1145,23 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   public TrainingOptions setDecomposeTimeSeries(java.lang.Boolean decomposeTimeSeries) {
     this.decomposeTimeSeries = decomposeTimeSeries;
+    return this;
+  }
+
+  /**
+   * Optional. Names of the columns to slice on. Applies to contribution analysis models.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getDimensionIdColumns() {
+    return dimensionIdColumns;
+  }
+
+  /**
+   * Optional. Names of the columns to slice on. Applies to contribution analysis models.
+   * @param dimensionIdColumns dimensionIdColumns or {@code null} for none
+   */
+  public TrainingOptions setDimensionIdColumns(java.util.List<java.lang.String> dimensionIdColumns) {
+    this.dimensionIdColumns = dimensionIdColumns;
     return this;
   }
 
@@ -1182,6 +1266,42 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   public TrainingOptions setFitIntercept(java.lang.Boolean fitIntercept) {
     this.fitIntercept = fitIntercept;
+    return this;
+  }
+
+  /**
+   * The forecast limit lower bound that was used during ARIMA model training with limits. To see
+   * more details of the algorithm: https://otexts.com/fpp2/limits.html
+   * @return value or {@code null} for none
+   */
+  public java.lang.Double getForecastLimitLowerBound() {
+    return forecastLimitLowerBound;
+  }
+
+  /**
+   * The forecast limit lower bound that was used during ARIMA model training with limits. To see
+   * more details of the algorithm: https://otexts.com/fpp2/limits.html
+   * @param forecastLimitLowerBound forecastLimitLowerBound or {@code null} for none
+   */
+  public TrainingOptions setForecastLimitLowerBound(java.lang.Double forecastLimitLowerBound) {
+    this.forecastLimitLowerBound = forecastLimitLowerBound;
+    return this;
+  }
+
+  /**
+   * The forecast limit upper bound that was used during ARIMA model training with limits.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Double getForecastLimitUpperBound() {
+    return forecastLimitUpperBound;
+  }
+
+  /**
+   * The forecast limit upper bound that was used during ARIMA model training with limits.
+   * @param forecastLimitUpperBound forecastLimitUpperBound or {@code null} for none
+   */
+  public TrainingOptions setForecastLimitUpperBound(java.lang.Double forecastLimitUpperBound) {
+    this.forecastLimitUpperBound = forecastLimitUpperBound;
     return this;
   }
 
@@ -1354,6 +1474,25 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   public TrainingOptions setIntegratedGradientsNumSteps(java.lang.Long integratedGradientsNumSteps) {
     this.integratedGradientsNumSteps = integratedGradientsNumSteps;
+    return this;
+  }
+
+  /**
+   * Name of the column used to determine the rows corresponding to control and test. Applies to
+   * contribution analysis models.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getIsTestColumn() {
+    return isTestColumn;
+  }
+
+  /**
+   * Name of the column used to determine the rows corresponding to control and test. Applies to
+   * contribution analysis models.
+   * @param isTestColumn isTestColumn or {@code null} for none
+   */
+  public TrainingOptions setIsTestColumn(java.lang.String isTestColumn) {
+    this.isTestColumn = isTestColumn;
     return this;
   }
 
@@ -1600,6 +1739,23 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   public TrainingOptions setMaxTreeDepth(java.lang.Long maxTreeDepth) {
     this.maxTreeDepth = maxTreeDepth;
+    return this;
+  }
+
+  /**
+   * The apriori support minimum. Applies to contribution analysis models.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Double getMinAprioriSupport() {
+    return minAprioriSupport;
+  }
+
+  /**
+   * The apriori support minimum. Applies to contribution analysis models.
+   * @param minAprioriSupport minAprioriSupport or {@code null} for none
+   */
+  public TrainingOptions setMinAprioriSupport(java.lang.Double minAprioriSupport) {
+    this.minAprioriSupport = minAprioriSupport;
     return this;
   }
 

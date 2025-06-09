@@ -42,16 +42,16 @@ public final class Hub extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
-   * An optional description of the hub.
+   * Optional. An optional description of the hub.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String description;
 
   /**
-   * Optional. Whether Private Service Connect transitivity is enabled for the hub. If true, Private
-   * Service Connect endpoints in VPC spokes attached to the hub are made accessible to other VPC
-   * spokes attached to the hub. The default value is false.
+   * Optional. Whether Private Service Connect connection propagation is enabled for the hub. If
+   * true, Private Service Connect endpoints in VPC spokes attached to the hub are made accessible
+   * to other VPC spokes attached to the hub. The default value is false.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -103,8 +103,9 @@ public final class Hub extends com.google.api.client.json.GenericJson {
   private java.util.List<java.lang.String> routeTables;
 
   /**
-   * The VPC networks associated with this hub's spokes. This field is read-only. Network
-   * Connectivity Center automatically populates it based on the set of spokes attached to the hub.
+   * Output only. The VPC networks associated with this hub's spokes. This field is read-only.
+   * Network Connectivity Center automatically populates it based on the set of spokes attached to
+   * the hub.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -160,7 +161,7 @@ public final class Hub extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * An optional description of the hub.
+   * Optional. An optional description of the hub.
    * @return value or {@code null} for none
    */
   public java.lang.String getDescription() {
@@ -168,7 +169,7 @@ public final class Hub extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * An optional description of the hub.
+   * Optional. An optional description of the hub.
    * @param description description or {@code null} for none
    */
   public Hub setDescription(java.lang.String description) {
@@ -177,9 +178,9 @@ public final class Hub extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Whether Private Service Connect transitivity is enabled for the hub. If true, Private
-   * Service Connect endpoints in VPC spokes attached to the hub are made accessible to other VPC
-   * spokes attached to the hub. The default value is false.
+   * Optional. Whether Private Service Connect connection propagation is enabled for the hub. If
+   * true, Private Service Connect endpoints in VPC spokes attached to the hub are made accessible
+   * to other VPC spokes attached to the hub. The default value is false.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getExportPsc() {
@@ -187,9 +188,9 @@ public final class Hub extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Whether Private Service Connect transitivity is enabled for the hub. If true, Private
-   * Service Connect endpoints in VPC spokes attached to the hub are made accessible to other VPC
-   * spokes attached to the hub. The default value is false.
+   * Optional. Whether Private Service Connect connection propagation is enabled for the hub. If
+   * true, Private Service Connect endpoints in VPC spokes attached to the hub are made accessible
+   * to other VPC spokes attached to the hub. The default value is false.
    * @param exportPsc exportPsc or {@code null} for none
    */
   public Hub setExportPsc(java.lang.Boolean exportPsc) {
@@ -303,8 +304,9 @@ public final class Hub extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The VPC networks associated with this hub's spokes. This field is read-only. Network
-   * Connectivity Center automatically populates it based on the set of spokes attached to the hub.
+   * Output only. The VPC networks associated with this hub's spokes. This field is read-only.
+   * Network Connectivity Center automatically populates it based on the set of spokes attached to
+   * the hub.
    * @return value or {@code null} for none
    */
   public java.util.List<RoutingVPC> getRoutingVpcs() {
@@ -312,8 +314,9 @@ public final class Hub extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The VPC networks associated with this hub's spokes. This field is read-only. Network
-   * Connectivity Center automatically populates it based on the set of spokes attached to the hub.
+   * Output only. The VPC networks associated with this hub's spokes. This field is read-only.
+   * Network Connectivity Center automatically populates it based on the set of spokes attached to
+   * the hub.
    * @param routingVpcs routingVpcs or {@code null} for none
    */
   public Hub setRoutingVpcs(java.util.List<RoutingVPC> routingVpcs) {

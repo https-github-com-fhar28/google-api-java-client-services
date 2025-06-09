@@ -445,6 +445,29 @@ public class CloudAlloyDBAdmin extends com.google.api.client.googleapis.services
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -2302,6 +2325,136 @@ public class CloudAlloyDBAdmin extends com.google.api.client.googleapis.services
           }
         }
         /**
+         * Exports data from the cluster. Imperative only.
+         *
+         * Create a request for the method "clusters.export".
+         *
+         * This request holds the parameters needed by the alloydb server.  After setting any optional
+         * parameters, call the {@link Export#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The resource name of the cluster.
+         * @param content the {@link com.google.api.services.alloydb.v1alpha.model.ExportClusterRequest}
+         * @return the request
+         */
+        public Export export(java.lang.String name, com.google.api.services.alloydb.v1alpha.model.ExportClusterRequest content) throws java.io.IOException {
+          Export result = new Export(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Export extends CloudAlloyDBAdminRequest<com.google.api.services.alloydb.v1alpha.model.Operation> {
+
+          private static final String REST_PATH = "v1alpha/{+name}:export";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+
+          /**
+           * Exports data from the cluster. Imperative only.
+           *
+           * Create a request for the method "clusters.export".
+           *
+           * This request holds the parameters needed by the the alloydb server.  After setting any optional
+           * parameters, call the {@link Export#execute()} method to invoke the remote operation. <p> {@link
+           * Export#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The resource name of the cluster.
+           * @param content the {@link com.google.api.services.alloydb.v1alpha.model.ExportClusterRequest}
+           * @since 1.13
+           */
+          protected Export(java.lang.String name, com.google.api.services.alloydb.v1alpha.model.ExportClusterRequest content) {
+            super(CloudAlloyDBAdmin.this, "POST", REST_PATH, content, com.google.api.services.alloydb.v1alpha.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+            }
+          }
+
+          @Override
+          public Export set$Xgafv(java.lang.String $Xgafv) {
+            return (Export) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Export setAccessToken(java.lang.String accessToken) {
+            return (Export) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Export setAlt(java.lang.String alt) {
+            return (Export) super.setAlt(alt);
+          }
+
+          @Override
+          public Export setCallback(java.lang.String callback) {
+            return (Export) super.setCallback(callback);
+          }
+
+          @Override
+          public Export setFields(java.lang.String fields) {
+            return (Export) super.setFields(fields);
+          }
+
+          @Override
+          public Export setKey(java.lang.String key) {
+            return (Export) super.setKey(key);
+          }
+
+          @Override
+          public Export setOauthToken(java.lang.String oauthToken) {
+            return (Export) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Export setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Export) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Export setQuotaUser(java.lang.String quotaUser) {
+            return (Export) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Export setUploadType(java.lang.String uploadType) {
+            return (Export) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Export setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Export) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. The resource name of the cluster. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The resource name of the cluster.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. The resource name of the cluster. */
+          public Export setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Export set(String parameterName, Object value) {
+            return (Export) super.set(parameterName, value);
+          }
+        }
+        /**
          * Gets details of a single Cluster.
          *
          * Create a request for the method "clusters.get".
@@ -2466,6 +2619,138 @@ public class CloudAlloyDBAdmin extends com.google.api.client.googleapis.services
           @Override
           public Get set(String parameterName, Object value) {
             return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Imports data to the cluster. Imperative only.
+         *
+         * Create a request for the method "clusters.import".
+         *
+         * This request holds the parameters needed by the alloydb server.  After setting any optional
+         * parameters, call the {@link CloudAlloyDBAdminImport#execute()} method to invoke the remote
+         * operation.
+         *
+         * @param name Required. The resource name of the cluster.
+         * @param content the {@link com.google.api.services.alloydb.v1alpha.model.ImportClusterRequest}
+         * @return the request
+         */
+        public CloudAlloyDBAdminImport alloydbImport(java.lang.String name, com.google.api.services.alloydb.v1alpha.model.ImportClusterRequest content) throws java.io.IOException {
+          CloudAlloyDBAdminImport result = new CloudAlloyDBAdminImport(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class CloudAlloyDBAdminImport extends CloudAlloyDBAdminRequest<com.google.api.services.alloydb.v1alpha.model.Operation> {
+
+          private static final String REST_PATH = "v1alpha/{+name}:import";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+
+          /**
+           * Imports data to the cluster. Imperative only.
+           *
+           * Create a request for the method "clusters.import".
+           *
+           * This request holds the parameters needed by the the alloydb server.  After setting any optional
+           * parameters, call the {@link CloudAlloyDBAdminImport#execute()} method to invoke the remote
+           * operation. <p> {@link CloudAlloyDBAdminImport#initialize(com.google.api.client.googleapis.servi
+           * ces.AbstractGoogleClientRequest)} must be called to initialize this instance immediately after
+           * invoking the constructor. </p>
+           *
+           * @param name Required. The resource name of the cluster.
+           * @param content the {@link com.google.api.services.alloydb.v1alpha.model.ImportClusterRequest}
+           * @since 1.13
+           */
+          protected CloudAlloyDBAdminImport(java.lang.String name, com.google.api.services.alloydb.v1alpha.model.ImportClusterRequest content) {
+            super(CloudAlloyDBAdmin.this, "POST", REST_PATH, content, com.google.api.services.alloydb.v1alpha.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+            }
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport set$Xgafv(java.lang.String $Xgafv) {
+            return (CloudAlloyDBAdminImport) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setAccessToken(java.lang.String accessToken) {
+            return (CloudAlloyDBAdminImport) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setAlt(java.lang.String alt) {
+            return (CloudAlloyDBAdminImport) super.setAlt(alt);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setCallback(java.lang.String callback) {
+            return (CloudAlloyDBAdminImport) super.setCallback(callback);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setFields(java.lang.String fields) {
+            return (CloudAlloyDBAdminImport) super.setFields(fields);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setKey(java.lang.String key) {
+            return (CloudAlloyDBAdminImport) super.setKey(key);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setOauthToken(java.lang.String oauthToken) {
+            return (CloudAlloyDBAdminImport) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (CloudAlloyDBAdminImport) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setQuotaUser(java.lang.String quotaUser) {
+            return (CloudAlloyDBAdminImport) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setUploadType(java.lang.String uploadType) {
+            return (CloudAlloyDBAdminImport) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport setUploadProtocol(java.lang.String uploadProtocol) {
+            return (CloudAlloyDBAdminImport) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. The resource name of the cluster. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The resource name of the cluster.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. The resource name of the cluster. */
+          public CloudAlloyDBAdminImport setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public CloudAlloyDBAdminImport set(String parameterName, Object value) {
+            return (CloudAlloyDBAdminImport) super.set(parameterName, value);
           }
         }
         /**
@@ -3245,6 +3530,146 @@ public class CloudAlloyDBAdmin extends com.google.api.client.googleapis.services
           @Override
           public Restore set(String parameterName, Object value) {
             return (Restore) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Restores an AlloyDB cluster from a CloudSQL resource.
+         *
+         * Create a request for the method "clusters.restoreFromCloudSQL".
+         *
+         * This request holds the parameters needed by the alloydb server.  After setting any optional
+         * parameters, call the {@link RestoreFromCloudSQL#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The location of the new cluster. For the required format, see the comment on Cluster.name
+         *        field.
+         * @param content the {@link com.google.api.services.alloydb.v1alpha.model.RestoreFromCloudSQLRequest}
+         * @return the request
+         */
+        public RestoreFromCloudSQL restoreFromCloudSQL(java.lang.String parent, com.google.api.services.alloydb.v1alpha.model.RestoreFromCloudSQLRequest content) throws java.io.IOException {
+          RestoreFromCloudSQL result = new RestoreFromCloudSQL(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class RestoreFromCloudSQL extends CloudAlloyDBAdminRequest<com.google.api.services.alloydb.v1alpha.model.Operation> {
+
+          private static final String REST_PATH = "v1alpha/{+parent}/clusters:restoreFromCloudSQL";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Restores an AlloyDB cluster from a CloudSQL resource.
+           *
+           * Create a request for the method "clusters.restoreFromCloudSQL".
+           *
+           * This request holds the parameters needed by the the alloydb server.  After setting any optional
+           * parameters, call the {@link RestoreFromCloudSQL#execute()} method to invoke the remote
+           * operation. <p> {@link RestoreFromCloudSQL#initialize(com.google.api.client.googleapis.services.
+           * AbstractGoogleClientRequest)} must be called to initialize this instance immediately after
+           * invoking the constructor. </p>
+           *
+           * @param parent Required. The location of the new cluster. For the required format, see the comment on Cluster.name
+         *        field.
+           * @param content the {@link com.google.api.services.alloydb.v1alpha.model.RestoreFromCloudSQLRequest}
+           * @since 1.13
+           */
+          protected RestoreFromCloudSQL(java.lang.String parent, com.google.api.services.alloydb.v1alpha.model.RestoreFromCloudSQLRequest content) {
+            super(CloudAlloyDBAdmin.this, "POST", REST_PATH, content, com.google.api.services.alloydb.v1alpha.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public RestoreFromCloudSQL set$Xgafv(java.lang.String $Xgafv) {
+            return (RestoreFromCloudSQL) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setAccessToken(java.lang.String accessToken) {
+            return (RestoreFromCloudSQL) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setAlt(java.lang.String alt) {
+            return (RestoreFromCloudSQL) super.setAlt(alt);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setCallback(java.lang.String callback) {
+            return (RestoreFromCloudSQL) super.setCallback(callback);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setFields(java.lang.String fields) {
+            return (RestoreFromCloudSQL) super.setFields(fields);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setKey(java.lang.String key) {
+            return (RestoreFromCloudSQL) super.setKey(key);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setOauthToken(java.lang.String oauthToken) {
+            return (RestoreFromCloudSQL) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (RestoreFromCloudSQL) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setQuotaUser(java.lang.String quotaUser) {
+            return (RestoreFromCloudSQL) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setUploadType(java.lang.String uploadType) {
+            return (RestoreFromCloudSQL) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public RestoreFromCloudSQL setUploadProtocol(java.lang.String uploadProtocol) {
+            return (RestoreFromCloudSQL) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The location of the new cluster. For the required format, see the comment on
+           * Cluster.name field.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The location of the new cluster. For the required format, see the comment on Cluster.name
+         field.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The location of the new cluster. For the required format, see the comment on
+           * Cluster.name field.
+           */
+          public RestoreFromCloudSQL setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          @Override
+          public RestoreFromCloudSQL set(String parameterName, Object value) {
+            return (RestoreFromCloudSQL) super.set(parameterName, value);
           }
         }
         /**
@@ -6565,7 +6990,7 @@ public class CloudAlloyDBAdmin extends com.google.api.client.googleapis.services
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -6596,7 +7021,7 @@ public class CloudAlloyDBAdmin extends com.google.api.client.googleapis.services
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -7371,6 +7796,28 @@ public class CloudAlloyDBAdmin extends com.google.api.client.googleapis.services
           /** A token identifying a page of results the server should return. */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;
+            return this;
+          }
+
+          /**
+           * Optional. The scope for which supported flags are requested. If not specified, default
+           * is DATABASE.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String scope;
+
+          /** Optional. The scope for which supported flags are requested. If not specified, default is DATABASE.
+           */
+          public java.lang.String getScope() {
+            return scope;
+          }
+
+          /**
+           * Optional. The scope for which supported flags are requested. If not specified, default
+           * is DATABASE.
+           */
+          public List setScope(java.lang.String scope) {
+            this.scope = scope;
             return this;
           }
 

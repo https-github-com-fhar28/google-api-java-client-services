@@ -20,7 +20,7 @@ package com.google.api.services.compute.model;
  * Represents a Target HTTPS Proxy resource. Google Compute Engine has two Target HTTPS Proxy
  * resources: * [Global](/compute/docs/reference/rest/beta/targetHttpsProxies) *
  * [Regional](/compute/docs/reference/rest/beta/regionTargetHttpsProxies) A target HTTPS proxy is a
- * component of GCP HTTPS load balancers. * targetHttpProxies are used by global external
+ * component of Google Cloud HTTPS load balancers. * targetHttpProxies are used by global external
  * Application Load Balancers, classic Application Load Balancers, cross-region internal Application
  * Load Balancers, and Traffic Director. * regionTargetHttpProxies are used by regional internal
  * Application Load Balancers and regional external Application Load Balancers. Forwarding rules
@@ -194,8 +194,10 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * Optional. A URL referring to a networksecurity.ServerTlsPolicy resource that describes how the
    * proxy should authenticate inbound traffic. serverTlsPolicy only applies to a global
    * TargetHttpsProxy attached to globalForwardingRules with the loadBalancingScheme set to
-   * INTERNAL_SELF_MANAGED or EXTERNAL or EXTERNAL_MANAGED. For details which ServerTlsPolicy
-   * resources are accepted with INTERNAL_SELF_MANAGED and which with EXTERNAL, EXTERNAL_MANAGED
+   * INTERNAL_SELF_MANAGED or EXTERNAL or EXTERNAL_MANAGED or INTERNAL_MANAGED. It also applies to a
+   * regional TargetHttpsProxy attached to regional forwardingRules with the loadBalancingScheme set
+   * to EXTERNAL_MANAGED or INTERNAL_MANAGED. For details which ServerTlsPolicy resources are
+   * accepted with INTERNAL_SELF_MANAGED and which with EXTERNAL, INTERNAL_MANAGED, EXTERNAL_MANAGED
    * loadBalancingScheme consult ServerTlsPolicy documentation. If left blank, communications are
    * not encrypted.
    * The value may be {@code null}.
@@ -209,11 +211,11 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * when the load balancing scheme is set to INTERNAL_SELF_MANAGED. The URLs should refer to a SSL
    * Certificate resource or Certificate Manager Certificate resource. Mixing Classic Certificates
    * and Certificate Manager Certificates is not allowed. Certificate Manager Certificates must
-   * include the certificatemanager API. Certificate Manager Certificates are not supported by
-   * Global external Application Load Balancer or Classic Application Load Balancer, use
-   * certificate_map instead. Currently, you may specify up to 15 Classic SSL Certificates.
-   * Certificate Manager Certificates accepted formats are: -
-   * //certificatemanager.googleapis.com/projects/{project}/locations/{
+   * include the certificatemanager API namespace. Using Certificate Manager Certificates in this
+   * field is not supported by Global external Application Load Balancer or Classic Application Load
+   * Balancer, use certificate_map instead. Currently, you may specify up to 15 Classic SSL
+   * Certificates or up to 100 Certificate Manager Certificates. Certificate Manager Certificates
+   * accepted formats are: - //certificatemanager.googleapis.com/projects/{project}/locations/{
    * location}/certificates/{resourceName}. -
    * https://certificatemanager.googleapis.com/v1alpha1/projects/{project
    * }/locations/{location}/certificates/{resourceName}.
@@ -652,8 +654,10 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * Optional. A URL referring to a networksecurity.ServerTlsPolicy resource that describes how the
    * proxy should authenticate inbound traffic. serverTlsPolicy only applies to a global
    * TargetHttpsProxy attached to globalForwardingRules with the loadBalancingScheme set to
-   * INTERNAL_SELF_MANAGED or EXTERNAL or EXTERNAL_MANAGED. For details which ServerTlsPolicy
-   * resources are accepted with INTERNAL_SELF_MANAGED and which with EXTERNAL, EXTERNAL_MANAGED
+   * INTERNAL_SELF_MANAGED or EXTERNAL or EXTERNAL_MANAGED or INTERNAL_MANAGED. It also applies to a
+   * regional TargetHttpsProxy attached to regional forwardingRules with the loadBalancingScheme set
+   * to EXTERNAL_MANAGED or INTERNAL_MANAGED. For details which ServerTlsPolicy resources are
+   * accepted with INTERNAL_SELF_MANAGED and which with EXTERNAL, INTERNAL_MANAGED, EXTERNAL_MANAGED
    * loadBalancingScheme consult ServerTlsPolicy documentation. If left blank, communications are
    * not encrypted.
    * @return value or {@code null} for none
@@ -666,8 +670,10 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * Optional. A URL referring to a networksecurity.ServerTlsPolicy resource that describes how the
    * proxy should authenticate inbound traffic. serverTlsPolicy only applies to a global
    * TargetHttpsProxy attached to globalForwardingRules with the loadBalancingScheme set to
-   * INTERNAL_SELF_MANAGED or EXTERNAL or EXTERNAL_MANAGED. For details which ServerTlsPolicy
-   * resources are accepted with INTERNAL_SELF_MANAGED and which with EXTERNAL, EXTERNAL_MANAGED
+   * INTERNAL_SELF_MANAGED or EXTERNAL or EXTERNAL_MANAGED or INTERNAL_MANAGED. It also applies to a
+   * regional TargetHttpsProxy attached to regional forwardingRules with the loadBalancingScheme set
+   * to EXTERNAL_MANAGED or INTERNAL_MANAGED. For details which ServerTlsPolicy resources are
+   * accepted with INTERNAL_SELF_MANAGED and which with EXTERNAL, INTERNAL_MANAGED, EXTERNAL_MANAGED
    * loadBalancingScheme consult ServerTlsPolicy documentation. If left blank, communications are
    * not encrypted.
    * @param serverTlsPolicy serverTlsPolicy or {@code null} for none
@@ -683,11 +689,11 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * when the load balancing scheme is set to INTERNAL_SELF_MANAGED. The URLs should refer to a SSL
    * Certificate resource or Certificate Manager Certificate resource. Mixing Classic Certificates
    * and Certificate Manager Certificates is not allowed. Certificate Manager Certificates must
-   * include the certificatemanager API. Certificate Manager Certificates are not supported by
-   * Global external Application Load Balancer or Classic Application Load Balancer, use
-   * certificate_map instead. Currently, you may specify up to 15 Classic SSL Certificates.
-   * Certificate Manager Certificates accepted formats are: -
-   * //certificatemanager.googleapis.com/projects/{project}/locations/{
+   * include the certificatemanager API namespace. Using Certificate Manager Certificates in this
+   * field is not supported by Global external Application Load Balancer or Classic Application Load
+   * Balancer, use certificate_map instead. Currently, you may specify up to 15 Classic SSL
+   * Certificates or up to 100 Certificate Manager Certificates. Certificate Manager Certificates
+   * accepted formats are: - //certificatemanager.googleapis.com/projects/{project}/locations/{
    * location}/certificates/{resourceName}. -
    * https://certificatemanager.googleapis.com/v1alpha1/projects/{project
    * }/locations/{location}/certificates/{resourceName}.
@@ -703,11 +709,11 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * when the load balancing scheme is set to INTERNAL_SELF_MANAGED. The URLs should refer to a SSL
    * Certificate resource or Certificate Manager Certificate resource. Mixing Classic Certificates
    * and Certificate Manager Certificates is not allowed. Certificate Manager Certificates must
-   * include the certificatemanager API. Certificate Manager Certificates are not supported by
-   * Global external Application Load Balancer or Classic Application Load Balancer, use
-   * certificate_map instead. Currently, you may specify up to 15 Classic SSL Certificates.
-   * Certificate Manager Certificates accepted formats are: -
-   * //certificatemanager.googleapis.com/projects/{project}/locations/{
+   * include the certificatemanager API namespace. Using Certificate Manager Certificates in this
+   * field is not supported by Global external Application Load Balancer or Classic Application Load
+   * Balancer, use certificate_map instead. Currently, you may specify up to 15 Classic SSL
+   * Certificates or up to 100 Certificate Manager Certificates. Certificate Manager Certificates
+   * accepted formats are: - //certificatemanager.googleapis.com/projects/{project}/locations/{
    * location}/certificates/{resourceName}. -
    * https://certificatemanager.googleapis.com/v1alpha1/projects/{project
    * }/locations/{location}/certificates/{resourceName}.

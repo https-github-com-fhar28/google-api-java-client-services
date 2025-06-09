@@ -46,11 +46,33 @@ public final class Workstation extends com.google.api.client.json.GenericJson {
   private java.util.List<WorkstationBoostConfig> boostConfigs;
 
   /**
+   * Output only. Status conditions describing the workstation's current state.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<Status> conditions;
+
+  static {
+    // hack to force ProGuard to consider Status used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(Status.class);
+  }
+
+  /**
    * Output only. Time when this workstation was created.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private String createTime;
+
+  /**
+   * Output only. Whether this workstation is in degraded mode, in which case it may require user
+   * action to restore full functionality. The conditions field contains detailed information about
+   * the status of the workstation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean degraded;
 
   /**
    * Output only. Time when this workstation was soft-deleted.
@@ -122,6 +144,13 @@ public final class Workstation extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean reconciling;
+
+  /**
+   * Optional. Output only. Runtime host for the workstation when in STATE_RUNNING.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private RuntimeHost runtimeHost;
 
   /**
    * Output only. Reserved for future use.
@@ -211,6 +240,23 @@ public final class Workstation extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. Status conditions describing the workstation's current state.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<Status> getConditions() {
+    return conditions;
+  }
+
+  /**
+   * Output only. Status conditions describing the workstation's current state.
+   * @param conditions conditions or {@code null} for none
+   */
+  public Workstation setConditions(java.util.List<Status> conditions) {
+    this.conditions = conditions;
+    return this;
+  }
+
+  /**
    * Output only. Time when this workstation was created.
    * @return value or {@code null} for none
    */
@@ -224,6 +270,27 @@ public final class Workstation extends com.google.api.client.json.GenericJson {
    */
   public Workstation setCreateTime(String createTime) {
     this.createTime = createTime;
+    return this;
+  }
+
+  /**
+   * Output only. Whether this workstation is in degraded mode, in which case it may require user
+   * action to restore full functionality. The conditions field contains detailed information about
+   * the status of the workstation.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getDegraded() {
+    return degraded;
+  }
+
+  /**
+   * Output only. Whether this workstation is in degraded mode, in which case it may require user
+   * action to restore full functionality. The conditions field contains detailed information about
+   * the status of the workstation.
+   * @param degraded degraded or {@code null} for none
+   */
+  public Workstation setDegraded(java.lang.Boolean degraded) {
+    this.degraded = degraded;
     return this;
   }
 
@@ -393,6 +460,23 @@ public final class Workstation extends com.google.api.client.json.GenericJson {
    */
   public Workstation setReconciling(java.lang.Boolean reconciling) {
     this.reconciling = reconciling;
+    return this;
+  }
+
+  /**
+   * Optional. Output only. Runtime host for the workstation when in STATE_RUNNING.
+   * @return value or {@code null} for none
+   */
+  public RuntimeHost getRuntimeHost() {
+    return runtimeHost;
+  }
+
+  /**
+   * Optional. Output only. Runtime host for the workstation when in STATE_RUNNING.
+   * @param runtimeHost runtimeHost or {@code null} for none
+   */
+  public Workstation setRuntimeHost(RuntimeHost runtimeHost) {
+    this.runtimeHost = runtimeHost;
     return this;
   }
 

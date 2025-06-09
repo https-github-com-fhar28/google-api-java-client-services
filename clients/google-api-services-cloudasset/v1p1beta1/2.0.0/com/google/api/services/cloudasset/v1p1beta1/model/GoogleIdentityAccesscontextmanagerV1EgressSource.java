@@ -44,6 +44,16 @@ public final class GoogleIdentityAccesscontextmanagerV1EgressSource extends com.
   private java.lang.String accessLevel;
 
   /**
+   * A Google Cloud resource from the service perimeter that you want to allow to access data
+   * outside the perimeter. This field supports only projects. The project format is
+   * `projects/{project_number}`. You can't use `*` in this field to allow all Google Cloud
+   * resources.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String resource;
+
+  /**
    * An AccessLevel resource name that allows protected resources inside the ServicePerimeters to
    * access outside the ServicePerimeter boundaries. AccessLevels listed must be in the same policy
    * as this ServicePerimeter. Referencing a nonexistent AccessLevel will cause an error. If an
@@ -69,6 +79,29 @@ public final class GoogleIdentityAccesscontextmanagerV1EgressSource extends com.
    */
   public GoogleIdentityAccesscontextmanagerV1EgressSource setAccessLevel(java.lang.String accessLevel) {
     this.accessLevel = accessLevel;
+    return this;
+  }
+
+  /**
+   * A Google Cloud resource from the service perimeter that you want to allow to access data
+   * outside the perimeter. This field supports only projects. The project format is
+   * `projects/{project_number}`. You can't use `*` in this field to allow all Google Cloud
+   * resources.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getResource() {
+    return resource;
+  }
+
+  /**
+   * A Google Cloud resource from the service perimeter that you want to allow to access data
+   * outside the perimeter. This field supports only projects. The project format is
+   * `projects/{project_number}`. You can't use `*` in this field to allow all Google Cloud
+   * resources.
+   * @param resource resource or {@code null} for none
+   */
+  public GoogleIdentityAccesscontextmanagerV1EgressSource setResource(java.lang.String resource) {
+    this.resource = resource;
     return this;
   }
 

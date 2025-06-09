@@ -17,7 +17,8 @@
 package com.google.api.services.networksecurity.v1beta1.model;
 
 /**
- * Message describing MirroringDeploymentGroup object
+ * A deployment group aggregates many zonal mirroring backends (deployments) into a single global
+ * mirroring service. Consumers can connect this service using an endpoint group.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Network Security API. For a detailed explanation see:
@@ -30,64 +31,92 @@ package com.google.api.services.networksecurity.v1beta1.model;
 public final class MirroringDeploymentGroup extends com.google.api.client.json.GenericJson {
 
   /**
-   * Output only. The list of Mirroring Endpoint Groups that are connected to this resource.
+   * Output only. The list of endpoint groups that are connected to this resource.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<MirroringDeploymentGroupConnectedEndpointGroup> connectedEndpointGroups;
 
   /**
-   * Output only. [Output only] Create time stamp
+   * Output only. The timestamp when the resource was created. See
+   * https://google.aip.dev/148#timestamps.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private String createTime;
 
   /**
-   * Optional. Labels as key value pairs
+   * Optional. User-provided description of the deployment group. Used as additional context for the
+   * deployment group.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String description;
+
+  /**
+   * Optional. Labels are key/value pairs that help to organize and filter resources.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.Map<String, java.lang.String> labels;
 
   /**
-   * Immutable. Identifier. Then name of the MirroringDeploymentGroup.
+   * Output only. The list of locations where the deployment group is present.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<MirroringLocation> locations;
+
+  /**
+   * Immutable. Identifier. The resource name of this deployment group, for example:
+   * `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+   * https://google.aip.dev/122 for more details.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
 
   /**
-   * Required. Immutable. The network that is being used for the deployment. Format is:
-   * projects/{project}/global/networks/{network}.
+   * Output only. The list of Mirroring Deployments that belong to this group.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<MirroringDeploymentGroupDeployment> nestedDeployments;
+
+  /**
+   * Required. Immutable. The network that will be used for all child deployments, for example:
+   * `projects/{project}/global/networks/{network}`. See https://google.aip.dev/124.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String network;
 
   /**
-   * Output only. Whether reconciling is in progress, recommended per https://google.aip.dev/128.
+   * Output only. The current state of the resource does not match the user's intended state, and
+   * the system is working to reconcile them. This is part of the normal operation (e.g. adding a
+   * new deployment to the group) See https://google.aip.dev/128.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean reconciling;
 
   /**
-   * Output only. Current state of the deployment group.
+   * Output only. The current state of the deployment group. See https://google.aip.dev/216.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String state;
 
   /**
-   * Output only. [Output only] Update time stamp
+   * Output only. The timestamp when the resource was most recently updated. See
+   * https://google.aip.dev/148#timestamps.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private String updateTime;
 
   /**
-   * Output only. The list of Mirroring Endpoint Groups that are connected to this resource.
+   * Output only. The list of endpoint groups that are connected to this resource.
    * @return value or {@code null} for none
    */
   public java.util.List<MirroringDeploymentGroupConnectedEndpointGroup> getConnectedEndpointGroups() {
@@ -95,7 +124,7 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. The list of Mirroring Endpoint Groups that are connected to this resource.
+   * Output only. The list of endpoint groups that are connected to this resource.
    * @param connectedEndpointGroups connectedEndpointGroups or {@code null} for none
    */
   public MirroringDeploymentGroup setConnectedEndpointGroups(java.util.List<MirroringDeploymentGroupConnectedEndpointGroup> connectedEndpointGroups) {
@@ -104,7 +133,8 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. [Output only] Create time stamp
+   * Output only. The timestamp when the resource was created. See
+   * https://google.aip.dev/148#timestamps.
    * @return value or {@code null} for none
    */
   public String getCreateTime() {
@@ -112,7 +142,8 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. [Output only] Create time stamp
+   * Output only. The timestamp when the resource was created. See
+   * https://google.aip.dev/148#timestamps.
    * @param createTime createTime or {@code null} for none
    */
   public MirroringDeploymentGroup setCreateTime(String createTime) {
@@ -121,7 +152,26 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Optional. Labels as key value pairs
+   * Optional. User-provided description of the deployment group. Used as additional context for the
+   * deployment group.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDescription() {
+    return description;
+  }
+
+  /**
+   * Optional. User-provided description of the deployment group. Used as additional context for the
+   * deployment group.
+   * @param description description or {@code null} for none
+   */
+  public MirroringDeploymentGroup setDescription(java.lang.String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Optional. Labels are key/value pairs that help to organize and filter resources.
    * @return value or {@code null} for none
    */
   public java.util.Map<String, java.lang.String> getLabels() {
@@ -129,7 +179,7 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Optional. Labels as key value pairs
+   * Optional. Labels are key/value pairs that help to organize and filter resources.
    * @param labels labels or {@code null} for none
    */
   public MirroringDeploymentGroup setLabels(java.util.Map<String, java.lang.String> labels) {
@@ -138,7 +188,26 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Immutable. Identifier. Then name of the MirroringDeploymentGroup.
+   * Output only. The list of locations where the deployment group is present.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<MirroringLocation> getLocations() {
+    return locations;
+  }
+
+  /**
+   * Output only. The list of locations where the deployment group is present.
+   * @param locations locations or {@code null} for none
+   */
+  public MirroringDeploymentGroup setLocations(java.util.List<MirroringLocation> locations) {
+    this.locations = locations;
+    return this;
+  }
+
+  /**
+   * Immutable. Identifier. The resource name of this deployment group, for example:
+   * `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+   * https://google.aip.dev/122 for more details.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -146,7 +215,9 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Immutable. Identifier. Then name of the MirroringDeploymentGroup.
+   * Immutable. Identifier. The resource name of this deployment group, for example:
+   * `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+   * https://google.aip.dev/122 for more details.
    * @param name name or {@code null} for none
    */
   public MirroringDeploymentGroup setName(java.lang.String name) {
@@ -155,8 +226,25 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Required. Immutable. The network that is being used for the deployment. Format is:
-   * projects/{project}/global/networks/{network}.
+   * Output only. The list of Mirroring Deployments that belong to this group.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<MirroringDeploymentGroupDeployment> getNestedDeployments() {
+    return nestedDeployments;
+  }
+
+  /**
+   * Output only. The list of Mirroring Deployments that belong to this group.
+   * @param nestedDeployments nestedDeployments or {@code null} for none
+   */
+  public MirroringDeploymentGroup setNestedDeployments(java.util.List<MirroringDeploymentGroupDeployment> nestedDeployments) {
+    this.nestedDeployments = nestedDeployments;
+    return this;
+  }
+
+  /**
+   * Required. Immutable. The network that will be used for all child deployments, for example:
+   * `projects/{project}/global/networks/{network}`. See https://google.aip.dev/124.
    * @return value or {@code null} for none
    */
   public java.lang.String getNetwork() {
@@ -164,8 +252,8 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Required. Immutable. The network that is being used for the deployment. Format is:
-   * projects/{project}/global/networks/{network}.
+   * Required. Immutable. The network that will be used for all child deployments, for example:
+   * `projects/{project}/global/networks/{network}`. See https://google.aip.dev/124.
    * @param network network or {@code null} for none
    */
   public MirroringDeploymentGroup setNetwork(java.lang.String network) {
@@ -174,7 +262,9 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. Whether reconciling is in progress, recommended per https://google.aip.dev/128.
+   * Output only. The current state of the resource does not match the user's intended state, and
+   * the system is working to reconcile them. This is part of the normal operation (e.g. adding a
+   * new deployment to the group) See https://google.aip.dev/128.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getReconciling() {
@@ -182,7 +272,9 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. Whether reconciling is in progress, recommended per https://google.aip.dev/128.
+   * Output only. The current state of the resource does not match the user's intended state, and
+   * the system is working to reconcile them. This is part of the normal operation (e.g. adding a
+   * new deployment to the group) See https://google.aip.dev/128.
    * @param reconciling reconciling or {@code null} for none
    */
   public MirroringDeploymentGroup setReconciling(java.lang.Boolean reconciling) {
@@ -191,7 +283,7 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. Current state of the deployment group.
+   * Output only. The current state of the deployment group. See https://google.aip.dev/216.
    * @return value or {@code null} for none
    */
   public java.lang.String getState() {
@@ -199,7 +291,7 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. Current state of the deployment group.
+   * Output only. The current state of the deployment group. See https://google.aip.dev/216.
    * @param state state or {@code null} for none
    */
   public MirroringDeploymentGroup setState(java.lang.String state) {
@@ -208,7 +300,8 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. [Output only] Update time stamp
+   * Output only. The timestamp when the resource was most recently updated. See
+   * https://google.aip.dev/148#timestamps.
    * @return value or {@code null} for none
    */
   public String getUpdateTime() {
@@ -216,7 +309,8 @@ public final class MirroringDeploymentGroup extends com.google.api.client.json.G
   }
 
   /**
-   * Output only. [Output only] Update time stamp
+   * Output only. The timestamp when the resource was most recently updated. See
+   * https://google.aip.dev/148#timestamps.
    * @param updateTime updateTime or {@code null} for none
    */
   public MirroringDeploymentGroup setUpdateTime(String updateTime) {

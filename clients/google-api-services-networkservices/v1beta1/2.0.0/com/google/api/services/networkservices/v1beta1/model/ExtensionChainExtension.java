@@ -30,8 +30,18 @@ package com.google.api.services.networkservices.v1beta1.model;
 public final class ExtensionChainExtension extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. When set to `TRUE`, the response from an extension service is allowed to set the
+   * `com.google.envoy.dynamic_forwarding` namespace in the dynamic metadata. This field is not
+   * supported for plugin extensions. Setting it results in a validation error.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean allowDynamicForwarding;
+
+  /**
    * Optional. The `:authority` header in the gRPC request sent from Envoy to the extension service.
-   * Required for Callout extensions.
+   * Required for Callout extensions. This field is not supported for plugin extensions. Setting it
+   * results in a validation error.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -59,6 +69,25 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
   private java.util.List<java.lang.String> forwardHeaders;
 
   /**
+   * Optional. The metadata provided here is included as part of the `metadata_context` (of type
+   * `google.protobuf.Struct`) in the `ProcessingRequest` message sent to the extension server. The
+   * metadata is available under the namespace `com.google....`. For example:
+   * `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The following variables are
+   * supported in the metadata: `{forwarding_rule_id}` - substituted with the forwarding rule's
+   * fully qualified resource name. This field must not be set for plugin extensions. Setting it
+   * results in a validation error. You can set metadata at either the resource level or the
+   * extension level. The extension level metadata is recommended because you can pass a different
+   * set of metadata through each extension to the backend. This field is subject to following
+   * limitations: * The total size of the metadata must be less than 1KiB. * The total number of
+   * keys in the metadata must be less than 16. * The length of each key must be less than 64
+   * characters. * The length of each value must be less than 1024 characters. * All values must be
+   * strings.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.Object> metadata;
+
+  /**
    * Required. The name for this extension. The name is logged as part of the HTTP request logs. The
    * name must conform with RFC-1034, is restricted to lower-cased letters, numbers and hyphens, and
    * can have a maximum length of 63 characters. Additionally, the first character must be a letter
@@ -69,13 +98,41 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
   private java.lang.String name;
 
   /**
-   * Required. The reference to the service that runs the extension. Currently only callout
-   * extensions are supported here. To configure a callout extension, `service` must be a fully-
-   * qualified reference to a [backend
+   * Optional. Configures the send mode for request body processing. The field can only be set if
+   * `supported_events` includes `REQUEST_BODY`. If `supported_events` includes `REQUEST_BODY`, but
+   * `request_body_send_mode` is unset, the default value `STREAMED` is used. When this field is set
+   * to `FULL_DUPLEX_STREAMED`, `supported_events` must include both `REQUEST_BODY` and
+   * `REQUEST_TRAILERS`. This field can be set only for `LbTrafficExtension` and `LbRouteExtension`
+   * resources, and only when the `service` field of the extension points to a `BackendService`.
+   * Only `FULL_DUPLEX_STREAMED` mode is supported for `LbRouteExtension` resources.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String requestBodySendMode;
+
+  /**
+   * Optional. Configures the send mode for response processing. If unspecified, the default value
+   * `STREAMED` is used. When this field is set to `FULL_DUPLEX_STREAMED`, `supported_events` must
+   * include both `RESPONSE_BODY` and `RESPONSE_TRAILERS`. This field can be set only for
+   * `LbTrafficExtension` resources, and only when the `service` field of the extension points to a
+   * `BackendService`.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String responseBodySendMode;
+
+  /**
+   * Required. The reference to the service that runs the extension. To configure a callout
+   * extension, `service` must be a fully-qualified reference to a [backend
    * service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the
    * format: `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServi
    * ces/{backendService}` or `https://www.googleapis.com/compute/v1/projects/{project}/global/backe
-   * ndServices/{backendService}`.
+   * ndServices/{backendService}`. To configure a plugin extension, `service` must be a reference to
+   * a [`WasmPlugin` resource](https://cloud.google.com/service-
+   * extensions/docs/reference/rest/v1beta1/projects.locations.wasmPlugins) in the format:
+   * `projects/{project}/locations/{location}/wasmPlugins/{plugin}` or `//networkservices.googleapis
+   * .com/projects/{project}/locations/{location}/wasmPlugins/{wasmPlugin}`. Plugin extensions are
+   * currently supported for the `LbTrafficExtension` and the `LbRouteExtension` resources.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -83,8 +140,8 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
 
   /**
    * Optional. A set of events during request or response processing for which this extension is
-   * called. This field is required for the `LbTrafficExtension` resource. It must not be set for
-   * the `LbRouteExtension` resource.
+   * called. This field is required for the `LbTrafficExtension` resource. It is optional for the
+   * `LbRouteExtension` resource. If unspecified `REQUEST_HEADERS` event is assumed as supported.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -92,15 +149,38 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
 
   /**
    * Optional. Specifies the timeout for each individual message on the stream. The timeout must be
-   * between 10-1000 milliseconds. Required for Callout extensions.
+   * between `10`-`10000` milliseconds. Required for callout extensions. This field is not supported
+   * for plugin extensions. Setting it results in a validation error.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private String timeout;
 
   /**
+   * Optional. When set to `TRUE`, the response from an extension service is allowed to set the
+   * `com.google.envoy.dynamic_forwarding` namespace in the dynamic metadata. This field is not
+   * supported for plugin extensions. Setting it results in a validation error.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAllowDynamicForwarding() {
+    return allowDynamicForwarding;
+  }
+
+  /**
+   * Optional. When set to `TRUE`, the response from an extension service is allowed to set the
+   * `com.google.envoy.dynamic_forwarding` namespace in the dynamic metadata. This field is not
+   * supported for plugin extensions. Setting it results in a validation error.
+   * @param allowDynamicForwarding allowDynamicForwarding or {@code null} for none
+   */
+  public ExtensionChainExtension setAllowDynamicForwarding(java.lang.Boolean allowDynamicForwarding) {
+    this.allowDynamicForwarding = allowDynamicForwarding;
+    return this;
+  }
+
+  /**
    * Optional. The `:authority` header in the gRPC request sent from Envoy to the extension service.
-   * Required for Callout extensions.
+   * Required for Callout extensions. This field is not supported for plugin extensions. Setting it
+   * results in a validation error.
    * @return value or {@code null} for none
    */
   public java.lang.String getAuthority() {
@@ -109,7 +189,8 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
 
   /**
    * Optional. The `:authority` header in the gRPC request sent from Envoy to the extension service.
-   * Required for Callout extensions.
+   * Required for Callout extensions. This field is not supported for plugin extensions. Setting it
+   * results in a validation error.
    * @param authority authority or {@code null} for none
    */
   public ExtensionChainExtension setAuthority(java.lang.String authority) {
@@ -166,6 +247,47 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
   }
 
   /**
+   * Optional. The metadata provided here is included as part of the `metadata_context` (of type
+   * `google.protobuf.Struct`) in the `ProcessingRequest` message sent to the extension server. The
+   * metadata is available under the namespace `com.google....`. For example:
+   * `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The following variables are
+   * supported in the metadata: `{forwarding_rule_id}` - substituted with the forwarding rule's
+   * fully qualified resource name. This field must not be set for plugin extensions. Setting it
+   * results in a validation error. You can set metadata at either the resource level or the
+   * extension level. The extension level metadata is recommended because you can pass a different
+   * set of metadata through each extension to the backend. This field is subject to following
+   * limitations: * The total size of the metadata must be less than 1KiB. * The total number of
+   * keys in the metadata must be less than 16. * The length of each key must be less than 64
+   * characters. * The length of each value must be less than 1024 characters. * All values must be
+   * strings.
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.Object> getMetadata() {
+    return metadata;
+  }
+
+  /**
+   * Optional. The metadata provided here is included as part of the `metadata_context` (of type
+   * `google.protobuf.Struct`) in the `ProcessingRequest` message sent to the extension server. The
+   * metadata is available under the namespace `com.google....`. For example:
+   * `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The following variables are
+   * supported in the metadata: `{forwarding_rule_id}` - substituted with the forwarding rule's
+   * fully qualified resource name. This field must not be set for plugin extensions. Setting it
+   * results in a validation error. You can set metadata at either the resource level or the
+   * extension level. The extension level metadata is recommended because you can pass a different
+   * set of metadata through each extension to the backend. This field is subject to following
+   * limitations: * The total size of the metadata must be less than 1KiB. * The total number of
+   * keys in the metadata must be less than 16. * The length of each key must be less than 64
+   * characters. * The length of each value must be less than 1024 characters. * All values must be
+   * strings.
+   * @param metadata metadata or {@code null} for none
+   */
+  public ExtensionChainExtension setMetadata(java.util.Map<String, java.lang.Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  /**
    * Required. The name for this extension. The name is logged as part of the HTTP request logs. The
    * name must conform with RFC-1034, is restricted to lower-cased letters, numbers and hyphens, and
    * can have a maximum length of 63 characters. Additionally, the first character must be a letter
@@ -189,13 +311,71 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
   }
 
   /**
-   * Required. The reference to the service that runs the extension. Currently only callout
-   * extensions are supported here. To configure a callout extension, `service` must be a fully-
-   * qualified reference to a [backend
+   * Optional. Configures the send mode for request body processing. The field can only be set if
+   * `supported_events` includes `REQUEST_BODY`. If `supported_events` includes `REQUEST_BODY`, but
+   * `request_body_send_mode` is unset, the default value `STREAMED` is used. When this field is set
+   * to `FULL_DUPLEX_STREAMED`, `supported_events` must include both `REQUEST_BODY` and
+   * `REQUEST_TRAILERS`. This field can be set only for `LbTrafficExtension` and `LbRouteExtension`
+   * resources, and only when the `service` field of the extension points to a `BackendService`.
+   * Only `FULL_DUPLEX_STREAMED` mode is supported for `LbRouteExtension` resources.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getRequestBodySendMode() {
+    return requestBodySendMode;
+  }
+
+  /**
+   * Optional. Configures the send mode for request body processing. The field can only be set if
+   * `supported_events` includes `REQUEST_BODY`. If `supported_events` includes `REQUEST_BODY`, but
+   * `request_body_send_mode` is unset, the default value `STREAMED` is used. When this field is set
+   * to `FULL_DUPLEX_STREAMED`, `supported_events` must include both `REQUEST_BODY` and
+   * `REQUEST_TRAILERS`. This field can be set only for `LbTrafficExtension` and `LbRouteExtension`
+   * resources, and only when the `service` field of the extension points to a `BackendService`.
+   * Only `FULL_DUPLEX_STREAMED` mode is supported for `LbRouteExtension` resources.
+   * @param requestBodySendMode requestBodySendMode or {@code null} for none
+   */
+  public ExtensionChainExtension setRequestBodySendMode(java.lang.String requestBodySendMode) {
+    this.requestBodySendMode = requestBodySendMode;
+    return this;
+  }
+
+  /**
+   * Optional. Configures the send mode for response processing. If unspecified, the default value
+   * `STREAMED` is used. When this field is set to `FULL_DUPLEX_STREAMED`, `supported_events` must
+   * include both `RESPONSE_BODY` and `RESPONSE_TRAILERS`. This field can be set only for
+   * `LbTrafficExtension` resources, and only when the `service` field of the extension points to a
+   * `BackendService`.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getResponseBodySendMode() {
+    return responseBodySendMode;
+  }
+
+  /**
+   * Optional. Configures the send mode for response processing. If unspecified, the default value
+   * `STREAMED` is used. When this field is set to `FULL_DUPLEX_STREAMED`, `supported_events` must
+   * include both `RESPONSE_BODY` and `RESPONSE_TRAILERS`. This field can be set only for
+   * `LbTrafficExtension` resources, and only when the `service` field of the extension points to a
+   * `BackendService`.
+   * @param responseBodySendMode responseBodySendMode or {@code null} for none
+   */
+  public ExtensionChainExtension setResponseBodySendMode(java.lang.String responseBodySendMode) {
+    this.responseBodySendMode = responseBodySendMode;
+    return this;
+  }
+
+  /**
+   * Required. The reference to the service that runs the extension. To configure a callout
+   * extension, `service` must be a fully-qualified reference to a [backend
    * service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the
    * format: `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServi
    * ces/{backendService}` or `https://www.googleapis.com/compute/v1/projects/{project}/global/backe
-   * ndServices/{backendService}`.
+   * ndServices/{backendService}`. To configure a plugin extension, `service` must be a reference to
+   * a [`WasmPlugin` resource](https://cloud.google.com/service-
+   * extensions/docs/reference/rest/v1beta1/projects.locations.wasmPlugins) in the format:
+   * `projects/{project}/locations/{location}/wasmPlugins/{plugin}` or `//networkservices.googleapis
+   * .com/projects/{project}/locations/{location}/wasmPlugins/{wasmPlugin}`. Plugin extensions are
+   * currently supported for the `LbTrafficExtension` and the `LbRouteExtension` resources.
    * @return value or {@code null} for none
    */
   public java.lang.String getService() {
@@ -203,13 +383,17 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
   }
 
   /**
-   * Required. The reference to the service that runs the extension. Currently only callout
-   * extensions are supported here. To configure a callout extension, `service` must be a fully-
-   * qualified reference to a [backend
+   * Required. The reference to the service that runs the extension. To configure a callout
+   * extension, `service` must be a fully-qualified reference to a [backend
    * service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the
    * format: `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServi
    * ces/{backendService}` or `https://www.googleapis.com/compute/v1/projects/{project}/global/backe
-   * ndServices/{backendService}`.
+   * ndServices/{backendService}`. To configure a plugin extension, `service` must be a reference to
+   * a [`WasmPlugin` resource](https://cloud.google.com/service-
+   * extensions/docs/reference/rest/v1beta1/projects.locations.wasmPlugins) in the format:
+   * `projects/{project}/locations/{location}/wasmPlugins/{plugin}` or `//networkservices.googleapis
+   * .com/projects/{project}/locations/{location}/wasmPlugins/{wasmPlugin}`. Plugin extensions are
+   * currently supported for the `LbTrafficExtension` and the `LbRouteExtension` resources.
    * @param service service or {@code null} for none
    */
   public ExtensionChainExtension setService(java.lang.String service) {
@@ -219,8 +403,8 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
 
   /**
    * Optional. A set of events during request or response processing for which this extension is
-   * called. This field is required for the `LbTrafficExtension` resource. It must not be set for
-   * the `LbRouteExtension` resource.
+   * called. This field is required for the `LbTrafficExtension` resource. It is optional for the
+   * `LbRouteExtension` resource. If unspecified `REQUEST_HEADERS` event is assumed as supported.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getSupportedEvents() {
@@ -229,8 +413,8 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
 
   /**
    * Optional. A set of events during request or response processing for which this extension is
-   * called. This field is required for the `LbTrafficExtension` resource. It must not be set for
-   * the `LbRouteExtension` resource.
+   * called. This field is required for the `LbTrafficExtension` resource. It is optional for the
+   * `LbRouteExtension` resource. If unspecified `REQUEST_HEADERS` event is assumed as supported.
    * @param supportedEvents supportedEvents or {@code null} for none
    */
   public ExtensionChainExtension setSupportedEvents(java.util.List<java.lang.String> supportedEvents) {
@@ -240,7 +424,8 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
 
   /**
    * Optional. Specifies the timeout for each individual message on the stream. The timeout must be
-   * between 10-1000 milliseconds. Required for Callout extensions.
+   * between `10`-`10000` milliseconds. Required for callout extensions. This field is not supported
+   * for plugin extensions. Setting it results in a validation error.
    * @return value or {@code null} for none
    */
   public String getTimeout() {
@@ -249,7 +434,8 @@ public final class ExtensionChainExtension extends com.google.api.client.json.Ge
 
   /**
    * Optional. Specifies the timeout for each individual message on the stream. The timeout must be
-   * between 10-1000 milliseconds. Required for Callout extensions.
+   * between `10`-`10000` milliseconds. Required for callout extensions. This field is not supported
+   * for plugin extensions. Setting it results in a validation error.
    * @param timeout timeout or {@code null} for none
    */
   public ExtensionChainExtension setTimeout(String timeout) {

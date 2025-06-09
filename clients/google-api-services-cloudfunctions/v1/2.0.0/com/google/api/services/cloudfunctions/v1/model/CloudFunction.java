@@ -93,9 +93,12 @@ public final class CloudFunction extends com.google.api.client.json.GenericJson 
   private java.lang.String description;
 
   /**
-   * Docker Registry to use for this deployment. If unspecified, it defaults to `ARTIFACT_REGISTRY`.
-   * If `docker_repository` field is specified, this field should either be left unspecified or set
-   * to `ARTIFACT_REGISTRY`.
+   * Docker Registry to use for this deployment. Deprecated: as of March 2025, `CONTAINER_REGISTRY`
+   * option is no longer available in response to Container Registry's deprecation:
+   * https://cloud.google.com/artifact-registry/docs/transition/transition-from-gcr Please use
+   * Artifact Registry instead, which is the default choice. If unspecified, it defaults to
+   * `ARTIFACT_REGISTRY`. If `docker_repository` field is specified, this field should either be
+   * left unspecified or set to `ARTIFACT_REGISTRY`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -228,6 +231,20 @@ public final class CloudFunction extends com.google.api.client.json.GenericJson 
    */
   @com.google.api.client.util.Key
   private java.lang.String runtime;
+
+  /**
+   * Output only.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
+
+  /**
+   * Output only.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzs;
 
   /**
    * Secret environment variables configuration.
@@ -480,9 +497,12 @@ public final class CloudFunction extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Docker Registry to use for this deployment. If unspecified, it defaults to `ARTIFACT_REGISTRY`.
-   * If `docker_repository` field is specified, this field should either be left unspecified or set
-   * to `ARTIFACT_REGISTRY`.
+   * Docker Registry to use for this deployment. Deprecated: as of March 2025, `CONTAINER_REGISTRY`
+   * option is no longer available in response to Container Registry's deprecation:
+   * https://cloud.google.com/artifact-registry/docs/transition/transition-from-gcr Please use
+   * Artifact Registry instead, which is the default choice. If unspecified, it defaults to
+   * `ARTIFACT_REGISTRY`. If `docker_repository` field is specified, this field should either be
+   * left unspecified or set to `ARTIFACT_REGISTRY`.
    * @return value or {@code null} for none
    */
   public java.lang.String getDockerRegistry() {
@@ -490,9 +510,12 @@ public final class CloudFunction extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Docker Registry to use for this deployment. If unspecified, it defaults to `ARTIFACT_REGISTRY`.
-   * If `docker_repository` field is specified, this field should either be left unspecified or set
-   * to `ARTIFACT_REGISTRY`.
+   * Docker Registry to use for this deployment. Deprecated: as of March 2025, `CONTAINER_REGISTRY`
+   * option is no longer available in response to Container Registry's deprecation:
+   * https://cloud.google.com/artifact-registry/docs/transition/transition-from-gcr Please use
+   * Artifact Registry instead, which is the default choice. If unspecified, it defaults to
+   * `ARTIFACT_REGISTRY`. If `docker_repository` field is specified, this field should either be
+   * left unspecified or set to `ARTIFACT_REGISTRY`.
    * @param dockerRegistry dockerRegistry or {@code null} for none
    */
   public CloudFunction setDockerRegistry(java.lang.String dockerRegistry) {
@@ -795,6 +818,40 @@ public final class CloudFunction extends com.google.api.client.json.GenericJson 
    */
   public CloudFunction setRuntime(java.lang.String runtime) {
     this.runtime = runtime;
+    return this;
+  }
+
+  /**
+   * Output only.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public CloudFunction setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
+    return this;
+  }
+
+  /**
+   * Output only.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzs() {
+    return satisfiesPzs;
+  }
+
+  /**
+   * Output only.
+   * @param satisfiesPzs satisfiesPzs or {@code null} for none
+   */
+  public CloudFunction setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
+    this.satisfiesPzs = satisfiesPzs;
     return this;
   }
 

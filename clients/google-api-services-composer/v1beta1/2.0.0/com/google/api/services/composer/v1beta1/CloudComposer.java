@@ -2027,7 +2027,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
          * This request holds the parameters needed by the composer server.  After setting any optional
          * parameters, call the {@link RestartWebServer#execute()} method to invoke the remote operation.
          *
-         * @param name The resource name of the environment to restart the web server for, in the form:
+         * @param name Required. The resource name of the environment to restart the web server for, in the form:
          *        "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
          * @param content the {@link com.google.api.services.composer.v1beta1.model.RestartWebServerRequest}
          * @return the request
@@ -2056,7 +2056,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
            * tractGoogleClientRequest)} must be called to initialize this instance immediately after
            * invoking the constructor. </p>
            *
-           * @param name The resource name of the environment to restart the web server for, in the form:
+           * @param name Required. The resource name of the environment to restart the web server for, in the form:
          *        "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
            * @param content the {@link com.google.api.services.composer.v1beta1.model.RestartWebServerRequest}
            * @since 1.13
@@ -2127,13 +2127,13 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
 
           /**
-           * The resource name of the environment to restart the web server for, in the form:
-           * "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+           * Required. The resource name of the environment to restart the web server for, in the
+           * form: "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** The resource name of the environment to restart the web server for, in the form:
+          /** Required. The resource name of the environment to restart the web server for, in the form:
          "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
            */
           public java.lang.String getName() {
@@ -2141,8 +2141,8 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
 
           /**
-           * The resource name of the environment to restart the web server for, in the form:
-           * "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+           * Required. The resource name of the environment to restart the web server for, in the
+           * form: "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
            */
           public RestartWebServer setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -2464,7 +2464,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
           /**
            * Creates a user workloads ConfigMap. This method is supported for Cloud Composer environments in
-           * versions composer-3.*.*-airflow-*.*.* and newer.
+           * versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsConfigMaps.create".
            *
@@ -2491,7 +2491,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Creates a user workloads ConfigMap. This method is supported for Cloud Composer environments in
-             * versions composer-3.*.*-airflow-*.*.* and newer.
+             * versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsConfigMaps.create".
              *
@@ -2606,7 +2606,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
           /**
            * Deletes a user workloads ConfigMap. This method is supported for Cloud Composer environments in
-           * versions composer-3.*.*-airflow-*.*.* and newer.
+           * versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsConfigMaps.delete".
            *
@@ -2632,7 +2632,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Deletes a user workloads ConfigMap. This method is supported for Cloud Composer environments in
-             * versions composer-3.*.*-airflow-*.*.* and newer.
+             * versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsConfigMaps.delete".
              *
@@ -2748,7 +2748,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
           /**
            * Gets an existing user workloads ConfigMap. This method is supported for Cloud Composer
-           * environments in versions composer-3.*.*-airflow-*.*.* and newer.
+           * environments in versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsConfigMaps.get".
            *
@@ -2775,7 +2775,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Gets an existing user workloads ConfigMap. This method is supported for Cloud Composer
-             * environments in versions composer-3.*.*-airflow-*.*.* and newer.
+             * environments in versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsConfigMaps.get".
              *
@@ -2901,7 +2901,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
           /**
            * Lists user workloads ConfigMaps. This method is supported for Cloud Composer environments in
-           * versions composer-3.*.*-airflow-*.*.* and newer.
+           * versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsConfigMaps.list".
            *
@@ -2927,7 +2927,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Lists user workloads ConfigMaps. This method is supported for Cloud Composer environments in
-             * versions composer-3.*.*-airflow-*.*.* and newer.
+             * versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsConfigMaps.list".
              *
@@ -3086,7 +3086,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
           /**
            * Updates a user workloads ConfigMap. This method is supported for Cloud Composer environments in
-           * versions composer-3.*.*-airflow-*.*.* and newer.
+           * versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsConfigMaps.update".
            *
@@ -3113,7 +3113,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Updates a user workloads ConfigMap. This method is supported for Cloud Composer environments in
-             * versions composer-3.*.*-airflow-*.*.* and newer.
+             * versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsConfigMaps.update".
              *
@@ -3252,7 +3252,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
           /**
            * Creates a user workloads Secret. This method is supported for Cloud Composer environments in
-           * versions composer-3.*.*-airflow-*.*.* and newer.
+           * versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsSecrets.create".
            *
@@ -3279,7 +3279,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Creates a user workloads Secret. This method is supported for Cloud Composer environments in
-             * versions composer-3.*.*-airflow-*.*.* and newer.
+             * versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsSecrets.create".
              *
@@ -3394,7 +3394,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
           /**
            * Deletes a user workloads Secret. This method is supported for Cloud Composer environments in
-           * versions composer-3.*.*-airflow-*.*.* and newer.
+           * versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsSecrets.delete".
            *
@@ -3420,7 +3420,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Deletes a user workloads Secret. This method is supported for Cloud Composer environments in
-             * versions composer-3.*.*-airflow-*.*.* and newer.
+             * versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsSecrets.delete".
              *
@@ -3534,8 +3534,8 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
           /**
            * Gets an existing user workloads Secret. Values of the "data" field in the response are cleared.
-           * This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.*
-           * and newer.
+           * This method is supported for Cloud Composer environments in versions
+           * composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsSecrets.get".
            *
@@ -3562,7 +3562,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
             /**
              * Gets an existing user workloads Secret. Values of the "data" field in the response are cleared.
              * This method is supported for Cloud Composer environments in versions
-             * composer-3.*.*-airflow-*.*.* and newer.
+             * composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsSecrets.get".
              *
@@ -3687,7 +3687,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
           /**
            * Lists user workloads Secrets. This method is supported for Cloud Composer environments in
-           * versions composer-3.*.*-airflow-*.*.* and newer.
+           * versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsSecrets.list".
            *
@@ -3713,7 +3713,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Lists user workloads Secrets. This method is supported for Cloud Composer environments in
-             * versions composer-3.*.*-airflow-*.*.* and newer.
+             * versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsSecrets.list".
              *
@@ -3872,7 +3872,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           }
           /**
            * Updates a user workloads Secret. This method is supported for Cloud Composer environments in
-           * versions composer-3.*.*-airflow-*.*.* and newer.
+           * versions composer-3-airflow-*.*.*-build.* and newer.
            *
            * Create a request for the method "userWorkloadsSecrets.update".
            *
@@ -3899,7 +3899,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
 
             /**
              * Updates a user workloads Secret. This method is supported for Cloud Composer environments in
-             * versions composer-3.*.*-airflow-*.*.* and newer.
+             * versions composer-3-airflow-*.*.*-build.* and newer.
              *
              * Create a request for the method "userWorkloadsSecrets.update".
              *
@@ -4039,7 +4039,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
           /**
            * Lists workloads in a Cloud Composer environment. Workload is a unit that runs a single Composer
            * component. This method is supported for Cloud Composer environments in versions
-           * composer-3.*.*-airflow-*.*.* and newer.
+           * composer-2.*.*-airflow-*.*.* and newer.
            *
            * Create a request for the method "workloads.list".
            *
@@ -4066,7 +4066,7 @@ public class CloudComposer extends com.google.api.client.googleapis.services.jso
             /**
              * Lists workloads in a Cloud Composer environment. Workload is a unit that runs a single Composer
              * component. This method is supported for Cloud Composer environments in versions
-             * composer-3.*.*-airflow-*.*.* and newer.
+             * composer-2.*.*-airflow-*.*.* and newer.
              *
              * Create a request for the method "workloads.list".
              *

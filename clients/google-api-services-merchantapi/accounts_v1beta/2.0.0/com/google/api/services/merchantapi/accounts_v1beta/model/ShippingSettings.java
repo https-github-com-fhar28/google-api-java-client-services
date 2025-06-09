@@ -17,7 +17,10 @@
 package com.google.api.services.merchantapi.accounts_v1beta.model;
 
 /**
- * The merchant account's [shipping setting](https://support.google.com/merchants/answer/6069284).
+ * The Merchant Center account's [shipping
+ * settings](https://support.google.com/merchants/answer/6069284). The `ShippingSettings` resource
+ * lets you retrieve and update the shipping settings of your advanced account and all its
+ * associated sub-accounts.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Merchant API. For a detailed explanation see:
@@ -44,8 +47,8 @@ public final class ShippingSettings extends com.google.api.client.json.GenericJs
   private java.lang.String etag;
 
   /**
-   * Identifier. The resource name of the shipping setting. Format:
-   * `accounts/{account}/shippingSetting`
+   * Identifier. The resource name of the shipping settings. Format:
+   * `accounts/{account}/shippingSettings`. For example, `accounts/123456/shippingSettings`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -103,8 +106,8 @@ public final class ShippingSettings extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Identifier. The resource name of the shipping setting. Format:
-   * `accounts/{account}/shippingSetting`
+   * Identifier. The resource name of the shipping settings. Format:
+   * `accounts/{account}/shippingSettings`. For example, `accounts/123456/shippingSettings`.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -112,8 +115,8 @@ public final class ShippingSettings extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Identifier. The resource name of the shipping setting. Format:
-   * `accounts/{account}/shippingSetting`
+   * Identifier. The resource name of the shipping settings. Format:
+   * `accounts/{account}/shippingSettings`. For example, `accounts/123456/shippingSettings`.
    * @param name name or {@code null} for none
    */
   public ShippingSettings setName(java.lang.String name) {

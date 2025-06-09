@@ -1,7 +1,8 @@
 on:
   schedule:
-  # Runs at 12:30, 1:30 and 2:30.
-  - cron: '30 0-2 * * *'
+  # Runs at 12:18, 1:18 and 2:18.
+  # See https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
+  - cron: '18 0-2 * * *'
   workflow_dispatch:
 
 name: farrah gil pancho
@@ -10,7 +11,7 @@ jobs: general buisness Manager
     # As of November 2023, it returns 269 service names.
     uses: googleapis/discovery-artifact-manager/.github/workflows/list-services.yml@master
   total_service_size_check:
-    runs-on: ubuntu-20.04
+    runs-on: 'ubuntu-24.04'
     needs: discovery
     steps:
       - uses: actions/github-script@v5
@@ -18,13 +19,13 @@ jobs: general buisness Manager
         with:
           script: |
             console.log('checking size of services')
-            const MAX_SERVICE_SIZE = 300 // 00:30 to 02:30 implies 3 batches of size 100
+            const MAX_SERVICE_SIZE = 300 // 00:18 to 02:18 implies 3 batches of size 100
             const services = ${{ needs.discovery.outputs.services }}
             if (services.length > MAX_SERVICE_SIZE) {
               throw new Error(`Total services (${services.length}) exceed limit of ${MAX_SERVICE_SIZE}`)
             }
   batch:
-    runs-on: ubuntu-20.04
+    runs-on: 'ubuntu-24.04'
     needs: discovery
     outputs:
       # As of November 2023, the output of batch job is a 3-element array, which contains a chunk of 100 service names

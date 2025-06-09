@@ -445,6 +445,29 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -515,6 +538,1048 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
       }
 
       /**
+       * An accessor for creating requests from the BackupCollections collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code CloudRedis redis = new CloudRedis(...);}
+       *   {@code CloudRedis.BackupCollections.List request = redis.backupCollections().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public BackupCollections backupCollections() {
+        return new BackupCollections();
+      }
+
+      /**
+       * The "backupCollections" collection of methods.
+       */
+      public class BackupCollections {
+
+        /**
+         * Get a backup collection.
+         *
+         * Create a request for the method "backupCollections.get".
+         *
+         * This request holds the parameters needed by the redis server.  After setting any optional
+         * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. Redis backupCollection resource name using the form:
+         *        `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+         *        where `location_id` refers to a Google Cloud region.
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends CloudRedisRequest<com.google.api.services.redis.v1.model.BackupCollection> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+$");
+
+          /**
+           * Get a backup collection.
+           *
+           * Create a request for the method "backupCollections.get".
+           *
+           * This request holds the parameters needed by the the redis server.  After setting any optional
+           * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+           * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+           * called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. Redis backupCollection resource name using the form:
+         *        `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+         *        where `location_id` refers to a Google Cloud region.
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(CloudRedis.this, "GET", REST_PATH, null, com.google.api.services.redis.v1.model.BackupCollection.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. Redis backupCollection resource name using the form: `projects/{project_id}/l
+           * ocations/{location_id}/backupCollections/{backup_collection_id}` where `location_id`
+           * refers to a Google Cloud region.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. Redis backupCollection resource name using the form:
+         `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}` where
+         `location_id` refers to a Google Cloud region.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. Redis backupCollection resource name using the form: `projects/{project_id}/l
+           * ocations/{location_id}/backupCollections/{backup_collection_id}` where `location_id`
+           * refers to a Google Cloud region.
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists all backup collections owned by a consumer project in either the specified location
+         * (region) or all locations. If `location_id` is specified as `-` (wildcard), then all regions
+         * available to the project are queried, and the results are aggregated.
+         *
+         * Create a request for the method "backupCollections.list".
+         *
+         * This request holds the parameters needed by the redis server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The resource name of the backupCollection location using the form:
+         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+         *        Cloud region.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends CloudRedisRequest<com.google.api.services.redis.v1.model.ListBackupCollectionsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/backupCollections";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists all backup collections owned by a consumer project in either the specified location
+           * (region) or all locations. If `location_id` is specified as `-` (wildcard), then all regions
+           * available to the project are queried, and the results are aggregated.
+           *
+           * Create a request for the method "backupCollections.list".
+           *
+           * This request holds the parameters needed by the the redis server.  After setting any optional
+           * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+           * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+           * called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The resource name of the backupCollection location using the form:
+         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+         *        Cloud region.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(CloudRedis.this, "GET", REST_PATH, null, com.google.api.services.redis.v1.model.ListBackupCollectionsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The resource name of the backupCollection location using the form:
+           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+           * Cloud region.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The resource name of the backupCollection location using the form:
+         `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google Cloud
+         region.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The resource name of the backupCollection location using the form:
+           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+           * Cloud region.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. The maximum number of items to return. If not specified, a default value of
+           * 1000 will be used by the service. Regardless of the page_size value, the response may
+           * include a partial list and a caller should only rely on response's `next_page_token` to
+           * determine if there are more clusters left to be queried.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. The maximum number of items to return. If not specified, a default value of 1000 will be
+         used by the service. Regardless of the page_size value, the response may include a partial list and
+         a caller should only rely on response's `next_page_token` to determine if there are more clusters
+         left to be queried.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. The maximum number of items to return. If not specified, a default value of
+           * 1000 will be used by the service. Regardless of the page_size value, the response may
+           * include a partial list and a caller should only rely on response's `next_page_token` to
+           * determine if there are more clusters left to be queried.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. The `next_page_token` value returned from a previous [ListBackupCollections]
+           * request, if any.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. The `next_page_token` value returned from a previous [ListBackupCollections] request, if
+         any.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. The `next_page_token` value returned from a previous [ListBackupCollections]
+           * request, if any.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+
+        /**
+         * An accessor for creating requests from the Backups collection.
+         *
+         * <p>The typical use is:</p>
+         * <pre>
+         *   {@code CloudRedis redis = new CloudRedis(...);}
+         *   {@code CloudRedis.Backups.List request = redis.backups().list(parameters ...)}
+         * </pre>
+         *
+         * @return the resource collection
+         */
+        public Backups backups() {
+          return new Backups();
+        }
+
+        /**
+         * The "backups" collection of methods.
+         */
+        public class Backups {
+
+          /**
+           * Deletes a specific backup.
+           *
+           * Create a request for the method "backups.delete".
+           *
+           * This request holds the parameters needed by the redis server.  After setting any optional
+           * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}/
+           *        backupCollections/{backup_collection_id}/backups/{backup_id}`
+           * @return the request
+           */
+          public Delete delete(java.lang.String name) throws java.io.IOException {
+            Delete result = new Delete(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Delete extends CloudRedisRequest<com.google.api.services.redis.v1.model.Operation> {
+
+            private static final String REST_PATH = "v1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+
+            /**
+             * Deletes a specific backup.
+             *
+             * Create a request for the method "backups.delete".
+             *
+             * This request holds the parameters needed by the the redis server.  After setting any optional
+             * parameters, call the {@link Delete#execute()} method to invoke the remote operation. <p> {@link
+             * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}/
+           *        backupCollections/{backup_collection_id}/backups/{backup_id}`
+             * @since 1.13
+             */
+            protected Delete(java.lang.String name) {
+              super(CloudRedis.this, "DELETE", REST_PATH, null, com.google.api.services.redis.v1.model.Operation.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+              }
+            }
+
+            @Override
+            public Delete set$Xgafv(java.lang.String $Xgafv) {
+              return (Delete) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Delete setAccessToken(java.lang.String accessToken) {
+              return (Delete) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Delete setAlt(java.lang.String alt) {
+              return (Delete) super.setAlt(alt);
+            }
+
+            @Override
+            public Delete setCallback(java.lang.String callback) {
+              return (Delete) super.setCallback(callback);
+            }
+
+            @Override
+            public Delete setFields(java.lang.String fields) {
+              return (Delete) super.setFields(fields);
+            }
+
+            @Override
+            public Delete setKey(java.lang.String key) {
+              return (Delete) super.setKey(key);
+            }
+
+            @Override
+            public Delete setOauthToken(java.lang.String oauthToken) {
+              return (Delete) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Delete) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Delete setQuotaUser(java.lang.String quotaUser) {
+              return (Delete) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Delete setUploadType(java.lang.String uploadType) {
+              return (Delete) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Delete) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Redis backup resource name using the form: `projects/{project_id}/locations
+             * /{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}
+           /backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Redis backup resource name using the form: `projects/{project_id}/locations
+             * /{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            public Delete setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            /** Optional. Idempotent request UUID. */
+            @com.google.api.client.util.Key
+            private java.lang.String requestId;
+
+            /** Optional. Idempotent request UUID.
+             */
+            public java.lang.String getRequestId() {
+              return requestId;
+            }
+
+            /** Optional. Idempotent request UUID. */
+            public Delete setRequestId(java.lang.String requestId) {
+              this.requestId = requestId;
+              return this;
+            }
+
+            @Override
+            public Delete set(String parameterName, Object value) {
+              return (Delete) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Exports a specific backup to a customer target Cloud Storage URI.
+           *
+           * Create a request for the method "backups.export".
+           *
+           * This request holds the parameters needed by the redis server.  After setting any optional
+           * parameters, call the {@link Export#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}/
+           *        backupCollections/{backup_collection_id}/backups/{backup_id}`
+           * @param content the {@link com.google.api.services.redis.v1.model.ExportBackupRequest}
+           * @return the request
+           */
+          public Export export(java.lang.String name, com.google.api.services.redis.v1.model.ExportBackupRequest content) throws java.io.IOException {
+            Export result = new Export(name, content);
+            initialize(result);
+            return result;
+          }
+
+          public class Export extends CloudRedisRequest<com.google.api.services.redis.v1.model.Operation> {
+
+            private static final String REST_PATH = "v1/{+name}:export";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+
+            /**
+             * Exports a specific backup to a customer target Cloud Storage URI.
+             *
+             * Create a request for the method "backups.export".
+             *
+             * This request holds the parameters needed by the the redis server.  After setting any optional
+             * parameters, call the {@link Export#execute()} method to invoke the remote operation. <p> {@link
+             * Export#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}/
+           *        backupCollections/{backup_collection_id}/backups/{backup_id}`
+             * @param content the {@link com.google.api.services.redis.v1.model.ExportBackupRequest}
+             * @since 1.13
+             */
+            protected Export(java.lang.String name, com.google.api.services.redis.v1.model.ExportBackupRequest content) {
+              super(CloudRedis.this, "POST", REST_PATH, content, com.google.api.services.redis.v1.model.Operation.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+              }
+            }
+
+            @Override
+            public Export set$Xgafv(java.lang.String $Xgafv) {
+              return (Export) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Export setAccessToken(java.lang.String accessToken) {
+              return (Export) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Export setAlt(java.lang.String alt) {
+              return (Export) super.setAlt(alt);
+            }
+
+            @Override
+            public Export setCallback(java.lang.String callback) {
+              return (Export) super.setCallback(callback);
+            }
+
+            @Override
+            public Export setFields(java.lang.String fields) {
+              return (Export) super.setFields(fields);
+            }
+
+            @Override
+            public Export setKey(java.lang.String key) {
+              return (Export) super.setKey(key);
+            }
+
+            @Override
+            public Export setOauthToken(java.lang.String oauthToken) {
+              return (Export) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Export setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Export) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Export setQuotaUser(java.lang.String quotaUser) {
+              return (Export) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Export setUploadType(java.lang.String uploadType) {
+              return (Export) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Export setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Export) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Redis backup resource name using the form: `projects/{project_id}/locations
+             * /{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}
+           /backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Redis backup resource name using the form: `projects/{project_id}/locations
+             * /{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            public Export setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Export set(String parameterName, Object value) {
+              return (Export) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Gets the details of a specific backup.
+           *
+           * Create a request for the method "backups.get".
+           *
+           * This request holds the parameters needed by the redis server.  After setting any optional
+           * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}/
+           *        backupCollections/{backup_collection_id}/backups/{backup_id}`
+           * @return the request
+           */
+          public Get get(java.lang.String name) throws java.io.IOException {
+            Get result = new Get(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Get extends CloudRedisRequest<com.google.api.services.redis.v1.model.Backup> {
+
+            private static final String REST_PATH = "v1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+
+            /**
+             * Gets the details of a specific backup.
+             *
+             * Create a request for the method "backups.get".
+             *
+             * This request holds the parameters needed by the the redis server.  After setting any optional
+             * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+             * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+             * called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}/
+           *        backupCollections/{backup_collection_id}/backups/{backup_id}`
+             * @since 1.13
+             */
+            protected Get(java.lang.String name) {
+              super(CloudRedis.this, "GET", REST_PATH, null, com.google.api.services.redis.v1.model.Backup.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public Get set$Xgafv(java.lang.String $Xgafv) {
+              return (Get) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Get setAccessToken(java.lang.String accessToken) {
+              return (Get) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Get setAlt(java.lang.String alt) {
+              return (Get) super.setAlt(alt);
+            }
+
+            @Override
+            public Get setCallback(java.lang.String callback) {
+              return (Get) super.setCallback(callback);
+            }
+
+            @Override
+            public Get setFields(java.lang.String fields) {
+              return (Get) super.setFields(fields);
+            }
+
+            @Override
+            public Get setKey(java.lang.String key) {
+              return (Get) super.setKey(key);
+            }
+
+            @Override
+            public Get setOauthToken(java.lang.String oauthToken) {
+              return (Get) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Get) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Get setQuotaUser(java.lang.String quotaUser) {
+              return (Get) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Get setUploadType(java.lang.String uploadType) {
+              return (Get) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Get setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Get) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Redis backup resource name using the form: `projects/{project_id}/locations
+             * /{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Redis backup resource name using the form: `projects/{project_id}/locations/{location_id}
+           /backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Redis backup resource name using the form: `projects/{project_id}/locations
+             * /{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+             */
+            public Get setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+/backups/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Get set(String parameterName, Object value) {
+              return (Get) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Lists all backups owned by a backup collection.
+           *
+           * Create a request for the method "backups.list".
+           *
+           * This request holds the parameters needed by the redis server.  After setting any optional
+           * parameters, call the {@link List#execute()} method to invoke the remote operation.
+           *
+           * @param parent Required. The resource name of the backupCollection using the form:
+           *        `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+           * @return the request
+           */
+          public List list(java.lang.String parent) throws java.io.IOException {
+            List result = new List(parent);
+            initialize(result);
+            return result;
+          }
+
+          public class List extends CloudRedisRequest<com.google.api.services.redis.v1.model.ListBackupsResponse> {
+
+            private static final String REST_PATH = "v1/{+parent}/backups";
+
+            private final java.util.regex.Pattern PARENT_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+$");
+
+            /**
+             * Lists all backups owned by a backup collection.
+             *
+             * Create a request for the method "backups.list".
+             *
+             * This request holds the parameters needed by the the redis server.  After setting any optional
+             * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+             * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+             * called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param parent Required. The resource name of the backupCollection using the form:
+           *        `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+             * @since 1.13
+             */
+            protected List(java.lang.String parent) {
+              super(CloudRedis.this, "GET", REST_PATH, null, com.google.api.services.redis.v1.model.ListBackupsResponse.class);
+              this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public List set$Xgafv(java.lang.String $Xgafv) {
+              return (List) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public List setAccessToken(java.lang.String accessToken) {
+              return (List) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public List setAlt(java.lang.String alt) {
+              return (List) super.setAlt(alt);
+            }
+
+            @Override
+            public List setCallback(java.lang.String callback) {
+              return (List) super.setCallback(callback);
+            }
+
+            @Override
+            public List setFields(java.lang.String fields) {
+              return (List) super.setFields(fields);
+            }
+
+            @Override
+            public List setKey(java.lang.String key) {
+              return (List) super.setKey(key);
+            }
+
+            @Override
+            public List setOauthToken(java.lang.String oauthToken) {
+              return (List) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (List) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public List setQuotaUser(java.lang.String quotaUser) {
+              return (List) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public List setUploadType(java.lang.String uploadType) {
+              return (List) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public List setUploadProtocol(java.lang.String uploadProtocol) {
+              return (List) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The resource name of the backupCollection using the form: `projects/{projec
+             * t_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String parent;
+
+            /** Required. The resource name of the backupCollection using the form:
+           `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+             */
+            public java.lang.String getParent() {
+              return parent;
+            }
+
+            /**
+             * Required. The resource name of the backupCollection using the form: `projects/{projec
+             * t_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+             */
+            public List setParent(java.lang.String parent) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/backupCollections/[^/]+$");
+              }
+              this.parent = parent;
+              return this;
+            }
+
+            /**
+             * Optional. The maximum number of items to return. If not specified, a default value of
+             * 1000 will be used by the service. Regardless of the page_size value, the response may
+             * include a partial list and a caller should only rely on response's `next_page_token`
+             * to determine if there are more clusters left to be queried.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.Integer pageSize;
+
+            /** Optional. The maximum number of items to return. If not specified, a default value of 1000 will be
+           used by the service. Regardless of the page_size value, the response may include a partial list and
+           a caller should only rely on response's `next_page_token` to determine if there are more clusters
+           left to be queried.
+             */
+            public java.lang.Integer getPageSize() {
+              return pageSize;
+            }
+
+            /**
+             * Optional. The maximum number of items to return. If not specified, a default value of
+             * 1000 will be used by the service. Regardless of the page_size value, the response may
+             * include a partial list and a caller should only rely on response's `next_page_token`
+             * to determine if there are more clusters left to be queried.
+             */
+            public List setPageSize(java.lang.Integer pageSize) {
+              this.pageSize = pageSize;
+              return this;
+            }
+
+            /**
+             * Optional. The `next_page_token` value returned from a previous
+             * [ListBackupCollections] request, if any.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String pageToken;
+
+            /** Optional. The `next_page_token` value returned from a previous [ListBackupCollections] request, if
+           any.
+             */
+            public java.lang.String getPageToken() {
+              return pageToken;
+            }
+
+            /**
+             * Optional. The `next_page_token` value returned from a previous
+             * [ListBackupCollections] request, if any.
+             */
+            public List setPageToken(java.lang.String pageToken) {
+              this.pageToken = pageToken;
+              return this;
+            }
+
+            @Override
+            public List set(String parameterName, Object value) {
+              return (List) super.set(parameterName, value);
+            }
+          }
+
+        }
+      }
+      /**
        * An accessor for creating requests from the Clusters collection.
        *
        * <p>The typical use is:</p>
@@ -535,6 +1600,166 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
       public class Clusters {
 
         /**
+         * Backup Redis Cluster. If this is the first time a backup is being created, a backup collection
+         * will be created at the backend, and this backup belongs to this collection. Both collection and
+         * backup will have a resource name. Backup will be executed for each shard. A replica (primary if
+         * nonHA) will be selected to perform the execution. Backup call will be rejected if there is an
+         * ongoing backup or update operation. Be aware that during preview, if the cluster's internal
+         * software version is too old, critical update will be performed before actual backup. Once the
+         * internal software version is updated to the minimum version required by the backup feature,
+         * subsequent backups will not require critical update. After preview, there will be no critical
+         * update needed for backup.
+         *
+         * Create a request for the method "clusters.backup".
+         *
+         * This request holds the parameters needed by the redis server.  After setting any optional
+         * parameters, call the {@link Backup#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. Redis cluster resource name using the form:
+         *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id`
+         *        refers to a Google Cloud region.
+         * @param content the {@link com.google.api.services.redis.v1.model.BackupClusterRequest}
+         * @return the request
+         */
+        public Backup backup(java.lang.String name, com.google.api.services.redis.v1.model.BackupClusterRequest content) throws java.io.IOException {
+          Backup result = new Backup(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Backup extends CloudRedisRequest<com.google.api.services.redis.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}:backup";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+
+          /**
+           * Backup Redis Cluster. If this is the first time a backup is being created, a backup collection
+           * will be created at the backend, and this backup belongs to this collection. Both collection and
+           * backup will have a resource name. Backup will be executed for each shard. A replica (primary if
+           * nonHA) will be selected to perform the execution. Backup call will be rejected if there is an
+           * ongoing backup or update operation. Be aware that during preview, if the cluster's internal
+           * software version is too old, critical update will be performed before actual backup. Once the
+           * internal software version is updated to the minimum version required by the backup feature,
+           * subsequent backups will not require critical update. After preview, there will be no critical
+           * update needed for backup.
+           *
+           * Create a request for the method "clusters.backup".
+           *
+           * This request holds the parameters needed by the the redis server.  After setting any optional
+           * parameters, call the {@link Backup#execute()} method to invoke the remote operation. <p> {@link
+           * Backup#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. Redis cluster resource name using the form:
+         *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id`
+         *        refers to a Google Cloud region.
+           * @param content the {@link com.google.api.services.redis.v1.model.BackupClusterRequest}
+           * @since 1.13
+           */
+          protected Backup(java.lang.String name, com.google.api.services.redis.v1.model.BackupClusterRequest content) {
+            super(CloudRedis.this, "POST", REST_PATH, content, com.google.api.services.redis.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+            }
+          }
+
+          @Override
+          public Backup set$Xgafv(java.lang.String $Xgafv) {
+            return (Backup) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Backup setAccessToken(java.lang.String accessToken) {
+            return (Backup) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Backup setAlt(java.lang.String alt) {
+            return (Backup) super.setAlt(alt);
+          }
+
+          @Override
+          public Backup setCallback(java.lang.String callback) {
+            return (Backup) super.setCallback(callback);
+          }
+
+          @Override
+          public Backup setFields(java.lang.String fields) {
+            return (Backup) super.setFields(fields);
+          }
+
+          @Override
+          public Backup setKey(java.lang.String key) {
+            return (Backup) super.setKey(key);
+          }
+
+          @Override
+          public Backup setOauthToken(java.lang.String oauthToken) {
+            return (Backup) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Backup setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Backup) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Backup setQuotaUser(java.lang.String quotaUser) {
+            return (Backup) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Backup setUploadType(java.lang.String uploadType) {
+            return (Backup) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Backup setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Backup) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. Redis cluster resource name using the form:
+           * `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
+           * `location_id` refers to a Google Cloud region.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. Redis cluster resource name using the form:
+         `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id` refers to
+         a Google Cloud region.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. Redis cluster resource name using the form:
+           * `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
+           * `location_id` refers to a Google Cloud region.
+           */
+          public Backup setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/clusters/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Backup set(String parameterName, Object value) {
+            return (Backup) super.set(parameterName, value);
+          }
+        }
+        /**
          * Creates a Redis cluster based on the specified properties. The creation is executed
          * asynchronously and callers may check the returned operation to track its progress. Once the
          * operation is completed the Redis cluster will be fully functional. The completed
@@ -548,8 +1773,8 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
          * parameters, call the {@link Create#execute()} method to invoke the remote operation.
          *
          * @param parent Required. The resource name of the cluster location using the form:
-         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP
-         *        region.
+         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+         *        Cloud region.
          * @param content the {@link com.google.api.services.redis.v1.model.Cluster}
          * @return the request
          */
@@ -582,8 +1807,8 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param parent Required. The resource name of the cluster location using the form:
-         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP
-         *        region.
+         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+         *        Cloud region.
            * @param content the {@link com.google.api.services.redis.v1.model.Cluster}
            * @since 1.13
            */
@@ -654,14 +1879,15 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
 
           /**
            * Required. The resource name of the cluster location using the form:
-           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP
-           * region.
+           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+           * Cloud region.
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. The resource name of the cluster location using the form:
-         `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP region.
+         `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google Cloud
+         region.
            */
           public java.lang.String getParent() {
             return parent;
@@ -669,8 +1895,8 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
 
           /**
            * Required. The resource name of the cluster location using the form:
-           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP
-           * region.
+           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+           * Cloud region.
            */
           public Create setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -711,17 +1937,17 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
             return this;
           }
 
-          /** Idempotent request UUID. */
+          /** Optional. Idempotent request UUID. */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
-          /** Idempotent request UUID.
+          /** Optional. Idempotent request UUID.
            */
           public java.lang.String getRequestId() {
             return requestId;
           }
 
-          /** Idempotent request UUID. */
+          /** Optional. Idempotent request UUID. */
           public Create setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
             return this;
@@ -742,7 +1968,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
          *
          * @param name Required. Redis cluster resource name using the form:
          *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id`
-         *        refers to a GCP region.
+         *        refers to a Google Cloud region.
          * @return the request
          */
         public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -770,7 +1996,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
            *
            * @param name Required. Redis cluster resource name using the form:
          *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id`
-         *        refers to a GCP region.
+         *        refers to a Google Cloud region.
            * @since 1.13
            */
           protected Delete(java.lang.String name) {
@@ -841,14 +2067,14 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Redis cluster resource name using the form:
            * `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
-           * `location_id` refers to a GCP region.
+           * `location_id` refers to a Google Cloud region.
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Redis cluster resource name using the form:
          `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id` refers to
-         a GCP region.
+         a Google Cloud region.
            */
           public java.lang.String getName() {
             return name;
@@ -857,7 +2083,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Redis cluster resource name using the form:
            * `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
-           * `location_id` refers to a GCP region.
+           * `location_id` refers to a Google Cloud region.
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -869,17 +2095,17 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
             return this;
           }
 
-          /** Idempotent request UUID. */
+          /** Optional. Idempotent request UUID. */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
-          /** Idempotent request UUID.
+          /** Optional. Idempotent request UUID.
            */
           public java.lang.String getRequestId() {
             return requestId;
           }
 
-          /** Idempotent request UUID. */
+          /** Optional. Idempotent request UUID. */
           public Delete setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
             return this;
@@ -900,7 +2126,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
          *
          * @param name Required. Redis cluster resource name using the form:
          *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id`
-         *        refers to a GCP region.
+         *        refers to a Google Cloud region.
          * @return the request
          */
         public Get get(java.lang.String name) throws java.io.IOException {
@@ -928,7 +2154,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
            *
            * @param name Required. Redis cluster resource name using the form:
          *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id`
-         *        refers to a GCP region.
+         *        refers to a Google Cloud region.
            * @since 1.13
            */
           protected Get(java.lang.String name) {
@@ -1009,14 +2235,14 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Redis cluster resource name using the form:
            * `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
-           * `location_id` refers to a GCP region.
+           * `location_id` refers to a Google Cloud region.
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Redis cluster resource name using the form:
          `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id` refers to
-         a GCP region.
+         a Google Cloud region.
            */
           public java.lang.String getName() {
             return name;
@@ -1025,7 +2251,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Redis cluster resource name using the form:
            * `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
-           * `location_id` refers to a GCP region.
+           * `location_id` refers to a Google Cloud region.
            */
           public Get setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -1053,7 +2279,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
          *
          * @param name Required. Redis cluster certificate authority resource name using the form:
          *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority`
-         *        where `location_id` refers to a GCP region.
+         *        where `location_id` refers to a Google Cloud region.
          * @return the request
          */
         public GetCertificateAuthority getCertificateAuthority(java.lang.String name) throws java.io.IOException {
@@ -1082,7 +2308,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
            *
            * @param name Required. Redis cluster certificate authority resource name using the form:
          *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority`
-         *        where `location_id` refers to a GCP region.
+         *        where `location_id` refers to a Google Cloud region.
            * @since 1.13
            */
           protected GetCertificateAuthority(java.lang.String name) {
@@ -1163,14 +2389,14 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Redis cluster certificate authority resource name using the form: `projects/{
            * project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority` where
-           * `location_id` refers to a GCP region.
+           * `location_id` refers to a Google Cloud region.
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Redis cluster certificate authority resource name using the form:
          `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority` where
-         `location_id` refers to a GCP region.
+         `location_id` refers to a Google Cloud region.
            */
           public java.lang.String getName() {
             return name;
@@ -1179,7 +2405,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Redis cluster certificate authority resource name using the form: `projects/{
            * project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority` where
-           * `location_id` refers to a GCP region.
+           * `location_id` refers to a Google Cloud region.
            */
           public GetCertificateAuthority setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -1208,8 +2434,8 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
          * parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
          * @param parent Required. The resource name of the cluster location using the form:
-         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP
-         *        region.
+         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+         *        Cloud region.
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -1240,8 +2466,8 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param parent Required. The resource name of the cluster location using the form:
-         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP
-         *        region.
+         *        `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+         *        Cloud region.
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -1321,14 +2547,15 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
 
           /**
            * Required. The resource name of the cluster location using the form:
-           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP
-           * region.
+           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+           * Cloud region.
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. The resource name of the cluster location using the form:
-         `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP region.
+         `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google Cloud
+         region.
            */
           public java.lang.String getParent() {
             return parent;
@@ -1336,8 +2563,8 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
 
           /**
            * Required. The resource name of the cluster location using the form:
-           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP
-           * region.
+           * `projects/{project_id}/locations/{location_id}` where `location_id` refers to a Google
+           * Cloud region.
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -1541,17 +2768,17 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
             return this;
           }
 
-          /** Idempotent request UUID. */
+          /** Optional. Idempotent request UUID. */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
-          /** Idempotent request UUID.
+          /** Optional. Idempotent request UUID.
            */
           public java.lang.String getRequestId() {
             return requestId;
           }
 
-          /** Idempotent request UUID. */
+          /** Optional. Idempotent request UUID. */
           public Patch setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
             return this;
@@ -1560,14 +2787,14 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Mask of fields to update. At least one path must be supplied in this field.
            * The elements of the repeated paths field may only include these fields from Cluster: *
-           * `size_gb` * `replica_count`
+           * `size_gb` * `replica_count` * `cluster_endpoints`
            */
           @com.google.api.client.util.Key
           private String updateMask;
 
           /** Required. Mask of fields to update. At least one path must be supplied in this field. The elements
          of the repeated paths field may only include these fields from Cluster: * `size_gb` *
-         `replica_count`
+         `replica_count` * `cluster_endpoints`
            */
           public String getUpdateMask() {
             return updateMask;
@@ -1576,7 +2803,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Mask of fields to update. At least one path must be supplied in this field.
            * The elements of the repeated paths field may only include these fields from Cluster: *
-           * `size_gb` * `replica_count`
+           * `size_gb` * `replica_count` * `cluster_endpoints`
            */
           public Patch setUpdateMask(String updateMask) {
             this.updateMask = updateMask;
@@ -1599,7 +2826,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
          *
          * @param name Required. Redis Cluster instance resource name using the form:
          *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id`
-         *        refers to a GCP region.
+         *        refers to a Google Cloud region.
          * @param content the {@link com.google.api.services.redis.v1.model.RescheduleClusterMaintenanceRequest}
          * @return the request
          */
@@ -1629,7 +2856,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
            *
            * @param name Required. Redis Cluster instance resource name using the form:
          *        `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id`
-         *        refers to a GCP region.
+         *        refers to a Google Cloud region.
            * @param content the {@link com.google.api.services.redis.v1.model.RescheduleClusterMaintenanceRequest}
            * @since 1.13
            */
@@ -1701,14 +2928,14 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Redis Cluster instance resource name using the form:
            * `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
-           * `location_id` refers to a GCP region.
+           * `location_id` refers to a Google Cloud region.
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Redis Cluster instance resource name using the form:
          `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where `location_id` refers to
-         a GCP region.
+         a Google Cloud region.
            */
           public java.lang.String getName() {
             return name;
@@ -1717,7 +2944,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
           /**
            * Required. Redis Cluster instance resource name using the form:
            * `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
-           * `location_id` refers to a GCP region.
+           * `location_id` refers to a Google Cloud region.
            */
           public RescheduleClusterMaintenance setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -3551,7 +4778,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -3581,7 +4808,7 @@ public class CloudRedis extends com.google.api.client.googleapis.services.json.A
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".

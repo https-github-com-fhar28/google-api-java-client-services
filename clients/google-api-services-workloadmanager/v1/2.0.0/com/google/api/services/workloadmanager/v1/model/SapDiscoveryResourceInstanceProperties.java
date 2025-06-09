@@ -44,6 +44,13 @@ public final class SapDiscoveryResourceInstanceProperties extends com.google.api
   private java.util.List<java.lang.String> clusterInstances;
 
   /**
+   * Optional. Disk mounts on the instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<SapDiscoveryResourceInstancePropertiesDiskMount> diskMounts;
+
+  /**
    * Optional. The VM's instance number.
    * The value may be {@code null}.
    */
@@ -56,6 +63,20 @@ public final class SapDiscoveryResourceInstanceProperties extends com.google.api
    */
   @com.google.api.client.util.Key
   private java.lang.String instanceRole;
+
+  /**
+   * Optional. Instance is part of a DR site.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean isDrSite;
+
+  /**
+   * Optional. The kernel version of the instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SapDiscoveryResourceInstancePropertiesKernelVersion osKernelVersion;
 
   /**
    * Optional. A virtual hostname of the instance if it has one.
@@ -99,6 +120,23 @@ public final class SapDiscoveryResourceInstanceProperties extends com.google.api
   }
 
   /**
+   * Optional. Disk mounts on the instance.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<SapDiscoveryResourceInstancePropertiesDiskMount> getDiskMounts() {
+    return diskMounts;
+  }
+
+  /**
+   * Optional. Disk mounts on the instance.
+   * @param diskMounts diskMounts or {@code null} for none
+   */
+  public SapDiscoveryResourceInstanceProperties setDiskMounts(java.util.List<SapDiscoveryResourceInstancePropertiesDiskMount> diskMounts) {
+    this.diskMounts = diskMounts;
+    return this;
+  }
+
+  /**
    * Optional. The VM's instance number.
    * @return value or {@code null} for none
    */
@@ -129,6 +167,40 @@ public final class SapDiscoveryResourceInstanceProperties extends com.google.api
    */
   public SapDiscoveryResourceInstanceProperties setInstanceRole(java.lang.String instanceRole) {
     this.instanceRole = instanceRole;
+    return this;
+  }
+
+  /**
+   * Optional. Instance is part of a DR site.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getIsDrSite() {
+    return isDrSite;
+  }
+
+  /**
+   * Optional. Instance is part of a DR site.
+   * @param isDrSite isDrSite or {@code null} for none
+   */
+  public SapDiscoveryResourceInstanceProperties setIsDrSite(java.lang.Boolean isDrSite) {
+    this.isDrSite = isDrSite;
+    return this;
+  }
+
+  /**
+   * Optional. The kernel version of the instance.
+   * @return value or {@code null} for none
+   */
+  public SapDiscoveryResourceInstancePropertiesKernelVersion getOsKernelVersion() {
+    return osKernelVersion;
+  }
+
+  /**
+   * Optional. The kernel version of the instance.
+   * @param osKernelVersion osKernelVersion or {@code null} for none
+   */
+  public SapDiscoveryResourceInstanceProperties setOsKernelVersion(SapDiscoveryResourceInstancePropertiesKernelVersion osKernelVersion) {
+    this.osKernelVersion = osKernelVersion;
     return this;
   }
 

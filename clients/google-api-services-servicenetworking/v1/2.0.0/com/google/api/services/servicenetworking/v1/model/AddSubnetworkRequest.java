@@ -48,14 +48,13 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   private java.lang.Boolean checkServiceNetworkingUsePermission;
 
   /**
-   * Optional. Specifies a custom time bucket for Arcus subnetwork request idempotency. If two
-   * equivalent concurrent requests are made, Arcus will know to ignore the request if it has
-   * already been completed or is in progress. Only requests with matching
-   * compute_idempotency_window have guaranteed idempotency. Changing this time window between
-   * requests results in undefined behavior. Zero (or empty) value with
-   * custom_compute_idempotency_window=true specifies no idempotency (i.e. no request ID is provided
-   * to Arcus). Maximum value of 14 days (enforced by Arcus limit). For more information on how to
-   * use, see: go/revisit-sn-idempotency-window
+   * Optional. Specifies a custom time bucket for GCE subnetwork request idempotency. If two
+   * equivalent concurrent requests are made, GCE will know to ignore the request if it has already
+   * been completed or is in progress. Only requests with matching compute_idempotency_window have
+   * guaranteed idempotency. Changing this time window between requests results in undefined
+   * behavior. Zero (or empty) value with custom_compute_idempotency_window=true specifies no
+   * idempotency (i.e. no request ID is provided to GCE). Maximum value of 14 days (enforced by GCE
+   * limit).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -138,8 +137,8 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   private java.lang.String purpose;
 
   /**
-   * Required. The name of a [region](/compute/docs/regions-zones) for the subnet, such `europe-
-   * west1`.
+   * Required. The name of a [region](https://cloud.google.com/compute/docs/regions-zones) for the
+   * subnet, such `europe-west1`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -196,7 +195,8 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
 
   /**
    * Required. A name for the new subnet. For information about the naming requirements, see
-   * [subnetwork](/compute/docs/reference/rest/v1/subnetworks) in the Compute API documentation.
+   * [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks) in the
+   * Compute API documentation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -211,11 +211,10 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   private java.util.List<java.lang.String> subnetworkUsers;
 
   /**
-   * Optional. Specifies if Service Networking should use a custom time bucket for Arcus
-   * idempotency. If false, Service Networking uses a 300 second (5 minute) Arcus idempotency
-   * window. If true, Service Networking uses a custom idempotency window provided by the user in
-   * field compute_idempotency_window. For more information on how to use, see: go/revisit-sn-
-   * idempotency-window
+   * Optional. Specifies if Service Networking should use a custom time bucket for GCE idempotency.
+   * If false, Service Networking uses a 300 second (5 minute) GCE idempotency window. If true,
+   * Service Networking uses a custom idempotency window provided by the user in field
+   * compute_idempotency_window.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -262,14 +261,13 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   }
 
   /**
-   * Optional. Specifies a custom time bucket for Arcus subnetwork request idempotency. If two
-   * equivalent concurrent requests are made, Arcus will know to ignore the request if it has
-   * already been completed or is in progress. Only requests with matching
-   * compute_idempotency_window have guaranteed idempotency. Changing this time window between
-   * requests results in undefined behavior. Zero (or empty) value with
-   * custom_compute_idempotency_window=true specifies no idempotency (i.e. no request ID is provided
-   * to Arcus). Maximum value of 14 days (enforced by Arcus limit). For more information on how to
-   * use, see: go/revisit-sn-idempotency-window
+   * Optional. Specifies a custom time bucket for GCE subnetwork request idempotency. If two
+   * equivalent concurrent requests are made, GCE will know to ignore the request if it has already
+   * been completed or is in progress. Only requests with matching compute_idempotency_window have
+   * guaranteed idempotency. Changing this time window between requests results in undefined
+   * behavior. Zero (or empty) value with custom_compute_idempotency_window=true specifies no
+   * idempotency (i.e. no request ID is provided to GCE). Maximum value of 14 days (enforced by GCE
+   * limit).
    * @return value or {@code null} for none
    */
   public String getComputeIdempotencyWindow() {
@@ -277,14 +275,13 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   }
 
   /**
-   * Optional. Specifies a custom time bucket for Arcus subnetwork request idempotency. If two
-   * equivalent concurrent requests are made, Arcus will know to ignore the request if it has
-   * already been completed or is in progress. Only requests with matching
-   * compute_idempotency_window have guaranteed idempotency. Changing this time window between
-   * requests results in undefined behavior. Zero (or empty) value with
-   * custom_compute_idempotency_window=true specifies no idempotency (i.e. no request ID is provided
-   * to Arcus). Maximum value of 14 days (enforced by Arcus limit). For more information on how to
-   * use, see: go/revisit-sn-idempotency-window
+   * Optional. Specifies a custom time bucket for GCE subnetwork request idempotency. If two
+   * equivalent concurrent requests are made, GCE will know to ignore the request if it has already
+   * been completed or is in progress. Only requests with matching compute_idempotency_window have
+   * guaranteed idempotency. Changing this time window between requests results in undefined
+   * behavior. Zero (or empty) value with custom_compute_idempotency_window=true specifies no
+   * idempotency (i.e. no request ID is provided to GCE). Maximum value of 14 days (enforced by GCE
+   * limit).
    * @param computeIdempotencyWindow computeIdempotencyWindow or {@code null} for none
    */
   public AddSubnetworkRequest setComputeIdempotencyWindow(String computeIdempotencyWindow) {
@@ -469,8 +466,8 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   }
 
   /**
-   * Required. The name of a [region](/compute/docs/regions-zones) for the subnet, such `europe-
-   * west1`.
+   * Required. The name of a [region](https://cloud.google.com/compute/docs/regions-zones) for the
+   * subnet, such `europe-west1`.
    * @return value or {@code null} for none
    */
   public java.lang.String getRegion() {
@@ -478,8 +475,8 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   }
 
   /**
-   * Required. The name of a [region](/compute/docs/regions-zones) for the subnet, such `europe-
-   * west1`.
+   * Required. The name of a [region](https://cloud.google.com/compute/docs/regions-zones) for the
+   * subnet, such `europe-west1`.
    * @param region region or {@code null} for none
    */
   public AddSubnetworkRequest setRegion(java.lang.String region) {
@@ -602,7 +599,8 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
 
   /**
    * Required. A name for the new subnet. For information about the naming requirements, see
-   * [subnetwork](/compute/docs/reference/rest/v1/subnetworks) in the Compute API documentation.
+   * [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks) in the
+   * Compute API documentation.
    * @return value or {@code null} for none
    */
   public java.lang.String getSubnetwork() {
@@ -611,7 +609,8 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
 
   /**
    * Required. A name for the new subnet. For information about the naming requirements, see
-   * [subnetwork](/compute/docs/reference/rest/v1/subnetworks) in the Compute API documentation.
+   * [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks) in the
+   * Compute API documentation.
    * @param subnetwork subnetwork or {@code null} for none
    */
   public AddSubnetworkRequest setSubnetwork(java.lang.String subnetwork) {
@@ -639,11 +638,10 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   }
 
   /**
-   * Optional. Specifies if Service Networking should use a custom time bucket for Arcus
-   * idempotency. If false, Service Networking uses a 300 second (5 minute) Arcus idempotency
-   * window. If true, Service Networking uses a custom idempotency window provided by the user in
-   * field compute_idempotency_window. For more information on how to use, see: go/revisit-sn-
-   * idempotency-window
+   * Optional. Specifies if Service Networking should use a custom time bucket for GCE idempotency.
+   * If false, Service Networking uses a 300 second (5 minute) GCE idempotency window. If true,
+   * Service Networking uses a custom idempotency window provided by the user in field
+   * compute_idempotency_window.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getUseCustomComputeIdempotencyWindow() {
@@ -651,11 +649,10 @@ public final class AddSubnetworkRequest extends com.google.api.client.json.Gener
   }
 
   /**
-   * Optional. Specifies if Service Networking should use a custom time bucket for Arcus
-   * idempotency. If false, Service Networking uses a 300 second (5 minute) Arcus idempotency
-   * window. If true, Service Networking uses a custom idempotency window provided by the user in
-   * field compute_idempotency_window. For more information on how to use, see: go/revisit-sn-
-   * idempotency-window
+   * Optional. Specifies if Service Networking should use a custom time bucket for GCE idempotency.
+   * If false, Service Networking uses a 300 second (5 minute) GCE idempotency window. If true,
+   * Service Networking uses a custom idempotency window provided by the user in field
+   * compute_idempotency_window.
    * @param useCustomComputeIdempotencyWindow useCustomComputeIdempotencyWindow or {@code null} for none
    */
   public AddSubnetworkRequest setUseCustomComputeIdempotencyWindow(java.lang.Boolean useCustomComputeIdempotencyWindow) {

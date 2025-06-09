@@ -82,8 +82,15 @@ public final class DataExchange extends com.google.api.client.json.GenericJson {
   private java.lang.Integer listingCount;
 
   /**
+   * Optional. By default, false. If true, the DataExchange has an email sharing mandate enabled.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean logLinkedDatasetQueryUserEmail;
+
+  /**
    * Output only. The resource name of the data exchange. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123`.
+   * `projects/myproject/locations/us/dataExchanges/123`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -259,8 +266,25 @@ public final class DataExchange extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. By default, false. If true, the DataExchange has an email sharing mandate enabled.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getLogLinkedDatasetQueryUserEmail() {
+    return logLinkedDatasetQueryUserEmail;
+  }
+
+  /**
+   * Optional. By default, false. If true, the DataExchange has an email sharing mandate enabled.
+   * @param logLinkedDatasetQueryUserEmail logLinkedDatasetQueryUserEmail or {@code null} for none
+   */
+  public DataExchange setLogLinkedDatasetQueryUserEmail(java.lang.Boolean logLinkedDatasetQueryUserEmail) {
+    this.logLinkedDatasetQueryUserEmail = logLinkedDatasetQueryUserEmail;
+    return this;
+  }
+
+  /**
    * Output only. The resource name of the data exchange. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123`.
+   * `projects/myproject/locations/us/dataExchanges/123`.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -269,7 +293,7 @@ public final class DataExchange extends com.google.api.client.json.GenericJson {
 
   /**
    * Output only. The resource name of the data exchange. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123`.
+   * `projects/myproject/locations/us/dataExchanges/123`.
    * @param name name or {@code null} for none
    */
   public DataExchange setName(java.lang.String name) {

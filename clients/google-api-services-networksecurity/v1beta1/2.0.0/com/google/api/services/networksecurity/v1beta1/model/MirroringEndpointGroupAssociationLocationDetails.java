@@ -17,7 +17,7 @@
 package com.google.api.services.networksecurity.v1beta1.model;
 
 /**
- * Details about the association status in a specific cloud location.
+ * Contains details about the state of an association in a specific cloud location.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Network Security API. For a detailed explanation see:
@@ -30,21 +30,21 @@ package com.google.api.services.networksecurity.v1beta1.model;
 public final class MirroringEndpointGroupAssociationLocationDetails extends com.google.api.client.json.GenericJson {
 
   /**
-   * Output only. The cloud location.
+   * Output only. The cloud location, e.g. "us-central1-a" or "asia-south1".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String location;
 
   /**
-   * Output only. The association state in this location.
+   * Output only. The current state of the association in this location.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String state;
 
   /**
-   * Output only. The cloud location.
+   * Output only. The cloud location, e.g. "us-central1-a" or "asia-south1".
    * @return value or {@code null} for none
    */
   public java.lang.String getLocation() {
@@ -52,7 +52,7 @@ public final class MirroringEndpointGroupAssociationLocationDetails extends com.
   }
 
   /**
-   * Output only. The cloud location.
+   * Output only. The cloud location, e.g. "us-central1-a" or "asia-south1".
    * @param location location or {@code null} for none
    */
   public MirroringEndpointGroupAssociationLocationDetails setLocation(java.lang.String location) {
@@ -61,7 +61,7 @@ public final class MirroringEndpointGroupAssociationLocationDetails extends com.
   }
 
   /**
-   * Output only. The association state in this location.
+   * Output only. The current state of the association in this location.
    * @return value or {@code null} for none
    */
   public java.lang.String getState() {
@@ -69,7 +69,7 @@ public final class MirroringEndpointGroupAssociationLocationDetails extends com.
   }
 
   /**
-   * Output only. The association state in this location.
+   * Output only. The current state of the association in this location.
    * @param state state or {@code null} for none
    */
   public MirroringEndpointGroupAssociationLocationDetails setState(java.lang.String state) {

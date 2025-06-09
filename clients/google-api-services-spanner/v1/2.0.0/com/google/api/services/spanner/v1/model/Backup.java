@@ -75,7 +75,7 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   /**
    * Output only. The encryption information for the backup, whether it is protected by one or more
    * KMS keys. The information includes all Cloud KMS key versions used to encrypt the backup. The
-   * `encryption_status' field inside of each `EncryptionInfo` is not populated. At least one of the
+   * `encryption_status` field inside of each `EncryptionInfo` is not populated. At least one of the
    * key versions must be available for the backup to be restored. If a key version is revoked in
    * the middle of a restore, the restore behavior is undefined.
    * The value may be {@code null}.
@@ -125,6 +125,14 @@ public final class Backup extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String incrementalBackupChainId;
+
+  /**
+   * Output only. The instance partition(s) storing the backup. This is the same as the list of the
+   * instance partition(s) that the database had footprint in at the backup's `version_time`.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<BackupInstancePartition> instancePartitions;
 
   /**
    * Output only. The max allowed expiration time of the backup, with microseconds granularity. A
@@ -309,7 +317,7 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   /**
    * Output only. The encryption information for the backup, whether it is protected by one or more
    * KMS keys. The information includes all Cloud KMS key versions used to encrypt the backup. The
-   * `encryption_status' field inside of each `EncryptionInfo` is not populated. At least one of the
+   * `encryption_status` field inside of each `EncryptionInfo` is not populated. At least one of the
    * key versions must be available for the backup to be restored. If a key version is revoked in
    * the middle of a restore, the restore behavior is undefined.
    * @return value or {@code null} for none
@@ -321,7 +329,7 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   /**
    * Output only. The encryption information for the backup, whether it is protected by one or more
    * KMS keys. The information includes all Cloud KMS key versions used to encrypt the backup. The
-   * `encryption_status' field inside of each `EncryptionInfo` is not populated. At least one of the
+   * `encryption_status` field inside of each `EncryptionInfo` is not populated. At least one of the
    * key versions must be available for the backup to be restored. If a key version is revoked in
    * the middle of a restore, the restore behavior is undefined.
    * @param encryptionInformation encryptionInformation or {@code null} for none
@@ -426,6 +434,25 @@ public final class Backup extends com.google.api.client.json.GenericJson {
    */
   public Backup setIncrementalBackupChainId(java.lang.String incrementalBackupChainId) {
     this.incrementalBackupChainId = incrementalBackupChainId;
+    return this;
+  }
+
+  /**
+   * Output only. The instance partition(s) storing the backup. This is the same as the list of the
+   * instance partition(s) that the database had footprint in at the backup's `version_time`.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<BackupInstancePartition> getInstancePartitions() {
+    return instancePartitions;
+  }
+
+  /**
+   * Output only. The instance partition(s) storing the backup. This is the same as the list of the
+   * instance partition(s) that the database had footprint in at the backup's `version_time`.
+   * @param instancePartitions instancePartitions or {@code null} for none
+   */
+  public Backup setInstancePartitions(java.util.List<BackupInstancePartition> instancePartitions) {
+    this.instancePartitions = instancePartitions;
     return this;
   }
 

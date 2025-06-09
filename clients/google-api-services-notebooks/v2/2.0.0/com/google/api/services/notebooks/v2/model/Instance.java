@@ -51,6 +51,22 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean disableProxyAccess;
 
   /**
+   * Optional. If true, deletion protection will be enabled for this Workbench Instance. If false,
+   * deletion protection will be disabled for this Workbench Instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean enableDeletionProtection;
+
+  /**
+   * Optional. Flag that specifies that a notebook can be accessed with third party identity
+   * provider.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean enableThirdPartyIdentity;
+
+  /**
    * Optional. Compute Engine setup for the notebook. Uses notebook-defined fields.
    * The value may be {@code null}.
    */
@@ -81,9 +97,9 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String id;
 
   /**
-   * Optional. Input only. The owner of this instance after creation. Format: `alias@example.com`
-   * Currently supports one owner only. If not specified, all of the service account users of your
-   * VM instance's service account can use the instance.
+   * Optional. The owner of this instance after creation. Format: `alias@example.com` Currently
+   * supports one owner only. If not specified, all of the service account users of your VM
+   * instance's service account can use the instance.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -206,6 +222,44 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. If true, deletion protection will be enabled for this Workbench Instance. If false,
+   * deletion protection will be disabled for this Workbench Instance.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEnableDeletionProtection() {
+    return enableDeletionProtection;
+  }
+
+  /**
+   * Optional. If true, deletion protection will be enabled for this Workbench Instance. If false,
+   * deletion protection will be disabled for this Workbench Instance.
+   * @param enableDeletionProtection enableDeletionProtection or {@code null} for none
+   */
+  public Instance setEnableDeletionProtection(java.lang.Boolean enableDeletionProtection) {
+    this.enableDeletionProtection = enableDeletionProtection;
+    return this;
+  }
+
+  /**
+   * Optional. Flag that specifies that a notebook can be accessed with third party identity
+   * provider.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEnableThirdPartyIdentity() {
+    return enableThirdPartyIdentity;
+  }
+
+  /**
+   * Optional. Flag that specifies that a notebook can be accessed with third party identity
+   * provider.
+   * @param enableThirdPartyIdentity enableThirdPartyIdentity or {@code null} for none
+   */
+  public Instance setEnableThirdPartyIdentity(java.lang.Boolean enableThirdPartyIdentity) {
+    this.enableThirdPartyIdentity = enableThirdPartyIdentity;
+    return this;
+  }
+
+  /**
    * Optional. Compute Engine setup for the notebook. Uses notebook-defined fields.
    * @return value or {@code null} for none
    */
@@ -278,9 +332,9 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Input only. The owner of this instance after creation. Format: `alias@example.com`
-   * Currently supports one owner only. If not specified, all of the service account users of your
-   * VM instance's service account can use the instance.
+   * Optional. The owner of this instance after creation. Format: `alias@example.com` Currently
+   * supports one owner only. If not specified, all of the service account users of your VM
+   * instance's service account can use the instance.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getInstanceOwners() {
@@ -288,9 +342,9 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Input only. The owner of this instance after creation. Format: `alias@example.com`
-   * Currently supports one owner only. If not specified, all of the service account users of your
-   * VM instance's service account can use the instance.
+   * Optional. The owner of this instance after creation. Format: `alias@example.com` Currently
+   * supports one owner only. If not specified, all of the service account users of your VM
+   * instance's service account can use the instance.
    * @param instanceOwners instanceOwners or {@code null} for none
    */
   public Instance setInstanceOwners(java.util.List<java.lang.String> instanceOwners) {

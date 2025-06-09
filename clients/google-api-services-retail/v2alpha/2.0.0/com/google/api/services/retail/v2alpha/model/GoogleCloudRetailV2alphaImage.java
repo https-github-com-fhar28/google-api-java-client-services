@@ -17,12 +17,13 @@
 package com.google.api.services.retail.v2alpha.model;
 
 /**
- * Product image. Recommendations AI and Retail Search do not use product images to improve
- * prediction and search results. However, product images can be returned in results, and are shown
- * in prediction or search previews in the console.
+ * Product image. Recommendations AI and Retail Search use product images to improve prediction and
+ * search results. Product images can be returned in results, and are shown in prediction or search
+ * previews in the console. Please try to provide correct product images and avoid using images with
+ * size too small.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the Vertex AI Search for Retail API. For a detailed
+ * transmitted over HTTP when working with the Vertex AI Search for commerce API. For a detailed
  * explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>

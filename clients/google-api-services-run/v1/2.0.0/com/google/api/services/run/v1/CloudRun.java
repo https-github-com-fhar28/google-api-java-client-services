@@ -6113,6 +6113,944 @@ public class CloudRun extends com.google.api.client.googleapis.services.json.Abs
       }
 
     }
+    /**
+     * An accessor for creating requests from the Workerpools collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code CloudRun run = new CloudRun(...);}
+     *   {@code CloudRun.Workerpools.List request = run.workerpools().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public Workerpools workerpools() {
+      return new Workerpools();
+    }
+
+    /**
+     * The "workerpools" collection of methods.
+     */
+    public class Workerpools {
+
+      /**
+       * Creates a new WorkerPool. WorkerPool creation will trigger a new deployment. Use GetWorkerPool,
+       * and check worker_pool.status to determine if the WorkerPool is ready.
+       *
+       * Create a request for the method "workerpools.create".
+       *
+       * This request holds the parameters needed by the run server.  After setting any optional
+       * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The resource's parent. In Cloud Run, it may be one of the following: *
+       *        `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+       *        `namespaces/{project_id_or_number}/workerpools` *
+       *        `projects/{project_id_or_number}/locations/{region}` *
+       *        `projects/{project_id_or_number}/regions/{region}`
+       * @param content the {@link com.google.api.services.run.v1.model.WorkerPool}
+       * @return the request
+       */
+      public Create create(java.lang.String parent, com.google.api.services.run.v1.model.WorkerPool content) throws java.io.IOException {
+        Create result = new Create(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Create extends CloudRunRequest<com.google.api.services.run.v1.model.WorkerPool> {
+
+        private static final String REST_PATH = "apis/run.googleapis.com/v1/{+parent}/workerpools";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^namespaces/[^/]+$");
+
+        /**
+         * Creates a new WorkerPool. WorkerPool creation will trigger a new deployment. Use GetWorkerPool,
+         * and check worker_pool.status to determine if the WorkerPool is ready.
+         *
+         * Create a request for the method "workerpools.create".
+         *
+         * This request holds the parameters needed by the the run server.  After setting any optional
+         * parameters, call the {@link Create#execute()} method to invoke the remote operation. <p> {@link
+         * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The resource's parent. In Cloud Run, it may be one of the following: *
+       *        `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+       *        `namespaces/{project_id_or_number}/workerpools` *
+       *        `projects/{project_id_or_number}/locations/{region}` *
+       *        `projects/{project_id_or_number}/regions/{region}`
+         * @param content the {@link com.google.api.services.run.v1.model.WorkerPool}
+         * @since 1.13
+         */
+        protected Create(java.lang.String parent, com.google.api.services.run.v1.model.WorkerPool content) {
+          super(CloudRun.this, "POST", REST_PATH, content, com.google.api.services.run.v1.model.WorkerPool.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^namespaces/[^/]+$");
+          }
+        }
+
+        @Override
+        public Create set$Xgafv(java.lang.String $Xgafv) {
+          return (Create) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Create setAccessToken(java.lang.String accessToken) {
+          return (Create) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Create setAlt(java.lang.String alt) {
+          return (Create) super.setAlt(alt);
+        }
+
+        @Override
+        public Create setCallback(java.lang.String callback) {
+          return (Create) super.setCallback(callback);
+        }
+
+        @Override
+        public Create setFields(java.lang.String fields) {
+          return (Create) super.setFields(fields);
+        }
+
+        @Override
+        public Create setKey(java.lang.String key) {
+          return (Create) super.setKey(key);
+        }
+
+        @Override
+        public Create setOauthToken(java.lang.String oauthToken) {
+          return (Create) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Create) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Create setQuotaUser(java.lang.String quotaUser) {
+          return (Create) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Create setUploadType(java.lang.String uploadType) {
+          return (Create) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Create setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Create) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The resource's parent. In Cloud Run, it may be one of the following: *
+         * `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+         * `namespaces/{project_id_or_number}/workerpools` *
+         * `projects/{project_id_or_number}/locations/{region}` *
+         * `projects/{project_id_or_number}/regions/{region}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The resource's parent. In Cloud Run, it may be one of the following: *
+       `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+       `namespaces/{project_id_or_number}/workerpools` *
+       `projects/{project_id_or_number}/locations/{region}` *
+       `projects/{project_id_or_number}/regions/{region}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The resource's parent. In Cloud Run, it may be one of the following: *
+         * `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+         * `namespaces/{project_id_or_number}/workerpools` *
+         * `projects/{project_id_or_number}/locations/{region}` *
+         * `projects/{project_id_or_number}/regions/{region}`
+         */
+        public Create setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^namespaces/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Indicates that the server should validate the request and populate default values without
+         * persisting the request. Supported values: `all`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String dryRun;
+
+        /** Indicates that the server should validate the request and populate default values without
+       persisting the request. Supported values: `all`
+         */
+        public java.lang.String getDryRun() {
+          return dryRun;
+        }
+
+        /**
+         * Indicates that the server should validate the request and populate default values without
+         * persisting the request. Supported values: `all`
+         */
+        public Create setDryRun(java.lang.String dryRun) {
+          this.dryRun = dryRun;
+          return this;
+        }
+
+        @Override
+        public Create set(String parameterName, Object value) {
+          return (Create) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Deletes the provided worker pool. This will cause the WorkerPool to stop all instances and will
+       * delete all associated WorkerPoolRevisions.
+       *
+       * Create a request for the method "workerpools.delete".
+       *
+       * This request holds the parameters needed by the run server.  After setting any optional
+       * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The fully qualified name of the worker pool to delete. It can be any of the following
+       *        forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       *        `endpoint` is regional) *
+       *        `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       *        `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+       * @return the request
+       */
+      public Delete delete(java.lang.String name) throws java.io.IOException {
+        Delete result = new Delete(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Delete extends CloudRunRequest<com.google.api.services.run.v1.model.Status> {
+
+        private static final String REST_PATH = "apis/run.googleapis.com/v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^namespaces/[^/]+/workerpools/[^/]+$");
+
+        /**
+         * Deletes the provided worker pool. This will cause the WorkerPool to stop all instances and will
+         * delete all associated WorkerPoolRevisions.
+         *
+         * Create a request for the method "workerpools.delete".
+         *
+         * This request holds the parameters needed by the the run server.  After setting any optional
+         * parameters, call the {@link Delete#execute()} method to invoke the remote operation. <p> {@link
+         * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The fully qualified name of the worker pool to delete. It can be any of the following
+       *        forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       *        `endpoint` is regional) *
+       *        `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       *        `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         * @since 1.13
+         */
+        protected Delete(java.lang.String name) {
+          super(CloudRun.this, "DELETE", REST_PATH, null, com.google.api.services.run.v1.model.Status.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^namespaces/[^/]+/workerpools/[^/]+$");
+          }
+        }
+
+        @Override
+        public Delete set$Xgafv(java.lang.String $Xgafv) {
+          return (Delete) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Delete setAccessToken(java.lang.String accessToken) {
+          return (Delete) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Delete setAlt(java.lang.String alt) {
+          return (Delete) super.setAlt(alt);
+        }
+
+        @Override
+        public Delete setCallback(java.lang.String callback) {
+          return (Delete) super.setCallback(callback);
+        }
+
+        @Override
+        public Delete setFields(java.lang.String fields) {
+          return (Delete) super.setFields(fields);
+        }
+
+        @Override
+        public Delete setKey(java.lang.String key) {
+          return (Delete) super.setKey(key);
+        }
+
+        @Override
+        public Delete setOauthToken(java.lang.String oauthToken) {
+          return (Delete) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Delete) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Delete setQuotaUser(java.lang.String quotaUser) {
+          return (Delete) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Delete setUploadType(java.lang.String uploadType) {
+          return (Delete) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Delete) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The fully qualified name of the worker pool to delete. It can be any of the
+         * following forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}`
+         * (only when the `endpoint` is regional) *
+         * `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+         * `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The fully qualified name of the worker pool to delete. It can be any of the following
+       forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       `endpoint` is regional) *
+       `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The fully qualified name of the worker pool to delete. It can be any of the
+         * following forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}`
+         * (only when the `endpoint` is regional) *
+         * `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+         * `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        public Delete setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^namespaces/[^/]+/workerpools/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Indicates that the server should validate the request and populate default values without
+         * persisting the request. Supported values: `all`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String dryRun;
+
+        /** Indicates that the server should validate the request and populate default values without
+       persisting the request. Supported values: `all`
+         */
+        public java.lang.String getDryRun() {
+          return dryRun;
+        }
+
+        /**
+         * Indicates that the server should validate the request and populate default values without
+         * persisting the request. Supported values: `all`
+         */
+        public Delete setDryRun(java.lang.String dryRun) {
+          this.dryRun = dryRun;
+          return this;
+        }
+
+        @Override
+        public Delete set(String parameterName, Object value) {
+          return (Delete) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Gets information about a worker pool.
+       *
+       * Create a request for the method "workerpools.get".
+       *
+       * This request holds the parameters needed by the run server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The fully qualified name of the worker pool to retrieve. It can be any of the following
+       *        forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       *        `endpoint` is regional) *
+       *        `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       *        `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+       * @return the request
+       */
+      public Get get(java.lang.String name) throws java.io.IOException {
+        Get result = new Get(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Get extends CloudRunRequest<com.google.api.services.run.v1.model.WorkerPool> {
+
+        private static final String REST_PATH = "apis/run.googleapis.com/v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^namespaces/[^/]+/workerpools/[^/]+$");
+
+        /**
+         * Gets information about a worker pool.
+         *
+         * Create a request for the method "workerpools.get".
+         *
+         * This request holds the parameters needed by the the run server.  After setting any optional
+         * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+         * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The fully qualified name of the worker pool to retrieve. It can be any of the following
+       *        forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       *        `endpoint` is regional) *
+       *        `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       *        `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         * @since 1.13
+         */
+        protected Get(java.lang.String name) {
+          super(CloudRun.this, "GET", REST_PATH, null, com.google.api.services.run.v1.model.WorkerPool.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^namespaces/[^/]+/workerpools/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public Get set$Xgafv(java.lang.String $Xgafv) {
+          return (Get) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Get setAccessToken(java.lang.String accessToken) {
+          return (Get) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Get setAlt(java.lang.String alt) {
+          return (Get) super.setAlt(alt);
+        }
+
+        @Override
+        public Get setCallback(java.lang.String callback) {
+          return (Get) super.setCallback(callback);
+        }
+
+        @Override
+        public Get setFields(java.lang.String fields) {
+          return (Get) super.setFields(fields);
+        }
+
+        @Override
+        public Get setKey(java.lang.String key) {
+          return (Get) super.setKey(key);
+        }
+
+        @Override
+        public Get setOauthToken(java.lang.String oauthToken) {
+          return (Get) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Get) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Get setQuotaUser(java.lang.String quotaUser) {
+          return (Get) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Get setUploadType(java.lang.String uploadType) {
+          return (Get) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Get setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Get) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The fully qualified name of the worker pool to retrieve. It can be any of the
+         * following forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}`
+         * (only when the `endpoint` is regional) *
+         * `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+         * `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The fully qualified name of the worker pool to retrieve. It can be any of the following
+       forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       `endpoint` is regional) *
+       `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The fully qualified name of the worker pool to retrieve. It can be any of the
+         * following forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}`
+         * (only when the `endpoint` is regional) *
+         * `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+         * `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        public Get setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^namespaces/[^/]+/workerpools/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Get set(String parameterName, Object value) {
+          return (Get) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Lists worker pools for the given project and region. Results are sorted by creation time,
+       * descending.
+       *
+       * Create a request for the method "workerpools.list".
+       *
+       * This request holds the parameters needed by the run server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The parent from where the resources should be listed. In Cloud Run, it may be one of the
+       *        following: * `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+       *        `namespaces/{project_id_or_number}/workerpools` *
+       *        `projects/{project_id_or_number}/locations/{region}` *
+       *        `projects/{project_id_or_number}/regions/{region}`
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends CloudRunRequest<com.google.api.services.run.v1.model.ListWorkerPoolsResponse> {
+
+        private static final String REST_PATH = "apis/run.googleapis.com/v1/{+parent}/workerpools";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^namespaces/[^/]+$");
+
+        /**
+         * Lists worker pools for the given project and region. Results are sorted by creation time,
+         * descending.
+         *
+         * Create a request for the method "workerpools.list".
+         *
+         * This request holds the parameters needed by the the run server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+         * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The parent from where the resources should be listed. In Cloud Run, it may be one of the
+       *        following: * `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+       *        `namespaces/{project_id_or_number}/workerpools` *
+       *        `projects/{project_id_or_number}/locations/{region}` *
+       *        `projects/{project_id_or_number}/regions/{region}`
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(CloudRun.this, "GET", REST_PATH, null, com.google.api.services.run.v1.model.ListWorkerPoolsResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^namespaces/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The parent from where the resources should be listed. In Cloud Run, it may be
+         * one of the following: * `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+         * `namespaces/{project_id_or_number}/workerpools` *
+         * `projects/{project_id_or_number}/locations/{region}` *
+         * `projects/{project_id_or_number}/regions/{region}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The parent from where the resources should be listed. In Cloud Run, it may be one of the
+       following: * `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+       `namespaces/{project_id_or_number}/workerpools` *
+       `projects/{project_id_or_number}/locations/{region}` *
+       `projects/{project_id_or_number}/regions/{region}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The parent from where the resources should be listed. In Cloud Run, it may be
+         * one of the following: * `{project_id_or_number}` * `namespaces/{project_id_or_number}` *
+         * `namespaces/{project_id_or_number}/workerpools` *
+         * `projects/{project_id_or_number}/locations/{region}` *
+         * `projects/{project_id_or_number}/regions/{region}`
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^namespaces/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /** Encoded string to continue paging. */
+        @com.google.api.client.util.Key("continue")
+        private java.lang.String continue__;
+
+        /** Encoded string to continue paging.
+         */
+        public java.lang.String getContinue() {
+          return continue__;
+        }
+
+        /** Encoded string to continue paging. */
+        public List setContinue(java.lang.String continue__) {
+          this.continue__ = continue__;
+          return this;
+        }
+
+        /** =, !=, exists, in, and notIn. */
+        @com.google.api.client.util.Key
+        private java.lang.String labelSelector;
+
+        /**=, !=, exists, in, and notIn.
+      =,
+
+         */
+        public java.lang.String getLabelSelector() {
+          return labelSelector;
+        }
+
+        /** =, !=, exists, in, and notIn. */
+        public List setLabelSelector(java.lang.String labelSelector) {
+          this.labelSelector = labelSelector;
+          return this;
+        }
+
+        /** The maximum number of records that should be returned. */
+        @com.google.api.client.util.Key
+        private java.lang.Integer limit;
+
+        /** The maximum number of records that should be returned.
+         */
+        public java.lang.Integer getLimit() {
+          return limit;
+        }
+
+        /** The maximum number of records that should be returned. */
+        public List setLimit(java.lang.Integer limit) {
+          this.limit = limit;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Replaces a worker pool. Only the spec and metadata labels and annotations are modifiable. After
+       * the Update request, Cloud Run will work to make the 'status' match the requested 'spec'. May
+       * provide metadata.resourceVersion to enforce update from last read for optimistic concurrency
+       * control.
+       *
+       * Create a request for the method "workerpools.replaceWorkerPool".
+       *
+       * This request holds the parameters needed by the run server.  After setting any optional
+       * parameters, call the {@link ReplaceWorkerPool#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The fully qualified name of the worker pool to replace. It can be any of the following
+       *        forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       *        `endpoint` is regional) *
+       *        `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       *        `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+       * @param content the {@link com.google.api.services.run.v1.model.WorkerPool}
+       * @return the request
+       */
+      public ReplaceWorkerPool replaceWorkerPool(java.lang.String name, com.google.api.services.run.v1.model.WorkerPool content) throws java.io.IOException {
+        ReplaceWorkerPool result = new ReplaceWorkerPool(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class ReplaceWorkerPool extends CloudRunRequest<com.google.api.services.run.v1.model.WorkerPool> {
+
+        private static final String REST_PATH = "apis/run.googleapis.com/v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^namespaces/[^/]+/workerpools/[^/]+$");
+
+        /**
+         * Replaces a worker pool. Only the spec and metadata labels and annotations are modifiable. After
+         * the Update request, Cloud Run will work to make the 'status' match the requested 'spec'. May
+         * provide metadata.resourceVersion to enforce update from last read for optimistic concurrency
+         * control.
+         *
+         * Create a request for the method "workerpools.replaceWorkerPool".
+         *
+         * This request holds the parameters needed by the the run server.  After setting any optional
+         * parameters, call the {@link ReplaceWorkerPool#execute()} method to invoke the remote operation.
+         * <p> {@link ReplaceWorkerPool#initialize(com.google.api.client.googleapis.services.AbstractGoogl
+         * eClientRequest)} must be called to initialize this instance immediately after invoking the
+         * constructor. </p>
+         *
+         * @param name Required. The fully qualified name of the worker pool to replace. It can be any of the following
+       *        forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       *        `endpoint` is regional) *
+       *        `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       *        `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         * @param content the {@link com.google.api.services.run.v1.model.WorkerPool}
+         * @since 1.13
+         */
+        protected ReplaceWorkerPool(java.lang.String name, com.google.api.services.run.v1.model.WorkerPool content) {
+          super(CloudRun.this, "PUT", REST_PATH, content, com.google.api.services.run.v1.model.WorkerPool.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^namespaces/[^/]+/workerpools/[^/]+$");
+          }
+        }
+
+        @Override
+        public ReplaceWorkerPool set$Xgafv(java.lang.String $Xgafv) {
+          return (ReplaceWorkerPool) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public ReplaceWorkerPool setAccessToken(java.lang.String accessToken) {
+          return (ReplaceWorkerPool) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public ReplaceWorkerPool setAlt(java.lang.String alt) {
+          return (ReplaceWorkerPool) super.setAlt(alt);
+        }
+
+        @Override
+        public ReplaceWorkerPool setCallback(java.lang.String callback) {
+          return (ReplaceWorkerPool) super.setCallback(callback);
+        }
+
+        @Override
+        public ReplaceWorkerPool setFields(java.lang.String fields) {
+          return (ReplaceWorkerPool) super.setFields(fields);
+        }
+
+        @Override
+        public ReplaceWorkerPool setKey(java.lang.String key) {
+          return (ReplaceWorkerPool) super.setKey(key);
+        }
+
+        @Override
+        public ReplaceWorkerPool setOauthToken(java.lang.String oauthToken) {
+          return (ReplaceWorkerPool) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public ReplaceWorkerPool setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (ReplaceWorkerPool) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public ReplaceWorkerPool setQuotaUser(java.lang.String quotaUser) {
+          return (ReplaceWorkerPool) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public ReplaceWorkerPool setUploadType(java.lang.String uploadType) {
+          return (ReplaceWorkerPool) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public ReplaceWorkerPool setUploadProtocol(java.lang.String uploadProtocol) {
+          return (ReplaceWorkerPool) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The fully qualified name of the worker pool to replace. It can be any of the
+         * following forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}`
+         * (only when the `endpoint` is regional) *
+         * `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+         * `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The fully qualified name of the worker pool to replace. It can be any of the following
+       forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}` (only when the
+       `endpoint` is regional) *
+       `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+       `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The fully qualified name of the worker pool to replace. It can be any of the
+         * following forms: * `namespaces/{project_id_or_number}/workerpools/{worker_pool_name}`
+         * (only when the `endpoint` is regional) *
+         * `projects/{project_id_or_number}/locations/{region}/workerpools/{worker_pool_name}` *
+         * `projects/{project_id_or_number}/regions/{region}/workerpools/{worker_pool_name}`
+         */
+        public ReplaceWorkerPool setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^namespaces/[^/]+/workerpools/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Indicates that the server should validate the request and populate default values without
+         * persisting the request. Supported values: `all`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String dryRun;
+
+        /** Indicates that the server should validate the request and populate default values without
+       persisting the request. Supported values: `all`
+         */
+        public java.lang.String getDryRun() {
+          return dryRun;
+        }
+
+        /**
+         * Indicates that the server should validate the request and populate default values without
+         * persisting the request. Supported values: `all`
+         */
+        public ReplaceWorkerPool setDryRun(java.lang.String dryRun) {
+          this.dryRun = dryRun;
+          return this;
+        }
+
+        @Override
+        public ReplaceWorkerPool set(String parameterName, Object value) {
+          return (ReplaceWorkerPool) super.set(parameterName, value);
+        }
+      }
+
+    }
   }
 
   /**
@@ -6477,6 +7415,29 @@ public class CloudRun extends com.google.api.client.googleapis.services.json.Abs
                 "^projects/[^/]+$");
           }
           this.name = name;
+          return this;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
           return this;
         }
 
@@ -11861,6 +12822,519 @@ public class CloudRun extends com.google.api.client.googleapis.services.json.Abs
               com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
                   "Parameter resource must conform to the pattern " +
                   "^projects/[^/]+/locations/[^/]+/services/[^/]+$");
+            }
+            this.resource = resource;
+            return this;
+          }
+
+          @Override
+          public TestIamPermissions set(String parameterName, Object value) {
+            return (TestIamPermissions) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the Workerpools collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code CloudRun run = new CloudRun(...);}
+       *   {@code CloudRun.Workerpools.List request = run.workerpools().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public Workerpools workerpools() {
+        return new Workerpools();
+      }
+
+      /**
+       * The "workerpools" collection of methods.
+       */
+      public class Workerpools {
+
+        /**
+         * Get the IAM Access Control policy currently in effect for the given worker pool. This result does
+         * not include any inherited policies.
+         *
+         * Create a request for the method "workerpools.getIamPolicy".
+         *
+         * This request holds the parameters needed by the run server.  After setting any optional
+         * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation.
+         *
+         * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+         * @return the request
+         */
+        public GetIamPolicy getIamPolicy(java.lang.String resource) throws java.io.IOException {
+          GetIamPolicy result = new GetIamPolicy(resource);
+          initialize(result);
+          return result;
+        }
+
+        public class GetIamPolicy extends CloudRunRequest<com.google.api.services.run.v1.model.Policy> {
+
+          private static final String REST_PATH = "v1/{+resource}:getIamPolicy";
+
+          private final java.util.regex.Pattern RESOURCE_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
+
+          /**
+           * Get the IAM Access Control policy currently in effect for the given worker pool. This result
+           * does not include any inherited policies.
+           *
+           * Create a request for the method "workerpools.getIamPolicy".
+           *
+           * This request holds the parameters needed by the the run server.  After setting any optional
+           * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation. <p>
+           * {@link
+           * GetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+           * @since 1.13
+           */
+          protected GetIamPolicy(java.lang.String resource) {
+            super(CloudRun.this, "GET", REST_PATH, null, com.google.api.services.run.v1.model.Policy.class);
+            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public GetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
+            return (GetIamPolicy) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public GetIamPolicy setAccessToken(java.lang.String accessToken) {
+            return (GetIamPolicy) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public GetIamPolicy setAlt(java.lang.String alt) {
+            return (GetIamPolicy) super.setAlt(alt);
+          }
+
+          @Override
+          public GetIamPolicy setCallback(java.lang.String callback) {
+            return (GetIamPolicy) super.setCallback(callback);
+          }
+
+          @Override
+          public GetIamPolicy setFields(java.lang.String fields) {
+            return (GetIamPolicy) super.setFields(fields);
+          }
+
+          @Override
+          public GetIamPolicy setKey(java.lang.String key) {
+            return (GetIamPolicy) super.setKey(key);
+          }
+
+          @Override
+          public GetIamPolicy setOauthToken(java.lang.String oauthToken) {
+            return (GetIamPolicy) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public GetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (GetIamPolicy) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public GetIamPolicy setQuotaUser(java.lang.String quotaUser) {
+            return (GetIamPolicy) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public GetIamPolicy setUploadType(java.lang.String uploadType) {
+            return (GetIamPolicy) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public GetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
+            return (GetIamPolicy) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy is being requested. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String resource;
+
+          /** REQUIRED: The resource for which the policy is being requested. See [Resource
+         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+         field.
+           */
+          public java.lang.String getResource() {
+            return resource;
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy is being requested. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          public GetIamPolicy setResource(java.lang.String resource) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
+            }
+            this.resource = resource;
+            return this;
+          }
+
+          /**
+           * Optional. The maximum policy version that will be used to format the policy. Valid
+           * values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests
+           * for policies with any conditional role bindings must specify version 3. Policies with
+           * no conditional role bindings may specify any valid value or leave the field unset. The
+           * policy in the response might use the policy version that you specified, or it might use
+           * a lower policy version. For example, if you specify version 3, but the policy has no
+           * conditional role bindings, the response uses version 1. To learn which resources
+           * support conditions in their IAM policies, see the [IAM
+           * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+           */
+          @com.google.api.client.util.Key("options.requestedPolicyVersion")
+          private java.lang.Integer optionsRequestedPolicyVersion;
+
+          /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1,
+         and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+         conditional role bindings must specify version 3. Policies with no conditional role bindings may
+         specify any valid value or leave the field unset. The policy in the response might use the policy
+         version that you specified, or it might use a lower policy version. For example, if you specify
+         version 3, but the policy has no conditional role bindings, the response uses version 1. To learn
+         which resources support conditions in their IAM policies, see the [IAM
+         documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+           */
+          public java.lang.Integer getOptionsRequestedPolicyVersion() {
+            return optionsRequestedPolicyVersion;
+          }
+
+          /**
+           * Optional. The maximum policy version that will be used to format the policy. Valid
+           * values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests
+           * for policies with any conditional role bindings must specify version 3. Policies with
+           * no conditional role bindings may specify any valid value or leave the field unset. The
+           * policy in the response might use the policy version that you specified, or it might use
+           * a lower policy version. For example, if you specify version 3, but the policy has no
+           * conditional role bindings, the response uses version 1. To learn which resources
+           * support conditions in their IAM policies, see the [IAM
+           * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+           */
+          public GetIamPolicy setOptionsRequestedPolicyVersion(java.lang.Integer optionsRequestedPolicyVersion) {
+            this.optionsRequestedPolicyVersion = optionsRequestedPolicyVersion;
+            return this;
+          }
+
+          @Override
+          public GetIamPolicy set(String parameterName, Object value) {
+            return (GetIamPolicy) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Sets the IAM Access control policy for the specified worker pool. Overwrites any existing policy.
+         *
+         * Create a request for the method "workerpools.setIamPolicy".
+         *
+         * This request holds the parameters needed by the run server.  After setting any optional
+         * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation.
+         *
+         * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+         * @param content the {@link com.google.api.services.run.v1.model.SetIamPolicyRequest}
+         * @return the request
+         */
+        public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.run.v1.model.SetIamPolicyRequest content) throws java.io.IOException {
+          SetIamPolicy result = new SetIamPolicy(resource, content);
+          initialize(result);
+          return result;
+        }
+
+        public class SetIamPolicy extends CloudRunRequest<com.google.api.services.run.v1.model.Policy> {
+
+          private static final String REST_PATH = "v1/{+resource}:setIamPolicy";
+
+          private final java.util.regex.Pattern RESOURCE_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
+
+          /**
+           * Sets the IAM Access control policy for the specified worker pool. Overwrites any existing
+           * policy.
+           *
+           * Create a request for the method "workerpools.setIamPolicy".
+           *
+           * This request holds the parameters needed by the the run server.  After setting any optional
+           * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation. <p>
+           * {@link
+           * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+           * @param content the {@link com.google.api.services.run.v1.model.SetIamPolicyRequest}
+           * @since 1.13
+           */
+          protected SetIamPolicy(java.lang.String resource, com.google.api.services.run.v1.model.SetIamPolicyRequest content) {
+            super(CloudRun.this, "POST", REST_PATH, content, com.google.api.services.run.v1.model.Policy.class);
+            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
+            }
+          }
+
+          @Override
+          public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
+            return (SetIamPolicy) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public SetIamPolicy setAccessToken(java.lang.String accessToken) {
+            return (SetIamPolicy) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public SetIamPolicy setAlt(java.lang.String alt) {
+            return (SetIamPolicy) super.setAlt(alt);
+          }
+
+          @Override
+          public SetIamPolicy setCallback(java.lang.String callback) {
+            return (SetIamPolicy) super.setCallback(callback);
+          }
+
+          @Override
+          public SetIamPolicy setFields(java.lang.String fields) {
+            return (SetIamPolicy) super.setFields(fields);
+          }
+
+          @Override
+          public SetIamPolicy setKey(java.lang.String key) {
+            return (SetIamPolicy) super.setKey(key);
+          }
+
+          @Override
+          public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
+            return (SetIamPolicy) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
+            return (SetIamPolicy) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public SetIamPolicy setUploadType(java.lang.String uploadType) {
+            return (SetIamPolicy) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
+            return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy is being specified. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String resource;
+
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource
+         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+         field.
+           */
+          public java.lang.String getResource() {
+            return resource;
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy is being specified. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          public SetIamPolicy setResource(java.lang.String resource) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
+            }
+            this.resource = resource;
+            return this;
+          }
+
+          @Override
+          public SetIamPolicy set(String parameterName, Object value) {
+            return (SetIamPolicy) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Returns permissions that a caller has on the specified worker pool. There are no permissions
+         * required for making this API call.
+         *
+         * Create a request for the method "workerpools.testIamPermissions".
+         *
+         * This request holds the parameters needed by the run server.  After setting any optional
+         * parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote operation.
+         *
+         * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+         * @param content the {@link com.google.api.services.run.v1.model.TestIamPermissionsRequest}
+         * @return the request
+         */
+        public TestIamPermissions testIamPermissions(java.lang.String resource, com.google.api.services.run.v1.model.TestIamPermissionsRequest content) throws java.io.IOException {
+          TestIamPermissions result = new TestIamPermissions(resource, content);
+          initialize(result);
+          return result;
+        }
+
+        public class TestIamPermissions extends CloudRunRequest<com.google.api.services.run.v1.model.TestIamPermissionsResponse> {
+
+          private static final String REST_PATH = "v1/{+resource}:testIamPermissions";
+
+          private final java.util.regex.Pattern RESOURCE_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
+
+          /**
+           * Returns permissions that a caller has on the specified worker pool. There are no permissions
+           * required for making this API call.
+           *
+           * Create a request for the method "workerpools.testIamPermissions".
+           *
+           * This request holds the parameters needed by the the run server.  After setting any optional
+           * parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote
+           * operation. <p> {@link TestIamPermissions#initialize(com.google.api.client.googleapis.services.A
+           * bstractGoogleClientRequest)} must be called to initialize this instance immediately after
+           * invoking the constructor. </p>
+           *
+           * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
+         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         *        this field.
+           * @param content the {@link com.google.api.services.run.v1.model.TestIamPermissionsRequest}
+           * @since 1.13
+           */
+          protected TestIamPermissions(java.lang.String resource, com.google.api.services.run.v1.model.TestIamPermissionsRequest content) {
+            super(CloudRun.this, "POST", REST_PATH, content, com.google.api.services.run.v1.model.TestIamPermissionsResponse.class);
+            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
+            }
+          }
+
+          @Override
+          public TestIamPermissions set$Xgafv(java.lang.String $Xgafv) {
+            return (TestIamPermissions) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public TestIamPermissions setAccessToken(java.lang.String accessToken) {
+            return (TestIamPermissions) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public TestIamPermissions setAlt(java.lang.String alt) {
+            return (TestIamPermissions) super.setAlt(alt);
+          }
+
+          @Override
+          public TestIamPermissions setCallback(java.lang.String callback) {
+            return (TestIamPermissions) super.setCallback(callback);
+          }
+
+          @Override
+          public TestIamPermissions setFields(java.lang.String fields) {
+            return (TestIamPermissions) super.setFields(fields);
+          }
+
+          @Override
+          public TestIamPermissions setKey(java.lang.String key) {
+            return (TestIamPermissions) super.setKey(key);
+          }
+
+          @Override
+          public TestIamPermissions setOauthToken(java.lang.String oauthToken) {
+            return (TestIamPermissions) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public TestIamPermissions setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (TestIamPermissions) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public TestIamPermissions setQuotaUser(java.lang.String quotaUser) {
+            return (TestIamPermissions) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public TestIamPermissions setUploadType(java.lang.String uploadType) {
+            return (TestIamPermissions) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public TestIamPermissions setUploadProtocol(java.lang.String uploadProtocol) {
+            return (TestIamPermissions) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy detail is being requested. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String resource;
+
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource
+         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+         field.
+           */
+          public java.lang.String getResource() {
+            return resource;
+          }
+
+          /**
+           * REQUIRED: The resource for which the policy detail is being requested. See [Resource
+           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
+           * for this field.
+           */
+          public TestIamPermissions setResource(java.lang.String resource) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                  "Parameter resource must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/workerpools/[^/]+$");
             }
             this.resource = resource;
             return this;

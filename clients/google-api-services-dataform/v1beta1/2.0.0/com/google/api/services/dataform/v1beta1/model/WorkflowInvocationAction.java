@@ -45,11 +45,26 @@ public final class WorkflowInvocationAction extends com.google.api.client.json.G
   private Target canonicalTarget;
 
   /**
+   * Output only. The workflow action's data preparation action details.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private DataPreparationAction dataPreparationAction;
+
+  /**
    * Output only. If and only if action's state is FAILED a failure reason is set.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String failureReason;
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String internalMetadata;
 
   /**
    * Output only. This action's timing details. `start_time` will be set if the action is in
@@ -118,6 +133,23 @@ public final class WorkflowInvocationAction extends com.google.api.client.json.G
   }
 
   /**
+   * Output only. The workflow action's data preparation action details.
+   * @return value or {@code null} for none
+   */
+  public DataPreparationAction getDataPreparationAction() {
+    return dataPreparationAction;
+  }
+
+  /**
+   * Output only. The workflow action's data preparation action details.
+   * @param dataPreparationAction dataPreparationAction or {@code null} for none
+   */
+  public WorkflowInvocationAction setDataPreparationAction(DataPreparationAction dataPreparationAction) {
+    this.dataPreparationAction = dataPreparationAction;
+    return this;
+  }
+
+  /**
    * Output only. If and only if action's state is FAILED a failure reason is set.
    * @return value or {@code null} for none
    */
@@ -131,6 +163,25 @@ public final class WorkflowInvocationAction extends com.google.api.client.json.G
    */
   public WorkflowInvocationAction setFailureReason(java.lang.String failureReason) {
     this.failureReason = failureReason;
+    return this;
+  }
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getInternalMetadata() {
+    return internalMetadata;
+  }
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * @param internalMetadata internalMetadata or {@code null} for none
+   */
+  public WorkflowInvocationAction setInternalMetadata(java.lang.String internalMetadata) {
+    this.internalMetadata = internalMetadata;
     return this;
   }
 

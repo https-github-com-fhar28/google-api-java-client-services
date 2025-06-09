@@ -19,7 +19,9 @@ package com.google.api.services.content.model;
 /**
  * Required product attributes are primarily defined by the product data specification. See the
  * Product Data Specification Help Center article for information. Product data. After inserting,
- * updating, or deleting a product, it may take several minutes before changes take effect.
+ * updating, or deleting a product, it may take several minutes before changes take effect. The
+ * following reference documentation lists the field names in the **camelCase** casing style while
+ * the Products Data Specification lists the names in the **snake_case** casing style.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Content API for Shopping. For a detailed explanation
@@ -760,6 +762,13 @@ public final class Product extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private ProductSubscriptionCost subscriptionCost;
+
+  /**
+   * Optional. The list of sustainability incentive programs.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<ProductSustainabilityIncentive> sustainabilityIncentives;
 
   /**
    * Required. The CLDR territory code for the item's country of sale.
@@ -2508,6 +2517,23 @@ public final class Product extends com.google.api.client.json.GenericJson {
    */
   public Product setSubscriptionCost(ProductSubscriptionCost subscriptionCost) {
     this.subscriptionCost = subscriptionCost;
+    return this;
+  }
+
+  /**
+   * Optional. The list of sustainability incentive programs.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<ProductSustainabilityIncentive> getSustainabilityIncentives() {
+    return sustainabilityIncentives;
+  }
+
+  /**
+   * Optional. The list of sustainability incentive programs.
+   * @param sustainabilityIncentives sustainabilityIncentives or {@code null} for none
+   */
+  public Product setSustainabilityIncentives(java.util.List<ProductSustainabilityIncentive> sustainabilityIncentives) {
+    this.sustainabilityIncentives = sustainabilityIncentives;
     return this;
   }
 

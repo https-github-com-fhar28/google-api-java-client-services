@@ -445,6 +445,29 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -2272,7 +2295,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
          * This request holds the parameters needed by the config server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Resource name of the deployment. Format:
+         * @param name Identifier. Resource name of the deployment. Format:
          *        `projects/{project}/locations/{location}/deployments/{deployment}`
          * @param content the {@link com.google.api.services.config.v1.model.Deployment}
          * @return the request
@@ -2300,7 +2323,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Resource name of the deployment. Format:
+           * @param name Identifier. Resource name of the deployment. Format:
          *        `projects/{project}/locations/{location}/deployments/{deployment}`
            * @param content the {@link com.google.api.services.config.v1.model.Deployment}
            * @since 1.13
@@ -2371,13 +2394,13 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
           }
 
           /**
-           * Resource name of the deployment. Format:
+           * Identifier. Resource name of the deployment. Format:
            * `projects/{project}/locations/{location}/deployments/{deployment}`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Resource name of the deployment. Format:
+          /** Identifier. Resource name of the deployment. Format:
          `projects/{project}/locations/{location}/deployments/{deployment}`
            */
           public java.lang.String getName() {
@@ -2385,7 +2408,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
           }
 
           /**
-           * Resource name of the deployment. Format:
+           * Identifier. Resource name of the deployment. Format:
            * `projects/{project}/locations/{location}/deployments/{deployment}`
            */
           public Patch setName(java.lang.String name) {
@@ -3928,7 +3951,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -3959,7 +3982,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -5828,24 +5851,24 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
           }
 
           /**
-           * Optional. When requesting a page of resources, 'page_size' specifies number of
-           * resources to return. If unspecified, at most 500 will be returned. The maximum value is
-           * 1000.
+           * Optional. When requesting a page of terraform versions, 'page_size' specifies number of
+           * terraform versions to return. If unspecified, at most 500 will be returned. The maximum
+           * value is 1000.
            */
           @com.google.api.client.util.Key
           private java.lang.Integer pageSize;
 
-          /** Optional. When requesting a page of resources, 'page_size' specifies number of resources to return.
-         If unspecified, at most 500 will be returned. The maximum value is 1000.
+          /** Optional. When requesting a page of terraform versions, 'page_size' specifies number of terraform
+         versions to return. If unspecified, at most 500 will be returned. The maximum value is 1000.
            */
           public java.lang.Integer getPageSize() {
             return pageSize;
           }
 
           /**
-           * Optional. When requesting a page of resources, 'page_size' specifies number of
-           * resources to return. If unspecified, at most 500 will be returned. The maximum value is
-           * 1000.
+           * Optional. When requesting a page of terraform versions, 'page_size' specifies number of
+           * terraform versions to return. If unspecified, at most 500 will be returned. The maximum
+           * value is 1000.
            */
           public List setPageSize(java.lang.Integer pageSize) {
             this.pageSize = pageSize;
@@ -5854,13 +5877,13 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Optional. Token returned by previous call to 'ListTerraformVersions' which specifies
-           * the position in the list from where to continue listing the resources.
+           * the position in the list from where to continue listing the terraform versions.
            */
           @com.google.api.client.util.Key
           private java.lang.String pageToken;
 
           /** Optional. Token returned by previous call to 'ListTerraformVersions' which specifies the position
-         in the list from where to continue listing the resources.
+         in the list from where to continue listing the terraform versions.
            */
           public java.lang.String getPageToken() {
             return pageToken;
@@ -5868,7 +5891,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Optional. Token returned by previous call to 'ListTerraformVersions' which specifies
-           * the position in the list from where to continue listing the resources.
+           * the position in the list from where to continue listing the terraform versions.
            */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;

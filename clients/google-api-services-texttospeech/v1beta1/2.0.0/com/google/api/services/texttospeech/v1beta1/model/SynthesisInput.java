@@ -32,6 +32,31 @@ package com.google.api.services.texttospeech.v1beta1.model;
 public final class SynthesisInput extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. The pronunciation customizations are applied to the input. If this is set, the input
+   * is synthesized using the given pronunciation customizations. The initial support is for en-us,
+   * with plans to expand to other locales in the future. Instant Clone voices aren't supported. In
+   * order to customize the pronunciation of a phrase, there must be an exact match of the phrase in
+   * the input types. If using SSML, the phrase must not be inside a phoneme tag.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private CustomPronunciations customPronunciations;
+
+  /**
+   * Markup for HD voices specifically. This field may not be used with any other voices.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String markup;
+
+  /**
+   * The multi-speaker input to be synthesized. Only applicable for multi-speaker synthesis.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MultiSpeakerMarkup multiSpeakerMarkup;
+
+  /**
    * The SSML document to be synthesized. The SSML document must be valid and well-formed. Otherwise
    * the RPC will fail and return google.rpc.Code.INVALID_ARGUMENT. For more information, see
    * [SSML](https://cloud.google.com/text-to-speech/docs/ssml).
@@ -46,6 +71,65 @@ public final class SynthesisInput extends com.google.api.client.json.GenericJson
    */
   @com.google.api.client.util.Key
   private java.lang.String text;
+
+  /**
+   * Optional. The pronunciation customizations are applied to the input. If this is set, the input
+   * is synthesized using the given pronunciation customizations. The initial support is for en-us,
+   * with plans to expand to other locales in the future. Instant Clone voices aren't supported. In
+   * order to customize the pronunciation of a phrase, there must be an exact match of the phrase in
+   * the input types. If using SSML, the phrase must not be inside a phoneme tag.
+   * @return value or {@code null} for none
+   */
+  public CustomPronunciations getCustomPronunciations() {
+    return customPronunciations;
+  }
+
+  /**
+   * Optional. The pronunciation customizations are applied to the input. If this is set, the input
+   * is synthesized using the given pronunciation customizations. The initial support is for en-us,
+   * with plans to expand to other locales in the future. Instant Clone voices aren't supported. In
+   * order to customize the pronunciation of a phrase, there must be an exact match of the phrase in
+   * the input types. If using SSML, the phrase must not be inside a phoneme tag.
+   * @param customPronunciations customPronunciations or {@code null} for none
+   */
+  public SynthesisInput setCustomPronunciations(CustomPronunciations customPronunciations) {
+    this.customPronunciations = customPronunciations;
+    return this;
+  }
+
+  /**
+   * Markup for HD voices specifically. This field may not be used with any other voices.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getMarkup() {
+    return markup;
+  }
+
+  /**
+   * Markup for HD voices specifically. This field may not be used with any other voices.
+   * @param markup markup or {@code null} for none
+   */
+  public SynthesisInput setMarkup(java.lang.String markup) {
+    this.markup = markup;
+    return this;
+  }
+
+  /**
+   * The multi-speaker input to be synthesized. Only applicable for multi-speaker synthesis.
+   * @return value or {@code null} for none
+   */
+  public MultiSpeakerMarkup getMultiSpeakerMarkup() {
+    return multiSpeakerMarkup;
+  }
+
+  /**
+   * The multi-speaker input to be synthesized. Only applicable for multi-speaker synthesis.
+   * @param multiSpeakerMarkup multiSpeakerMarkup or {@code null} for none
+   */
+  public SynthesisInput setMultiSpeakerMarkup(MultiSpeakerMarkup multiSpeakerMarkup) {
+    this.multiSpeakerMarkup = multiSpeakerMarkup;
+    return this;
+  }
 
   /**
    * The SSML document to be synthesized. The SSML document must be valid and well-formed. Otherwise

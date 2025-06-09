@@ -53,6 +53,13 @@ public final class UptimeCheckConfig extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * Whether the check is disabled or not.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean disabled;
+
+  /**
    * A human-friendly name for the Uptime check configuration. The display name should be unique
    * within a Cloud Monitoring Workspace in order to make it easier to identify; however, uniqueness
    * is not enforced. Required.
@@ -91,6 +98,13 @@ public final class UptimeCheckConfig extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean isInternal;
+
+  /**
+   * To specify whether to log the results of failed probes to Cloud Logging.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean logCheckFailures;
 
   /**
    * The monitored resource (https://cloud.google.com/monitoring/api/resources) associated with the
@@ -212,6 +226,23 @@ public final class UptimeCheckConfig extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * Whether the check is disabled or not.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getDisabled() {
+    return disabled;
+  }
+
+  /**
+   * Whether the check is disabled or not.
+   * @param disabled disabled or {@code null} for none
+   */
+  public UptimeCheckConfig setDisabled(java.lang.Boolean disabled) {
+    this.disabled = disabled;
+    return this;
+  }
+
+  /**
    * A human-friendly name for the Uptime check configuration. The display name should be unique
    * within a Cloud Monitoring Workspace in order to make it easier to identify; however, uniqueness
    * is not enforced. Required.
@@ -288,6 +319,23 @@ public final class UptimeCheckConfig extends com.google.api.client.json.GenericJ
    */
   public UptimeCheckConfig setIsInternal(java.lang.Boolean isInternal) {
     this.isInternal = isInternal;
+    return this;
+  }
+
+  /**
+   * To specify whether to log the results of failed probes to Cloud Logging.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getLogCheckFailures() {
+    return logCheckFailures;
+  }
+
+  /**
+   * To specify whether to log the results of failed probes to Cloud Logging.
+   * @param logCheckFailures logCheckFailures or {@code null} for none
+   */
+  public UptimeCheckConfig setLogCheckFailures(java.lang.Boolean logCheckFailures) {
+    this.logCheckFailures = logCheckFailures;
     return this;
   }
 

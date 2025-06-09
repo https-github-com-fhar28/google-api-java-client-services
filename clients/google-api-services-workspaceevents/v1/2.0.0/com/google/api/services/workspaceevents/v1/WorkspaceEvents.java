@@ -317,9 +317,9 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
   public class Subscriptions {
 
     /**
-     * [Developer Preview](https://developers.google.com/workspace/preview): Creates a Google Workspace
-     * subscription. To learn how to use this method, see [Create a Google Workspace
-     * subscription](https://developers.google.com/workspace/events/guides/create-subscription).
+     * Creates a Google Workspace subscription. To learn how to use this method, see [Create a Google
+     * Workspace subscription](https://developers.google.com/workspace/events/guides/create-
+     * subscription).
      *
      * Create a request for the method "subscriptions.create".
      *
@@ -340,9 +340,9 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
       private static final String REST_PATH = "v1/subscriptions";
 
       /**
-       * [Developer Preview](https://developers.google.com/workspace/preview): Creates a Google
-       * Workspace subscription. To learn how to use this method, see [Create a Google Workspace
-       * subscription](https://developers.google.com/workspace/events/guides/create-subscription).
+       * Creates a Google Workspace subscription. To learn how to use this method, see [Create a Google
+       * Workspace subscription](https://developers.google.com/workspace/events/guides/create-
+       * subscription).
        *
        * Create a request for the method "subscriptions.create".
        *
@@ -443,9 +443,9 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
       }
     }
     /**
-     * [Developer Preview](https://developers.google.com/workspace/preview): Deletes a Google Workspace
-     * subscription. To learn how to use this method, see [Delete a Google Workspace
-     * subscription](https://developers.google.com/workspace/events/guides/delete-subscription).
+     * Deletes a Google Workspace subscription. To learn how to use this method, see [Delete a Google
+     * Workspace subscription](https://developers.google.com/workspace/events/guides/delete-
+     * subscription).
      *
      * Create a request for the method "subscriptions.delete".
      *
@@ -469,9 +469,9 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
           java.util.regex.Pattern.compile("^subscriptions/[^/]+$");
 
       /**
-       * [Developer Preview](https://developers.google.com/workspace/preview): Deletes a Google
-       * Workspace subscription. To learn how to use this method, see [Delete a Google Workspace
-       * subscription](https://developers.google.com/workspace/events/guides/delete-subscription).
+       * Deletes a Google Workspace subscription. To learn how to use this method, see [Delete a Google
+       * Workspace subscription](https://developers.google.com/workspace/events/guides/delete-
+       * subscription).
        *
        * Create a request for the method "subscriptions.delete".
        *
@@ -651,9 +651,9 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
       }
     }
     /**
-     * [Developer Preview](https://developers.google.com/workspace/preview): Gets details about a Google
-     * Workspace subscription. To learn how to use this method, see [Get details about a Google
-     * Workspace subscription](https://developers.google.com/workspace/events/guides/get-subscription).
+     * Gets details about a Google Workspace subscription. To learn how to use this method, see [Get
+     * details about a Google Workspace
+     * subscription](https://developers.google.com/workspace/events/guides/get-subscription).
      *
      * Create a request for the method "subscriptions.get".
      *
@@ -677,10 +677,9 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
           java.util.regex.Pattern.compile("^subscriptions/[^/]+$");
 
       /**
-       * [Developer Preview](https://developers.google.com/workspace/preview): Gets details about a
-       * Google Workspace subscription. To learn how to use this method, see [Get details about a Google
-       * Workspace subscription](https://developers.google.com/workspace/events/guides/get-
-       * subscription).
+       * Gets details about a Google Workspace subscription. To learn how to use this method, see [Get
+       * details about a Google Workspace
+       * subscription](https://developers.google.com/workspace/events/guides/get-subscription).
        *
        * Create a request for the method "subscriptions.get".
        *
@@ -794,8 +793,7 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
       }
     }
     /**
-     * [Developer Preview](https://developers.google.com/workspace/preview): Lists Google Workspace
-     * subscriptions. To learn how to use this method, see [List Google Workspace
+     * Lists Google Workspace subscriptions. To learn how to use this method, see [List Google Workspace
      * subscriptions](https://developers.google.com/workspace/events/guides/list-subscriptions).
      *
      * Create a request for the method "subscriptions.list".
@@ -816,9 +814,9 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
       private static final String REST_PATH = "v1/subscriptions";
 
       /**
-       * [Developer Preview](https://developers.google.com/workspace/preview): Lists Google Workspace
-       * subscriptions. To learn how to use this method, see [List Google Workspace
-       * subscriptions](https://developers.google.com/workspace/events/guides/list-subscriptions).
+       * Lists Google Workspace subscriptions. To learn how to use this method, see [List Google
+       * Workspace subscriptions](https://developers.google.com/workspace/events/guides/list-
+       * subscriptions).
        *
        * Create a request for the method "subscriptions.list".
        *
@@ -1016,8 +1014,8 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
       }
     }
     /**
-     * [Developer Preview](https://developers.google.com/workspace/preview): Updates or renews a Google
-     * Workspace subscription. To learn how to use this method, see [Update or renew a Google Workspace
+     * Updates or renews a Google Workspace subscription. To learn how to use this method, see [Update
+     * or renew a Google Workspace
      * subscription](https://developers.google.com/workspace/events/guides/update-subscription).
      *
      * Create a request for the method "subscriptions.patch".
@@ -1025,8 +1023,7 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
      * This request holds the parameters needed by the workspaceevents server.  After setting any
      * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
      *
-     * @param name Optional. Immutable. Identifier. Resource name of the subscription. Format:
-     *        `subscriptions/{subscription}`
+     * @param name Identifier. Resource name of the subscription. Format: `subscriptions/{subscription}`
      * @param content the {@link com.google.api.services.workspaceevents.v1.model.Subscription}
      * @return the request
      */
@@ -1044,10 +1041,9 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
           java.util.regex.Pattern.compile("^subscriptions/[^/]+$");
 
       /**
-       * [Developer Preview](https://developers.google.com/workspace/preview): Updates or renews a
-       * Google Workspace subscription. To learn how to use this method, see [Update or renew a Google
-       * Workspace subscription](https://developers.google.com/workspace/events/guides/update-
-       * subscription).
+       * Updates or renews a Google Workspace subscription. To learn how to use this method, see [Update
+       * or renew a Google Workspace
+       * subscription](https://developers.google.com/workspace/events/guides/update-subscription).
        *
        * Create a request for the method "subscriptions.patch".
        *
@@ -1057,8 +1053,7 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
        * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
        * be called to initialize this instance immediately after invoking the constructor. </p>
        *
-       * @param name Optional. Immutable. Identifier. Resource name of the subscription. Format:
-     *        `subscriptions/{subscription}`
+       * @param name Identifier. Resource name of the subscription. Format: `subscriptions/{subscription}`
        * @param content the {@link com.google.api.services.workspaceevents.v1.model.Subscription}
        * @since 1.13
        */
@@ -1127,24 +1122,17 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
         return (Patch) super.setUploadProtocol(uploadProtocol);
       }
 
-      /**
-       * Optional. Immutable. Identifier. Resource name of the subscription. Format:
-       * `subscriptions/{subscription}`
-       */
+      /** Identifier. Resource name of the subscription. Format: `subscriptions/{subscription}` */
       @com.google.api.client.util.Key
       private java.lang.String name;
 
-      /** Optional. Immutable. Identifier. Resource name of the subscription. Format:
-     `subscriptions/{subscription}`
+      /** Identifier. Resource name of the subscription. Format: `subscriptions/{subscription}`
        */
       public java.lang.String getName() {
         return name;
       }
 
-      /**
-       * Optional. Immutable. Identifier. Resource name of the subscription. Format:
-       * `subscriptions/{subscription}`
-       */
+      /** Identifier. Resource name of the subscription. Format: `subscriptions/{subscription}` */
       public Patch setName(java.lang.String name) {
         if (!getSuppressPatternChecks()) {
           com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
@@ -1218,10 +1206,10 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
       }
     }
     /**
-     * [Developer Preview](https://developers.google.com/workspace/preview): Reactivates a suspended
-     * Google Workspace subscription. This method resets your subscription's `State` field to `ACTIVE`.
-     * Before you use this method, you must fix the error that suspended the subscription. To learn how
-     * to use this method, see [Reactivate a Google Workspace
+     * Reactivates a suspended Google Workspace subscription. This method resets your subscription's
+     * `State` field to `ACTIVE`. Before you use this method, you must fix the error that suspended the
+     * subscription. This method will ignore or reject any subscription that isn't currently in a
+     * suspended state. To learn how to use this method, see [Reactivate a Google Workspace
      * subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
      *
      * Create a request for the method "subscriptions.reactivate".
@@ -1247,10 +1235,10 @@ public class WorkspaceEvents extends com.google.api.client.googleapis.services.j
           java.util.regex.Pattern.compile("^subscriptions/[^/]+$");
 
       /**
-       * [Developer Preview](https://developers.google.com/workspace/preview): Reactivates a suspended
-       * Google Workspace subscription. This method resets your subscription's `State` field to
-       * `ACTIVE`. Before you use this method, you must fix the error that suspended the subscription.
-       * To learn how to use this method, see [Reactivate a Google Workspace
+       * Reactivates a suspended Google Workspace subscription. This method resets your subscription's
+       * `State` field to `ACTIVE`. Before you use this method, you must fix the error that suspended
+       * the subscription. This method will ignore or reject any subscription that isn't currently in a
+       * suspended state. To learn how to use this method, see [Reactivate a Google Workspace
        * subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
        *
        * Create a request for the method "subscriptions.reactivate".

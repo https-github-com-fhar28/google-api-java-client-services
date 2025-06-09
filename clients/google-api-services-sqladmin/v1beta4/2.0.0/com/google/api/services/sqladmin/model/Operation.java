@@ -135,7 +135,14 @@ public final class Operation extends com.google.api.client.json.GenericJson {
   private java.lang.String status;
 
   /**
-   * Name of the database instance related to this operation.
+   * Optional. The sub operation based on the operation type.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SqlSubOperationType subOperationType;
+
+  /**
+   * Name of the resource on which this operation runs.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -412,7 +419,24 @@ public final class Operation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Name of the database instance related to this operation.
+   * Optional. The sub operation based on the operation type.
+   * @return value or {@code null} for none
+   */
+  public SqlSubOperationType getSubOperationType() {
+    return subOperationType;
+  }
+
+  /**
+   * Optional. The sub operation based on the operation type.
+   * @param subOperationType subOperationType or {@code null} for none
+   */
+  public Operation setSubOperationType(SqlSubOperationType subOperationType) {
+    this.subOperationType = subOperationType;
+    return this;
+  }
+
+  /**
+   * Name of the resource on which this operation runs.
    * @return value or {@code null} for none
    */
   public java.lang.String getTargetId() {
@@ -420,7 +444,7 @@ public final class Operation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Name of the database instance related to this operation.
+   * Name of the resource on which this operation runs.
    * @param targetId targetId or {@code null} for none
    */
   public Operation setTargetId(java.lang.String targetId) {

@@ -52,6 +52,41 @@ public final class Asset extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
+   * Output only. Asset information specific for database deployments.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private DatabaseDeploymentDetails databaseDeploymentDetails;
+
+  /**
+   * Output only. Asset information specific for logical databases.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private DatabaseDetails databaseDetails;
+
+  /**
+   * Optional. Indicates if the asset is hidden.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean hidden;
+
+  /**
+   * Optional. An optional reason for marking this asset as hidden.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String hideReason;
+
+  /**
+   * Output only. The timestamp when the asset was marked as hidden.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String hideTime;
+
+  /**
    * Output only. The list of insights associated with the asset.
    * The value may be {@code null}.
    */
@@ -92,6 +127,13 @@ public final class Asset extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> sources;
+
+  /**
+   * Output only. Server generated human readable name of the asset.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String title;
 
   /**
    * Output only. The timestamp when the asset was last updated.
@@ -148,6 +190,91 @@ public final class Asset extends com.google.api.client.json.GenericJson {
    */
   public Asset setCreateTime(String createTime) {
     this.createTime = createTime;
+    return this;
+  }
+
+  /**
+   * Output only. Asset information specific for database deployments.
+   * @return value or {@code null} for none
+   */
+  public DatabaseDeploymentDetails getDatabaseDeploymentDetails() {
+    return databaseDeploymentDetails;
+  }
+
+  /**
+   * Output only. Asset information specific for database deployments.
+   * @param databaseDeploymentDetails databaseDeploymentDetails or {@code null} for none
+   */
+  public Asset setDatabaseDeploymentDetails(DatabaseDeploymentDetails databaseDeploymentDetails) {
+    this.databaseDeploymentDetails = databaseDeploymentDetails;
+    return this;
+  }
+
+  /**
+   * Output only. Asset information specific for logical databases.
+   * @return value or {@code null} for none
+   */
+  public DatabaseDetails getDatabaseDetails() {
+    return databaseDetails;
+  }
+
+  /**
+   * Output only. Asset information specific for logical databases.
+   * @param databaseDetails databaseDetails or {@code null} for none
+   */
+  public Asset setDatabaseDetails(DatabaseDetails databaseDetails) {
+    this.databaseDetails = databaseDetails;
+    return this;
+  }
+
+  /**
+   * Optional. Indicates if the asset is hidden.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getHidden() {
+    return hidden;
+  }
+
+  /**
+   * Optional. Indicates if the asset is hidden.
+   * @param hidden hidden or {@code null} for none
+   */
+  public Asset setHidden(java.lang.Boolean hidden) {
+    this.hidden = hidden;
+    return this;
+  }
+
+  /**
+   * Optional. An optional reason for marking this asset as hidden.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getHideReason() {
+    return hideReason;
+  }
+
+  /**
+   * Optional. An optional reason for marking this asset as hidden.
+   * @param hideReason hideReason or {@code null} for none
+   */
+  public Asset setHideReason(java.lang.String hideReason) {
+    this.hideReason = hideReason;
+    return this;
+  }
+
+  /**
+   * Output only. The timestamp when the asset was marked as hidden.
+   * @return value or {@code null} for none
+   */
+  public String getHideTime() {
+    return hideTime;
+  }
+
+  /**
+   * Output only. The timestamp when the asset was marked as hidden.
+   * @param hideTime hideTime or {@code null} for none
+   */
+  public Asset setHideTime(String hideTime) {
+    this.hideTime = hideTime;
     return this;
   }
 
@@ -250,6 +377,23 @@ public final class Asset extends com.google.api.client.json.GenericJson {
    */
   public Asset setSources(java.util.List<java.lang.String> sources) {
     this.sources = sources;
+    return this;
+  }
+
+  /**
+   * Output only. Server generated human readable name of the asset.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getTitle() {
+    return title;
+  }
+
+  /**
+   * Output only. Server generated human readable name of the asset.
+   * @param title title or {@code null} for none
+   */
+  public Asset setTitle(java.lang.String title) {
+    this.title = title;
     return this;
   }
 

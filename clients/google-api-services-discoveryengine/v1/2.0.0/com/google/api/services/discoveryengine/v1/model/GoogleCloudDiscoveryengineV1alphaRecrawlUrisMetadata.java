@@ -38,12 +38,32 @@ public final class GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata extends 
   private String createTime;
 
   /**
-   * Unique URIs in the request that don't match any TargetSite in the DataStore, only match
-   * TargetSites that haven't been fully indexed, or match a TargetSite with type EXCLUDE.
+   * Unique URIs in the request that have invalid format. Sample limited to 1000.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> invalidUris;
+
+  /**
+   * Total number of unique URIs in the request that have invalid format.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer invalidUrisCount;
+
+  /**
+   * URIs that have no index meta tag. Sample limited to 1000.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> noindexUris;
+
+  /**
+   * Total number of URIs that have no index meta tag.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer noindexUrisCount;
 
   /**
    * Total number of URIs that have yet to be crawled.
@@ -74,6 +94,22 @@ public final class GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata extends 
   private String updateTime;
 
   /**
+   * Unique URIs in the request that don't match any TargetSite in the DataStore, only match
+   * TargetSites that haven't been fully indexed, or match a TargetSite with type EXCLUDE. Sample
+   * limited to 1000.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> urisNotMatchingTargetSites;
+
+  /**
+   * Total number of URIs that don't match any TargetSites.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer urisNotMatchingTargetSitesCount;
+
+  /**
    * Total number of unique URIs in the request that are not in invalid_uris.
    * The value may be {@code null}.
    */
@@ -98,8 +134,7 @@ public final class GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata extends 
   }
 
   /**
-   * Unique URIs in the request that don't match any TargetSite in the DataStore, only match
-   * TargetSites that haven't been fully indexed, or match a TargetSite with type EXCLUDE.
+   * Unique URIs in the request that have invalid format. Sample limited to 1000.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getInvalidUris() {
@@ -107,12 +142,62 @@ public final class GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata extends 
   }
 
   /**
-   * Unique URIs in the request that don't match any TargetSite in the DataStore, only match
-   * TargetSites that haven't been fully indexed, or match a TargetSite with type EXCLUDE.
+   * Unique URIs in the request that have invalid format. Sample limited to 1000.
    * @param invalidUris invalidUris or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata setInvalidUris(java.util.List<java.lang.String> invalidUris) {
     this.invalidUris = invalidUris;
+    return this;
+  }
+
+  /**
+   * Total number of unique URIs in the request that have invalid format.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getInvalidUrisCount() {
+    return invalidUrisCount;
+  }
+
+  /**
+   * Total number of unique URIs in the request that have invalid format.
+   * @param invalidUrisCount invalidUrisCount or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata setInvalidUrisCount(java.lang.Integer invalidUrisCount) {
+    this.invalidUrisCount = invalidUrisCount;
+    return this;
+  }
+
+  /**
+   * URIs that have no index meta tag. Sample limited to 1000.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getNoindexUris() {
+    return noindexUris;
+  }
+
+  /**
+   * URIs that have no index meta tag. Sample limited to 1000.
+   * @param noindexUris noindexUris or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata setNoindexUris(java.util.List<java.lang.String> noindexUris) {
+    this.noindexUris = noindexUris;
+    return this;
+  }
+
+  /**
+   * Total number of URIs that have no index meta tag.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getNoindexUrisCount() {
+    return noindexUrisCount;
+  }
+
+  /**
+   * Total number of URIs that have no index meta tag.
+   * @param noindexUrisCount noindexUrisCount or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata setNoindexUrisCount(java.lang.Integer noindexUrisCount) {
+    this.noindexUrisCount = noindexUrisCount;
     return this;
   }
 
@@ -181,6 +266,44 @@ public final class GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata extends 
    */
   public GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
+    return this;
+  }
+
+  /**
+   * Unique URIs in the request that don't match any TargetSite in the DataStore, only match
+   * TargetSites that haven't been fully indexed, or match a TargetSite with type EXCLUDE. Sample
+   * limited to 1000.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getUrisNotMatchingTargetSites() {
+    return urisNotMatchingTargetSites;
+  }
+
+  /**
+   * Unique URIs in the request that don't match any TargetSite in the DataStore, only match
+   * TargetSites that haven't been fully indexed, or match a TargetSite with type EXCLUDE. Sample
+   * limited to 1000.
+   * @param urisNotMatchingTargetSites urisNotMatchingTargetSites or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata setUrisNotMatchingTargetSites(java.util.List<java.lang.String> urisNotMatchingTargetSites) {
+    this.urisNotMatchingTargetSites = urisNotMatchingTargetSites;
+    return this;
+  }
+
+  /**
+   * Total number of URIs that don't match any TargetSites.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getUrisNotMatchingTargetSitesCount() {
+    return urisNotMatchingTargetSitesCount;
+  }
+
+  /**
+   * Total number of URIs that don't match any TargetSites.
+   * @param urisNotMatchingTargetSitesCount urisNotMatchingTargetSitesCount or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata setUrisNotMatchingTargetSitesCount(java.lang.Integer urisNotMatchingTargetSitesCount) {
+    this.urisNotMatchingTargetSitesCount = urisNotMatchingTargetSitesCount;
     return this;
   }
 

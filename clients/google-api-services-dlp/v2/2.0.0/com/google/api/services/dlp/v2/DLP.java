@@ -154,7 +154,7 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
   public class InfoTypes {
 
     /**
-     * Returns a list of the sensitive information types that DLP API supports. See
+     * Returns a list of the sensitive information types that the DLP API supports. See
      * https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
      *
      * Create a request for the method "infoTypes.list".
@@ -175,7 +175,7 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
       private static final String REST_PATH = "v2/infoTypes";
 
       /**
-       * Returns a list of the sensitive information types that DLP API supports. See
+       * Returns a list of the sensitive information types that the DLP API supports. See
        * https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
        *
        * Create a request for the method "infoTypes.list".
@@ -387,7 +387,7 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
     public class InfoTypes {
 
       /**
-       * Returns a list of the sensitive information types that DLP API supports. See
+       * Returns a list of the sensitive information types that the DLP API supports. See
        * https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
        *
        * Create a request for the method "infoTypes.list".
@@ -412,7 +412,7 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
             java.util.regex.Pattern.compile("^locations/[^/]+$");
 
         /**
-         * Returns a list of the sensitive information types that DLP API supports. See
+         * Returns a list of the sensitive information types that the DLP API supports. See
          * https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
          *
          * Create a request for the method "infoTypes.list".
@@ -6545,12 +6545,12 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
            * or more restrictions. * Restrictions can be combined by `AND` or `OR` logical
            * operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the
            * form of `{field} {operator} {value}`. * Supported fields/values: - `project_id` - The
-           * Google Cloud project ID. - `file_store_path` - The path like "gs://bucket". -
-           * `data_source_type` - The profile's data source type, like "google/storage/bucket". -
-           * `data_storage_location` - The location where the file store's data is stored, like "us-
-           * central1". - `sensitivity_level` - HIGH|MODERATE|LOW - `data_risk_level` -
-           * HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` - an RPC
-           * status code as defined in
+           * Google Cloud project ID. - `account_id` - The AWS account ID. - `file_store_path` - The
+           * path like "gs://bucket". - `data_source_type` - The profile's data source type, like
+           * "google/storage/bucket". - `data_storage_location` - The location where the file
+           * store's data is stored, like "us-central1". - `sensitivity_level` - HIGH|MODERATE|LOW -
+           * `data_risk_level` - HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED -
+           * `status_code` - an RPC status code as defined in
            * https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The
            * operator must be `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` *
            * `project_id = 12345 AND sensitivity_level = HIGH` * `project_id = 12345 AND
@@ -6563,14 +6563,15 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
           /** Optional. Allows filtering. Supported syntax: * Filter expressions are made up of one or more
          restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of
          restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. *
-         Supported fields/values: - `project_id` - The Google Cloud project ID. - `file_store_path` - The
-         path like "gs://bucket". - `data_source_type` - The profile's data source type, like
-         "google/storage/bucket". - `data_storage_location` - The location where the file store's data is
-         stored, like "us-central1". - `sensitivity_level` - HIGH|MODERATE|LOW - `data_risk_level` -
-         HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` - an RPC status code
-         as defined in https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The
-         operator must be `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` * `project_id =
-         12345 AND sensitivity_level = HIGH` * `project_id = 12345 AND resource_visibility = PUBLIC` *
+         Supported fields/values: - `project_id` - The Google Cloud project ID. - `account_id` - The AWS
+         account ID. - `file_store_path` - The path like "gs://bucket". - `data_source_type` - The profile's
+         data source type, like "google/storage/bucket". - `data_storage_location` - The location where the
+         file store's data is stored, like "us-central1". - `sensitivity_level` - HIGH|MODERATE|LOW -
+         `data_risk_level` - HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` -
+         an RPC status code as defined in
+         https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The operator must be
+         `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` * `project_id = 12345 AND
+         sensitivity_level = HIGH` * `project_id = 12345 AND resource_visibility = PUBLIC` *
          `file_store_path = "gs://mybucket"` The length of this field should be no more than 500 characters.
            */
           public java.lang.String getFilter() {
@@ -6582,12 +6583,12 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
            * or more restrictions. * Restrictions can be combined by `AND` or `OR` logical
            * operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the
            * form of `{field} {operator} {value}`. * Supported fields/values: - `project_id` - The
-           * Google Cloud project ID. - `file_store_path` - The path like "gs://bucket". -
-           * `data_source_type` - The profile's data source type, like "google/storage/bucket". -
-           * `data_storage_location` - The location where the file store's data is stored, like "us-
-           * central1". - `sensitivity_level` - HIGH|MODERATE|LOW - `data_risk_level` -
-           * HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` - an RPC
-           * status code as defined in
+           * Google Cloud project ID. - `account_id` - The AWS account ID. - `file_store_path` - The
+           * path like "gs://bucket". - `data_source_type` - The profile's data source type, like
+           * "google/storage/bucket". - `data_storage_location` - The location where the file
+           * store's data is stored, like "us-central1". - `sensitivity_level` - HIGH|MODERATE|LOW -
+           * `data_risk_level` - HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED -
+           * `status_code` - an RPC status code as defined in
            * https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The
            * operator must be `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` *
            * `project_id = 12345 AND sensitivity_level = HIGH` * `project_id = 12345 AND
@@ -6681,6 +6682,236 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
           /** Optional. Page token to continue retrieval. */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the InfoTypes collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code DLP dlp = new DLP(...);}
+       *   {@code DLP.InfoTypes.List request = dlp.infoTypes().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public InfoTypes infoTypes() {
+        return new InfoTypes();
+      }
+
+      /**
+       * The "infoTypes" collection of methods.
+       */
+      public class InfoTypes {
+
+        /**
+         * Returns a list of the sensitive information types that the DLP API supports. See
+         * https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
+         *
+         * Create a request for the method "infoTypes.list".
+         *
+         * This request holds the parameters needed by the dlp server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent The parent resource name. The format of this value is as follows: `locations/{location_id}`
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends DLPRequest<com.google.api.services.dlp.v2.model.GooglePrivacyDlpV2ListInfoTypesResponse> {
+
+          private static final String REST_PATH = "v2/{+parent}/infoTypes";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^organizations/[^/]+/locations/[^/]+$");
+
+          /**
+           * Returns a list of the sensitive information types that the DLP API supports. See
+           * https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
+           *
+           * Create a request for the method "infoTypes.list".
+           *
+           * This request holds the parameters needed by the the dlp server.  After setting any optional
+           * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+           * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+           * called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent The parent resource name. The format of this value is as follows: `locations/{location_id}`
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(DLP.this, "GET", REST_PATH, null, com.google.api.services.dlp.v2.model.GooglePrivacyDlpV2ListInfoTypesResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^organizations/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * The parent resource name. The format of this value is as follows:
+           * `locations/{location_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** The parent resource name. The format of this value is as follows: `locations/{location_id}`
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * The parent resource name. The format of this value is as follows:
+           * `locations/{location_id}`
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^organizations/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * filter to only return infoTypes supported by certain parts of the API. Defaults to
+           * supported_by=INSPECT.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** filter to only return infoTypes supported by certain parts of the API. Defaults to
+         supported_by=INSPECT.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * filter to only return infoTypes supported by certain parts of the API. Defaults to
+           * supported_by=INSPECT.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * BCP-47 language code for localized infoType friendly names. If omitted, or if localized
+           * strings are not available, en-US strings will be returned.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String languageCode;
+
+          /** BCP-47 language code for localized infoType friendly names. If omitted, or if localized strings are
+         not available, en-US strings will be returned.
+           */
+          public java.lang.String getLanguageCode() {
+            return languageCode;
+          }
+
+          /**
+           * BCP-47 language code for localized infoType friendly names. If omitted, or if localized
+           * strings are not available, en-US strings will be returned.
+           */
+          public List setLanguageCode(java.lang.String languageCode) {
+            this.languageCode = languageCode;
+            return this;
+          }
+
+          /** Deprecated. This field has no effect. */
+          @com.google.api.client.util.Key
+          private java.lang.String locationId;
+
+          /** Deprecated. This field has no effect.
+           */
+          public java.lang.String getLocationId() {
+            return locationId;
+          }
+
+          /** Deprecated. This field has no effect. */
+          public List setLocationId(java.lang.String locationId) {
+            this.locationId = locationId;
             return this;
           }
 
@@ -13935,7 +14166,8 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
        * protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or
        * CustomInfoTypes are specified in this request, the system will automatically choose what
        * detectors to run. By default this may be all types, but may change over time as detectors are
-       * updated.
+       * updated. Only the first frame of each multiframe image is redacted. Metadata and other frames are
+       * omitted in the response.
        *
        * Create a request for the method "image.redact".
        *
@@ -13972,7 +14204,8 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
          * protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or
          * CustomInfoTypes are specified in this request, the system will automatically choose what
          * detectors to run. By default this may be all types, but may change over time as detectors are
-         * updated.
+         * updated. Only the first frame of each multiframe image is redacted. Metadata and other frames
+         * are omitted in the response.
          *
          * Create a request for the method "image.redact".
          *
@@ -21618,12 +21851,12 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
            * or more restrictions. * Restrictions can be combined by `AND` or `OR` logical
            * operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the
            * form of `{field} {operator} {value}`. * Supported fields/values: - `project_id` - The
-           * Google Cloud project ID. - `file_store_path` - The path like "gs://bucket". -
-           * `data_source_type` - The profile's data source type, like "google/storage/bucket". -
-           * `data_storage_location` - The location where the file store's data is stored, like "us-
-           * central1". - `sensitivity_level` - HIGH|MODERATE|LOW - `data_risk_level` -
-           * HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` - an RPC
-           * status code as defined in
+           * Google Cloud project ID. - `account_id` - The AWS account ID. - `file_store_path` - The
+           * path like "gs://bucket". - `data_source_type` - The profile's data source type, like
+           * "google/storage/bucket". - `data_storage_location` - The location where the file
+           * store's data is stored, like "us-central1". - `sensitivity_level` - HIGH|MODERATE|LOW -
+           * `data_risk_level` - HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED -
+           * `status_code` - an RPC status code as defined in
            * https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The
            * operator must be `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` *
            * `project_id = 12345 AND sensitivity_level = HIGH` * `project_id = 12345 AND
@@ -21636,14 +21869,15 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
           /** Optional. Allows filtering. Supported syntax: * Filter expressions are made up of one or more
          restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of
          restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. *
-         Supported fields/values: - `project_id` - The Google Cloud project ID. - `file_store_path` - The
-         path like "gs://bucket". - `data_source_type` - The profile's data source type, like
-         "google/storage/bucket". - `data_storage_location` - The location where the file store's data is
-         stored, like "us-central1". - `sensitivity_level` - HIGH|MODERATE|LOW - `data_risk_level` -
-         HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` - an RPC status code
-         as defined in https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The
-         operator must be `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` * `project_id =
-         12345 AND sensitivity_level = HIGH` * `project_id = 12345 AND resource_visibility = PUBLIC` *
+         Supported fields/values: - `project_id` - The Google Cloud project ID. - `account_id` - The AWS
+         account ID. - `file_store_path` - The path like "gs://bucket". - `data_source_type` - The profile's
+         data source type, like "google/storage/bucket". - `data_storage_location` - The location where the
+         file store's data is stored, like "us-central1". - `sensitivity_level` - HIGH|MODERATE|LOW -
+         `data_risk_level` - HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` -
+         an RPC status code as defined in
+         https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The operator must be
+         `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` * `project_id = 12345 AND
+         sensitivity_level = HIGH` * `project_id = 12345 AND resource_visibility = PUBLIC` *
          `file_store_path = "gs://mybucket"` The length of this field should be no more than 500 characters.
            */
           public java.lang.String getFilter() {
@@ -21655,12 +21889,12 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
            * or more restrictions. * Restrictions can be combined by `AND` or `OR` logical
            * operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the
            * form of `{field} {operator} {value}`. * Supported fields/values: - `project_id` - The
-           * Google Cloud project ID. - `file_store_path` - The path like "gs://bucket". -
-           * `data_source_type` - The profile's data source type, like "google/storage/bucket". -
-           * `data_storage_location` - The location where the file store's data is stored, like "us-
-           * central1". - `sensitivity_level` - HIGH|MODERATE|LOW - `data_risk_level` -
-           * HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` - an RPC
-           * status code as defined in
+           * Google Cloud project ID. - `account_id` - The AWS account ID. - `file_store_path` - The
+           * path like "gs://bucket". - `data_source_type` - The profile's data source type, like
+           * "google/storage/bucket". - `data_storage_location` - The location where the file
+           * store's data is stored, like "us-central1". - `sensitivity_level` - HIGH|MODERATE|LOW -
+           * `data_risk_level` - HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED -
+           * `status_code` - an RPC status code as defined in
            * https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The
            * operator must be `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` *
            * `project_id = 12345 AND sensitivity_level = HIGH` * `project_id = 12345 AND
@@ -21790,7 +22024,8 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
          * protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or
          * CustomInfoTypes are specified in this request, the system will automatically choose what
          * detectors to run. By default this may be all types, but may change over time as detectors are
-         * updated.
+         * updated. Only the first frame of each multiframe image is redacted. Metadata and other frames are
+         * omitted in the response.
          *
          * Create a request for the method "image.redact".
          *
@@ -21827,7 +22062,8 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
            * protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or
            * CustomInfoTypes are specified in this request, the system will automatically choose what
            * detectors to run. By default this may be all types, but may change over time as detectors are
-           * updated.
+           * updated. Only the first frame of each multiframe image is redacted. Metadata and other frames
+           * are omitted in the response.
            *
            * Create a request for the method "image.redact".
            *
@@ -21959,6 +22195,236 @@ public class DLP extends com.google.api.client.googleapis.services.json.Abstract
           @Override
           public Redact set(String parameterName, Object value) {
             return (Redact) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the InfoTypes collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code DLP dlp = new DLP(...);}
+       *   {@code DLP.InfoTypes.List request = dlp.infoTypes().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public InfoTypes infoTypes() {
+        return new InfoTypes();
+      }
+
+      /**
+       * The "infoTypes" collection of methods.
+       */
+      public class InfoTypes {
+
+        /**
+         * Returns a list of the sensitive information types that the DLP API supports. See
+         * https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
+         *
+         * Create a request for the method "infoTypes.list".
+         *
+         * This request holds the parameters needed by the dlp server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent The parent resource name. The format of this value is as follows: `locations/{location_id}`
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends DLPRequest<com.google.api.services.dlp.v2.model.GooglePrivacyDlpV2ListInfoTypesResponse> {
+
+          private static final String REST_PATH = "v2/{+parent}/infoTypes";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Returns a list of the sensitive information types that the DLP API supports. See
+           * https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
+           *
+           * Create a request for the method "infoTypes.list".
+           *
+           * This request holds the parameters needed by the the dlp server.  After setting any optional
+           * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+           * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+           * called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent The parent resource name. The format of this value is as follows: `locations/{location_id}`
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(DLP.this, "GET", REST_PATH, null, com.google.api.services.dlp.v2.model.GooglePrivacyDlpV2ListInfoTypesResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * The parent resource name. The format of this value is as follows:
+           * `locations/{location_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** The parent resource name. The format of this value is as follows: `locations/{location_id}`
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * The parent resource name. The format of this value is as follows:
+           * `locations/{location_id}`
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * filter to only return infoTypes supported by certain parts of the API. Defaults to
+           * supported_by=INSPECT.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** filter to only return infoTypes supported by certain parts of the API. Defaults to
+         supported_by=INSPECT.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * filter to only return infoTypes supported by certain parts of the API. Defaults to
+           * supported_by=INSPECT.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * BCP-47 language code for localized infoType friendly names. If omitted, or if localized
+           * strings are not available, en-US strings will be returned.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String languageCode;
+
+          /** BCP-47 language code for localized infoType friendly names. If omitted, or if localized strings are
+         not available, en-US strings will be returned.
+           */
+          public java.lang.String getLanguageCode() {
+            return languageCode;
+          }
+
+          /**
+           * BCP-47 language code for localized infoType friendly names. If omitted, or if localized
+           * strings are not available, en-US strings will be returned.
+           */
+          public List setLanguageCode(java.lang.String languageCode) {
+            this.languageCode = languageCode;
+            return this;
+          }
+
+          /** Deprecated. This field has no effect. */
+          @com.google.api.client.util.Key
+          private java.lang.String locationId;
+
+          /** Deprecated. This field has no effect.
+           */
+          public java.lang.String getLocationId() {
+            return locationId;
+          }
+
+          /** Deprecated. This field has no effect. */
+          public List setLocationId(java.lang.String locationId) {
+            this.locationId = locationId;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
           }
         }
 

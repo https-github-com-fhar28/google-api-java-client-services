@@ -25,7 +25,7 @@ package com.google.api.services.reports;
  *
  * <p>
  * For more information about this service, see the
- * <a href="https://developers.google.com/admin-sdk/" target="_blank">API Documentation</a>
+ * <a href="https://developers.google.com/workspace/admin/" target="_blank">API Documentation</a>
  * </p>
  *
  * <p>
@@ -592,14 +592,20 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
       /**
        * Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the
        * response will contain activities for only those users that are a part of at least one of
-       * the group ids mentioned here. Format: "id:abc123,id:xyz456"
+       * the group ids mentioned here. Format: "id:abc123,id:xyz456" *Important:* To filter by
+       * groups, you must explicitly add the groups to your filtering groups allowlist. For more
+       * information about adding groups to filtering groups allowlist, see [Filter results by
+       * Google Group](https://support.google.com/a/answer/11482175)
        */
       @com.google.api.client.util.Key
       private java.lang.String groupIdFilter;
 
       /** Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the response
      will contain activities for only those users that are a part of at least one of the group ids
-     mentioned here. Format: "id:abc123,id:xyz456"
+     mentioned here. Format: "id:abc123,id:xyz456" *Important:* To filter by groups, you must explicitly
+     add the groups to your filtering groups allowlist. For more information about adding groups to
+     filtering groups allowlist, see [Filter results by Google
+     Group](https://support.google.com/a/answer/11482175)
        */
       public java.lang.String getGroupIdFilter() {
         return groupIdFilter;
@@ -608,7 +614,10 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
       /**
        * Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the
        * response will contain activities for only those users that are a part of at least one of
-       * the group ids mentioned here. Format: "id:abc123,id:xyz456"
+       * the group ids mentioned here. Format: "id:abc123,id:xyz456" *Important:* To filter by
+       * groups, you must explicitly add the groups to your filtering groups allowlist. For more
+       * information about adding groups to filtering groups allowlist, see [Filter results by
+       * Google Group](https://support.google.com/a/answer/11482175)
        */
       public List setGroupIdFilter(java.lang.String groupIdFilter) {
         if (!getSuppressPatternChecks()) {
@@ -1172,14 +1181,20 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
       /**
        * Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the
        * response will contain activities for only those users that are a part of at least one of
-       * the group ids mentioned here. Format: "id:abc123,id:xyz456"
+       * the group ids mentioned here. Format: "id:abc123,id:xyz456" *Important:* To filter by
+       * groups, you must explicitly add the groups to your filtering groups allowlist. For more
+       * information about adding groups to filtering groups allowlist, see [Filter results by
+       * Google Group](https://support.google.com/a/answer/11482175)
        */
       @com.google.api.client.util.Key
       private java.lang.String groupIdFilter;
 
       /** Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the response
      will contain activities for only those users that are a part of at least one of the group ids
-     mentioned here. Format: "id:abc123,id:xyz456"
+     mentioned here. Format: "id:abc123,id:xyz456" *Important:* To filter by groups, you must explicitly
+     add the groups to your filtering groups allowlist. For more information about adding groups to
+     filtering groups allowlist, see [Filter results by Google
+     Group](https://support.google.com/a/answer/11482175)
        */
       public java.lang.String getGroupIdFilter() {
         return groupIdFilter;
@@ -1188,7 +1203,10 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
       /**
        * Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the
        * response will contain activities for only those users that are a part of at least one of
-       * the group ids mentioned here. Format: "id:abc123,id:xyz456"
+       * the group ids mentioned here. Format: "id:abc123,id:xyz456" *Important:* To filter by
+       * groups, you must explicitly add the groups to your filtering groups allowlist. For more
+       * information about adding groups to filtering groups allowlist, see [Filter results by
+       * Google Group](https://support.google.com/a/answer/11482175)
        */
       public Watch setGroupIdFilter(java.lang.String groupIdFilter) {
         if (!getSuppressPatternChecks()) {
@@ -1504,7 +1522,7 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
           java.util.regex.Pattern.compile("C.+|my_customer");
 
       private final java.util.regex.Pattern PARAMETERS_PATTERN =
-          java.util.regex.Pattern.compile("(((accounts)|(app_maker)|(apps_scripts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)|(meet)):[^,]+,)*(((accounts)|(app_maker)|(apps_scripts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)|(meet)):[^,]+)");
+          java.util.regex.Pattern.compile("(((accounts)|(app_maker)|(apps_scripts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)|(meet)):[^,]+,)*(((accounts)|(app_maker)|(apps_scripts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)|(meet)):[^,]+)");
 
       /**
        * Retrieves a report which is a collection of properties and statistics for a specific customer's
@@ -1678,30 +1696,30 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
        * The `parameters` query string is a comma-separated list of event parameters that refine a
        * report's results. The parameter is associated with a specific application. The application
        * values for the Customers usage report include `accounts`, `app_maker`, `apps_scripts`,
-       * `calendar`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and
-       * `sites`. A `parameters` query string is in the CSV form of `app_name1:param_name1,
-       * app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a parameter. If a
-       * particular parameter is supplied more than once in the API request, the API only accepts
-       * the last value of that request parameter. In addition, if an invalid request parameter is
-       * supplied in the API request, the API ignores that request parameter and returns the
-       * response corresponding to the remaining valid request parameters. An example of an invalid
-       * request parameter is one that does not belong to the application. If no parameters are
-       * requested, all parameters are returned.
+       * `calendar`, `chat`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`,
+       * `meet`, and `sites`. A `parameters` query string is in the CSV form of
+       * `app_name1:param_name1, app_name2:param_name2`. *Note:* The API doesn't accept multiple
+       * values of a parameter. If a particular parameter is supplied more than once in the API
+       * request, the API only accepts the last value of that request parameter. In addition, if an
+       * invalid request parameter is supplied in the API request, the API ignores that request
+       * parameter and returns the response corresponding to the remaining valid request parameters.
+       * An example of an invalid request parameter is one that does not belong to the application.
+       * If no parameters are requested, all parameters are returned.
        */
       @com.google.api.client.util.Key
       private java.lang.String parameters;
 
       /** The `parameters` query string is a comma-separated list of event parameters that refine a report's
      results. The parameter is associated with a specific application. The application values for the
-     Customers usage report include `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`,
-     `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A `parameters` query
-     string is in the CSV form of `app_name1:param_name1, app_name2:param_name2`. *Note:* The API
-     doesn't accept multiple values of a parameter. If a particular parameter is supplied more than once
-     in the API request, the API only accepts the last value of that request parameter. In addition, if
-     an invalid request parameter is supplied in the API request, the API ignores that request parameter
-     and returns the response corresponding to the remaining valid request parameters. An example of an
-     invalid request parameter is one that does not belong to the application. If no parameters are
-     requested, all parameters are returned.
+     Customers usage report include `accounts`, `app_maker`, `apps_scripts`, `calendar`, `chat`,
+     `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A
+     `parameters` query string is in the CSV form of `app_name1:param_name1, app_name2:param_name2`.
+     *Note:* The API doesn't accept multiple values of a parameter. If a particular parameter is
+     supplied more than once in the API request, the API only accepts the last value of that request
+     parameter. In addition, if an invalid request parameter is supplied in the API request, the API
+     ignores that request parameter and returns the response corresponding to the remaining valid
+     request parameters. An example of an invalid request parameter is one that does not belong to the
+     application. If no parameters are requested, all parameters are returned.
        */
       public java.lang.String getParameters() {
         return parameters;
@@ -1711,21 +1729,21 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
        * The `parameters` query string is a comma-separated list of event parameters that refine a
        * report's results. The parameter is associated with a specific application. The application
        * values for the Customers usage report include `accounts`, `app_maker`, `apps_scripts`,
-       * `calendar`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and
-       * `sites`. A `parameters` query string is in the CSV form of `app_name1:param_name1,
-       * app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a parameter. If a
-       * particular parameter is supplied more than once in the API request, the API only accepts
-       * the last value of that request parameter. In addition, if an invalid request parameter is
-       * supplied in the API request, the API ignores that request parameter and returns the
-       * response corresponding to the remaining valid request parameters. An example of an invalid
-       * request parameter is one that does not belong to the application. If no parameters are
-       * requested, all parameters are returned.
+       * `calendar`, `chat`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`,
+       * `meet`, and `sites`. A `parameters` query string is in the CSV form of
+       * `app_name1:param_name1, app_name2:param_name2`. *Note:* The API doesn't accept multiple
+       * values of a parameter. If a particular parameter is supplied more than once in the API
+       * request, the API only accepts the last value of that request parameter. In addition, if an
+       * invalid request parameter is supplied in the API request, the API ignores that request
+       * parameter and returns the response corresponding to the remaining valid request parameters.
+       * An example of an invalid request parameter is one that does not belong to the application.
+       * If no parameters are requested, all parameters are returned.
        */
       public Get setParameters(java.lang.String parameters) {
         if (!getSuppressPatternChecks()) {
           com.google.api.client.util.Preconditions.checkArgument(PARAMETERS_PATTERN.matcher(parameters).matches(),
               "Parameter parameters must conform to the pattern " +
-              "(((accounts)|(app_maker)|(apps_scripts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)|(meet)):[^,]+,)*(((accounts)|(app_maker)|(apps_scripts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)|(meet)):[^,]+)");
+              "(((accounts)|(app_maker)|(apps_scripts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)|(meet)):[^,]+,)*(((accounts)|(app_maker)|(apps_scripts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)|(meet)):[^,]+)");
         }
         this.parameters = parameters;
         return this;
@@ -2239,7 +2257,7 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
           java.util.regex.Pattern.compile("C.+|my_customer");
 
       private final java.util.regex.Pattern FILTERS_PATTERN =
-          java.util.regex.Pattern.compile("(((accounts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[a-z0-9_]+[<,<=,==,>=,>,!=][^,]+,)*(((accounts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[a-z0-9_]+[<,<=,==,>=,>,!=][^,]+)");
+          java.util.regex.Pattern.compile("(((accounts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[a-z0-9_]+[<,<=,==,>=,>,!=][^,]+,)*(((accounts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[a-z0-9_]+[<,<=,==,>=,>,!=][^,]+)");
 
       private final java.util.regex.Pattern GROUP_ID_FILTER_PATTERN =
           java.util.regex.Pattern.compile("(id:[a-z0-9]+(,id:[a-z0-9]+)*)");
@@ -2248,7 +2266,7 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
           java.util.regex.Pattern.compile("(id:[a-z0-9]+)");
 
       private final java.util.regex.Pattern PARAMETERS_PATTERN =
-          java.util.regex.Pattern.compile("(((accounts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[^,]+,)*(((accounts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[^,]+)");
+          java.util.regex.Pattern.compile("(((accounts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[^,]+,)*(((accounts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[^,]+)");
 
       /**
        * Retrieves a report which is a collection of properties and statistics for a set of users with
@@ -2432,10 +2450,11 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
        * The `filters` query string is a comma-separated list of an application's event parameters
        * where the parameter's value is manipulated by a relational operator. The `filters` query
        * string includes the name of the application whose usage is returned in the report. The
-       * application values for the Users Usage Report include `accounts`, `docs`, and `gmail`.
-       * Filters are in the form `[application name]:parameter name[parameter value],...`. In this
-       * example, the `<>` 'not equal to' operator is URL-encoded in the request's query string
-       * (%3C%3E): GET https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
+       * application values for the Users Usage Report include `accounts`, `chat`, `docs`, and
+       * `gmail`. Filters are in the form `[application name]:parameter name[parameter value],...`.
+       * In this example, the `<>` 'not equal to' operator is URL-encoded in the request's query
+       * string (%3C%3E): GET
+       * https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
        * ?parameters=accounts:last_login_time
        * &filters=accounts:last_login_time%3C%3E2010-10-28T10:26:35.000Z The relational operators
        * include: - `==` - 'equal to'. - `<>` - 'not equal to'. It is URL-encoded (%3C%3E). - `<` -
@@ -2449,7 +2468,7 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
       /** The `filters` query string is a comma-separated list of an application's event parameters where the
      parameter's value is manipulated by a relational operator. The `filters` query string includes the
      name of the application whose usage is returned in the report. The application values for the Users
-     Usage Report include `accounts`, `docs`, and `gmail`. Filters are in the form `[application
+     Usage Report include `accounts`, `chat`, `docs`, and `gmail`. Filters are in the form `[application
      name]:parameter name[parameter value],...`. In this example, the `<>` 'not equal to' operator is
      URL-encoded in the request's query string (%3C%3E): GET
      https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
@@ -2467,10 +2486,11 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
        * The `filters` query string is a comma-separated list of an application's event parameters
        * where the parameter's value is manipulated by a relational operator. The `filters` query
        * string includes the name of the application whose usage is returned in the report. The
-       * application values for the Users Usage Report include `accounts`, `docs`, and `gmail`.
-       * Filters are in the form `[application name]:parameter name[parameter value],...`. In this
-       * example, the `<>` 'not equal to' operator is URL-encoded in the request's query string
-       * (%3C%3E): GET https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
+       * application values for the Users Usage Report include `accounts`, `chat`, `docs`, and
+       * `gmail`. Filters are in the form `[application name]:parameter name[parameter value],...`.
+       * In this example, the `<>` 'not equal to' operator is URL-encoded in the request's query
+       * string (%3C%3E): GET
+       * https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
        * ?parameters=accounts:last_login_time
        * &filters=accounts:last_login_time%3C%3E2010-10-28T10:26:35.000Z The relational operators
        * include: - `==` - 'equal to'. - `<>` - 'not equal to'. It is URL-encoded (%3C%3E). - `<` -
@@ -2482,7 +2502,7 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
         if (!getSuppressPatternChecks()) {
           com.google.api.client.util.Preconditions.checkArgument(FILTERS_PATTERN.matcher(filters).matches(),
               "Parameter filters must conform to the pattern " +
-              "(((accounts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[a-z0-9_]+[<,<=,==,>=,>,!=][^,]+,)*(((accounts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[a-z0-9_]+[<,<=,==,>=,>,!=][^,]+)");
+              "(((accounts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[a-z0-9_]+[<,<=,==,>=,>,!=][^,]+,)*(((accounts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[a-z0-9_]+[<,<=,==,>=,>,!=][^,]+)");
         }
         this.filters = filters;
         return this;
@@ -2609,30 +2629,30 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
        * The `parameters` query string is a comma-separated list of event parameters that refine a
        * report's results. The parameter is associated with a specific application. The application
        * values for the Customers Usage report include `accounts`, `app_maker`, `apps_scripts`,
-       * `calendar`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and
-       * `sites`. A `parameters` query string is in the CSV form of `app_name1:param_name1,
-       * app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a parameter. If a
-       * particular parameter is supplied more than once in the API request, the API only accepts
-       * the last value of that request parameter. In addition, if an invalid request parameter is
-       * supplied in the API request, the API ignores that request parameter and returns the
-       * response corresponding to the remaining valid request parameters. An example of an invalid
-       * request parameter is one that does not belong to the application. If no parameters are
-       * requested, all parameters are returned.
+       * `calendar`, `chat`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`,
+       * `meet`, and `sites`. A `parameters` query string is in the CSV form of
+       * `app_name1:param_name1, app_name2:param_name2`. *Note:* The API doesn't accept multiple
+       * values of a parameter. If a particular parameter is supplied more than once in the API
+       * request, the API only accepts the last value of that request parameter. In addition, if an
+       * invalid request parameter is supplied in the API request, the API ignores that request
+       * parameter and returns the response corresponding to the remaining valid request parameters.
+       * An example of an invalid request parameter is one that does not belong to the application.
+       * If no parameters are requested, all parameters are returned.
        */
       @com.google.api.client.util.Key
       private java.lang.String parameters;
 
       /** The `parameters` query string is a comma-separated list of event parameters that refine a report's
      results. The parameter is associated with a specific application. The application values for the
-     Customers Usage report include `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`,
-     `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A `parameters` query
-     string is in the CSV form of `app_name1:param_name1, app_name2:param_name2`. *Note:* The API
-     doesn't accept multiple values of a parameter. If a particular parameter is supplied more than once
-     in the API request, the API only accepts the last value of that request parameter. In addition, if
-     an invalid request parameter is supplied in the API request, the API ignores that request parameter
-     and returns the response corresponding to the remaining valid request parameters. An example of an
-     invalid request parameter is one that does not belong to the application. If no parameters are
-     requested, all parameters are returned.
+     Customers Usage report include `accounts`, `app_maker`, `apps_scripts`, `calendar`, `chat`,
+     `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A
+     `parameters` query string is in the CSV form of `app_name1:param_name1, app_name2:param_name2`.
+     *Note:* The API doesn't accept multiple values of a parameter. If a particular parameter is
+     supplied more than once in the API request, the API only accepts the last value of that request
+     parameter. In addition, if an invalid request parameter is supplied in the API request, the API
+     ignores that request parameter and returns the response corresponding to the remaining valid
+     request parameters. An example of an invalid request parameter is one that does not belong to the
+     application. If no parameters are requested, all parameters are returned.
        */
       public java.lang.String getParameters() {
         return parameters;
@@ -2642,21 +2662,21 @@ public class Reports extends com.google.api.client.googleapis.services.json.Abst
        * The `parameters` query string is a comma-separated list of event parameters that refine a
        * report's results. The parameter is associated with a specific application. The application
        * values for the Customers Usage report include `accounts`, `app_maker`, `apps_scripts`,
-       * `calendar`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and
-       * `sites`. A `parameters` query string is in the CSV form of `app_name1:param_name1,
-       * app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a parameter. If a
-       * particular parameter is supplied more than once in the API request, the API only accepts
-       * the last value of that request parameter. In addition, if an invalid request parameter is
-       * supplied in the API request, the API ignores that request parameter and returns the
-       * response corresponding to the remaining valid request parameters. An example of an invalid
-       * request parameter is one that does not belong to the application. If no parameters are
-       * requested, all parameters are returned.
+       * `calendar`, `chat`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`,
+       * `meet`, and `sites`. A `parameters` query string is in the CSV form of
+       * `app_name1:param_name1, app_name2:param_name2`. *Note:* The API doesn't accept multiple
+       * values of a parameter. If a particular parameter is supplied more than once in the API
+       * request, the API only accepts the last value of that request parameter. In addition, if an
+       * invalid request parameter is supplied in the API request, the API ignores that request
+       * parameter and returns the response corresponding to the remaining valid request parameters.
+       * An example of an invalid request parameter is one that does not belong to the application.
+       * If no parameters are requested, all parameters are returned.
        */
       public Get setParameters(java.lang.String parameters) {
         if (!getSuppressPatternChecks()) {
           com.google.api.client.util.Preconditions.checkArgument(PARAMETERS_PATTERN.matcher(parameters).matches(),
               "Parameter parameters must conform to the pattern " +
-              "(((accounts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[^,]+,)*(((accounts)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[^,]+)");
+              "(((accounts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[^,]+,)*(((accounts)|(chat)|(classroom)|(cros)|(gmail)|(calendar)|(docs)|(gplus)|(sites)|(device_management)|(drive)):[^,]+)");
         }
         this.parameters = parameters;
         return this;

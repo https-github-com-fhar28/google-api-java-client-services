@@ -151,6 +151,21 @@ public final class MigrationJob extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
+   * Optional. The objects that need to be migrated.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MigrationJobObjectsConfig objectsConfig;
+
+  /**
+   * Configuration for heterogeneous **Oracle to Cloud SQL for PostgreSQL** and **Oracle to AlloyDB
+   * for PostgreSQL** migrations.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private OracleToPostgresConfig oracleToPostgresConfig;
+
+  /**
    * Optional. Data dump parallelism settings used by the migration.
    * The value may be {@code null}.
    */
@@ -172,6 +187,20 @@ public final class MigrationJob extends com.google.api.client.json.GenericJson {
   private ReverseSshConnectivity reverseSshConnectivity;
 
   /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzs;
+
+  /**
    * Required. The resource name (URI) of the source connection profile.
    * The value may be {@code null}.
    */
@@ -191,6 +220,13 @@ public final class MigrationJob extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private SqlServerHomogeneousMigrationJobConfig sqlserverHomogeneousMigrationJobConfig;
+
+  /**
+   * Configuration for heterogeneous **SQL Server to Cloud SQL for PostgreSQL** migrations.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SqlServerToPostgresConfig sqlserverToPostgresConfig;
 
   /**
    * The current migration job state.
@@ -514,6 +550,42 @@ public final class MigrationJob extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. The objects that need to be migrated.
+   * @return value or {@code null} for none
+   */
+  public MigrationJobObjectsConfig getObjectsConfig() {
+    return objectsConfig;
+  }
+
+  /**
+   * Optional. The objects that need to be migrated.
+   * @param objectsConfig objectsConfig or {@code null} for none
+   */
+  public MigrationJob setObjectsConfig(MigrationJobObjectsConfig objectsConfig) {
+    this.objectsConfig = objectsConfig;
+    return this;
+  }
+
+  /**
+   * Configuration for heterogeneous **Oracle to Cloud SQL for PostgreSQL** and **Oracle to AlloyDB
+   * for PostgreSQL** migrations.
+   * @return value or {@code null} for none
+   */
+  public OracleToPostgresConfig getOracleToPostgresConfig() {
+    return oracleToPostgresConfig;
+  }
+
+  /**
+   * Configuration for heterogeneous **Oracle to Cloud SQL for PostgreSQL** and **Oracle to AlloyDB
+   * for PostgreSQL** migrations.
+   * @param oracleToPostgresConfig oracleToPostgresConfig or {@code null} for none
+   */
+  public MigrationJob setOracleToPostgresConfig(OracleToPostgresConfig oracleToPostgresConfig) {
+    this.oracleToPostgresConfig = oracleToPostgresConfig;
+    return this;
+  }
+
+  /**
    * Optional. Data dump parallelism settings used by the migration.
    * @return value or {@code null} for none
    */
@@ -565,6 +637,40 @@ public final class MigrationJob extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public MigrationJob setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzs() {
+    return satisfiesPzs;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzs satisfiesPzs or {@code null} for none
+   */
+  public MigrationJob setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
+    this.satisfiesPzs = satisfiesPzs;
+    return this;
+  }
+
+  /**
    * Required. The resource name (URI) of the source connection profile.
    * @return value or {@code null} for none
    */
@@ -612,6 +718,23 @@ public final class MigrationJob extends com.google.api.client.json.GenericJson {
    */
   public MigrationJob setSqlserverHomogeneousMigrationJobConfig(SqlServerHomogeneousMigrationJobConfig sqlserverHomogeneousMigrationJobConfig) {
     this.sqlserverHomogeneousMigrationJobConfig = sqlserverHomogeneousMigrationJobConfig;
+    return this;
+  }
+
+  /**
+   * Configuration for heterogeneous **SQL Server to Cloud SQL for PostgreSQL** migrations.
+   * @return value or {@code null} for none
+   */
+  public SqlServerToPostgresConfig getSqlserverToPostgresConfig() {
+    return sqlserverToPostgresConfig;
+  }
+
+  /**
+   * Configuration for heterogeneous **SQL Server to Cloud SQL for PostgreSQL** migrations.
+   * @param sqlserverToPostgresConfig sqlserverToPostgresConfig or {@code null} for none
+   */
+  public MigrationJob setSqlserverToPostgresConfig(SqlServerToPostgresConfig sqlserverToPostgresConfig) {
+    this.sqlserverToPostgresConfig = sqlserverToPostgresConfig;
     return this;
   }
 

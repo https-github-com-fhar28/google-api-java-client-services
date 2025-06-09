@@ -20,7 +20,7 @@ package com.google.api.services.gkeonprem.v1.model;
  * Resource that represents a VMware user cluster. ##
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the GDC Virtual API. For a detailed explanation see:
+ * transmitted over HTTP when working with the GKE On-Prem API. For a detailed explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
  *
@@ -126,6 +126,13 @@ public final class VmwareCluster extends com.google.api.client.json.GenericJson 
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean disableBundledIngress;
+
+  /**
+   * Enable advanced cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean enableAdvancedCluster;
 
   /**
    * Enable control plane V2. Default to false.
@@ -501,6 +508,23 @@ public final class VmwareCluster extends com.google.api.client.json.GenericJson 
    */
   public VmwareCluster setDisableBundledIngress(java.lang.Boolean disableBundledIngress) {
     this.disableBundledIngress = disableBundledIngress;
+    return this;
+  }
+
+  /**
+   * Enable advanced cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEnableAdvancedCluster() {
+    return enableAdvancedCluster;
+  }
+
+  /**
+   * Enable advanced cluster.
+   * @param enableAdvancedCluster enableAdvancedCluster or {@code null} for none
+   */
+  public VmwareCluster setEnableAdvancedCluster(java.lang.Boolean enableAdvancedCluster) {
+    this.enableAdvancedCluster = enableAdvancedCluster;
     return this;
   }
 

@@ -72,13 +72,6 @@ public final class GcpUserAccessBinding extends com.google.api.client.json.Gener
   private java.lang.String name;
 
   /**
-   * Optional. GCSL policy for the group key.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private ReauthSettings reauthSettings;
-
-  /**
    * Optional. A list of applications that are subject to this binding's restrictions. If the list
    * is empty, the binding restrictions will universally apply to all applications.
    * The value may be {@code null}.
@@ -99,6 +92,13 @@ public final class GcpUserAccessBinding extends com.google.api.client.json.Gener
    */
   @com.google.api.client.util.Key
   private java.util.List<ScopedAccessSettings> scopedAccessSettings;
+
+  /**
+   * Optional. The Google Cloud session length (GCSL) policy for the group key.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SessionSettings sessionSettings;
 
   /**
    * Optional. Access level that a user must have to be granted access. Only one access level is
@@ -193,23 +193,6 @@ public final class GcpUserAccessBinding extends com.google.api.client.json.Gener
   }
 
   /**
-   * Optional. GCSL policy for the group key.
-   * @return value or {@code null} for none
-   */
-  public ReauthSettings getReauthSettings() {
-    return reauthSettings;
-  }
-
-  /**
-   * Optional. GCSL policy for the group key.
-   * @param reauthSettings reauthSettings or {@code null} for none
-   */
-  public GcpUserAccessBinding setReauthSettings(ReauthSettings reauthSettings) {
-    this.reauthSettings = reauthSettings;
-    return this;
-  }
-
-  /**
    * Optional. A list of applications that are subject to this binding's restrictions. If the list
    * is empty, the binding restrictions will universally apply to all applications.
    * @return value or {@code null} for none
@@ -244,6 +227,23 @@ public final class GcpUserAccessBinding extends com.google.api.client.json.Gener
    */
   public GcpUserAccessBinding setScopedAccessSettings(java.util.List<ScopedAccessSettings> scopedAccessSettings) {
     this.scopedAccessSettings = scopedAccessSettings;
+    return this;
+  }
+
+  /**
+   * Optional. The Google Cloud session length (GCSL) policy for the group key.
+   * @return value or {@code null} for none
+   */
+  public SessionSettings getSessionSettings() {
+    return sessionSettings;
+  }
+
+  /**
+   * Optional. The Google Cloud session length (GCSL) policy for the group key.
+   * @param sessionSettings sessionSettings or {@code null} for none
+   */
+  public GcpUserAccessBinding setSessionSettings(SessionSettings sessionSettings) {
+    this.sessionSettings = sessionSettings;
     return this;
   }
 

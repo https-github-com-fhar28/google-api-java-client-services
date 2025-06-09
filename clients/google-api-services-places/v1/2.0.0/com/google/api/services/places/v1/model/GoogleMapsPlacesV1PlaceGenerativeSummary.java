@@ -17,8 +17,7 @@
 package com.google.api.services.places.v1.model;
 
 /**
- * Experimental: See https://developers.google.com/maps/documentation/places/web-
- * service/experimental/places-generative for more details. AI-generated summary of the place.
+ * AI-generated summary of the place.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Places API (New). For a detailed explanation see:
@@ -31,11 +30,12 @@ package com.google.api.services.places.v1.model;
 public final class GoogleMapsPlacesV1PlaceGenerativeSummary extends com.google.api.client.json.GenericJson {
 
   /**
-   * The detailed description of the place.
+   * The AI disclosure message "Summarized with Gemini" (and its localized variants). This will be
+   * in the language specified in the request if available.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private GoogleTypeLocalizedText description;
+  private GoogleTypeLocalizedText disclosureText;
 
   /**
    * The overview of the place.
@@ -45,26 +45,28 @@ public final class GoogleMapsPlacesV1PlaceGenerativeSummary extends com.google.a
   private GoogleTypeLocalizedText overview;
 
   /**
-   * References that are used to generate the summary description.
+   * A link where users can flag a problem with the overview summary.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private GoogleMapsPlacesV1References references;
+  private java.lang.String overviewFlagContentUri;
 
   /**
-   * The detailed description of the place.
+   * The AI disclosure message "Summarized with Gemini" (and its localized variants). This will be
+   * in the language specified in the request if available.
    * @return value or {@code null} for none
    */
-  public GoogleTypeLocalizedText getDescription() {
-    return description;
+  public GoogleTypeLocalizedText getDisclosureText() {
+    return disclosureText;
   }
 
   /**
-   * The detailed description of the place.
-   * @param description description or {@code null} for none
+   * The AI disclosure message "Summarized with Gemini" (and its localized variants). This will be
+   * in the language specified in the request if available.
+   * @param disclosureText disclosureText or {@code null} for none
    */
-  public GoogleMapsPlacesV1PlaceGenerativeSummary setDescription(GoogleTypeLocalizedText description) {
-    this.description = description;
+  public GoogleMapsPlacesV1PlaceGenerativeSummary setDisclosureText(GoogleTypeLocalizedText disclosureText) {
+    this.disclosureText = disclosureText;
     return this;
   }
 
@@ -86,19 +88,19 @@ public final class GoogleMapsPlacesV1PlaceGenerativeSummary extends com.google.a
   }
 
   /**
-   * References that are used to generate the summary description.
+   * A link where users can flag a problem with the overview summary.
    * @return value or {@code null} for none
    */
-  public GoogleMapsPlacesV1References getReferences() {
-    return references;
+  public java.lang.String getOverviewFlagContentUri() {
+    return overviewFlagContentUri;
   }
 
   /**
-   * References that are used to generate the summary description.
-   * @param references references or {@code null} for none
+   * A link where users can flag a problem with the overview summary.
+   * @param overviewFlagContentUri overviewFlagContentUri or {@code null} for none
    */
-  public GoogleMapsPlacesV1PlaceGenerativeSummary setReferences(GoogleMapsPlacesV1References references) {
-    this.references = references;
+  public GoogleMapsPlacesV1PlaceGenerativeSummary setOverviewFlagContentUri(java.lang.String overviewFlagContentUri) {
+    this.overviewFlagContentUri = overviewFlagContentUri;
     return this;
   }
 

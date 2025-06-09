@@ -30,7 +30,7 @@ package com.google.api.services.bigquery.model;
 public final class Table extends com.google.api.client.json.GenericJson {
 
   /**
-   * Optional. Specifies the configuration of a BigLake managed table.
+   * Optional. Specifies the configuration of a BigQuery table for Apache Iceberg.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -173,6 +173,13 @@ public final class Table extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String location;
+
+  /**
+   * Optional. If set, overrides the default managed table type configured in the dataset.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String managedTableType;
 
   /**
    * Optional. The materialized view definition.
@@ -436,7 +443,7 @@ public final class Table extends com.google.api.client.json.GenericJson {
   private ViewDefinition view;
 
   /**
-   * Optional. Specifies the configuration of a BigLake managed table.
+   * Optional. Specifies the configuration of a BigQuery table for Apache Iceberg.
    * @return value or {@code null} for none
    */
   public BigLakeConfiguration getBiglakeConfiguration() {
@@ -444,7 +451,7 @@ public final class Table extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Specifies the configuration of a BigLake managed table.
+   * Optional. Specifies the configuration of a BigQuery table for Apache Iceberg.
    * @param biglakeConfiguration biglakeConfiguration or {@code null} for none
    */
   public Table setBiglakeConfiguration(BigLakeConfiguration biglakeConfiguration) {
@@ -776,6 +783,23 @@ public final class Table extends com.google.api.client.json.GenericJson {
    */
   public Table setLocation(java.lang.String location) {
     this.location = location;
+    return this;
+  }
+
+  /**
+   * Optional. If set, overrides the default managed table type configured in the dataset.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getManagedTableType() {
+    return managedTableType;
+  }
+
+  /**
+   * Optional. If set, overrides the default managed table type configured in the dataset.
+   * @param managedTableType managedTableType or {@code null} for none
+   */
+  public Table setManagedTableType(java.lang.String managedTableType) {
+    this.managedTableType = managedTableType;
     return this;
   }
 

@@ -53,6 +53,14 @@ public final class SubscriptionPurchaseLineItem extends com.google.api.client.js
   private String expiryTime;
 
   /**
+   * The order id of the latest successful order associated with this item. Not present if the item
+   * is not owned by the user yet (e.g. the item being deferred replaced to).
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String latestSuccessfulOrderId;
+
+  /**
    * The offer details for this item.
    * The value may be {@code null}.
    */
@@ -72,6 +80,13 @@ public final class SubscriptionPurchaseLineItem extends com.google.api.client.js
    */
   @com.google.api.client.util.Key
   private java.lang.String productId;
+
+  /**
+   * Promotion details about this item. Only set if a promotion was applied during signup.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SignupPromotion signupPromotion;
 
   /**
    * The item is auto renewing.
@@ -127,6 +142,25 @@ public final class SubscriptionPurchaseLineItem extends com.google.api.client.js
   }
 
   /**
+   * The order id of the latest successful order associated with this item. Not present if the item
+   * is not owned by the user yet (e.g. the item being deferred replaced to).
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getLatestSuccessfulOrderId() {
+    return latestSuccessfulOrderId;
+  }
+
+  /**
+   * The order id of the latest successful order associated with this item. Not present if the item
+   * is not owned by the user yet (e.g. the item being deferred replaced to).
+   * @param latestSuccessfulOrderId latestSuccessfulOrderId or {@code null} for none
+   */
+  public SubscriptionPurchaseLineItem setLatestSuccessfulOrderId(java.lang.String latestSuccessfulOrderId) {
+    this.latestSuccessfulOrderId = latestSuccessfulOrderId;
+    return this;
+  }
+
+  /**
    * The offer details for this item.
    * @return value or {@code null} for none
    */
@@ -174,6 +208,23 @@ public final class SubscriptionPurchaseLineItem extends com.google.api.client.js
    */
   public SubscriptionPurchaseLineItem setProductId(java.lang.String productId) {
     this.productId = productId;
+    return this;
+  }
+
+  /**
+   * Promotion details about this item. Only set if a promotion was applied during signup.
+   * @return value or {@code null} for none
+   */
+  public SignupPromotion getSignupPromotion() {
+    return signupPromotion;
+  }
+
+  /**
+   * Promotion details about this item. Only set if a promotion was applied during signup.
+   * @param signupPromotion signupPromotion or {@code null} for none
+   */
+  public SubscriptionPurchaseLineItem setSignupPromotion(SignupPromotion signupPromotion) {
+    this.signupPromotion = signupPromotion;
     return this;
   }
 

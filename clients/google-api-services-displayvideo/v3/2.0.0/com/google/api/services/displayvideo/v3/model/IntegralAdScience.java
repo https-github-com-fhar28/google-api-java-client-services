@@ -32,7 +32,7 @@ public final class IntegralAdScience extends com.google.api.client.json.GenericJ
 
   /**
    * The custom segment ID provided by Integral Ad Science. The ID must be between `1000001` and
-   * `1999999`, inclusive.
+   * `1999999` or `3000001` and `3999999`, inclusive.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
@@ -116,6 +116,14 @@ public final class IntegralAdScience extends com.google.api.client.json.GenericJ
   private java.lang.String excludedViolenceRisk;
 
   /**
+   * Optional. The quality sync custom segment ID provided by Integral Ad Science. The ID must be
+   * between `3000000` and `4999999`, inclusive.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key @com.google.api.client.json.JsonString
+  private java.util.List<java.lang.Long> qualitySyncCustomSegmentId;
+
+  /**
    * True advertising quality (applicable to Display line items only).
    * The value may be {@code null}.
    */
@@ -131,7 +139,7 @@ public final class IntegralAdScience extends com.google.api.client.json.GenericJ
 
   /**
    * The custom segment ID provided by Integral Ad Science. The ID must be between `1000001` and
-   * `1999999`, inclusive.
+   * `1999999` or `3000001` and `3999999`, inclusive.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.Long> getCustomSegmentId() {
@@ -140,7 +148,7 @@ public final class IntegralAdScience extends com.google.api.client.json.GenericJ
 
   /**
    * The custom segment ID provided by Integral Ad Science. The ID must be between `1000001` and
-   * `1999999`, inclusive.
+   * `1999999` or `3000001` and `3999999`, inclusive.
    * @param customSegmentId customSegmentId or {@code null} for none
    */
   public IntegralAdScience setCustomSegmentId(java.util.List<java.lang.Long> customSegmentId) {
@@ -332,6 +340,25 @@ public final class IntegralAdScience extends com.google.api.client.json.GenericJ
    */
   public IntegralAdScience setExcludedViolenceRisk(java.lang.String excludedViolenceRisk) {
     this.excludedViolenceRisk = excludedViolenceRisk;
+    return this;
+  }
+
+  /**
+   * Optional. The quality sync custom segment ID provided by Integral Ad Science. The ID must be
+   * between `3000000` and `4999999`, inclusive.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.Long> getQualitySyncCustomSegmentId() {
+    return qualitySyncCustomSegmentId;
+  }
+
+  /**
+   * Optional. The quality sync custom segment ID provided by Integral Ad Science. The ID must be
+   * between `3000000` and `4999999`, inclusive.
+   * @param qualitySyncCustomSegmentId qualitySyncCustomSegmentId or {@code null} for none
+   */
+  public IntegralAdScience setQualitySyncCustomSegmentId(java.util.List<java.lang.Long> qualitySyncCustomSegmentId) {
+    this.qualitySyncCustomSegmentId = qualitySyncCustomSegmentId;
     return this;
   }
 

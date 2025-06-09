@@ -31,12 +31,78 @@ package com.google.api.services.discoveryengine.v1.model;
 public final class GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. Boost specification to boost certain documents. For more information on boosting, see
+   * [Boosting](https://cloud.google.com/generative-ai-app-builder/docs/boost-search-results)
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1SearchRequestBoostSpec boostSpec;
+
+  /**
+   * Optional. Custom search operators which if specified will be used to filter results from
+   * workspace data stores. For more information on custom search operators, see
+   * [SearchOperators](https://support.google.com/cloudsearch/answer/6172299).
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String customSearchOperators;
+
+  /**
    * Required. Full resource name of DataStore, such as `projects/{project}/locations/{location}/col
    * lections/{collection_id}/dataStores/{data_store_id}`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String dataStore;
+
+  /**
+   * Optional. Filter specification to filter documents in the data store specified by data_store
+   * field. For more information on filtering, see [Filtering](https://cloud.google.com/generative-
+   * ai-app-builder/docs/filter-search-metadata)
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String filter;
+
+  /**
+   * Optional. Boost specification to boost certain documents. For more information on boosting, see
+   * [Boosting](https://cloud.google.com/generative-ai-app-builder/docs/boost-search-results)
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1SearchRequestBoostSpec getBoostSpec() {
+    return boostSpec;
+  }
+
+  /**
+   * Optional. Boost specification to boost certain documents. For more information on boosting, see
+   * [Boosting](https://cloud.google.com/generative-ai-app-builder/docs/boost-search-results)
+   * @param boostSpec boostSpec or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec setBoostSpec(GoogleCloudDiscoveryengineV1SearchRequestBoostSpec boostSpec) {
+    this.boostSpec = boostSpec;
+    return this;
+  }
+
+  /**
+   * Optional. Custom search operators which if specified will be used to filter results from
+   * workspace data stores. For more information on custom search operators, see
+   * [SearchOperators](https://support.google.com/cloudsearch/answer/6172299).
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getCustomSearchOperators() {
+    return customSearchOperators;
+  }
+
+  /**
+   * Optional. Custom search operators which if specified will be used to filter results from
+   * workspace data stores. For more information on custom search operators, see
+   * [SearchOperators](https://support.google.com/cloudsearch/answer/6172299).
+   * @param customSearchOperators customSearchOperators or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec setCustomSearchOperators(java.lang.String customSearchOperators) {
+    this.customSearchOperators = customSearchOperators;
+    return this;
+  }
 
   /**
    * Required. Full resource name of DataStore, such as `projects/{project}/locations/{location}/col
@@ -54,6 +120,27 @@ public final class GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec extend
    */
   public GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec setDataStore(java.lang.String dataStore) {
     this.dataStore = dataStore;
+    return this;
+  }
+
+  /**
+   * Optional. Filter specification to filter documents in the data store specified by data_store
+   * field. For more information on filtering, see [Filtering](https://cloud.google.com/generative-
+   * ai-app-builder/docs/filter-search-metadata)
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getFilter() {
+    return filter;
+  }
+
+  /**
+   * Optional. Filter specification to filter documents in the data store specified by data_store
+   * field. For more information on filtering, see [Filtering](https://cloud.google.com/generative-
+   * ai-app-builder/docs/filter-search-metadata)
+   * @param filter filter or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec setFilter(java.lang.String filter) {
+    this.filter = filter;
     return this;
   }
 

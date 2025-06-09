@@ -30,7 +30,8 @@ package com.google.api.services.aiplatform.v1.model;
 public final class GoogleCloudAiplatformV1TuningJob extends com.google.api.client.json.GenericJson {
 
   /**
-   * The base model that is being tuned, e.g., "gemini-1.0-pro-002".
+   * The base model that is being tuned. See [Supported models](https://cloud.google.com/vertex-
+   * ai/generative-ai/docs/model-reference/tuning#supported_models).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -100,6 +101,17 @@ public final class GoogleCloudAiplatformV1TuningJob extends com.google.api.clien
   private java.lang.String name;
 
   /**
+   * The service account that the tuningJob workload runs as. If not specified, the Vertex AI Secure
+   * Fine-Tuned Service Agent in the project will be used. See
+   * https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-agent
+   * Users starting the pipeline must have the `iam.serviceAccounts.actAs` permission on this
+   * service account.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String serviceAccount;
+
+  /**
    * Output only. Time when the TuningJob for the first time entered the `JOB_STATE_RUNNING` state.
    * The value may be {@code null}.
    */
@@ -121,7 +133,7 @@ public final class GoogleCloudAiplatformV1TuningJob extends com.google.api.clien
   private GoogleCloudAiplatformV1SupervisedTuningSpec supervisedTuningSpec;
 
   /**
-   * Output only. The tuned model resources assiociated with this TuningJob.
+   * Output only. The tuned model resources associated with this TuningJob.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -150,7 +162,8 @@ public final class GoogleCloudAiplatformV1TuningJob extends com.google.api.clien
   private String updateTime;
 
   /**
-   * The base model that is being tuned, e.g., "gemini-1.0-pro-002".
+   * The base model that is being tuned. See [Supported models](https://cloud.google.com/vertex-
+   * ai/generative-ai/docs/model-reference/tuning#supported_models).
    * @return value or {@code null} for none
    */
   public java.lang.String getBaseModel() {
@@ -158,7 +171,8 @@ public final class GoogleCloudAiplatformV1TuningJob extends com.google.api.clien
   }
 
   /**
-   * The base model that is being tuned, e.g., "gemini-1.0-pro-002".
+   * The base model that is being tuned. See [Supported models](https://cloud.google.com/vertex-
+   * ai/generative-ai/docs/model-reference/tuning#supported_models).
    * @param baseModel baseModel or {@code null} for none
    */
   public GoogleCloudAiplatformV1TuningJob setBaseModel(java.lang.String baseModel) {
@@ -317,6 +331,31 @@ public final class GoogleCloudAiplatformV1TuningJob extends com.google.api.clien
   }
 
   /**
+   * The service account that the tuningJob workload runs as. If not specified, the Vertex AI Secure
+   * Fine-Tuned Service Agent in the project will be used. See
+   * https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-agent
+   * Users starting the pipeline must have the `iam.serviceAccounts.actAs` permission on this
+   * service account.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getServiceAccount() {
+    return serviceAccount;
+  }
+
+  /**
+   * The service account that the tuningJob workload runs as. If not specified, the Vertex AI Secure
+   * Fine-Tuned Service Agent in the project will be used. See
+   * https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-agent
+   * Users starting the pipeline must have the `iam.serviceAccounts.actAs` permission on this
+   * service account.
+   * @param serviceAccount serviceAccount or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1TuningJob setServiceAccount(java.lang.String serviceAccount) {
+    this.serviceAccount = serviceAccount;
+    return this;
+  }
+
+  /**
    * Output only. Time when the TuningJob for the first time entered the `JOB_STATE_RUNNING` state.
    * @return value or {@code null} for none
    */
@@ -368,7 +407,7 @@ public final class GoogleCloudAiplatformV1TuningJob extends com.google.api.clien
   }
 
   /**
-   * Output only. The tuned model resources assiociated with this TuningJob.
+   * Output only. The tuned model resources associated with this TuningJob.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1TunedModel getTunedModel() {
@@ -376,7 +415,7 @@ public final class GoogleCloudAiplatformV1TuningJob extends com.google.api.clien
   }
 
   /**
-   * Output only. The tuned model resources assiociated with this TuningJob.
+   * Output only. The tuned model resources associated with this TuningJob.
    * @param tunedModel tunedModel or {@code null} for none
    */
   public GoogleCloudAiplatformV1TuningJob setTunedModel(GoogleCloudAiplatformV1TunedModel tunedModel) {

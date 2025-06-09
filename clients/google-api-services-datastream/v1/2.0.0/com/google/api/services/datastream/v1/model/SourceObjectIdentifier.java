@@ -30,6 +30,13 @@ package com.google.api.services.datastream.v1.model;
 public final class SourceObjectIdentifier extends com.google.api.client.json.GenericJson {
 
   /**
+   * MongoDB data source object identifier.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MongodbObjectIdentifier mongodbIdentifier;
+
+  /**
    * Mysql data source object identifier.
    * The value may be {@code null}.
    */
@@ -51,11 +58,35 @@ public final class SourceObjectIdentifier extends com.google.api.client.json.Gen
   private PostgresqlObjectIdentifier postgresqlIdentifier;
 
   /**
+   * Salesforce data source object identifier.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SalesforceObjectIdentifier salesforceIdentifier;
+
+  /**
    * SQLServer data source object identifier.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private SqlServerObjectIdentifier sqlServerIdentifier;
+
+  /**
+   * MongoDB data source object identifier.
+   * @return value or {@code null} for none
+   */
+  public MongodbObjectIdentifier getMongodbIdentifier() {
+    return mongodbIdentifier;
+  }
+
+  /**
+   * MongoDB data source object identifier.
+   * @param mongodbIdentifier mongodbIdentifier or {@code null} for none
+   */
+  public SourceObjectIdentifier setMongodbIdentifier(MongodbObjectIdentifier mongodbIdentifier) {
+    this.mongodbIdentifier = mongodbIdentifier;
+    return this;
+  }
 
   /**
    * Mysql data source object identifier.
@@ -105,6 +136,23 @@ public final class SourceObjectIdentifier extends com.google.api.client.json.Gen
    */
   public SourceObjectIdentifier setPostgresqlIdentifier(PostgresqlObjectIdentifier postgresqlIdentifier) {
     this.postgresqlIdentifier = postgresqlIdentifier;
+    return this;
+  }
+
+  /**
+   * Salesforce data source object identifier.
+   * @return value or {@code null} for none
+   */
+  public SalesforceObjectIdentifier getSalesforceIdentifier() {
+    return salesforceIdentifier;
+  }
+
+  /**
+   * Salesforce data source object identifier.
+   * @param salesforceIdentifier salesforceIdentifier or {@code null} for none
+   */
+  public SourceObjectIdentifier setSalesforceIdentifier(SalesforceObjectIdentifier salesforceIdentifier) {
+    this.salesforceIdentifier = salesforceIdentifier;
     return this;
   }
 

@@ -80,33 +80,18 @@ public final class ContainerVersion extends com.google.api.client.json.GenericJs
   private java.util.List<Folder> folder;
 
   /**
-   * The macros in the container that this version was taken from.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.util.List<Macro> macro;
-
-  /**
-   * Container version display name. @mutable tagmanager.accounts.containers.versions.update
+   * Container version display name.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
 
   /**
-   * User notes on how to apply this container version in the container. @mutable
-   * tagmanager.accounts.containers.versions.update
+   * User notes on how to apply this container version in the container.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String notes;
-
-  /**
-   * The rules in the container that this version was taken from.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.util.List<Rule> rule;
 
   /**
    * The tags in the container that this version was taken from.
@@ -251,24 +236,7 @@ public final class ContainerVersion extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * The macros in the container that this version was taken from.
-   * @return value or {@code null} for none
-   */
-  public java.util.List<Macro> getMacro() {
-    return macro;
-  }
-
-  /**
-   * The macros in the container that this version was taken from.
-   * @param macro macro or {@code null} for none
-   */
-  public ContainerVersion setMacro(java.util.List<Macro> macro) {
-    this.macro = macro;
-    return this;
-  }
-
-  /**
-   * Container version display name. @mutable tagmanager.accounts.containers.versions.update
+   * Container version display name.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -276,7 +244,7 @@ public final class ContainerVersion extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Container version display name. @mutable tagmanager.accounts.containers.versions.update
+   * Container version display name.
    * @param name name or {@code null} for none
    */
   public ContainerVersion setName(java.lang.String name) {
@@ -285,8 +253,7 @@ public final class ContainerVersion extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * User notes on how to apply this container version in the container. @mutable
-   * tagmanager.accounts.containers.versions.update
+   * User notes on how to apply this container version in the container.
    * @return value or {@code null} for none
    */
   public java.lang.String getNotes() {
@@ -294,29 +261,11 @@ public final class ContainerVersion extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * User notes on how to apply this container version in the container. @mutable
-   * tagmanager.accounts.containers.versions.update
+   * User notes on how to apply this container version in the container.
    * @param notes notes or {@code null} for none
    */
   public ContainerVersion setNotes(java.lang.String notes) {
     this.notes = notes;
-    return this;
-  }
-
-  /**
-   * The rules in the container that this version was taken from.
-   * @return value or {@code null} for none
-   */
-  public java.util.List<Rule> getRule() {
-    return rule;
-  }
-
-  /**
-   * The rules in the container that this version was taken from.
-   * @param rule rule or {@code null} for none
-   */
-  public ContainerVersion setRule(java.util.List<Rule> rule) {
-    this.rule = rule;
     return this;
   }
 

@@ -17,7 +17,7 @@
 package com.google.api.services.datastream.v1.model;
 
 /**
- * SQLServer database profile
+ * SQLServer database profile.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Datastream API. For a detailed explanation see:
@@ -44,7 +44,8 @@ public final class SqlServerProfile extends com.google.api.client.json.GenericJs
   private java.lang.String hostname;
 
   /**
-   * Required. Password for the SQLServer connection.
+   * Optional. Password for the SQLServer connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -56,6 +57,14 @@ public final class SqlServerProfile extends com.google.api.client.json.GenericJs
    */
   @com.google.api.client.util.Key
   private java.lang.Integer port;
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the SQLServer connection
+   * password. Mutually exclusive with the `password` field.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String secretManagerStoredPassword;
 
   /**
    * Required. Username for the SQLServer connection.
@@ -99,7 +108,8 @@ public final class SqlServerProfile extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Required. Password for the SQLServer connection.
+   * Optional. Password for the SQLServer connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * @return value or {@code null} for none
    */
   public java.lang.String getPassword() {
@@ -107,7 +117,8 @@ public final class SqlServerProfile extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Required. Password for the SQLServer connection.
+   * Optional. Password for the SQLServer connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * @param password password or {@code null} for none
    */
   public SqlServerProfile setPassword(java.lang.String password) {
@@ -129,6 +140,25 @@ public final class SqlServerProfile extends com.google.api.client.json.GenericJs
    */
   public SqlServerProfile setPort(java.lang.Integer port) {
     this.port = port;
+    return this;
+  }
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the SQLServer connection
+   * password. Mutually exclusive with the `password` field.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSecretManagerStoredPassword() {
+    return secretManagerStoredPassword;
+  }
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the SQLServer connection
+   * password. Mutually exclusive with the `password` field.
+   * @param secretManagerStoredPassword secretManagerStoredPassword or {@code null} for none
+   */
+  public SqlServerProfile setSecretManagerStoredPassword(java.lang.String secretManagerStoredPassword) {
+    this.secretManagerStoredPassword = secretManagerStoredPassword;
     return this;
   }
 

@@ -31,12 +31,43 @@ package com.google.api.services.redis.v1.model;
 public final class Cluster extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. If true, cluster endpoints that are created and registered by customers can be
+   * deleted asynchronously. That is, such a cluster endpoint can be de-registered before the
+   * forwarding rules in the cluster endpoint are deleted.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean asyncClusterEndpointsDeletionEnabled;
+
+  /**
    * Optional. The authorization mode of the Redis cluster. If not provided, auth feature is
    * disabled for the cluster.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String authorizationMode;
+
+  /**
+   * Optional. The automated backup config for the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private AutomatedBackupConfig automatedBackupConfig;
+
+  /**
+   * Optional. Output only. The backup collection full resource name. Example:
+   * projects/{project}/locations/{location}/backupCollections/{collection}
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String backupCollection;
+
+  /**
+   * Optional. A list of cluster endpoints.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<ClusterEndpoint> clusterEndpoints;
 
   /**
    * Output only. The timestamp associated with the cluster creation request.
@@ -68,6 +99,29 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private java.util.List<DiscoveryEndpoint> discoveryEndpoints;
 
   /**
+   * Output only. Encryption information of the data at rest of the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private EncryptionInfo encryptionInfo;
+
+  /**
+   * Optional. Backups stored in Cloud Storage buckets. The Cloud Storage buckets need to be the
+   * same region as the clusters. Read permission is required to import from the provided Cloud
+   * Storage objects.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GcsBackupSource gcsSource;
+
+  /**
+   * Optional. The KMS key used to encrypt the at-rest data of the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String kmsKey;
+
+  /**
    * Optional. ClusterMaintenancePolicy determines when to allow or deny updates.
    * The value may be {@code null}.
    */
@@ -80,6 +134,13 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private ClusterMaintenanceSchedule maintenanceSchedule;
+
+  /**
+   * Optional. Backups generated and managed by memorystore service.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ManagedBackupSource managedBackupSource;
 
   /**
    * Required. Identifier. Unique name of the resource in this scope including project and location
@@ -98,6 +159,14 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private java.lang.String nodeType;
 
   /**
+   * Optional. Input only. Ondemand maintenance for the cluster. This field can be used to trigger
+   * ondemand critical update on the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean ondemandMaintenance;
+
+  /**
    * Optional. Persistence config (RDB, AOF) for the cluster.
    * The value may be {@code null}.
    */
@@ -112,7 +181,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private java.lang.Double preciseSizeGb;
 
   /**
-   * Required. Each PscConfig configures the consumer network where IPs will be designated to the
+   * Optional. Each PscConfig configures the consumer network where IPs will be designated to the
    * cluster for client access through Private Service Connect Automation. Currently, only one
    * PscConfig is supported.
    * The value may be {@code null}.
@@ -127,6 +196,13 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.util.List<PscConnection> pscConnections;
+
+  /**
+   * Output only. Service attachment details to configure Psc connections
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<PscServiceAttachment> pscServiceAttachments;
 
   /**
    * Optional. Key/Value pairs of customer overrides for mutable Redis Configs
@@ -195,6 +271,27 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   private ZoneDistributionConfig zoneDistributionConfig;
 
   /**
+   * Optional. If true, cluster endpoints that are created and registered by customers can be
+   * deleted asynchronously. That is, such a cluster endpoint can be de-registered before the
+   * forwarding rules in the cluster endpoint are deleted.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAsyncClusterEndpointsDeletionEnabled() {
+    return asyncClusterEndpointsDeletionEnabled;
+  }
+
+  /**
+   * Optional. If true, cluster endpoints that are created and registered by customers can be
+   * deleted asynchronously. That is, such a cluster endpoint can be de-registered before the
+   * forwarding rules in the cluster endpoint are deleted.
+   * @param asyncClusterEndpointsDeletionEnabled asyncClusterEndpointsDeletionEnabled or {@code null} for none
+   */
+  public Cluster setAsyncClusterEndpointsDeletionEnabled(java.lang.Boolean asyncClusterEndpointsDeletionEnabled) {
+    this.asyncClusterEndpointsDeletionEnabled = asyncClusterEndpointsDeletionEnabled;
+    return this;
+  }
+
+  /**
    * Optional. The authorization mode of the Redis cluster. If not provided, auth feature is
    * disabled for the cluster.
    * @return value or {@code null} for none
@@ -210,6 +307,59 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setAuthorizationMode(java.lang.String authorizationMode) {
     this.authorizationMode = authorizationMode;
+    return this;
+  }
+
+  /**
+   * Optional. The automated backup config for the cluster.
+   * @return value or {@code null} for none
+   */
+  public AutomatedBackupConfig getAutomatedBackupConfig() {
+    return automatedBackupConfig;
+  }
+
+  /**
+   * Optional. The automated backup config for the cluster.
+   * @param automatedBackupConfig automatedBackupConfig or {@code null} for none
+   */
+  public Cluster setAutomatedBackupConfig(AutomatedBackupConfig automatedBackupConfig) {
+    this.automatedBackupConfig = automatedBackupConfig;
+    return this;
+  }
+
+  /**
+   * Optional. Output only. The backup collection full resource name. Example:
+   * projects/{project}/locations/{location}/backupCollections/{collection}
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getBackupCollection() {
+    return backupCollection;
+  }
+
+  /**
+   * Optional. Output only. The backup collection full resource name. Example:
+   * projects/{project}/locations/{location}/backupCollections/{collection}
+   * @param backupCollection backupCollection or {@code null} for none
+   */
+  public Cluster setBackupCollection(java.lang.String backupCollection) {
+    this.backupCollection = backupCollection;
+    return this;
+  }
+
+  /**
+   * Optional. A list of cluster endpoints.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<ClusterEndpoint> getClusterEndpoints() {
+    return clusterEndpoints;
+  }
+
+  /**
+   * Optional. A list of cluster endpoints.
+   * @param clusterEndpoints clusterEndpoints or {@code null} for none
+   */
+  public Cluster setClusterEndpoints(java.util.List<ClusterEndpoint> clusterEndpoints) {
+    this.clusterEndpoints = clusterEndpoints;
     return this;
   }
 
@@ -284,6 +434,61 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. Encryption information of the data at rest of the cluster.
+   * @return value or {@code null} for none
+   */
+  public EncryptionInfo getEncryptionInfo() {
+    return encryptionInfo;
+  }
+
+  /**
+   * Output only. Encryption information of the data at rest of the cluster.
+   * @param encryptionInfo encryptionInfo or {@code null} for none
+   */
+  public Cluster setEncryptionInfo(EncryptionInfo encryptionInfo) {
+    this.encryptionInfo = encryptionInfo;
+    return this;
+  }
+
+  /**
+   * Optional. Backups stored in Cloud Storage buckets. The Cloud Storage buckets need to be the
+   * same region as the clusters. Read permission is required to import from the provided Cloud
+   * Storage objects.
+   * @return value or {@code null} for none
+   */
+  public GcsBackupSource getGcsSource() {
+    return gcsSource;
+  }
+
+  /**
+   * Optional. Backups stored in Cloud Storage buckets. The Cloud Storage buckets need to be the
+   * same region as the clusters. Read permission is required to import from the provided Cloud
+   * Storage objects.
+   * @param gcsSource gcsSource or {@code null} for none
+   */
+  public Cluster setGcsSource(GcsBackupSource gcsSource) {
+    this.gcsSource = gcsSource;
+    return this;
+  }
+
+  /**
+   * Optional. The KMS key used to encrypt the at-rest data of the cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getKmsKey() {
+    return kmsKey;
+  }
+
+  /**
+   * Optional. The KMS key used to encrypt the at-rest data of the cluster.
+   * @param kmsKey kmsKey or {@code null} for none
+   */
+  public Cluster setKmsKey(java.lang.String kmsKey) {
+    this.kmsKey = kmsKey;
+    return this;
+  }
+
+  /**
    * Optional. ClusterMaintenancePolicy determines when to allow or deny updates.
    * @return value or {@code null} for none
    */
@@ -314,6 +519,23 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setMaintenanceSchedule(ClusterMaintenanceSchedule maintenanceSchedule) {
     this.maintenanceSchedule = maintenanceSchedule;
+    return this;
+  }
+
+  /**
+   * Optional. Backups generated and managed by memorystore service.
+   * @return value or {@code null} for none
+   */
+  public ManagedBackupSource getManagedBackupSource() {
+    return managedBackupSource;
+  }
+
+  /**
+   * Optional. Backups generated and managed by memorystore service.
+   * @param managedBackupSource managedBackupSource or {@code null} for none
+   */
+  public Cluster setManagedBackupSource(ManagedBackupSource managedBackupSource) {
+    this.managedBackupSource = managedBackupSource;
     return this;
   }
 
@@ -356,6 +578,25 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. Input only. Ondemand maintenance for the cluster. This field can be used to trigger
+   * ondemand critical update on the cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getOndemandMaintenance() {
+    return ondemandMaintenance;
+  }
+
+  /**
+   * Optional. Input only. Ondemand maintenance for the cluster. This field can be used to trigger
+   * ondemand critical update on the cluster.
+   * @param ondemandMaintenance ondemandMaintenance or {@code null} for none
+   */
+  public Cluster setOndemandMaintenance(java.lang.Boolean ondemandMaintenance) {
+    this.ondemandMaintenance = ondemandMaintenance;
+    return this;
+  }
+
+  /**
    * Optional. Persistence config (RDB, AOF) for the cluster.
    * @return value or {@code null} for none
    */
@@ -390,7 +631,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Each PscConfig configures the consumer network where IPs will be designated to the
+   * Optional. Each PscConfig configures the consumer network where IPs will be designated to the
    * cluster for client access through Private Service Connect Automation. Currently, only one
    * PscConfig is supported.
    * @return value or {@code null} for none
@@ -400,7 +641,7 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Each PscConfig configures the consumer network where IPs will be designated to the
+   * Optional. Each PscConfig configures the consumer network where IPs will be designated to the
    * cluster for client access through Private Service Connect Automation. Currently, only one
    * PscConfig is supported.
    * @param pscConfigs pscConfigs or {@code null} for none
@@ -426,6 +667,23 @@ public final class Cluster extends com.google.api.client.json.GenericJson {
    */
   public Cluster setPscConnections(java.util.List<PscConnection> pscConnections) {
     this.pscConnections = pscConnections;
+    return this;
+  }
+
+  /**
+   * Output only. Service attachment details to configure Psc connections
+   * @return value or {@code null} for none
+   */
+  public java.util.List<PscServiceAttachment> getPscServiceAttachments() {
+    return pscServiceAttachments;
+  }
+
+  /**
+   * Output only. Service attachment details to configure Psc connections
+   * @param pscServiceAttachments pscServiceAttachments or {@code null} for none
+   */
+  public Cluster setPscServiceAttachments(java.util.List<PscServiceAttachment> pscServiceAttachments) {
+    this.pscServiceAttachments = pscServiceAttachments;
     return this;
   }
 

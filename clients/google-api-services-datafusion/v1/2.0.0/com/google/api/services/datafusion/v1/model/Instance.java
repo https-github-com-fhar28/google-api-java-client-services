@@ -66,8 +66,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
-   * The crypto key configuration. This field is used by the Customer-Managed Encryption Keys (CMEK)
-   * feature.
+   * Optional. The crypto key configuration. This field is used by the Customer-Managed Encryption
+   * Keys (CMEK) feature.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -81,16 +81,16 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean dataplexDataLineageIntegrationEnabled;
 
   /**
-   * User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run
-   * data processing pipelines. This allows users to have fine-grained access control on Dataproc's
-   * accesses to cloud resources.
+   * Optional. User-managed service account to set on Dataproc when Cloud Data Fusion creates
+   * Dataproc to run data processing pipelines. This allows users to have fine-grained access
+   * control on Dataproc's accesses to cloud resources.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String dataprocServiceAccount;
 
   /**
-   * A description of this instance.
+   * Optional. A description of this instance.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -104,42 +104,42 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.util.List<java.lang.String> disabledReason;
 
   /**
-   * Display name for an instance.
+   * Optional. Display name for an instance.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String displayName;
 
   /**
-   * Option to enable granular role-based access control.
+   * Optional. Option to enable granular role-based access control.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean enableRbac;
 
   /**
-   * Option to enable Stackdriver Logging.
+   * Optional. Option to enable Dataproc Stackdriver Logging.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean enableStackdriverLogging;
 
   /**
-   * Option to enable Stackdriver Monitoring.
+   * Optional. Option to enable Stackdriver Monitoring.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean enableStackdriverMonitoring;
 
   /**
-   * Option to enable granular zone separation.
+   * Output only. Option to enable granular zone separation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean enableZoneSeparation;
 
   /**
-   * Option to enable and pass metadata for event publishing.
+   * Optional. Option to enable and pass metadata for event publishing.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -161,6 +161,21 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.util.Map<String, java.lang.String> labels;
 
   /**
+   * Optional. The logging configuration for this instance. This field is supported only in CDF
+   * versions 6.11.0 and above.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private LoggingConfig loggingConfig;
+
+  /**
+   * Output only. The maintenance events for this instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<MaintenanceEvent> maintenanceEvents;
+
+  /**
    * Optional. Configure the maintenance policy for this instance.
    * The value may be {@code null}.
    */
@@ -176,15 +191,15 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
-   * Network configuration options. These are required when a private Data Fusion instance is to be
-   * created.
+   * Optional. Network configuration options. These are required when a private Data Fusion instance
+   * is to be created.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private NetworkConfig networkConfig;
 
   /**
-   * Map of additional options used to configure the behavior of Data Fusion instance.
+   * Optional. Map of additional options used to configure the behavior of Data Fusion instance.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -205,12 +220,20 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String patchRevision;
 
   /**
-   * Specifies whether the Data Fusion instance should be private. If set to true, all Data Fusion
-   * nodes will have private IP addresses and will not be able to access the public internet.
+   * Optional. Specifies whether the Data Fusion instance should be private. If set to true, all
+   * Data Fusion nodes will have private IP addresses and will not be able to access the public
+   * internet.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean privateInstance;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
 
   /**
    * Output only. Reserved for future use.
@@ -249,6 +272,14 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String stateMessage;
 
   /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * "123/environment": "production", "123/costCenter": "marketing"
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> tags;
+
+  /**
    * Output only. The name of the tenant project.
    * The value may be {@code null}.
    */
@@ -270,7 +301,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private String updateTime;
 
   /**
-   * Current version of the Data Fusion. Only specifiable in Update.
+   * Optional. Current version of the Data Fusion. Only specifiable in Update.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -284,8 +315,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String workforceIdentityServiceEndpoint;
 
   /**
-   * Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances
-   * use this field.
+   * Optional. Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER
+   * instances use this field.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -362,8 +393,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The crypto key configuration. This field is used by the Customer-Managed Encryption Keys (CMEK)
-   * feature.
+   * Optional. The crypto key configuration. This field is used by the Customer-Managed Encryption
+   * Keys (CMEK) feature.
    * @return value or {@code null} for none
    */
   public CryptoKeyConfig getCryptoKeyConfig() {
@@ -371,8 +402,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The crypto key configuration. This field is used by the Customer-Managed Encryption Keys (CMEK)
-   * feature.
+   * Optional. The crypto key configuration. This field is used by the Customer-Managed Encryption
+   * Keys (CMEK) feature.
    * @param cryptoKeyConfig cryptoKeyConfig or {@code null} for none
    */
   public Instance setCryptoKeyConfig(CryptoKeyConfig cryptoKeyConfig) {
@@ -398,9 +429,9 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run
-   * data processing pipelines. This allows users to have fine-grained access control on Dataproc's
-   * accesses to cloud resources.
+   * Optional. User-managed service account to set on Dataproc when Cloud Data Fusion creates
+   * Dataproc to run data processing pipelines. This allows users to have fine-grained access
+   * control on Dataproc's accesses to cloud resources.
    * @return value or {@code null} for none
    */
   public java.lang.String getDataprocServiceAccount() {
@@ -408,9 +439,9 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run
-   * data processing pipelines. This allows users to have fine-grained access control on Dataproc's
-   * accesses to cloud resources.
+   * Optional. User-managed service account to set on Dataproc when Cloud Data Fusion creates
+   * Dataproc to run data processing pipelines. This allows users to have fine-grained access
+   * control on Dataproc's accesses to cloud resources.
    * @param dataprocServiceAccount dataprocServiceAccount or {@code null} for none
    */
   public Instance setDataprocServiceAccount(java.lang.String dataprocServiceAccount) {
@@ -419,7 +450,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A description of this instance.
+   * Optional. A description of this instance.
    * @return value or {@code null} for none
    */
   public java.lang.String getDescription() {
@@ -427,7 +458,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A description of this instance.
+   * Optional. A description of this instance.
    * @param description description or {@code null} for none
    */
   public Instance setDescription(java.lang.String description) {
@@ -453,7 +484,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Display name for an instance.
+   * Optional. Display name for an instance.
    * @return value or {@code null} for none
    */
   public java.lang.String getDisplayName() {
@@ -461,7 +492,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Display name for an instance.
+   * Optional. Display name for an instance.
    * @param displayName displayName or {@code null} for none
    */
   public Instance setDisplayName(java.lang.String displayName) {
@@ -470,7 +501,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable granular role-based access control.
+   * Optional. Option to enable granular role-based access control.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnableRbac() {
@@ -478,7 +509,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable granular role-based access control.
+   * Optional. Option to enable granular role-based access control.
    * @param enableRbac enableRbac or {@code null} for none
    */
   public Instance setEnableRbac(java.lang.Boolean enableRbac) {
@@ -487,7 +518,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable Stackdriver Logging.
+   * Optional. Option to enable Dataproc Stackdriver Logging.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnableStackdriverLogging() {
@@ -495,7 +526,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable Stackdriver Logging.
+   * Optional. Option to enable Dataproc Stackdriver Logging.
    * @param enableStackdriverLogging enableStackdriverLogging or {@code null} for none
    */
   public Instance setEnableStackdriverLogging(java.lang.Boolean enableStackdriverLogging) {
@@ -504,7 +535,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable Stackdriver Monitoring.
+   * Optional. Option to enable Stackdriver Monitoring.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnableStackdriverMonitoring() {
@@ -512,7 +543,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable Stackdriver Monitoring.
+   * Optional. Option to enable Stackdriver Monitoring.
    * @param enableStackdriverMonitoring enableStackdriverMonitoring or {@code null} for none
    */
   public Instance setEnableStackdriverMonitoring(java.lang.Boolean enableStackdriverMonitoring) {
@@ -521,7 +552,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable granular zone separation.
+   * Output only. Option to enable granular zone separation.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnableZoneSeparation() {
@@ -529,7 +560,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable granular zone separation.
+   * Output only. Option to enable granular zone separation.
    * @param enableZoneSeparation enableZoneSeparation or {@code null} for none
    */
   public Instance setEnableZoneSeparation(java.lang.Boolean enableZoneSeparation) {
@@ -538,7 +569,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable and pass metadata for event publishing.
+   * Optional. Option to enable and pass metadata for event publishing.
    * @return value or {@code null} for none
    */
   public EventPublishConfig getEventPublishConfig() {
@@ -546,7 +577,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Option to enable and pass metadata for event publishing.
+   * Optional. Option to enable and pass metadata for event publishing.
    * @param eventPublishConfig eventPublishConfig or {@code null} for none
    */
   public Instance setEventPublishConfig(EventPublishConfig eventPublishConfig) {
@@ -591,6 +622,42 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. The logging configuration for this instance. This field is supported only in CDF
+   * versions 6.11.0 and above.
+   * @return value or {@code null} for none
+   */
+  public LoggingConfig getLoggingConfig() {
+    return loggingConfig;
+  }
+
+  /**
+   * Optional. The logging configuration for this instance. This field is supported only in CDF
+   * versions 6.11.0 and above.
+   * @param loggingConfig loggingConfig or {@code null} for none
+   */
+  public Instance setLoggingConfig(LoggingConfig loggingConfig) {
+    this.loggingConfig = loggingConfig;
+    return this;
+  }
+
+  /**
+   * Output only. The maintenance events for this instance.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<MaintenanceEvent> getMaintenanceEvents() {
+    return maintenanceEvents;
+  }
+
+  /**
+   * Output only. The maintenance events for this instance.
+   * @param maintenanceEvents maintenanceEvents or {@code null} for none
+   */
+  public Instance setMaintenanceEvents(java.util.List<MaintenanceEvent> maintenanceEvents) {
+    this.maintenanceEvents = maintenanceEvents;
+    return this;
+  }
+
+  /**
    * Optional. Configure the maintenance policy for this instance.
    * @return value or {@code null} for none
    */
@@ -627,8 +694,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Network configuration options. These are required when a private Data Fusion instance is to be
-   * created.
+   * Optional. Network configuration options. These are required when a private Data Fusion instance
+   * is to be created.
    * @return value or {@code null} for none
    */
   public NetworkConfig getNetworkConfig() {
@@ -636,8 +703,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Network configuration options. These are required when a private Data Fusion instance is to be
-   * created.
+   * Optional. Network configuration options. These are required when a private Data Fusion instance
+   * is to be created.
    * @param networkConfig networkConfig or {@code null} for none
    */
   public Instance setNetworkConfig(NetworkConfig networkConfig) {
@@ -646,7 +713,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Map of additional options used to configure the behavior of Data Fusion instance.
+   * Optional. Map of additional options used to configure the behavior of Data Fusion instance.
    * @return value or {@code null} for none
    */
   public java.util.Map<String, java.lang.String> getOptions() {
@@ -654,7 +721,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Map of additional options used to configure the behavior of Data Fusion instance.
+   * Optional. Map of additional options used to configure the behavior of Data Fusion instance.
    * @param options options or {@code null} for none
    */
   public Instance setOptions(java.util.Map<String, java.lang.String> options) {
@@ -697,8 +764,9 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Specifies whether the Data Fusion instance should be private. If set to true, all Data Fusion
-   * nodes will have private IP addresses and will not be able to access the public internet.
+   * Optional. Specifies whether the Data Fusion instance should be private. If set to true, all
+   * Data Fusion nodes will have private IP addresses and will not be able to access the public
+   * internet.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getPrivateInstance() {
@@ -706,12 +774,30 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Specifies whether the Data Fusion instance should be private. If set to true, all Data Fusion
-   * nodes will have private IP addresses and will not be able to access the public internet.
+   * Optional. Specifies whether the Data Fusion instance should be private. If set to true, all
+   * Data Fusion nodes will have private IP addresses and will not be able to access the public
+   * internet.
    * @param privateInstance privateInstance or {@code null} for none
    */
   public Instance setPrivateInstance(java.lang.Boolean privateInstance) {
     this.privateInstance = privateInstance;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public Instance setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
     return this;
   }
 
@@ -803,6 +889,25 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * "123/environment": "production", "123/costCenter": "marketing"
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getTags() {
+    return tags;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * "123/environment": "production", "123/costCenter": "marketing"
+   * @param tags tags or {@code null} for none
+   */
+  public Instance setTags(java.util.Map<String, java.lang.String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  /**
    * Output only. The name of the tenant project.
    * @return value or {@code null} for none
    */
@@ -854,7 +959,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Current version of the Data Fusion. Only specifiable in Update.
+   * Optional. Current version of the Data Fusion. Only specifiable in Update.
    * @return value or {@code null} for none
    */
   public java.lang.String getVersion() {
@@ -862,7 +967,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Current version of the Data Fusion. Only specifiable in Update.
+   * Optional. Current version of the Data Fusion. Only specifiable in Update.
    * @param version version or {@code null} for none
    */
   public Instance setVersion(java.lang.String version) {
@@ -888,8 +993,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances
-   * use this field.
+   * Optional. Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER
+   * instances use this field.
    * @return value or {@code null} for none
    */
   public java.lang.String getZone() {
@@ -897,8 +1002,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances
-   * use this field.
+   * Optional. Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER
+   * instances use this field.
    * @param zone zone or {@code null} for none
    */
   public Instance setZone(java.lang.String zone) {

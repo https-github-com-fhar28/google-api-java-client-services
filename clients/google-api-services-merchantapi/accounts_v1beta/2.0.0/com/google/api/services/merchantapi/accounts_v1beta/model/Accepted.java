@@ -17,7 +17,8 @@
 package com.google.api.services.merchantapi.accounts_v1beta.model;
 
 /**
- * Describes the accepted terms of service.
+ * Describes the [accepted terms of service](/merchant/api/guides/accounts/create-and-
+ * configure#accept_the_merchant_center_terms_of_service).
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Merchant API. For a detailed explanation see:
@@ -31,25 +32,23 @@ public final class Accepted extends com.google.api.client.json.GenericJson {
 
   /**
    * The account where the acceptance was recorded. This can be the account itself or, in the case
-   * of subaccounts, the MCA account.
+   * of subaccounts, the advanced account.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String acceptedBy;
 
   /**
-   * The accepted [termsOfService](google.shopping.merchant.accounts.v1main.TermsOfService).
+   * The accepted termsOfService.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String termsOfService;
 
   /**
-   * When set, it states that the accepted
-   * [TermsOfService](google.shopping.merchant.accounts.v1main.TermsOfService) is only valid until
-   * the end of this date (in UTC). A new one must be accepted before then. The information of the
-   * required [TermsOfService](google.shopping.merchant.accounts.v1main.TermsOfService) is found in
-   * the [Required](Required) message.
+   * When set, it states that the accepted `TermsOfService` is only valid until the end of this date
+   * (in UTC). A new one must be accepted before then. The information of the required
+   * `TermsOfService` is found in the `Required` message.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -57,7 +56,7 @@ public final class Accepted extends com.google.api.client.json.GenericJson {
 
   /**
    * The account where the acceptance was recorded. This can be the account itself or, in the case
-   * of subaccounts, the MCA account.
+   * of subaccounts, the advanced account.
    * @return value or {@code null} for none
    */
   public java.lang.String getAcceptedBy() {
@@ -66,7 +65,7 @@ public final class Accepted extends com.google.api.client.json.GenericJson {
 
   /**
    * The account where the acceptance was recorded. This can be the account itself or, in the case
-   * of subaccounts, the MCA account.
+   * of subaccounts, the advanced account.
    * @param acceptedBy acceptedBy or {@code null} for none
    */
   public Accepted setAcceptedBy(java.lang.String acceptedBy) {
@@ -75,7 +74,7 @@ public final class Accepted extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The accepted [termsOfService](google.shopping.merchant.accounts.v1main.TermsOfService).
+   * The accepted termsOfService.
    * @return value or {@code null} for none
    */
   public java.lang.String getTermsOfService() {
@@ -83,7 +82,7 @@ public final class Accepted extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The accepted [termsOfService](google.shopping.merchant.accounts.v1main.TermsOfService).
+   * The accepted termsOfService.
    * @param termsOfService termsOfService or {@code null} for none
    */
   public Accepted setTermsOfService(java.lang.String termsOfService) {
@@ -92,11 +91,9 @@ public final class Accepted extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * When set, it states that the accepted
-   * [TermsOfService](google.shopping.merchant.accounts.v1main.TermsOfService) is only valid until
-   * the end of this date (in UTC). A new one must be accepted before then. The information of the
-   * required [TermsOfService](google.shopping.merchant.accounts.v1main.TermsOfService) is found in
-   * the [Required](Required) message.
+   * When set, it states that the accepted `TermsOfService` is only valid until the end of this date
+   * (in UTC). A new one must be accepted before then. The information of the required
+   * `TermsOfService` is found in the `Required` message.
    * @return value or {@code null} for none
    */
   public Date getValidUntil() {
@@ -104,11 +101,9 @@ public final class Accepted extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * When set, it states that the accepted
-   * [TermsOfService](google.shopping.merchant.accounts.v1main.TermsOfService) is only valid until
-   * the end of this date (in UTC). A new one must be accepted before then. The information of the
-   * required [TermsOfService](google.shopping.merchant.accounts.v1main.TermsOfService) is found in
-   * the [Required](Required) message.
+   * When set, it states that the accepted `TermsOfService` is only valid until the end of this date
+   * (in UTC). A new one must be accepted before then. The information of the required
+   * `TermsOfService` is found in the `Required` message.
    * @param validUntil validUntil or {@code null} for none
    */
   public Accepted setValidUntil(Date validUntil) {

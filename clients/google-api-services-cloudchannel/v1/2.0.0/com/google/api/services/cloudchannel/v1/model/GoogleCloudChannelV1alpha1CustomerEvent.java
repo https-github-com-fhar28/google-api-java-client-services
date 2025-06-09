@@ -37,7 +37,7 @@ public final class GoogleCloudChannelV1alpha1CustomerEvent extends com.google.ap
   private java.lang.String customer;
 
   /**
-   * Type of event which happened on the customer.
+   * Type of event which happened for the customer.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -61,7 +61,7 @@ public final class GoogleCloudChannelV1alpha1CustomerEvent extends com.google.ap
   }
 
   /**
-   * Type of event which happened on the customer.
+   * Type of event which happened for the customer.
    * @return value or {@code null} for none
    */
   public java.lang.String getEventType() {
@@ -69,7 +69,7 @@ public final class GoogleCloudChannelV1alpha1CustomerEvent extends com.google.ap
   }
 
   /**
-   * Type of event which happened on the customer.
+   * Type of event which happened for the customer.
    * @param eventType eventType or {@code null} for none
    */
   public GoogleCloudChannelV1alpha1CustomerEvent setEventType(java.lang.String eventType) {

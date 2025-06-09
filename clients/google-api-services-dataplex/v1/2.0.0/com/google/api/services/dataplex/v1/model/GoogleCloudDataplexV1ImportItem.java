@@ -37,11 +37,12 @@ public final class GoogleCloudDataplexV1ImportItem extends com.google.api.client
    * The aspects to modify. Supports the following syntaxes: {aspect_type_reference}: matches
    * aspects that belong to the specified aspect type and are attached directly to the entry.
    * {aspect_type_reference}@{path}: matches aspects that belong to the specified aspect type and
-   * path. {aspect_type_reference}@*: matches aspects that belong to the specified aspect type for
-   * all paths.Replace {aspect_type_reference} with a reference to the aspect type, in the format
-   * {project_id_or_number}.{location_id}.{aspect_type_id}.If you leave this field empty, it is
-   * treated as specifying exactly those aspects that are present within the specified entry.In FULL
-   * entry sync mode, Dataplex implicitly adds the keys for all of the required aspects of an entry.
+   * path. {aspect_type_reference}@* : matches aspects of the given type for all paths. *@path :
+   * matches aspects of all types on the given path.Replace {aspect_type_reference} with a reference
+   * to the aspect type, in the format {project_id_or_number}.{location_id}.{aspect_type_id}.In FULL
+   * entry sync mode, if you leave this field empty, it is treated as specifying exactly those
+   * aspects that are present within the specified entry. Dataplex implicitly adds the keys for all
+   * of the required aspects of an entry.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -55,15 +56,24 @@ public final class GoogleCloudDataplexV1ImportItem extends com.google.api.client
   private GoogleCloudDataplexV1Entry entry__;
 
   /**
+   * Information about the entry link. User should provide either one of the entry or entry_link.
+   * While providing entry_link, user should not provide update_mask and aspect_keys.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDataplexV1EntryLink entryLink;
+
+  /**
    * The fields to update, in paths that are relative to the Entry resource. Separate each field
    * with a comma.In FULL entry sync mode, Dataplex includes the paths of all of the fields for an
    * entry that can be modified, including aspects. This means that Dataplex replaces the existing
    * entry with the entry in the metadata import file. All modifiable fields are updated, regardless
    * of the fields that are listed in the update mask, and regardless of whether a field is present
-   * in the entry object.The update_mask field is ignored when an entry is created or re-
-   * created.Dataplex also determines which entries and aspects to modify by comparing the values
-   * and timestamps that you provide in the metadata import file with the values and timestamps that
-   * exist in your project. For more information, see Comparison logic
+   * in the entry object.The update_mask field is ignored when an entry is created or re-created.In
+   * an aspect-only metadata job (when entry sync mode is NONE), set this value to aspects.Dataplex
+   * also determines which entries and aspects to modify by comparing the values and timestamps that
+   * you provide in the metadata import file with the values and timestamps that exist in your
+   * project. For more information, see Comparison logic
    * (https://cloud.google.com/dataplex/docs/import-metadata#data-modification-logic).
    * The value may be {@code null}.
    */
@@ -74,11 +84,12 @@ public final class GoogleCloudDataplexV1ImportItem extends com.google.api.client
    * The aspects to modify. Supports the following syntaxes: {aspect_type_reference}: matches
    * aspects that belong to the specified aspect type and are attached directly to the entry.
    * {aspect_type_reference}@{path}: matches aspects that belong to the specified aspect type and
-   * path. {aspect_type_reference}@*: matches aspects that belong to the specified aspect type for
-   * all paths.Replace {aspect_type_reference} with a reference to the aspect type, in the format
-   * {project_id_or_number}.{location_id}.{aspect_type_id}.If you leave this field empty, it is
-   * treated as specifying exactly those aspects that are present within the specified entry.In FULL
-   * entry sync mode, Dataplex implicitly adds the keys for all of the required aspects of an entry.
+   * path. {aspect_type_reference}@* : matches aspects of the given type for all paths. *@path :
+   * matches aspects of all types on the given path.Replace {aspect_type_reference} with a reference
+   * to the aspect type, in the format {project_id_or_number}.{location_id}.{aspect_type_id}.In FULL
+   * entry sync mode, if you leave this field empty, it is treated as specifying exactly those
+   * aspects that are present within the specified entry. Dataplex implicitly adds the keys for all
+   * of the required aspects of an entry.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getAspectKeys() {
@@ -89,11 +100,12 @@ public final class GoogleCloudDataplexV1ImportItem extends com.google.api.client
    * The aspects to modify. Supports the following syntaxes: {aspect_type_reference}: matches
    * aspects that belong to the specified aspect type and are attached directly to the entry.
    * {aspect_type_reference}@{path}: matches aspects that belong to the specified aspect type and
-   * path. {aspect_type_reference}@*: matches aspects that belong to the specified aspect type for
-   * all paths.Replace {aspect_type_reference} with a reference to the aspect type, in the format
-   * {project_id_or_number}.{location_id}.{aspect_type_id}.If you leave this field empty, it is
-   * treated as specifying exactly those aspects that are present within the specified entry.In FULL
-   * entry sync mode, Dataplex implicitly adds the keys for all of the required aspects of an entry.
+   * path. {aspect_type_reference}@* : matches aspects of the given type for all paths. *@path :
+   * matches aspects of all types on the given path.Replace {aspect_type_reference} with a reference
+   * to the aspect type, in the format {project_id_or_number}.{location_id}.{aspect_type_id}.In FULL
+   * entry sync mode, if you leave this field empty, it is treated as specifying exactly those
+   * aspects that are present within the specified entry. Dataplex implicitly adds the keys for all
+   * of the required aspects of an entry.
    * @param aspectKeys aspectKeys or {@code null} for none
    */
   public GoogleCloudDataplexV1ImportItem setAspectKeys(java.util.List<java.lang.String> aspectKeys) {
@@ -119,15 +131,35 @@ public final class GoogleCloudDataplexV1ImportItem extends com.google.api.client
   }
 
   /**
+   * Information about the entry link. User should provide either one of the entry or entry_link.
+   * While providing entry_link, user should not provide update_mask and aspect_keys.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDataplexV1EntryLink getEntryLink() {
+    return entryLink;
+  }
+
+  /**
+   * Information about the entry link. User should provide either one of the entry or entry_link.
+   * While providing entry_link, user should not provide update_mask and aspect_keys.
+   * @param entryLink entryLink or {@code null} for none
+   */
+  public GoogleCloudDataplexV1ImportItem setEntryLink(GoogleCloudDataplexV1EntryLink entryLink) {
+    this.entryLink = entryLink;
+    return this;
+  }
+
+  /**
    * The fields to update, in paths that are relative to the Entry resource. Separate each field
    * with a comma.In FULL entry sync mode, Dataplex includes the paths of all of the fields for an
    * entry that can be modified, including aspects. This means that Dataplex replaces the existing
    * entry with the entry in the metadata import file. All modifiable fields are updated, regardless
    * of the fields that are listed in the update mask, and regardless of whether a field is present
-   * in the entry object.The update_mask field is ignored when an entry is created or re-
-   * created.Dataplex also determines which entries and aspects to modify by comparing the values
-   * and timestamps that you provide in the metadata import file with the values and timestamps that
-   * exist in your project. For more information, see Comparison logic
+   * in the entry object.The update_mask field is ignored when an entry is created or re-created.In
+   * an aspect-only metadata job (when entry sync mode is NONE), set this value to aspects.Dataplex
+   * also determines which entries and aspects to modify by comparing the values and timestamps that
+   * you provide in the metadata import file with the values and timestamps that exist in your
+   * project. For more information, see Comparison logic
    * (https://cloud.google.com/dataplex/docs/import-metadata#data-modification-logic).
    * @return value or {@code null} for none
    */
@@ -141,10 +173,11 @@ public final class GoogleCloudDataplexV1ImportItem extends com.google.api.client
    * entry that can be modified, including aspects. This means that Dataplex replaces the existing
    * entry with the entry in the metadata import file. All modifiable fields are updated, regardless
    * of the fields that are listed in the update mask, and regardless of whether a field is present
-   * in the entry object.The update_mask field is ignored when an entry is created or re-
-   * created.Dataplex also determines which entries and aspects to modify by comparing the values
-   * and timestamps that you provide in the metadata import file with the values and timestamps that
-   * exist in your project. For more information, see Comparison logic
+   * in the entry object.The update_mask field is ignored when an entry is created or re-created.In
+   * an aspect-only metadata job (when entry sync mode is NONE), set this value to aspects.Dataplex
+   * also determines which entries and aspects to modify by comparing the values and timestamps that
+   * you provide in the metadata import file with the values and timestamps that exist in your
+   * project. For more information, see Comparison logic
    * (https://cloud.google.com/dataplex/docs/import-metadata#data-modification-logic).
    * @param updateMask updateMask or {@code null} for none
    */

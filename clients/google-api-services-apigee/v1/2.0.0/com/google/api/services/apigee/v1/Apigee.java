@@ -793,6 +793,157 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
       }
     }
     /**
+     * Lists the service accounts allowed to access Apigee control plane directly for limited
+     * functionality. **Note**: Available to Apigee hybrid only.
+     *
+     * Create a request for the method "organizations.getControlPlaneAccess".
+     *
+     * This request holds the parameters needed by the apigee server.  After setting any optional
+     * parameters, call the {@link GetControlPlaneAccess#execute()} method to invoke the remote
+     * operation.
+     *
+     * @param name Required. Resource name of the Control Plane Access. Use the following structure in your request:
+     *        `organizations/{org}/controlPlaneAccess`
+     * @return the request
+     */
+    public GetControlPlaneAccess getControlPlaneAccess(java.lang.String name) throws java.io.IOException {
+      GetControlPlaneAccess result = new GetControlPlaneAccess(name);
+      initialize(result);
+      return result;
+    }
+
+    public class GetControlPlaneAccess extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ControlPlaneAccess> {
+
+      private static final String REST_PATH = "v1/{+name}";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^organizations/[^/]+/controlPlaneAccess$");
+
+      /**
+       * Lists the service accounts allowed to access Apigee control plane directly for limited
+       * functionality. **Note**: Available to Apigee hybrid only.
+       *
+       * Create a request for the method "organizations.getControlPlaneAccess".
+       *
+       * This request holds the parameters needed by the the apigee server.  After setting any optional
+       * parameters, call the {@link GetControlPlaneAccess#execute()} method to invoke the remote
+       * operation. <p> {@link GetControlPlaneAccess#initialize(com.google.api.client.googleapis.service
+       * s.AbstractGoogleClientRequest)} must be called to initialize this instance immediately after
+       * invoking the constructor. </p>
+       *
+       * @param name Required. Resource name of the Control Plane Access. Use the following structure in your request:
+     *        `organizations/{org}/controlPlaneAccess`
+       * @since 1.13
+       */
+      protected GetControlPlaneAccess(java.lang.String name) {
+        super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ControlPlaneAccess.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^organizations/[^/]+/controlPlaneAccess$");
+        }
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public GetControlPlaneAccess set$Xgafv(java.lang.String $Xgafv) {
+        return (GetControlPlaneAccess) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public GetControlPlaneAccess setAccessToken(java.lang.String accessToken) {
+        return (GetControlPlaneAccess) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public GetControlPlaneAccess setAlt(java.lang.String alt) {
+        return (GetControlPlaneAccess) super.setAlt(alt);
+      }
+
+      @Override
+      public GetControlPlaneAccess setCallback(java.lang.String callback) {
+        return (GetControlPlaneAccess) super.setCallback(callback);
+      }
+
+      @Override
+      public GetControlPlaneAccess setFields(java.lang.String fields) {
+        return (GetControlPlaneAccess) super.setFields(fields);
+      }
+
+      @Override
+      public GetControlPlaneAccess setKey(java.lang.String key) {
+        return (GetControlPlaneAccess) super.setKey(key);
+      }
+
+      @Override
+      public GetControlPlaneAccess setOauthToken(java.lang.String oauthToken) {
+        return (GetControlPlaneAccess) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public GetControlPlaneAccess setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (GetControlPlaneAccess) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public GetControlPlaneAccess setQuotaUser(java.lang.String quotaUser) {
+        return (GetControlPlaneAccess) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public GetControlPlaneAccess setUploadType(java.lang.String uploadType) {
+        return (GetControlPlaneAccess) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public GetControlPlaneAccess setUploadProtocol(java.lang.String uploadProtocol) {
+        return (GetControlPlaneAccess) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. Resource name of the Control Plane Access. Use the following structure in your
+       * request: `organizations/{org}/controlPlaneAccess`
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Required. Resource name of the Control Plane Access. Use the following structure in your request:
+     `organizations/{org}/controlPlaneAccess`
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Required. Resource name of the Control Plane Access. Use the following structure in your
+       * request: `organizations/{org}/controlPlaneAccess`
+       */
+      public GetControlPlaneAccess setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^organizations/[^/]+/controlPlaneAccess$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      @Override
+      public GetControlPlaneAccess set(String parameterName, Object value) {
+        return (GetControlPlaneAccess) super.set(parameterName, value);
+      }
+    }
+    /**
      * Gets the deployed ingress configuration for an organization.
      *
      * Create a request for the method "organizations.getDeployedIngressConfig".
@@ -2126,6 +2277,174 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
       }
     }
     /**
+     * Updates the permissions required to allow Apigee runtime-plane components access to the control
+     * plane. Currently, the permissions required are to: 1. Allow runtime components to publish
+     * analytics data to the control plane. **Note**: Available to Apigee hybrid only.
+     *
+     * Create a request for the method "organizations.updateControlPlaneAccess".
+     *
+     * This request holds the parameters needed by the apigee server.  After setting any optional
+     * parameters, call the {@link UpdateControlPlaneAccess#execute()} method to invoke the remote
+     * operation.
+     *
+     * @param name Identifier. The resource name of the ControlPlaneAccess. Format:
+     *        "organizations/{org}/controlPlaneAccess"
+     * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ControlPlaneAccess}
+     * @return the request
+     */
+    public UpdateControlPlaneAccess updateControlPlaneAccess(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ControlPlaneAccess content) throws java.io.IOException {
+      UpdateControlPlaneAccess result = new UpdateControlPlaneAccess(name, content);
+      initialize(result);
+      return result;
+    }
+
+    public class UpdateControlPlaneAccess extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleLongrunningOperation> {
+
+      private static final String REST_PATH = "v1/{+name}";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^organizations/[^/]+/controlPlaneAccess$");
+
+      /**
+       * Updates the permissions required to allow Apigee runtime-plane components access to the control
+       * plane. Currently, the permissions required are to: 1. Allow runtime components to publish
+       * analytics data to the control plane. **Note**: Available to Apigee hybrid only.
+       *
+       * Create a request for the method "organizations.updateControlPlaneAccess".
+       *
+       * This request holds the parameters needed by the the apigee server.  After setting any optional
+       * parameters, call the {@link UpdateControlPlaneAccess#execute()} method to invoke the remote
+       * operation. <p> {@link UpdateControlPlaneAccess#initialize(com.google.api.client.googleapis.serv
+       * ices.AbstractGoogleClientRequest)} must be called to initialize this instance immediately after
+       * invoking the constructor. </p>
+       *
+       * @param name Identifier. The resource name of the ControlPlaneAccess. Format:
+     *        "organizations/{org}/controlPlaneAccess"
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ControlPlaneAccess}
+       * @since 1.13
+       */
+      protected UpdateControlPlaneAccess(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ControlPlaneAccess content) {
+        super(Apigee.this, "PATCH", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleLongrunningOperation.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^organizations/[^/]+/controlPlaneAccess$");
+        }
+      }
+
+      @Override
+      public UpdateControlPlaneAccess set$Xgafv(java.lang.String $Xgafv) {
+        return (UpdateControlPlaneAccess) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setAccessToken(java.lang.String accessToken) {
+        return (UpdateControlPlaneAccess) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setAlt(java.lang.String alt) {
+        return (UpdateControlPlaneAccess) super.setAlt(alt);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setCallback(java.lang.String callback) {
+        return (UpdateControlPlaneAccess) super.setCallback(callback);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setFields(java.lang.String fields) {
+        return (UpdateControlPlaneAccess) super.setFields(fields);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setKey(java.lang.String key) {
+        return (UpdateControlPlaneAccess) super.setKey(key);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setOauthToken(java.lang.String oauthToken) {
+        return (UpdateControlPlaneAccess) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (UpdateControlPlaneAccess) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setQuotaUser(java.lang.String quotaUser) {
+        return (UpdateControlPlaneAccess) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setUploadType(java.lang.String uploadType) {
+        return (UpdateControlPlaneAccess) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public UpdateControlPlaneAccess setUploadProtocol(java.lang.String uploadProtocol) {
+        return (UpdateControlPlaneAccess) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Identifier. The resource name of the ControlPlaneAccess. Format:
+       * "organizations/{org}/controlPlaneAccess"
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Identifier. The resource name of the ControlPlaneAccess. Format:
+     "organizations/{org}/controlPlaneAccess"
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Identifier. The resource name of the ControlPlaneAccess. Format:
+       * "organizations/{org}/controlPlaneAccess"
+       */
+      public UpdateControlPlaneAccess setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^organizations/[^/]+/controlPlaneAccess$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      /**
+       * List of fields to be updated. Fields that can be updated: synchronizer_identities,
+       * publisher_identities.
+       */
+      @com.google.api.client.util.Key
+      private String updateMask;
+
+      /** List of fields to be updated. Fields that can be updated: synchronizer_identities,
+     publisher_identities.
+       */
+      public String getUpdateMask() {
+        return updateMask;
+      }
+
+      /**
+       * List of fields to be updated. Fields that can be updated: synchronizer_identities,
+       * publisher_identities.
+       */
+      public UpdateControlPlaneAccess setUpdateMask(String updateMask) {
+        this.updateMask = updateMask;
+        return this;
+      }
+
+      @Override
+      public UpdateControlPlaneAccess set(String parameterName, Object value) {
+        return (UpdateControlPlaneAccess) super.set(parameterName, value);
+      }
+    }
+    /**
      * UpdateSecuritySettings updates the current security settings for API Security.
      *
      * Create a request for the method "organizations.updateSecuritySettings".
@@ -3198,7 +3517,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link AttributesRequest#execute()} method to invoke the remote operation.
        *
        * @param name Required. Name of the API product. Use the following structure in your request:
-       *        `organizations/{org}/apiproducts/{apiproduct}`
+       *        `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+       *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+       *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       *        platform/system-administration/spaces/apigee-spaces-overview).
        * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Attributes}
        * @return the request
        */
@@ -3234,7 +3556,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * constructor. </p>
          *
          * @param name Required. Name of the API product. Use the following structure in your request:
-       *        `organizations/{org}/apiproducts/{apiproduct}`
+       *        `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+       *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+       *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       *        platform/system-administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Attributes}
          * @since 1.13
          */
@@ -3305,13 +3630,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API product. Use the following structure in your request:
-         * `organizations/{org}/apiproducts/{apiproduct}`
+         * `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the
+         * `space` attribute set, IAM permissions are checked against the Space resource path. To
+         * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. Name of the API product. Use the following structure in your request:
-       `organizations/{org}/apiproducts/{apiproduct}`
+       `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+       attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+       [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       administration/spaces/apigee-spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -3319,7 +3650,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API product. Use the following structure in your request:
-         * `organizations/{org}/apiproducts/{apiproduct}`
+         * `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the
+         * `space` attribute set, IAM permissions are checked against the Space resource path. To
+         * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         public AttributesRequest setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -3357,7 +3691,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link Create#execute()} method to invoke the remote operation.
        *
        * @param parent Required. Name of the organization in which the API product will be created. Use the following
-       *        structure in your request: `organizations/{org}`
+       *        structure in your request: `organizations/{org}` If the resource has the `space` attribute
+       *        set, IAM permissions are checked against the Space resource path. To learn more, read the
+       *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProduct}
        * @return the request
        */
@@ -3397,7 +3734,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param parent Required. Name of the organization in which the API product will be created. Use the following
-       *        structure in your request: `organizations/{org}`
+       *        structure in your request: `organizations/{org}` If the resource has the `space` attribute
+       *        set, IAM permissions are checked against the Space resource path. To learn more, read the
+       *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProduct}
          * @since 1.13
          */
@@ -3468,13 +3808,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the organization in which the API product will be created. Use the
-         * following structure in your request: `organizations/{org}`
+         * following structure in your request: `organizations/{org}` If the resource has the
+         * `space` attribute set, IAM permissions are checked against the Space resource path. To
+         * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
         /** Required. Name of the organization in which the API product will be created. Use the following
-       structure in your request: `organizations/{org}`
+       structure in your request: `organizations/{org}` If the resource has the `space` attribute set, IAM
+       permissions are checked against the Space resource path. To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getParent() {
           return parent;
@@ -3482,7 +3828,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the organization in which the API product will be created. Use the
-         * following structure in your request: `organizations/{org}`
+         * following structure in your request: `organizations/{org}` If the resource has the
+         * `space` attribute set, IAM permissions are checked against the Space resource path. To
+         * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         public Create setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -3513,7 +3862,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
        *
        * @param name Required. Name of the API product. Use the following structure in your request:
-       *        `organizations/{org}/apiproducts/{apiproduct}`
+       *        `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+       *        set, IAM permissions are checked against the Space resource path. To learn more, read the
+       *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -3546,7 +3898,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. Name of the API product. Use the following structure in your request:
-       *        `organizations/{org}/apiproducts/{apiproduct}`
+       *        `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+       *        set, IAM permissions are checked against the Space resource path. To learn more, read the
+       *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected Delete(java.lang.String name) {
@@ -3616,13 +3971,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API product. Use the following structure in your request:
-         * `organizations/{org}/apiproducts/{apiproduct}`
+         * `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+         * set, IAM permissions are checked against the Space resource path. To learn more, read the
+         * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. Name of the API product. Use the following structure in your request:
-       `organizations/{org}/apiproducts/{apiproduct}`
+       `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute set, IAM
+       permissions are checked against the Space resource path. To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -3630,7 +3991,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API product. Use the following structure in your request:
-         * `organizations/{org}/apiproducts/{apiproduct}`
+         * `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+         * set, IAM permissions are checked against the Space resource path. To learn more, read the
+         * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         public Delete setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -3659,7 +4023,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
        * @param name Required. Name of the API product. Use the following structure in your request:
-       *        `organizations/{org}/apiproducts/{apiproduct}`
+       *        `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+       *        set, IAM permissions are checked against the Space resource path. To learn more, read the
+       *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public Get get(java.lang.String name) throws java.io.IOException {
@@ -3689,7 +4056,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. Name of the API product. Use the following structure in your request:
-       *        `organizations/{org}/apiproducts/{apiproduct}`
+       *        `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+       *        set, IAM permissions are checked against the Space resource path. To learn more, read the
+       *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected Get(java.lang.String name) {
@@ -3769,13 +4139,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API product. Use the following structure in your request:
-         * `organizations/{org}/apiproducts/{apiproduct}`
+         * `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+         * set, IAM permissions are checked against the Space resource path. To learn more, read the
+         * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. Name of the API product. Use the following structure in your request:
-       `organizations/{org}/apiproducts/{apiproduct}`
+       `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute set, IAM
+       permissions are checked against the Space resource path. To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -3783,7 +4159,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API product. Use the following structure in your request:
-         * `organizations/{org}/apiproducts/{apiproduct}`
+         * `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+         * set, IAM permissions are checked against the Space resource path. To learn more, read the
+         * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         public Get setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -3803,7 +4182,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
       /**
        * Lists all API product names for an organization. Filter the list by passing an `attributename`
        * and `attibutevalue`. The maximum number of API products returned is 1000. You can paginate the
-       * list of API products returned using the `startKey` and `count` query parameters.
+       * list of API products returned using the `startKey` and `count` query parameters. If the resource
+       * has the `space` attribute set, the response may not return all resources. To learn more, read the
+       * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       * administration/spaces/apigee-spaces-overview).
        *
        * Create a request for the method "apiproducts.list".
        *
@@ -3811,7 +4193,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link List#execute()} method to invoke the remote operation.
        *
        * @param parent Required. Name of the organization. Use the following structure in your request:
-       *        `organizations/{org}`
+       *        `organizations/{org}` If the resource has the `space` attribute set, IAM permissions are
+       *        checked against the Space resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public List list(java.lang.String parent) throws java.io.IOException {
@@ -3830,7 +4215,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         /**
          * Lists all API product names for an organization. Filter the list by passing an `attributename`
          * and `attibutevalue`. The maximum number of API products returned is 1000. You can paginate the
-         * list of API products returned using the `startKey` and `count` query parameters.
+         * list of API products returned using the `startKey` and `count` query parameters. If the
+         * resource has the `space` attribute set, the response may not return all resources. To learn
+         * more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          *
          * Create a request for the method "apiproducts.list".
          *
@@ -3840,7 +4228,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param parent Required. Name of the organization. Use the following structure in your request:
-       *        `organizations/{org}`
+       *        `organizations/{org}` If the resource has the `space` attribute set, IAM permissions are
+       *        checked against the Space resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected List(java.lang.String parent) {
@@ -3920,13 +4311,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the organization. Use the following structure in your request:
-         * `organizations/{org}`
+         * `organizations/{org}` If the resource has the `space` attribute set, IAM permissions are
+         * checked against the Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
         /** Required. Name of the organization. Use the following structure in your request:
-       `organizations/{org}`
+       `organizations/{org}` If the resource has the `space` attribute set, IAM permissions are checked
+       against the Space resource path. To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getParent() {
           return parent;
@@ -3934,7 +4331,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the organization. Use the following structure in your request:
-         * `organizations/{org}`
+         * `organizations/{org}` If the resource has the `space` attribute set, IAM permissions are
+         * checked against the Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         public List setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -4022,6 +4422,35 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         }
 
         /**
+         * Optional. The Space to list API products for. When none provided, all the spaces the user
+         * has list access, will be used implicitly, and the same following rules will apply. Can be
+         * used in conjunction with start_key, expand and count for paginated response. Composite
+         * queries with attributename and attributevalue are not supported yet.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String space;
+
+        /** Optional. The Space to list API products for. When none provided, all the spaces the user has list
+       access, will be used implicitly, and the same following rules will apply. Can be used in
+       conjunction with start_key, expand and count for paginated response. Composite queries with
+       attributename and attributevalue are not supported yet.
+         */
+        public java.lang.String getSpace() {
+          return space;
+        }
+
+        /**
+         * Optional. The Space to list API products for. When none provided, all the spaces the user
+         * has list access, will be used implicitly, and the same following rules will apply. Can be
+         * used in conjunction with start_key, expand and count for paginated response. Composite
+         * queries with attributename and attributevalue are not supported yet.
+         */
+        public List setSpace(java.lang.String space) {
+          this.space = space;
+          return this;
+        }
+
+        /**
          * Gets a list of API products starting with a specific API product in the list. For
          * example, if you're returning 50 API products at a time (using the `count` query
          * parameter), you can view products 50-99 by entering the name of the 50th API product in
@@ -4056,6 +4485,143 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         }
       }
       /**
+       * Moves an API product to a different space.
+       *
+       * Create a request for the method "apiproducts.move".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Move#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. API product to move in the following format: `organizations/{org}/apiproducts/{apiproduct}
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveApiProductRequest}
+       * @return the request
+       */
+      public Move move(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveApiProductRequest content) throws java.io.IOException {
+        Move result = new Move(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Move extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProduct> {
+
+        private static final String REST_PATH = "v1/{+name}:move";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/apiproducts/[^/]+$");
+
+        /**
+         * Moves an API product to a different space.
+         *
+         * Create a request for the method "apiproducts.move".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Move#execute()} method to invoke the remote operation. <p> {@link
+         * Move#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. API product to move in the following format: `organizations/{org}/apiproducts/{apiproduct}
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveApiProductRequest}
+         * @since 1.13
+         */
+        protected Move(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveApiProductRequest content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProduct.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/apiproducts/[^/]+$");
+          }
+        }
+
+        @Override
+        public Move set$Xgafv(java.lang.String $Xgafv) {
+          return (Move) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Move setAccessToken(java.lang.String accessToken) {
+          return (Move) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Move setAlt(java.lang.String alt) {
+          return (Move) super.setAlt(alt);
+        }
+
+        @Override
+        public Move setCallback(java.lang.String callback) {
+          return (Move) super.setCallback(callback);
+        }
+
+        @Override
+        public Move setFields(java.lang.String fields) {
+          return (Move) super.setFields(fields);
+        }
+
+        @Override
+        public Move setKey(java.lang.String key) {
+          return (Move) super.setKey(key);
+        }
+
+        @Override
+        public Move setOauthToken(java.lang.String oauthToken) {
+          return (Move) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Move setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Move) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Move setQuotaUser(java.lang.String quotaUser) {
+          return (Move) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Move setUploadType(java.lang.String uploadType) {
+          return (Move) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Move setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Move) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. API product to move in the following format:
+         * `organizations/{org}/apiproducts/{apiproduct}
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. API product to move in the following format:
+       `organizations/{org}/apiproducts/{apiproduct}
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. API product to move in the following format:
+         * `organizations/{org}/apiproducts/{apiproduct}
+         */
+        public Move setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/apiproducts/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Move set(String parameterName, Object value) {
+          return (Move) super.set(parameterName, value);
+        }
+      }
+      /**
        * Updates an existing API product. You must include all required values, whether or not you are
        * updating them, as well as any optional values that you are updating. The API product name
        * required in the request URL is the internal name of the product, not the display name. While they
@@ -4068,7 +4634,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link Update#execute()} method to invoke the remote operation.
        *
        * @param name Required. Name of the API product. Use the following structure in your request:
-       *        `organizations/{org}/apiproducts/{apiproduct}`
+       *        `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+       *        set, IAM permissions are checked against the Space resource path.To learn more, read the
+       *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProduct}
        * @return the request
        */
@@ -4100,7 +4669,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. Name of the API product. Use the following structure in your request:
-       *        `organizations/{org}/apiproducts/{apiproduct}`
+       *        `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+       *        set, IAM permissions are checked against the Space resource path.To learn more, read the
+       *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProduct}
          * @since 1.13
          */
@@ -4171,13 +4743,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API product. Use the following structure in your request:
-         * `organizations/{org}/apiproducts/{apiproduct}`
+         * `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+         * set, IAM permissions are checked against the Space resource path.To learn more, read the
+         * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. Name of the API product. Use the following structure in your request:
-       `organizations/{org}/apiproducts/{apiproduct}`
+       `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute set, IAM
+       permissions are checked against the Space resource path.To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -4185,7 +4763,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API product. Use the following structure in your request:
-         * `organizations/{org}/apiproducts/{apiproduct}`
+         * `organizations/{org}/apiproducts/{apiproduct}` If the resource has the `space` attribute
+         * set, IAM permissions are checked against the Space resource path.To learn more, read the
+         * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         public Update setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -4232,7 +4813,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
          *
          * @param name Required. Name of the API product attribute. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -4259,7 +4844,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. Name of the API product attribute. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Delete(java.lang.String name) {
@@ -4329,13 +4918,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product attribute. Use the following structure in your
-           * request: `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+           * request: `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the
+           * API Product resource has the `space` attribute set, IAM permissions are checked against
+           * the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Name of the API product attribute. Use the following structure in your request:
-         `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+         `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the API Product resource
+         has the `space` attribute set, IAM permissions are checked against the Space resource path. To
+         learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         platform/system-administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -4343,7 +4939,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product attribute. Use the following structure in your
-           * request: `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+           * request: `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the
+           * API Product resource has the `space` attribute set, IAM permissions are checked against
+           * the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -4369,7 +4969,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Get#execute()} method to invoke the remote operation.
          *
          * @param name Required. Name of the API product attribute. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Get get(java.lang.String name) throws java.io.IOException {
@@ -4396,7 +5000,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. Name of the API product attribute. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Get(java.lang.String name) {
@@ -4476,13 +5084,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product attribute. Use the following structure in your
-           * request: `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+           * request: `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the
+           * API Product resource has the `space` attribute set, IAM permissions are checked against
+           * the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Name of the API product attribute. Use the following structure in your request:
-         `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+         `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the API Product resource
+         has the `space` attribute set, IAM permissions are checked against the Space resource path. To
+         learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         platform/system-administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -4490,7 +5105,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product attribute. Use the following structure in your
-           * request: `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}`
+           * request: `organizations/{org}/apiproducts/{apiproduct}/attributes/{attribute}` If the
+           * API Product resource has the `space` attribute set, IAM permissions are checked against
+           * the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Get setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -4516,7 +5135,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
          * @param parent Required. Name of the API product. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}`
+         *        `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -4543,7 +5165,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param parent Required. Name of the API product. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}`
+         *        `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -4623,13 +5248,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}`
+           * `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. Name of the API product. Use the following structure in your request:
-         `organizations/{org}/apiproducts/{apiproduct}`
+         `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+         attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+         [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getParent() {
             return parent;
@@ -4637,7 +5268,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}`
+           * `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -4668,7 +5302,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * operation.
          *
          * @param name Required. Name of the API product. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}`
+         *        `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Attribute}
          * @return the request
          */
@@ -4701,7 +5338,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * after invoking the constructor. </p>
            *
            * @param name Required. Name of the API product. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}`
+         *        `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Attribute}
            * @since 1.13
            */
@@ -4772,13 +5412,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}`
+           * `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Name of the API product. Use the following structure in your request:
-         `organizations/{org}/apiproducts/{apiproduct}`
+         `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the `space`
+         attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+         [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -4786,7 +5432,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}`
+           * `organizations/{org}/apiproducts/{apiproduct}` If the API Product resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           public UpdateApiProductAttribute setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -4840,7 +5489,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Create#execute()} method to invoke the remote operation.
          *
          * @param parent Required. Name of the API product that is associated with the rate plan. Use the following structure
-         *        in your request: `organizations/{org}/apiproducts/{apiproduct}`
+         *        in your request: `organizations/{org}/apiproducts/{apiproduct}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1RatePlan}
          * @return the request
          */
@@ -4874,7 +5527,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param parent Required. Name of the API product that is associated with the rate plan. Use the following structure
-         *        in your request: `organizations/{org}/apiproducts/{apiproduct}`
+         *        in your request: `organizations/{org}/apiproducts/{apiproduct}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1RatePlan}
            * @since 1.13
            */
@@ -4945,13 +5602,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product that is associated with the rate plan. Use the
-           * following structure in your request: `organizations/{org}/apiproducts/{apiproduct}`
+           * following structure in your request: `organizations/{org}/apiproducts/{apiproduct}` If
+           * the API Product resource has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. Name of the API product that is associated with the rate plan. Use the following
-         structure in your request: `organizations/{org}/apiproducts/{apiproduct}`
+         structure in your request: `organizations/{org}/apiproducts/{apiproduct}` If the API Product
+         resource has the `space` attribute set, IAM permissions are checked against the Space resource
+         path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         platform/system-administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getParent() {
             return parent;
@@ -4959,7 +5623,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API product that is associated with the rate plan. Use the
-           * following structure in your request: `organizations/{org}/apiproducts/{apiproduct}`
+           * following structure in your request: `organizations/{org}/apiproducts/{apiproduct}` If
+           * the API Product resource has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Create setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -4985,7 +5653,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
          *
          * @param name Required. ID of the rate plan. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -5012,7 +5684,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. ID of the rate plan. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Delete(java.lang.String name) {
@@ -5082,13 +5758,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. ID of the rate plan. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. ID of the rate plan. Use the following structure in your request:
-         `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product resource has
+         the `space` attribute set, IAM permissions are checked against the Space resource path. To learn
+         more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -5096,7 +5779,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. ID of the rate plan. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -5122,7 +5809,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Get#execute()} method to invoke the remote operation.
          *
          * @param name Required. Name of the rate plan. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Get get(java.lang.String name) throws java.io.IOException {
@@ -5149,7 +5840,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. Name of the rate plan. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Get(java.lang.String name) {
@@ -5229,13 +5924,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the rate plan. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Name of the rate plan. Use the following structure in your request:
-         `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product resource has
+         the `space` attribute set, IAM permissions are checked against the Space resource path. To learn
+         more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -5243,7 +5945,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the rate plan. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Get setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -5270,7 +5976,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *
          * @param parent Required. Name of the API product. Use the following structure in your request:
          *        `organizations/{org}/apiproducts/{apiproduct}` Use `organizations/{org}/apiproducts/-` to
-         *        return rate plans for all API products within the organization.
+         *        return rate plans for all API products within the organization. If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -5298,7 +6008,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *
            * @param parent Required. Name of the API product. Use the following structure in your request:
          *        `organizations/{org}/apiproducts/{apiproduct}` Use `organizations/{org}/apiproducts/-` to
-         *        return rate plans for all API products within the organization.
+         *        return rate plans for all API products within the organization. If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -5379,14 +6093,21 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           /**
            * Required. Name of the API product. Use the following structure in your request:
            * `organizations/{org}/apiproducts/{apiproduct}` Use `organizations/{org}/apiproducts/-`
-           * to return rate plans for all API products within the organization.
+           * to return rate plans for all API products within the organization. If the API Product
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. Name of the API product. Use the following structure in your request:
          `organizations/{org}/apiproducts/{apiproduct}` Use `organizations/{org}/apiproducts/-` to return
-         rate plans for all API products within the organization.
+         rate plans for all API products within the organization. If the API Product resource has the
+         `space` attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getParent() {
             return parent;
@@ -5395,7 +6116,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           /**
            * Required. Name of the API product. Use the following structure in your request:
            * `organizations/{org}/apiproducts/{apiproduct}` Use `organizations/{org}/apiproducts/-`
-           * to return rate plans for all API products within the organization.
+           * to return rate plans for all API products within the organization. If the API Product
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -5540,7 +6265,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Update#execute()} method to invoke the remote operation.
          *
          * @param name Required. Name of the rate plan. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1RatePlan}
          * @return the request
          */
@@ -5568,7 +6297,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. Name of the rate plan. Use the following structure in your request:
-         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         *        `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+         *        resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1RatePlan}
            * @since 1.13
            */
@@ -5639,13 +6372,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the rate plan. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Name of the rate plan. Use the following structure in your request:
-         `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+         `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product resource has
+         the `space` attribute set, IAM permissions are checked against the Space resource path. To learn
+         more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -5653,7 +6393,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the rate plan. Use the following structure in your request:
-           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+           * `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}` If the API Product
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Update setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -5711,7 +6455,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * This request holds the parameters needed by the apigee server.  After setting any optional
        * parameters, call the {@link Create#execute()} method to invoke the remote operation.
        *
-       * @param parent Required. Name of the organization in the following format: `organizations/{org}`
+       * @param parent Required. Name of the organization in the following format: `organizations/{org}` If the API Proxy
+       *        resource has the `space` attribute set, IAM permissions are checked against the Space
+       *        resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @param content the {@link com.google.api.services.apigee.v1.model.GoogleApiHttpBody}
        * @return the request
        */
@@ -5749,7 +6497,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. Name of the organization in the following format: `organizations/{org}`
+         * @param parent Required. Name of the organization in the following format: `organizations/{org}` If the API Proxy
+       *        resource has the `space` attribute set, IAM permissions are checked against the Space
+       *        resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleApiHttpBody}
          * @since 1.13
          */
@@ -5818,17 +6570,32 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return (Create) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** Required. Name of the organization in the following format: `organizations/{org}` */
+        /**
+         * Required. Name of the organization in the following format: `organizations/{org}` If the
+         * API Proxy resource has the `space` attribute set, IAM permissions are checked against the
+         * Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
+         */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. Name of the organization in the following format: `organizations/{org}`
+        /** Required. Name of the organization in the following format: `organizations/{org}` If the API Proxy
+       resource has the `space` attribute set, IAM permissions are checked against the Space resource
+       path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       platform/system-administration/spaces/apigee-spaces-overview).
          */
         public java.lang.String getParent() {
           return parent;
         }
 
-        /** Required. Name of the organization in the following format: `organizations/{org}` */
+        /**
+         * Required. Name of the organization in the following format: `organizations/{org}` If the
+         * API Proxy resource has the `space` attribute set, IAM permissions are checked against the
+         * Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
+         */
         public Create setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
@@ -5882,6 +6649,34 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         }
 
         /**
+         * Optional. The ID of the space associated with this proxy. Any IAM policies applied to the
+         * space will affect access to this proxy. Note that this field is only respected when
+         * creating a new proxy. It has no effect when creating a new revision for an existing
+         * proxy.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String space;
+
+        /** Optional. The ID of the space associated with this proxy. Any IAM policies applied to the space
+       will affect access to this proxy. Note that this field is only respected when creating a new proxy.
+       It has no effect when creating a new revision for an existing proxy.
+         */
+        public java.lang.String getSpace() {
+          return space;
+        }
+
+        /**
+         * Optional. The ID of the space associated with this proxy. Any IAM policies applied to the
+         * space will affect access to this proxy. Note that this field is only respected when
+         * creating a new proxy. It has no effect when creating a new revision for an existing
+         * proxy.
+         */
+        public Create setSpace(java.lang.String space) {
+          this.space = space;
+          return this;
+        }
+
+        /**
          * Ignored. All uploads are validated regardless of the value of this field. Maintained for
          * compatibility with Apigee Edge API.
          */
@@ -5918,7 +6713,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * This request holds the parameters needed by the apigee server.  After setting any optional
        * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
        *
-       * @param name Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+       * @param name Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}` If the API
+       *        Proxy resource has the `space` attribute set, IAM permissions are checked against the
+       *        Space resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -5945,7 +6744,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+         * @param name Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}` If the API
+       *        Proxy resource has the `space` attribute set, IAM permissions are checked against the
+       *        Space resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected Delete(java.lang.String name) {
@@ -6015,11 +6818,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+         * If the API Proxy resource has the `space` attribute set, IAM permissions are checked
+         * against the Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+        /** Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}` If the
+       API Proxy resource has the `space` attribute set, IAM permissions are checked against the Space
+       resource path. To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -6027,6 +6838,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+         * If the API Proxy resource has the `space` attribute set, IAM permissions are checked
+         * against the Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         public Delete setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -6051,7 +6866,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * This request holds the parameters needed by the apigee server.  After setting any optional
        * parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
-       * @param name Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+       * @param name Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}` If the API
+       *        Proxy resource has the `space` attribute set, IAM permissions are checked against the
+       *        Space resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public Get get(java.lang.String name) throws java.io.IOException {
@@ -6077,7 +6896,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+         * @param name Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}` If the API
+       *        Proxy resource has the `space` attribute set, IAM permissions are checked against the
+       *        Space resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected Get(java.lang.String name) {
@@ -6157,11 +6980,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+         * If the API Proxy resource has the `space` attribute set, IAM permissions are checked
+         * against the Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+        /** Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}` If the
+       API Proxy resource has the `space` attribute set, IAM permissions are checked against the Space
+       resource path. To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -6169,6 +7000,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. Name of the API proxy in the following format: `organizations/{org}/apis/{api}`
+         * If the API Proxy resource has the `space` attribute set, IAM permissions are checked
+         * against the Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         public Get setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -6187,14 +7022,21 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
       }
       /**
        * Lists the names of all API proxies in an organization. The names returned correspond to the names
-       * defined in the configuration files for each API proxy.
+       * defined in the configuration files for each API proxy. If the resource has the `space` attribute
+       * set, the response may not return all resources. To learn more, read the [Apigee Spaces
+       * Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       * spaces-overview).
        *
        * Create a request for the method "apis.list".
        *
        * This request holds the parameters needed by the apigee server.  After setting any optional
        * parameters, call the {@link List#execute()} method to invoke the remote operation.
        *
-       * @param parent Required. Name of the organization in the following format: `organizations/{org}`
+       * @param parent Required. Name of the organization in the following format: `organizations/{org}` If the resource
+       *        has the `space` attribute set, IAM permissions are checked against the Space resource
+       *        path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public List list(java.lang.String parent) throws java.io.IOException {
@@ -6212,7 +7054,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Lists the names of all API proxies in an organization. The names returned correspond to the
-         * names defined in the configuration files for each API proxy.
+         * names defined in the configuration files for each API proxy. If the resource has the `space`
+         * attribute set, the response may not return all resources. To learn more, read the [Apigee
+         * Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          *
          * Create a request for the method "apis.list".
          *
@@ -6221,7 +7066,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. Name of the organization in the following format: `organizations/{org}`
+         * @param parent Required. Name of the organization in the following format: `organizations/{org}` If the resource
+       *        has the `space` attribute set, IAM permissions are checked against the Space resource
+       *        path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected List(java.lang.String parent) {
@@ -6299,17 +7148,32 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return (List) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** Required. Name of the organization in the following format: `organizations/{org}` */
+        /**
+         * Required. Name of the organization in the following format: `organizations/{org}` If the
+         * resource has the `space` attribute set, IAM permissions are checked against the Space
+         * resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
+         */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. Name of the organization in the following format: `organizations/{org}`
+        /** Required. Name of the organization in the following format: `organizations/{org}` If the resource
+       has the `space` attribute set, IAM permissions are checked against the Space resource path. To
+       learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       platform/system-administration/spaces/apigee-spaces-overview).
          */
         public java.lang.String getParent() {
           return parent;
         }
 
-        /** Required. Name of the organization in the following format: `organizations/{org}` */
+        /**
+         * Required. Name of the organization in the following format: `organizations/{org}` If the
+         * resource has the `space` attribute set, IAM permissions are checked against the Space
+         * resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
+         */
         public List setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
@@ -6352,9 +7216,166 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return this;
         }
 
+        /**
+         * Optional. The space ID to filter the list of proxies (optional). If unspecified, all
+         * proxies in the organization will be listed.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String space;
+
+        /** Optional. The space ID to filter the list of proxies (optional). If unspecified, all proxies in the
+       organization will be listed.
+         */
+        public java.lang.String getSpace() {
+          return space;
+        }
+
+        /**
+         * Optional. The space ID to filter the list of proxies (optional). If unspecified, all
+         * proxies in the organization will be listed.
+         */
+        public List setSpace(java.lang.String space) {
+          this.space = space;
+          return this;
+        }
+
         @Override
         public List set(String parameterName, Object value) {
           return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Moves an API proxy to a different space.
+       *
+       * Create a request for the method "apis.move".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Move#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. API proxy to move in the following format: `organizations/{org}/apis/{api}`
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveApiProxyRequest}
+       * @return the request
+       */
+      public Move move(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveApiProxyRequest content) throws java.io.IOException {
+        Move result = new Move(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Move extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProxy> {
+
+        private static final String REST_PATH = "v1/{+name}:move";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/apis/[^/]+$");
+
+        /**
+         * Moves an API proxy to a different space.
+         *
+         * Create a request for the method "apis.move".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Move#execute()} method to invoke the remote operation. <p> {@link
+         * Move#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. API proxy to move in the following format: `organizations/{org}/apis/{api}`
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveApiProxyRequest}
+         * @since 1.13
+         */
+        protected Move(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveApiProxyRequest content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProxy.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/apis/[^/]+$");
+          }
+        }
+
+        @Override
+        public Move set$Xgafv(java.lang.String $Xgafv) {
+          return (Move) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Move setAccessToken(java.lang.String accessToken) {
+          return (Move) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Move setAlt(java.lang.String alt) {
+          return (Move) super.setAlt(alt);
+        }
+
+        @Override
+        public Move setCallback(java.lang.String callback) {
+          return (Move) super.setCallback(callback);
+        }
+
+        @Override
+        public Move setFields(java.lang.String fields) {
+          return (Move) super.setFields(fields);
+        }
+
+        @Override
+        public Move setKey(java.lang.String key) {
+          return (Move) super.setKey(key);
+        }
+
+        @Override
+        public Move setOauthToken(java.lang.String oauthToken) {
+          return (Move) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Move setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Move) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Move setQuotaUser(java.lang.String quotaUser) {
+          return (Move) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Move setUploadType(java.lang.String uploadType) {
+          return (Move) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Move setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Move) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. API proxy to move in the following format: `organizations/{org}/apis/{api}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. API proxy to move in the following format: `organizations/{org}/apis/{api}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. API proxy to move in the following format: `organizations/{org}/apis/{api}`
+         */
+        public Move setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/apis/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Move set(String parameterName, Object value) {
+          return (Move) super.set(parameterName, value);
         }
       }
       /**
@@ -6365,7 +7386,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * This request holds the parameters needed by the apigee server.  After setting any optional
        * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
        *
-       * @param name Required. API proxy to update in the following format: `organizations/{org}/apis/{api}`
+       * @param name Required. API proxy to update in the following format: `organizations/{org}/apis/{api}` If the
+       *        resource has the `space` attribute set, IAM permissions are checked against the Space
+       *        resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProxy}
        * @return the request
        */
@@ -6392,7 +7417,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. API proxy to update in the following format: `organizations/{org}/apis/{api}`
+         * @param name Required. API proxy to update in the following format: `organizations/{org}/apis/{api}` If the
+       *        resource has the `space` attribute set, IAM permissions are checked against the Space
+       *        resource path. To learn more, read the [Apigee Spaces
+       *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ApiProxy}
          * @since 1.13
          */
@@ -6463,11 +7492,18 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. API proxy to update in the following format: `organizations/{org}/apis/{api}`
+         * If the resource has the `space` attribute set, IAM permissions are checked against the
+         * Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. API proxy to update in the following format: `organizations/{org}/apis/{api}`
+        /** Required. API proxy to update in the following format: `organizations/{org}/apis/{api}` If the
+       resource has the `space` attribute set, IAM permissions are checked against the Space resource
+       path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       platform/system-administration/spaces/apigee-spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -6475,6 +7511,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. API proxy to update in the following format: `organizations/{org}/apis/{api}`
+         * If the resource has the `space` attribute set, IAM permissions are checked against the
+         * Space resource path. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         public Patch setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -6509,6 +7549,218 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
       }
 
       /**
+       * An accessor for creating requests from the Debugsessions collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code Apigee apigee = new Apigee(...);}
+       *   {@code Apigee.Debugsessions.List request = apigee.debugsessions().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public Debugsessions debugsessions() {
+        return new Debugsessions();
+      }
+
+      /**
+       * The "debugsessions" collection of methods.
+       */
+      public class Debugsessions {
+
+        /**
+         * Lists debug sessions that are currently active in the given API Proxy.
+         *
+         * Create a request for the method "debugsessions.list".
+         *
+         * This request holds the parameters needed by the apigee server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The name of the API Proxy for which to list debug sessions. Must be of the form:
+         *        `organizations/{organization}/apis/{api}`.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListApiDebugSessionsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/debugsessions";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^organizations/[^/]+/apis/[^/]+$");
+
+          /**
+           * Lists debug sessions that are currently active in the given API Proxy.
+           *
+           * Create a request for the method "debugsessions.list".
+           *
+           * This request holds the parameters needed by the the apigee server.  After setting any optional
+           * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+           * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+           * called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The name of the API Proxy for which to list debug sessions. Must be of the form:
+         *        `organizations/{organization}/apis/{api}`.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListApiDebugSessionsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^organizations/[^/]+/apis/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the API Proxy for which to list debug sessions. Must be of the
+           * form: `organizations/{organization}/apis/{api}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The name of the API Proxy for which to list debug sessions. Must be of the form:
+         `organizations/{organization}/apis/{api}`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The name of the API Proxy for which to list debug sessions. Must be of the
+           * form: `organizations/{organization}/apis/{api}`.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^organizations/[^/]+/apis/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Maximum number of debug sessions to return. The page size defaults to 25.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Maximum number of debug sessions to return. The page size defaults to 25.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Maximum number of debug sessions to return. The page size defaults to 25.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. Page token, returned from a previous ListApiDebugSessions call, that you can
+           * use to retrieve the next page.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. Page token, returned from a previous ListApiDebugSessions call, that you can use to
+         retrieve the next page.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. Page token, returned from a previous ListApiDebugSessions call, that you can
+           * use to retrieve the next page.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
        * An accessor for creating requests from the Deployments collection.
        *
        * <p>The typical use is:</p>
@@ -6537,7 +7789,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
          * @param parent Required. Name of the API proxy for which to return deployment information in the following format:
-         *        `organizations/{org}/apis/{api}`
+         *        `organizations/{org}/apis/{api}` If the API proxy resource has the `space` attribute set,
+         *        IAM permissions are checked differently . To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -6564,7 +7819,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param parent Required. Name of the API proxy for which to return deployment information in the following format:
-         *        `organizations/{org}/apis/{api}`
+         *        `organizations/{org}/apis/{api}` If the API proxy resource has the `space` attribute set,
+         *        IAM permissions are checked differently . To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -6644,13 +7902,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API proxy for which to return deployment information in the
-           * following format: `organizations/{org}/apis/{api}`
+           * following format: `organizations/{org}/apis/{api}` If the API proxy resource has the
+           * `space` attribute set, IAM permissions are checked differently . To learn more, read
+           * the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. Name of the API proxy for which to return deployment information in the following format:
-         `organizations/{org}/apis/{api}`
+         `organizations/{org}/apis/{api}` If the API proxy resource has the `space` attribute set, IAM
+         permissions are checked differently . To learn more, read the [Apigee Spaces
+         Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+         spaces-overview).
            */
           public java.lang.String getParent() {
             return parent;
@@ -6658,7 +7922,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the API proxy for which to return deployment information in the
-           * following format: `organizations/{org}/apis/{api}`
+           * following format: `organizations/{org}/apis/{api}` If the API proxy resource has the
+           * `space` attribute set, IAM permissions are checked differently . To learn more, read
+           * the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -6706,7 +7973,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Create#execute()} method to invoke the remote operation.
          *
          * @param parent Required. Name of the environment in which to create the key value map. Use the following structure
-         *        in your request: `organizations/{org}/apis/{api}`
+         *        in your request: `organizations/{org}/apis/{api}` If the API Proxy resource has the
+         *        `space` attribute set, IAM permissions are checked against the Space resource path. To
+         *        learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueMap}
          * @return the request
          */
@@ -6734,7 +8004,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param parent Required. Name of the environment in which to create the key value map. Use the following structure
-         *        in your request: `organizations/{org}/apis/{api}`
+         *        in your request: `organizations/{org}/apis/{api}` If the API Proxy resource has the
+         *        `space` attribute set, IAM permissions are checked against the Space resource path. To
+         *        learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueMap}
            * @since 1.13
            */
@@ -6805,13 +8078,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the environment in which to create the key value map. Use the
-           * following structure in your request: `organizations/{org}/apis/{api}`
+           * following structure in your request: `organizations/{org}/apis/{api}` If the API Proxy
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. Name of the environment in which to create the key value map. Use the following structure
-         in your request: `organizations/{org}/apis/{api}`
+         in your request: `organizations/{org}/apis/{api}` If the API Proxy resource has the `space`
+         attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+         [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getParent() {
             return parent;
@@ -6819,7 +8099,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the environment in which to create the key value map. Use the
-           * following structure in your request: `organizations/{org}/apis/{api}`
+           * following structure in your request: `organizations/{org}/apis/{api}` If the API Proxy
+           * resource has the `space` attribute set, IAM permissions are checked against the Space
+           * resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Create setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -6845,7 +8129,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
          *
          * @param name Required. Name of the key value map. Use the following structure in your request:
-         *        `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
+         *        `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}` If the API Proxy resource has
+         *        the `space` attribute set, IAM permissions are checked against the Space resource path. To
+         *        learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -6872,7 +8159,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. Name of the key value map. Use the following structure in your request:
-         *        `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
+         *        `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}` If the API Proxy resource has
+         *        the `space` attribute set, IAM permissions are checked against the Space resource path. To
+         *        learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Delete(java.lang.String name) {
@@ -6942,13 +8232,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the key value map. Use the following structure in your request:
-           * `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
+           * `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}` If the API Proxy resource
+           * has the `space` attribute set, IAM permissions are checked against the Space resource
+           * path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. Name of the key value map. Use the following structure in your request:
-         `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
+         `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}` If the API Proxy resource has the
+         `space` attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -6956,7 +8253,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the key value map. Use the following structure in your request:
-           * `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
+           * `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}` If the API Proxy resource
+           * has the `space` attribute set, IAM permissions are checked against the Space resource
+           * path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -7007,7 +8308,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
            * @return the request
            */
@@ -7039,7 +8344,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
              * @since 1.13
              */
@@ -7113,7 +8422,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * Use **one** of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
@@ -7122,7 +8435,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            the following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+           resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+           path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           platform/system-administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getParent() {
               return parent;
@@ -7133,7 +8449,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * Use **one** of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Create setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -7165,7 +8485,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
            *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+           *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+           *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -7198,7 +8522,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
            *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+           *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+           *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected Delete(java.lang.String name) {
@@ -7272,7 +8600,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
              * * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}
              * /entries/{entry}` *
-             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+             * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+             * permissions are checked against the Space resource path. To learn more, read the
+             * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
@@ -7281,7 +8613,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            the following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `organizati
            ons/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the KeyValueMap is
+           under an API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           the Space resource path. To learn more, read the [Apigee Spaces
+           Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+           spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -7293,7 +8629,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
              * * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}
              * /entries/{entry}` *
-             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+             * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+             * permissions are checked against the Space resource path. To learn more, read the
+             * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Delete setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -7323,7 +8663,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        of the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
            *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+           *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+           *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public Get get(java.lang.String name) throws java.io.IOException {
@@ -7354,7 +8698,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        of the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
            *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+           *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+           *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected Get(java.lang.String name) {
@@ -7438,7 +8786,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
              * * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}
              * /entries/{entry}` *
-             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+             * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+             * permissions are checked against the Space resource path. To learn more, read the
+             * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
@@ -7447,7 +8799,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            **one** of the following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `organizati
            ons/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the KeyValueMap is
+           under an API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           the Space resource path. To learn more, read the [Apigee Spaces
+           Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+           spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -7459,7 +8815,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
              * * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}
              * /entries/{entry}` *
-             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+             * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+             * permissions are checked against the Space resource path. To learn more, read the
+             * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Get setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -7489,7 +8849,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public List list(java.lang.String parent) throws java.io.IOException {
@@ -7520,7 +8884,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected List(java.lang.String parent) {
@@ -7603,7 +8971,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
@@ -7612,7 +8984,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+           resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+           path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           platform/system-administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getParent() {
               return parent;
@@ -7623,7 +8998,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public List setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -7698,7 +9077,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
            * @return the request
            */
@@ -7730,7 +9113,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
              * @since 1.13
              */
@@ -7804,7 +9191,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * Use **one** of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
@@ -7813,7 +9204,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            the following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+           resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+           path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           platform/system-administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -7824,7 +9218,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * Use **one** of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Update setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -7874,7 +9272,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
          *
          * @param name Required. API proxy revision in the following format:
-         *        `organizations/{org}/apis/{api}/revisions/{rev}`
+         *        `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -7902,7 +9303,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. API proxy revision in the following format:
-         *        `organizations/{org}/apis/{api}/revisions/{rev}`
+         *        `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Delete(java.lang.String name) {
@@ -7972,13 +9376,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. API proxy revision in the following format:
-           * `organizations/{org}/apis/{api}/revisions/{rev}`
+           * `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. API proxy revision in the following format:
-         `organizations/{org}/apis/{api}/revisions/{rev}`
+         `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+         [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -7986,7 +9396,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. API proxy revision in the following format:
-           * `organizations/{org}/apis/{api}/revisions/{rev}`
+           * `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -8016,7 +9429,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Get#execute()} method to invoke the remote operation.
          *
          * @param name Required. API proxy revision in the following format:
-         *        `organizations/{org}/apis/{api}/revisions/{rev}`
+         *        `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Get get(java.lang.String name) throws java.io.IOException {
@@ -8047,7 +9463,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. API proxy revision in the following format:
-         *        `organizations/{org}/apis/{api}/revisions/{rev}`
+         *        `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Get(java.lang.String name) {
@@ -8127,13 +9546,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. API proxy revision in the following format:
-           * `organizations/{org}/apis/{api}/revisions/{rev}`
+           * `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. API proxy revision in the following format:
-         `organizations/{org}/apis/{api}/revisions/{rev}`
+         `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+         [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -8141,7 +9566,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. API proxy revision in the following format:
-           * `organizations/{org}/apis/{api}/revisions/{rev}`
+           * `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           public Get setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -8194,7 +9622,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * operation.
          *
          * @param name Required. API proxy revision to update in the following format:
-         *        `organizations/{org}/apis/{api}/revisions/{rev}`
+         *        `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleApiHttpBody}
          * @return the request
          */
@@ -8226,7 +9657,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * invoking the constructor. </p>
            *
            * @param name Required. API proxy revision to update in the following format:
-         *        `organizations/{org}/apis/{api}/revisions/{rev}`
+         *        `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         *        attribute set, IAM permissions are checked against the Space resource path. To learn more,
+         *        read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         *        platform/system-administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleApiHttpBody}
            * @since 1.13
            */
@@ -8297,13 +9731,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. API proxy revision to update in the following format:
-           * `organizations/{org}/apis/{api}/revisions/{rev}`
+           * `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. API proxy revision to update in the following format:
-         `organizations/{org}/apis/{api}/revisions/{rev}`
+         `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the `space`
+         attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+         [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -8311,7 +9751,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. API proxy revision to update in the following format:
-           * `organizations/{org}/apis/{api}/revisions/{rev}`
+           * `organizations/{org}/apis/{api}/revisions/{rev}` If the API Proxy resource has the
+           * `space` attribute set, IAM permissions are checked against the Space resource path. To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           public UpdateApiProxyRevision setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -8381,7 +9824,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link List#execute()} method to invoke the remote operation.
            *
            * @param parent Required. Name of the API proxy revision for which to return deployment information in the following
-           *        format: `organizations/{org}/apis/{api}/revisions/{rev}`.
+           *        format: `organizations/{org}/apis/{api}/revisions/{rev}`. If the API proxy resource has
+           *        the `space` attribute set, IAM permissions are checked differently . To learn more, read
+           *        the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public List list(java.lang.String parent) throws java.io.IOException {
@@ -8408,7 +9854,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * called to initialize this instance immediately after invoking the constructor. </p>
              *
              * @param parent Required. Name of the API proxy revision for which to return deployment information in the following
-           *        format: `organizations/{org}/apis/{api}/revisions/{rev}`.
+           *        format: `organizations/{org}/apis/{api}/revisions/{rev}`. If the API proxy resource has
+           *        the `space` attribute set, IAM permissions are checked differently . To learn more, read
+           *        the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected List(java.lang.String parent) {
@@ -8488,13 +9937,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the API proxy revision for which to return deployment information
-             * in the following format: `organizations/{org}/apis/{api}/revisions/{rev}`.
+             * in the following format: `organizations/{org}/apis/{api}/revisions/{rev}`. If the API
+             * proxy resource has the `space` attribute set, IAM permissions are checked differently
+             * . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
             /** Required. Name of the API proxy revision for which to return deployment information in the
-           following format: `organizations/{org}/apis/{api}/revisions/{rev}`.
+           following format: `organizations/{org}/apis/{api}/revisions/{rev}`. If the API proxy resource has
+           the `space` attribute set, IAM permissions are checked differently . To learn more, read the
+           [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getParent() {
               return parent;
@@ -8502,7 +9958,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the API proxy revision for which to return deployment information
-             * in the following format: `organizations/{org}/apis/{api}/revisions/{rev}`.
+             * in the following format: `organizations/{org}/apis/{api}/revisions/{rev}`. If the API
+             * proxy resource has the `space` attribute set, IAM permissions are checked differently
+             * . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public List setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -8687,7 +10147,7 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
       /**
        * Deletes an AppGroup. All app and API keys associations with the AppGroup are also removed.
        * **Warning**: This API will permanently delete the AppGroup and related artifacts. **Note**: The
-       * delete operation is asynchronous. The AppGroup app is deleted immediately, but its associated
+       * delete operation is asynchronous. The AppGroup is deleted immediately, but its associated
        * resources, such as apps and API keys, may take anywhere from a few seconds to a few minutes to be
        * deleted.
        *
@@ -8716,7 +10176,7 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         /**
          * Deletes an AppGroup. All app and API keys associations with the AppGroup are also removed.
          * **Warning**: This API will permanently delete the AppGroup and related artifacts. **Note**: The
-         * delete operation is asynchronous. The AppGroup app is deleted immediately, but its associated
+         * delete operation is asynchronous. The AppGroup is deleted immediately, but its associated
          * resources, such as apps and API keys, may take anywhere from a few seconds to a few minutes to
          * be deleted.
          *
@@ -10212,7 +11672,7 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * are allowed. To avoid service disruptions, a consumer key and secret should not exceed 2 KBs
            * each. **Note**: When creating the consumer key and secret, an association to API products will
            * not be made. Therefore, you should not specify the associated API products in your request.
-           * Instead, use the ProductizeAppGroupAppKey API to make the association after the consumer key and
+           * Instead, use the UpdateAppGroupAppKey API to make the association after the consumer key and
            * secret are created. If a consumer key and secret already exist, you can keep them or delete them
            * using the DeleteAppGroupAppKey API.
            *
@@ -10246,8 +11706,8 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * are allowed. To avoid service disruptions, a consumer key and secret should not exceed 2 KBs
              * each. **Note**: When creating the consumer key and secret, an association to API products will
              * not be made. Therefore, you should not specify the associated API products in your request.
-             * Instead, use the ProductizeAppGroupAppKey API to make the association after the consumer key
-             * and secret are created. If a consumer key and secret already exist, you can keep them or delete
+             * Instead, use the UpdateAppGroupAppKey API to make the association after the consumer key and
+             * secret are created. If a consumer key and secret already exist, you can keep them or delete
              * them using the DeleteAppGroupAppKey API.
              *
              * Create a request for the method "keys.create".
@@ -10650,10 +12110,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           }
           /**
            * Adds an API product to an AppGroupAppKey, enabling the app that holds the key to access the API
-           * resources bundled in the API product. In addition, you can add attributes to the AppGroupAppKey.
-           * This API replaces the existing attributes with those specified in the request. Include or exclude
-           * any existing attributes that you want to retain or delete, respectively. You can use the same key
-           * to access all API products associated with the app.
+           * resources bundled in the API product. In addition, you can add attributes and scopes to the
+           * AppGroupAppKey. This API replaces the existing attributes with those specified in the request.
+           * Include or exclude any existing attributes that you want to retain or delete, respectively. You
+           * can use the same key to access all API products associated with the app.
            *
            * Create a request for the method "keys.updateAppGroupAppKey".
            *
@@ -10681,7 +12141,7 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Adds an API product to an AppGroupAppKey, enabling the app that holds the key to access the API
-             * resources bundled in the API product. In addition, you can add attributes to the
+             * resources bundled in the API product. In addition, you can add attributes and scopes to the
              * AppGroupAppKey. This API replaces the existing attributes with those specified in the request.
              * Include or exclude any existing attributes that you want to retain or delete, respectively. You
              * can use the same key to access all API products associated with the app.
@@ -13011,7 +14471,7 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * Deletes a developer. All apps and API keys associated with the developer are also removed.
        * **Warning**: This API will permanently delete the developer and related artifacts. To avoid
        * permanently deleting developers and their artifacts, set the developer status to `inactive` using
-       * the SetDeveloperStatus API. **Note**: The delete operation is asynchronous. The developer app is
+       * the SetDeveloperStatus API. **Note**: The delete operation is asynchronous. The developer is
        * deleted immediately, but its associated resources, such as apps and API keys, may take anywhere
        * from a few seconds to a few minutes to be deleted.
        *
@@ -13042,7 +14502,7 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * **Warning**: This API will permanently delete the developer and related artifacts. To avoid
          * permanently deleting developers and their artifacts, set the developer status to `inactive`
          * using the SetDeveloperStatus API. **Note**: The delete operation is asynchronous. The developer
-         * app is deleted immediately, but its associated resources, such as apps and API keys, may take
+         * is deleted immediately, but its associated resources, such as apps and API keys, may take
          * anywhere from a few seconds to a few minutes to be deleted.
          *
          * Create a request for the method "developers.delete".
@@ -16851,10 +18311,12 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           }
           /**
            * Adds an API product to a developer app key, enabling the app that holds the key to access the API
-           * resources bundled in the API product. In addition, you can add attributes to a developer app key.
-           * This API replaces the existing attributes with those specified in the request. Include or exclude
-           * any existing attributes that you want to retain or delete, respectively. You can use the same key
-           * to access all API products associated with the app.
+           * resources bundled in the API product. In addition, you can add attributes and scopes associated
+           * with the API product to the developer app key. The status of the key can be updated via "action"
+           * Query Parameter. None of the other fields can be updated via this API. This API replaces the
+           * existing attributes with those specified in the request. Include or exclude any existing
+           * attributes that you want to retain or delete, respectively. None of the other fields can be
+           * updated. You can use the same key to access all API products associated with the app.
            *
            * Create a request for the method "keys.updateDeveloperAppKey".
            *
@@ -16882,10 +18344,12 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Adds an API product to a developer app key, enabling the app that holds the key to access the
-             * API resources bundled in the API product. In addition, you can add attributes to a developer
-             * app key. This API replaces the existing attributes with those specified in the request. Include
-             * or exclude any existing attributes that you want to retain or delete, respectively. You can use
-             * the same key to access all API products associated with the app.
+             * API resources bundled in the API product. In addition, you can add attributes and scopes
+             * associated with the API product to the developer app key. The status of the key can be updated
+             * via "action" Query Parameter. None of the other fields can be updated via this API. This API
+             * replaces the existing attributes with those specified in the request. Include or exclude any
+             * existing attributes that you want to retain or delete, respectively. None of the other fields
+             * can be updated. You can use the same key to access all API products associated with the app.
              *
              * Create a request for the method "keys.updateDeveloperAppKey".
              *
@@ -19104,6 +20568,661 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         }
 
       }
+    }
+    /**
+     * An accessor for creating requests from the DnsZones collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Apigee apigee = new Apigee(...);}
+     *   {@code Apigee.DnsZones.List request = apigee.dnsZones().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public DnsZones dnsZones() {
+      return new DnsZones();
+    }
+
+    /**
+     * The "dnsZones" collection of methods.
+     */
+    public class DnsZones {
+
+      /**
+       * Creates a new DNS zone.
+       *
+       * Create a request for the method "dnsZones.create".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. Organization where the DNS zone will be created.
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1DnsZone}
+       * @return the request
+       */
+      public Create create(java.lang.String parent, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1DnsZone content) throws java.io.IOException {
+        Create result = new Create(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Create extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleLongrunningOperation> {
+
+        private static final String REST_PATH = "v1/{+parent}/dnsZones";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+$");
+
+        /**
+         * Creates a new DNS zone.
+         *
+         * Create a request for the method "dnsZones.create".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Create#execute()} method to invoke the remote operation. <p> {@link
+         * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. Organization where the DNS zone will be created.
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1DnsZone}
+         * @since 1.13
+         */
+        protected Create(java.lang.String parent, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1DnsZone content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleLongrunningOperation.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+        }
+
+        @Override
+        public Create set$Xgafv(java.lang.String $Xgafv) {
+          return (Create) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Create setAccessToken(java.lang.String accessToken) {
+          return (Create) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Create setAlt(java.lang.String alt) {
+          return (Create) super.setAlt(alt);
+        }
+
+        @Override
+        public Create setCallback(java.lang.String callback) {
+          return (Create) super.setCallback(callback);
+        }
+
+        @Override
+        public Create setFields(java.lang.String fields) {
+          return (Create) super.setFields(fields);
+        }
+
+        @Override
+        public Create setKey(java.lang.String key) {
+          return (Create) super.setKey(key);
+        }
+
+        @Override
+        public Create setOauthToken(java.lang.String oauthToken) {
+          return (Create) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Create) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Create setQuotaUser(java.lang.String quotaUser) {
+          return (Create) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Create setUploadType(java.lang.String uploadType) {
+          return (Create) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Create setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Create) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /** Required. Organization where the DNS zone will be created. */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. Organization where the DNS zone will be created.
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /** Required. Organization where the DNS zone will be created. */
+        public Create setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Required. User assigned ID for this resource. Must be unique within the organization. The
+         * name must be 1-63 characters long, must begin with a letter, end with a letter or digit,
+         * and only contain lowercase letters, digits or dashes.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String dnsZoneId;
+
+        /** Required. User assigned ID for this resource. Must be unique within the organization. The name must
+       be 1-63 characters long, must begin with a letter, end with a letter or digit, and only contain
+       lowercase letters, digits or dashes.
+         */
+        public java.lang.String getDnsZoneId() {
+          return dnsZoneId;
+        }
+
+        /**
+         * Required. User assigned ID for this resource. Must be unique within the organization. The
+         * name must be 1-63 characters long, must begin with a letter, end with a letter or digit,
+         * and only contain lowercase letters, digits or dashes.
+         */
+        public Create setDnsZoneId(java.lang.String dnsZoneId) {
+          this.dnsZoneId = dnsZoneId;
+          return this;
+        }
+
+        @Override
+        public Create set(String parameterName, Object value) {
+          return (Create) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Deletes a previously created DNS zone.
+       *
+       * Create a request for the method "dnsZones.delete".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. Name of the DNS zone to delete. Use the following structure in your request:
+       *        `organizations/{org}/dnsZones/{dns_zone}`.
+       * @return the request
+       */
+      public Delete delete(java.lang.String name) throws java.io.IOException {
+        Delete result = new Delete(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Delete extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleLongrunningOperation> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/dnsZones/[^/]+$");
+
+        /**
+         * Deletes a previously created DNS zone.
+         *
+         * Create a request for the method "dnsZones.delete".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Delete#execute()} method to invoke the remote operation. <p> {@link
+         * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. Name of the DNS zone to delete. Use the following structure in your request:
+       *        `organizations/{org}/dnsZones/{dns_zone}`.
+         * @since 1.13
+         */
+        protected Delete(java.lang.String name) {
+          super(Apigee.this, "DELETE", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleLongrunningOperation.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/dnsZones/[^/]+$");
+          }
+        }
+
+        @Override
+        public Delete set$Xgafv(java.lang.String $Xgafv) {
+          return (Delete) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Delete setAccessToken(java.lang.String accessToken) {
+          return (Delete) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Delete setAlt(java.lang.String alt) {
+          return (Delete) super.setAlt(alt);
+        }
+
+        @Override
+        public Delete setCallback(java.lang.String callback) {
+          return (Delete) super.setCallback(callback);
+        }
+
+        @Override
+        public Delete setFields(java.lang.String fields) {
+          return (Delete) super.setFields(fields);
+        }
+
+        @Override
+        public Delete setKey(java.lang.String key) {
+          return (Delete) super.setKey(key);
+        }
+
+        @Override
+        public Delete setOauthToken(java.lang.String oauthToken) {
+          return (Delete) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Delete) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Delete setQuotaUser(java.lang.String quotaUser) {
+          return (Delete) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Delete setUploadType(java.lang.String uploadType) {
+          return (Delete) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Delete) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Name of the DNS zone to delete. Use the following structure in your request:
+         * `organizations/{org}/dnsZones/{dns_zone}`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. Name of the DNS zone to delete. Use the following structure in your request:
+       `organizations/{org}/dnsZones/{dns_zone}`.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. Name of the DNS zone to delete. Use the following structure in your request:
+         * `organizations/{org}/dnsZones/{dns_zone}`.
+         */
+        public Delete setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/dnsZones/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Delete set(String parameterName, Object value) {
+          return (Delete) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Fetches the representation of an existing DNS zone.
+       *
+       * Create a request for the method "dnsZones.get".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. Name of the DNS zone to fetch. Use the following structure in your request:
+       *        `organizations/{org}/dnsZones/{dns_zone}`.
+       * @return the request
+       */
+      public Get get(java.lang.String name) throws java.io.IOException {
+        Get result = new Get(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Get extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1DnsZone> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/dnsZones/[^/]+$");
+
+        /**
+         * Fetches the representation of an existing DNS zone.
+         *
+         * Create a request for the method "dnsZones.get".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+         * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. Name of the DNS zone to fetch. Use the following structure in your request:
+       *        `organizations/{org}/dnsZones/{dns_zone}`.
+         * @since 1.13
+         */
+        protected Get(java.lang.String name) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1DnsZone.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/dnsZones/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public Get set$Xgafv(java.lang.String $Xgafv) {
+          return (Get) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Get setAccessToken(java.lang.String accessToken) {
+          return (Get) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Get setAlt(java.lang.String alt) {
+          return (Get) super.setAlt(alt);
+        }
+
+        @Override
+        public Get setCallback(java.lang.String callback) {
+          return (Get) super.setCallback(callback);
+        }
+
+        @Override
+        public Get setFields(java.lang.String fields) {
+          return (Get) super.setFields(fields);
+        }
+
+        @Override
+        public Get setKey(java.lang.String key) {
+          return (Get) super.setKey(key);
+        }
+
+        @Override
+        public Get setOauthToken(java.lang.String oauthToken) {
+          return (Get) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Get) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Get setQuotaUser(java.lang.String quotaUser) {
+          return (Get) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Get setUploadType(java.lang.String uploadType) {
+          return (Get) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Get setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Get) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Name of the DNS zone to fetch. Use the following structure in your request:
+         * `organizations/{org}/dnsZones/{dns_zone}`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. Name of the DNS zone to fetch. Use the following structure in your request:
+       `organizations/{org}/dnsZones/{dns_zone}`.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. Name of the DNS zone to fetch. Use the following structure in your request:
+         * `organizations/{org}/dnsZones/{dns_zone}`.
+         */
+        public Get setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/dnsZones/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Get set(String parameterName, Object value) {
+          return (Get) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Enumerates DNS zones that have been created but not yet deleted.
+       *
+       * Create a request for the method "dnsZones.list".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. Name of the organization for which to list the DNS zones. Use the following structure in
+       *        your request: `organizations/{org}`
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListDnsZonesResponse> {
+
+        private static final String REST_PATH = "v1/{+parent}/dnsZones";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+$");
+
+        /**
+         * Enumerates DNS zones that have been created but not yet deleted.
+         *
+         * Create a request for the method "dnsZones.list".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+         * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. Name of the organization for which to list the DNS zones. Use the following structure in
+       *        your request: `organizations/{org}`
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListDnsZonesResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Name of the organization for which to list the DNS zones. Use the following
+         * structure in your request: `organizations/{org}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. Name of the organization for which to list the DNS zones. Use the following structure in
+       your request: `organizations/{org}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. Name of the organization for which to list the DNS zones. Use the following
+         * structure in your request: `organizations/{org}`
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. Maximum number of DNS zones to return. If unspecified, at most 25 DNS zones
+         * will be returned.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. Maximum number of DNS zones to return. If unspecified, at most 25 DNS zones will be
+       returned.
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /**
+         * Optional. Maximum number of DNS zones to return. If unspecified, at most 25 DNS zones
+         * will be returned.
+         */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /**
+         * Optional. Page token, returned from a previous `ListDnsZones` call, that you can use to
+         * retrieve the next page.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. Page token, returned from a previous `ListDnsZones` call, that you can use to retrieve
+       the next page.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /**
+         * Optional. Page token, returned from a previous `ListDnsZones` call, that you can use to
+         * retrieve the next page.
+         */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
+        }
+      }
+
     }
     /**
      * An accessor for creating requests from the EndpointAttachments collection.
@@ -25377,7 +27496,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link List#execute()} method to invoke the remote operation.
            *
            * @param parent Required. Name representing an API proxy in an environment in the following format:
-           *        `organizations/{org}/environments/{env}/apis/{api}`
+           *        `organizations/{org}/environments/{env}/apis/{api}` If the API proxy resource has the
+           *        `space` attribute set, IAM permissions are checked differently . To learn more, read the
+           *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public List list(java.lang.String parent) throws java.io.IOException {
@@ -25404,7 +27526,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * called to initialize this instance immediately after invoking the constructor. </p>
              *
              * @param parent Required. Name representing an API proxy in an environment in the following format:
-           *        `organizations/{org}/environments/{env}/apis/{api}`
+           *        `organizations/{org}/environments/{env}/apis/{api}` If the API proxy resource has the
+           *        `space` attribute set, IAM permissions are checked differently . To learn more, read the
+           *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected List(java.lang.String parent) {
@@ -25484,13 +27609,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name representing an API proxy in an environment in the following format:
-             * `organizations/{org}/environments/{env}/apis/{api}`
+             * `organizations/{org}/environments/{env}/apis/{api}` If the API proxy resource has the
+             * `space` attribute set, IAM permissions are checked differently . To learn more, read
+             * the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+             * platform/system-administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
             /** Required. Name representing an API proxy in an environment in the following format:
-           `organizations/{org}/environments/{env}/apis/{api}`
+           `organizations/{org}/environments/{env}/apis/{api}` If the API proxy resource has the `space`
+           attribute set, IAM permissions are checked differently . To learn more, read the [Apigee Spaces
+           Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+           spaces-overview).
              */
             public java.lang.String getParent() {
               return parent;
@@ -25498,7 +27629,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name representing an API proxy in an environment in the following format:
-             * `organizations/{org}/environments/{env}/apis/{api}`
+             * `organizations/{org}/environments/{env}/apis/{api}` If the API proxy resource has the
+             * `space` attribute set, IAM permissions are checked differently . To learn more, read
+             * the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+             * platform/system-administration/spaces/apigee-spaces-overview).
              */
             public List setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -25546,7 +27680,12 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments`, two permissions
            * are required: * `apigee.deployments.create` on the resource
            * `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.deploy` on the resource
-           * `organizations/{org}/apis/{api}/revisions/{rev}`
+           * `organizations/{org}/apis/{api}/revisions/{rev}` All successful API proxy deployments to Apigee
+           * are [zero-downtime deployments](https://cloud.google.com/apigee/docs/api-platform/deploy/ui-
+           * deploy-overview#zero-downtime-deployment). Apigee hybrid validates the dependencies between
+           * shared flows and API proxies at deployment time. For example, if the Flow Callout policy in an
+           * API proxy references a shared flow that either doesn't exist or isn't deployed, the API proxy
+           * deployment fails.
            *
            * Create a request for the method "revisions.deploy".
            *
@@ -25554,7 +27693,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link Deploy#execute()} method to invoke the remote operation.
            *
            * @param name Required. Name of the API proxy revision deployment in the following format:
-           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+           *        resource being deployed has the `space` attribute set, IAM permissions are checked
+           *        differently . To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public Deploy deploy(java.lang.String name) throws java.io.IOException {
@@ -25579,7 +27722,12 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments`, two
              * permissions are required: * `apigee.deployments.create` on the resource
              * `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.deploy` on the resource
-             * `organizations/{org}/apis/{api}/revisions/{rev}`
+             * `organizations/{org}/apis/{api}/revisions/{rev}` All successful API proxy deployments to Apigee
+             * are [zero-downtime deployments](https://cloud.google.com/apigee/docs/api-platform/deploy/ui-
+             * deploy-overview#zero-downtime-deployment). Apigee hybrid validates the dependencies between
+             * shared flows and API proxies at deployment time. For example, if the Flow Callout policy in an
+             * API proxy references a shared flow that either doesn't exist or isn't deployed, the API proxy
+             * deployment fails.
              *
              * Create a request for the method "revisions.deploy".
              *
@@ -25589,7 +27737,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * be called to initialize this instance immediately after invoking the constructor. </p>
              *
              * @param name Required. Name of the API proxy revision deployment in the following format:
-           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+           *        resource being deployed has the `space` attribute set, IAM permissions are checked
+           *        differently . To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected Deploy(java.lang.String name) {
@@ -25659,13 +27811,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the API proxy revision deployment in the following format:
-             * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+             * resource being deployed has the `space` attribute set, IAM permissions are checked
+             * differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
             /** Required. Name of the API proxy revision deployment in the following format:
-           `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy resource being
+           deployed has the `space` attribute set, IAM permissions are checked differently . To learn more,
+           read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -25673,7 +27832,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the API proxy revision deployment in the following format:
-             * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+             * resource being deployed has the `space` attribute set, IAM permissions are checked
+             * differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Deploy setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -25800,7 +27963,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link GetDeployments#execute()} method to invoke the remote operation.
            *
            * @param name Required. Name representing an API proxy revision in an environment in the following format:
-           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+           *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           *        platform/system-administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public GetDeployments getDeployments(java.lang.String name) throws java.io.IOException {
@@ -25828,7 +27994,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * constructor. </p>
              *
              * @param name Required. Name representing an API proxy revision in an environment in the following format:
-           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+           *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           *        platform/system-administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected GetDeployments(java.lang.String name) {
@@ -25908,13 +28077,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name representing an API proxy revision in an environment in the following
-             * format: `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             * format: `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+             * API proxy resource has the `space` attribute set, IAM permissions are checked
+             * differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
             /** Required. Name representing an API proxy revision in an environment in the following format:
-           `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy resource has
+           the `space` attribute set, IAM permissions are checked differently . To learn more, read the
+           [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -25922,7 +28098,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name representing an API proxy revision in an environment in the following
-             * format: `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             * format: `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the
+             * API proxy resource has the `space` attribute set, IAM permissions are checked
+             * differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public GetDeployments setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -25952,7 +28132,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link Undeploy#execute()} method to invoke the remote operation.
            *
            * @param name Required. Name of the API proxy revision deployment in the following format:
-           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+           *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           *        platform/system-administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public Undeploy undeploy(java.lang.String name) throws java.io.IOException {
@@ -25984,7 +28167,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * must be called to initialize this instance immediately after invoking the constructor. </p>
              *
              * @param name Required. Name of the API proxy revision deployment in the following format:
-           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+           *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           *        platform/system-administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected Undeploy(java.lang.String name) {
@@ -26054,13 +28240,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the API proxy revision deployment in the following format:
-             * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+             * resource has the `space` attribute set, IAM permissions are checked differently . To
+             * learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
             /** Required. Name of the API proxy revision deployment in the following format:
-           `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+           `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy resource has
+           the `space` attribute set, IAM permissions are checked differently . To learn more, read the
+           [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -26068,7 +28261,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the API proxy revision deployment in the following format:
-             * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+             * resource has the `space` attribute set, IAM permissions are checked differently . To
+             * learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Undeploy setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -26157,6 +28354,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * @param parent Required. The resource name of the API Proxy revision deployment for which to create the
              *        DebugSession. Must be of the form
              *        `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+             *        If the API proxy resource has the `space` attribute set, IAM permissions are checked
+             *        differently . To learn more, read the [Apigee Spaces
+             *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             *        administration/spaces/apigee-spaces-overview).
              * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1DebugSession}
              * @return the request
              */
@@ -26186,6 +28387,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                * @param parent Required. The resource name of the API Proxy revision deployment for which to create the
              *        DebugSession. Must be of the form
              *        `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+             *        If the API proxy resource has the `space` attribute set, IAM permissions are checked
+             *        differently . To learn more, read the [Apigee Spaces
+             *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             *        administration/spaces/apigee-spaces-overview).
                * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1DebugSession}
                * @since 1.13
                */
@@ -26257,14 +28462,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
               /**
                * Required. The resource name of the API Proxy revision deployment for which to
                * create the DebugSession. Must be of the form `organizations/{organization}/environm
-               * ents/{environment}/apis/{api}/revisions/{revision}`.
+               * ents/{environment}/apis/{api}/revisions/{revision}`. If the API proxy resource has
+               * the `space` attribute set, IAM permissions are checked differently . To learn more,
+               * read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+               * platform/system-administration/spaces/apigee-spaces-overview).
                */
               @com.google.api.client.util.Key
               private java.lang.String parent;
 
               /** Required. The resource name of the API Proxy revision deployment for which to create the
              DebugSession. Must be of the form
-             `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+             `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`. If the
+             API proxy resource has the `space` attribute set, IAM permissions are checked differently . To
+             learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+             platform/system-administration/spaces/apigee-spaces-overview).
                */
               public java.lang.String getParent() {
                 return parent;
@@ -26273,7 +28484,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
               /**
                * Required. The resource name of the API Proxy revision deployment for which to
                * create the DebugSession. Must be of the form `organizations/{organization}/environm
-               * ents/{environment}/apis/{api}/revisions/{revision}`.
+               * ents/{environment}/apis/{api}/revisions/{revision}`. If the API proxy resource has
+               * the `space` attribute set, IAM permissions are checked differently . To learn more,
+               * read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+               * platform/system-administration/spaces/apigee-spaces-overview).
                */
               public Create setParent(java.lang.String parent) {
                 if (!getSuppressPatternChecks()) {
@@ -26324,7 +28538,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              *
              * @param name Required. The name of the debug session to delete. Must be of the form: `organizations/{organization
              *        }/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debugsession}`
-             *        .
+             *        . If the API proxy resource has the `space` attribute set, IAM permissions are checked
+             *        differently . To learn more, read the [Apigee Spaces
+             *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             *        administration/spaces/apigee-spaces-overview).
              * @return the request
              */
             public DeleteData deleteData(java.lang.String name) throws java.io.IOException {
@@ -26354,7 +28571,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                *
                * @param name Required. The name of the debug session to delete. Must be of the form: `organizations/{organization
              *        }/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debugsession}`
-             *        .
+             *        . If the API proxy resource has the `space` attribute set, IAM permissions are checked
+             *        differently . To learn more, read the [Apigee Spaces
+             *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             *        administration/spaces/apigee-spaces-overview).
                * @since 1.13
                */
               protected DeleteData(java.lang.String name) {
@@ -26425,13 +28645,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
               /**
                * Required. The name of the debug session to delete. Must be of the form: `organizati
                * ons/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debug
-               * sessions/{debugsession}`.
+               * sessions/{debugsession}`. If the API proxy resource has the `space` attribute set,
+               * IAM permissions are checked differently . To learn more, read the [Apigee Spaces
+               * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               * administration/spaces/apigee-spaces-overview).
                */
               @com.google.api.client.util.Key
               private java.lang.String name;
 
               /** Required. The name of the debug session to delete. Must be of the form: `organizations/{organizatio
-             n}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debugsession}`.
+             n}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debugsession}`. If the
+             API proxy resource has the `space` attribute set, IAM permissions are checked differently . To
+             learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+             platform/system-administration/spaces/apigee-spaces-overview).
                */
               public java.lang.String getName() {
                 return name;
@@ -26440,7 +28666,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
               /**
                * Required. The name of the debug session to delete. Must be of the form: `organizati
                * ons/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debug
-               * sessions/{debugsession}`.
+               * sessions/{debugsession}`. If the API proxy resource has the `space` attribute set,
+               * IAM permissions are checked differently . To learn more, read the [Apigee Spaces
+               * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               * administration/spaces/apigee-spaces-overview).
                */
               public DeleteData setName(java.lang.String name) {
                 if (!getSuppressPatternChecks()) {
@@ -26467,6 +28696,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              *
              * @param name Required. The name of the debug session to retrieve. Must be of the form: `organizations/{organizati
              *        on}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+             *        If the API proxy resource has the `space` attribute set, IAM permissions are checked
+             *        differently . To learn more, read the [Apigee Spaces
+             *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             *        administration/spaces/apigee-spaces-overview).
              * @return the request
              */
             public Get get(java.lang.String name) throws java.io.IOException {
@@ -26494,6 +28727,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                *
                * @param name Required. The name of the debug session to retrieve. Must be of the form: `organizations/{organizati
              *        on}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+             *        If the API proxy resource has the `space` attribute set, IAM permissions are checked
+             *        differently . To learn more, read the [Apigee Spaces
+             *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             *        administration/spaces/apigee-spaces-overview).
                * @since 1.13
                */
               protected Get(java.lang.String name) {
@@ -26574,13 +28811,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
               /**
                * Required. The name of the debug session to retrieve. Must be of the form: `organiza
                * tions/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/deb
-               * ugsessions/{session}`.
+               * ugsessions/{session}`. If the API proxy resource has the `space` attribute set, IAM
+               * permissions are checked differently . To learn more, read the [Apigee Spaces
+               * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               * administration/spaces/apigee-spaces-overview).
                */
               @com.google.api.client.util.Key
               private java.lang.String name;
 
               /** Required. The name of the debug session to retrieve. Must be of the form: `organizations/{organizat
-             ion}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+             ion}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`. If the
+             API proxy resource has the `space` attribute set, IAM permissions are checked differently . To
+             learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+             platform/system-administration/spaces/apigee-spaces-overview).
                */
               public java.lang.String getName() {
                 return name;
@@ -26589,7 +28832,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
               /**
                * Required. The name of the debug session to retrieve. Must be of the form: `organiza
                * tions/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/deb
-               * ugsessions/{session}`.
+               * ugsessions/{session}`. If the API proxy resource has the `space` attribute set, IAM
+               * permissions are checked differently . To learn more, read the [Apigee Spaces
+               * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               * administration/spaces/apigee-spaces-overview).
                */
               public Get setName(java.lang.String name) {
                 if (!getSuppressPatternChecks()) {
@@ -26617,6 +28863,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * @param parent Required. The name of the API Proxy revision deployment for which to list debug sessions. Must be of
              *        the form:
              *        `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+             *        If the API proxy resource has the `space` attribute set, IAM permissions are checked
+             *        differently . To learn more, read the [Apigee Spaces
+             *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             *        administration/spaces/apigee-spaces-overview).
              * @return the request
              */
             public List list(java.lang.String parent) throws java.io.IOException {
@@ -26645,6 +28895,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                * @param parent Required. The name of the API Proxy revision deployment for which to list debug sessions. Must be of
              *        the form:
              *        `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+             *        If the API proxy resource has the `space` attribute set, IAM permissions are checked
+             *        differently . To learn more, read the [Apigee Spaces
+             *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             *        administration/spaces/apigee-spaces-overview).
                * @since 1.13
                */
               protected List(java.lang.String parent) {
@@ -26725,14 +28979,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
               /**
                * Required. The name of the API Proxy revision deployment for which to list debug
                * sessions. Must be of the form: `organizations/{organization}/environments/{environm
-               * ent}/apis/{api}/revisions/{revision}`.
+               * ent}/apis/{api}/revisions/{revision}`. If the API proxy resource has the `space`
+               * attribute set, IAM permissions are checked differently . To learn more, read the
+               * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               * administration/spaces/apigee-spaces-overview).
                */
               @com.google.api.client.util.Key
               private java.lang.String parent;
 
               /** Required. The name of the API Proxy revision deployment for which to list debug sessions. Must be
              of the form:
-             `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+             `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`. If the
+             API proxy resource has the `space` attribute set, IAM permissions are checked differently . To
+             learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+             platform/system-administration/spaces/apigee-spaces-overview).
                */
               public java.lang.String getParent() {
                 return parent;
@@ -26741,7 +29001,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
               /**
                * Required. The name of the API Proxy revision deployment for which to list debug
                * sessions. Must be of the form: `organizations/{organization}/environments/{environm
-               * ent}/apis/{api}/revisions/{revision}`.
+               * ent}/apis/{api}/revisions/{revision}`. If the API proxy resource has the `space`
+               * attribute set, IAM permissions are checked differently . To learn more, read the
+               * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               * administration/spaces/apigee-spaces-overview).
                */
               public List setParent(java.lang.String parent) {
                 if (!getSuppressPatternChecks()) {
@@ -26828,7 +29091,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                *
                * @param name Required. The name of the debug session transaction. Must be of the form: `organizations/{organizati
                *        on}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}/dat
-               *        a/{transaction}`.
+               *        a/{transaction}`. If the API proxy resource has the `space` attribute set, IAM permissions
+               *        are checked differently . To learn more, read the [Apigee Spaces
+               *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               *        administration/spaces/apigee-spaces-overview).
                * @return the request
                */
               public Get get(java.lang.String name) throws java.io.IOException {
@@ -26856,7 +29122,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                  *
                  * @param name Required. The name of the debug session transaction. Must be of the form: `organizations/{organizati
                *        on}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}/dat
-               *        a/{transaction}`.
+               *        a/{transaction}`. If the API proxy resource has the `space` attribute set, IAM permissions
+               *        are checked differently . To learn more, read the [Apigee Spaces
+               *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               *        administration/spaces/apigee-spaces-overview).
                  * @since 1.13
                  */
                 protected Get(java.lang.String name) {
@@ -26937,14 +29206,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                 /**
                  * Required. The name of the debug session transaction. Must be of the form: `organi
                  * zations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}
-                 * /debugsessions/{session}/data/{transaction}`.
+                 * /debugsessions/{session}/data/{transaction}`. If the API proxy resource has the
+                 * `space` attribute set, IAM permissions are checked differently . To learn more,
+                 * read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+                 * platform/system-administration/spaces/apigee-spaces-overview).
                  */
                 @com.google.api.client.util.Key
                 private java.lang.String name;
 
                 /** Required. The name of the debug session transaction. Must be of the form: `organizations/{organizat
                ion}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}/data/{trans
-               action}`.
+               action}`. If the API proxy resource has the `space` attribute set, IAM permissions are checked
+               differently . To learn more, read the [Apigee Spaces
+               Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+               spaces-overview).
                  */
                 public java.lang.String getName() {
                   return name;
@@ -26953,7 +29228,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                 /**
                  * Required. The name of the debug session transaction. Must be of the form: `organi
                  * zations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}
-                 * /debugsessions/{session}/data/{transaction}`.
+                 * /debugsessions/{session}/data/{transaction}`. If the API proxy resource has the
+                 * `space` attribute set, IAM permissions are checked differently . To learn more,
+                 * read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+                 * platform/system-administration/spaces/apigee-spaces-overview).
                  */
                 public Get setName(java.lang.String name) {
                   if (!getSuppressPatternChecks()) {
@@ -27011,7 +29289,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * operation.
              *
              * @param name Name of the API proxy revision deployment in the following format:
-             *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+             *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+             *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+             *        platform/system-administration/spaces/apigee-spaces-overview).
              * @return the request
              */
             public GenerateDeployChangeReport generateDeployChangeReport(java.lang.String name) throws java.io.IOException {
@@ -27047,7 +29328,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                * after invoking the constructor. </p>
                *
                * @param name Name of the API proxy revision deployment in the following format:
-             *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             *        `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy
+             *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+             *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+             *        platform/system-administration/spaces/apigee-spaces-overview).
                * @since 1.13
                */
               protected GenerateDeployChangeReport(java.lang.String name) {
@@ -27117,13 +29401,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
               /**
                * Name of the API proxy revision deployment in the following format:
-               * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+               * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API
+               * proxy resource has the `space` attribute set, IAM permissions are checked
+               * differently . To learn more, read the [Apigee Spaces
+               * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               * administration/spaces/apigee-spaces-overview).
                */
               @com.google.api.client.util.Key
               private java.lang.String name;
 
               /** Name of the API proxy revision deployment in the following format:
-             `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+             `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API proxy resource has
+             the `space` attribute set, IAM permissions are checked differently . To learn more, read the
+             [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             administration/spaces/apigee-spaces-overview).
                */
               public java.lang.String getName() {
                 return name;
@@ -27131,7 +29422,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
               /**
                * Name of the API proxy revision deployment in the following format:
-               * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+               * `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}` If the API
+               * proxy resource has the `space` attribute set, IAM permissions are checked
+               * differently . To learn more, read the [Apigee Spaces
+               * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+               * administration/spaces/apigee-spaces-overview).
                */
               public GenerateDeployChangeReport setName(java.lang.String name) {
                 if (!getSuppressPatternChecks()) {
@@ -31225,7 +33520,8 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
             }
           }
           /**
-           * Updates the certificate in an alias.
+           * Updates the certificate in an alias. The updated certificate must be in PEM- or DER-encoded X.509
+           * format.
            *
            * Create a request for the method "aliases.update".
            *
@@ -31251,7 +33547,8 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
                 java.util.regex.Pattern.compile("^organizations/[^/]+/environments/[^/]+/keystores/[^/]+/aliases/[^/]+$");
 
             /**
-             * Updates the certificate in an alias.
+             * Updates the certificate in an alias. The updated certificate must be in PEM- or DER-encoded
+             * X.509 format.
              *
              * Create a request for the method "aliases.update".
              *
@@ -31745,7 +34042,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
            * @return the request
            */
@@ -31777,7 +34078,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
              * @since 1.13
              */
@@ -31851,7 +34156,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * Use **one** of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
@@ -31860,7 +34169,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            the following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+           resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+           path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           platform/system-administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getParent() {
               return parent;
@@ -31871,7 +34183,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * Use **one** of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Create setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -31903,7 +34219,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
            *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+           *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+           *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -31936,7 +34256,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
            *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+           *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+           *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected Delete(java.lang.String name) {
@@ -32010,7 +34334,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
              * * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}
              * /entries/{entry}` *
-             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+             * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+             * permissions are checked against the Space resource path. To learn more, read the
+             * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
@@ -32019,7 +34347,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            the following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `organizati
            ons/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the KeyValueMap is
+           under an API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           the Space resource path. To learn more, read the [Apigee Spaces
+           Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+           spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -32031,7 +34363,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
              * * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}
              * /entries/{entry}` *
-             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+             * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+             * permissions are checked against the Space resource path. To learn more, read the
+             * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Delete setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -32061,7 +34397,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        of the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
            *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+           *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+           *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public Get get(java.lang.String name) throws java.io.IOException {
@@ -32092,7 +34432,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        of the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
            *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+           *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+           *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected Get(java.lang.String name) {
@@ -32176,7 +34520,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
              * * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}
              * /entries/{entry}` *
-             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+             * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+             * permissions are checked against the Space resource path. To learn more, read the
+             * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
@@ -32185,7 +34533,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            **one** of the following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `organizati
            ons/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the KeyValueMap is
+           under an API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           the Space resource path. To learn more, read the [Apigee Spaces
+           Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+           spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -32197,7 +34549,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
              * * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}
              * /entries/{entry}` *
-             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+             * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+             * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+             * permissions are checked against the Space resource path. To learn more, read the
+             * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Get setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -32227,7 +34583,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public List list(java.lang.String parent) throws java.io.IOException {
@@ -32258,7 +34618,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected List(java.lang.String parent) {
@@ -32341,7 +34705,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
@@ -32350,7 +34718,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+           resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+           path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           platform/system-administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getParent() {
               return parent;
@@ -32361,7 +34732,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public List setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -32436,7 +34811,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
            * @return the request
            */
@@ -32468,7 +34847,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            *        the following structures in your request: *
            *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+           *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+           *        the Space resource path. To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
              * @since 1.13
              */
@@ -32542,7 +34925,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * Use **one** of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
@@ -32551,7 +34938,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            the following structures in your request: *
            `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+           resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+           path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           platform/system-administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -32562,7 +34952,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * Use **one** of the following structures in your request: *
              * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
              * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
-             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+             * * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is
+             * under an API Proxy resource that has the `space` attribute set, IAM permissions are
+             * checked against the Space resource path. To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Update setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -32816,24 +35210,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
             return this;
           }
 
-          /**
-           * Maximum number of result items to return. The default and maximum value that can be
-           * returned is 14400.
-           */
+          /** Maximum number of result items to return. */
           @com.google.api.client.util.Key
           private java.lang.String limit;
 
-          /** Maximum number of result items to return. The default and maximum value that can be returned is
-         14400.
+          /** Maximum number of result items to return.
            */
           public java.lang.String getLimit() {
             return limit;
           }
 
-          /**
-           * Maximum number of result items to return. The default and maximum value that can be
-           * returned is 14400.
-           */
+          /** Maximum number of result items to return. */
           public Get setLimit(java.lang.String limit) {
             this.limit = limit;
             return this;
@@ -32939,17 +35326,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
             return this;
           }
 
-          /** Comma-separated list of columns to sort the final result. */
+          /** Comma-separated list of metrics to sort the final result. */
           @com.google.api.client.util.Key
           private java.lang.String sortby;
 
-          /** Comma-separated list of columns to sort the final result.
+          /** Comma-separated list of metrics to sort the final result.
            */
           public java.lang.String getSortby() {
             return sortby;
           }
 
-          /** Comma-separated list of columns to sort the final result. */
+          /** Comma-separated list of metrics to sort the final result. */
           public Get setSortby(java.lang.String sortby) {
             this.sortby = sortby;
             return this;
@@ -38406,7 +40793,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link List#execute()} method to invoke the remote operation.
            *
            * @param parent Required. Name representing a shared flow in an environment in the following format:
-           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
+           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}` If the shared flow
+           *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           *        platform/system-administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public List list(java.lang.String parent) throws java.io.IOException {
@@ -38433,7 +40823,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * called to initialize this instance immediately after invoking the constructor. </p>
              *
              * @param parent Required. Name representing a shared flow in an environment in the following format:
-           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
+           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}` If the shared flow
+           *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           *        platform/system-administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected List(java.lang.String parent) {
@@ -38513,13 +40906,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name representing a shared flow in an environment in the following format:
-             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
+             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}` If the shared flow
+             * resource has the `space` attribute set, IAM permissions are checked differently . To
+             * learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
             /** Required. Name representing a shared flow in an environment in the following format:
-           `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
+           `organizations/{org}/environments/{env}/sharedflows/{sharedflow}` If the shared flow resource has
+           the `space` attribute set, IAM permissions are checked differently . To learn more, read the
+           [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getParent() {
               return parent;
@@ -38527,7 +40927,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name representing a shared flow in an environment in the following format:
-             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
+             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}` If the shared flow
+             * resource has the `space` attribute set, IAM permissions are checked differently . To
+             * learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public List setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -38582,7 +40986,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link Deploy#execute()} method to invoke the remote operation.
            *
            * @param name Required. Name of the shared flow revision to deploy in the following format:
-           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the
+           *        shared flow resource being deployed has the `space` attribute set, IAM permissions are
+           *        checked differently . To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public Deploy deploy(java.lang.String name) throws java.io.IOException {
@@ -38616,7 +41024,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * be called to initialize this instance immediately after invoking the constructor. </p>
              *
              * @param name Required. Name of the shared flow revision to deploy in the following format:
-           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the
+           *        shared flow resource being deployed has the `space` attribute set, IAM permissions are
+           *        checked differently . To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected Deploy(java.lang.String name) {
@@ -38686,13 +41098,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the shared flow revision to deploy in the following format:
-             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If
+             * the shared flow resource being deployed has the `space` attribute set, IAM
+             * permissions are checked differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
             /** Required. Name of the shared flow revision to deploy in the following format:
-           `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the shared
+           flow resource being deployed has the `space` attribute set, IAM permissions are checked differently
+           . To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           platform/system-administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -38700,7 +41119,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the shared flow revision to deploy in the following format:
-             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If
+             * the shared flow resource being deployed has the `space` attribute set, IAM
+             * permissions are checked differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Deploy setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -38781,7 +41204,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link GetDeployments#execute()} method to invoke the remote operation.
            *
            * @param name Required. Name representing a shared flow in an environment in the following format:
-           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the
+           *        shared flow resource has the `space` attribute set, IAM permissions are checked
+           *        differently . To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public GetDeployments getDeployments(java.lang.String name) throws java.io.IOException {
@@ -38809,7 +41236,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * constructor. </p>
              *
              * @param name Required. Name representing a shared flow in an environment in the following format:
-           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the
+           *        shared flow resource has the `space` attribute set, IAM permissions are checked
+           *        differently . To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected GetDeployments(java.lang.String name) {
@@ -38889,13 +41320,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name representing a shared flow in an environment in the following format:
-             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If
+             * the shared flow resource has the `space` attribute set, IAM permissions are checked
+             * differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
             /** Required. Name representing a shared flow in an environment in the following format:
-           `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the shared
+           flow resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -38903,7 +41341,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name representing a shared flow in an environment in the following format:
-             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If
+             * the shared flow resource has the `space` attribute set, IAM permissions are checked
+             * differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public GetDeployments setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -38933,7 +41375,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link Undeploy#execute()} method to invoke the remote operation.
            *
            * @param name Required. Name of the shared flow revision to undeploy in the following format:
-           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the
+           *        shared flow resource has the `space` attribute set, IAM permissions are checked
+           *        differently . To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public Undeploy undeploy(java.lang.String name) throws java.io.IOException {
@@ -38965,7 +41411,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * must be called to initialize this instance immediately after invoking the constructor. </p>
              *
              * @param name Required. Name of the shared flow revision to undeploy in the following format:
-           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           *        `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the
+           *        shared flow resource has the `space` attribute set, IAM permissions are checked
+           *        differently . To learn more, read the [Apigee Spaces
+           *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           *        administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected Undeploy(java.lang.String name) {
@@ -39035,13 +41485,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the shared flow revision to undeploy in the following format:
-             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If
+             * the shared flow resource has the `space` attribute set, IAM permissions are checked
+             * differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
             /** Required. Name of the shared flow revision to undeploy in the following format:
-           `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+           `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If the shared
+           flow resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getName() {
               return name;
@@ -39049,7 +41506,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
             /**
              * Required. Name of the shared flow revision to undeploy in the following format:
-             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+             * `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}` If
+             * the shared flow resource has the `space` attribute set, IAM permissions are checked
+             * differently . To learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public Undeploy setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -39311,24 +41772,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
             return this;
           }
 
-          /**
-           * Maximum number of result items to return. The default and maximum value that can be
-           * returned is 14400.
-           */
+          /** Maximum number of result items to return. */
           @com.google.api.client.util.Key
           private java.lang.String limit;
 
-          /** Maximum number of result items to return. The default and maximum value that can be returned is
-         14400.
+          /** Maximum number of result items to return.
            */
           public java.lang.String getLimit() {
             return limit;
           }
 
-          /**
-           * Maximum number of result items to return. The default and maximum value that can be
-           * returned is 14400.
-           */
+          /** Maximum number of result items to return. */
           public Get setLimit(java.lang.String limit) {
             this.limit = limit;
             return this;
@@ -39432,17 +41886,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
             return this;
           }
 
-          /** Comma-separated list of columns to sort the final result. */
+          /** Comma-separated list of metrics to sort the final result. */
           @com.google.api.client.util.Key
           private java.lang.String sortby;
 
-          /** Comma-separated list of columns to sort the final result.
+          /** Comma-separated list of metrics to sort the final result.
            */
           public java.lang.String getSortby() {
             return sortby;
           }
 
-          /** Comma-separated list of columns to sort the final result. */
+          /** Comma-separated list of metrics to sort the final result. */
           public Get setSortby(java.lang.String sortby) {
             this.sortby = sortby;
             return this;
@@ -42986,24 +45440,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return this;
         }
 
-        /**
-         * Maximum number of result items to return. The default and maximum value that can be
-         * returned is 14400.
-         */
+        /** Maximum number of result items to return. */
         @com.google.api.client.util.Key
         private java.lang.String limit;
 
-        /** Maximum number of result items to return. The default and maximum value that can be returned is
-       14400.
+        /** Maximum number of result items to return.
          */
         public java.lang.String getLimit() {
           return limit;
         }
 
-        /**
-         * Maximum number of result items to return. The default and maximum value that can be
-         * returned is 14400.
-         */
+        /** Maximum number of result items to return. */
         public Get setLimit(java.lang.String limit) {
           this.limit = limit;
           return this;
@@ -43087,17 +45534,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return this;
         }
 
-        /** Comma-separated list of columns to sort the final result. */
+        /** Comma-separated list of metrics to sort the final result. */
         @com.google.api.client.util.Key
         private java.lang.String sortby;
 
-        /** Comma-separated list of columns to sort the final result.
+        /** Comma-separated list of metrics to sort the final result.
          */
         public java.lang.String getSortby() {
           return sortby;
         }
 
-        /** Comma-separated list of columns to sort the final result. */
+        /** Comma-separated list of metrics to sort the final result. */
         public Get setSortby(java.lang.String sortby) {
           this.sortby = sortby;
           return this;
@@ -46203,7 +48650,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        the following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+         *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+         *        the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
          * @return the request
          */
@@ -46235,7 +48686,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        the following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+         *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+         *        the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
            * @since 1.13
            */
@@ -46309,7 +48764,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * **one** of the following structures in your request: *
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under
+           * an API Proxy resource that has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
@@ -46318,7 +48777,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          the following structures in your request: *
          `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+         resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+         path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         platform/system-administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getParent() {
             return parent;
@@ -46329,7 +48791,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * **one** of the following structures in your request: *
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under
+           * an API Proxy resource that has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Create setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -46361,7 +48827,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        the following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
          *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-         *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+         *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+         *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+         *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+         *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -46394,7 +48864,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        the following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
          *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-         *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+         *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+         *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+         *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+         *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Delete(java.lang.String name) {
@@ -46468,7 +48942,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/ent
            * ries/{entry}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+           * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           * permissions are checked against the Space resource path. To learn more, read the
+           * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
@@ -46477,7 +48955,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          the following structures in your request: *
          `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `organizati
          ons/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}` *
-         `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+         `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the KeyValueMap is
+         under an API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+         the Space resource path. To learn more, read the [Apigee Spaces
+         Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+         spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -46489,7 +48971,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/ent
            * ries/{entry}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+           * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           * permissions are checked against the Space resource path. To learn more, read the
+           * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -46519,7 +49005,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        of the following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
          *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-         *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+         *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+         *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+         *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+         *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Get get(java.lang.String name) throws java.io.IOException {
@@ -46550,7 +49040,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        of the following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `o
          *        rganizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/
-         *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+         *        {entry}` * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If
+         *        the KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+         *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+         *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Get(java.lang.String name) {
@@ -46634,7 +49128,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/ent
            * ries/{entry}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+           * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           * permissions are checked against the Space resource path. To learn more, read the
+           * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
@@ -46643,7 +49141,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          **one** of the following structures in your request: *
          `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. * `organizati
          ons/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}` *
-         `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+         `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the KeyValueMap is
+         under an API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+         the Space resource path. To learn more, read the [Apigee Spaces
+         Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+         spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -46655,7 +49157,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/ent
            * ries/{entry}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`. If the
+           * KeyValueMap is under an API Proxy resource that has the `space` attribute set, IAM
+           * permissions are checked against the Space resource path. To learn more, read the
+           * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Get setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -46685,7 +49191,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+         *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+         *        the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -46716,7 +49226,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+         *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+         *        the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -46799,7 +49313,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * the following structures in your request: *
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under
+           * an API Proxy resource that has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
@@ -46808,7 +49326,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          following structures in your request: *
          `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+         resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+         path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         platform/system-administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getParent() {
             return parent;
@@ -46819,7 +49340,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * the following structures in your request: *
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under
+           * an API Proxy resource that has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -46894,7 +49419,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        the following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+         *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+         *        the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
          * @return the request
          */
@@ -46926,7 +49455,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          *        the following structures in your request: *
          *        `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          *        `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         *        `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an
+         *        API Proxy resource that has the `space` attribute set, IAM permissions are checked against
+         *        the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1KeyValueEntry}
            * @since 1.13
            */
@@ -47000,7 +49533,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * **one** of the following structures in your request: *
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under
+           * an API Proxy resource that has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
@@ -47009,7 +49546,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          the following structures in your request: *
          `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
          `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-         `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+         `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under an API Proxy
+         resource that has the `space` attribute set, IAM permissions are checked against the Space resource
+         path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         platform/system-administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -47020,7 +49560,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * **one** of the following structures in your request: *
            * `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
            * `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}` *
-           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+           * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the KeyValueMap is under
+           * an API Proxy resource that has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Update setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -47617,24 +50161,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return this;
         }
 
-        /**
-         * Maximum number of result items to return. The default and maximum value that can be
-         * returned is 14400.
-         */
+        /** Maximum number of result items to return. */
         @com.google.api.client.util.Key
         private java.lang.String limit;
 
-        /** Maximum number of result items to return. The default and maximum value that can be returned is
-       14400.
+        /** Maximum number of result items to return.
          */
         public java.lang.String getLimit() {
           return limit;
         }
 
-        /**
-         * Maximum number of result items to return. The default and maximum value that can be
-         * returned is 14400.
-         */
+        /** Maximum number of result items to return. */
         public Get setLimit(java.lang.String limit) {
           this.limit = limit;
           return this;
@@ -47724,17 +50261,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return this;
         }
 
-        /** Comma-separated list of columns used to sort the final result. */
+        /** Comma-separated list of metrics used to sort the final result. */
         @com.google.api.client.util.Key
         private java.lang.String sortby;
 
-        /** Comma-separated list of columns used to sort the final result.
+        /** Comma-separated list of metrics used to sort the final result.
          */
         public java.lang.String getSortby() {
           return sortby;
         }
 
-        /** Comma-separated list of columns used to sort the final result. */
+        /** Comma-separated list of metrics used to sort the final result. */
         public Get setSortby(java.lang.String sortby) {
           this.sortby = sortby;
           return this;
@@ -48759,6 +51296,838 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         @Override
         public BatchCompute set(String parameterName, Object value) {
           return (BatchCompute) super.set(parameterName, value);
+        }
+      }
+
+    }
+    /**
+     * An accessor for creating requests from the SecurityMonitoringConditions collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Apigee apigee = new Apigee(...);}
+     *   {@code Apigee.SecurityMonitoringConditions.List request = apigee.securityMonitoringConditions().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public SecurityMonitoringConditions securityMonitoringConditions() {
+      return new SecurityMonitoringConditions();
+    }
+
+    /**
+     * The "securityMonitoringConditions" collection of methods.
+     */
+    public class SecurityMonitoringConditions {
+
+      /**
+       * Create a security monitoring condition.
+       *
+       * Create a request for the method "securityMonitoringConditions.create".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The parent resource name. Format: `organizations/{org}`
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition}
+       * @return the request
+       */
+      public Create create(java.lang.String parent, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition content) throws java.io.IOException {
+        Create result = new Create(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Create extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition> {
+
+        private static final String REST_PATH = "v1/{+parent}/securityMonitoringConditions";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+$");
+
+        /**
+         * Create a security monitoring condition.
+         *
+         * Create a request for the method "securityMonitoringConditions.create".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Create#execute()} method to invoke the remote operation. <p> {@link
+         * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The parent resource name. Format: `organizations/{org}`
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition}
+         * @since 1.13
+         */
+        protected Create(java.lang.String parent, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+        }
+
+        @Override
+        public Create set$Xgafv(java.lang.String $Xgafv) {
+          return (Create) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Create setAccessToken(java.lang.String accessToken) {
+          return (Create) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Create setAlt(java.lang.String alt) {
+          return (Create) super.setAlt(alt);
+        }
+
+        @Override
+        public Create setCallback(java.lang.String callback) {
+          return (Create) super.setCallback(callback);
+        }
+
+        @Override
+        public Create setFields(java.lang.String fields) {
+          return (Create) super.setFields(fields);
+        }
+
+        @Override
+        public Create setKey(java.lang.String key) {
+          return (Create) super.setKey(key);
+        }
+
+        @Override
+        public Create setOauthToken(java.lang.String oauthToken) {
+          return (Create) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Create) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Create setQuotaUser(java.lang.String quotaUser) {
+          return (Create) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Create setUploadType(java.lang.String uploadType) {
+          return (Create) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Create setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Create) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /** Required. The parent resource name. Format: `organizations/{org}` */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The parent resource name. Format: `organizations/{org}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /** Required. The parent resource name. Format: `organizations/{org}` */
+        public Create setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. Optional: The security monitoring condition id. If not specified, a monitoring
+         * condition uuid will be generated by the backend. This value should be 4-63 characters,
+         * and valid characters are /a-z-/.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String securityMonitoringConditionId;
+
+        /** Optional. Optional: The security monitoring condition id. If not specified, a monitoring condition
+       uuid will be generated by the backend. This value should be 4-63 characters, and valid characters
+       are /a-z-/.
+         */
+        public java.lang.String getSecurityMonitoringConditionId() {
+          return securityMonitoringConditionId;
+        }
+
+        /**
+         * Optional. Optional: The security monitoring condition id. If not specified, a monitoring
+         * condition uuid will be generated by the backend. This value should be 4-63 characters,
+         * and valid characters are /a-z-/.
+         */
+        public Create setSecurityMonitoringConditionId(java.lang.String securityMonitoringConditionId) {
+          this.securityMonitoringConditionId = securityMonitoringConditionId;
+          return this;
+        }
+
+        @Override
+        public Create set(String parameterName, Object value) {
+          return (Create) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Delete a security monitoring condition.
+       *
+       * Create a request for the method "securityMonitoringConditions.delete".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The name of the security monitoring condition to delete. Format:
+       *        `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+       * @return the request
+       */
+      public Delete delete(java.lang.String name) throws java.io.IOException {
+        Delete result = new Delete(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Delete extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleProtobufEmpty> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+
+        /**
+         * Delete a security monitoring condition.
+         *
+         * Create a request for the method "securityMonitoringConditions.delete".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Delete#execute()} method to invoke the remote operation. <p> {@link
+         * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The name of the security monitoring condition to delete. Format:
+       *        `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+         * @since 1.13
+         */
+        protected Delete(java.lang.String name) {
+          super(Apigee.this, "DELETE", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleProtobufEmpty.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+          }
+        }
+
+        @Override
+        public Delete set$Xgafv(java.lang.String $Xgafv) {
+          return (Delete) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Delete setAccessToken(java.lang.String accessToken) {
+          return (Delete) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Delete setAlt(java.lang.String alt) {
+          return (Delete) super.setAlt(alt);
+        }
+
+        @Override
+        public Delete setCallback(java.lang.String callback) {
+          return (Delete) super.setCallback(callback);
+        }
+
+        @Override
+        public Delete setFields(java.lang.String fields) {
+          return (Delete) super.setFields(fields);
+        }
+
+        @Override
+        public Delete setKey(java.lang.String key) {
+          return (Delete) super.setKey(key);
+        }
+
+        @Override
+        public Delete setOauthToken(java.lang.String oauthToken) {
+          return (Delete) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Delete) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Delete setQuotaUser(java.lang.String quotaUser) {
+          return (Delete) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Delete setUploadType(java.lang.String uploadType) {
+          return (Delete) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Delete) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the security monitoring condition to delete. Format:
+         * `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The name of the security monitoring condition to delete. Format:
+       `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The name of the security monitoring condition to delete. Format:
+         * `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+         */
+        public Delete setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Delete set(String parameterName, Object value) {
+          return (Delete) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Get a security monitoring condition.
+       *
+       * Create a request for the method "securityMonitoringConditions.get".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The name of the security monitoring condition to get. Format:
+       *        `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+       * @return the request
+       */
+      public Get get(java.lang.String name) throws java.io.IOException {
+        Get result = new Get(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Get extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+
+        /**
+         * Get a security monitoring condition.
+         *
+         * Create a request for the method "securityMonitoringConditions.get".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+         * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The name of the security monitoring condition to get. Format:
+       *        `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+         * @since 1.13
+         */
+        protected Get(java.lang.String name) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public Get set$Xgafv(java.lang.String $Xgafv) {
+          return (Get) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Get setAccessToken(java.lang.String accessToken) {
+          return (Get) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Get setAlt(java.lang.String alt) {
+          return (Get) super.setAlt(alt);
+        }
+
+        @Override
+        public Get setCallback(java.lang.String callback) {
+          return (Get) super.setCallback(callback);
+        }
+
+        @Override
+        public Get setFields(java.lang.String fields) {
+          return (Get) super.setFields(fields);
+        }
+
+        @Override
+        public Get setKey(java.lang.String key) {
+          return (Get) super.setKey(key);
+        }
+
+        @Override
+        public Get setOauthToken(java.lang.String oauthToken) {
+          return (Get) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Get) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Get setQuotaUser(java.lang.String quotaUser) {
+          return (Get) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Get setUploadType(java.lang.String uploadType) {
+          return (Get) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Get setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Get) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the security monitoring condition to get. Format:
+         * `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The name of the security monitoring condition to get. Format:
+       `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The name of the security monitoring condition to get. Format:
+         * `organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}`
+         */
+        public Get setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Get set(String parameterName, Object value) {
+          return (Get) super.set(parameterName, value);
+        }
+      }
+      /**
+       * List security monitoring conditions.
+       *
+       * Create a request for the method "securityMonitoringConditions.list".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. For a specific organization, list all the security monitoring conditions. Format:
+       *        `organizations/{org}`
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListSecurityMonitoringConditionsResponse> {
+
+        private static final String REST_PATH = "v1/{+parent}/securityMonitoringConditions";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+$");
+
+        /**
+         * List security monitoring conditions.
+         *
+         * Create a request for the method "securityMonitoringConditions.list".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+         * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. For a specific organization, list all the security monitoring conditions. Format:
+       *        `organizations/{org}`
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListSecurityMonitoringConditionsResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. For a specific organization, list all the security monitoring conditions.
+         * Format: `organizations/{org}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. For a specific organization, list all the security monitoring conditions. Format:
+       `organizations/{org}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. For a specific organization, list all the security monitoring conditions.
+         * Format: `organizations/{org}`
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. Filter for the monitoring conditions. For example: `profile=profile1 AND
+         * scope=env1`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String filter;
+
+        /** Optional. Filter for the monitoring conditions. For example: `profile=profile1 AND scope=env1`
+         */
+        public java.lang.String getFilter() {
+          return filter;
+        }
+
+        /**
+         * Optional. Filter for the monitoring conditions. For example: `profile=profile1 AND
+         * scope=env1`
+         */
+        public List setFilter(java.lang.String filter) {
+          this.filter = filter;
+          return this;
+        }
+
+        /** Optional. The maximum number of monitoring conditions to return. */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. The maximum number of monitoring conditions to return.
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /** Optional. The maximum number of monitoring conditions to return. */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListSecurityMonitoringConditions` call.
+         * Provide this to retrieve the subsequent page.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. A page token, received from a previous `ListSecurityMonitoringConditions` call. Provide
+       this to retrieve the subsequent page.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListSecurityMonitoringConditions` call.
+         * Provide this to retrieve the subsequent page.
+         */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Update a security monitoring condition.
+       *
+       * Create a request for the method "securityMonitoringConditions.patch".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+       *
+       * @param name Identifier. Name of the security monitoring condition resource. Format:
+       *        organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition}
+       * @return the request
+       */
+      public Patch patch(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition content) throws java.io.IOException {
+        Patch result = new Patch(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Patch extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+
+        /**
+         * Update a security monitoring condition.
+         *
+         * Create a request for the method "securityMonitoringConditions.patch".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Patch#execute()} method to invoke the remote operation. <p> {@link
+         * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Identifier. Name of the security monitoring condition resource. Format:
+       *        organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition}
+         * @since 1.13
+         */
+        protected Patch(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition content) {
+          super(Apigee.this, "PATCH", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityMonitoringCondition.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+          }
+        }
+
+        @Override
+        public Patch set$Xgafv(java.lang.String $Xgafv) {
+          return (Patch) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Patch setAccessToken(java.lang.String accessToken) {
+          return (Patch) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Patch setAlt(java.lang.String alt) {
+          return (Patch) super.setAlt(alt);
+        }
+
+        @Override
+        public Patch setCallback(java.lang.String callback) {
+          return (Patch) super.setCallback(callback);
+        }
+
+        @Override
+        public Patch setFields(java.lang.String fields) {
+          return (Patch) super.setFields(fields);
+        }
+
+        @Override
+        public Patch setKey(java.lang.String key) {
+          return (Patch) super.setKey(key);
+        }
+
+        @Override
+        public Patch setOauthToken(java.lang.String oauthToken) {
+          return (Patch) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Patch) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Patch setQuotaUser(java.lang.String quotaUser) {
+          return (Patch) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Patch setUploadType(java.lang.String uploadType) {
+          return (Patch) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Patch) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. Name of the security monitoring condition resource. Format:
+         * organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. Name of the security monitoring condition resource. Format:
+       organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. Name of the security monitoring condition resource. Format:
+         * organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+         */
+        public Patch setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityMonitoringConditions/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Optional. The list of fields to update. Valid fields to update are `profile`, `scope`,
+         * `include_all_resources`, `include`, and `exclude`.
+         */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** Optional. The list of fields to update. Valid fields to update are `profile`, `scope`,
+       `include_all_resources`, `include`, and `exclude`.
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /**
+         * Optional. The list of fields to update. Valid fields to update are `profile`, `scope`,
+         * `include_all_resources`, `include`, and `exclude`.
+         */
+        public Patch setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public Patch set(String parameterName, Object value) {
+          return (Patch) super.set(parameterName, value);
         }
       }
 
@@ -50218,6 +53587,806 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
       }
     }
     /**
+     * An accessor for creating requests from the SecurityProfilesV2 collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Apigee apigee = new Apigee(...);}
+     *   {@code Apigee.SecurityProfilesV2.List request = apigee.securityProfilesV2().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public SecurityProfilesV2 securityProfilesV2() {
+      return new SecurityProfilesV2();
+    }
+
+    /**
+     * The "securityProfilesV2" collection of methods.
+     */
+    public class SecurityProfilesV2 {
+
+      /**
+       * Create a security profile v2.
+       *
+       * Create a request for the method "securityProfilesV2.create".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The parent resource name. Format: `organizations/{org}`
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2}
+       * @return the request
+       */
+      public Create create(java.lang.String parent, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2 content) throws java.io.IOException {
+        Create result = new Create(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Create extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2> {
+
+        private static final String REST_PATH = "v1/{+parent}/securityProfilesV2";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+$");
+
+        /**
+         * Create a security profile v2.
+         *
+         * Create a request for the method "securityProfilesV2.create".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Create#execute()} method to invoke the remote operation. <p> {@link
+         * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The parent resource name. Format: `organizations/{org}`
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2}
+         * @since 1.13
+         */
+        protected Create(java.lang.String parent, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2 content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+        }
+
+        @Override
+        public Create set$Xgafv(java.lang.String $Xgafv) {
+          return (Create) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Create setAccessToken(java.lang.String accessToken) {
+          return (Create) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Create setAlt(java.lang.String alt) {
+          return (Create) super.setAlt(alt);
+        }
+
+        @Override
+        public Create setCallback(java.lang.String callback) {
+          return (Create) super.setCallback(callback);
+        }
+
+        @Override
+        public Create setFields(java.lang.String fields) {
+          return (Create) super.setFields(fields);
+        }
+
+        @Override
+        public Create setKey(java.lang.String key) {
+          return (Create) super.setKey(key);
+        }
+
+        @Override
+        public Create setOauthToken(java.lang.String oauthToken) {
+          return (Create) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Create) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Create setQuotaUser(java.lang.String quotaUser) {
+          return (Create) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Create setUploadType(java.lang.String uploadType) {
+          return (Create) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Create setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Create) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /** Required. The parent resource name. Format: `organizations/{org}` */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The parent resource name. Format: `organizations/{org}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /** Required. The parent resource name. Format: `organizations/{org}` */
+        public Create setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /** Required. The security profile id. */
+        @com.google.api.client.util.Key
+        private java.lang.String securityProfileV2Id;
+
+        /** Required. The security profile id.
+         */
+        public java.lang.String getSecurityProfileV2Id() {
+          return securityProfileV2Id;
+        }
+
+        /** Required. The security profile id. */
+        public Create setSecurityProfileV2Id(java.lang.String securityProfileV2Id) {
+          this.securityProfileV2Id = securityProfileV2Id;
+          return this;
+        }
+
+        @Override
+        public Create set(String parameterName, Object value) {
+          return (Create) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Delete a security profile v2.
+       *
+       * Create a request for the method "securityProfilesV2.delete".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The name of the security profile v2 to delete. Format:
+       *        `organizations/{org}/securityProfilesV2/{profile}`
+       * @return the request
+       */
+      public Delete delete(java.lang.String name) throws java.io.IOException {
+        Delete result = new Delete(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Delete extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleProtobufEmpty> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/securityProfilesV2/[^/]+$");
+
+        /**
+         * Delete a security profile v2.
+         *
+         * Create a request for the method "securityProfilesV2.delete".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Delete#execute()} method to invoke the remote operation. <p> {@link
+         * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The name of the security profile v2 to delete. Format:
+       *        `organizations/{org}/securityProfilesV2/{profile}`
+         * @since 1.13
+         */
+        protected Delete(java.lang.String name) {
+          super(Apigee.this, "DELETE", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleProtobufEmpty.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityProfilesV2/[^/]+$");
+          }
+        }
+
+        @Override
+        public Delete set$Xgafv(java.lang.String $Xgafv) {
+          return (Delete) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Delete setAccessToken(java.lang.String accessToken) {
+          return (Delete) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Delete setAlt(java.lang.String alt) {
+          return (Delete) super.setAlt(alt);
+        }
+
+        @Override
+        public Delete setCallback(java.lang.String callback) {
+          return (Delete) super.setCallback(callback);
+        }
+
+        @Override
+        public Delete setFields(java.lang.String fields) {
+          return (Delete) super.setFields(fields);
+        }
+
+        @Override
+        public Delete setKey(java.lang.String key) {
+          return (Delete) super.setKey(key);
+        }
+
+        @Override
+        public Delete setOauthToken(java.lang.String oauthToken) {
+          return (Delete) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Delete) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Delete setQuotaUser(java.lang.String quotaUser) {
+          return (Delete) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Delete setUploadType(java.lang.String uploadType) {
+          return (Delete) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Delete) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the security profile v2 to delete. Format:
+         * `organizations/{org}/securityProfilesV2/{profile}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The name of the security profile v2 to delete. Format:
+       `organizations/{org}/securityProfilesV2/{profile}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The name of the security profile v2 to delete. Format:
+         * `organizations/{org}/securityProfilesV2/{profile}`
+         */
+        public Delete setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityProfilesV2/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Delete set(String parameterName, Object value) {
+          return (Delete) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Get a security profile v2.
+       *
+       * Create a request for the method "securityProfilesV2.get".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The name of the security profile v2 to get. Format:
+       *        `organizations/{org}/securityProfilesV2/{profile}`
+       * @return the request
+       */
+      public Get get(java.lang.String name) throws java.io.IOException {
+        Get result = new Get(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Get extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/securityProfilesV2/[^/]+$");
+
+        /**
+         * Get a security profile v2.
+         *
+         * Create a request for the method "securityProfilesV2.get".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+         * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. The name of the security profile v2 to get. Format:
+       *        `organizations/{org}/securityProfilesV2/{profile}`
+         * @since 1.13
+         */
+        protected Get(java.lang.String name) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityProfilesV2/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public Get set$Xgafv(java.lang.String $Xgafv) {
+          return (Get) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Get setAccessToken(java.lang.String accessToken) {
+          return (Get) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Get setAlt(java.lang.String alt) {
+          return (Get) super.setAlt(alt);
+        }
+
+        @Override
+        public Get setCallback(java.lang.String callback) {
+          return (Get) super.setCallback(callback);
+        }
+
+        @Override
+        public Get setFields(java.lang.String fields) {
+          return (Get) super.setFields(fields);
+        }
+
+        @Override
+        public Get setKey(java.lang.String key) {
+          return (Get) super.setKey(key);
+        }
+
+        @Override
+        public Get setOauthToken(java.lang.String oauthToken) {
+          return (Get) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Get) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Get setQuotaUser(java.lang.String quotaUser) {
+          return (Get) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Get setUploadType(java.lang.String uploadType) {
+          return (Get) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Get setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Get) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the security profile v2 to get. Format:
+         * `organizations/{org}/securityProfilesV2/{profile}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The name of the security profile v2 to get. Format:
+       `organizations/{org}/securityProfilesV2/{profile}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The name of the security profile v2 to get. Format:
+         * `organizations/{org}/securityProfilesV2/{profile}`
+         */
+        public Get setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityProfilesV2/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Get set(String parameterName, Object value) {
+          return (Get) super.set(parameterName, value);
+        }
+      }
+      /**
+       * List security profiles v2.
+       *
+       * Create a request for the method "securityProfilesV2.list".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. For a specific organization, list of all the security profiles. Format:
+       *        `organizations/{org}`
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListSecurityProfilesV2Response> {
+
+        private static final String REST_PATH = "v1/{+parent}/securityProfilesV2";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+$");
+
+        /**
+         * List security profiles v2.
+         *
+         * Create a request for the method "securityProfilesV2.list".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+         * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. For a specific organization, list of all the security profiles. Format:
+       *        `organizations/{org}`
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListSecurityProfilesV2Response.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. For a specific organization, list of all the security profiles. Format:
+         * `organizations/{org}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. For a specific organization, list of all the security profiles. Format:
+       `organizations/{org}`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. For a specific organization, list of all the security profiles. Format:
+         * `organizations/{org}`
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /** Optional. The maximum number of profiles to return */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. The maximum number of profiles to return
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /** Optional. The maximum number of profiles to return */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListSecurityProfilesV2` call. Provide
+         * this to retrieve the subsequent page.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. A page token, received from a previous `ListSecurityProfilesV2` call. Provide this to
+       retrieve the subsequent page.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListSecurityProfilesV2` call. Provide
+         * this to retrieve the subsequent page.
+         */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Update a security profile V2.
+       *
+       * Create a request for the method "securityProfilesV2.patch".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+       *
+       * @param name Identifier. Name of the security profile v2 resource. Format:
+       *        organizations/{org}/securityProfilesV2/{profile}
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2}
+       * @return the request
+       */
+      public Patch patch(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2 content) throws java.io.IOException {
+        Patch result = new Patch(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Patch extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/securityProfilesV2/[^/]+$");
+
+        /**
+         * Update a security profile V2.
+         *
+         * Create a request for the method "securityProfilesV2.patch".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Patch#execute()} method to invoke the remote operation. <p> {@link
+         * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Identifier. Name of the security profile v2 resource. Format:
+       *        organizations/{org}/securityProfilesV2/{profile}
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2}
+         * @since 1.13
+         */
+        protected Patch(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2 content) {
+          super(Apigee.this, "PATCH", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityProfilesV2/[^/]+$");
+          }
+        }
+
+        @Override
+        public Patch set$Xgafv(java.lang.String $Xgafv) {
+          return (Patch) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Patch setAccessToken(java.lang.String accessToken) {
+          return (Patch) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Patch setAlt(java.lang.String alt) {
+          return (Patch) super.setAlt(alt);
+        }
+
+        @Override
+        public Patch setCallback(java.lang.String callback) {
+          return (Patch) super.setCallback(callback);
+        }
+
+        @Override
+        public Patch setFields(java.lang.String fields) {
+          return (Patch) super.setFields(fields);
+        }
+
+        @Override
+        public Patch setKey(java.lang.String key) {
+          return (Patch) super.setKey(key);
+        }
+
+        @Override
+        public Patch setOauthToken(java.lang.String oauthToken) {
+          return (Patch) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Patch) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Patch setQuotaUser(java.lang.String quotaUser) {
+          return (Patch) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Patch setUploadType(java.lang.String uploadType) {
+          return (Patch) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Patch) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. Name of the security profile v2 resource. Format:
+         * organizations/{org}/securityProfilesV2/{profile}
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. Name of the security profile v2 resource. Format:
+       organizations/{org}/securityProfilesV2/{profile}
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. Name of the security profile v2 resource. Format:
+         * organizations/{org}/securityProfilesV2/{profile}
+         */
+        public Patch setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/securityProfilesV2/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Optional. The list of fields to update. Valid fields to update are `description` and
+         * `profileAssessmentConfigs`.
+         */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** Optional. The list of fields to update. Valid fields to update are `description` and
+       `profileAssessmentConfigs`.
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /**
+         * Optional. The list of fields to update. Valid fields to update are `description` and
+         * `profileAssessmentConfigs`.
+         */
+        public Patch setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public Patch set(String parameterName, Object value) {
+          return (Patch) super.set(parameterName, value);
+        }
+      }
+
+    }
+    /**
      * An accessor for creating requests from the Sharedflows collection.
      *
      * <p>The typical use is:</p>
@@ -50249,7 +54418,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link Create#execute()} method to invoke the remote operation.
        *
        * @param parent Required. The name of the parent organization under which to create the shared flow. Must be of the
-       *        form: `organizations/{organization_id}`
+       *        form: `organizations/{organization_id}` If the resource has the `space` attribute set, IAM
+       *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+       *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @param content the {@link com.google.api.services.apigee.v1.model.GoogleApiHttpBody}
        * @return the request
        */
@@ -50280,7 +54452,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param parent Required. The name of the parent organization under which to create the shared flow. Must be of the
-       *        form: `organizations/{organization_id}`
+       *        form: `organizations/{organization_id}` If the resource has the `space` attribute set, IAM
+       *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+       *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleApiHttpBody}
          * @since 1.13
          */
@@ -50351,13 +54526,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. The name of the parent organization under which to create the shared flow. Must
-         * be of the form: `organizations/{organization_id}`
+         * be of the form: `organizations/{organization_id}` If the resource has the `space`
+         * attribute set, IAM permissions are checked against the Space resource path. To learn
+         * more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
         /** Required. The name of the parent organization under which to create the shared flow. Must be of the
-       form: `organizations/{organization_id}`
+       form: `organizations/{organization_id}` If the resource has the `space` attribute set, IAM
+       permissions are checked against the Space resource path. To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getParent() {
           return parent;
@@ -50365,7 +54546,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. The name of the parent organization under which to create the shared flow. Must
-         * be of the form: `organizations/{organization_id}`
+         * be of the form: `organizations/{organization_id}` If the resource has the `space`
+         * attribute set, IAM permissions are checked against the Space resource path. To learn
+         * more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         public Create setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -50409,6 +54593,34 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return this;
         }
 
+        /**
+         * Optional. The ID of the space to associated with this shared flow. Any IAM policies
+         * applied to the space will affect access to this shared flow. Note that this field is only
+         * respected when creating a new shared flow. It has no effect when creating a new revision
+         * for an existing shared flow.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String space;
+
+        /** Optional. The ID of the space to associated with this shared flow. Any IAM policies applied to the
+       space will affect access to this shared flow. Note that this field is only respected when creating
+       a new shared flow. It has no effect when creating a new revision for an existing shared flow.
+         */
+        public java.lang.String getSpace() {
+          return space;
+        }
+
+        /**
+         * Optional. The ID of the space to associated with this shared flow. Any IAM policies
+         * applied to the space will affect access to this shared flow. Note that this field is only
+         * respected when creating a new shared flow. It has no effect when creating a new revision
+         * for an existing shared flow.
+         */
+        public Create setSpace(java.lang.String space) {
+          this.space = space;
+          return this;
+        }
+
         @Override
         public Create set(String parameterName, Object value) {
           return (Create) super.set(parameterName, value);
@@ -50424,7 +54636,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
        *
        * @param name Required. shared flow name of the form:
-       *        `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+       *        `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the
+       *        `space` attribute set, IAM permissions are checked against the Space resource path. To
+       *        learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       *        platform/system-administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -50452,7 +54667,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. shared flow name of the form:
-       *        `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+       *        `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the
+       *        `space` attribute set, IAM permissions are checked against the Space resource path. To
+       *        learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       *        platform/system-administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected Delete(java.lang.String name) {
@@ -50522,13 +54740,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. shared flow name of the form:
-         * `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+         * `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the
+         * `space` attribute set, IAM permissions are checked against the Space resource path. To
+         * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. shared flow name of the form:
-       `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+       `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the `space`
+       attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+       [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       administration/spaces/apigee-spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -50536,7 +54760,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. shared flow name of the form:
-         * `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+         * `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the
+         * `space` attribute set, IAM permissions are checked against the Space resource path. To
+         * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         public Delete setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -50562,7 +54789,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
        * @param name Required. The name of the shared flow to get. Must be of the form:
-       *        `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+       *        `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the
+       *        `space` attribute set, IAM permissions are checked against the Space resource path. To
+       *        learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       *        platform/system-administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public Get get(java.lang.String name) throws java.io.IOException {
@@ -50589,7 +54819,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. The name of the shared flow to get. Must be of the form:
-       *        `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+       *        `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the
+       *        `space` attribute set, IAM permissions are checked against the Space resource path. To
+       *        learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       *        platform/system-administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected Get(java.lang.String name) {
@@ -50669,13 +54902,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. The name of the shared flow to get. Must be of the form:
-         * `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+         * `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the
+         * `space` attribute set, IAM permissions are checked against the Space resource path. To
+         * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. The name of the shared flow to get. Must be of the form:
-       `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+       `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the `space`
+       attribute set, IAM permissions are checked against the Space resource path. To learn more, read the
+       [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       administration/spaces/apigee-spaces-overview).
          */
         public java.lang.String getName() {
           return name;
@@ -50683,7 +54922,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. The name of the shared flow to get. Must be of the form:
-         * `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+         * `organizations/{organization_id}/sharedflows/{shared_flow_id}` If the resource has the
+         * `space` attribute set, IAM permissions are checked against the Space resource path. To
+         * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         * platform/system-administration/spaces/apigee-spaces-overview).
          */
         public Get setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -50701,7 +54943,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         }
       }
       /**
-       * Lists all shared flows in the organization.
+       * Lists all shared flows in the organization. If the resource has the `space` attribute set, the
+       * response may not return all resources. To learn more, read the [Apigee Spaces
+       * Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       * spaces-overview).
        *
        * Create a request for the method "sharedflows.list".
        *
@@ -50709,7 +54954,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * parameters, call the {@link List#execute()} method to invoke the remote operation.
        *
        * @param parent Required. The name of the parent organization under which to get shared flows. Must be of the form:
-       *        `organizations/{organization_id}`
+       *        `organizations/{organization_id}` If the resource has the `space` attribute set, IAM
+       *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+       *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
        * @return the request
        */
       public List list(java.lang.String parent) throws java.io.IOException {
@@ -50726,7 +54974,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
             java.util.regex.Pattern.compile("^organizations/[^/]+$");
 
         /**
-         * Lists all shared flows in the organization.
+         * Lists all shared flows in the organization. If the resource has the `space` attribute set, the
+         * response may not return all resources. To learn more, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          *
          * Create a request for the method "sharedflows.list".
          *
@@ -50736,7 +54987,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param parent Required. The name of the parent organization under which to get shared flows. Must be of the form:
-       *        `organizations/{organization_id}`
+       *        `organizations/{organization_id}` If the resource has the `space` attribute set, IAM
+       *        permissions are checked against the Space resource path. To learn more, read the [Apigee
+       *        Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+       *        administration/spaces/apigee-spaces-overview).
          * @since 1.13
          */
         protected List(java.lang.String parent) {
@@ -50816,13 +55070,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. The name of the parent organization under which to get shared flows. Must be of
-         * the form: `organizations/{organization_id}`
+         * the form: `organizations/{organization_id}` If the resource has the `space` attribute
+         * set, IAM permissions are checked against the Space resource path. To learn more, read the
+         * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
         /** Required. The name of the parent organization under which to get shared flows. Must be of the form:
-       `organizations/{organization_id}`
+       `organizations/{organization_id}` If the resource has the `space` attribute set, IAM permissions
+       are checked against the Space resource path. To learn more, read the [Apigee Spaces
+       Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+       spaces-overview).
          */
         public java.lang.String getParent() {
           return parent;
@@ -50830,7 +55090,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
         /**
          * Required. The name of the parent organization under which to get shared flows. Must be of
-         * the form: `organizations/{organization_id}`
+         * the form: `organizations/{organization_id}` If the resource has the `space` attribute
+         * set, IAM permissions are checked against the Space resource path. To learn more, read the
+         * [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
          */
         public List setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -50874,9 +55137,179 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return this;
         }
 
+        /**
+         * Optional. The space ID used to filter the list of shared flows (optional). If
+         * unspecified, all shared flows in the organization will be listed. To learn how Spaces can
+         * be used to manage resources, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String space;
+
+        /** Optional. The space ID used to filter the list of shared flows (optional). If unspecified, all
+       shared flows in the organization will be listed. To learn how Spaces can be used to manage
+       resources, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+       platform/system-administration/spaces/apigee-spaces-overview).
+         */
+        public java.lang.String getSpace() {
+          return space;
+        }
+
+        /**
+         * Optional. The space ID used to filter the list of shared flows (optional). If
+         * unspecified, all shared flows in the organization will be listed. To learn how Spaces can
+         * be used to manage resources, read the [Apigee Spaces
+         * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         * administration/spaces/apigee-spaces-overview).
+         */
+        public List setSpace(java.lang.String space) {
+          this.space = space;
+          return this;
+        }
+
         @Override
         public List set(String parameterName, Object value) {
           return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Moves an shared flow to a different space.
+       *
+       * Create a request for the method "sharedflows.move".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Move#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. Shared Flow to move in the following format:
+       *        `organizations/{org}/sharedflows/{shared_flow}`
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveSharedFlowRequest}
+       * @return the request
+       */
+      public Move move(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveSharedFlowRequest content) throws java.io.IOException {
+        Move result = new Move(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Move extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SharedFlow> {
+
+        private static final String REST_PATH = "v1/{+name}:move";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/sharedflows/[^/]+$");
+
+        /**
+         * Moves an shared flow to a different space.
+         *
+         * Create a request for the method "sharedflows.move".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Move#execute()} method to invoke the remote operation. <p> {@link
+         * Move#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. Shared Flow to move in the following format:
+       *        `organizations/{org}/sharedflows/{shared_flow}`
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveSharedFlowRequest}
+         * @since 1.13
+         */
+        protected Move(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1MoveSharedFlowRequest content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SharedFlow.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/sharedflows/[^/]+$");
+          }
+        }
+
+        @Override
+        public Move set$Xgafv(java.lang.String $Xgafv) {
+          return (Move) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Move setAccessToken(java.lang.String accessToken) {
+          return (Move) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Move setAlt(java.lang.String alt) {
+          return (Move) super.setAlt(alt);
+        }
+
+        @Override
+        public Move setCallback(java.lang.String callback) {
+          return (Move) super.setCallback(callback);
+        }
+
+        @Override
+        public Move setFields(java.lang.String fields) {
+          return (Move) super.setFields(fields);
+        }
+
+        @Override
+        public Move setKey(java.lang.String key) {
+          return (Move) super.setKey(key);
+        }
+
+        @Override
+        public Move setOauthToken(java.lang.String oauthToken) {
+          return (Move) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Move setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Move) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Move setQuotaUser(java.lang.String quotaUser) {
+          return (Move) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Move setUploadType(java.lang.String uploadType) {
+          return (Move) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Move setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Move) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Shared Flow to move in the following format:
+         * `organizations/{org}/sharedflows/{shared_flow}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. Shared Flow to move in the following format:
+       `organizations/{org}/sharedflows/{shared_flow}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. Shared Flow to move in the following format:
+         * `organizations/{org}/sharedflows/{shared_flow}`
+         */
+        public Move setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/sharedflows/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Move set(String parameterName, Object value) {
+          return (Move) super.set(parameterName, value);
         }
       }
 
@@ -50909,7 +55342,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
          * @param parent Required. Name of the shared flow for which to return deployment information in the following
-         *        format: `organizations/{org}/sharedflows/{sharedflow}`
+         *        format: `organizations/{org}/sharedflows/{sharedflow}` If the shared flow resource has the
+         *        `space` attribute set, IAM permissions are checked differently . To learn more, read the
+         *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -50936,7 +55372,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param parent Required. Name of the shared flow for which to return deployment information in the following
-         *        format: `organizations/{org}/sharedflows/{sharedflow}`
+         *        format: `organizations/{org}/sharedflows/{sharedflow}` If the shared flow resource has the
+         *        `space` attribute set, IAM permissions are checked differently . To learn more, read the
+         *        [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -51016,13 +55455,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the shared flow for which to return deployment information in the
-           * following format: `organizations/{org}/sharedflows/{sharedflow}`
+           * following format: `organizations/{org}/sharedflows/{sharedflow}` If the shared flow
+           * resource has the `space` attribute set, IAM permissions are checked differently . To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. Name of the shared flow for which to return deployment information in the following
-         format: `organizations/{org}/sharedflows/{sharedflow}`
+         format: `organizations/{org}/sharedflows/{sharedflow}` If the shared flow resource has the `space`
+         attribute set, IAM permissions are checked differently . To learn more, read the [Apigee Spaces
+         Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+         spaces-overview).
            */
           public java.lang.String getParent() {
             return parent;
@@ -51030,7 +55475,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Required. Name of the shared flow for which to return deployment information in the
-           * following format: `organizations/{org}/sharedflows/{sharedflow}`
+           * following format: `organizations/{org}/sharedflows/{sharedflow}` If the shared flow
+           * resource has the `space` attribute set, IAM permissions are checked differently . To
+           * learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           * platform/system-administration/spaces/apigee-spaces-overview).
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -51079,7 +55527,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
          *
          * @param name Required. The name of the shared flow revision to delete. Must be of the form:
-         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If
+         *        the Shared Flow resource has the `space` attribute set, IAM permissions are checked
+         *        against the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -51107,7 +55559,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. The name of the shared flow revision to delete. Must be of the form:
-         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If
+         *        the Shared Flow resource has the `space` attribute set, IAM permissions are checked
+         *        against the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Delete(java.lang.String name) {
@@ -51178,12 +55634,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           /**
            * Required. The name of the shared flow revision to delete. Must be of the form:
            * `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+           * If the Shared Flow resource has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. The name of the shared flow revision to delete. Must be of the form:
-         `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If the
+         Shared Flow resource has the `space` attribute set, IAM permissions are checked against the Space
+         resource path. To learn more, read the [Apigee Spaces
+         Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+         spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -51192,6 +55656,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           /**
            * Required. The name of the shared flow revision to delete. Must be of the form:
            * `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+           * If the Shared Flow resource has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -51221,7 +55689,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * parameters, call the {@link Get#execute()} method to invoke the remote operation.
          *
          * @param name Required. The name of the shared flow revision to get. Must be of the form:
-         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If
+         *        the Shared Flow resource has the `space` attribute set, IAM permissions are checked
+         *        against the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @return the request
          */
         public Get get(java.lang.String name) throws java.io.IOException {
@@ -51252,7 +55724,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. The name of the shared flow revision to get. Must be of the form:
-         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If
+         *        the Shared Flow resource has the `space` attribute set, IAM permissions are checked
+         *        against the Space resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @since 1.13
            */
           protected Get(java.lang.String name) {
@@ -51333,12 +55809,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           /**
            * Required. The name of the shared flow revision to get. Must be of the form:
            * `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+           * If the Shared Flow resource has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. The name of the shared flow revision to get. Must be of the form:
-         `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If the
+         Shared Flow resource has the `space` attribute set, IAM permissions are checked against the Space
+         resource path. To learn more, read the [Apigee Spaces
+         Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-
+         spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -51347,6 +55831,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           /**
            * Required. The name of the shared flow revision to get. Must be of the form:
            * `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+           * If the Shared Flow resource has the `space` attribute set, IAM permissions are checked
+           * against the Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public Get setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -51399,7 +55887,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * operation.
          *
          * @param name Required. The name of the shared flow revision to update. Must be of the form:
-         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If
+         *        the resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleApiHttpBody}
          * @return the request
          */
@@ -51431,7 +55923,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * invoking the constructor. </p>
            *
            * @param name Required. The name of the shared flow revision to update. Must be of the form:
-         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         *        `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If
+         *        the resource has the `space` attribute set, IAM permissions are checked against the Space
+         *        resource path. To learn more, read the [Apigee Spaces
+         *        Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+         *        administration/spaces/apigee-spaces-overview).
            * @param content the {@link com.google.api.services.apigee.v1.model.GoogleApiHttpBody}
            * @since 1.13
            */
@@ -51503,12 +55999,19 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           /**
            * Required. The name of the shared flow revision to update. Must be of the form:
            * `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+           * If the resource has the `space` attribute set, IAM permissions are checked against the
+           * Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. The name of the shared flow revision to update. Must be of the form:
-         `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+         `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}` If the
+         resource has the `space` attribute set, IAM permissions are checked against the Space resource
+         path. To learn more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+         platform/system-administration/spaces/apigee-spaces-overview).
            */
           public java.lang.String getName() {
             return name;
@@ -51517,6 +56020,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           /**
            * Required. The name of the shared flow revision to update. Must be of the form:
            * `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
+           * If the resource has the `space` attribute set, IAM permissions are checked against the
+           * Space resource path. To learn more, read the [Apigee Spaces
+           * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           * administration/spaces/apigee-spaces-overview).
            */
           public UpdateSharedFlowRevision setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -51586,7 +56093,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
            * parameters, call the {@link List#execute()} method to invoke the remote operation.
            *
            * @param parent Required. Name of the API proxy revision for which to return deployment information in the following
-           *        format: `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
+           *        format: `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`. If the shared flow
+           *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           *        platform/system-administration/spaces/apigee-spaces-overview).
            * @return the request
            */
           public List list(java.lang.String parent) throws java.io.IOException {
@@ -51613,7 +56123,10 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
              * called to initialize this instance immediately after invoking the constructor. </p>
              *
              * @param parent Required. Name of the API proxy revision for which to return deployment information in the following
-           *        format: `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
+           *        format: `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`. If the shared flow
+           *        resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           *        more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-
+           *        platform/system-administration/spaces/apigee-spaces-overview).
              * @since 1.13
              */
             protected List(java.lang.String parent) {
@@ -51694,13 +56207,20 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
             /**
              * Required. Name of the API proxy revision for which to return deployment information
              * in the following format:
-             * `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
+             * `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`. If the shared flow
+             * resource has the `space` attribute set, IAM permissions are checked differently . To
+             * learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
             /** Required. Name of the API proxy revision for which to return deployment information in the
-           following format: `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
+           following format: `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`. If the shared
+           flow resource has the `space` attribute set, IAM permissions are checked differently . To learn
+           more, read the [Apigee Spaces Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+           administration/spaces/apigee-spaces-overview).
              */
             public java.lang.String getParent() {
               return parent;
@@ -51709,7 +56229,11 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
             /**
              * Required. Name of the API proxy revision for which to return deployment information
              * in the following format:
-             * `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
+             * `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`. If the shared flow
+             * resource has the `space` attribute set, IAM permissions are checked differently . To
+             * learn more, read the [Apigee Spaces
+             * Overview](https://cloud.google.com/apigee/docs/api-platform/system-
+             * administration/spaces/apigee-spaces-overview).
              */
             public List setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -53551,6 +58075,1298 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
         }
 
       }
+    }
+    /**
+     * An accessor for creating requests from the Spaces collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Apigee apigee = new Apigee(...);}
+     *   {@code Apigee.Spaces.List request = apigee.spaces().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public Spaces spaces() {
+      return new Spaces();
+    }
+
+    /**
+     * The "spaces" collection of methods.
+     */
+    public class Spaces {
+
+      /**
+       * Create a space under an organization.
+       *
+       * Create a request for the method "spaces.create".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. Name of the Google Cloud project in which to associate the Apigee space. Pass the
+       *        information as a query parameter using the following structure in your request:
+       *        `organizations/`
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space}
+       * @return the request
+       */
+      public Create create(java.lang.String parent, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space content) throws java.io.IOException {
+        Create result = new Create(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Create extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space> {
+
+        private static final String REST_PATH = "v1/{+parent}/spaces";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+$");
+
+        /**
+         * Create a space under an organization.
+         *
+         * Create a request for the method "spaces.create".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Create#execute()} method to invoke the remote operation. <p> {@link
+         * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. Name of the Google Cloud project in which to associate the Apigee space. Pass the
+       *        information as a query parameter using the following structure in your request:
+       *        `organizations/`
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space}
+         * @since 1.13
+         */
+        protected Create(java.lang.String parent, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+        }
+
+        @Override
+        public Create set$Xgafv(java.lang.String $Xgafv) {
+          return (Create) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Create setAccessToken(java.lang.String accessToken) {
+          return (Create) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Create setAlt(java.lang.String alt) {
+          return (Create) super.setAlt(alt);
+        }
+
+        @Override
+        public Create setCallback(java.lang.String callback) {
+          return (Create) super.setCallback(callback);
+        }
+
+        @Override
+        public Create setFields(java.lang.String fields) {
+          return (Create) super.setFields(fields);
+        }
+
+        @Override
+        public Create setKey(java.lang.String key) {
+          return (Create) super.setKey(key);
+        }
+
+        @Override
+        public Create setOauthToken(java.lang.String oauthToken) {
+          return (Create) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Create) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Create setQuotaUser(java.lang.String quotaUser) {
+          return (Create) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Create setUploadType(java.lang.String uploadType) {
+          return (Create) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Create setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Create) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Name of the Google Cloud project in which to associate the Apigee space. Pass
+         * the information as a query parameter using the following structure in your request:
+         * `organizations/`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. Name of the Google Cloud project in which to associate the Apigee space. Pass the
+       information as a query parameter using the following structure in your request: `organizations/`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. Name of the Google Cloud project in which to associate the Apigee space. Pass
+         * the information as a query parameter using the following structure in your request:
+         * `organizations/`
+         */
+        public Create setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /** Required. Resource ID of the space. */
+        @com.google.api.client.util.Key
+        private java.lang.String spaceId;
+
+        /** Required. Resource ID of the space.
+         */
+        public java.lang.String getSpaceId() {
+          return spaceId;
+        }
+
+        /** Required. Resource ID of the space. */
+        public Create setSpaceId(java.lang.String spaceId) {
+          this.spaceId = spaceId;
+          return this;
+        }
+
+        @Override
+        public Create set(String parameterName, Object value) {
+          return (Create) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Deletes an organization space.
+       *
+       * Create a request for the method "spaces.delete".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. Apigee organization space name in the following format:
+       *        `organizations/{org}/spaces/{space}`
+       * @return the request
+       */
+      public Delete delete(java.lang.String name) throws java.io.IOException {
+        Delete result = new Delete(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Delete extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleProtobufEmpty> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/spaces/[^/]+$");
+
+        /**
+         * Deletes an organization space.
+         *
+         * Create a request for the method "spaces.delete".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Delete#execute()} method to invoke the remote operation. <p> {@link
+         * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. Apigee organization space name in the following format:
+       *        `organizations/{org}/spaces/{space}`
+         * @since 1.13
+         */
+        protected Delete(java.lang.String name) {
+          super(Apigee.this, "DELETE", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleProtobufEmpty.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+        }
+
+        @Override
+        public Delete set$Xgafv(java.lang.String $Xgafv) {
+          return (Delete) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Delete setAccessToken(java.lang.String accessToken) {
+          return (Delete) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Delete setAlt(java.lang.String alt) {
+          return (Delete) super.setAlt(alt);
+        }
+
+        @Override
+        public Delete setCallback(java.lang.String callback) {
+          return (Delete) super.setCallback(callback);
+        }
+
+        @Override
+        public Delete setFields(java.lang.String fields) {
+          return (Delete) super.setFields(fields);
+        }
+
+        @Override
+        public Delete setKey(java.lang.String key) {
+          return (Delete) super.setKey(key);
+        }
+
+        @Override
+        public Delete setOauthToken(java.lang.String oauthToken) {
+          return (Delete) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Delete) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Delete setQuotaUser(java.lang.String quotaUser) {
+          return (Delete) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Delete setUploadType(java.lang.String uploadType) {
+          return (Delete) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Delete) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Apigee organization space name in the following format:
+         * `organizations/{org}/spaces/{space}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. Apigee organization space name in the following format:
+       `organizations/{org}/spaces/{space}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. Apigee organization space name in the following format:
+         * `organizations/{org}/spaces/{space}`
+         */
+        public Delete setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Delete set(String parameterName, Object value) {
+          return (Delete) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Get a space under an Organization.
+       *
+       * Create a request for the method "spaces.get".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. Apigee organization space name in the following format:
+       *        `organizations/{org}/spaces/{space}`
+       * @return the request
+       */
+      public Get get(java.lang.String name) throws java.io.IOException {
+        Get result = new Get(name);
+        initialize(result);
+        return result;
+      }
+
+      public class Get extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/spaces/[^/]+$");
+
+        /**
+         * Get a space under an Organization.
+         *
+         * Create a request for the method "spaces.get".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+         * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. Apigee organization space name in the following format:
+       *        `organizations/{org}/spaces/{space}`
+         * @since 1.13
+         */
+        protected Get(java.lang.String name) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public Get set$Xgafv(java.lang.String $Xgafv) {
+          return (Get) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Get setAccessToken(java.lang.String accessToken) {
+          return (Get) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Get setAlt(java.lang.String alt) {
+          return (Get) super.setAlt(alt);
+        }
+
+        @Override
+        public Get setCallback(java.lang.String callback) {
+          return (Get) super.setCallback(callback);
+        }
+
+        @Override
+        public Get setFields(java.lang.String fields) {
+          return (Get) super.setFields(fields);
+        }
+
+        @Override
+        public Get setKey(java.lang.String key) {
+          return (Get) super.setKey(key);
+        }
+
+        @Override
+        public Get setOauthToken(java.lang.String oauthToken) {
+          return (Get) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Get) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Get setQuotaUser(java.lang.String quotaUser) {
+          return (Get) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Get setUploadType(java.lang.String uploadType) {
+          return (Get) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Get setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Get) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Apigee organization space name in the following format:
+         * `organizations/{org}/spaces/{space}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. Apigee organization space name in the following format:
+       `organizations/{org}/spaces/{space}`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. Apigee organization space name in the following format:
+         * `organizations/{org}/spaces/{space}`
+         */
+        public Get setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public Get set(String parameterName, Object value) {
+          return (Get) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Callers must have apigee.spaces.getIamPolicy.
+       *
+       * Create a request for the method "spaces.getIamPolicy".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation.
+       *
+       * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
+       *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+       *        this field.
+       * @return the request
+       */
+      public GetIamPolicy getIamPolicy(java.lang.String resource) throws java.io.IOException {
+        GetIamPolicy result = new GetIamPolicy(resource);
+        initialize(result);
+        return result;
+      }
+
+      public class GetIamPolicy extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleIamV1Policy> {
+
+        private static final String REST_PATH = "v1/{+resource}:getIamPolicy";
+
+        private final java.util.regex.Pattern RESOURCE_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/spaces/[^/]+$");
+
+        /**
+         * Callers must have apigee.spaces.getIamPolicy.
+         *
+         * Create a request for the method "spaces.getIamPolicy".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote operation. <p>
+         * {@link
+         * GetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
+       *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+       *        this field.
+         * @since 1.13
+         */
+        protected GetIamPolicy(java.lang.String resource) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleIamV1Policy.class);
+          this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                "Parameter resource must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public GetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
+          return (GetIamPolicy) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public GetIamPolicy setAccessToken(java.lang.String accessToken) {
+          return (GetIamPolicy) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public GetIamPolicy setAlt(java.lang.String alt) {
+          return (GetIamPolicy) super.setAlt(alt);
+        }
+
+        @Override
+        public GetIamPolicy setCallback(java.lang.String callback) {
+          return (GetIamPolicy) super.setCallback(callback);
+        }
+
+        @Override
+        public GetIamPolicy setFields(java.lang.String fields) {
+          return (GetIamPolicy) super.setFields(fields);
+        }
+
+        @Override
+        public GetIamPolicy setKey(java.lang.String key) {
+          return (GetIamPolicy) super.setKey(key);
+        }
+
+        @Override
+        public GetIamPolicy setOauthToken(java.lang.String oauthToken) {
+          return (GetIamPolicy) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public GetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (GetIamPolicy) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public GetIamPolicy setQuotaUser(java.lang.String quotaUser) {
+          return (GetIamPolicy) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public GetIamPolicy setUploadType(java.lang.String uploadType) {
+          return (GetIamPolicy) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public GetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
+          return (GetIamPolicy) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * REQUIRED: The resource for which the policy is being requested. See [Resource
+         * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         * this field.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String resource;
+
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource
+       names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+       field.
+         */
+        public java.lang.String getResource() {
+          return resource;
+        }
+
+        /**
+         * REQUIRED: The resource for which the policy is being requested. See [Resource
+         * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         * this field.
+         */
+        public GetIamPolicy setResource(java.lang.String resource) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                "Parameter resource must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+          this.resource = resource;
+          return this;
+        }
+
+        /**
+         * Optional. The maximum policy version that will be used to format the policy. Valid values
+         * are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
+         * policies with any conditional role bindings must specify version 3. Policies with no
+         * conditional role bindings may specify any valid value or leave the field unset. The
+         * policy in the response might use the policy version that you specified, or it might use a
+         * lower policy version. For example, if you specify version 3, but the policy has no
+         * conditional role bindings, the response uses version 1. To learn which resources support
+         * conditions in their IAM policies, see the [IAM
+         * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+         */
+        @com.google.api.client.util.Key("options.requestedPolicyVersion")
+        private java.lang.Integer optionsRequestedPolicyVersion;
+
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1,
+       and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+       conditional role bindings must specify version 3. Policies with no conditional role bindings may
+       specify any valid value or leave the field unset. The policy in the response might use the policy
+       version that you specified, or it might use a lower policy version. For example, if you specify
+       version 3, but the policy has no conditional role bindings, the response uses version 1. To learn
+       which resources support conditions in their IAM policies, see the [IAM
+       documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+         */
+        public java.lang.Integer getOptionsRequestedPolicyVersion() {
+          return optionsRequestedPolicyVersion;
+        }
+
+        /**
+         * Optional. The maximum policy version that will be used to format the policy. Valid values
+         * are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
+         * policies with any conditional role bindings must specify version 3. Policies with no
+         * conditional role bindings may specify any valid value or leave the field unset. The
+         * policy in the response might use the policy version that you specified, or it might use a
+         * lower policy version. For example, if you specify version 3, but the policy has no
+         * conditional role bindings, the response uses version 1. To learn which resources support
+         * conditions in their IAM policies, see the [IAM
+         * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+         */
+        public GetIamPolicy setOptionsRequestedPolicyVersion(java.lang.Integer optionsRequestedPolicyVersion) {
+          this.optionsRequestedPolicyVersion = optionsRequestedPolicyVersion;
+          return this;
+        }
+
+        @Override
+        public GetIamPolicy set(String parameterName, Object value) {
+          return (GetIamPolicy) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Lists spaces under an organization.
+       *
+       * Create a request for the method "spaces.list".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. Use the following structure in your request: `organizations`
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListSpacesResponse> {
+
+        private static final String REST_PATH = "v1/{+parent}/spaces";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+$");
+
+        /**
+         * Lists spaces under an organization.
+         *
+         * Create a request for the method "spaces.list".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+         * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. Use the following structure in your request: `organizations`
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListSpacesResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /** Required. Use the following structure in your request: `organizations` */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. Use the following structure in your request: `organizations`
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /** Required. Use the following structure in your request: `organizations` */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^organizations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. The maximum number of spaces to return. The service may return fewer than this
+         * value. If unspecified, at most 50 spaces will be returned. The maximum value is 1000;
+         * values above 1000 will be coerced to 1000.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. The maximum number of spaces to return. The service may return fewer than this value. If
+       unspecified, at most 50 spaces will be returned. The maximum value is 1000; values above 1000 will
+       be coerced to 1000.
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /**
+         * Optional. The maximum number of spaces to return. The service may return fewer than this
+         * value. If unspecified, at most 50 spaces will be returned. The maximum value is 1000;
+         * values above 1000 will be coerced to 1000.
+         */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListSpaces` call. Provide this to
+         * retrieve the subsequent page. When paginating, all parameters must match the original
+         * call.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. A page token, received from a previous `ListSpaces` call. Provide this to retrieve the
+       subsequent page. When paginating, all parameters must match the original call.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /**
+         * Optional. A page token, received from a previous `ListSpaces` call. Provide this to
+         * retrieve the subsequent page. When paginating, all parameters must match the original
+         * call.
+         */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Updates a space.
+       *
+       * Create a request for the method "spaces.patch".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. Name of the space in the following format: `organizations/{org}/spaces/{space_id}`.
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space}
+       * @return the request
+       */
+      public Patch patch(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space content) throws java.io.IOException {
+        Patch result = new Patch(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Patch extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/spaces/[^/]+$");
+
+        /**
+         * Updates a space.
+         *
+         * Create a request for the method "spaces.patch".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link Patch#execute()} method to invoke the remote operation. <p> {@link
+         * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Required. Name of the space in the following format: `organizations/{org}/spaces/{space_id}`.
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space}
+         * @since 1.13
+         */
+        protected Patch(java.lang.String name, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space content) {
+          super(Apigee.this, "PATCH", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1Space.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+        }
+
+        @Override
+        public Patch set$Xgafv(java.lang.String $Xgafv) {
+          return (Patch) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Patch setAccessToken(java.lang.String accessToken) {
+          return (Patch) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Patch setAlt(java.lang.String alt) {
+          return (Patch) super.setAlt(alt);
+        }
+
+        @Override
+        public Patch setCallback(java.lang.String callback) {
+          return (Patch) super.setCallback(callback);
+        }
+
+        @Override
+        public Patch setFields(java.lang.String fields) {
+          return (Patch) super.setFields(fields);
+        }
+
+        @Override
+        public Patch setKey(java.lang.String key) {
+          return (Patch) super.setKey(key);
+        }
+
+        @Override
+        public Patch setOauthToken(java.lang.String oauthToken) {
+          return (Patch) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Patch) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Patch setQuotaUser(java.lang.String quotaUser) {
+          return (Patch) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Patch setUploadType(java.lang.String uploadType) {
+          return (Patch) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Patch) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Name of the space in the following format:
+         * `organizations/{org}/spaces/{space_id}`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. Name of the space in the following format: `organizations/{org}/spaces/{space_id}`.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. Name of the space in the following format:
+         * `organizations/{org}/spaces/{space_id}`.
+         */
+        public Patch setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /** Required. List of fields to be updated. Fields that can be updated: display_name. */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** Required. List of fields to be updated. Fields that can be updated: display_name.
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /** Required. List of fields to be updated. Fields that can be updated: display_name. */
+        public Patch setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public Patch set(String parameterName, Object value) {
+          return (Patch) super.set(parameterName, value);
+        }
+      }
+      /**
+       * IAM META APIs Callers must have apigee.spaces.setIamPolicy.
+       *
+       * Create a request for the method "spaces.setIamPolicy".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation.
+       *
+       * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
+       *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+       *        this field.
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleIamV1SetIamPolicyRequest}
+       * @return the request
+       */
+      public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.apigee.v1.model.GoogleIamV1SetIamPolicyRequest content) throws java.io.IOException {
+        SetIamPolicy result = new SetIamPolicy(resource, content);
+        initialize(result);
+        return result;
+      }
+
+      public class SetIamPolicy extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleIamV1Policy> {
+
+        private static final String REST_PATH = "v1/{+resource}:setIamPolicy";
+
+        private final java.util.regex.Pattern RESOURCE_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/spaces/[^/]+$");
+
+        /**
+         * IAM META APIs Callers must have apigee.spaces.setIamPolicy.
+         *
+         * Create a request for the method "spaces.setIamPolicy".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote operation. <p>
+         * {@link
+         * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+         * must be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
+       *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+       *        this field.
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleIamV1SetIamPolicyRequest}
+         * @since 1.13
+         */
+        protected SetIamPolicy(java.lang.String resource, com.google.api.services.apigee.v1.model.GoogleIamV1SetIamPolicyRequest content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleIamV1Policy.class);
+          this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                "Parameter resource must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+        }
+
+        @Override
+        public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
+          return (SetIamPolicy) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public SetIamPolicy setAccessToken(java.lang.String accessToken) {
+          return (SetIamPolicy) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public SetIamPolicy setAlt(java.lang.String alt) {
+          return (SetIamPolicy) super.setAlt(alt);
+        }
+
+        @Override
+        public SetIamPolicy setCallback(java.lang.String callback) {
+          return (SetIamPolicy) super.setCallback(callback);
+        }
+
+        @Override
+        public SetIamPolicy setFields(java.lang.String fields) {
+          return (SetIamPolicy) super.setFields(fields);
+        }
+
+        @Override
+        public SetIamPolicy setKey(java.lang.String key) {
+          return (SetIamPolicy) super.setKey(key);
+        }
+
+        @Override
+        public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
+          return (SetIamPolicy) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
+          return (SetIamPolicy) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public SetIamPolicy setUploadType(java.lang.String uploadType) {
+          return (SetIamPolicy) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
+          return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * REQUIRED: The resource for which the policy is being specified. See [Resource
+         * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         * this field.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String resource;
+
+        /** REQUIRED: The resource for which the policy is being specified. See [Resource
+       names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+       field.
+         */
+        public java.lang.String getResource() {
+          return resource;
+        }
+
+        /**
+         * REQUIRED: The resource for which the policy is being specified. See [Resource
+         * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         * this field.
+         */
+        public SetIamPolicy setResource(java.lang.String resource) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                "Parameter resource must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+          this.resource = resource;
+          return this;
+        }
+
+        @Override
+        public SetIamPolicy set(String parameterName, Object value) {
+          return (SetIamPolicy) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Callers don't need any permissions.
+       *
+       * Create a request for the method "spaces.testIamPermissions".
+       *
+       * This request holds the parameters needed by the apigee server.  After setting any optional
+       * parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote operation.
+       *
+       * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
+       *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+       *        this field.
+       * @param content the {@link com.google.api.services.apigee.v1.model.GoogleIamV1TestIamPermissionsRequest}
+       * @return the request
+       */
+      public TestIamPermissions testIamPermissions(java.lang.String resource, com.google.api.services.apigee.v1.model.GoogleIamV1TestIamPermissionsRequest content) throws java.io.IOException {
+        TestIamPermissions result = new TestIamPermissions(resource, content);
+        initialize(result);
+        return result;
+      }
+
+      public class TestIamPermissions extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleIamV1TestIamPermissionsResponse> {
+
+        private static final String REST_PATH = "v1/{+resource}:testIamPermissions";
+
+        private final java.util.regex.Pattern RESOURCE_PATTERN =
+            java.util.regex.Pattern.compile("^organizations/[^/]+/spaces/[^/]+$");
+
+        /**
+         * Callers don't need any permissions.
+         *
+         * Create a request for the method "spaces.testIamPermissions".
+         *
+         * This request holds the parameters needed by the the apigee server.  After setting any optional
+         * parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote
+         * operation. <p> {@link TestIamPermissions#initialize(com.google.api.client.googleapis.services.A
+         * bstractGoogleClientRequest)} must be called to initialize this instance immediately after
+         * invoking the constructor. </p>
+         *
+         * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
+       *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+       *        this field.
+         * @param content the {@link com.google.api.services.apigee.v1.model.GoogleIamV1TestIamPermissionsRequest}
+         * @since 1.13
+         */
+        protected TestIamPermissions(java.lang.String resource, com.google.api.services.apigee.v1.model.GoogleIamV1TestIamPermissionsRequest content) {
+          super(Apigee.this, "POST", REST_PATH, content, com.google.api.services.apigee.v1.model.GoogleIamV1TestIamPermissionsResponse.class);
+          this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                "Parameter resource must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+        }
+
+        @Override
+        public TestIamPermissions set$Xgafv(java.lang.String $Xgafv) {
+          return (TestIamPermissions) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public TestIamPermissions setAccessToken(java.lang.String accessToken) {
+          return (TestIamPermissions) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public TestIamPermissions setAlt(java.lang.String alt) {
+          return (TestIamPermissions) super.setAlt(alt);
+        }
+
+        @Override
+        public TestIamPermissions setCallback(java.lang.String callback) {
+          return (TestIamPermissions) super.setCallback(callback);
+        }
+
+        @Override
+        public TestIamPermissions setFields(java.lang.String fields) {
+          return (TestIamPermissions) super.setFields(fields);
+        }
+
+        @Override
+        public TestIamPermissions setKey(java.lang.String key) {
+          return (TestIamPermissions) super.setKey(key);
+        }
+
+        @Override
+        public TestIamPermissions setOauthToken(java.lang.String oauthToken) {
+          return (TestIamPermissions) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public TestIamPermissions setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (TestIamPermissions) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public TestIamPermissions setQuotaUser(java.lang.String quotaUser) {
+          return (TestIamPermissions) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public TestIamPermissions setUploadType(java.lang.String uploadType) {
+          return (TestIamPermissions) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public TestIamPermissions setUploadProtocol(java.lang.String uploadProtocol) {
+          return (TestIamPermissions) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * REQUIRED: The resource for which the policy detail is being requested. See [Resource
+         * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         * this field.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String resource;
+
+        /** REQUIRED: The resource for which the policy detail is being requested. See [Resource
+       names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
+       field.
+         */
+        public java.lang.String getResource() {
+          return resource;
+        }
+
+        /**
+         * REQUIRED: The resource for which the policy detail is being requested. See [Resource
+         * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
+         * this field.
+         */
+        public TestIamPermissions setResource(java.lang.String resource) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
+                "Parameter resource must conform to the pattern " +
+                "^organizations/[^/]+/spaces/[^/]+$");
+          }
+          this.resource = resource;
+          return this;
+        }
+
+        @Override
+        public TestIamPermissions set(String parameterName, Object value) {
+          return (TestIamPermissions) super.set(parameterName, value);
+        }
+      }
+
     }
   }
 

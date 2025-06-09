@@ -53,6 +53,13 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   private java.lang.String clusterUid;
 
   /**
+   * Output only. Timestamp when the resource finished being created.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String createCompletionTime;
+
+  /**
    * Output only. Create time stamp
    * The value may be {@code null}.
    */
@@ -184,6 +191,14 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   private java.lang.String state;
 
   /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> tags;
+
+  /**
    * The backup type, which suggests the trigger for the backup.
    * The value may be {@code null}.
    */
@@ -199,7 +214,8 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   private java.lang.String uid;
 
   /**
-   * Output only. Update time stamp
+   * Output only. Update time stamp Users should not infer any meaning from this field. Its value is
+   * generally unrelated to the timing of the backup creation operation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -257,6 +273,23 @@ public final class Backup extends com.google.api.client.json.GenericJson {
    */
   public Backup setClusterUid(java.lang.String clusterUid) {
     this.clusterUid = clusterUid;
+    return this;
+  }
+
+  /**
+   * Output only. Timestamp when the resource finished being created.
+   * @return value or {@code null} for none
+   */
+  public String getCreateCompletionTime() {
+    return createCompletionTime;
+  }
+
+  /**
+   * Output only. Timestamp when the resource finished being created.
+   * @param createCompletionTime createCompletionTime or {@code null} for none
+   */
+  public Backup setCreateCompletionTime(String createCompletionTime) {
+    this.createCompletionTime = createCompletionTime;
     return this;
   }
 
@@ -574,6 +607,25 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getTags() {
+    return tags;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example:
+   * ``` "123/environment": "production", "123/costCenter": "marketing" ```
+   * @param tags tags or {@code null} for none
+   */
+  public Backup setTags(java.util.Map<String, java.lang.String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  /**
    * The backup type, which suggests the trigger for the backup.
    * @return value or {@code null} for none
    */
@@ -610,7 +662,8 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. Update time stamp
+   * Output only. Update time stamp Users should not infer any meaning from this field. Its value is
+   * generally unrelated to the timing of the backup creation operation.
    * @return value or {@code null} for none
    */
   public String getUpdateTime() {
@@ -618,7 +671,8 @@ public final class Backup extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. Update time stamp
+   * Output only. Update time stamp Users should not infer any meaning from this field. Its value is
+   * generally unrelated to the timing of the backup creation operation.
    * @param updateTime updateTime or {@code null} for none
    */
   public Backup setUpdateTime(String updateTime) {

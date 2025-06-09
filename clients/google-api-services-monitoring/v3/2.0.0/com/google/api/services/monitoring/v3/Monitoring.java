@@ -4506,18 +4506,58 @@ public class Monitoring extends com.google.api.client.googleapis.services.json.A
         }
 
         /**
-         * If this field is empty, all custom and system-defined metric descriptors are returned.
-         * Otherwise, the filter (https://cloud.google.com/monitoring/api/v3/filters) specifies
-         * which metric descriptors are to be returned. For example, the following filter matches
-         * all custom metrics (https://cloud.google.com/monitoring/custom-metrics): metric.type =
-         * starts_with("custom.googleapis.com/")
+         * Optional. If true, only metrics and monitored resource types that have recent data
+         * (within roughly 25 hours) will be included in the response. - If a metric descriptor
+         * enumerates monitored resource types, only the monitored resource types for which the
+         * metric type has recent data will be included in the returned metric descriptor, and if
+         * none of them have recent data, the metric descriptor will not be returned. - If a metric
+         * descriptor does not enumerate the compatible monitored resource types, it will be
+         * returned only if the metric type has recent data for some monitored resource type. The
+         * returned descriptor will not enumerate any monitored resource types.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Boolean activeOnly;
+
+        /** Optional. If true, only metrics and monitored resource types that have recent data (within roughly
+       25 hours) will be included in the response. - If a metric descriptor enumerates monitored resource
+       types, only the monitored resource types for which the metric type has recent data will be included
+       in the returned metric descriptor, and if none of them have recent data, the metric descriptor will
+       not be returned. - If a metric descriptor does not enumerate the compatible monitored resource
+       types, it will be returned only if the metric type has recent data for some monitored resource
+       type. The returned descriptor will not enumerate any monitored resource types.
+         */
+        public java.lang.Boolean getActiveOnly() {
+          return activeOnly;
+        }
+
+        /**
+         * Optional. If true, only metrics and monitored resource types that have recent data
+         * (within roughly 25 hours) will be included in the response. - If a metric descriptor
+         * enumerates monitored resource types, only the monitored resource types for which the
+         * metric type has recent data will be included in the returned metric descriptor, and if
+         * none of them have recent data, the metric descriptor will not be returned. - If a metric
+         * descriptor does not enumerate the compatible monitored resource types, it will be
+         * returned only if the metric type has recent data for some monitored resource type. The
+         * returned descriptor will not enumerate any monitored resource types.
+         */
+        public List setActiveOnly(java.lang.Boolean activeOnly) {
+          this.activeOnly = activeOnly;
+          return this;
+        }
+
+        /**
+         * Optional. If this field is empty, all custom and system-defined metric descriptors are
+         * returned. Otherwise, the filter (https://cloud.google.com/monitoring/api/v3/filters)
+         * specifies which metric descriptors are to be returned. For example, the following filter
+         * matches all custom metrics (https://cloud.google.com/monitoring/custom-metrics):
+         * metric.type = starts_with("custom.googleapis.com/")
          */
         @com.google.api.client.util.Key
         private java.lang.String filter;
 
-        /** If this field is empty, all custom and system-defined metric descriptors are returned. Otherwise,
-       the filter (https://cloud.google.com/monitoring/api/v3/filters) specifies which metric descriptors
-       are to be returned. For example, the following filter matches all custom metrics
+        /** Optional. If this field is empty, all custom and system-defined metric descriptors are returned.
+       Otherwise, the filter (https://cloud.google.com/monitoring/api/v3/filters) specifies which metric
+       descriptors are to be returned. For example, the following filter matches all custom metrics
        (https://cloud.google.com/monitoring/custom-metrics): metric.type =
        starts_with("custom.googleapis.com/")
          */
@@ -4526,11 +4566,11 @@ public class Monitoring extends com.google.api.client.googleapis.services.json.A
         }
 
         /**
-         * If this field is empty, all custom and system-defined metric descriptors are returned.
-         * Otherwise, the filter (https://cloud.google.com/monitoring/api/v3/filters) specifies
-         * which metric descriptors are to be returned. For example, the following filter matches
-         * all custom metrics (https://cloud.google.com/monitoring/custom-metrics): metric.type =
-         * starts_with("custom.googleapis.com/")
+         * Optional. If this field is empty, all custom and system-defined metric descriptors are
+         * returned. Otherwise, the filter (https://cloud.google.com/monitoring/api/v3/filters)
+         * specifies which metric descriptors are to be returned. For example, the following filter
+         * matches all custom metrics (https://cloud.google.com/monitoring/custom-metrics):
+         * metric.type = starts_with("custom.googleapis.com/")
          */
         public List setFilter(java.lang.String filter) {
           this.filter = filter;
@@ -4538,24 +4578,24 @@ public class Monitoring extends com.google.api.client.googleapis.services.json.A
         }
 
         /**
-         * A positive number that is the maximum number of results to return. The default and
-         * maximum value is 10,000. If a page_size <= 0 or > 10,000 is submitted, will instead
+         * Optional. A positive number that is the maximum number of results to return. The default
+         * and maximum value is 10,000. If a page_size <= 0 or > 10,000 is submitted, will instead
          * return a maximum of 10,000 results.
          */
         @com.google.api.client.util.Key
         private java.lang.Integer pageSize;
 
-        /** A positive number that is the maximum number of results to return. The default and maximum value is
-       10,000. If a page_size <= 0 or > 10,000 is submitted, will instead return a maximum of 10,000
-       results.
+        /** Optional. A positive number that is the maximum number of results to return. The default and
+       maximum value is 10,000. If a page_size <= 0 or > 10,000 is submitted, will instead return a
+       maximum of 10,000 results.
          */
         public java.lang.Integer getPageSize() {
           return pageSize;
         }
 
         /**
-         * A positive number that is the maximum number of results to return. The default and
-         * maximum value is 10,000. If a page_size <= 0 or > 10,000 is submitted, will instead
+         * Optional. A positive number that is the maximum number of results to return. The default
+         * and maximum value is 10,000. If a page_size <= 0 or > 10,000 is submitted, will instead
          * return a maximum of 10,000 results.
          */
         public List setPageSize(java.lang.Integer pageSize) {
@@ -4564,25 +4604,25 @@ public class Monitoring extends com.google.api.client.googleapis.services.json.A
         }
 
         /**
-         * If this field is not empty then it must contain the nextPageToken value returned by a
-         * previous call to this method. Using this field causes the method to return additional
-         * results from the previous method call.
+         * Optional. If this field is not empty then it must contain the nextPageToken value
+         * returned by a previous call to this method. Using this field causes the method to return
+         * additional results from the previous method call.
          */
         @com.google.api.client.util.Key
         private java.lang.String pageToken;
 
-        /** If this field is not empty then it must contain the nextPageToken value returned by a previous call
-       to this method. Using this field causes the method to return additional results from the previous
-       method call.
+        /** Optional. If this field is not empty then it must contain the nextPageToken value returned by a
+       previous call to this method. Using this field causes the method to return additional results from
+       the previous method call.
          */
         public java.lang.String getPageToken() {
           return pageToken;
         }
 
         /**
-         * If this field is not empty then it must contain the nextPageToken value returned by a
-         * previous call to this method. Using this field causes the method to return additional
-         * results from the previous method call.
+         * Optional. If this field is not empty then it must contain the nextPageToken value
+         * returned by a previous call to this method. Using this field causes the method to return
+         * additional results from the previous method call.
          */
         public List setPageToken(java.lang.String pageToken) {
           this.pageToken = pageToken;
@@ -5689,15 +5729,15 @@ public class Monitoring extends com.google.api.client.googleapis.services.json.A
 
         /**
          * If true, the notification channel will be deleted regardless of its use in alert policies
-         * (the policies will be updated to remove the channel). If false, channels that are still
-         * referenced by an existing alerting policy will fail to be deleted in a delete operation.
+         * (the policies will be updated to remove the channel). If false, this operation will fail
+         * if the notification channel is referenced by existing alerting policies.
          */
         @com.google.api.client.util.Key
         private java.lang.Boolean force;
 
         /** If true, the notification channel will be deleted regardless of its use in alert policies (the
-       policies will be updated to remove the channel). If false, channels that are still referenced by an
-       existing alerting policy will fail to be deleted in a delete operation.
+       policies will be updated to remove the channel). If false, this operation will fail if the
+       notification channel is referenced by existing alerting policies.
          */
         public java.lang.Boolean getForce() {
           return force;
@@ -5705,8 +5745,8 @@ public class Monitoring extends com.google.api.client.googleapis.services.json.A
 
         /**
          * If true, the notification channel will be deleted regardless of its use in alert policies
-         * (the policies will be updated to remove the channel). If false, channels that are still
-         * referenced by an existing alerting policy will fail to be deleted in a delete operation.
+         * (the policies will be updated to remove the channel). If false, this operation will fail
+         * if the notification channel is referenced by existing alerting policies.
          */
         public Delete setForce(java.lang.Boolean force) {
           this.force = force;
@@ -7196,15 +7236,15 @@ public class Monitoring extends com.google.api.client.googleapis.services.json.A
 
         /**
          * Optional. Optional filter to restrict results to the given criteria. The following fields
-         * are supported. interval.start_time interval.end_timeFor example: ``` interval.start_time
-         * > "2022-03-11T00:00:00-08:00" AND interval.end_time < "2022-03-12T00:00:00-08:00" ```
+         * are supported. interval.start_time interval.end_timeFor example: interval.start_time >
+         * "2022-03-11T00:00:00-08:00" AND interval.end_time < "2022-03-12T00:00:00-08:00"
          */
         @com.google.api.client.util.Key
         private java.lang.String filter;
 
         /** Optional. Optional filter to restrict results to the given criteria. The following fields are
-       supported. interval.start_time interval.end_timeFor example: ``` interval.start_time >
-       "2022-03-11T00:00:00-08:00" AND interval.end_time < "2022-03-12T00:00:00-08:00" ```
+       supported. interval.start_time interval.end_timeFor example: interval.start_time >
+       "2022-03-11T00:00:00-08:00" AND interval.end_time < "2022-03-12T00:00:00-08:00"
          */
         public java.lang.String getFilter() {
           return filter;
@@ -7212,8 +7252,8 @@ public class Monitoring extends com.google.api.client.googleapis.services.json.A
 
         /**
          * Optional. Optional filter to restrict results to the given criteria. The following fields
-         * are supported. interval.start_time interval.end_timeFor example: ``` interval.start_time
-         * > "2022-03-11T00:00:00-08:00" AND interval.end_time < "2022-03-12T00:00:00-08:00" ```
+         * are supported. interval.start_time interval.end_timeFor example: interval.start_time >
+         * "2022-03-11T00:00:00-08:00" AND interval.end_time < "2022-03-12T00:00:00-08:00"
          */
         public List setFilter(java.lang.String filter) {
           this.filter = filter;

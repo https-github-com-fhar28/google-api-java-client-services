@@ -17,9 +17,8 @@
 package com.google.api.services.orgpolicy.v2.model;
 
 /**
- * A constraint that is either enforced or not. For example, a constraint
- * `constraints/compute.disableSerialPortAccess`. If it is enforced on a VM instance, serial port
- * connections will not be opened to that instance.
+ * A constraint type is enforced or not enforced, which is configured in the `PolicyRule`. If
+ * `customConstraintDefinition` is defined, this constraint is a managed constraint.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Organization Policy API. For a detailed explanation
@@ -31,6 +30,30 @@ package com.google.api.services.orgpolicy.v2.model;
  */
 @SuppressWarnings("javadoc")
 public final class GoogleCloudOrgpolicyV2ConstraintBooleanConstraint extends com.google.api.client.json.GenericJson {
+
+  /**
+   * Custom constraint definition. Defines this as a managed constraint.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition customConstraintDefinition;
+
+  /**
+   * Custom constraint definition. Defines this as a managed constraint.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition getCustomConstraintDefinition() {
+    return customConstraintDefinition;
+  }
+
+  /**
+   * Custom constraint definition. Defines this as a managed constraint.
+   * @param customConstraintDefinition customConstraintDefinition or {@code null} for none
+   */
+  public GoogleCloudOrgpolicyV2ConstraintBooleanConstraint setCustomConstraintDefinition(GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition customConstraintDefinition) {
+    this.customConstraintDefinition = customConstraintDefinition;
+    return this;
+  }
 
   @Override
   public GoogleCloudOrgpolicyV2ConstraintBooleanConstraint set(String fieldName, Object value) {

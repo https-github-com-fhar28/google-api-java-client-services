@@ -445,6 +445,29 @@ public class AIPlatformNotebooks extends com.google.api.client.googleapis.servic
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -1967,17 +1990,63 @@ public class AIPlatformNotebooks extends com.google.api.client.googleapis.servic
             return this;
           }
 
-          /** Required. Mask used to update an instance */
+          /**
+           * Required. Mask used to update an instance. Updatable fields: * `labels` *
+           * `gce_setup.min_cpu_platform` * `gce_setup.metadata` * `gce_setup.machine_type` *
+           * `gce_setup.accelerator_configs` * `gce_setup.accelerator_configs.type` *
+           * `gce_setup.accelerator_configs.core_count` * `gce_setup.gpu_driver_config` *
+           * `gce_setup.gpu_driver_config.enable_gpu_driver` *
+           * `gce_setup.gpu_driver_config.custom_gpu_driver_path` *
+           * `gce_setup.shielded_instance_config` *
+           * `gce_setup.shielded_instance_config.enable_secure_boot` *
+           * `gce_setup.shielded_instance_config.enable_vtpm` *
+           * `gce_setup.shielded_instance_config.enable_integrity_monitoring` *
+           * `gce_setup.reservation_affinity` *
+           * `gce_setup.reservation_affinity.consume_reservation_type` *
+           * `gce_setup.reservation_affinity.key` * `gce_setup.reservation_affinity.values` *
+           * `gce_setup.tags` * `gce_setup.container_image` * `gce_setup.container_image.repository`
+           * * `gce_setup.container_image.tag` * `gce_setup.disable_public_ip` *
+           * `disable_proxy_access`
+           */
           @com.google.api.client.util.Key
           private String updateMask;
 
-          /** Required. Mask used to update an instance
+          /** Required. Mask used to update an instance. Updatable fields: * `labels` *
+         `gce_setup.min_cpu_platform` * `gce_setup.metadata` * `gce_setup.machine_type` *
+         `gce_setup.accelerator_configs` * `gce_setup.accelerator_configs.type` *
+         `gce_setup.accelerator_configs.core_count` * `gce_setup.gpu_driver_config` *
+         `gce_setup.gpu_driver_config.enable_gpu_driver` *
+         `gce_setup.gpu_driver_config.custom_gpu_driver_path` * `gce_setup.shielded_instance_config` *
+         `gce_setup.shielded_instance_config.enable_secure_boot` *
+         `gce_setup.shielded_instance_config.enable_vtpm` *
+         `gce_setup.shielded_instance_config.enable_integrity_monitoring` * `gce_setup.reservation_affinity`
+         * `gce_setup.reservation_affinity.consume_reservation_type` * `gce_setup.reservation_affinity.key`
+         * `gce_setup.reservation_affinity.values` * `gce_setup.tags` * `gce_setup.container_image` *
+         `gce_setup.container_image.repository` * `gce_setup.container_image.tag` *
+         `gce_setup.disable_public_ip` * `disable_proxy_access`
            */
           public String getUpdateMask() {
             return updateMask;
           }
 
-          /** Required. Mask used to update an instance */
+          /**
+           * Required. Mask used to update an instance. Updatable fields: * `labels` *
+           * `gce_setup.min_cpu_platform` * `gce_setup.metadata` * `gce_setup.machine_type` *
+           * `gce_setup.accelerator_configs` * `gce_setup.accelerator_configs.type` *
+           * `gce_setup.accelerator_configs.core_count` * `gce_setup.gpu_driver_config` *
+           * `gce_setup.gpu_driver_config.enable_gpu_driver` *
+           * `gce_setup.gpu_driver_config.custom_gpu_driver_path` *
+           * `gce_setup.shielded_instance_config` *
+           * `gce_setup.shielded_instance_config.enable_secure_boot` *
+           * `gce_setup.shielded_instance_config.enable_vtpm` *
+           * `gce_setup.shielded_instance_config.enable_integrity_monitoring` *
+           * `gce_setup.reservation_affinity` *
+           * `gce_setup.reservation_affinity.consume_reservation_type` *
+           * `gce_setup.reservation_affinity.key` * `gce_setup.reservation_affinity.values` *
+           * `gce_setup.tags` * `gce_setup.container_image` * `gce_setup.container_image.repository`
+           * * `gce_setup.container_image.tag` * `gce_setup.disable_public_ip` *
+           * `disable_proxy_access`
+           */
           public Patch setUpdateMask(String updateMask) {
             this.updateMask = updateMask;
             return this;
@@ -3532,7 +3601,7 @@ public class AIPlatformNotebooks extends com.google.api.client.googleapis.servic
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -3563,7 +3632,7 @@ public class AIPlatformNotebooks extends com.google.api.client.googleapis.servic
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".

@@ -62,13 +62,22 @@ public final class LoyaltyProgram extends com.google.api.client.json.GenericJson
 
   /**
    * The label of the loyalty program. This is an internal label that uniquely identifies the
-   * relationship between a merchant entity and a loyalty program entity. The label must be provided
+   * relationship between a business entity and a loyalty program entity. The label must be provided
    * so that the system can associate the assets below (for example, price and points) with a
-   * merchant. The corresponding program must be linked to the merchant account.
+   * business. The corresponding program must be linked to the Merchant Center account.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String programLabel;
+
+  /**
+   * The label of the shipping benefit. If the field has value, this offer has loyalty shipping
+   * benefit. If the field value isn't provided, the item is not eligible for loyalty shipping for
+   * the given loyalty tier.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String shippingLabel;
 
   /**
    * The label of the tier within the loyalty program. Must match one of the labels within the
@@ -154,9 +163,9 @@ public final class LoyaltyProgram extends com.google.api.client.json.GenericJson
 
   /**
    * The label of the loyalty program. This is an internal label that uniquely identifies the
-   * relationship between a merchant entity and a loyalty program entity. The label must be provided
+   * relationship between a business entity and a loyalty program entity. The label must be provided
    * so that the system can associate the assets below (for example, price and points) with a
-   * merchant. The corresponding program must be linked to the merchant account.
+   * business. The corresponding program must be linked to the Merchant Center account.
    * @return value or {@code null} for none
    */
   public java.lang.String getProgramLabel() {
@@ -165,13 +174,34 @@ public final class LoyaltyProgram extends com.google.api.client.json.GenericJson
 
   /**
    * The label of the loyalty program. This is an internal label that uniquely identifies the
-   * relationship between a merchant entity and a loyalty program entity. The label must be provided
+   * relationship between a business entity and a loyalty program entity. The label must be provided
    * so that the system can associate the assets below (for example, price and points) with a
-   * merchant. The corresponding program must be linked to the merchant account.
+   * business. The corresponding program must be linked to the Merchant Center account.
    * @param programLabel programLabel or {@code null} for none
    */
   public LoyaltyProgram setProgramLabel(java.lang.String programLabel) {
     this.programLabel = programLabel;
+    return this;
+  }
+
+  /**
+   * The label of the shipping benefit. If the field has value, this offer has loyalty shipping
+   * benefit. If the field value isn't provided, the item is not eligible for loyalty shipping for
+   * the given loyalty tier.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getShippingLabel() {
+    return shippingLabel;
+  }
+
+  /**
+   * The label of the shipping benefit. If the field has value, this offer has loyalty shipping
+   * benefit. If the field value isn't provided, the item is not eligible for loyalty shipping for
+   * the given loyalty tier.
+   * @param shippingLabel shippingLabel or {@code null} for none
+   */
+  public LoyaltyProgram setShippingLabel(java.lang.String shippingLabel) {
+    this.shippingLabel = shippingLabel;
     return this;
   }
 

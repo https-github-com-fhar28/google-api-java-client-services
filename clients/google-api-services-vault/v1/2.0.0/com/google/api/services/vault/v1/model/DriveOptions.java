@@ -17,7 +17,7 @@
 package com.google.api.services.vault.v1.model;
 
 /**
- * Additional options for Drive search
+ * Additional options for Drive search.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Google Vault API. For a detailed explanation see:
@@ -51,6 +51,15 @@ public final class DriveOptions extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean includeTeamDrives;
+
+  /**
+   * Optional. Options to include or exclude documents in shared drives. We recommend using this
+   * field over include_shared_drives. This field overrides include_shared_drives and
+   * include_team_drives when set.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String sharedDrivesOption;
 
   /**
    * Search the current version of the Drive file, but export the contents of the last version saved
@@ -112,6 +121,27 @@ public final class DriveOptions extends com.google.api.client.json.GenericJson {
    */
   public DriveOptions setIncludeTeamDrives(java.lang.Boolean includeTeamDrives) {
     this.includeTeamDrives = includeTeamDrives;
+    return this;
+  }
+
+  /**
+   * Optional. Options to include or exclude documents in shared drives. We recommend using this
+   * field over include_shared_drives. This field overrides include_shared_drives and
+   * include_team_drives when set.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSharedDrivesOption() {
+    return sharedDrivesOption;
+  }
+
+  /**
+   * Optional. Options to include or exclude documents in shared drives. We recommend using this
+   * field over include_shared_drives. This field overrides include_shared_drives and
+   * include_team_drives when set.
+   * @param sharedDrivesOption sharedDrivesOption or {@code null} for none
+   */
+  public DriveOptions setSharedDrivesOption(java.lang.String sharedDrivesOption) {
+    this.sharedDrivesOption = sharedDrivesOption;
     return this;
   }
 

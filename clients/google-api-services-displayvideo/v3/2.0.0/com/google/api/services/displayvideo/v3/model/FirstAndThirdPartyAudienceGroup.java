@@ -33,7 +33,7 @@ public final class FirstAndThirdPartyAudienceGroup extends com.google.api.client
 
   /**
    * Required. All first and third party audience targeting settings in first and third party
-   * audience group. Repeated settings with same id are not allowed.
+   * audience group. Repeated settings with the same id are not allowed.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -41,7 +41,7 @@ public final class FirstAndThirdPartyAudienceGroup extends com.google.api.client
 
   /**
    * Required. All first and third party audience targeting settings in first and third party
-   * audience group. Repeated settings with same id are not allowed.
+   * audience group. Repeated settings with the same id are not allowed.
    * @return value or {@code null} for none
    */
   public java.util.List<FirstAndThirdPartyAudienceTargetingSetting> getSettings() {
@@ -50,7 +50,7 @@ public final class FirstAndThirdPartyAudienceGroup extends com.google.api.client
 
   /**
    * Required. All first and third party audience targeting settings in first and third party
-   * audience group. Repeated settings with same id are not allowed.
+   * audience group. Repeated settings with the same id are not allowed.
    * @param settings settings or {@code null} for none
    */
   public FirstAndThirdPartyAudienceGroup setSettings(java.util.List<FirstAndThirdPartyAudienceTargetingSetting> settings) {

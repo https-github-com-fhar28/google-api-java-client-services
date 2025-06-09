@@ -83,6 +83,13 @@ public final class AddonsConfig extends com.google.api.client.json.GenericJson {
   private GkeBackupAgentConfig gkeBackupAgentConfig;
 
   /**
+   * Configuration for the High Scale Checkpointing add-on.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private HighScaleCheckpointingConfig highScaleCheckpointingConfig;
+
+  /**
    * Configuration for the horizontal pod autoscaling feature, which increases or decreases the
    * number of replica pods a replication controller has based on the resource usage of the existing
    * pods.
@@ -130,6 +137,13 @@ public final class AddonsConfig extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private NetworkPolicyConfig networkPolicyConfig;
+
+  /**
+   * Configuration for the Cloud Storage Parallelstore CSI driver.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ParallelstoreCsiDriverConfig parallelstoreCsiDriverConfig;
 
   /**
    * Optional. Configuration for Ray Operator addon.
@@ -269,6 +283,23 @@ public final class AddonsConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Configuration for the High Scale Checkpointing add-on.
+   * @return value or {@code null} for none
+   */
+  public HighScaleCheckpointingConfig getHighScaleCheckpointingConfig() {
+    return highScaleCheckpointingConfig;
+  }
+
+  /**
+   * Configuration for the High Scale Checkpointing add-on.
+   * @param highScaleCheckpointingConfig highScaleCheckpointingConfig or {@code null} for none
+   */
+  public AddonsConfig setHighScaleCheckpointingConfig(HighScaleCheckpointingConfig highScaleCheckpointingConfig) {
+    this.highScaleCheckpointingConfig = highScaleCheckpointingConfig;
+    return this;
+  }
+
+  /**
    * Configuration for the horizontal pod autoscaling feature, which increases or decreases the
    * number of replica pods a replication controller has based on the resource usage of the existing
    * pods.
@@ -381,6 +412,23 @@ public final class AddonsConfig extends com.google.api.client.json.GenericJson {
    */
   public AddonsConfig setNetworkPolicyConfig(NetworkPolicyConfig networkPolicyConfig) {
     this.networkPolicyConfig = networkPolicyConfig;
+    return this;
+  }
+
+  /**
+   * Configuration for the Cloud Storage Parallelstore CSI driver.
+   * @return value or {@code null} for none
+   */
+  public ParallelstoreCsiDriverConfig getParallelstoreCsiDriverConfig() {
+    return parallelstoreCsiDriverConfig;
+  }
+
+  /**
+   * Configuration for the Cloud Storage Parallelstore CSI driver.
+   * @param parallelstoreCsiDriverConfig parallelstoreCsiDriverConfig or {@code null} for none
+   */
+  public AddonsConfig setParallelstoreCsiDriverConfig(ParallelstoreCsiDriverConfig parallelstoreCsiDriverConfig) {
+    this.parallelstoreCsiDriverConfig = parallelstoreCsiDriverConfig;
     return this;
   }
 

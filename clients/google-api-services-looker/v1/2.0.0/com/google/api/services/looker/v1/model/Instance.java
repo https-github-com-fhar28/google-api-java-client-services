@@ -54,6 +54,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
+   * Custom domain configuration for the instance.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -209,6 +210,20 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String reservedRange;
 
   /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzs;
+
+  /**
    * Output only. The state of the instance.
    * The value may be {@code null}.
    */
@@ -223,7 +238,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private String updateTime;
 
   /**
-   * User metadata.
+   * Optional. User metadata.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -285,6 +300,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Custom domain configuration for the instance.
    * @return value or {@code null} for none
    */
   public CustomDomain getCustomDomain() {
@@ -292,6 +308,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Custom domain configuration for the instance.
    * @param customDomain customDomain or {@code null} for none
    */
   public Instance setCustomDomain(CustomDomain customDomain) {
@@ -661,6 +678,40 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public Instance setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzs() {
+    return satisfiesPzs;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzs satisfiesPzs or {@code null} for none
+   */
+  public Instance setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
+    this.satisfiesPzs = satisfiesPzs;
+    return this;
+  }
+
+  /**
    * Output only. The state of the instance.
    * @return value or {@code null} for none
    */
@@ -695,7 +746,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User metadata.
+   * Optional. User metadata.
    * @return value or {@code null} for none
    */
   public UserMetadata getUserMetadata() {
@@ -703,7 +754,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User metadata.
+   * Optional. User metadata.
    * @param userMetadata userMetadata or {@code null} for none
    */
   public Instance setUserMetadata(UserMetadata userMetadata) {

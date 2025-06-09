@@ -32,15 +32,27 @@ package com.google.api.services.bigqueryreservation.v1.model;
 public final class Assignment extends com.google.api.client.json.GenericJson {
 
   /**
-   * The resource which will use the reservation. E.g. `projects/myproject`, `folders/123`, or
-   * `organizations/456`.
+   * Optional. The resource which will use the reservation. E.g. `projects/myproject`,
+   * `folders/123`, or `organizations/456`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String assignee;
 
   /**
-   * Which type of jobs will use the reservation.
+   * Optional. This field controls if "Gemini in BigQuery"
+   * (https://cloud.google.com/gemini/docs/bigquery/overview) features should be enabled for this
+   * reservation assignment, which is not on by default. "Gemini in BigQuery" has a distinct
+   * compliance posture from BigQuery. If this field is set to true, the assignment job type is
+   * QUERY, and the parent reservation edition is ENTERPRISE_PLUS, then the assignment will give the
+   * grantee project/organization access to "Gemini in BigQuery" features.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean enableGeminiInBigquery;
+
+  /**
+   * Optional. Which type of jobs will use the reservation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -64,8 +76,8 @@ public final class Assignment extends com.google.api.client.json.GenericJson {
   private java.lang.String state;
 
   /**
-   * The resource which will use the reservation. E.g. `projects/myproject`, `folders/123`, or
-   * `organizations/456`.
+   * Optional. The resource which will use the reservation. E.g. `projects/myproject`,
+   * `folders/123`, or `organizations/456`.
    * @return value or {@code null} for none
    */
   public java.lang.String getAssignee() {
@@ -73,8 +85,8 @@ public final class Assignment extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The resource which will use the reservation. E.g. `projects/myproject`, `folders/123`, or
-   * `organizations/456`.
+   * Optional. The resource which will use the reservation. E.g. `projects/myproject`,
+   * `folders/123`, or `organizations/456`.
    * @param assignee assignee or {@code null} for none
    */
   public Assignment setAssignee(java.lang.String assignee) {
@@ -83,7 +95,34 @@ public final class Assignment extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Which type of jobs will use the reservation.
+   * Optional. This field controls if "Gemini in BigQuery"
+   * (https://cloud.google.com/gemini/docs/bigquery/overview) features should be enabled for this
+   * reservation assignment, which is not on by default. "Gemini in BigQuery" has a distinct
+   * compliance posture from BigQuery. If this field is set to true, the assignment job type is
+   * QUERY, and the parent reservation edition is ENTERPRISE_PLUS, then the assignment will give the
+   * grantee project/organization access to "Gemini in BigQuery" features.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEnableGeminiInBigquery() {
+    return enableGeminiInBigquery;
+  }
+
+  /**
+   * Optional. This field controls if "Gemini in BigQuery"
+   * (https://cloud.google.com/gemini/docs/bigquery/overview) features should be enabled for this
+   * reservation assignment, which is not on by default. "Gemini in BigQuery" has a distinct
+   * compliance posture from BigQuery. If this field is set to true, the assignment job type is
+   * QUERY, and the parent reservation edition is ENTERPRISE_PLUS, then the assignment will give the
+   * grantee project/organization access to "Gemini in BigQuery" features.
+   * @param enableGeminiInBigquery enableGeminiInBigquery or {@code null} for none
+   */
+  public Assignment setEnableGeminiInBigquery(java.lang.Boolean enableGeminiInBigquery) {
+    this.enableGeminiInBigquery = enableGeminiInBigquery;
+    return this;
+  }
+
+  /**
+   * Optional. Which type of jobs will use the reservation.
    * @return value or {@code null} for none
    */
   public java.lang.String getJobType() {
@@ -91,7 +130,7 @@ public final class Assignment extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Which type of jobs will use the reservation.
+   * Optional. Which type of jobs will use the reservation.
    * @param jobType jobType or {@code null} for none
    */
   public Assignment setJobType(java.lang.String jobType) {

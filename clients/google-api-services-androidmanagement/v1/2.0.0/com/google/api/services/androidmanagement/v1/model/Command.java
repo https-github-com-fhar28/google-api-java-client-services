@@ -31,6 +31,15 @@ package com.google.api.services.androidmanagement.v1.model;
 public final class Command extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. Parameters for the ADD_ESIM command to add an eSIM profile to the device. If this is
+   * set, then it is suggested that type should not be set. In this case, the server automatically
+   * sets it to ADD_ESIM. It is also acceptable to explicitly set type to ADD_ESIM.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private AddEsimParams addEsimParams;
+
+  /**
    * Parameters for the CLEAR_APP_DATA command to clear the data of specified apps from the device.
    * See ClearAppsDataParams. If this is set, then it is suggested that type should not be set. In
    * this case, the server automatically sets it to CLEAR_APP_DATA. It is also acceptable to
@@ -67,11 +76,21 @@ public final class Command extends com.google.api.client.json.GenericJson {
 
   /**
    * If the command failed, an error code explaining the failure. This is not set when the command
-   * is cancelled by the caller.
+   * is cancelled by the caller. For reasoning about command errors, prefer fields in the following
+   * order (most preferred first): 1. Command-specific fields like clearAppsDataStatus,
+   * startLostModeStatus, or similar, if they exist. 2. This field, if set. 3. The generic error
+   * field in the Operation that wraps the command.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String errorCode;
+
+  /**
+   * Output only. Status of an ADD_ESIM or REMOVE_ESIM command.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private EsimCommandStatus esimStatus;
 
   /**
    * For commands of type RESET_PASSWORD, optionally specifies the new password. Note: The new
@@ -81,6 +100,33 @@ public final class Command extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String newPassword;
+
+  /**
+   * Optional. Parameters for the REMOVE_ESIM command to remove an eSIM profile from the device. If
+   * this is set, then it is suggested that type should not be set. In this case, the server
+   * automatically sets it to REMOVE_ESIM. It is also acceptable to explicitly set type to
+   * REMOVE_ESIM.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private RemoveEsimParams removeEsimParams;
+
+  /**
+   * Optional. Parameters for the REQUEST_DEVICE_INFO command to get device related information. If
+   * this is set, then it is suggested that type should not be set. In this case, the server
+   * automatically sets it to REQUEST_DEVICE_INFO . It is also acceptable to explicitly set type to
+   * REQUEST_DEVICE_INFO.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private RequestDeviceInfoParams requestDeviceInfoParams;
+
+  /**
+   * Output only. Status of the REQUEST_DEVICE_INFO command.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private RequestDeviceInfoStatus requestDeviceInfoStatus;
 
   /**
    * For commands of type RESET_PASSWORD, optionally specifies flags.
@@ -140,6 +186,27 @@ public final class Command extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String userName;
+
+  /**
+   * Optional. Parameters for the ADD_ESIM command to add an eSIM profile to the device. If this is
+   * set, then it is suggested that type should not be set. In this case, the server automatically
+   * sets it to ADD_ESIM. It is also acceptable to explicitly set type to ADD_ESIM.
+   * @return value or {@code null} for none
+   */
+  public AddEsimParams getAddEsimParams() {
+    return addEsimParams;
+  }
+
+  /**
+   * Optional. Parameters for the ADD_ESIM command to add an eSIM profile to the device. If this is
+   * set, then it is suggested that type should not be set. In this case, the server automatically
+   * sets it to ADD_ESIM. It is also acceptable to explicitly set type to ADD_ESIM.
+   * @param addEsimParams addEsimParams or {@code null} for none
+   */
+  public Command setAddEsimParams(AddEsimParams addEsimParams) {
+    this.addEsimParams = addEsimParams;
+    return this;
+  }
 
   /**
    * Parameters for the CLEAR_APP_DATA command to clear the data of specified apps from the device.
@@ -225,7 +292,10 @@ public final class Command extends com.google.api.client.json.GenericJson {
 
   /**
    * If the command failed, an error code explaining the failure. This is not set when the command
-   * is cancelled by the caller.
+   * is cancelled by the caller. For reasoning about command errors, prefer fields in the following
+   * order (most preferred first): 1. Command-specific fields like clearAppsDataStatus,
+   * startLostModeStatus, or similar, if they exist. 2. This field, if set. 3. The generic error
+   * field in the Operation that wraps the command.
    * @return value or {@code null} for none
    */
   public java.lang.String getErrorCode() {
@@ -234,11 +304,31 @@ public final class Command extends com.google.api.client.json.GenericJson {
 
   /**
    * If the command failed, an error code explaining the failure. This is not set when the command
-   * is cancelled by the caller.
+   * is cancelled by the caller. For reasoning about command errors, prefer fields in the following
+   * order (most preferred first): 1. Command-specific fields like clearAppsDataStatus,
+   * startLostModeStatus, or similar, if they exist. 2. This field, if set. 3. The generic error
+   * field in the Operation that wraps the command.
    * @param errorCode errorCode or {@code null} for none
    */
   public Command setErrorCode(java.lang.String errorCode) {
     this.errorCode = errorCode;
+    return this;
+  }
+
+  /**
+   * Output only. Status of an ADD_ESIM or REMOVE_ESIM command.
+   * @return value or {@code null} for none
+   */
+  public EsimCommandStatus getEsimStatus() {
+    return esimStatus;
+  }
+
+  /**
+   * Output only. Status of an ADD_ESIM or REMOVE_ESIM command.
+   * @param esimStatus esimStatus or {@code null} for none
+   */
+  public Command setEsimStatus(EsimCommandStatus esimStatus) {
+    this.esimStatus = esimStatus;
     return this;
   }
 
@@ -260,6 +350,69 @@ public final class Command extends com.google.api.client.json.GenericJson {
    */
   public Command setNewPassword(java.lang.String newPassword) {
     this.newPassword = newPassword;
+    return this;
+  }
+
+  /**
+   * Optional. Parameters for the REMOVE_ESIM command to remove an eSIM profile from the device. If
+   * this is set, then it is suggested that type should not be set. In this case, the server
+   * automatically sets it to REMOVE_ESIM. It is also acceptable to explicitly set type to
+   * REMOVE_ESIM.
+   * @return value or {@code null} for none
+   */
+  public RemoveEsimParams getRemoveEsimParams() {
+    return removeEsimParams;
+  }
+
+  /**
+   * Optional. Parameters for the REMOVE_ESIM command to remove an eSIM profile from the device. If
+   * this is set, then it is suggested that type should not be set. In this case, the server
+   * automatically sets it to REMOVE_ESIM. It is also acceptable to explicitly set type to
+   * REMOVE_ESIM.
+   * @param removeEsimParams removeEsimParams or {@code null} for none
+   */
+  public Command setRemoveEsimParams(RemoveEsimParams removeEsimParams) {
+    this.removeEsimParams = removeEsimParams;
+    return this;
+  }
+
+  /**
+   * Optional. Parameters for the REQUEST_DEVICE_INFO command to get device related information. If
+   * this is set, then it is suggested that type should not be set. In this case, the server
+   * automatically sets it to REQUEST_DEVICE_INFO . It is also acceptable to explicitly set type to
+   * REQUEST_DEVICE_INFO.
+   * @return value or {@code null} for none
+   */
+  public RequestDeviceInfoParams getRequestDeviceInfoParams() {
+    return requestDeviceInfoParams;
+  }
+
+  /**
+   * Optional. Parameters for the REQUEST_DEVICE_INFO command to get device related information. If
+   * this is set, then it is suggested that type should not be set. In this case, the server
+   * automatically sets it to REQUEST_DEVICE_INFO . It is also acceptable to explicitly set type to
+   * REQUEST_DEVICE_INFO.
+   * @param requestDeviceInfoParams requestDeviceInfoParams or {@code null} for none
+   */
+  public Command setRequestDeviceInfoParams(RequestDeviceInfoParams requestDeviceInfoParams) {
+    this.requestDeviceInfoParams = requestDeviceInfoParams;
+    return this;
+  }
+
+  /**
+   * Output only. Status of the REQUEST_DEVICE_INFO command.
+   * @return value or {@code null} for none
+   */
+  public RequestDeviceInfoStatus getRequestDeviceInfoStatus() {
+    return requestDeviceInfoStatus;
+  }
+
+  /**
+   * Output only. Status of the REQUEST_DEVICE_INFO command.
+   * @param requestDeviceInfoStatus requestDeviceInfoStatus or {@code null} for none
+   */
+  public Command setRequestDeviceInfoStatus(RequestDeviceInfoStatus requestDeviceInfoStatus) {
+    this.requestDeviceInfoStatus = requestDeviceInfoStatus;
     return this;
   }
 

@@ -102,8 +102,8 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
   private java.lang.Long failedColumnCount;
 
   /**
-   * The resource name of the resource profiled.
-   * https://cloud.google.com/apis/design/resource_names#full_resource_name
+   * The Cloud Asset Inventory resource that was profiled in order to generate this
+   * TableDataProfile. https://cloud.google.com/apis/design/resource_names#full_resource_name
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -172,6 +172,19 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
   private java.lang.String projectDataProfile;
 
   /**
+   * Resources related to this profile.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GooglePrivacyDlpV2RelatedResource> relatedResources;
+
+  static {
+    // hack to force ProGuard to consider GooglePrivacyDlpV2RelatedResource used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(GooglePrivacyDlpV2RelatedResource.class);
+  }
+
+  /**
    * The labels applied to the resource at the time the profile was generated.
    * The value may be {@code null}.
    */
@@ -192,6 +205,13 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.lang.Long rowCount;
+
+  /**
+   * The BigQuery table to which the sample findings are written.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GooglePrivacyDlpV2BigQueryTable sampleFindingsTable;
 
   /**
    * The number of columns profiled in the table.
@@ -215,7 +235,7 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
   private java.lang.String state;
 
   /**
-   * If the resource is BigQuery, the BigQuery table ID.
+   * The table ID.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -227,6 +247,15 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.lang.Long tableSizeBytes;
+
+  /**
+   * The tags attached to the table, including any tags attached during profiling. Because tags are
+   * attached to Cloud SQL instances rather than Cloud SQL tables, this field is empty for Cloud SQL
+   * table profiles.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GooglePrivacyDlpV2Tag> tags;
 
   /**
    * The snapshot of the configurations used to generate the profile.
@@ -401,8 +430,8 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
   }
 
   /**
-   * The resource name of the resource profiled.
-   * https://cloud.google.com/apis/design/resource_names#full_resource_name
+   * The Cloud Asset Inventory resource that was profiled in order to generate this
+   * TableDataProfile. https://cloud.google.com/apis/design/resource_names#full_resource_name
    * @return value or {@code null} for none
    */
   public java.lang.String getFullResource() {
@@ -410,8 +439,8 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
   }
 
   /**
-   * The resource name of the resource profiled.
-   * https://cloud.google.com/apis/design/resource_names#full_resource_name
+   * The Cloud Asset Inventory resource that was profiled in order to generate this
+   * TableDataProfile. https://cloud.google.com/apis/design/resource_names#full_resource_name
    * @param fullResource fullResource or {@code null} for none
    */
   public GooglePrivacyDlpV2TableDataProfile setFullResource(java.lang.String fullResource) {
@@ -541,6 +570,23 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
   }
 
   /**
+   * Resources related to this profile.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GooglePrivacyDlpV2RelatedResource> getRelatedResources() {
+    return relatedResources;
+  }
+
+  /**
+   * Resources related to this profile.
+   * @param relatedResources relatedResources or {@code null} for none
+   */
+  public GooglePrivacyDlpV2TableDataProfile setRelatedResources(java.util.List<GooglePrivacyDlpV2RelatedResource> relatedResources) {
+    this.relatedResources = relatedResources;
+    return this;
+  }
+
+  /**
    * The labels applied to the resource at the time the profile was generated.
    * @return value or {@code null} for none
    */
@@ -590,6 +636,23 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
    */
   public GooglePrivacyDlpV2TableDataProfile setRowCount(java.lang.Long rowCount) {
     this.rowCount = rowCount;
+    return this;
+  }
+
+  /**
+   * The BigQuery table to which the sample findings are written.
+   * @return value or {@code null} for none
+   */
+  public GooglePrivacyDlpV2BigQueryTable getSampleFindingsTable() {
+    return sampleFindingsTable;
+  }
+
+  /**
+   * The BigQuery table to which the sample findings are written.
+   * @param sampleFindingsTable sampleFindingsTable or {@code null} for none
+   */
+  public GooglePrivacyDlpV2TableDataProfile setSampleFindingsTable(GooglePrivacyDlpV2BigQueryTable sampleFindingsTable) {
+    this.sampleFindingsTable = sampleFindingsTable;
     return this;
   }
 
@@ -645,7 +708,7 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
   }
 
   /**
-   * If the resource is BigQuery, the BigQuery table ID.
+   * The table ID.
    * @return value or {@code null} for none
    */
   public java.lang.String getTableId() {
@@ -653,7 +716,7 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
   }
 
   /**
-   * If the resource is BigQuery, the BigQuery table ID.
+   * The table ID.
    * @param tableId tableId or {@code null} for none
    */
   public GooglePrivacyDlpV2TableDataProfile setTableId(java.lang.String tableId) {
@@ -675,6 +738,27 @@ public final class GooglePrivacyDlpV2TableDataProfile extends com.google.api.cli
    */
   public GooglePrivacyDlpV2TableDataProfile setTableSizeBytes(java.lang.Long tableSizeBytes) {
     this.tableSizeBytes = tableSizeBytes;
+    return this;
+  }
+
+  /**
+   * The tags attached to the table, including any tags attached during profiling. Because tags are
+   * attached to Cloud SQL instances rather than Cloud SQL tables, this field is empty for Cloud SQL
+   * table profiles.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GooglePrivacyDlpV2Tag> getTags() {
+    return tags;
+  }
+
+  /**
+   * The tags attached to the table, including any tags attached during profiling. Because tags are
+   * attached to Cloud SQL instances rather than Cloud SQL tables, this field is empty for Cloud SQL
+   * table profiles.
+   * @param tags tags or {@code null} for none
+   */
+  public GooglePrivacyDlpV2TableDataProfile setTags(java.util.List<GooglePrivacyDlpV2Tag> tags) {
+    this.tags = tags;
     return this;
   }
 

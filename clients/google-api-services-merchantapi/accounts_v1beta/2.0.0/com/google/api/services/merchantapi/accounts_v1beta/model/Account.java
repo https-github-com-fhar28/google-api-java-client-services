@@ -17,7 +17,13 @@
 package com.google.api.services.merchantapi.accounts_v1beta.model;
 
 /**
- * An account.
+ * The `Account` message represents a business's account within Shopping Ads. It's the primary
+ * entity for managing product data, settings, and interactions with Google's services and external
+ * providers. Accounts can operate as standalone entities or be part of a advanced account
+ * structure. In an advanced account setup the parent account manages multiple sub-accounts.
+ * Establishing an account involves configuring attributes like the account name, time zone, and
+ * language preferences. The `Account` message is the parent entity for many other resources, for
+ * example, `AccountRelationship`, `Homepage`, `BusinessInfo` and so on.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Merchant API. For a detailed explanation see:
@@ -46,7 +52,7 @@ public final class Account extends com.google.api.client.json.GenericJson {
   private java.lang.String accountName;
 
   /**
-   * Whether this account contains adult content.
+   * Optional. Whether this account contains adult content.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -78,7 +84,8 @@ public final class Account extends com.google.api.client.json.GenericJson {
    * Required. The time zone of the account. On writes, `time_zone` sets both the
    * `reporting_time_zone` and the `display_time_zone`. For reads, `time_zone` always returns the
    * `display_time_zone`. If `display_time_zone` doesn't exist for your account, `time_zone` is
-   * empty.
+   * empty. The `version` field is not supported, won't be set in responses and will be silently
+   * ignored if specified in requests.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -123,7 +130,7 @@ public final class Account extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether this account contains adult content.
+   * Optional. Whether this account contains adult content.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAdultContent() {
@@ -131,7 +138,7 @@ public final class Account extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether this account contains adult content.
+   * Optional. Whether this account contains adult content.
    * @param adultContent adultContent or {@code null} for none
    */
   public Account setAdultContent(java.lang.Boolean adultContent) {
@@ -196,7 +203,8 @@ public final class Account extends com.google.api.client.json.GenericJson {
    * Required. The time zone of the account. On writes, `time_zone` sets both the
    * `reporting_time_zone` and the `display_time_zone`. For reads, `time_zone` always returns the
    * `display_time_zone`. If `display_time_zone` doesn't exist for your account, `time_zone` is
-   * empty.
+   * empty. The `version` field is not supported, won't be set in responses and will be silently
+   * ignored if specified in requests.
    * @return value or {@code null} for none
    */
   public TimeZone getTimeZone() {
@@ -207,7 +215,8 @@ public final class Account extends com.google.api.client.json.GenericJson {
    * Required. The time zone of the account. On writes, `time_zone` sets both the
    * `reporting_time_zone` and the `display_time_zone`. For reads, `time_zone` always returns the
    * `display_time_zone`. If `display_time_zone` doesn't exist for your account, `time_zone` is
-   * empty.
+   * empty. The `version` field is not supported, won't be set in responses and will be silently
+   * ignored if specified in requests.
    * @param timeZone timeZone or {@code null} for none
    */
   public Account setTimeZone(TimeZone timeZone) {

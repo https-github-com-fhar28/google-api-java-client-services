@@ -17,7 +17,7 @@
 package com.google.api.services.contactcenteraiplatform.v1alpha1.model;
 
 /**
- * Message describing ContactCenter object Next ID: 23
+ * Message describing ContactCenter object
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Contact Center AI Platform API. For a detailed
@@ -36,6 +36,13 @@ public final class ContactCenter extends com.google.api.client.json.GenericJson 
    */
   @com.google.api.client.util.Key
   private AdminUser adminUser;
+
+  /**
+   * Optional. Whether the advanced reporting feature is enabled.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean advancedReportingEnabled;
 
   /**
    * Optional. Whether to enable users to be created in the CCAIP-instance concurrently to having
@@ -179,6 +186,23 @@ public final class ContactCenter extends com.google.api.client.json.GenericJson 
    */
   public ContactCenter setAdminUser(AdminUser adminUser) {
     this.adminUser = adminUser;
+    return this;
+  }
+
+  /**
+   * Optional. Whether the advanced reporting feature is enabled.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAdvancedReportingEnabled() {
+    return advancedReportingEnabled;
+  }
+
+  /**
+   * Optional. Whether the advanced reporting feature is enabled.
+   * @param advancedReportingEnabled advancedReportingEnabled or {@code null} for none
+   */
+  public ContactCenter setAdvancedReportingEnabled(java.lang.Boolean advancedReportingEnabled) {
+    this.advancedReportingEnabled = advancedReportingEnabled;
     return this;
   }
 

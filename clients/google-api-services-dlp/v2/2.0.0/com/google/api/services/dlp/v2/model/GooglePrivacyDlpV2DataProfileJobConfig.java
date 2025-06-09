@@ -68,8 +68,15 @@ public final class GooglePrivacyDlpV2DataProfileJobConfig extends com.google.api
   private GooglePrivacyDlpV2DataProfileLocation location;
 
   /**
+   * Must be set only when scanning other clouds.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation otherCloudStartingLocation;
+
+  /**
    * The project that will run the scan. The DLP service account that exists within this project
-   * must have access to all resources that are profiled, and the Cloud DLP API must be enabled.
+   * must have access to all resources that are profiled, and the DLP API must be enabled.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -141,8 +148,25 @@ public final class GooglePrivacyDlpV2DataProfileJobConfig extends com.google.api
   }
 
   /**
+   * Must be set only when scanning other clouds.
+   * @return value or {@code null} for none
+   */
+  public GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation getOtherCloudStartingLocation() {
+    return otherCloudStartingLocation;
+  }
+
+  /**
+   * Must be set only when scanning other clouds.
+   * @param otherCloudStartingLocation otherCloudStartingLocation or {@code null} for none
+   */
+  public GooglePrivacyDlpV2DataProfileJobConfig setOtherCloudStartingLocation(GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation otherCloudStartingLocation) {
+    this.otherCloudStartingLocation = otherCloudStartingLocation;
+    return this;
+  }
+
+  /**
    * The project that will run the scan. The DLP service account that exists within this project
-   * must have access to all resources that are profiled, and the Cloud DLP API must be enabled.
+   * must have access to all resources that are profiled, and the DLP API must be enabled.
    * @return value or {@code null} for none
    */
   public java.lang.String getProjectId() {
@@ -151,7 +175,7 @@ public final class GooglePrivacyDlpV2DataProfileJobConfig extends com.google.api
 
   /**
    * The project that will run the scan. The DLP service account that exists within this project
-   * must have access to all resources that are profiled, and the Cloud DLP API must be enabled.
+   * must have access to all resources that are profiled, and the DLP API must be enabled.
    * @param projectId projectId or {@code null} for none
    */
   public GooglePrivacyDlpV2DataProfileJobConfig setProjectId(java.lang.String projectId) {

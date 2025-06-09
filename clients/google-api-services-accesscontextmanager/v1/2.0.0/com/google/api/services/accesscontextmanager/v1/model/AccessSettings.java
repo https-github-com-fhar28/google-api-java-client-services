@@ -41,11 +41,11 @@ public final class AccessSettings extends com.google.api.client.json.GenericJson
   private java.util.List<java.lang.String> accessLevels;
 
   /**
-   * Optional. Reauth settings applied to user access on a given AccessScope.
+   * Optional. Session settings applied to user access on a given AccessScope.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private ReauthSettings reauthSettings;
+  private SessionSettings sessionSettings;
 
   /**
    * Optional. Access level that a user must have to be granted access. Only one access level is
@@ -69,19 +69,19 @@ public final class AccessSettings extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Optional. Reauth settings applied to user access on a given AccessScope.
+   * Optional. Session settings applied to user access on a given AccessScope.
    * @return value or {@code null} for none
    */
-  public ReauthSettings getReauthSettings() {
-    return reauthSettings;
+  public SessionSettings getSessionSettings() {
+    return sessionSettings;
   }
 
   /**
-   * Optional. Reauth settings applied to user access on a given AccessScope.
-   * @param reauthSettings reauthSettings or {@code null} for none
+   * Optional. Session settings applied to user access on a given AccessScope.
+   * @param sessionSettings sessionSettings or {@code null} for none
    */
-  public AccessSettings setReauthSettings(ReauthSettings reauthSettings) {
-    this.reauthSettings = reauthSettings;
+  public AccessSettings setSessionSettings(SessionSettings sessionSettings) {
+    this.sessionSettings = sessionSettings;
     return this;
   }
 

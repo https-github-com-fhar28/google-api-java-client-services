@@ -31,13 +31,6 @@ package com.google.api.services.digitalassetlinks.v1.model;
 public final class BulkCheckRequest extends com.google.api.client.json.GenericJson {
 
   /**
-   * Same configuration as in Check request, all statements checks will use same configurations.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.lang.Boolean allowGoogleInternalDataSources;
-
-  /**
    * If specified, will be used in any given template statement that doesn’t specify a relation.
    * The value may be {@code null}.
    */
@@ -59,11 +52,11 @@ public final class BulkCheckRequest extends com.google.api.client.json.GenericJs
   private Asset defaultTarget;
 
   /**
-   * Same configuration as in Check request, all statements checks will use same configurations.
+   * Same configuration as in CheckRequest; all statement checks will use the same configuration.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.lang.Boolean skipCacheLookup;
+  private java.lang.Boolean returnRelationExtensions;
 
   /**
    * List of statements to check. For each statement, you can omit a field if the corresponding
@@ -73,23 +66,6 @@ public final class BulkCheckRequest extends com.google.api.client.json.GenericJs
    */
   @com.google.api.client.util.Key
   private java.util.List<StatementTemplate> statements;
-
-  /**
-   * Same configuration as in Check request, all statements checks will use same configurations.
-   * @return value or {@code null} for none
-   */
-  public java.lang.Boolean getAllowGoogleInternalDataSources() {
-    return allowGoogleInternalDataSources;
-  }
-
-  /**
-   * Same configuration as in Check request, all statements checks will use same configurations.
-   * @param allowGoogleInternalDataSources allowGoogleInternalDataSources or {@code null} for none
-   */
-  public BulkCheckRequest setAllowGoogleInternalDataSources(java.lang.Boolean allowGoogleInternalDataSources) {
-    this.allowGoogleInternalDataSources = allowGoogleInternalDataSources;
-    return this;
-  }
 
   /**
    * If specified, will be used in any given template statement that doesn’t specify a relation.
@@ -143,19 +119,19 @@ public final class BulkCheckRequest extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Same configuration as in Check request, all statements checks will use same configurations.
+   * Same configuration as in CheckRequest; all statement checks will use the same configuration.
    * @return value or {@code null} for none
    */
-  public java.lang.Boolean getSkipCacheLookup() {
-    return skipCacheLookup;
+  public java.lang.Boolean getReturnRelationExtensions() {
+    return returnRelationExtensions;
   }
 
   /**
-   * Same configuration as in Check request, all statements checks will use same configurations.
-   * @param skipCacheLookup skipCacheLookup or {@code null} for none
+   * Same configuration as in CheckRequest; all statement checks will use the same configuration.
+   * @param returnRelationExtensions returnRelationExtensions or {@code null} for none
    */
-  public BulkCheckRequest setSkipCacheLookup(java.lang.Boolean skipCacheLookup) {
-    this.skipCacheLookup = skipCacheLookup;
+  public BulkCheckRequest setReturnRelationExtensions(java.lang.Boolean returnRelationExtensions) {
+    this.returnRelationExtensions = returnRelationExtensions;
     return this;
   }
 

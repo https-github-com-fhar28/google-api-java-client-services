@@ -51,8 +51,9 @@ public final class ObjectMeta extends com.google.api.client.json.GenericJson {
    * `run.googleapis.com/description`: Service. * `run.googleapis.com/encryption-key-shutdown-
    * hours`: Revision * `run.googleapis.com/encryption-key`: Revision, Execution. *
    * `run.googleapis.com/execution-environment`: Revision, Execution. * `run.googleapis.com/gc-
-   * traffic-tags`: Service. * `run.googleapis.com/ingress`: Service. * `run.googleapis.com/launch-
-   * stage`: Service, Job. * `run.googleapis.com/minScale`: Service (ALPHA) *
+   * traffic-tags`: Service. * `run.googleapis.com/gpu-zonal-redundancy-disabled`: Revision. *
+   * `run.googleapis.com/health-check-disabled`: Revision. * `run.googleapis.com/ingress`: Service.
+   * * `run.googleapis.com/launch-stage`: Service, Job. * `run.googleapis.com/minScale`: Service *
    * `run.googleapis.com/network-interfaces`: Revision, Execution. * `run.googleapis.com/post-key-
    * revocation-action-type`: Revision. * `run.googleapis.com/secrets`: Revision, Execution. *
    * `run.googleapis.com/secure-session-agent`: Revision. * `run.googleapis.com/sessionAffinity`:
@@ -191,8 +192,9 @@ public final class ObjectMeta extends com.google.api.client.json.GenericJson {
    * `run.googleapis.com/description`: Service. * `run.googleapis.com/encryption-key-shutdown-
    * hours`: Revision * `run.googleapis.com/encryption-key`: Revision, Execution. *
    * `run.googleapis.com/execution-environment`: Revision, Execution. * `run.googleapis.com/gc-
-   * traffic-tags`: Service. * `run.googleapis.com/ingress`: Service. * `run.googleapis.com/launch-
-   * stage`: Service, Job. * `run.googleapis.com/minScale`: Service (ALPHA) *
+   * traffic-tags`: Service. * `run.googleapis.com/gpu-zonal-redundancy-disabled`: Revision. *
+   * `run.googleapis.com/health-check-disabled`: Revision. * `run.googleapis.com/ingress`: Service.
+   * * `run.googleapis.com/launch-stage`: Service, Job. * `run.googleapis.com/minScale`: Service *
    * `run.googleapis.com/network-interfaces`: Revision, Execution. * `run.googleapis.com/post-key-
    * revocation-action-type`: Revision. * `run.googleapis.com/secrets`: Revision, Execution. *
    * `run.googleapis.com/secure-session-agent`: Revision. * `run.googleapis.com/sessionAffinity`:
@@ -225,8 +227,9 @@ public final class ObjectMeta extends com.google.api.client.json.GenericJson {
    * `run.googleapis.com/description`: Service. * `run.googleapis.com/encryption-key-shutdown-
    * hours`: Revision * `run.googleapis.com/encryption-key`: Revision, Execution. *
    * `run.googleapis.com/execution-environment`: Revision, Execution. * `run.googleapis.com/gc-
-   * traffic-tags`: Service. * `run.googleapis.com/ingress`: Service. * `run.googleapis.com/launch-
-   * stage`: Service, Job. * `run.googleapis.com/minScale`: Service (ALPHA) *
+   * traffic-tags`: Service. * `run.googleapis.com/gpu-zonal-redundancy-disabled`: Revision. *
+   * `run.googleapis.com/health-check-disabled`: Revision. * `run.googleapis.com/ingress`: Service.
+   * * `run.googleapis.com/launch-stage`: Service, Job. * `run.googleapis.com/minScale`: Service *
    * `run.googleapis.com/network-interfaces`: Revision, Execution. * `run.googleapis.com/post-key-
    * revocation-action-type`: Revision. * `run.googleapis.com/secrets`: Revision, Execution. *
    * `run.googleapis.com/secure-session-agent`: Revision. * `run.googleapis.com/sessionAffinity`:

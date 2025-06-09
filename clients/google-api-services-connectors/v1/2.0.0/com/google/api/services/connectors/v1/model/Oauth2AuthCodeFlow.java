@@ -31,63 +31,63 @@ package com.google.api.services.connectors.v1.model;
 public final class Oauth2AuthCodeFlow extends com.google.api.client.json.GenericJson {
 
   /**
-   * Authorization code to be exchanged for access and refresh tokens.
+   * Optional. Authorization code to be exchanged for access and refresh tokens.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String authCode;
 
   /**
-   * Auth URL for Authorization Code Flow
+   * Optional. Auth URL for Authorization Code Flow
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String authUri;
 
   /**
-   * Client ID for user-provided OAuth app.
+   * Optional. Client ID for user-provided OAuth app.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String clientId;
 
   /**
-   * Client secret for user-provided OAuth app.
+   * Optional. Client secret for user-provided OAuth app.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Secret clientSecret;
 
   /**
-   * Whether to enable PKCE when the user performs the auth code flow.
+   * Optional. Whether to enable PKCE when the user performs the auth code flow.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean enablePkce;
 
   /**
-   * PKCE verifier to be used during the auth code exchange.
+   * Optional. PKCE verifier to be used during the auth code exchange.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String pkceVerifier;
 
   /**
-   * Redirect URI to be provided during the auth code exchange.
+   * Optional. Redirect URI to be provided during the auth code exchange.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String redirectUri;
 
   /**
-   * Scopes the connection will request when the user performs the auth code flow.
+   * Optional. Scopes the connection will request when the user performs the auth code flow.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> scopes;
 
   /**
-   * Authorization code to be exchanged for access and refresh tokens.
+   * Optional. Authorization code to be exchanged for access and refresh tokens.
    * @return value or {@code null} for none
    */
   public java.lang.String getAuthCode() {
@@ -95,7 +95,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Authorization code to be exchanged for access and refresh tokens.
+   * Optional. Authorization code to be exchanged for access and refresh tokens.
    * @param authCode authCode or {@code null} for none
    */
   public Oauth2AuthCodeFlow setAuthCode(java.lang.String authCode) {
@@ -104,7 +104,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Auth URL for Authorization Code Flow
+   * Optional. Auth URL for Authorization Code Flow
    * @return value or {@code null} for none
    */
   public java.lang.String getAuthUri() {
@@ -112,7 +112,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Auth URL for Authorization Code Flow
+   * Optional. Auth URL for Authorization Code Flow
    * @param authUri authUri or {@code null} for none
    */
   public Oauth2AuthCodeFlow setAuthUri(java.lang.String authUri) {
@@ -121,7 +121,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Client ID for user-provided OAuth app.
+   * Optional. Client ID for user-provided OAuth app.
    * @return value or {@code null} for none
    */
   public java.lang.String getClientId() {
@@ -129,7 +129,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Client ID for user-provided OAuth app.
+   * Optional. Client ID for user-provided OAuth app.
    * @param clientId clientId or {@code null} for none
    */
   public Oauth2AuthCodeFlow setClientId(java.lang.String clientId) {
@@ -138,7 +138,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Client secret for user-provided OAuth app.
+   * Optional. Client secret for user-provided OAuth app.
    * @return value or {@code null} for none
    */
   public Secret getClientSecret() {
@@ -146,7 +146,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Client secret for user-provided OAuth app.
+   * Optional. Client secret for user-provided OAuth app.
    * @param clientSecret clientSecret or {@code null} for none
    */
   public Oauth2AuthCodeFlow setClientSecret(Secret clientSecret) {
@@ -155,7 +155,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Whether to enable PKCE when the user performs the auth code flow.
+   * Optional. Whether to enable PKCE when the user performs the auth code flow.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnablePkce() {
@@ -163,7 +163,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Whether to enable PKCE when the user performs the auth code flow.
+   * Optional. Whether to enable PKCE when the user performs the auth code flow.
    * @param enablePkce enablePkce or {@code null} for none
    */
   public Oauth2AuthCodeFlow setEnablePkce(java.lang.Boolean enablePkce) {
@@ -172,7 +172,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * PKCE verifier to be used during the auth code exchange.
+   * Optional. PKCE verifier to be used during the auth code exchange.
    * @return value or {@code null} for none
    */
   public java.lang.String getPkceVerifier() {
@@ -180,7 +180,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * PKCE verifier to be used during the auth code exchange.
+   * Optional. PKCE verifier to be used during the auth code exchange.
    * @param pkceVerifier pkceVerifier or {@code null} for none
    */
   public Oauth2AuthCodeFlow setPkceVerifier(java.lang.String pkceVerifier) {
@@ -189,7 +189,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Redirect URI to be provided during the auth code exchange.
+   * Optional. Redirect URI to be provided during the auth code exchange.
    * @return value or {@code null} for none
    */
   public java.lang.String getRedirectUri() {
@@ -197,7 +197,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Redirect URI to be provided during the auth code exchange.
+   * Optional. Redirect URI to be provided during the auth code exchange.
    * @param redirectUri redirectUri or {@code null} for none
    */
   public Oauth2AuthCodeFlow setRedirectUri(java.lang.String redirectUri) {
@@ -206,7 +206,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Scopes the connection will request when the user performs the auth code flow.
+   * Optional. Scopes the connection will request when the user performs the auth code flow.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getScopes() {
@@ -214,7 +214,7 @@ public final class Oauth2AuthCodeFlow extends com.google.api.client.json.Generic
   }
 
   /**
-   * Scopes the connection will request when the user performs the auth code flow.
+   * Optional. Scopes the connection will request when the user performs the auth code flow.
    * @param scopes scopes or {@code null} for none
    */
   public Oauth2AuthCodeFlow setScopes(java.util.List<java.lang.String> scopes) {

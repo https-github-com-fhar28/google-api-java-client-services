@@ -17,8 +17,8 @@
 package com.google.api.services.classroom.model;
 
 /**
- * Material attached to course work. When creating attachments, setting the `form` field is not
- * supported.
+ * Material attached to course work. When creating attachments, setting the `form`, `gem`, or
+ * `notebook` field is not supported.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Google Classroom API. For a detailed explanation see:
@@ -38,11 +38,18 @@ public final class Material extends com.google.api.client.json.GenericJson {
   private SharedDriveFile driveFile;
 
   /**
-   * Google Forms material.
+   * Google Forms material. Read-only.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Form form;
+
+  /**
+   * Gemini Gem material. Read-only.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GeminiGem gem;
 
   /**
    * Link material. On creation, this is upgraded to a more appropriate type if possible, and this
@@ -51,6 +58,13 @@ public final class Material extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private Link link;
+
+  /**
+   * NotebookLM Notebook material. Read-only.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private NotebookLmNotebook notebook;
 
   /**
    * YouTube video material.
@@ -77,7 +91,7 @@ public final class Material extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Google Forms material.
+   * Google Forms material. Read-only.
    * @return value or {@code null} for none
    */
   public Form getForm() {
@@ -85,11 +99,28 @@ public final class Material extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Google Forms material.
+   * Google Forms material. Read-only.
    * @param form form or {@code null} for none
    */
   public Material setForm(Form form) {
     this.form = form;
+    return this;
+  }
+
+  /**
+   * Gemini Gem material. Read-only.
+   * @return value or {@code null} for none
+   */
+  public GeminiGem getGem() {
+    return gem;
+  }
+
+  /**
+   * Gemini Gem material. Read-only.
+   * @param gem gem or {@code null} for none
+   */
+  public Material setGem(GeminiGem gem) {
+    this.gem = gem;
     return this;
   }
 
@@ -109,6 +140,23 @@ public final class Material extends com.google.api.client.json.GenericJson {
    */
   public Material setLink(Link link) {
     this.link = link;
+    return this;
+  }
+
+  /**
+   * NotebookLM Notebook material. Read-only.
+   * @return value or {@code null} for none
+   */
+  public NotebookLmNotebook getNotebook() {
+    return notebook;
+  }
+
+  /**
+   * NotebookLM Notebook material. Read-only.
+   * @param notebook notebook or {@code null} for none
+   */
+  public Material setNotebook(NotebookLmNotebook notebook) {
+    this.notebook = notebook;
     return this;
   }
 

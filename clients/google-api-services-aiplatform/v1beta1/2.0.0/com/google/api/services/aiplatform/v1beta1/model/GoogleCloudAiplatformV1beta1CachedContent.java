@@ -37,7 +37,7 @@ public final class GoogleCloudAiplatformV1beta1CachedContent extends com.google.
   private java.util.List<GoogleCloudAiplatformV1beta1Content> contents;
 
   /**
-   * Output only. Creatation time of the cache entry.
+   * Output only. Creation time of the cache entry.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -51,6 +51,14 @@ public final class GoogleCloudAiplatformV1beta1CachedContent extends com.google.
   private java.lang.String displayName;
 
   /**
+   * Input only. Immutable. Customer-managed encryption key spec for a `CachedContent`. If set, this
+   * `CachedContent` and all its sub-resources will be secured by this key.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1EncryptionSpec encryptionSpec;
+
+  /**
    * Timestamp of when this resource is considered expired. This is *always* provided on output,
    * regardless of what was sent on input.
    * The value may be {@code null}.
@@ -59,8 +67,9 @@ public final class GoogleCloudAiplatformV1beta1CachedContent extends com.google.
   private String expireTime;
 
   /**
-   * Immutable. The name of the publisher model to use for cached content. Format:
-   * projects/{project}/locations/{location}/publishers/{publisher}/models/{model}
+   * Immutable. The name of the `Model` to use for cached content. Currently, only the published
+   * Gemini base models are supported, in form of
+   * projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/{MODEL}
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -135,7 +144,7 @@ public final class GoogleCloudAiplatformV1beta1CachedContent extends com.google.
   }
 
   /**
-   * Output only. Creatation time of the cache entry.
+   * Output only. Creation time of the cache entry.
    * @return value or {@code null} for none
    */
   public String getCreateTime() {
@@ -143,7 +152,7 @@ public final class GoogleCloudAiplatformV1beta1CachedContent extends com.google.
   }
 
   /**
-   * Output only. Creatation time of the cache entry.
+   * Output only. Creation time of the cache entry.
    * @param createTime createTime or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1CachedContent setCreateTime(String createTime) {
@@ -169,6 +178,25 @@ public final class GoogleCloudAiplatformV1beta1CachedContent extends com.google.
   }
 
   /**
+   * Input only. Immutable. Customer-managed encryption key spec for a `CachedContent`. If set, this
+   * `CachedContent` and all its sub-resources will be secured by this key.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EncryptionSpec getEncryptionSpec() {
+    return encryptionSpec;
+  }
+
+  /**
+   * Input only. Immutable. Customer-managed encryption key spec for a `CachedContent`. If set, this
+   * `CachedContent` and all its sub-resources will be secured by this key.
+   * @param encryptionSpec encryptionSpec or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1CachedContent setEncryptionSpec(GoogleCloudAiplatformV1beta1EncryptionSpec encryptionSpec) {
+    this.encryptionSpec = encryptionSpec;
+    return this;
+  }
+
+  /**
    * Timestamp of when this resource is considered expired. This is *always* provided on output,
    * regardless of what was sent on input.
    * @return value or {@code null} for none
@@ -188,8 +216,9 @@ public final class GoogleCloudAiplatformV1beta1CachedContent extends com.google.
   }
 
   /**
-   * Immutable. The name of the publisher model to use for cached content. Format:
-   * projects/{project}/locations/{location}/publishers/{publisher}/models/{model}
+   * Immutable. The name of the `Model` to use for cached content. Currently, only the published
+   * Gemini base models are supported, in form of
+   * projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/{MODEL}
    * @return value or {@code null} for none
    */
   public java.lang.String getModel() {
@@ -197,8 +226,9 @@ public final class GoogleCloudAiplatformV1beta1CachedContent extends com.google.
   }
 
   /**
-   * Immutable. The name of the publisher model to use for cached content. Format:
-   * projects/{project}/locations/{location}/publishers/{publisher}/models/{model}
+   * Immutable. The name of the `Model` to use for cached content. Currently, only the published
+   * Gemini base models are supported, in form of
+   * projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/{MODEL}
    * @param model model or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1CachedContent setModel(java.lang.String model) {

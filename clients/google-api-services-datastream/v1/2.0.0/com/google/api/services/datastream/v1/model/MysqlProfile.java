@@ -37,7 +37,8 @@ public final class MysqlProfile extends com.google.api.client.json.GenericJson {
   private java.lang.String hostname;
 
   /**
-   * Required. Input only. Password for the MySQL connection.
+   * Optional. Input only. Password for the MySQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -49,6 +50,14 @@ public final class MysqlProfile extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.Integer port;
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the MySQL connection password.
+   * Mutually exclusive with the `password` field.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String secretManagerStoredPassword;
 
   /**
    * SSL configuration for the MySQL connection.
@@ -82,7 +91,8 @@ public final class MysqlProfile extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Input only. Password for the MySQL connection.
+   * Optional. Input only. Password for the MySQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * @return value or {@code null} for none
    */
   public java.lang.String getPassword() {
@@ -90,7 +100,8 @@ public final class MysqlProfile extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Input only. Password for the MySQL connection.
+   * Optional. Input only. Password for the MySQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * @param password password or {@code null} for none
    */
   public MysqlProfile setPassword(java.lang.String password) {
@@ -112,6 +123,25 @@ public final class MysqlProfile extends com.google.api.client.json.GenericJson {
    */
   public MysqlProfile setPort(java.lang.Integer port) {
     this.port = port;
+    return this;
+  }
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the MySQL connection password.
+   * Mutually exclusive with the `password` field.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSecretManagerStoredPassword() {
+    return secretManagerStoredPassword;
+  }
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the MySQL connection password.
+   * Mutually exclusive with the `password` field.
+   * @param secretManagerStoredPassword secretManagerStoredPassword or {@code null} for none
+   */
+  public MysqlProfile setSecretManagerStoredPassword(java.lang.String secretManagerStoredPassword) {
+    this.secretManagerStoredPassword = secretManagerStoredPassword;
     return this;
   }
 

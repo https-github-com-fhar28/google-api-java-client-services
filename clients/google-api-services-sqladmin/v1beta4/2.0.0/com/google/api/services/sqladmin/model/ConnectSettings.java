@@ -39,6 +39,13 @@ public final class ConnectSettings extends com.google.api.client.json.GenericJso
   private java.lang.String backendType;
 
   /**
+   * Custom subject alternative names for the server certificate.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> customSubjectAlternativeNames;
+
+  /**
    * The database engine type and version. The `databaseVersion` field cannot be changed after
    * instance creation. MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default), or `MYSQL_5_6`.
    * PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11` or `POSTGRES_12` (default),
@@ -59,6 +66,13 @@ public final class ConnectSettings extends com.google.api.client.json.GenericJso
   private java.lang.String dnsName;
 
   /**
+   * Output only. The list of DNS names used by this instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<DnsNameMapping> dnsNames;
+
+  /**
    * The assigned IP addresses for the instance.
    * The value may be {@code null}.
    */
@@ -71,6 +85,26 @@ public final class ConnectSettings extends com.google.api.client.json.GenericJso
    */
   @com.google.api.client.util.Key
   private java.lang.String kind;
+
+  /**
+   * The number of read pool nodes in a read pool.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer nodeCount;
+
+  /**
+   * Output only. Entries containing information about each read pool node of the read pool.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<ConnectPoolNodeConfig> nodes;
+
+  static {
+    // hack to force ProGuard to consider ConnectPoolNodeConfig used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(ConnectPoolNodeConfig.class);
+  }
 
   /**
    * Whether PSC connectivity is enabled for this instance.
@@ -123,6 +157,23 @@ public final class ConnectSettings extends com.google.api.client.json.GenericJso
   }
 
   /**
+   * Custom subject alternative names for the server certificate.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getCustomSubjectAlternativeNames() {
+    return customSubjectAlternativeNames;
+  }
+
+  /**
+   * Custom subject alternative names for the server certificate.
+   * @param customSubjectAlternativeNames customSubjectAlternativeNames or {@code null} for none
+   */
+  public ConnectSettings setCustomSubjectAlternativeNames(java.util.List<java.lang.String> customSubjectAlternativeNames) {
+    this.customSubjectAlternativeNames = customSubjectAlternativeNames;
+    return this;
+  }
+
+  /**
    * The database engine type and version. The `databaseVersion` field cannot be changed after
    * instance creation. MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default), or `MYSQL_5_6`.
    * PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11` or `POSTGRES_12` (default),
@@ -169,6 +220,23 @@ public final class ConnectSettings extends com.google.api.client.json.GenericJso
   }
 
   /**
+   * Output only. The list of DNS names used by this instance.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<DnsNameMapping> getDnsNames() {
+    return dnsNames;
+  }
+
+  /**
+   * Output only. The list of DNS names used by this instance.
+   * @param dnsNames dnsNames or {@code null} for none
+   */
+  public ConnectSettings setDnsNames(java.util.List<DnsNameMapping> dnsNames) {
+    this.dnsNames = dnsNames;
+    return this;
+  }
+
+  /**
    * The assigned IP addresses for the instance.
    * @return value or {@code null} for none
    */
@@ -199,6 +267,40 @@ public final class ConnectSettings extends com.google.api.client.json.GenericJso
    */
   public ConnectSettings setKind(java.lang.String kind) {
     this.kind = kind;
+    return this;
+  }
+
+  /**
+   * The number of read pool nodes in a read pool.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getNodeCount() {
+    return nodeCount;
+  }
+
+  /**
+   * The number of read pool nodes in a read pool.
+   * @param nodeCount nodeCount or {@code null} for none
+   */
+  public ConnectSettings setNodeCount(java.lang.Integer nodeCount) {
+    this.nodeCount = nodeCount;
+    return this;
+  }
+
+  /**
+   * Output only. Entries containing information about each read pool node of the read pool.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<ConnectPoolNodeConfig> getNodes() {
+    return nodes;
+  }
+
+  /**
+   * Output only. Entries containing information about each read pool node of the read pool.
+   * @param nodes nodes or {@code null} for none
+   */
+  public ConnectSettings setNodes(java.util.List<ConnectPoolNodeConfig> nodes) {
+    this.nodes = nodes;
     return this;
   }
 

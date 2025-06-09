@@ -30,22 +30,22 @@ package com.google.api.services.healthcare.v1.model;
 public final class DeidentifiedStoreDestination extends com.google.api.client.json.GenericJson {
 
   /**
-   * The configuration to use when de-identifying resources that are added to this store.
+   * Optional. The configuration to use when de-identifying resources that are added to this store.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private DeidentifyConfig config;
 
   /**
-   * The full resource name of a Cloud Healthcare FHIR store, for example, `projects/{project_id}/lo
-   * cations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+   * Optional. The full resource name of a Cloud Healthcare FHIR store, for example, `projects/{proj
+   * ect_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String store;
 
   /**
-   * The configuration to use when de-identifying resources that are added to this store.
+   * Optional. The configuration to use when de-identifying resources that are added to this store.
    * @return value or {@code null} for none
    */
   public DeidentifyConfig getConfig() {
@@ -53,7 +53,7 @@ public final class DeidentifiedStoreDestination extends com.google.api.client.js
   }
 
   /**
-   * The configuration to use when de-identifying resources that are added to this store.
+   * Optional. The configuration to use when de-identifying resources that are added to this store.
    * @param config config or {@code null} for none
    */
   public DeidentifiedStoreDestination setConfig(DeidentifyConfig config) {
@@ -62,8 +62,8 @@ public final class DeidentifiedStoreDestination extends com.google.api.client.js
   }
 
   /**
-   * The full resource name of a Cloud Healthcare FHIR store, for example, `projects/{project_id}/lo
-   * cations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+   * Optional. The full resource name of a Cloud Healthcare FHIR store, for example, `projects/{proj
+   * ect_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
    * @return value or {@code null} for none
    */
   public java.lang.String getStore() {
@@ -71,8 +71,8 @@ public final class DeidentifiedStoreDestination extends com.google.api.client.js
   }
 
   /**
-   * The full resource name of a Cloud Healthcare FHIR store, for example, `projects/{project_id}/lo
-   * cations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+   * Optional. The full resource name of a Cloud Healthcare FHIR store, for example, `projects/{proj
+   * ect_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
    * @param store store or {@code null} for none
    */
   public DeidentifiedStoreDestination setStore(java.lang.String store) {

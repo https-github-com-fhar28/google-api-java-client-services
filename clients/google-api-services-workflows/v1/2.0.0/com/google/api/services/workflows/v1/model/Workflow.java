@@ -17,7 +17,7 @@
 package com.google.api.services.workflows.v1.model;
 
 /**
- * LINT.IfChange Workflow program to be executed by Workflows.
+ * Workflow program to be executed by Workflows.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Workflows API. For a detailed explanation see:
@@ -91,7 +91,7 @@ public final class Workflow extends com.google.api.client.json.GenericJson {
   private java.lang.String description;
 
   /**
-   * Optional. Describes the level of the execution history feature to apply to this workflow.
+   * Optional. Describes the execution history level to apply to this workflow.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -167,6 +167,13 @@ public final class Workflow extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private StateError stateError;
+
+  /**
+   * Optional. Input only. Immutable. Tags associated with this workflow.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> tags;
 
   /**
    * Output only. The timestamp for when the workflow was last updated. This is a workflow-wide
@@ -329,7 +336,7 @@ public final class Workflow extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Describes the level of the execution history feature to apply to this workflow.
+   * Optional. Describes the execution history level to apply to this workflow.
    * @return value or {@code null} for none
    */
   public java.lang.String getExecutionHistoryLevel() {
@@ -337,7 +344,7 @@ public final class Workflow extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Describes the level of the execution history feature to apply to this workflow.
+   * Optional. Describes the execution history level to apply to this workflow.
    * @param executionHistoryLevel executionHistoryLevel or {@code null} for none
    */
   public Workflow setExecutionHistoryLevel(java.lang.String executionHistoryLevel) {
@@ -508,6 +515,23 @@ public final class Workflow extends com.google.api.client.json.GenericJson {
    */
   public Workflow setStateError(StateError stateError) {
     this.stateError = stateError;
+    return this;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tags associated with this workflow.
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getTags() {
+    return tags;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tags associated with this workflow.
+   * @param tags tags or {@code null} for none
+   */
+  public Workflow setTags(java.util.Map<String, java.lang.String> tags) {
+    this.tags = tags;
     return this;
   }
 

@@ -30,23 +30,42 @@ package com.google.api.services.healthcare.v1.model;
 public final class FhirStore extends com.google.api.client.json.GenericJson {
 
   /**
-   * Enable parsing of references within complex FHIR data types such as Extensions. If this value
-   * is set to ENABLED, then features like referential integrity and Bundle reference rewriting
-   * apply to all references. If this flag has not been specified the behavior of the FHIR store
-   * will not change, references in complex data types will not be parsed. New stores will have this
-   * value set to ENABLED after a notification period. Warning: turning on this flag causes
-   * processing existing resources to fail if they contain references to non-existent resources.
+   * Optional. FHIR bulk export exports resources to the specified Cloud Storage destination. A
+   * Cloud Storage destination is a URI for a Cloud Storage directory where result files will be
+   * written. Only used in the spec-defined bulk $export methods. The Cloud Healthcare Service Agent
+   * requires the `roles/storage.objectAdmin` Cloud IAM role on the destination.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private BulkExportGcsDestination bulkExportGcsDestination;
+
+  /**
+   * Optional. Enable parsing of references within complex FHIR data types such as Extensions. If
+   * this value is set to ENABLED, then features like referential integrity and Bundle reference
+   * rewriting apply to all references. If this flag has not been specified the behavior of the FHIR
+   * store will not change, references in complex data types will not be parsed. New stores will
+   * have this value set to ENABLED after a notification period. Warning: turning on this flag
+   * causes processing existing resources to fail if they contain references to non-existent
+   * resources. Cannot be disabled in R5.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String complexDataTypeReferenceParsing;
 
   /**
-   * If true, overrides the default search behavior for this FHIR store to `handling=strict` which
-   * returns an error for unrecognized search parameters. If false, uses the FHIR specification
-   * default `handling=lenient` which ignores unrecognized search parameters. The handling can
-   * always be changed from the default on an individual API call by setting the HTTP header
-   * `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to false.
+   * Optional. Specifies whether this store has consent enforcement. Not available for DSTU2 FHIR
+   * version due to absence of Consent resources. Not supported for R5 FHIR version.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ConsentConfig consentConfig;
+
+  /**
+   * Optional. If true, overrides the default search behavior for this FHIR store to
+   * `handling=strict` which returns an error for unrecognized search parameters. If false, uses the
+   * FHIR specification default `handling=lenient` which ignores unrecognized search parameters. The
+   * handling can always be changed from the default on an individual API call by setting the HTTP
+   * header `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to false.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -76,7 +95,7 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean disableResourceVersioning;
 
   /**
-   * Whether this FHIR store has the [updateCreate
+   * Optional. Whether this FHIR store has the [updateCreate
    * capability](https://www.hl7.org/fhir/capabilitystatement-
    * definitions.html#CapabilityStatement.rest.resource.updateCreate). This determines if the client
    * can use an Update operation to create a new resource with a client-specified ID. If false, all
@@ -114,14 +133,14 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
    * Deprecated. Use `notification_configs` instead. If non-empty, publish all resource
    * modifications of this FHIR store to this destination. The Pub/Sub message attributes contain a
    * map with a string describing the action that has triggered the notification. For example,
-   * "action":"CreateResource".
+   * "action":"CreateResource". Not supported in R5. Use `notification_configs` instead.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private NotificationConfig notificationConfig;
 
   /**
-   * Specifies where and whether to send notifications upon changes to a FHIR store.
+   * Optional. Specifies where and whether to send notifications upon changes to a FHIR store.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -134,11 +153,11 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A list of streaming configs that configure the destinations of streaming export for every
-   * resource mutation in this FHIR store. Each store is allowed to have up to 10 streaming configs.
-   * After a new config is added, the next resource mutation is streamed to the new location in
-   * addition to the existing ones. When a location is removed from the list, the server stops
-   * streaming to that location. Before adding a new config, you must add the required
+   * Optional. A list of streaming configs that configure the destinations of streaming export for
+   * every resource mutation in this FHIR store. Each store is allowed to have up to 10 streaming
+   * configs. After a new config is added, the next resource mutation is streamed to the new
+   * location in addition to the existing ones. When a location is removed from the list, the server
+   * stops streaming to that location. Before adding a new config, you must add the required
    * [`bigquery.dataEditor`](https://cloud.google.com/bigquery/docs/access-
    * control#bigquery.dataEditor) role to your project's **Cloud Healthcare Service Agent** [service
    * account](https://cloud.google.com/iam/docs/service-accounts). Some lag (typically on the order
@@ -149,7 +168,8 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   private java.util.List<StreamConfig> streamConfigs;
 
   /**
-   * Configuration for how to validate incoming FHIR resources against configured profiles.
+   * Optional. Configuration for how to validate incoming FHIR resources against configured
+   * profiles.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -165,12 +185,36 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   private java.lang.String version;
 
   /**
-   * Enable parsing of references within complex FHIR data types such as Extensions. If this value
-   * is set to ENABLED, then features like referential integrity and Bundle reference rewriting
-   * apply to all references. If this flag has not been specified the behavior of the FHIR store
-   * will not change, references in complex data types will not be parsed. New stores will have this
-   * value set to ENABLED after a notification period. Warning: turning on this flag causes
-   * processing existing resources to fail if they contain references to non-existent resources.
+   * Optional. FHIR bulk export exports resources to the specified Cloud Storage destination. A
+   * Cloud Storage destination is a URI for a Cloud Storage directory where result files will be
+   * written. Only used in the spec-defined bulk $export methods. The Cloud Healthcare Service Agent
+   * requires the `roles/storage.objectAdmin` Cloud IAM role on the destination.
+   * @return value or {@code null} for none
+   */
+  public BulkExportGcsDestination getBulkExportGcsDestination() {
+    return bulkExportGcsDestination;
+  }
+
+  /**
+   * Optional. FHIR bulk export exports resources to the specified Cloud Storage destination. A
+   * Cloud Storage destination is a URI for a Cloud Storage directory where result files will be
+   * written. Only used in the spec-defined bulk $export methods. The Cloud Healthcare Service Agent
+   * requires the `roles/storage.objectAdmin` Cloud IAM role on the destination.
+   * @param bulkExportGcsDestination bulkExportGcsDestination or {@code null} for none
+   */
+  public FhirStore setBulkExportGcsDestination(BulkExportGcsDestination bulkExportGcsDestination) {
+    this.bulkExportGcsDestination = bulkExportGcsDestination;
+    return this;
+  }
+
+  /**
+   * Optional. Enable parsing of references within complex FHIR data types such as Extensions. If
+   * this value is set to ENABLED, then features like referential integrity and Bundle reference
+   * rewriting apply to all references. If this flag has not been specified the behavior of the FHIR
+   * store will not change, references in complex data types will not be parsed. New stores will
+   * have this value set to ENABLED after a notification period. Warning: turning on this flag
+   * causes processing existing resources to fail if they contain references to non-existent
+   * resources. Cannot be disabled in R5.
    * @return value or {@code null} for none
    */
   public java.lang.String getComplexDataTypeReferenceParsing() {
@@ -178,12 +222,13 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Enable parsing of references within complex FHIR data types such as Extensions. If this value
-   * is set to ENABLED, then features like referential integrity and Bundle reference rewriting
-   * apply to all references. If this flag has not been specified the behavior of the FHIR store
-   * will not change, references in complex data types will not be parsed. New stores will have this
-   * value set to ENABLED after a notification period. Warning: turning on this flag causes
-   * processing existing resources to fail if they contain references to non-existent resources.
+   * Optional. Enable parsing of references within complex FHIR data types such as Extensions. If
+   * this value is set to ENABLED, then features like referential integrity and Bundle reference
+   * rewriting apply to all references. If this flag has not been specified the behavior of the FHIR
+   * store will not change, references in complex data types will not be parsed. New stores will
+   * have this value set to ENABLED after a notification period. Warning: turning on this flag
+   * causes processing existing resources to fail if they contain references to non-existent
+   * resources. Cannot be disabled in R5.
    * @param complexDataTypeReferenceParsing complexDataTypeReferenceParsing or {@code null} for none
    */
   public FhirStore setComplexDataTypeReferenceParsing(java.lang.String complexDataTypeReferenceParsing) {
@@ -192,11 +237,30 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * If true, overrides the default search behavior for this FHIR store to `handling=strict` which
-   * returns an error for unrecognized search parameters. If false, uses the FHIR specification
-   * default `handling=lenient` which ignores unrecognized search parameters. The handling can
-   * always be changed from the default on an individual API call by setting the HTTP header
-   * `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to false.
+   * Optional. Specifies whether this store has consent enforcement. Not available for DSTU2 FHIR
+   * version due to absence of Consent resources. Not supported for R5 FHIR version.
+   * @return value or {@code null} for none
+   */
+  public ConsentConfig getConsentConfig() {
+    return consentConfig;
+  }
+
+  /**
+   * Optional. Specifies whether this store has consent enforcement. Not available for DSTU2 FHIR
+   * version due to absence of Consent resources. Not supported for R5 FHIR version.
+   * @param consentConfig consentConfig or {@code null} for none
+   */
+  public FhirStore setConsentConfig(ConsentConfig consentConfig) {
+    this.consentConfig = consentConfig;
+    return this;
+  }
+
+  /**
+   * Optional. If true, overrides the default search behavior for this FHIR store to
+   * `handling=strict` which returns an error for unrecognized search parameters. If false, uses the
+   * FHIR specification default `handling=lenient` which ignores unrecognized search parameters. The
+   * handling can always be changed from the default on an individual API call by setting the HTTP
+   * header `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to false.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getDefaultSearchHandlingStrict() {
@@ -204,11 +268,11 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * If true, overrides the default search behavior for this FHIR store to `handling=strict` which
-   * returns an error for unrecognized search parameters. If false, uses the FHIR specification
-   * default `handling=lenient` which ignores unrecognized search parameters. The handling can
-   * always be changed from the default on an individual API call by setting the HTTP header
-   * `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to false.
+   * Optional. If true, overrides the default search behavior for this FHIR store to
+   * `handling=strict` which returns an error for unrecognized search parameters. If false, uses the
+   * FHIR specification default `handling=lenient` which ignores unrecognized search parameters. The
+   * handling can always be changed from the default on an individual API call by setting the HTTP
+   * header `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to false.
    * @param defaultSearchHandlingStrict defaultSearchHandlingStrict or {@code null} for none
    */
   public FhirStore setDefaultSearchHandlingStrict(java.lang.Boolean defaultSearchHandlingStrict) {
@@ -269,7 +333,7 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether this FHIR store has the [updateCreate
+   * Optional. Whether this FHIR store has the [updateCreate
    * capability](https://www.hl7.org/fhir/capabilitystatement-
    * definitions.html#CapabilityStatement.rest.resource.updateCreate). This determines if the client
    * can use an Update operation to create a new resource with a client-specified ID. If false, all
@@ -285,7 +349,7 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether this FHIR store has the [updateCreate
+   * Optional. Whether this FHIR store has the [updateCreate
    * capability](https://www.hl7.org/fhir/capabilitystatement-
    * definitions.html#CapabilityStatement.rest.resource.updateCreate). This determines if the client
    * can use an Update operation to create a new resource with a client-specified ID. If false, all
@@ -351,7 +415,7 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
    * Deprecated. Use `notification_configs` instead. If non-empty, publish all resource
    * modifications of this FHIR store to this destination. The Pub/Sub message attributes contain a
    * map with a string describing the action that has triggered the notification. For example,
-   * "action":"CreateResource".
+   * "action":"CreateResource". Not supported in R5. Use `notification_configs` instead.
    * @return value or {@code null} for none
    */
   public NotificationConfig getNotificationConfig() {
@@ -362,7 +426,7 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
    * Deprecated. Use `notification_configs` instead. If non-empty, publish all resource
    * modifications of this FHIR store to this destination. The Pub/Sub message attributes contain a
    * map with a string describing the action that has triggered the notification. For example,
-   * "action":"CreateResource".
+   * "action":"CreateResource". Not supported in R5. Use `notification_configs` instead.
    * @param notificationConfig notificationConfig or {@code null} for none
    */
   public FhirStore setNotificationConfig(NotificationConfig notificationConfig) {
@@ -371,7 +435,7 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Specifies where and whether to send notifications upon changes to a FHIR store.
+   * Optional. Specifies where and whether to send notifications upon changes to a FHIR store.
    * @return value or {@code null} for none
    */
   public java.util.List<FhirNotificationConfig> getNotificationConfigs() {
@@ -379,7 +443,7 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Specifies where and whether to send notifications upon changes to a FHIR store.
+   * Optional. Specifies where and whether to send notifications upon changes to a FHIR store.
    * @param notificationConfigs notificationConfigs or {@code null} for none
    */
   public FhirStore setNotificationConfigs(java.util.List<FhirNotificationConfig> notificationConfigs) {
@@ -388,11 +452,11 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A list of streaming configs that configure the destinations of streaming export for every
-   * resource mutation in this FHIR store. Each store is allowed to have up to 10 streaming configs.
-   * After a new config is added, the next resource mutation is streamed to the new location in
-   * addition to the existing ones. When a location is removed from the list, the server stops
-   * streaming to that location. Before adding a new config, you must add the required
+   * Optional. A list of streaming configs that configure the destinations of streaming export for
+   * every resource mutation in this FHIR store. Each store is allowed to have up to 10 streaming
+   * configs. After a new config is added, the next resource mutation is streamed to the new
+   * location in addition to the existing ones. When a location is removed from the list, the server
+   * stops streaming to that location. Before adding a new config, you must add the required
    * [`bigquery.dataEditor`](https://cloud.google.com/bigquery/docs/access-
    * control#bigquery.dataEditor) role to your project's **Cloud Healthcare Service Agent** [service
    * account](https://cloud.google.com/iam/docs/service-accounts). Some lag (typically on the order
@@ -404,11 +468,11 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A list of streaming configs that configure the destinations of streaming export for every
-   * resource mutation in this FHIR store. Each store is allowed to have up to 10 streaming configs.
-   * After a new config is added, the next resource mutation is streamed to the new location in
-   * addition to the existing ones. When a location is removed from the list, the server stops
-   * streaming to that location. Before adding a new config, you must add the required
+   * Optional. A list of streaming configs that configure the destinations of streaming export for
+   * every resource mutation in this FHIR store. Each store is allowed to have up to 10 streaming
+   * configs. After a new config is added, the next resource mutation is streamed to the new
+   * location in addition to the existing ones. When a location is removed from the list, the server
+   * stops streaming to that location. Before adding a new config, you must add the required
    * [`bigquery.dataEditor`](https://cloud.google.com/bigquery/docs/access-
    * control#bigquery.dataEditor) role to your project's **Cloud Healthcare Service Agent** [service
    * account](https://cloud.google.com/iam/docs/service-accounts). Some lag (typically on the order
@@ -421,7 +485,8 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Configuration for how to validate incoming FHIR resources against configured profiles.
+   * Optional. Configuration for how to validate incoming FHIR resources against configured
+   * profiles.
    * @return value or {@code null} for none
    */
   public ValidationConfig getValidationConfig() {
@@ -429,7 +494,8 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Configuration for how to validate incoming FHIR resources against configured profiles.
+   * Optional. Configuration for how to validate incoming FHIR resources against configured
+   * profiles.
    * @param validationConfig validationConfig or {@code null} for none
    */
   public FhirStore setValidationConfig(ValidationConfig validationConfig) {

@@ -134,6 +134,128 @@ public class DataPortability extends com.google.api.client.googleapis.services.j
   }
 
   /**
+   * An accessor for creating requests from the AccessType collection.
+   *
+   * <p>The typical use is:</p>
+   * <pre>
+   *   {@code DataPortability dataportability = new DataPortability(...);}
+   *   {@code DataPortability.AccessType.List request = dataportability.accessType().list(parameters ...)}
+   * </pre>
+   *
+   * @return the resource collection
+   */
+  public AccessType accessType() {
+    return new AccessType();
+  }
+
+  /**
+   * The "accessType" collection of methods.
+   */
+  public class AccessType {
+
+    /**
+     * Gets the access type of the token.
+     *
+     * Create a request for the method "accessType.check".
+     *
+     * This request holds the parameters needed by the dataportability server.  After setting any
+     * optional parameters, call the {@link Check#execute()} method to invoke the remote operation.
+     *
+     * @param content the {@link com.google.api.services.dataportability.v1beta.model.CheckAccessTypeRequest}
+     * @return the request
+     */
+    public Check check(com.google.api.services.dataportability.v1beta.model.CheckAccessTypeRequest content) throws java.io.IOException {
+      Check result = new Check(content);
+      initialize(result);
+      return result;
+    }
+
+    public class Check extends DataPortabilityRequest<com.google.api.services.dataportability.v1beta.model.CheckAccessTypeResponse> {
+
+      private static final String REST_PATH = "v1beta/accessType:check";
+
+      /**
+       * Gets the access type of the token.
+       *
+       * Create a request for the method "accessType.check".
+       *
+       * This request holds the parameters needed by the the dataportability server.  After setting any
+       * optional parameters, call the {@link Check#execute()} method to invoke the remote operation.
+       * <p> {@link
+       * Check#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+       * be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param content the {@link com.google.api.services.dataportability.v1beta.model.CheckAccessTypeRequest}
+       * @since 1.13
+       */
+      protected Check(com.google.api.services.dataportability.v1beta.model.CheckAccessTypeRequest content) {
+        super(DataPortability.this, "POST", REST_PATH, content, com.google.api.services.dataportability.v1beta.model.CheckAccessTypeResponse.class);
+      }
+
+      @Override
+      public Check set$Xgafv(java.lang.String $Xgafv) {
+        return (Check) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public Check setAccessToken(java.lang.String accessToken) {
+        return (Check) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public Check setAlt(java.lang.String alt) {
+        return (Check) super.setAlt(alt);
+      }
+
+      @Override
+      public Check setCallback(java.lang.String callback) {
+        return (Check) super.setCallback(callback);
+      }
+
+      @Override
+      public Check setFields(java.lang.String fields) {
+        return (Check) super.setFields(fields);
+      }
+
+      @Override
+      public Check setKey(java.lang.String key) {
+        return (Check) super.setKey(key);
+      }
+
+      @Override
+      public Check setOauthToken(java.lang.String oauthToken) {
+        return (Check) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public Check setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (Check) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public Check setQuotaUser(java.lang.String quotaUser) {
+        return (Check) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public Check setUploadType(java.lang.String uploadType) {
+        return (Check) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public Check setUploadProtocol(java.lang.String uploadProtocol) {
+        return (Check) super.setUploadProtocol(uploadProtocol);
+      }
+
+      @Override
+      public Check set(String parameterName, Object value) {
+        return (Check) super.set(parameterName, value);
+      }
+    }
+
+  }
+
+  /**
    * An accessor for creating requests from the ArchiveJobs collection.
    *
    * <p>The typical use is:</p>
@@ -153,6 +275,151 @@ public class DataPortability extends com.google.api.client.googleapis.services.j
    */
   public class ArchiveJobs {
 
+    /**
+     * Cancels a Portability Archive job.
+     *
+     * Create a request for the method "archiveJobs.cancel".
+     *
+     * This request holds the parameters needed by the dataportability server.  After setting any
+     * optional parameters, call the {@link Cancel#execute()} method to invoke the remote operation.
+     *
+     * @param name Required. The Archive job ID you're canceling. This is returned by the InitiatePortabilityArchive
+     *        response. The format is: archiveJobs/{archive_job}. Canceling is only executed if the job
+     *        is in progress.
+     * @param content the {@link com.google.api.services.dataportability.v1beta.model.CancelPortabilityArchiveRequest}
+     * @return the request
+     */
+    public Cancel cancel(java.lang.String name, com.google.api.services.dataportability.v1beta.model.CancelPortabilityArchiveRequest content) throws java.io.IOException {
+      Cancel result = new Cancel(name, content);
+      initialize(result);
+      return result;
+    }
+
+    public class Cancel extends DataPortabilityRequest<com.google.api.services.dataportability.v1beta.model.CancelPortabilityArchiveResponse> {
+
+      private static final String REST_PATH = "v1beta/{+name}:cancel";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^archiveJobs/[^/]+$");
+
+      /**
+       * Cancels a Portability Archive job.
+       *
+       * Create a request for the method "archiveJobs.cancel".
+       *
+       * This request holds the parameters needed by the the dataportability server.  After setting any
+       * optional parameters, call the {@link Cancel#execute()} method to invoke the remote operation.
+       * <p> {@link
+       * Cancel#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+       * be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param name Required. The Archive job ID you're canceling. This is returned by the InitiatePortabilityArchive
+     *        response. The format is: archiveJobs/{archive_job}. Canceling is only executed if the job
+     *        is in progress.
+       * @param content the {@link com.google.api.services.dataportability.v1beta.model.CancelPortabilityArchiveRequest}
+       * @since 1.13
+       */
+      protected Cancel(java.lang.String name, com.google.api.services.dataportability.v1beta.model.CancelPortabilityArchiveRequest content) {
+        super(DataPortability.this, "POST", REST_PATH, content, com.google.api.services.dataportability.v1beta.model.CancelPortabilityArchiveResponse.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^archiveJobs/[^/]+$");
+        }
+      }
+
+      @Override
+      public Cancel set$Xgafv(java.lang.String $Xgafv) {
+        return (Cancel) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public Cancel setAccessToken(java.lang.String accessToken) {
+        return (Cancel) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public Cancel setAlt(java.lang.String alt) {
+        return (Cancel) super.setAlt(alt);
+      }
+
+      @Override
+      public Cancel setCallback(java.lang.String callback) {
+        return (Cancel) super.setCallback(callback);
+      }
+
+      @Override
+      public Cancel setFields(java.lang.String fields) {
+        return (Cancel) super.setFields(fields);
+      }
+
+      @Override
+      public Cancel setKey(java.lang.String key) {
+        return (Cancel) super.setKey(key);
+      }
+
+      @Override
+      public Cancel setOauthToken(java.lang.String oauthToken) {
+        return (Cancel) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public Cancel setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (Cancel) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public Cancel setQuotaUser(java.lang.String quotaUser) {
+        return (Cancel) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public Cancel setUploadType(java.lang.String uploadType) {
+        return (Cancel) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public Cancel setUploadProtocol(java.lang.String uploadProtocol) {
+        return (Cancel) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The Archive job ID you're canceling. This is returned by the
+       * InitiatePortabilityArchive response. The format is: archiveJobs/{archive_job}. Canceling is
+       * only executed if the job is in progress.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Required. The Archive job ID you're canceling. This is returned by the InitiatePortabilityArchive
+     response. The format is: archiveJobs/{archive_job}. Canceling is only executed if the job is in
+     progress.
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Required. The Archive job ID you're canceling. This is returned by the
+       * InitiatePortabilityArchive response. The format is: archiveJobs/{archive_job}. Canceling is
+       * only executed if the job is in progress.
+       */
+      public Cancel setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^archiveJobs/[^/]+$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      @Override
+      public Cancel set(String parameterName, Object value) {
+        return (Cancel) super.set(parameterName, value);
+      }
+    }
     /**
      * Retrieves the state of an Archive job for the Portability API.
      *

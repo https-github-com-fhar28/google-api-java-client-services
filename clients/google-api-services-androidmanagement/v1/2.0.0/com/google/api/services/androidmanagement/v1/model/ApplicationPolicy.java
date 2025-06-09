@@ -105,7 +105,12 @@ public final class ApplicationPolicy extends com.google.api.client.json.GenericJ
 
   /**
    * Configuration to enable this app as an extension app, with the capability of interacting with
-   * Android Device Policy offline.This field can be set for at most one app.
+   * Android Device Policy offline.This field can be set for at most one app.The signing key
+   * certificate fingerprint of the app on the device must match one of the entries in
+   * signingKeyFingerprintsSha256 or the signing key certificate fingerprints obtained from Play
+   * Store for the app to be able to communicate with Android Device Policy. If the app is not on
+   * Play Store and signingKeyFingerprintsSha256 is not set, a nonComplianceDetail with
+   * INVALID_VALUE is reported.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -188,6 +193,18 @@ public final class ApplicationPolicy extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key
   private java.util.List<PermissionGrant> permissionGrants;
+
+  /**
+   * Optional. ID of the preferential network the application uses. There must be a configuration
+   * for the specified network ID in preferentialNetworkServiceConfigs. If set to
+   * PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the application will use the default network ID specified
+   * in defaultPreferentialNetworkId. See the documentation of defaultPreferentialNetworkId for the
+   * list of apps excluded from this defaulting. This applies on both work profiles and fully
+   * managed devices on Android 13 and above.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String preferentialNetworkId;
 
   /**
    * Optional. Specifies whether user control is permitted for the app. User control includes user
@@ -373,7 +390,12 @@ public final class ApplicationPolicy extends com.google.api.client.json.GenericJ
 
   /**
    * Configuration to enable this app as an extension app, with the capability of interacting with
-   * Android Device Policy offline.This field can be set for at most one app.
+   * Android Device Policy offline.This field can be set for at most one app.The signing key
+   * certificate fingerprint of the app on the device must match one of the entries in
+   * signingKeyFingerprintsSha256 or the signing key certificate fingerprints obtained from Play
+   * Store for the app to be able to communicate with Android Device Policy. If the app is not on
+   * Play Store and signingKeyFingerprintsSha256 is not set, a nonComplianceDetail with
+   * INVALID_VALUE is reported.
    * @return value or {@code null} for none
    */
   public ExtensionConfig getExtensionConfig() {
@@ -382,7 +404,12 @@ public final class ApplicationPolicy extends com.google.api.client.json.GenericJ
 
   /**
    * Configuration to enable this app as an extension app, with the capability of interacting with
-   * Android Device Policy offline.This field can be set for at most one app.
+   * Android Device Policy offline.This field can be set for at most one app.The signing key
+   * certificate fingerprint of the app on the device must match one of the entries in
+   * signingKeyFingerprintsSha256 or the signing key certificate fingerprints obtained from Play
+   * Store for the app to be able to communicate with Android Device Policy. If the app is not on
+   * Play Store and signingKeyFingerprintsSha256 is not set, a nonComplianceDetail with
+   * INVALID_VALUE is reported.
    * @param extensionConfig extensionConfig or {@code null} for none
    */
   public ApplicationPolicy setExtensionConfig(ExtensionConfig extensionConfig) {
@@ -570,6 +597,33 @@ public final class ApplicationPolicy extends com.google.api.client.json.GenericJ
    */
   public ApplicationPolicy setPermissionGrants(java.util.List<PermissionGrant> permissionGrants) {
     this.permissionGrants = permissionGrants;
+    return this;
+  }
+
+  /**
+   * Optional. ID of the preferential network the application uses. There must be a configuration
+   * for the specified network ID in preferentialNetworkServiceConfigs. If set to
+   * PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the application will use the default network ID specified
+   * in defaultPreferentialNetworkId. See the documentation of defaultPreferentialNetworkId for the
+   * list of apps excluded from this defaulting. This applies on both work profiles and fully
+   * managed devices on Android 13 and above.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getPreferentialNetworkId() {
+    return preferentialNetworkId;
+  }
+
+  /**
+   * Optional. ID of the preferential network the application uses. There must be a configuration
+   * for the specified network ID in preferentialNetworkServiceConfigs. If set to
+   * PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the application will use the default network ID specified
+   * in defaultPreferentialNetworkId. See the documentation of defaultPreferentialNetworkId for the
+   * list of apps excluded from this defaulting. This applies on both work profiles and fully
+   * managed devices on Android 13 and above.
+   * @param preferentialNetworkId preferentialNetworkId or {@code null} for none
+   */
+  public ApplicationPolicy setPreferentialNetworkId(java.lang.String preferentialNetworkId) {
+    this.preferentialNetworkId = preferentialNetworkId;
     return this;
   }
 

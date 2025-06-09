@@ -44,6 +44,13 @@ public final class GoogleCloudAiplatformV1beta1EvaluateInstancesResponse extends
   private GoogleCloudAiplatformV1beta1CoherenceResult coherenceResult;
 
   /**
+   * Translation metrics. Result for Comet metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1CometResult cometResult;
+
+  /**
    * Auto metric evaluation results. Results for exact match metric.
    * The value may be {@code null}.
    */
@@ -71,6 +78,13 @@ public final class GoogleCloudAiplatformV1beta1EvaluateInstancesResponse extends
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1GroundednessResult groundednessResult;
+
+  /**
+   * Result for Metricx metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1MetricxResult metricxResult;
 
   /**
    * Result for pairwise metric.
@@ -136,6 +150,13 @@ public final class GoogleCloudAiplatformV1beta1EvaluateInstancesResponse extends
   private GoogleCloudAiplatformV1beta1RougeResults rougeResults;
 
   /**
+   * Result for rubric based instruction following metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RubricBasedInstructionFollowingResult rubricBasedInstructionFollowingResult;
+
+  /**
    * Result for safety metric.
    * The value may be {@code null}.
    */
@@ -192,6 +213,48 @@ public final class GoogleCloudAiplatformV1beta1EvaluateInstancesResponse extends
   private GoogleCloudAiplatformV1beta1ToolParameterKVMatchResults toolParameterKvMatchResults;
 
   /**
+   * Result for trajectory any order match metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1TrajectoryAnyOrderMatchResults trajectoryAnyOrderMatchResults;
+
+  /**
+   * Result for trajectory exact match metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1TrajectoryExactMatchResults trajectoryExactMatchResults;
+
+  /**
+   * Result for trajectory in order match metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1TrajectoryInOrderMatchResults trajectoryInOrderMatchResults;
+
+  /**
+   * Result for trajectory precision metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1TrajectoryPrecisionResults trajectoryPrecisionResults;
+
+  /**
+   * Results for trajectory recall metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1TrajectoryRecallResults trajectoryRecallResults;
+
+  /**
+   * Results for trajectory single tool use metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1TrajectorySingleToolUseResults trajectorySingleToolUseResults;
+
+  /**
    * Results for bleu metric.
    * @return value or {@code null} for none
    */
@@ -222,6 +285,23 @@ public final class GoogleCloudAiplatformV1beta1EvaluateInstancesResponse extends
    */
   public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setCoherenceResult(GoogleCloudAiplatformV1beta1CoherenceResult coherenceResult) {
     this.coherenceResult = coherenceResult;
+    return this;
+  }
+
+  /**
+   * Translation metrics. Result for Comet metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1CometResult getCometResult() {
+    return cometResult;
+  }
+
+  /**
+   * Translation metrics. Result for Comet metric.
+   * @param cometResult cometResult or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setCometResult(GoogleCloudAiplatformV1beta1CometResult cometResult) {
+    this.cometResult = cometResult;
     return this;
   }
 
@@ -292,6 +372,23 @@ public final class GoogleCloudAiplatformV1beta1EvaluateInstancesResponse extends
    */
   public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setGroundednessResult(GoogleCloudAiplatformV1beta1GroundednessResult groundednessResult) {
     this.groundednessResult = groundednessResult;
+    return this;
+  }
+
+  /**
+   * Result for Metricx metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1MetricxResult getMetricxResult() {
+    return metricxResult;
+  }
+
+  /**
+   * Result for Metricx metric.
+   * @param metricxResult metricxResult or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setMetricxResult(GoogleCloudAiplatformV1beta1MetricxResult metricxResult) {
+    this.metricxResult = metricxResult;
     return this;
   }
 
@@ -449,6 +546,23 @@ public final class GoogleCloudAiplatformV1beta1EvaluateInstancesResponse extends
   }
 
   /**
+   * Result for rubric based instruction following metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RubricBasedInstructionFollowingResult getRubricBasedInstructionFollowingResult() {
+    return rubricBasedInstructionFollowingResult;
+  }
+
+  /**
+   * Result for rubric based instruction following metric.
+   * @param rubricBasedInstructionFollowingResult rubricBasedInstructionFollowingResult or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setRubricBasedInstructionFollowingResult(GoogleCloudAiplatformV1beta1RubricBasedInstructionFollowingResult rubricBasedInstructionFollowingResult) {
+    this.rubricBasedInstructionFollowingResult = rubricBasedInstructionFollowingResult;
+    return this;
+  }
+
+  /**
    * Result for safety metric.
    * @return value or {@code null} for none
    */
@@ -581,6 +695,108 @@ public final class GoogleCloudAiplatformV1beta1EvaluateInstancesResponse extends
    */
   public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setToolParameterKvMatchResults(GoogleCloudAiplatformV1beta1ToolParameterKVMatchResults toolParameterKvMatchResults) {
     this.toolParameterKvMatchResults = toolParameterKvMatchResults;
+    return this;
+  }
+
+  /**
+   * Result for trajectory any order match metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1TrajectoryAnyOrderMatchResults getTrajectoryAnyOrderMatchResults() {
+    return trajectoryAnyOrderMatchResults;
+  }
+
+  /**
+   * Result for trajectory any order match metric.
+   * @param trajectoryAnyOrderMatchResults trajectoryAnyOrderMatchResults or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setTrajectoryAnyOrderMatchResults(GoogleCloudAiplatformV1beta1TrajectoryAnyOrderMatchResults trajectoryAnyOrderMatchResults) {
+    this.trajectoryAnyOrderMatchResults = trajectoryAnyOrderMatchResults;
+    return this;
+  }
+
+  /**
+   * Result for trajectory exact match metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1TrajectoryExactMatchResults getTrajectoryExactMatchResults() {
+    return trajectoryExactMatchResults;
+  }
+
+  /**
+   * Result for trajectory exact match metric.
+   * @param trajectoryExactMatchResults trajectoryExactMatchResults or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setTrajectoryExactMatchResults(GoogleCloudAiplatformV1beta1TrajectoryExactMatchResults trajectoryExactMatchResults) {
+    this.trajectoryExactMatchResults = trajectoryExactMatchResults;
+    return this;
+  }
+
+  /**
+   * Result for trajectory in order match metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1TrajectoryInOrderMatchResults getTrajectoryInOrderMatchResults() {
+    return trajectoryInOrderMatchResults;
+  }
+
+  /**
+   * Result for trajectory in order match metric.
+   * @param trajectoryInOrderMatchResults trajectoryInOrderMatchResults or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setTrajectoryInOrderMatchResults(GoogleCloudAiplatformV1beta1TrajectoryInOrderMatchResults trajectoryInOrderMatchResults) {
+    this.trajectoryInOrderMatchResults = trajectoryInOrderMatchResults;
+    return this;
+  }
+
+  /**
+   * Result for trajectory precision metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1TrajectoryPrecisionResults getTrajectoryPrecisionResults() {
+    return trajectoryPrecisionResults;
+  }
+
+  /**
+   * Result for trajectory precision metric.
+   * @param trajectoryPrecisionResults trajectoryPrecisionResults or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setTrajectoryPrecisionResults(GoogleCloudAiplatformV1beta1TrajectoryPrecisionResults trajectoryPrecisionResults) {
+    this.trajectoryPrecisionResults = trajectoryPrecisionResults;
+    return this;
+  }
+
+  /**
+   * Results for trajectory recall metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1TrajectoryRecallResults getTrajectoryRecallResults() {
+    return trajectoryRecallResults;
+  }
+
+  /**
+   * Results for trajectory recall metric.
+   * @param trajectoryRecallResults trajectoryRecallResults or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setTrajectoryRecallResults(GoogleCloudAiplatformV1beta1TrajectoryRecallResults trajectoryRecallResults) {
+    this.trajectoryRecallResults = trajectoryRecallResults;
+    return this;
+  }
+
+  /**
+   * Results for trajectory single tool use metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1TrajectorySingleToolUseResults getTrajectorySingleToolUseResults() {
+    return trajectorySingleToolUseResults;
+  }
+
+  /**
+   * Results for trajectory single tool use metric.
+   * @param trajectorySingleToolUseResults trajectorySingleToolUseResults or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EvaluateInstancesResponse setTrajectorySingleToolUseResults(GoogleCloudAiplatformV1beta1TrajectorySingleToolUseResults trajectorySingleToolUseResults) {
+    this.trajectorySingleToolUseResults = trajectorySingleToolUseResults;
     return this;
   }
 

@@ -30,21 +30,21 @@ package com.google.api.services.chat.v1.model;
 public final class Emoji extends com.google.api.client.json.GenericJson {
 
   /**
-   * Output only. A custom emoji.
+   * A custom emoji.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private CustomEmoji customEmoji;
 
   /**
-   * A basic emoji represented by a unicode string.
+   * Optional. A basic emoji represented by a unicode string.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String unicode;
 
   /**
-   * Output only. A custom emoji.
+   * A custom emoji.
    * @return value or {@code null} for none
    */
   public CustomEmoji getCustomEmoji() {
@@ -52,7 +52,7 @@ public final class Emoji extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. A custom emoji.
+   * A custom emoji.
    * @param customEmoji customEmoji or {@code null} for none
    */
   public Emoji setCustomEmoji(CustomEmoji customEmoji) {
@@ -61,7 +61,7 @@ public final class Emoji extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A basic emoji represented by a unicode string.
+   * Optional. A basic emoji represented by a unicode string.
    * @return value or {@code null} for none
    */
   public java.lang.String getUnicode() {
@@ -69,7 +69,7 @@ public final class Emoji extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A basic emoji represented by a unicode string.
+   * Optional. A basic emoji represented by a unicode string.
    * @param unicode unicode or {@code null} for none
    */
   public Emoji setUnicode(java.lang.String unicode) {

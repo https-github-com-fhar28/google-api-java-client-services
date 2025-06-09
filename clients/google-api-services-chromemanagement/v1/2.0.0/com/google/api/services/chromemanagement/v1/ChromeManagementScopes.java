@@ -26,10 +26,16 @@ public class ChromeManagementScopes {
   /** See detailed information about apps installed on Chrome browsers and devices managed by your organization. */
   public static final String CHROME_MANAGEMENT_APPDETAILS_READONLY = "https://www.googleapis.com/auth/chrome.management.appdetails.readonly";
 
+  /** See, edit, delete, and take other necessary actions on Chrome browser profiles managed by your organization. */
+  public static final String CHROME_MANAGEMENT_PROFILES = "https://www.googleapis.com/auth/chrome.management.profiles";
+
+  /** See Chrome browser profiles managed by your organization. */
+  public static final String CHROME_MANAGEMENT_PROFILES_READONLY = "https://www.googleapis.com/auth/chrome.management.profiles.readonly";
+
   /** See reports about devices and Chrome browsers managed within your organization. */
   public static final String CHROME_MANAGEMENT_REPORTS_READONLY = "https://www.googleapis.com/auth/chrome.management.reports.readonly";
 
-  /** See basic device and telemetry information collected from Chrome OS devices or users managed within your organization. */
+  /** See basic device and telemetry information collected from ChromeOS devices or users managed within your organization. */
   public static final String CHROME_MANAGEMENT_TELEMETRY_READONLY = "https://www.googleapis.com/auth/chrome.management.telemetry.readonly";
 
   /**
@@ -40,6 +46,8 @@ public class ChromeManagementScopes {
   public static java.util.Set<String> all() {
     java.util.Set<String> set = new java.util.HashSet<String>();
     set.add(CHROME_MANAGEMENT_APPDETAILS_READONLY);
+    set.add(CHROME_MANAGEMENT_PROFILES);
+    set.add(CHROME_MANAGEMENT_PROFILES_READONLY);
     set.add(CHROME_MANAGEMENT_REPORTS_READONLY);
     set.add(CHROME_MANAGEMENT_TELEMETRY_READONLY);
     return java.util.Collections.unmodifiableSet(set);

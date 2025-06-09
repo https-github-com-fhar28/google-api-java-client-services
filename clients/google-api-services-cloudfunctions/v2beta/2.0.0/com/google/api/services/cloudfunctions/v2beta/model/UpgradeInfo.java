@@ -17,7 +17,7 @@
 package com.google.api.services.cloudfunctions.v2beta.model;
 
 /**
- * Information related to: * A function's eligibility for 1st Gen to 2nd Gen migration * Current
+ * Information related to: * A function's eligibility for 1st Gen to 2nd Gen migration. * Current
  * state of migration for function undergoing migration.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is

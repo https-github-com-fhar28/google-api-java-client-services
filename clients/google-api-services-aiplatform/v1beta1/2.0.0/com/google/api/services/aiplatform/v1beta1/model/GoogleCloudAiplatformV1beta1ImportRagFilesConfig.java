@@ -39,11 +39,38 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   private GoogleCloudAiplatformV1beta1GcsSource gcsSource;
 
   /**
+   * Optional. The max number of queries per minute that the indexing pipeline job is allowed to
+   * make to the embedding model specified in the project. Please follow the quota usage guideline
+   * of the embedding model you use to set the value properly.If this value is not specified,
+   * max_embedding_requests_per_min will be used by indexing pipeline job as the global limit.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer globalMaxEmbeddingRequestsPerMin;
+
+  /**
    * Google Drive location. Supports importing individual files as well as Google Drive folders.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1GoogleDriveSource googleDriveSource;
+
+  /**
+   * The BigQuery destination to write import result to. It should be a bigquery table resource name
+   * (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does not
+   * exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1BigQueryDestination importResultBigquerySink;
+
+  /**
+   * The Cloud Storage path to write import result to.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1GcsDestination importResultGcsSink;
 
   /**
    * Jira queries with their corresponding authentication.
@@ -64,16 +91,18 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
 
   /**
    * The BigQuery destination to write partial failures to. It should be a bigquery table resource
-   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). If the dataset id does not exist, it will
-   * be created. If the table does not exist, it will be created with the expected schema. If the
-   * table exists, the schema will be validated and data will be added to this existing table.
+   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does
+   * not exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table. Deprecated. Prefer to use
+   * `import_result_bq_sink`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1BigQueryDestination partialFailureBigquerySink;
 
   /**
-   * The Cloud Storage path to write partial failures to.
+   * The Cloud Storage path to write partial failures to. Deprecated. Prefer to use
+   * `import_result_gcs_sink`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -87,11 +116,29 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   private GoogleCloudAiplatformV1beta1RagFileChunkingConfig ragFileChunkingConfig;
 
   /**
-   * Specifies the parsing config for RagFiles.
+   * Optional. Specifies the parsing config for RagFiles. RAG will use the default parser if this
+   * field is not set.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1RagFileParsingConfig ragFileParsingConfig;
+
+  /**
+   * Specifies the transformation config for RagFiles.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RagFileTransformationConfig ragFileTransformationConfig;
+
+  /**
+   * Rebuilds the ANN index to optimize for recall on the imported data. Only applicable for
+   * RagCorpora running on RagManagedDb with `retrieval_strategy` set to `ANN`. The rebuild will be
+   * performed using the existing ANN config set on the RagCorpus. To change the ANN config, please
+   * use the UpdateRagCorpus API. Default is false, i.e., index is not rebuilt.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean rebuildAnnIndex;
 
   /**
    * SharePoint sources.
@@ -129,6 +176,29 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
+   * Optional. The max number of queries per minute that the indexing pipeline job is allowed to
+   * make to the embedding model specified in the project. Please follow the quota usage guideline
+   * of the embedding model you use to set the value properly.If this value is not specified,
+   * max_embedding_requests_per_min will be used by indexing pipeline job as the global limit.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getGlobalMaxEmbeddingRequestsPerMin() {
+    return globalMaxEmbeddingRequestsPerMin;
+  }
+
+  /**
+   * Optional. The max number of queries per minute that the indexing pipeline job is allowed to
+   * make to the embedding model specified in the project. Please follow the quota usage guideline
+   * of the embedding model you use to set the value properly.If this value is not specified,
+   * max_embedding_requests_per_min will be used by indexing pipeline job as the global limit.
+   * @param globalMaxEmbeddingRequestsPerMin globalMaxEmbeddingRequestsPerMin or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setGlobalMaxEmbeddingRequestsPerMin(java.lang.Integer globalMaxEmbeddingRequestsPerMin) {
+    this.globalMaxEmbeddingRequestsPerMin = globalMaxEmbeddingRequestsPerMin;
+    return this;
+  }
+
+  /**
    * Google Drive location. Supports importing individual files as well as Google Drive folders.
    * @return value or {@code null} for none
    */
@@ -142,6 +212,46 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
    */
   public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setGoogleDriveSource(GoogleCloudAiplatformV1beta1GoogleDriveSource googleDriveSource) {
     this.googleDriveSource = googleDriveSource;
+    return this;
+  }
+
+  /**
+   * The BigQuery destination to write import result to. It should be a bigquery table resource name
+   * (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does not
+   * exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1BigQueryDestination getImportResultBigquerySink() {
+    return importResultBigquerySink;
+  }
+
+  /**
+   * The BigQuery destination to write import result to. It should be a bigquery table resource name
+   * (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does not
+   * exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table.
+   * @param importResultBigquerySink importResultBigquerySink or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setImportResultBigquerySink(GoogleCloudAiplatformV1beta1BigQueryDestination importResultBigquerySink) {
+    this.importResultBigquerySink = importResultBigquerySink;
+    return this;
+  }
+
+  /**
+   * The Cloud Storage path to write import result to.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1GcsDestination getImportResultGcsSink() {
+    return importResultGcsSink;
+  }
+
+  /**
+   * The Cloud Storage path to write import result to.
+   * @param importResultGcsSink importResultGcsSink or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setImportResultGcsSink(GoogleCloudAiplatformV1beta1GcsDestination importResultGcsSink) {
+    this.importResultGcsSink = importResultGcsSink;
     return this;
   }
 
@@ -187,9 +297,10 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
 
   /**
    * The BigQuery destination to write partial failures to. It should be a bigquery table resource
-   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). If the dataset id does not exist, it will
-   * be created. If the table does not exist, it will be created with the expected schema. If the
-   * table exists, the schema will be validated and data will be added to this existing table.
+   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does
+   * not exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table. Deprecated. Prefer to use
+   * `import_result_bq_sink`.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1BigQueryDestination getPartialFailureBigquerySink() {
@@ -198,9 +309,10 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
 
   /**
    * The BigQuery destination to write partial failures to. It should be a bigquery table resource
-   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). If the dataset id does not exist, it will
-   * be created. If the table does not exist, it will be created with the expected schema. If the
-   * table exists, the schema will be validated and data will be added to this existing table.
+   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does
+   * not exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table. Deprecated. Prefer to use
+   * `import_result_bq_sink`.
    * @param partialFailureBigquerySink partialFailureBigquerySink or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setPartialFailureBigquerySink(GoogleCloudAiplatformV1beta1BigQueryDestination partialFailureBigquerySink) {
@@ -209,7 +321,8 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
-   * The Cloud Storage path to write partial failures to.
+   * The Cloud Storage path to write partial failures to. Deprecated. Prefer to use
+   * `import_result_gcs_sink`.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1GcsDestination getPartialFailureGcsSink() {
@@ -217,7 +330,8 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
-   * The Cloud Storage path to write partial failures to.
+   * The Cloud Storage path to write partial failures to. Deprecated. Prefer to use
+   * `import_result_gcs_sink`.
    * @param partialFailureGcsSink partialFailureGcsSink or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setPartialFailureGcsSink(GoogleCloudAiplatformV1beta1GcsDestination partialFailureGcsSink) {
@@ -243,7 +357,8 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
-   * Specifies the parsing config for RagFiles.
+   * Optional. Specifies the parsing config for RagFiles. RAG will use the default parser if this
+   * field is not set.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1RagFileParsingConfig getRagFileParsingConfig() {
@@ -251,11 +366,52 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
-   * Specifies the parsing config for RagFiles.
+   * Optional. Specifies the parsing config for RagFiles. RAG will use the default parser if this
+   * field is not set.
    * @param ragFileParsingConfig ragFileParsingConfig or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setRagFileParsingConfig(GoogleCloudAiplatformV1beta1RagFileParsingConfig ragFileParsingConfig) {
     this.ragFileParsingConfig = ragFileParsingConfig;
+    return this;
+  }
+
+  /**
+   * Specifies the transformation config for RagFiles.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagFileTransformationConfig getRagFileTransformationConfig() {
+    return ragFileTransformationConfig;
+  }
+
+  /**
+   * Specifies the transformation config for RagFiles.
+   * @param ragFileTransformationConfig ragFileTransformationConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setRagFileTransformationConfig(GoogleCloudAiplatformV1beta1RagFileTransformationConfig ragFileTransformationConfig) {
+    this.ragFileTransformationConfig = ragFileTransformationConfig;
+    return this;
+  }
+
+  /**
+   * Rebuilds the ANN index to optimize for recall on the imported data. Only applicable for
+   * RagCorpora running on RagManagedDb with `retrieval_strategy` set to `ANN`. The rebuild will be
+   * performed using the existing ANN config set on the RagCorpus. To change the ANN config, please
+   * use the UpdateRagCorpus API. Default is false, i.e., index is not rebuilt.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getRebuildAnnIndex() {
+    return rebuildAnnIndex;
+  }
+
+  /**
+   * Rebuilds the ANN index to optimize for recall on the imported data. Only applicable for
+   * RagCorpora running on RagManagedDb with `retrieval_strategy` set to `ANN`. The rebuild will be
+   * performed using the existing ANN config set on the RagCorpus. To change the ANN config, please
+   * use the UpdateRagCorpus API. Default is false, i.e., index is not rebuilt.
+   * @param rebuildAnnIndex rebuildAnnIndex or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setRebuildAnnIndex(java.lang.Boolean rebuildAnnIndex) {
+    this.rebuildAnnIndex = rebuildAnnIndex;
     return this;
   }
 

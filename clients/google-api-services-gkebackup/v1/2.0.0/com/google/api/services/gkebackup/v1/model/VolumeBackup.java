@@ -77,6 +77,20 @@ public final class VolumeBackup extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
+   * Output only. [Output Only] Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
+
+  /**
+   * Output only. [Output Only] Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzs;
+
+  /**
    * Output only. A reference to the source Kubernetes PVC from which this VolumeBackup was created.
    * The value may be {@code null}.
    */
@@ -92,6 +106,8 @@ public final class VolumeBackup extends com.google.api.client.json.GenericJson {
 
   /**
    * Output only. A human readable message explaining why the VolumeBackup is in its current state.
+   * This field is only meant for human consumption and should not be used programmatically as this
+   * field is not guaranteed to be consistent.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -240,6 +256,40 @@ public final class VolumeBackup extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. [Output Only] Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only. [Output Only] Reserved for future use.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public VolumeBackup setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
+    return this;
+  }
+
+  /**
+   * Output only. [Output Only] Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzs() {
+    return satisfiesPzs;
+  }
+
+  /**
+   * Output only. [Output Only] Reserved for future use.
+   * @param satisfiesPzs satisfiesPzs or {@code null} for none
+   */
+  public VolumeBackup setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
+    this.satisfiesPzs = satisfiesPzs;
+    return this;
+  }
+
+  /**
    * Output only. A reference to the source Kubernetes PVC from which this VolumeBackup was created.
    * @return value or {@code null} for none
    */
@@ -275,6 +325,8 @@ public final class VolumeBackup extends com.google.api.client.json.GenericJson {
 
   /**
    * Output only. A human readable message explaining why the VolumeBackup is in its current state.
+   * This field is only meant for human consumption and should not be used programmatically as this
+   * field is not guaranteed to be consistent.
    * @return value or {@code null} for none
    */
   public java.lang.String getStateMessage() {
@@ -283,6 +335,8 @@ public final class VolumeBackup extends com.google.api.client.json.GenericJson {
 
   /**
    * Output only. A human readable message explaining why the VolumeBackup is in its current state.
+   * This field is only meant for human consumption and should not be used programmatically as this
+   * field is not guaranteed to be consistent.
    * @param stateMessage stateMessage or {@code null} for none
    */
   public VolumeBackup setStateMessage(java.lang.String stateMessage) {

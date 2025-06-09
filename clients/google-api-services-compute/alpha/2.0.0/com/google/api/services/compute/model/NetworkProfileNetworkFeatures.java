@@ -72,6 +72,13 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
   private java.lang.String allowCloudRouter;
 
   /**
+   * Specifies whether default NIC attachment is allowed.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String allowDefaultNicAttachment;
+
+  /**
    * Specifies whether VMs are allowed to have external IP access on network interfaces connected to
    * this VPC.
    * The value may be {@code null}.
@@ -87,6 +94,13 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
   private java.lang.String allowInterconnect;
 
   /**
+   * Specifies whether IP forwarding is allowed.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String allowIpForwarding;
+
+  /**
    * Specifies whether cloud load balancing is allowed.
    * The value may be {@code null}.
    */
@@ -99,6 +113,20 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
    */
   @com.google.api.client.util.Key
   private java.lang.String allowMultiNicInSameNetwork;
+
+  /**
+   * Specifies whether NCC is allowed.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String allowNcc;
+
+  /**
+   * Specifies whether VM network migration is allowed.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String allowNetworkMigration;
 
   /**
    * Specifies whether Packet Mirroring 1.0 is supported.
@@ -157,20 +185,6 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
   private java.lang.String allowVpn;
 
   /**
-   * Specifies which subnetwork purposes are supported.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.util.List<java.lang.String> allowedSubnetPurposes;
-
-  /**
-   * Specifies which subnetwork stack types are supported.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.util.List<java.lang.String> allowedSubnetStackTypes;
-
-  /**
    * If set, limits the interface types that the network supports. If empty, all interface types are
    * supported.
    * The value may be {@code null}.
@@ -179,11 +193,32 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
   private java.util.List<java.lang.String> interfaceTypes;
 
   /**
-   * Specifies which type of multicast is supported.
+   * Specifies which subnetwork purposes are supported.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.lang.String multicast;
+  private java.util.List<java.lang.String> subnetPurposes;
+
+  /**
+   * Specifies which subnetwork stack types are supported.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> subnetStackTypes;
+
+  /**
+   * Specifies which subnetwork purposes are supported.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> subnetworkPurposes;
+
+  /**
+   * Specifies which subnetwork stack types are supported.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> subnetworkStackTypes;
 
   /**
    * Specifies which type of unicast is supported.
@@ -295,6 +330,23 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
   }
 
   /**
+   * Specifies whether default NIC attachment is allowed.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getAllowDefaultNicAttachment() {
+    return allowDefaultNicAttachment;
+  }
+
+  /**
+   * Specifies whether default NIC attachment is allowed.
+   * @param allowDefaultNicAttachment allowDefaultNicAttachment or {@code null} for none
+   */
+  public NetworkProfileNetworkFeatures setAllowDefaultNicAttachment(java.lang.String allowDefaultNicAttachment) {
+    this.allowDefaultNicAttachment = allowDefaultNicAttachment;
+    return this;
+  }
+
+  /**
    * Specifies whether VMs are allowed to have external IP access on network interfaces connected to
    * this VPC.
    * @return value or {@code null} for none
@@ -331,6 +383,23 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
   }
 
   /**
+   * Specifies whether IP forwarding is allowed.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getAllowIpForwarding() {
+    return allowIpForwarding;
+  }
+
+  /**
+   * Specifies whether IP forwarding is allowed.
+   * @param allowIpForwarding allowIpForwarding or {@code null} for none
+   */
+  public NetworkProfileNetworkFeatures setAllowIpForwarding(java.lang.String allowIpForwarding) {
+    this.allowIpForwarding = allowIpForwarding;
+    return this;
+  }
+
+  /**
    * Specifies whether cloud load balancing is allowed.
    * @return value or {@code null} for none
    */
@@ -361,6 +430,40 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
    */
   public NetworkProfileNetworkFeatures setAllowMultiNicInSameNetwork(java.lang.String allowMultiNicInSameNetwork) {
     this.allowMultiNicInSameNetwork = allowMultiNicInSameNetwork;
+    return this;
+  }
+
+  /**
+   * Specifies whether NCC is allowed.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getAllowNcc() {
+    return allowNcc;
+  }
+
+  /**
+   * Specifies whether NCC is allowed.
+   * @param allowNcc allowNcc or {@code null} for none
+   */
+  public NetworkProfileNetworkFeatures setAllowNcc(java.lang.String allowNcc) {
+    this.allowNcc = allowNcc;
+    return this;
+  }
+
+  /**
+   * Specifies whether VM network migration is allowed.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getAllowNetworkMigration() {
+    return allowNetworkMigration;
+  }
+
+  /**
+   * Specifies whether VM network migration is allowed.
+   * @param allowNetworkMigration allowNetworkMigration or {@code null} for none
+   */
+  public NetworkProfileNetworkFeatures setAllowNetworkMigration(java.lang.String allowNetworkMigration) {
+    this.allowNetworkMigration = allowNetworkMigration;
     return this;
   }
 
@@ -501,40 +604,6 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
   }
 
   /**
-   * Specifies which subnetwork purposes are supported.
-   * @return value or {@code null} for none
-   */
-  public java.util.List<java.lang.String> getAllowedSubnetPurposes() {
-    return allowedSubnetPurposes;
-  }
-
-  /**
-   * Specifies which subnetwork purposes are supported.
-   * @param allowedSubnetPurposes allowedSubnetPurposes or {@code null} for none
-   */
-  public NetworkProfileNetworkFeatures setAllowedSubnetPurposes(java.util.List<java.lang.String> allowedSubnetPurposes) {
-    this.allowedSubnetPurposes = allowedSubnetPurposes;
-    return this;
-  }
-
-  /**
-   * Specifies which subnetwork stack types are supported.
-   * @return value or {@code null} for none
-   */
-  public java.util.List<java.lang.String> getAllowedSubnetStackTypes() {
-    return allowedSubnetStackTypes;
-  }
-
-  /**
-   * Specifies which subnetwork stack types are supported.
-   * @param allowedSubnetStackTypes allowedSubnetStackTypes or {@code null} for none
-   */
-  public NetworkProfileNetworkFeatures setAllowedSubnetStackTypes(java.util.List<java.lang.String> allowedSubnetStackTypes) {
-    this.allowedSubnetStackTypes = allowedSubnetStackTypes;
-    return this;
-  }
-
-  /**
    * If set, limits the interface types that the network supports. If empty, all interface types are
    * supported.
    * @return value or {@code null} for none
@@ -554,19 +623,70 @@ public final class NetworkProfileNetworkFeatures extends com.google.api.client.j
   }
 
   /**
-   * Specifies which type of multicast is supported.
+   * Specifies which subnetwork purposes are supported.
    * @return value or {@code null} for none
    */
-  public java.lang.String getMulticast() {
-    return multicast;
+  public java.util.List<java.lang.String> getSubnetPurposes() {
+    return subnetPurposes;
   }
 
   /**
-   * Specifies which type of multicast is supported.
-   * @param multicast multicast or {@code null} for none
+   * Specifies which subnetwork purposes are supported.
+   * @param subnetPurposes subnetPurposes or {@code null} for none
    */
-  public NetworkProfileNetworkFeatures setMulticast(java.lang.String multicast) {
-    this.multicast = multicast;
+  public NetworkProfileNetworkFeatures setSubnetPurposes(java.util.List<java.lang.String> subnetPurposes) {
+    this.subnetPurposes = subnetPurposes;
+    return this;
+  }
+
+  /**
+   * Specifies which subnetwork stack types are supported.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getSubnetStackTypes() {
+    return subnetStackTypes;
+  }
+
+  /**
+   * Specifies which subnetwork stack types are supported.
+   * @param subnetStackTypes subnetStackTypes or {@code null} for none
+   */
+  public NetworkProfileNetworkFeatures setSubnetStackTypes(java.util.List<java.lang.String> subnetStackTypes) {
+    this.subnetStackTypes = subnetStackTypes;
+    return this;
+  }
+
+  /**
+   * Specifies which subnetwork purposes are supported.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getSubnetworkPurposes() {
+    return subnetworkPurposes;
+  }
+
+  /**
+   * Specifies which subnetwork purposes are supported.
+   * @param subnetworkPurposes subnetworkPurposes or {@code null} for none
+   */
+  public NetworkProfileNetworkFeatures setSubnetworkPurposes(java.util.List<java.lang.String> subnetworkPurposes) {
+    this.subnetworkPurposes = subnetworkPurposes;
+    return this;
+  }
+
+  /**
+   * Specifies which subnetwork stack types are supported.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getSubnetworkStackTypes() {
+    return subnetworkStackTypes;
+  }
+
+  /**
+   * Specifies which subnetwork stack types are supported.
+   * @param subnetworkStackTypes subnetworkStackTypes or {@code null} for none
+   */
+  public NetworkProfileNetworkFeatures setSubnetworkStackTypes(java.util.List<java.lang.String> subnetworkStackTypes) {
+    this.subnetworkStackTypes = subnetworkStackTypes;
     return this;
   }
 

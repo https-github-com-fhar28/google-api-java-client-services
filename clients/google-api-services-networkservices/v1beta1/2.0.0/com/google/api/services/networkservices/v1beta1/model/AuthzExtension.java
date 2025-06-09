@@ -17,8 +17,8 @@
 package com.google.api.services.networkservices.v1beta1.model;
 
 /**
- * `AuthzExtension` is a resource that allows traffic forwarding to a callout backend to make an
- * authorization decision.
+ * `AuthzExtension` is a resource that allows traffic forwarding to a callout backend service to
+ * make an authorization decision.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Network Services API. For a detailed explanation see:
@@ -84,7 +84,7 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
   /**
    * Required. All backend services and forwarding rules referenced by this extension must share the
    * same load balancing scheme. Supported values: `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more
-   * information, refer to [Choosing a load balancer](https://cloud.google.com/load-
+   * information, refer to [Backend services overview](https://cloud.google.com/load-
    * balancing/docs/backend-service).
    * The value may be {@code null}.
    */
@@ -111,9 +111,8 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
   private java.lang.String name;
 
   /**
-   * Required. The reference to the service that runs the extension. Currently only callout
-   * extensions are supported here. To configure a callout extension, `service` must be a fully-
-   * qualified reference to a [backend
+   * Required. The reference to the service that runs the extension. To configure a callout
+   * extension, `service` must be a fully-qualified reference to a [backend
    * service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the
    * format: `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServi
    * ces/{backendService}` or `https://www.googleapis.com/compute/v1/projects/{project}/global/backe
@@ -140,7 +139,7 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
 
   /**
    * Optional. The format of communication supported by the callout extension. If not specified, the
-   * default is `EXT_PROC_GRPC`.
+   * default value `EXT_PROC_GRPC` is used.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -269,7 +268,7 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
   /**
    * Required. All backend services and forwarding rules referenced by this extension must share the
    * same load balancing scheme. Supported values: `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more
-   * information, refer to [Choosing a load balancer](https://cloud.google.com/load-
+   * information, refer to [Backend services overview](https://cloud.google.com/load-
    * balancing/docs/backend-service).
    * @return value or {@code null} for none
    */
@@ -280,7 +279,7 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
   /**
    * Required. All backend services and forwarding rules referenced by this extension must share the
    * same load balancing scheme. Supported values: `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more
-   * information, refer to [Choosing a load balancer](https://cloud.google.com/load-
+   * information, refer to [Backend services overview](https://cloud.google.com/load-
    * balancing/docs/backend-service).
    * @param loadBalancingScheme loadBalancingScheme or {@code null} for none
    */
@@ -334,9 +333,8 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Required. The reference to the service that runs the extension. Currently only callout
-   * extensions are supported here. To configure a callout extension, `service` must be a fully-
-   * qualified reference to a [backend
+   * Required. The reference to the service that runs the extension. To configure a callout
+   * extension, `service` must be a fully-qualified reference to a [backend
    * service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the
    * format: `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServi
    * ces/{backendService}` or `https://www.googleapis.com/compute/v1/projects/{project}/global/backe
@@ -348,9 +346,8 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Required. The reference to the service that runs the extension. Currently only callout
-   * extensions are supported here. To configure a callout extension, `service` must be a fully-
-   * qualified reference to a [backend
+   * Required. The reference to the service that runs the extension. To configure a callout
+   * extension, `service` must be a fully-qualified reference to a [backend
    * service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the
    * format: `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServi
    * ces/{backendService}` or `https://www.googleapis.com/compute/v1/projects/{project}/global/backe
@@ -400,7 +397,7 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
 
   /**
    * Optional. The format of communication supported by the callout extension. If not specified, the
-   * default is `EXT_PROC_GRPC`.
+   * default value `EXT_PROC_GRPC` is used.
    * @return value or {@code null} for none
    */
   public java.lang.String getWireFormat() {
@@ -409,7 +406,7 @@ public final class AuthzExtension extends com.google.api.client.json.GenericJson
 
   /**
    * Optional. The format of communication supported by the callout extension. If not specified, the
-   * default is `EXT_PROC_GRPC`.
+   * default value `EXT_PROC_GRPC` is used.
    * @param wireFormat wireFormat or {@code null} for none
    */
   public AuthzExtension setWireFormat(java.lang.String wireFormat) {

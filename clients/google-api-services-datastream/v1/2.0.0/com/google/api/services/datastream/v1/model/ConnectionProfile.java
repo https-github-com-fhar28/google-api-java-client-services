@@ -72,6 +72,13 @@ public final class ConnectionProfile extends com.google.api.client.json.GenericJ
   private java.util.Map<String, java.lang.String> labels;
 
   /**
+   * MongoDB Connection Profile configuration.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MongodbProfile mongodbProfile;
+
+  /**
    * MySQL ConnectionProfile configuration.
    * The value may be {@code null}.
    */
@@ -79,7 +86,7 @@ public final class ConnectionProfile extends com.google.api.client.json.GenericJ
   private MysqlProfile mysqlProfile;
 
   /**
-   * Output only. The resource's name.
+   * Output only. Identifier. The resource's name.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -105,6 +112,27 @@ public final class ConnectionProfile extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key
   private PrivateConnectivity privateConnectivity;
+
+  /**
+   * Salesforce Connection Profile configuration.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SalesforceProfile salesforceProfile;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzs;
 
   /**
    * SQLServer Connection Profile configuration.
@@ -230,6 +258,23 @@ public final class ConnectionProfile extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * MongoDB Connection Profile configuration.
+   * @return value or {@code null} for none
+   */
+  public MongodbProfile getMongodbProfile() {
+    return mongodbProfile;
+  }
+
+  /**
+   * MongoDB Connection Profile configuration.
+   * @param mongodbProfile mongodbProfile or {@code null} for none
+   */
+  public ConnectionProfile setMongodbProfile(MongodbProfile mongodbProfile) {
+    this.mongodbProfile = mongodbProfile;
+    return this;
+  }
+
+  /**
    * MySQL ConnectionProfile configuration.
    * @return value or {@code null} for none
    */
@@ -247,7 +292,7 @@ public final class ConnectionProfile extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Output only. The resource's name.
+   * Output only. Identifier. The resource's name.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -255,7 +300,7 @@ public final class ConnectionProfile extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Output only. The resource's name.
+   * Output only. Identifier. The resource's name.
    * @param name name or {@code null} for none
    */
   public ConnectionProfile setName(java.lang.String name) {
@@ -311,6 +356,57 @@ public final class ConnectionProfile extends com.google.api.client.json.GenericJ
    */
   public ConnectionProfile setPrivateConnectivity(PrivateConnectivity privateConnectivity) {
     this.privateConnectivity = privateConnectivity;
+    return this;
+  }
+
+  /**
+   * Salesforce Connection Profile configuration.
+   * @return value or {@code null} for none
+   */
+  public SalesforceProfile getSalesforceProfile() {
+    return salesforceProfile;
+  }
+
+  /**
+   * Salesforce Connection Profile configuration.
+   * @param salesforceProfile salesforceProfile or {@code null} for none
+   */
+  public ConnectionProfile setSalesforceProfile(SalesforceProfile salesforceProfile) {
+    this.salesforceProfile = salesforceProfile;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public ConnectionProfile setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzs() {
+    return satisfiesPzs;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzs satisfiesPzs or {@code null} for none
+   */
+  public ConnectionProfile setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
+    this.satisfiesPzs = satisfiesPzs;
     return this;
   }
 

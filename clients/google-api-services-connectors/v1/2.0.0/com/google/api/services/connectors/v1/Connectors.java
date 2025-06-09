@@ -723,6 +723,29 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -2251,31 +2274,42 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
           }
 
           /**
-           * Required. You can modify only the fields listed below. To lock/unlock a connection: *
+           * Required. The list of fields to update. Fields are specified relative to the
+           * connection. A field will be overwritten if it is in the mask. The field mask must not
+           * be empty, and it must not contain fields that are immutable or only set by the server.
+           * You can modify only the fields listed below. To lock/unlock a connection: *
            * `lock_config` To suspend/resume a connection: * `suspended` To update the connection
            * details: * `description` * `labels` * `connector_version` * `config_variables` *
            * `auth_config` * `destination_configs` * `node_config` * `log_config` * `ssl_config` *
-           * `eventing_enablement_type` * `eventing_config` * `auth_override_enabled`
+           * `eventing_enablement_type` * `eventing_config` * `auth_override_enabled` *
+           * `async_operations_enabled`
            */
           @com.google.api.client.util.Key
           private String updateMask;
 
-          /** Required. You can modify only the fields listed below. To lock/unlock a connection: * `lock_config`
-         To suspend/resume a connection: * `suspended` To update the connection details: * `description` *
-         `labels` * `connector_version` * `config_variables` * `auth_config` * `destination_configs` *
-         `node_config` * `log_config` * `ssl_config` * `eventing_enablement_type` * `eventing_config` *
-         `auth_override_enabled`
+          /** Required. The list of fields to update. Fields are specified relative to the connection. A field
+         will be overwritten if it is in the mask. The field mask must not be empty, and it must not contain
+         fields that are immutable or only set by the server. You can modify only the fields listed below.
+         To lock/unlock a connection: * `lock_config` To suspend/resume a connection: * `suspended` To
+         update the connection details: * `description` * `labels` * `connector_version` *
+         `config_variables` * `auth_config` * `destination_configs` * `node_config` * `log_config` *
+         `ssl_config` * `eventing_enablement_type` * `eventing_config` * `auth_override_enabled` *
+         `async_operations_enabled`
            */
           public String getUpdateMask() {
             return updateMask;
           }
 
           /**
-           * Required. You can modify only the fields listed below. To lock/unlock a connection: *
+           * Required. The list of fields to update. Fields are specified relative to the
+           * connection. A field will be overwritten if it is in the mask. The field mask must not
+           * be empty, and it must not contain fields that are immutable or only set by the server.
+           * You can modify only the fields listed below. To lock/unlock a connection: *
            * `lock_config` To suspend/resume a connection: * `suspended` To update the connection
            * details: * `description` * `labels` * `connector_version` * `config_variables` *
            * `auth_config` * `destination_configs` * `node_config` * `log_config` * `ssl_config` *
-           * `eventing_enablement_type` * `eventing_config` * `auth_override_enabled`
+           * `eventing_enablement_type` * `eventing_config` * `auth_override_enabled` *
+           * `async_operations_enabled`
            */
           public Patch setUpdateMask(String updateMask) {
             this.updateMask = updateMask;
@@ -3825,6 +3859,865 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
 
         }
         /**
+         * An accessor for creating requests from the EndUserAuthentications collection.
+         *
+         * <p>The typical use is:</p>
+         * <pre>
+         *   {@code Connectors connectors = new Connectors(...);}
+         *   {@code Connectors.EndUserAuthentications.List request = connectors.endUserAuthentications().list(parameters ...)}
+         * </pre>
+         *
+         * @return the resource collection
+         */
+        public EndUserAuthentications endUserAuthentications() {
+          return new EndUserAuthentications();
+        }
+
+        /**
+         * The "endUserAuthentications" collection of methods.
+         */
+        public class EndUserAuthentications {
+
+          /**
+           * Creates a new EndUserAuthentication in a given project,location and connection.
+           *
+           * Create a request for the method "endUserAuthentications.create".
+           *
+           * This request holds the parameters needed by the connectors server.  After setting any optional
+           * parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           *
+           * @param parent Required. Parent resource of the EndUserAuthentication, of the form:
+           *        `projects/locations/connections`
+           * @param content the {@link com.google.api.services.connectors.v1.model.EndUserAuthentication}
+           * @return the request
+           */
+          public Create create(java.lang.String parent, com.google.api.services.connectors.v1.model.EndUserAuthentication content) throws java.io.IOException {
+            Create result = new Create(parent, content);
+            initialize(result);
+            return result;
+          }
+
+          public class Create extends ConnectorsRequest<com.google.api.services.connectors.v1.model.Operation> {
+
+            private static final String REST_PATH = "v1/{+parent}/endUserAuthentications";
+
+            private final java.util.regex.Pattern PARENT_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/connections/[^/]+$");
+
+            /**
+             * Creates a new EndUserAuthentication in a given project,location and connection.
+             *
+             * Create a request for the method "endUserAuthentications.create".
+             *
+             * This request holds the parameters needed by the the connectors server.  After setting any
+             * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+             * <p> {@link
+             * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param parent Required. Parent resource of the EndUserAuthentication, of the form:
+           *        `projects/locations/connections`
+             * @param content the {@link com.google.api.services.connectors.v1.model.EndUserAuthentication}
+             * @since 1.13
+             */
+            protected Create(java.lang.String parent, com.google.api.services.connectors.v1.model.EndUserAuthentication content) {
+              super(Connectors.this, "POST", REST_PATH, content, com.google.api.services.connectors.v1.model.Operation.class);
+              this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+$");
+              }
+            }
+
+            @Override
+            public Create set$Xgafv(java.lang.String $Xgafv) {
+              return (Create) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Create setAccessToken(java.lang.String accessToken) {
+              return (Create) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Create setAlt(java.lang.String alt) {
+              return (Create) super.setAlt(alt);
+            }
+
+            @Override
+            public Create setCallback(java.lang.String callback) {
+              return (Create) super.setCallback(callback);
+            }
+
+            @Override
+            public Create setFields(java.lang.String fields) {
+              return (Create) super.setFields(fields);
+            }
+
+            @Override
+            public Create setKey(java.lang.String key) {
+              return (Create) super.setKey(key);
+            }
+
+            @Override
+            public Create setOauthToken(java.lang.String oauthToken) {
+              return (Create) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Create) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Create setQuotaUser(java.lang.String quotaUser) {
+              return (Create) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Create setUploadType(java.lang.String uploadType) {
+              return (Create) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Create setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Create) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Parent resource of the EndUserAuthentication, of the form:
+             * `projects/locations/connections`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String parent;
+
+            /** Required. Parent resource of the EndUserAuthentication, of the form:
+           `projects/locations/connections`
+             */
+            public java.lang.String getParent() {
+              return parent;
+            }
+
+            /**
+             * Required. Parent resource of the EndUserAuthentication, of the form:
+             * `projects/locations/connections`
+             */
+            public Create setParent(java.lang.String parent) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+$");
+              }
+              this.parent = parent;
+              return this;
+            }
+
+            /**
+             * Required. Identifier to assign to the EndUserAuthentication. Must be unique within
+             * scope of the parent resource.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String endUserAuthenticationId;
+
+            /** Required. Identifier to assign to the EndUserAuthentication. Must be unique within scope of the
+           parent resource.
+             */
+            public java.lang.String getEndUserAuthenticationId() {
+              return endUserAuthenticationId;
+            }
+
+            /**
+             * Required. Identifier to assign to the EndUserAuthentication. Must be unique within
+             * scope of the parent resource.
+             */
+            public Create setEndUserAuthenticationId(java.lang.String endUserAuthenticationId) {
+              this.endUserAuthenticationId = endUserAuthenticationId;
+              return this;
+            }
+
+            @Override
+            public Create set(String parameterName, Object value) {
+              return (Create) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Deletes a single EndUserAuthentication.
+           *
+           * Create a request for the method "endUserAuthentications.delete".
+           *
+           * This request holds the parameters needed by the connectors server.  After setting any optional
+           * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Resource name of the form: `projects/locations/connections/endUserAuthentication`
+           * @return the request
+           */
+          public Delete delete(java.lang.String name) throws java.io.IOException {
+            Delete result = new Delete(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Delete extends ConnectorsRequest<com.google.api.services.connectors.v1.model.Operation> {
+
+            private static final String REST_PATH = "v1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+
+            /**
+             * Deletes a single EndUserAuthentication.
+             *
+             * Create a request for the method "endUserAuthentications.delete".
+             *
+             * This request holds the parameters needed by the the connectors server.  After setting any
+             * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+             * <p> {@link
+             * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Resource name of the form: `projects/locations/connections/endUserAuthentication`
+             * @since 1.13
+             */
+            protected Delete(java.lang.String name) {
+              super(Connectors.this, "DELETE", REST_PATH, null, com.google.api.services.connectors.v1.model.Operation.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+              }
+            }
+
+            @Override
+            public Delete set$Xgafv(java.lang.String $Xgafv) {
+              return (Delete) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Delete setAccessToken(java.lang.String accessToken) {
+              return (Delete) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Delete setAlt(java.lang.String alt) {
+              return (Delete) super.setAlt(alt);
+            }
+
+            @Override
+            public Delete setCallback(java.lang.String callback) {
+              return (Delete) super.setCallback(callback);
+            }
+
+            @Override
+            public Delete setFields(java.lang.String fields) {
+              return (Delete) super.setFields(fields);
+            }
+
+            @Override
+            public Delete setKey(java.lang.String key) {
+              return (Delete) super.setKey(key);
+            }
+
+            @Override
+            public Delete setOauthToken(java.lang.String oauthToken) {
+              return (Delete) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Delete) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Delete setQuotaUser(java.lang.String quotaUser) {
+              return (Delete) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Delete setUploadType(java.lang.String uploadType) {
+              return (Delete) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Delete) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Resource name of the form:
+             * `projects/locations/connections/endUserAuthentication`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Resource name of the form: `projects/locations/connections/endUserAuthentication`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Resource name of the form:
+             * `projects/locations/connections/endUserAuthentication`
+             */
+            public Delete setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Delete set(String parameterName, Object value) {
+              return (Delete) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Gets details of a single EndUserAuthentication.
+           *
+           * Create a request for the method "endUserAuthentications.get".
+           *
+           * This request holds the parameters needed by the connectors server.  After setting any optional
+           * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Resource name of the form: `projects/locations/connections/EndUserAuthentications`
+           * @return the request
+           */
+          public Get get(java.lang.String name) throws java.io.IOException {
+            Get result = new Get(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Get extends ConnectorsRequest<com.google.api.services.connectors.v1.model.EndUserAuthentication> {
+
+            private static final String REST_PATH = "v1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+
+            /**
+             * Gets details of a single EndUserAuthentication.
+             *
+             * Create a request for the method "endUserAuthentications.get".
+             *
+             * This request holds the parameters needed by the the connectors server.  After setting any
+             * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+             * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Resource name of the form: `projects/locations/connections/EndUserAuthentications`
+             * @since 1.13
+             */
+            protected Get(java.lang.String name) {
+              super(Connectors.this, "GET", REST_PATH, null, com.google.api.services.connectors.v1.model.EndUserAuthentication.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public Get set$Xgafv(java.lang.String $Xgafv) {
+              return (Get) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Get setAccessToken(java.lang.String accessToken) {
+              return (Get) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Get setAlt(java.lang.String alt) {
+              return (Get) super.setAlt(alt);
+            }
+
+            @Override
+            public Get setCallback(java.lang.String callback) {
+              return (Get) super.setCallback(callback);
+            }
+
+            @Override
+            public Get setFields(java.lang.String fields) {
+              return (Get) super.setFields(fields);
+            }
+
+            @Override
+            public Get setKey(java.lang.String key) {
+              return (Get) super.setKey(key);
+            }
+
+            @Override
+            public Get setOauthToken(java.lang.String oauthToken) {
+              return (Get) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Get) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Get setQuotaUser(java.lang.String quotaUser) {
+              return (Get) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Get setUploadType(java.lang.String uploadType) {
+              return (Get) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Get setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Get) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Resource name of the form:
+             * `projects/locations/connections/EndUserAuthentications`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Resource name of the form: `projects/locations/connections/EndUserAuthentications`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Resource name of the form:
+             * `projects/locations/connections/EndUserAuthentications`
+             */
+            public Get setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            /** Optional. View of the EndUserAuthentication to return. */
+            @com.google.api.client.util.Key
+            private java.lang.String view;
+
+            /** Optional. View of the EndUserAuthentication to return.
+             */
+            public java.lang.String getView() {
+              return view;
+            }
+
+            /** Optional. View of the EndUserAuthentication to return. */
+            public Get setView(java.lang.String view) {
+              this.view = view;
+              return this;
+            }
+
+            @Override
+            public Get set(String parameterName, Object value) {
+              return (Get) super.set(parameterName, value);
+            }
+          }
+          /**
+           * List EndUserAuthentications in a given project,location and connection.
+           *
+           * Create a request for the method "endUserAuthentications.list".
+           *
+           * This request holds the parameters needed by the connectors server.  After setting any optional
+           * parameters, call the {@link List#execute()} method to invoke the remote operation.
+           *
+           * @param parent Required. Parent resource of the EndUserAuthentication, of the form:
+           *        `projects/locations/connections`
+           * @return the request
+           */
+          public List list(java.lang.String parent) throws java.io.IOException {
+            List result = new List(parent);
+            initialize(result);
+            return result;
+          }
+
+          public class List extends ConnectorsRequest<com.google.api.services.connectors.v1.model.ListEndUserAuthenticationsResponse> {
+
+            private static final String REST_PATH = "v1/{+parent}/endUserAuthentications";
+
+            private final java.util.regex.Pattern PARENT_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/connections/[^/]+$");
+
+            /**
+             * List EndUserAuthentications in a given project,location and connection.
+             *
+             * Create a request for the method "endUserAuthentications.list".
+             *
+             * This request holds the parameters needed by the the connectors server.  After setting any
+             * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+             * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param parent Required. Parent resource of the EndUserAuthentication, of the form:
+           *        `projects/locations/connections`
+             * @since 1.13
+             */
+            protected List(java.lang.String parent) {
+              super(Connectors.this, "GET", REST_PATH, null, com.google.api.services.connectors.v1.model.ListEndUserAuthenticationsResponse.class);
+              this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public List set$Xgafv(java.lang.String $Xgafv) {
+              return (List) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public List setAccessToken(java.lang.String accessToken) {
+              return (List) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public List setAlt(java.lang.String alt) {
+              return (List) super.setAlt(alt);
+            }
+
+            @Override
+            public List setCallback(java.lang.String callback) {
+              return (List) super.setCallback(callback);
+            }
+
+            @Override
+            public List setFields(java.lang.String fields) {
+              return (List) super.setFields(fields);
+            }
+
+            @Override
+            public List setKey(java.lang.String key) {
+              return (List) super.setKey(key);
+            }
+
+            @Override
+            public List setOauthToken(java.lang.String oauthToken) {
+              return (List) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (List) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public List setQuotaUser(java.lang.String quotaUser) {
+              return (List) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public List setUploadType(java.lang.String uploadType) {
+              return (List) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public List setUploadProtocol(java.lang.String uploadProtocol) {
+              return (List) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Parent resource of the EndUserAuthentication, of the form:
+             * `projects/locations/connections`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String parent;
+
+            /** Required. Parent resource of the EndUserAuthentication, of the form:
+           `projects/locations/connections`
+             */
+            public java.lang.String getParent() {
+              return parent;
+            }
+
+            /**
+             * Required. Parent resource of the EndUserAuthentication, of the form:
+             * `projects/locations/connections`
+             */
+            public List setParent(java.lang.String parent) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+$");
+              }
+              this.parent = parent;
+              return this;
+            }
+
+            /** Filter. */
+            @com.google.api.client.util.Key
+            private java.lang.String filter;
+
+            /** Filter.
+             */
+            public java.lang.String getFilter() {
+              return filter;
+            }
+
+            /** Filter. */
+            public List setFilter(java.lang.String filter) {
+              this.filter = filter;
+              return this;
+            }
+
+            /** Order by parameters. */
+            @com.google.api.client.util.Key
+            private java.lang.String orderBy;
+
+            /** Order by parameters.
+             */
+            public java.lang.String getOrderBy() {
+              return orderBy;
+            }
+
+            /** Order by parameters. */
+            public List setOrderBy(java.lang.String orderBy) {
+              this.orderBy = orderBy;
+              return this;
+            }
+
+            /** Page size. */
+            @com.google.api.client.util.Key
+            private java.lang.Integer pageSize;
+
+            /** Page size.
+             */
+            public java.lang.Integer getPageSize() {
+              return pageSize;
+            }
+
+            /** Page size. */
+            public List setPageSize(java.lang.Integer pageSize) {
+              this.pageSize = pageSize;
+              return this;
+            }
+
+            /** Page token. */
+            @com.google.api.client.util.Key
+            private java.lang.String pageToken;
+
+            /** Page token.
+             */
+            public java.lang.String getPageToken() {
+              return pageToken;
+            }
+
+            /** Page token. */
+            public List setPageToken(java.lang.String pageToken) {
+              this.pageToken = pageToken;
+              return this;
+            }
+
+            @Override
+            public List set(String parameterName, Object value) {
+              return (List) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Updates the parameters of a single EndUserAuthentication.
+           *
+           * Create a request for the method "endUserAuthentications.patch".
+           *
+           * This request holds the parameters needed by the connectors server.  After setting any optional
+           * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Identifier. Resource name of the EndUserAuthentication. Format: projects/{project}/locatio
+           *        ns/{location}/connections/{connection}/endUserAuthentications/{end_user_authentication}
+           * @param content the {@link com.google.api.services.connectors.v1.model.EndUserAuthentication}
+           * @return the request
+           */
+          public Patch patch(java.lang.String name, com.google.api.services.connectors.v1.model.EndUserAuthentication content) throws java.io.IOException {
+            Patch result = new Patch(name, content);
+            initialize(result);
+            return result;
+          }
+
+          public class Patch extends ConnectorsRequest<com.google.api.services.connectors.v1.model.Operation> {
+
+            private static final String REST_PATH = "v1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+
+            /**
+             * Updates the parameters of a single EndUserAuthentication.
+             *
+             * Create a request for the method "endUserAuthentications.patch".
+             *
+             * This request holds the parameters needed by the the connectors server.  After setting any
+             * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+             * <p> {@link
+             * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Identifier. Resource name of the EndUserAuthentication. Format: projects/{project}/locatio
+           *        ns/{location}/connections/{connection}/endUserAuthentications/{end_user_authentication}
+             * @param content the {@link com.google.api.services.connectors.v1.model.EndUserAuthentication}
+             * @since 1.13
+             */
+            protected Patch(java.lang.String name, com.google.api.services.connectors.v1.model.EndUserAuthentication content) {
+              super(Connectors.this, "PATCH", REST_PATH, content, com.google.api.services.connectors.v1.model.Operation.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+              }
+            }
+
+            @Override
+            public Patch set$Xgafv(java.lang.String $Xgafv) {
+              return (Patch) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Patch setAccessToken(java.lang.String accessToken) {
+              return (Patch) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Patch setAlt(java.lang.String alt) {
+              return (Patch) super.setAlt(alt);
+            }
+
+            @Override
+            public Patch setCallback(java.lang.String callback) {
+              return (Patch) super.setCallback(callback);
+            }
+
+            @Override
+            public Patch setFields(java.lang.String fields) {
+              return (Patch) super.setFields(fields);
+            }
+
+            @Override
+            public Patch setKey(java.lang.String key) {
+              return (Patch) super.setKey(key);
+            }
+
+            @Override
+            public Patch setOauthToken(java.lang.String oauthToken) {
+              return (Patch) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Patch) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Patch setQuotaUser(java.lang.String quotaUser) {
+              return (Patch) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Patch setUploadType(java.lang.String uploadType) {
+              return (Patch) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Patch) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Identifier. Resource name of the EndUserAuthentication. Format: projects/{p
+             * roject}/locations/{location}/connections/{connection}/endUserAuthentications/{end_use
+             * r_authentication}
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Identifier. Resource name of the EndUserAuthentication. Format: projects/{project}/locati
+           ons/{location}/connections/{connection}/endUserAuthentications/{end_user_authentication}
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Identifier. Resource name of the EndUserAuthentication. Format: projects/{p
+             * roject}/locations/{location}/connections/{connection}/endUserAuthentications/{end_use
+             * r_authentication}
+             */
+            public Patch setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/connections/[^/]+/endUserAuthentications/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            /**
+             * Required. The list of fields to update. A field will be overwritten if it is in the
+             * mask. You can modify only the fields listed below. To update the
+             * EndUserAuthentication details: * `notify_endpoint_destination`
+             */
+            @com.google.api.client.util.Key
+            private String updateMask;
+
+            /** Required. The list of fields to update. A field will be overwritten if it is in the mask. You can
+           modify only the fields listed below. To update the EndUserAuthentication details: *
+           `notify_endpoint_destination`
+             */
+            public String getUpdateMask() {
+              return updateMask;
+            }
+
+            /**
+             * Required. The list of fields to update. A field will be overwritten if it is in the
+             * mask. You can modify only the fields listed below. To update the
+             * EndUserAuthentication details: * `notify_endpoint_destination`
+             */
+            public Patch setUpdateMask(String updateMask) {
+              this.updateMask = updateMask;
+              return this;
+            }
+
+            @Override
+            public Patch set(String parameterName, Object value) {
+              return (Patch) super.set(parameterName, value);
+            }
+          }
+
+        }
+        /**
          * An accessor for creating requests from the EventSubscriptions collection.
          *
          * <p>The typical use is:</p>
@@ -4499,8 +5392,8 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
            * This request holds the parameters needed by the connectors server.  After setting any optional
            * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
            *
-           * @param name Required. Resource name of the EventSubscription. Format: projects/{project}/locations/{location}/co
-           *        nnections/{connection}/eventSubscriptions/{event_subscription}
+           * @param name Required. Identifier. Resource name of the EventSubscription. Format: projects/{project}/locations/{
+           *        location}/connections/{connection}/eventSubscriptions/{event_subscription}
            * @param content the {@link com.google.api.services.connectors.v1.model.EventSubscription}
            * @return the request
            */
@@ -4528,8 +5421,8 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
              * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
              * be called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param name Required. Resource name of the EventSubscription. Format: projects/{project}/locations/{location}/co
-           *        nnections/{connection}/eventSubscriptions/{event_subscription}
+             * @param name Required. Identifier. Resource name of the EventSubscription. Format: projects/{project}/locations/{
+           *        location}/connections/{connection}/eventSubscriptions/{event_subscription}
              * @param content the {@link com.google.api.services.connectors.v1.model.EventSubscription}
              * @since 1.13
              */
@@ -4599,22 +5492,24 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
             }
 
             /**
-             * Required. Resource name of the EventSubscription. Format: projects/{project}/location
-             * s/{location}/connections/{connection}/eventSubscriptions/{event_subscription}
+             * Required. Identifier. Resource name of the EventSubscription. Format: projects/{proje
+             * ct}/locations/{location}/connections/{connection}/eventSubscriptions/{event_subscript
+             * ion}
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
-            /** Required. Resource name of the EventSubscription. Format: projects/{project}/locations/{location}/c
-           onnections/{connection}/eventSubscriptions/{event_subscription}
+            /** Required. Identifier. Resource name of the EventSubscription. Format: projects/{project}/locations/
+           {location}/connections/{connection}/eventSubscriptions/{event_subscription}
              */
             public java.lang.String getName() {
               return name;
             }
 
             /**
-             * Required. Resource name of the EventSubscription. Format: projects/{project}/location
-             * s/{location}/connections/{connection}/eventSubscriptions/{event_subscription}
+             * Required. Identifier. Resource name of the EventSubscription. Format: projects/{proje
+             * ct}/locations/{location}/connections/{connection}/eventSubscriptions/{event_subscript
+             * ion}
              */
             public Patch setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {
@@ -5013,6 +5908,22 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
             /** Page token. */
             public List setPageToken(java.lang.String pageToken) {
               this.pageToken = pageToken;
+              return this;
+            }
+
+            /** Optional. Flag to indicate if schema should be returned as string or not */
+            @com.google.api.client.util.Key
+            private java.lang.Boolean schemaAsString;
+
+            /** Optional. Flag to indicate if schema should be returned as string or not
+             */
+            public java.lang.Boolean getSchemaAsString() {
+              return schemaAsString;
+            }
+
+            /** Optional. Flag to indicate if schema should be returned as string or not */
+            public List setSchemaAsString(java.lang.Boolean schemaAsString) {
+              this.schemaAsString = schemaAsString;
               return this;
             }
 
@@ -5702,6 +6613,290 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
               return (Deprecate) super.set(parameterName, value);
             }
           }
+          /**
+           * Publish request for the CustomConnectorVersion. Once approved, the CustomConnectorVersion will be
+           * published as PartnerConnector.
+           *
+           * Create a request for the method "customConnectorVersions.publish".
+           *
+           * This request holds the parameters needed by the connectors server.  After setting any optional
+           * parameters, call the {@link Publish#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Resource name of the form: `projects/{project}/locations/{location}/customConnectors/{cust
+           *        om_connector}/customConnectorVersions/{custom_connector_version}`
+           * @param content the {@link com.google.api.services.connectors.v1.model.PublishCustomConnectorVersionRequest}
+           * @return the request
+           */
+          public Publish publish(java.lang.String name, com.google.api.services.connectors.v1.model.PublishCustomConnectorVersionRequest content) throws java.io.IOException {
+            Publish result = new Publish(name, content);
+            initialize(result);
+            return result;
+          }
+
+          public class Publish extends ConnectorsRequest<com.google.api.services.connectors.v1.model.Operation> {
+
+            private static final String REST_PATH = "v1/{+name}:publish";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/customConnectors/[^/]+/customConnectorVersions/[^/]+$");
+
+            /**
+             * Publish request for the CustomConnectorVersion. Once approved, the CustomConnectorVersion will
+             * be published as PartnerConnector.
+             *
+             * Create a request for the method "customConnectorVersions.publish".
+             *
+             * This request holds the parameters needed by the the connectors server.  After setting any
+             * optional parameters, call the {@link Publish#execute()} method to invoke the remote operation.
+             * <p> {@link
+             * Publish#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Resource name of the form: `projects/{project}/locations/{location}/customConnectors/{cust
+           *        om_connector}/customConnectorVersions/{custom_connector_version}`
+             * @param content the {@link com.google.api.services.connectors.v1.model.PublishCustomConnectorVersionRequest}
+             * @since 1.13
+             */
+            protected Publish(java.lang.String name, com.google.api.services.connectors.v1.model.PublishCustomConnectorVersionRequest content) {
+              super(Connectors.this, "POST", REST_PATH, content, com.google.api.services.connectors.v1.model.Operation.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/customConnectors/[^/]+/customConnectorVersions/[^/]+$");
+              }
+            }
+
+            @Override
+            public Publish set$Xgafv(java.lang.String $Xgafv) {
+              return (Publish) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Publish setAccessToken(java.lang.String accessToken) {
+              return (Publish) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Publish setAlt(java.lang.String alt) {
+              return (Publish) super.setAlt(alt);
+            }
+
+            @Override
+            public Publish setCallback(java.lang.String callback) {
+              return (Publish) super.setCallback(callback);
+            }
+
+            @Override
+            public Publish setFields(java.lang.String fields) {
+              return (Publish) super.setFields(fields);
+            }
+
+            @Override
+            public Publish setKey(java.lang.String key) {
+              return (Publish) super.setKey(key);
+            }
+
+            @Override
+            public Publish setOauthToken(java.lang.String oauthToken) {
+              return (Publish) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Publish setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Publish) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Publish setQuotaUser(java.lang.String quotaUser) {
+              return (Publish) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Publish setUploadType(java.lang.String uploadType) {
+              return (Publish) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Publish setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Publish) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Resource name of the form: `projects/{project}/locations/{location}/customC
+             * onnectors/{custom_connector}/customConnectorVersions/{custom_connector_version}`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Resource name of the form: `projects/{project}/locations/{location}/customConnectors/{cus
+           tom_connector}/customConnectorVersions/{custom_connector_version}`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Resource name of the form: `projects/{project}/locations/{location}/customC
+             * onnectors/{custom_connector}/customConnectorVersions/{custom_connector_version}`
+             */
+            public Publish setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/customConnectors/[^/]+/customConnectorVersions/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Publish set(String parameterName, Object value) {
+              return (Publish) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Withdraw the publish request for the CustomConnectorVersion. This can only be used before the
+           * CustomConnectorVersion is published.
+           *
+           * Create a request for the method "customConnectorVersions.withdraw".
+           *
+           * This request holds the parameters needed by the connectors server.  After setting any optional
+           * parameters, call the {@link Withdraw#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Resource name of the form: `projects/{project}/locations/{location}/customConnectors/{cust
+           *        om_connector}/customConnectorVersions/{custom_connector_version}`
+           * @param content the {@link com.google.api.services.connectors.v1.model.WithdrawCustomConnectorVersionRequest}
+           * @return the request
+           */
+          public Withdraw withdraw(java.lang.String name, com.google.api.services.connectors.v1.model.WithdrawCustomConnectorVersionRequest content) throws java.io.IOException {
+            Withdraw result = new Withdraw(name, content);
+            initialize(result);
+            return result;
+          }
+
+          public class Withdraw extends ConnectorsRequest<com.google.api.services.connectors.v1.model.Operation> {
+
+            private static final String REST_PATH = "v1/{+name}:withdraw";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/customConnectors/[^/]+/customConnectorVersions/[^/]+$");
+
+            /**
+             * Withdraw the publish request for the CustomConnectorVersion. This can only be used before the
+             * CustomConnectorVersion is published.
+             *
+             * Create a request for the method "customConnectorVersions.withdraw".
+             *
+             * This request holds the parameters needed by the the connectors server.  After setting any
+             * optional parameters, call the {@link Withdraw#execute()} method to invoke the remote operation.
+             * <p> {@link
+             * Withdraw#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Resource name of the form: `projects/{project}/locations/{location}/customConnectors/{cust
+           *        om_connector}/customConnectorVersions/{custom_connector_version}`
+             * @param content the {@link com.google.api.services.connectors.v1.model.WithdrawCustomConnectorVersionRequest}
+             * @since 1.13
+             */
+            protected Withdraw(java.lang.String name, com.google.api.services.connectors.v1.model.WithdrawCustomConnectorVersionRequest content) {
+              super(Connectors.this, "POST", REST_PATH, content, com.google.api.services.connectors.v1.model.Operation.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/customConnectors/[^/]+/customConnectorVersions/[^/]+$");
+              }
+            }
+
+            @Override
+            public Withdraw set$Xgafv(java.lang.String $Xgafv) {
+              return (Withdraw) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Withdraw setAccessToken(java.lang.String accessToken) {
+              return (Withdraw) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Withdraw setAlt(java.lang.String alt) {
+              return (Withdraw) super.setAlt(alt);
+            }
+
+            @Override
+            public Withdraw setCallback(java.lang.String callback) {
+              return (Withdraw) super.setCallback(callback);
+            }
+
+            @Override
+            public Withdraw setFields(java.lang.String fields) {
+              return (Withdraw) super.setFields(fields);
+            }
+
+            @Override
+            public Withdraw setKey(java.lang.String key) {
+              return (Withdraw) super.setKey(key);
+            }
+
+            @Override
+            public Withdraw setOauthToken(java.lang.String oauthToken) {
+              return (Withdraw) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Withdraw setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Withdraw) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Withdraw setQuotaUser(java.lang.String quotaUser) {
+              return (Withdraw) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Withdraw setUploadType(java.lang.String uploadType) {
+              return (Withdraw) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Withdraw setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Withdraw) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Resource name of the form: `projects/{project}/locations/{location}/customC
+             * onnectors/{custom_connector}/customConnectorVersions/{custom_connector_version}`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Resource name of the form: `projects/{project}/locations/{location}/customConnectors/{cus
+           tom_connector}/customConnectorVersions/{custom_connector_version}`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Resource name of the form: `projects/{project}/locations/{location}/customC
+             * onnectors/{custom_connector}/customConnectorVersions/{custom_connector_version}`
+             */
+            public Withdraw setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/customConnectors/[^/]+/customConnectorVersions/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Withdraw set(String parameterName, Object value) {
+              return (Withdraw) super.set(parameterName, value);
+            }
+          }
 
         }
       }
@@ -5857,13 +7052,13 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
 
           /**
            * Required. Identifier to assign to the EndpointAttachment. Must be unique within scope
-           * of the parent resource.
+           * of the parent resource. The regex is: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
            */
           @com.google.api.client.util.Key
           private java.lang.String endpointAttachmentId;
 
           /** Required. Identifier to assign to the EndpointAttachment. Must be unique within scope of the parent
-         resource.
+         resource. The regex is: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
            */
           public java.lang.String getEndpointAttachmentId() {
             return endpointAttachmentId;
@@ -5871,7 +7066,7 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
 
           /**
            * Required. Identifier to assign to the EndpointAttachment. Must be unique within scope
-           * of the parent resource.
+           * of the parent resource. The regex is: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
            */
           public Create setEndpointAttachmentId(java.lang.String endpointAttachmentId) {
             this.endpointAttachmentId = endpointAttachmentId;
@@ -8891,6 +10086,28 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
               return this;
             }
 
+            /**
+             * Optional. If true, allow partial responses for multi-regional Aggregated List
+             * requests.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.Boolean returnPartialSuccess;
+
+            /** Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+             */
+            public java.lang.Boolean getReturnPartialSuccess() {
+              return returnPartialSuccess;
+            }
+
+            /**
+             * Optional. If true, allow partial responses for multi-regional Aggregated List
+             * requests.
+             */
+            public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+              this.returnPartialSuccess = returnPartialSuccess;
+              return this;
+            }
+
             @Override
             public List set(String parameterName, Object value) {
               return (List) super.set(parameterName, value);
@@ -9093,7 +10310,7 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -9124,7 +10341,7 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -11267,8 +12484,7 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
              * This request holds the parameters needed by the connectors server.  After setting any optional
              * parameters, call the {@link List#execute()} method to invoke the remote operation.
              *
-             * @param parent Required. Parent resource of the connectors, of the form: `projects/locations/providers/connectors`
-             *        Only global location is supported for ConnectorVersion resource.
+             * @param parent
              * @return the request
              */
             public List list(java.lang.String parent) throws java.io.IOException {
@@ -11294,8 +12510,7 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
                * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
                * must be called to initialize this instance immediately after invoking the constructor. </p>
                *
-               * @param parent Required. Parent resource of the connectors, of the form: `projects/locations/providers/connectors`
-             *        Only global location is supported for ConnectorVersion resource.
+               * @param parent
                * @since 1.13
                */
               protected List(java.lang.String parent) {
@@ -11373,26 +12588,16 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
                 return (List) super.setUploadProtocol(uploadProtocol);
               }
 
-              /**
-               * Required. Parent resource of the connectors, of the form:
-               * `projects/locations/providers/connectors` Only global location is supported for
-               * ConnectorVersion resource.
-               */
               @com.google.api.client.util.Key
               private java.lang.String parent;
 
-              /** Required. Parent resource of the connectors, of the form: `projects/locations/providers/connectors`
-             Only global location is supported for ConnectorVersion resource.
+              /**
+
                */
               public java.lang.String getParent() {
                 return parent;
               }
 
-              /**
-               * Required. Parent resource of the connectors, of the form:
-               * `projects/locations/providers/connectors` Only global location is supported for
-               * ConnectorVersion resource.
-               */
               public List setParent(java.lang.String parent) {
                 if (!getSuppressPatternChecks()) {
                   com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),

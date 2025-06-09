@@ -31,25 +31,25 @@ package com.google.api.services.connectors.v1.model;
 public final class Oauth2JwtBearer extends com.google.api.client.json.GenericJson {
 
   /**
-   * Secret version reference containing a PKCS#8 PEM-encoded private key associated with the Client
-   * Certificate. This private key will be used to sign JWTs used for the jwt-bearer authorization
-   * grant. Specified in the form as: `projects/secrets/versions`.
+   * Optional. Secret version reference containing a PKCS#8 PEM-encoded private key associated with
+   * the Client Certificate. This private key will be used to sign JWTs used for the jwt-bearer
+   * authorization grant. Specified in the form as: `projects/secrets/versions`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Secret clientKey;
 
   /**
-   * JwtClaims providers fields to generate the token.
+   * Optional. JwtClaims providers fields to generate the token.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private JwtClaims jwtClaims;
 
   /**
-   * Secret version reference containing a PKCS#8 PEM-encoded private key associated with the Client
-   * Certificate. This private key will be used to sign JWTs used for the jwt-bearer authorization
-   * grant. Specified in the form as: `projects/secrets/versions`.
+   * Optional. Secret version reference containing a PKCS#8 PEM-encoded private key associated with
+   * the Client Certificate. This private key will be used to sign JWTs used for the jwt-bearer
+   * authorization grant. Specified in the form as: `projects/secrets/versions`.
    * @return value or {@code null} for none
    */
   public Secret getClientKey() {
@@ -57,9 +57,9 @@ public final class Oauth2JwtBearer extends com.google.api.client.json.GenericJso
   }
 
   /**
-   * Secret version reference containing a PKCS#8 PEM-encoded private key associated with the Client
-   * Certificate. This private key will be used to sign JWTs used for the jwt-bearer authorization
-   * grant. Specified in the form as: `projects/secrets/versions`.
+   * Optional. Secret version reference containing a PKCS#8 PEM-encoded private key associated with
+   * the Client Certificate. This private key will be used to sign JWTs used for the jwt-bearer
+   * authorization grant. Specified in the form as: `projects/secrets/versions`.
    * @param clientKey clientKey or {@code null} for none
    */
   public Oauth2JwtBearer setClientKey(Secret clientKey) {
@@ -68,7 +68,7 @@ public final class Oauth2JwtBearer extends com.google.api.client.json.GenericJso
   }
 
   /**
-   * JwtClaims providers fields to generate the token.
+   * Optional. JwtClaims providers fields to generate the token.
    * @return value or {@code null} for none
    */
   public JwtClaims getJwtClaims() {
@@ -76,7 +76,7 @@ public final class Oauth2JwtBearer extends com.google.api.client.json.GenericJso
   }
 
   /**
-   * JwtClaims providers fields to generate the token.
+   * Optional. JwtClaims providers fields to generate the token.
    * @param jwtClaims jwtClaims or {@code null} for none
    */
   public Oauth2JwtBearer setJwtClaims(JwtClaims jwtClaims) {

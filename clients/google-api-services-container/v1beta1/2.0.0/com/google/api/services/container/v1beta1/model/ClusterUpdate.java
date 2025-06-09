@@ -47,6 +47,13 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private AddonsConfig desiredAddonsConfig;
 
   /**
+   * Configuration for limiting anonymous access to all endpoints except the health checks.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private AnonymousAuthenticationConfig desiredAnonymousAuthenticationConfig;
+
+  /**
    * AuthenticatorGroupsConfig specifies the config for the cluster security groups settings.
    * The value may be {@code null}.
    */
@@ -54,7 +61,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private AuthenticatorGroupsConfig desiredAuthenticatorGroupsConfig;
 
   /**
-   * The desired workload policy configuration for the autopilot cluster.
+   * WorkloadPolicyConfig is the configuration related to GCW workload policy
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -96,6 +103,13 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private ContainerdConfig desiredContainerdConfig;
 
   /**
+   * Control plane endpoints configuration.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ControlPlaneEndpointsConfig desiredControlPlaneEndpointsConfig;
+
+  /**
    * The desired configuration for the fine-grained cost management feature.
    * The value may be {@code null}.
    */
@@ -117,11 +131,26 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private java.lang.String desiredDatapathProvider;
 
   /**
+   * Override the default setting of whether future created nodes have private IP addresses only,
+   * namely NetworkConfig.default_enable_private_nodes
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean desiredDefaultEnablePrivateNodes;
+
+  /**
    * The desired status of whether to disable default sNAT for this cluster.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private DefaultSnatStatus desiredDefaultSnatStatus;
+
+  /**
+   * Enable/Disable L4 LB VPC firewall reconciliation for the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean desiredDisableL4LbFirewallReconciliation;
 
   /**
    * DNSConfig contains clusterDNS config for this cluster.
@@ -152,11 +181,21 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private java.lang.Boolean desiredEnableMultiNetworking;
 
   /**
-   * Enable/Disable private endpoint for the cluster's master.
+   * Enable/Disable private endpoint for the cluster's master. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.enable_public_endpoint instead. Note
+   * that the value of enable_public_endpoint is reversed: if enable_private_endpoint is false, then
+   * enable_public_endpoint will be true.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean desiredEnablePrivateEndpoint;
+
+  /**
+   * The desired enterprise configuration for the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private DesiredEnterpriseConfig desiredEnterpriseConfig;
 
   /**
    * The desired fleet configuration for the cluster.
@@ -267,7 +306,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private Master desiredMaster;
 
   /**
-   * The desired configuration options for master authorized networks feature.
+   * The desired configuration options for master authorized networks feature. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.authorized_networks_config instead.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -301,7 +341,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
 
   /**
    * The monitoring service the cluster should use to write metrics. Currently available options: *
-   * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a Kubernetes-native
+   * `monitoring.googleapis.com/kubernetes` - The Cloud Monitoring service with a Kubernetes-native
    * resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
    * available as of GKE 1.15). * `none` - No metrics will be exported from the cluster. If left as
    * an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or
@@ -332,6 +372,14 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
    */
   @com.google.api.client.util.Key
   private NodeKubeletConfig desiredNodePoolAutoConfigKubeletConfig;
+
+  /**
+   * The desired Linux node config for all auto-provisioned node pools in autopilot clusters and
+   * node auto-provisioning enabled clusters. Currently only `cgroup_mode` can be set here.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private LinuxNodeConfig desiredNodePoolAutoConfigLinuxNodeConfig;
 
   /**
    * The desired network tags that apply to all auto-provisioned node pools in autopilot clusters
@@ -401,6 +449,13 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private ParentProductConfig desiredParentProductConfig;
 
   /**
+   * The desired config for pod autoscaling.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private PodAutoscaling desiredPodAutoscaling;
+
+  /**
    * The desired configuration options for the PodSecurityPolicy feature.
    * The value may be {@code null}.
    */
@@ -410,7 +465,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   /**
    * The desired private cluster configuration. master_global_access_config is the only field that
    * can be changed via this field. See also ClusterUpdate.desired_enable_private_endpoint for
-   * modifying other fields within PrivateClusterConfig.
+   * modifying other fields within PrivateClusterConfig. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.global_access instead.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -491,7 +547,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private java.lang.String desiredStackType;
 
   /**
-   * The desired Cloud TPU configuration.
+   * The desired Cloud TPU configuration. This field is deprecated due to the deprecation of 2VM
+   * TPU. The end of life date for 2VM TPU is 2025-04-25.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -557,6 +614,13 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private AdditionalPodRangesConfig removedAdditionalPodRangesConfig;
 
   /**
+   * The Custom keys configuration for the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private UserManagedKeysConfig userManagedKeysConfig;
+
+  /**
    * The additional pod ranges to be added to the cluster. These pod ranges can be used by node
    * pools to allocate pod IPs.
    * @return value or {@code null} for none
@@ -593,6 +657,23 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
+   * Configuration for limiting anonymous access to all endpoints except the health checks.
+   * @return value or {@code null} for none
+   */
+  public AnonymousAuthenticationConfig getDesiredAnonymousAuthenticationConfig() {
+    return desiredAnonymousAuthenticationConfig;
+  }
+
+  /**
+   * Configuration for limiting anonymous access to all endpoints except the health checks.
+   * @param desiredAnonymousAuthenticationConfig desiredAnonymousAuthenticationConfig or {@code null} for none
+   */
+  public ClusterUpdate setDesiredAnonymousAuthenticationConfig(AnonymousAuthenticationConfig desiredAnonymousAuthenticationConfig) {
+    this.desiredAnonymousAuthenticationConfig = desiredAnonymousAuthenticationConfig;
+    return this;
+  }
+
+  /**
    * AuthenticatorGroupsConfig specifies the config for the cluster security groups settings.
    * @return value or {@code null} for none
    */
@@ -610,7 +691,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * The desired workload policy configuration for the autopilot cluster.
+   * WorkloadPolicyConfig is the configuration related to GCW workload policy
    * @return value or {@code null} for none
    */
   public WorkloadPolicyConfig getDesiredAutopilotWorkloadPolicyConfig() {
@@ -618,7 +699,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * The desired workload policy configuration for the autopilot cluster.
+   * WorkloadPolicyConfig is the configuration related to GCW workload policy
    * @param desiredAutopilotWorkloadPolicyConfig desiredAutopilotWorkloadPolicyConfig or {@code null} for none
    */
   public ClusterUpdate setDesiredAutopilotWorkloadPolicyConfig(WorkloadPolicyConfig desiredAutopilotWorkloadPolicyConfig) {
@@ -712,6 +793,23 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
+   * Control plane endpoints configuration.
+   * @return value or {@code null} for none
+   */
+  public ControlPlaneEndpointsConfig getDesiredControlPlaneEndpointsConfig() {
+    return desiredControlPlaneEndpointsConfig;
+  }
+
+  /**
+   * Control plane endpoints configuration.
+   * @param desiredControlPlaneEndpointsConfig desiredControlPlaneEndpointsConfig or {@code null} for none
+   */
+  public ClusterUpdate setDesiredControlPlaneEndpointsConfig(ControlPlaneEndpointsConfig desiredControlPlaneEndpointsConfig) {
+    this.desiredControlPlaneEndpointsConfig = desiredControlPlaneEndpointsConfig;
+    return this;
+  }
+
+  /**
    * The desired configuration for the fine-grained cost management feature.
    * @return value or {@code null} for none
    */
@@ -763,6 +861,25 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
+   * Override the default setting of whether future created nodes have private IP addresses only,
+   * namely NetworkConfig.default_enable_private_nodes
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getDesiredDefaultEnablePrivateNodes() {
+    return desiredDefaultEnablePrivateNodes;
+  }
+
+  /**
+   * Override the default setting of whether future created nodes have private IP addresses only,
+   * namely NetworkConfig.default_enable_private_nodes
+   * @param desiredDefaultEnablePrivateNodes desiredDefaultEnablePrivateNodes or {@code null} for none
+   */
+  public ClusterUpdate setDesiredDefaultEnablePrivateNodes(java.lang.Boolean desiredDefaultEnablePrivateNodes) {
+    this.desiredDefaultEnablePrivateNodes = desiredDefaultEnablePrivateNodes;
+    return this;
+  }
+
+  /**
    * The desired status of whether to disable default sNAT for this cluster.
    * @return value or {@code null} for none
    */
@@ -776,6 +893,23 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
    */
   public ClusterUpdate setDesiredDefaultSnatStatus(DefaultSnatStatus desiredDefaultSnatStatus) {
     this.desiredDefaultSnatStatus = desiredDefaultSnatStatus;
+    return this;
+  }
+
+  /**
+   * Enable/Disable L4 LB VPC firewall reconciliation for the cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getDesiredDisableL4LbFirewallReconciliation() {
+    return desiredDisableL4LbFirewallReconciliation;
+  }
+
+  /**
+   * Enable/Disable L4 LB VPC firewall reconciliation for the cluster.
+   * @param desiredDisableL4LbFirewallReconciliation desiredDisableL4LbFirewallReconciliation or {@code null} for none
+   */
+  public ClusterUpdate setDesiredDisableL4LbFirewallReconciliation(java.lang.Boolean desiredDisableL4LbFirewallReconciliation) {
+    this.desiredDisableL4LbFirewallReconciliation = desiredDisableL4LbFirewallReconciliation;
     return this;
   }
 
@@ -848,7 +982,10 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Enable/Disable private endpoint for the cluster's master.
+   * Enable/Disable private endpoint for the cluster's master. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.enable_public_endpoint instead. Note
+   * that the value of enable_public_endpoint is reversed: if enable_private_endpoint is false, then
+   * enable_public_endpoint will be true.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getDesiredEnablePrivateEndpoint() {
@@ -856,11 +993,31 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Enable/Disable private endpoint for the cluster's master.
+   * Enable/Disable private endpoint for the cluster's master. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.enable_public_endpoint instead. Note
+   * that the value of enable_public_endpoint is reversed: if enable_private_endpoint is false, then
+   * enable_public_endpoint will be true.
    * @param desiredEnablePrivateEndpoint desiredEnablePrivateEndpoint or {@code null} for none
    */
   public ClusterUpdate setDesiredEnablePrivateEndpoint(java.lang.Boolean desiredEnablePrivateEndpoint) {
     this.desiredEnablePrivateEndpoint = desiredEnablePrivateEndpoint;
+    return this;
+  }
+
+  /**
+   * The desired enterprise configuration for the cluster.
+   * @return value or {@code null} for none
+   */
+  public DesiredEnterpriseConfig getDesiredEnterpriseConfig() {
+    return desiredEnterpriseConfig;
+  }
+
+  /**
+   * The desired enterprise configuration for the cluster.
+   * @param desiredEnterpriseConfig desiredEnterpriseConfig or {@code null} for none
+   */
+  public ClusterUpdate setDesiredEnterpriseConfig(DesiredEnterpriseConfig desiredEnterpriseConfig) {
+    this.desiredEnterpriseConfig = desiredEnterpriseConfig;
     return this;
   }
 
@@ -1123,7 +1280,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * The desired configuration options for master authorized networks feature.
+   * The desired configuration options for master authorized networks feature. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.authorized_networks_config instead.
    * @return value or {@code null} for none
    */
   public MasterAuthorizedNetworksConfig getDesiredMasterAuthorizedNetworksConfig() {
@@ -1131,7 +1289,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * The desired configuration options for master authorized networks feature.
+   * The desired configuration options for master authorized networks feature. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.authorized_networks_config instead.
    * @param desiredMasterAuthorizedNetworksConfig desiredMasterAuthorizedNetworksConfig or {@code null} for none
    */
   public ClusterUpdate setDesiredMasterAuthorizedNetworksConfig(MasterAuthorizedNetworksConfig desiredMasterAuthorizedNetworksConfig) {
@@ -1202,7 +1361,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
 
   /**
    * The monitoring service the cluster should use to write metrics. Currently available options: *
-   * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a Kubernetes-native
+   * `monitoring.googleapis.com/kubernetes` - The Cloud Monitoring service with a Kubernetes-native
    * resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
    * available as of GKE 1.15). * `none` - No metrics will be exported from the cluster. If left as
    * an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or
@@ -1215,7 +1374,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
 
   /**
    * The monitoring service the cluster should use to write metrics. Currently available options: *
-   * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a Kubernetes-native
+   * `monitoring.googleapis.com/kubernetes` - The Cloud Monitoring service with a Kubernetes-native
    * resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
    * available as of GKE 1.15). * `none` - No metrics will be exported from the cluster. If left as
    * an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or
@@ -1277,6 +1436,25 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
    */
   public ClusterUpdate setDesiredNodePoolAutoConfigKubeletConfig(NodeKubeletConfig desiredNodePoolAutoConfigKubeletConfig) {
     this.desiredNodePoolAutoConfigKubeletConfig = desiredNodePoolAutoConfigKubeletConfig;
+    return this;
+  }
+
+  /**
+   * The desired Linux node config for all auto-provisioned node pools in autopilot clusters and
+   * node auto-provisioning enabled clusters. Currently only `cgroup_mode` can be set here.
+   * @return value or {@code null} for none
+   */
+  public LinuxNodeConfig getDesiredNodePoolAutoConfigLinuxNodeConfig() {
+    return desiredNodePoolAutoConfigLinuxNodeConfig;
+  }
+
+  /**
+   * The desired Linux node config for all auto-provisioned node pools in autopilot clusters and
+   * node auto-provisioning enabled clusters. Currently only `cgroup_mode` can be set here.
+   * @param desiredNodePoolAutoConfigLinuxNodeConfig desiredNodePoolAutoConfigLinuxNodeConfig or {@code null} for none
+   */
+  public ClusterUpdate setDesiredNodePoolAutoConfigLinuxNodeConfig(LinuxNodeConfig desiredNodePoolAutoConfigLinuxNodeConfig) {
+    this.desiredNodePoolAutoConfigLinuxNodeConfig = desiredNodePoolAutoConfigLinuxNodeConfig;
     return this;
   }
 
@@ -1439,6 +1617,23 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
+   * The desired config for pod autoscaling.
+   * @return value or {@code null} for none
+   */
+  public PodAutoscaling getDesiredPodAutoscaling() {
+    return desiredPodAutoscaling;
+  }
+
+  /**
+   * The desired config for pod autoscaling.
+   * @param desiredPodAutoscaling desiredPodAutoscaling or {@code null} for none
+   */
+  public ClusterUpdate setDesiredPodAutoscaling(PodAutoscaling desiredPodAutoscaling) {
+    this.desiredPodAutoscaling = desiredPodAutoscaling;
+    return this;
+  }
+
+  /**
    * The desired configuration options for the PodSecurityPolicy feature.
    * @return value or {@code null} for none
    */
@@ -1458,7 +1653,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   /**
    * The desired private cluster configuration. master_global_access_config is the only field that
    * can be changed via this field. See also ClusterUpdate.desired_enable_private_endpoint for
-   * modifying other fields within PrivateClusterConfig.
+   * modifying other fields within PrivateClusterConfig. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.global_access instead.
    * @return value or {@code null} for none
    */
   public PrivateClusterConfig getDesiredPrivateClusterConfig() {
@@ -1468,7 +1664,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   /**
    * The desired private cluster configuration. master_global_access_config is the only field that
    * can be changed via this field. See also ClusterUpdate.desired_enable_private_endpoint for
-   * modifying other fields within PrivateClusterConfig.
+   * modifying other fields within PrivateClusterConfig. Deprecated: Use
+   * desired_control_plane_endpoints_config.ip_endpoints_config.global_access instead.
    * @param desiredPrivateClusterConfig desiredPrivateClusterConfig or {@code null} for none
    */
   public ClusterUpdate setDesiredPrivateClusterConfig(PrivateClusterConfig desiredPrivateClusterConfig) {
@@ -1655,7 +1852,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * The desired Cloud TPU configuration.
+   * The desired Cloud TPU configuration. This field is deprecated due to the deprecation of 2VM
+   * TPU. The end of life date for 2VM TPU is 2025-04-25.
    * @return value or {@code null} for none
    */
   public TpuConfig getDesiredTpuConfig() {
@@ -1663,7 +1861,8 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * The desired Cloud TPU configuration.
+   * The desired Cloud TPU configuration. This field is deprecated due to the deprecation of 2VM
+   * TPU. The end of life date for 2VM TPU is 2025-04-25.
    * @param desiredTpuConfig desiredTpuConfig or {@code null} for none
    */
   public ClusterUpdate setDesiredTpuConfig(TpuConfig desiredTpuConfig) {
@@ -1810,6 +2009,23 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
    */
   public ClusterUpdate setRemovedAdditionalPodRangesConfig(AdditionalPodRangesConfig removedAdditionalPodRangesConfig) {
     this.removedAdditionalPodRangesConfig = removedAdditionalPodRangesConfig;
+    return this;
+  }
+
+  /**
+   * The Custom keys configuration for the cluster.
+   * @return value or {@code null} for none
+   */
+  public UserManagedKeysConfig getUserManagedKeysConfig() {
+    return userManagedKeysConfig;
+  }
+
+  /**
+   * The Custom keys configuration for the cluster.
+   * @param userManagedKeysConfig userManagedKeysConfig or {@code null} for none
+   */
+  public ClusterUpdate setUserManagedKeysConfig(UserManagedKeysConfig userManagedKeysConfig) {
+    this.userManagedKeysConfig = userManagedKeysConfig;
     return this;
   }
 

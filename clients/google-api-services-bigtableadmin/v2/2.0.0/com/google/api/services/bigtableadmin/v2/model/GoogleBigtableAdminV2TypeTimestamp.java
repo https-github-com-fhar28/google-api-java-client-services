@@ -30,6 +30,30 @@ package com.google.api.services.bigtableadmin.v2.model;
 @SuppressWarnings("javadoc")
 public final class GoogleBigtableAdminV2TypeTimestamp extends com.google.api.client.json.GenericJson {
 
+  /**
+   * The encoding to use when converting to or from lower level types.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleBigtableAdminV2TypeTimestampEncoding encoding;
+
+  /**
+   * The encoding to use when converting to or from lower level types.
+   * @return value or {@code null} for none
+   */
+  public GoogleBigtableAdminV2TypeTimestampEncoding getEncoding() {
+    return encoding;
+  }
+
+  /**
+   * The encoding to use when converting to or from lower level types.
+   * @param encoding encoding or {@code null} for none
+   */
+  public GoogleBigtableAdminV2TypeTimestamp setEncoding(GoogleBigtableAdminV2TypeTimestampEncoding encoding) {
+    this.encoding = encoding;
+    return this;
+  }
+
   @Override
   public GoogleBigtableAdminV2TypeTimestamp set(String fieldName, Object value) {
     return (GoogleBigtableAdminV2TypeTimestamp) super.set(fieldName, value);

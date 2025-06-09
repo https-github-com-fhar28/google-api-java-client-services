@@ -63,11 +63,33 @@ public final class GoogleCloudRunV2RevisionTemplate extends com.google.api.clien
   private java.lang.String encryptionKey;
 
   /**
+   * Optional. The action to take if the encryption key is revoked.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String encryptionKeyRevocationAction;
+
+  /**
+   * Optional. If encryption_key_revocation_action is SHUTDOWN, the duration before shutting down
+   * all instances. The minimum increment is 1 hour.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String encryptionKeyShutdownDuration;
+
+  /**
    * Optional. The sandbox environment to host this Revision.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String executionEnvironment;
+
+  /**
+   * Optional. True if GPU zonal redundancy is disabled on this revision.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean gpuZonalRedundancyDisabled;
 
   /**
    * Optional. Disables health checking containers during deployment.
@@ -92,8 +114,8 @@ public final class GoogleCloudRunV2RevisionTemplate extends com.google.api.clien
 
   /**
    * Optional. Sets the maximum number of requests that each serving instance can receive. If not
-   * specified or 0, defaults to 80 when requested CPU >= 1 and defaults to 1 when requested CPU <
-   * 1.
+   * specified or 0, concurrency defaults to 80 when requested `CPU >= 1` and defaults to 1 when
+   * requested `CPU < 1`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -231,6 +253,42 @@ public final class GoogleCloudRunV2RevisionTemplate extends com.google.api.clien
   }
 
   /**
+   * Optional. The action to take if the encryption key is revoked.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEncryptionKeyRevocationAction() {
+    return encryptionKeyRevocationAction;
+  }
+
+  /**
+   * Optional. The action to take if the encryption key is revoked.
+   * @param encryptionKeyRevocationAction encryptionKeyRevocationAction or {@code null} for none
+   */
+  public GoogleCloudRunV2RevisionTemplate setEncryptionKeyRevocationAction(java.lang.String encryptionKeyRevocationAction) {
+    this.encryptionKeyRevocationAction = encryptionKeyRevocationAction;
+    return this;
+  }
+
+  /**
+   * Optional. If encryption_key_revocation_action is SHUTDOWN, the duration before shutting down
+   * all instances. The minimum increment is 1 hour.
+   * @return value or {@code null} for none
+   */
+  public String getEncryptionKeyShutdownDuration() {
+    return encryptionKeyShutdownDuration;
+  }
+
+  /**
+   * Optional. If encryption_key_revocation_action is SHUTDOWN, the duration before shutting down
+   * all instances. The minimum increment is 1 hour.
+   * @param encryptionKeyShutdownDuration encryptionKeyShutdownDuration or {@code null} for none
+   */
+  public GoogleCloudRunV2RevisionTemplate setEncryptionKeyShutdownDuration(String encryptionKeyShutdownDuration) {
+    this.encryptionKeyShutdownDuration = encryptionKeyShutdownDuration;
+    return this;
+  }
+
+  /**
    * Optional. The sandbox environment to host this Revision.
    * @return value or {@code null} for none
    */
@@ -244,6 +302,23 @@ public final class GoogleCloudRunV2RevisionTemplate extends com.google.api.clien
    */
   public GoogleCloudRunV2RevisionTemplate setExecutionEnvironment(java.lang.String executionEnvironment) {
     this.executionEnvironment = executionEnvironment;
+    return this;
+  }
+
+  /**
+   * Optional. True if GPU zonal redundancy is disabled on this revision.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getGpuZonalRedundancyDisabled() {
+    return gpuZonalRedundancyDisabled;
+  }
+
+  /**
+   * Optional. True if GPU zonal redundancy is disabled on this revision.
+   * @param gpuZonalRedundancyDisabled gpuZonalRedundancyDisabled or {@code null} for none
+   */
+  public GoogleCloudRunV2RevisionTemplate setGpuZonalRedundancyDisabled(java.lang.Boolean gpuZonalRedundancyDisabled) {
+    this.gpuZonalRedundancyDisabled = gpuZonalRedundancyDisabled;
     return this;
   }
 
@@ -297,8 +372,8 @@ public final class GoogleCloudRunV2RevisionTemplate extends com.google.api.clien
 
   /**
    * Optional. Sets the maximum number of requests that each serving instance can receive. If not
-   * specified or 0, defaults to 80 when requested CPU >= 1 and defaults to 1 when requested CPU <
-   * 1.
+   * specified or 0, concurrency defaults to 80 when requested `CPU >= 1` and defaults to 1 when
+   * requested `CPU < 1`.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getMaxInstanceRequestConcurrency() {
@@ -307,8 +382,8 @@ public final class GoogleCloudRunV2RevisionTemplate extends com.google.api.clien
 
   /**
    * Optional. Sets the maximum number of requests that each serving instance can receive. If not
-   * specified or 0, defaults to 80 when requested CPU >= 1 and defaults to 1 when requested CPU <
-   * 1.
+   * specified or 0, concurrency defaults to 80 when requested `CPU >= 1` and defaults to 1 when
+   * requested `CPU < 1`.
    * @param maxInstanceRequestConcurrency maxInstanceRequestConcurrency or {@code null} for none
    */
   public GoogleCloudRunV2RevisionTemplate setMaxInstanceRequestConcurrency(java.lang.Integer maxInstanceRequestConcurrency) {

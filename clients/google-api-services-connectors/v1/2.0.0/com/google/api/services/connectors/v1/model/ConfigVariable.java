@@ -51,7 +51,7 @@ public final class ConfigVariable extends com.google.api.client.json.GenericJson
   private java.lang.Long intValue;
 
   /**
-   * Key of the config variable.
+   * Optional. Key of the config variable.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -123,7 +123,7 @@ public final class ConfigVariable extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Key of the config variable.
+   * Optional. Key of the config variable.
    * @return value or {@code null} for none
    */
   public java.lang.String getKey() {
@@ -131,7 +131,7 @@ public final class ConfigVariable extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Key of the config variable.
+   * Optional. Key of the config variable.
    * @param key key or {@code null} for none
    */
   public ConfigVariable setKey(java.lang.String key) {

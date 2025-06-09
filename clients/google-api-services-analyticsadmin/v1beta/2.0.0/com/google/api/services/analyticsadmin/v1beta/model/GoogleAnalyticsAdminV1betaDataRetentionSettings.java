@@ -31,7 +31,7 @@ package com.google.api.services.analyticsadmin.v1beta.model;
 public final class GoogleAnalyticsAdminV1betaDataRetentionSettings extends com.google.api.client.json.GenericJson {
 
   /**
-   * The length of time that event-level data is retained.
+   * Required. The length of time that event-level data is retained.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -53,7 +53,14 @@ public final class GoogleAnalyticsAdminV1betaDataRetentionSettings extends com.g
   private java.lang.Boolean resetUserDataOnNewActivity;
 
   /**
-   * The length of time that event-level data is retained.
+   * Required. The length of time that user-level data is retained.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String userDataRetention;
+
+  /**
+   * Required. The length of time that event-level data is retained.
    * @return value or {@code null} for none
    */
   public java.lang.String getEventDataRetention() {
@@ -61,7 +68,7 @@ public final class GoogleAnalyticsAdminV1betaDataRetentionSettings extends com.g
   }
 
   /**
-   * The length of time that event-level data is retained.
+   * Required. The length of time that event-level data is retained.
    * @param eventDataRetention eventDataRetention or {@code null} for none
    */
   public GoogleAnalyticsAdminV1betaDataRetentionSettings setEventDataRetention(java.lang.String eventDataRetention) {
@@ -102,6 +109,23 @@ public final class GoogleAnalyticsAdminV1betaDataRetentionSettings extends com.g
    */
   public GoogleAnalyticsAdminV1betaDataRetentionSettings setResetUserDataOnNewActivity(java.lang.Boolean resetUserDataOnNewActivity) {
     this.resetUserDataOnNewActivity = resetUserDataOnNewActivity;
+    return this;
+  }
+
+  /**
+   * Required. The length of time that user-level data is retained.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getUserDataRetention() {
+    return userDataRetention;
+  }
+
+  /**
+   * Required. The length of time that user-level data is retained.
+   * @param userDataRetention userDataRetention or {@code null} for none
+   */
+  public GoogleAnalyticsAdminV1betaDataRetentionSettings setUserDataRetention(java.lang.String userDataRetention) {
+    this.userDataRetention = userDataRetention;
     return this;
   }
 

@@ -30,8 +30,8 @@ package com.google.api.services.chromepolicy.v1.model;
 public final class Proto2FileDescriptorProto extends com.google.api.client.json.GenericJson {
 
   /**
-   * BEGIN GOOGLE-INTERNAL TODO(b/297898292) Deprecate and remove this field in favor of enums. END
-   * GOOGLE-INTERNAL
+   * copybara:strip_begin TODO(b/297898292) Deprecate and remove this field in favor of enums.
+   * copybara:strip_end
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -70,6 +70,14 @@ public final class Proto2FileDescriptorProto extends com.google.api.client.json.
   private java.lang.String name;
 
   /**
+   * Names of files imported by this file purely for the purpose of providing option extensions.
+   * These are excluded from the dependency list above.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> optionDependency;
+
+  /**
    * e.g. "foo", "foo.bar", etc.
    * The value may be {@code null}.
    */
@@ -78,15 +86,17 @@ public final class Proto2FileDescriptorProto extends com.google.api.client.json.
 
   /**
    * The syntax of the proto file. The supported values are "proto2", "proto3", and "editions". If
-   * `edition` is present, this value must be "editions".
+   * `edition` is present, this value must be "editions". WARNING: This field should only be used by
+   * protobuf plugins or special cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String syntax;
 
   /**
-   * BEGIN GOOGLE-INTERNAL TODO(b/297898292) Deprecate and remove this field in favor of enums. END
-   * GOOGLE-INTERNAL
+   * copybara:strip_begin TODO(b/297898292) Deprecate and remove this field in favor of enums.
+   * copybara:strip_end
    * @return value or {@code null} for none
    */
   public java.lang.String getEditionDeprecated() {
@@ -94,8 +104,8 @@ public final class Proto2FileDescriptorProto extends com.google.api.client.json.
   }
 
   /**
-   * BEGIN GOOGLE-INTERNAL TODO(b/297898292) Deprecate and remove this field in favor of enums. END
-   * GOOGLE-INTERNAL
+   * copybara:strip_begin TODO(b/297898292) Deprecate and remove this field in favor of enums.
+   * copybara:strip_end
    * @param editionDeprecated editionDeprecated or {@code null} for none
    */
   public Proto2FileDescriptorProto setEditionDeprecated(java.lang.String editionDeprecated) {
@@ -153,6 +163,25 @@ public final class Proto2FileDescriptorProto extends com.google.api.client.json.
   }
 
   /**
+   * Names of files imported by this file purely for the purpose of providing option extensions.
+   * These are excluded from the dependency list above.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getOptionDependency() {
+    return optionDependency;
+  }
+
+  /**
+   * Names of files imported by this file purely for the purpose of providing option extensions.
+   * These are excluded from the dependency list above.
+   * @param optionDependency optionDependency or {@code null} for none
+   */
+  public Proto2FileDescriptorProto setOptionDependency(java.util.List<java.lang.String> optionDependency) {
+    this.optionDependency = optionDependency;
+    return this;
+  }
+
+  /**
    * e.g. "foo", "foo.bar", etc.
    * @return value or {@code null} for none
    */
@@ -171,7 +200,9 @@ public final class Proto2FileDescriptorProto extends com.google.api.client.json.
 
   /**
    * The syntax of the proto file. The supported values are "proto2", "proto3", and "editions". If
-   * `edition` is present, this value must be "editions".
+   * `edition` is present, this value must be "editions". WARNING: This field should only be used by
+   * protobuf plugins or special cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
    * @return value or {@code null} for none
    */
   public java.lang.String getSyntax() {
@@ -180,7 +211,9 @@ public final class Proto2FileDescriptorProto extends com.google.api.client.json.
 
   /**
    * The syntax of the proto file. The supported values are "proto2", "proto3", and "editions". If
-   * `edition` is present, this value must be "editions".
+   * `edition` is present, this value must be "editions". WARNING: This field should only be used by
+   * protobuf plugins or special cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
    * @param syntax syntax or {@code null} for none
    */
   public Proto2FileDescriptorProto setSyntax(java.lang.String syntax) {

@@ -38,11 +38,33 @@ public final class Connection extends com.google.api.client.json.GenericJson {
   private java.util.Map<String, java.lang.String> annotations;
 
   /**
+   * Configuration for connections to an instance of Bitbucket Clouds.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private BitbucketCloudConfig bitbucketCloudConfig;
+
+  /**
+   * Configuration for connections to an instance of Bitbucket Data Center.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private BitbucketDataCenterConfig bitbucketDataCenterConfig;
+
+  /**
    * Output only. [Output only] Create timestamp
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private String createTime;
+
+  /**
+   * Optional. The crypto key configuration. This field is used by the Customer-Managed Encryption
+   * Keys (CMEK) feature.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private CryptoKeyConfig cryptoKeyConfig;
 
   /**
    * Output only. [Output only] Delete timestamp
@@ -69,11 +91,40 @@ public final class Connection extends com.google.api.client.json.GenericJson {
   private java.lang.String etag;
 
   /**
+   * Optional. Configuration for the git proxy feature. Enabling the git proxy allows clients to
+   * perform git operations on the repositories linked in the connection.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GitProxyConfig gitProxyConfig;
+
+  /**
    * Configuration for connections to github.com.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GitHubConfig githubConfig;
+
+  /**
+   * Configuration for connections to an instance of GitHub Enterprise.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GitHubEnterpriseConfig githubEnterpriseConfig;
+
+  /**
+   * Configuration for connections to gitlab.com.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GitLabConfig gitlabConfig;
+
+  /**
+   * Configuration for connections to an instance of GitLab Enterprise.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GitLabEnterpriseConfig gitlabEnterpriseConfig;
 
   /**
    * Output only. Installation state of the Connection.
@@ -105,7 +156,7 @@ public final class Connection extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean reconciling;
 
   /**
-   * Output only. A system-assigned unique identifier for a the GitRepositoryLink.
+   * Output only. A system-assigned unique identifier for the Connection.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -136,6 +187,40 @@ public final class Connection extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Configuration for connections to an instance of Bitbucket Clouds.
+   * @return value or {@code null} for none
+   */
+  public BitbucketCloudConfig getBitbucketCloudConfig() {
+    return bitbucketCloudConfig;
+  }
+
+  /**
+   * Configuration for connections to an instance of Bitbucket Clouds.
+   * @param bitbucketCloudConfig bitbucketCloudConfig or {@code null} for none
+   */
+  public Connection setBitbucketCloudConfig(BitbucketCloudConfig bitbucketCloudConfig) {
+    this.bitbucketCloudConfig = bitbucketCloudConfig;
+    return this;
+  }
+
+  /**
+   * Configuration for connections to an instance of Bitbucket Data Center.
+   * @return value or {@code null} for none
+   */
+  public BitbucketDataCenterConfig getBitbucketDataCenterConfig() {
+    return bitbucketDataCenterConfig;
+  }
+
+  /**
+   * Configuration for connections to an instance of Bitbucket Data Center.
+   * @param bitbucketDataCenterConfig bitbucketDataCenterConfig or {@code null} for none
+   */
+  public Connection setBitbucketDataCenterConfig(BitbucketDataCenterConfig bitbucketDataCenterConfig) {
+    this.bitbucketDataCenterConfig = bitbucketDataCenterConfig;
+    return this;
+  }
+
+  /**
    * Output only. [Output only] Create timestamp
    * @return value or {@code null} for none
    */
@@ -149,6 +234,25 @@ public final class Connection extends com.google.api.client.json.GenericJson {
    */
   public Connection setCreateTime(String createTime) {
     this.createTime = createTime;
+    return this;
+  }
+
+  /**
+   * Optional. The crypto key configuration. This field is used by the Customer-Managed Encryption
+   * Keys (CMEK) feature.
+   * @return value or {@code null} for none
+   */
+  public CryptoKeyConfig getCryptoKeyConfig() {
+    return cryptoKeyConfig;
+  }
+
+  /**
+   * Optional. The crypto key configuration. This field is used by the Customer-Managed Encryption
+   * Keys (CMEK) feature.
+   * @param cryptoKeyConfig cryptoKeyConfig or {@code null} for none
+   */
+  public Connection setCryptoKeyConfig(CryptoKeyConfig cryptoKeyConfig) {
+    this.cryptoKeyConfig = cryptoKeyConfig;
     return this;
   }
 
@@ -210,6 +314,25 @@ public final class Connection extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. Configuration for the git proxy feature. Enabling the git proxy allows clients to
+   * perform git operations on the repositories linked in the connection.
+   * @return value or {@code null} for none
+   */
+  public GitProxyConfig getGitProxyConfig() {
+    return gitProxyConfig;
+  }
+
+  /**
+   * Optional. Configuration for the git proxy feature. Enabling the git proxy allows clients to
+   * perform git operations on the repositories linked in the connection.
+   * @param gitProxyConfig gitProxyConfig or {@code null} for none
+   */
+  public Connection setGitProxyConfig(GitProxyConfig gitProxyConfig) {
+    this.gitProxyConfig = gitProxyConfig;
+    return this;
+  }
+
+  /**
    * Configuration for connections to github.com.
    * @return value or {@code null} for none
    */
@@ -223,6 +346,57 @@ public final class Connection extends com.google.api.client.json.GenericJson {
    */
   public Connection setGithubConfig(GitHubConfig githubConfig) {
     this.githubConfig = githubConfig;
+    return this;
+  }
+
+  /**
+   * Configuration for connections to an instance of GitHub Enterprise.
+   * @return value or {@code null} for none
+   */
+  public GitHubEnterpriseConfig getGithubEnterpriseConfig() {
+    return githubEnterpriseConfig;
+  }
+
+  /**
+   * Configuration for connections to an instance of GitHub Enterprise.
+   * @param githubEnterpriseConfig githubEnterpriseConfig or {@code null} for none
+   */
+  public Connection setGithubEnterpriseConfig(GitHubEnterpriseConfig githubEnterpriseConfig) {
+    this.githubEnterpriseConfig = githubEnterpriseConfig;
+    return this;
+  }
+
+  /**
+   * Configuration for connections to gitlab.com.
+   * @return value or {@code null} for none
+   */
+  public GitLabConfig getGitlabConfig() {
+    return gitlabConfig;
+  }
+
+  /**
+   * Configuration for connections to gitlab.com.
+   * @param gitlabConfig gitlabConfig or {@code null} for none
+   */
+  public Connection setGitlabConfig(GitLabConfig gitlabConfig) {
+    this.gitlabConfig = gitlabConfig;
+    return this;
+  }
+
+  /**
+   * Configuration for connections to an instance of GitLab Enterprise.
+   * @return value or {@code null} for none
+   */
+  public GitLabEnterpriseConfig getGitlabEnterpriseConfig() {
+    return gitlabEnterpriseConfig;
+  }
+
+  /**
+   * Configuration for connections to an instance of GitLab Enterprise.
+   * @param gitlabEnterpriseConfig gitlabEnterpriseConfig or {@code null} for none
+   */
+  public Connection setGitlabEnterpriseConfig(GitLabEnterpriseConfig gitlabEnterpriseConfig) {
+    this.gitlabEnterpriseConfig = gitlabEnterpriseConfig;
     return this;
   }
 
@@ -297,7 +471,7 @@ public final class Connection extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. A system-assigned unique identifier for a the GitRepositoryLink.
+   * Output only. A system-assigned unique identifier for the Connection.
    * @return value or {@code null} for none
    */
   public java.lang.String getUid() {
@@ -305,7 +479,7 @@ public final class Connection extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. A system-assigned unique identifier for a the GitRepositoryLink.
+   * Output only. A system-assigned unique identifier for the Connection.
    * @param uid uid or {@code null} for none
    */
   public Connection setUid(java.lang.String uid) {

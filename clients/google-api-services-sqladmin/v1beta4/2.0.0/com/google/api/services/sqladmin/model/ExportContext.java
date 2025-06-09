@@ -48,9 +48,12 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
    * specified, all databases are exported, except for the `mysql` system database. If `fileType` is
    * `CSV`, you can specify one database, either by using this property or by using the
    * `csvExportOptions.selectQuery` property, which takes precedence over this property. `PostgreSQL
-   * instances:` You must specify one database to be exported. If `fileType` is `CSV`, this database
-   * must match the one specified in the `csvExportOptions.selectQuery` property. `SQL Server
-   * instances:` You must specify one database to be exported, and the `fileType` must be `BAK`.
+   * instances:` If you don't specify a database by name, all user databases in the instance are
+   * exported. This excludes system databases and Cloud SQL databases used to manage internal
+   * operations. Exporting all user databases is only available for directory-formatted parallel
+   * export. If `fileType` is `CSV`, this database must match the one specified in the
+   * `csvExportOptions.selectQuery` property. `SQL Server instances:` You must specify one database
+   * to be exported, and the `fileType` must be `BAK`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -71,7 +74,7 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
   private java.lang.String kind;
 
   /**
-   * Option for export offload.
+   * Whether to perform a serverless export.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -83,6 +86,13 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
    */
   @com.google.api.client.util.Key
   private SqlExportOptions sqlExportOptions;
+
+  /**
+   * Optional. Export parameters specific to SQL Server TDE certificates
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private TdeExportOptions tdeExportOptions;
 
   /**
    * The path to the file in Google Cloud Storage where the export will be stored. The URI is in the
@@ -133,9 +143,12 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
    * specified, all databases are exported, except for the `mysql` system database. If `fileType` is
    * `CSV`, you can specify one database, either by using this property or by using the
    * `csvExportOptions.selectQuery` property, which takes precedence over this property. `PostgreSQL
-   * instances:` You must specify one database to be exported. If `fileType` is `CSV`, this database
-   * must match the one specified in the `csvExportOptions.selectQuery` property. `SQL Server
-   * instances:` You must specify one database to be exported, and the `fileType` must be `BAK`.
+   * instances:` If you don't specify a database by name, all user databases in the instance are
+   * exported. This excludes system databases and Cloud SQL databases used to manage internal
+   * operations. Exporting all user databases is only available for directory-formatted parallel
+   * export. If `fileType` is `CSV`, this database must match the one specified in the
+   * `csvExportOptions.selectQuery` property. `SQL Server instances:` You must specify one database
+   * to be exported, and the `fileType` must be `BAK`.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getDatabases() {
@@ -147,9 +160,12 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
    * specified, all databases are exported, except for the `mysql` system database. If `fileType` is
    * `CSV`, you can specify one database, either by using this property or by using the
    * `csvExportOptions.selectQuery` property, which takes precedence over this property. `PostgreSQL
-   * instances:` You must specify one database to be exported. If `fileType` is `CSV`, this database
-   * must match the one specified in the `csvExportOptions.selectQuery` property. `SQL Server
-   * instances:` You must specify one database to be exported, and the `fileType` must be `BAK`.
+   * instances:` If you don't specify a database by name, all user databases in the instance are
+   * exported. This excludes system databases and Cloud SQL databases used to manage internal
+   * operations. Exporting all user databases is only available for directory-formatted parallel
+   * export. If `fileType` is `CSV`, this database must match the one specified in the
+   * `csvExportOptions.selectQuery` property. `SQL Server instances:` You must specify one database
+   * to be exported, and the `fileType` must be `BAK`.
    * @param databases databases or {@code null} for none
    */
   public ExportContext setDatabases(java.util.List<java.lang.String> databases) {
@@ -192,7 +208,7 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Option for export offload.
+   * Whether to perform a serverless export.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getOffload() {
@@ -200,7 +216,7 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Option for export offload.
+   * Whether to perform a serverless export.
    * @param offload offload or {@code null} for none
    */
   public ExportContext setOffload(java.lang.Boolean offload) {
@@ -222,6 +238,23 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
    */
   public ExportContext setSqlExportOptions(SqlExportOptions sqlExportOptions) {
     this.sqlExportOptions = sqlExportOptions;
+    return this;
+  }
+
+  /**
+   * Optional. Export parameters specific to SQL Server TDE certificates
+   * @return value or {@code null} for none
+   */
+  public TdeExportOptions getTdeExportOptions() {
+    return tdeExportOptions;
+  }
+
+  /**
+   * Optional. Export parameters specific to SQL Server TDE certificates
+   * @param tdeExportOptions tdeExportOptions or {@code null} for none
+   */
+  public ExportContext setTdeExportOptions(TdeExportOptions tdeExportOptions) {
+    this.tdeExportOptions = tdeExportOptions;
     return this;
   }
 
@@ -824,7 +857,7 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
     public static final class PostgresExportOptions extends com.google.api.client.json.GenericJson {
 
       /**
-       * Optional. Use this option to include DROP SQL statements. These statements are used to delete
+       * Optional. Use this option to include DROP  SQL statements. Use these statements to delete
        * database objects before running the import operation.
        * The value may be {@code null}.
        */
@@ -840,7 +873,7 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
       private java.lang.Boolean ifExists;
 
       /**
-       * Optional. Use this option to include DROP SQL statements. These statements are used to delete
+       * Optional. Use this option to include DROP  SQL statements. Use these statements to delete
        * database objects before running the import operation.
        * @return value or {@code null} for none
        */
@@ -849,7 +882,7 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
       }
 
       /**
-       * Optional. Use this option to include DROP SQL statements. These statements are used to delete
+       * Optional. Use this option to include DROP  SQL statements. Use these statements to delete
        * database objects before running the import operation.
        * @param clean clean or {@code null} for none
        */
@@ -888,6 +921,125 @@ public final class ExportContext extends com.google.api.client.json.GenericJson 
       }
 
     }
+  }
+
+  /**
+   * Optional. Export parameters specific to SQL Server TDE certificates
+   */
+  public static final class TdeExportOptions extends com.google.api.client.json.GenericJson {
+
+    /**
+     * Required. Path to the TDE certificate public key in the form gs://bucketName/fileName. The
+     * instance must have write access to the location. Applicable only for SQL Server instances.
+     * The value may be {@code null}.
+     */
+    @com.google.api.client.util.Key
+    private java.lang.String certificatePath;
+
+    /**
+     * Required. Certificate name. Applicable only for SQL Server instances.
+     * The value may be {@code null}.
+     */
+    @com.google.api.client.util.Key
+    private java.lang.String name;
+
+    /**
+     * Required. Password that encrypts the private key.
+     * The value may be {@code null}.
+     */
+    @com.google.api.client.util.Key
+    private java.lang.String privateKeyPassword;
+
+    /**
+     * Required. Path to the TDE certificate private key in the form gs://bucketName/fileName. The
+     * instance must have write access to the location. Applicable only for SQL Server instances.
+     * The value may be {@code null}.
+     */
+    @com.google.api.client.util.Key
+    private java.lang.String privateKeyPath;
+
+    /**
+     * Required. Path to the TDE certificate public key in the form gs://bucketName/fileName. The
+     * instance must have write access to the location. Applicable only for SQL Server instances.
+     * @return value or {@code null} for none
+     */
+    public java.lang.String getCertificatePath() {
+      return certificatePath;
+    }
+
+    /**
+     * Required. Path to the TDE certificate public key in the form gs://bucketName/fileName. The
+     * instance must have write access to the location. Applicable only for SQL Server instances.
+     * @param certificatePath certificatePath or {@code null} for none
+     */
+    public TdeExportOptions setCertificatePath(java.lang.String certificatePath) {
+      this.certificatePath = certificatePath;
+      return this;
+    }
+
+    /**
+     * Required. Certificate name. Applicable only for SQL Server instances.
+     * @return value or {@code null} for none
+     */
+    public java.lang.String getName() {
+      return name;
+    }
+
+    /**
+     * Required. Certificate name. Applicable only for SQL Server instances.
+     * @param name name or {@code null} for none
+     */
+    public TdeExportOptions setName(java.lang.String name) {
+      this.name = name;
+      return this;
+    }
+
+    /**
+     * Required. Password that encrypts the private key.
+     * @return value or {@code null} for none
+     */
+    public java.lang.String getPrivateKeyPassword() {
+      return privateKeyPassword;
+    }
+
+    /**
+     * Required. Password that encrypts the private key.
+     * @param privateKeyPassword privateKeyPassword or {@code null} for none
+     */
+    public TdeExportOptions setPrivateKeyPassword(java.lang.String privateKeyPassword) {
+      this.privateKeyPassword = privateKeyPassword;
+      return this;
+    }
+
+    /**
+     * Required. Path to the TDE certificate private key in the form gs://bucketName/fileName. The
+     * instance must have write access to the location. Applicable only for SQL Server instances.
+     * @return value or {@code null} for none
+     */
+    public java.lang.String getPrivateKeyPath() {
+      return privateKeyPath;
+    }
+
+    /**
+     * Required. Path to the TDE certificate private key in the form gs://bucketName/fileName. The
+     * instance must have write access to the location. Applicable only for SQL Server instances.
+     * @param privateKeyPath privateKeyPath or {@code null} for none
+     */
+    public TdeExportOptions setPrivateKeyPath(java.lang.String privateKeyPath) {
+      this.privateKeyPath = privateKeyPath;
+      return this;
+    }
+
+    @Override
+    public TdeExportOptions set(String fieldName, Object value) {
+      return (TdeExportOptions) super.set(fieldName, value);
+    }
+
+    @Override
+    public TdeExportOptions clone() {
+      return (TdeExportOptions) super.clone();
+    }
+
   }
 
 }

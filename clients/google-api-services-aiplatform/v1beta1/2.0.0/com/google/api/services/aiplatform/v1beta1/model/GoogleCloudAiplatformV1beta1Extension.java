@@ -82,8 +82,8 @@ public final class GoogleCloudAiplatformV1beta1Extension extends com.google.api.
 
   /**
    * Optional. The PrivateServiceConnect config for the extension. If specified, the service
-   * endpoints associated with the Extension should be registered with private network access in the
-   * provided Service Directory (https://cloud.google.com/service-directory/docs/configuring-
+   * endpoints associated with the Extension should be [registered with private network access in
+   * the provided Service Directory](https://cloud.google.com/service-directory/docs/configuring-
    * private-network-access). If the service contains more than one endpoint with a network, the
    * service will arbitrarilty choose one of the endpoints to use for extension execution.
    * The value may be {@code null}.
@@ -97,6 +97,20 @@ public final class GoogleCloudAiplatformV1beta1Extension extends com.google.api.
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1RuntimeConfig runtimeConfig;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzs;
 
   /**
    * Optional. Examples to illustrate the usage of the extension as a tool.
@@ -237,8 +251,8 @@ public final class GoogleCloudAiplatformV1beta1Extension extends com.google.api.
 
   /**
    * Optional. The PrivateServiceConnect config for the extension. If specified, the service
-   * endpoints associated with the Extension should be registered with private network access in the
-   * provided Service Directory (https://cloud.google.com/service-directory/docs/configuring-
+   * endpoints associated with the Extension should be [registered with private network access in
+   * the provided Service Directory](https://cloud.google.com/service-directory/docs/configuring-
    * private-network-access). If the service contains more than one endpoint with a network, the
    * service will arbitrarilty choose one of the endpoints to use for extension execution.
    * @return value or {@code null} for none
@@ -249,8 +263,8 @@ public final class GoogleCloudAiplatformV1beta1Extension extends com.google.api.
 
   /**
    * Optional. The PrivateServiceConnect config for the extension. If specified, the service
-   * endpoints associated with the Extension should be registered with private network access in the
-   * provided Service Directory (https://cloud.google.com/service-directory/docs/configuring-
+   * endpoints associated with the Extension should be [registered with private network access in
+   * the provided Service Directory](https://cloud.google.com/service-directory/docs/configuring-
    * private-network-access). If the service contains more than one endpoint with a network, the
    * service will arbitrarilty choose one of the endpoints to use for extension execution.
    * @param privateServiceConnectConfig privateServiceConnectConfig or {@code null} for none
@@ -274,6 +288,40 @@ public final class GoogleCloudAiplatformV1beta1Extension extends com.google.api.
    */
   public GoogleCloudAiplatformV1beta1Extension setRuntimeConfig(GoogleCloudAiplatformV1beta1RuntimeConfig runtimeConfig) {
     this.runtimeConfig = runtimeConfig;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Extension setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzs() {
+    return satisfiesPzs;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzs satisfiesPzs or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Extension setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
+    this.satisfiesPzs = satisfiesPzs;
     return this;
   }
 

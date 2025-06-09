@@ -20,7 +20,7 @@ package com.google.api.services.retail.v2alpha.model;
  * The inventory information at a place (e.g. a store) identified by a place ID.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the Vertex AI Search for Retail API. For a detailed
+ * transmitted over HTTP when working with the Vertex AI Search for commerce API. For a detailed
  * explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
@@ -31,10 +31,10 @@ package com.google.api.services.retail.v2alpha.model;
 public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api.client.json.GenericJson {
 
   /**
-   * Additional local inventory attributes, for example, store name, promotion tags, etc. This field
-   * needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is returned: * At most 30
-   * attributes are allowed. * The key must be a UTF-8 encoded string with a length limit of 32
-   * characters. * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
+   * Optional. Additional local inventory attributes, for example, store name, promotion tags, etc.
+   * This field needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is returned: *
+   * At most 30 attributes are allowed. * The key must be a UTF-8 encoded string with a length limit
+   * of 32 characters. * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
    * KEY_1_LIKE_THIS. * The attribute values must be of the same type (text or number). * Only 1
    * value is allowed for each attribute. * For text values, the length limit is 256 UTF-8
    * characters. * The attribute does not support search. The `searchable` field should be unset or
@@ -52,7 +52,24 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   }
 
   /**
-   * Input only. Supported fulfillment types. Valid fulfillment type values include commonly used
+   * Optional. The availability of the Product at this place_id. Default to Availability.IN_STOCK.
+   * For primary products with variants set the availability of the primary as
+   * Availability.OUT_OF_STOCK and set the true availability at the variant level. This way the
+   * primary product will be considered "in stock" as long as it has at least one variant in stock.
+   * For primary products with no variants set the true availability at the primary level.
+   * Corresponding properties: Google Merchant Center property
+   * [availability](https://support.google.com/merchants/answer/6324448). Schema.org property
+   * [Offer.availability](https://schema.org/availability). This field is currently only used by the
+   * Recommendations API. For Search, please make use of fulfillment_types or custom attributes for
+   * similar behaviour. See [here]( https://cloud.google.com/retail/docs/local-inventory-
+   * updates#local-inventory-update-methods) for more details.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String availability;
+
+  /**
+   * Optional. Supported fulfillment types. Valid fulfillment type values include commonly used
    * types (such as pickup in store and same day delivery), and custom types. Customers have to map
    * custom types to their display names before rendering UI. Supported values: * "pickup-in-store"
    * * "ship-to-store" * "same-day-delivery" * "next-day-delivery" * "custom-type-1" * "custom-
@@ -65,14 +82,14 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   private java.util.List<java.lang.String> fulfillmentTypes;
 
   /**
-   * The place ID for the current set of inventory information.
+   * Optional. The place ID for the current set of inventory information.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String placeId;
 
   /**
-   * Product price and cost information. Google Merchant Center property
+   * Optional. Product price and cost information. Google Merchant Center property
    * [price](https://support.google.com/merchants/answer/6324371).
    * The value may be {@code null}.
    */
@@ -80,10 +97,10 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   private GoogleCloudRetailV2alphaPriceInfo priceInfo;
 
   /**
-   * Additional local inventory attributes, for example, store name, promotion tags, etc. This field
-   * needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is returned: * At most 30
-   * attributes are allowed. * The key must be a UTF-8 encoded string with a length limit of 32
-   * characters. * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
+   * Optional. Additional local inventory attributes, for example, store name, promotion tags, etc.
+   * This field needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is returned: *
+   * At most 30 attributes are allowed. * The key must be a UTF-8 encoded string with a length limit
+   * of 32 characters. * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
    * KEY_1_LIKE_THIS. * The attribute values must be of the same type (text or number). * Only 1
    * value is allowed for each attribute. * For text values, the length limit is 256 UTF-8
    * characters. * The attribute does not support search. The `searchable` field should be unset or
@@ -96,10 +113,10 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   }
 
   /**
-   * Additional local inventory attributes, for example, store name, promotion tags, etc. This field
-   * needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is returned: * At most 30
-   * attributes are allowed. * The key must be a UTF-8 encoded string with a length limit of 32
-   * characters. * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
+   * Optional. Additional local inventory attributes, for example, store name, promotion tags, etc.
+   * This field needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is returned: *
+   * At most 30 attributes are allowed. * The key must be a UTF-8 encoded string with a length limit
+   * of 32 characters. * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
    * KEY_1_LIKE_THIS. * The attribute values must be of the same type (text or number). * Only 1
    * value is allowed for each attribute. * For text values, the length limit is 256 UTF-8
    * characters. * The attribute does not support search. The `searchable` field should be unset or
@@ -113,7 +130,44 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   }
 
   /**
-   * Input only. Supported fulfillment types. Valid fulfillment type values include commonly used
+   * Optional. The availability of the Product at this place_id. Default to Availability.IN_STOCK.
+   * For primary products with variants set the availability of the primary as
+   * Availability.OUT_OF_STOCK and set the true availability at the variant level. This way the
+   * primary product will be considered "in stock" as long as it has at least one variant in stock.
+   * For primary products with no variants set the true availability at the primary level.
+   * Corresponding properties: Google Merchant Center property
+   * [availability](https://support.google.com/merchants/answer/6324448). Schema.org property
+   * [Offer.availability](https://schema.org/availability). This field is currently only used by the
+   * Recommendations API. For Search, please make use of fulfillment_types or custom attributes for
+   * similar behaviour. See [here]( https://cloud.google.com/retail/docs/local-inventory-
+   * updates#local-inventory-update-methods) for more details.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getAvailability() {
+    return availability;
+  }
+
+  /**
+   * Optional. The availability of the Product at this place_id. Default to Availability.IN_STOCK.
+   * For primary products with variants set the availability of the primary as
+   * Availability.OUT_OF_STOCK and set the true availability at the variant level. This way the
+   * primary product will be considered "in stock" as long as it has at least one variant in stock.
+   * For primary products with no variants set the true availability at the primary level.
+   * Corresponding properties: Google Merchant Center property
+   * [availability](https://support.google.com/merchants/answer/6324448). Schema.org property
+   * [Offer.availability](https://schema.org/availability). This field is currently only used by the
+   * Recommendations API. For Search, please make use of fulfillment_types or custom attributes for
+   * similar behaviour. See [here]( https://cloud.google.com/retail/docs/local-inventory-
+   * updates#local-inventory-update-methods) for more details.
+   * @param availability availability or {@code null} for none
+   */
+  public GoogleCloudRetailV2alphaLocalInventory setAvailability(java.lang.String availability) {
+    this.availability = availability;
+    return this;
+  }
+
+  /**
+   * Optional. Supported fulfillment types. Valid fulfillment type values include commonly used
    * types (such as pickup in store and same day delivery), and custom types. Customers have to map
    * custom types to their display names before rendering UI. Supported values: * "pickup-in-store"
    * * "ship-to-store" * "same-day-delivery" * "next-day-delivery" * "custom-type-1" * "custom-
@@ -127,7 +181,7 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   }
 
   /**
-   * Input only. Supported fulfillment types. Valid fulfillment type values include commonly used
+   * Optional. Supported fulfillment types. Valid fulfillment type values include commonly used
    * types (such as pickup in store and same day delivery), and custom types. Customers have to map
    * custom types to their display names before rendering UI. Supported values: * "pickup-in-store"
    * * "ship-to-store" * "same-day-delivery" * "next-day-delivery" * "custom-type-1" * "custom-
@@ -142,7 +196,7 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   }
 
   /**
-   * The place ID for the current set of inventory information.
+   * Optional. The place ID for the current set of inventory information.
    * @return value or {@code null} for none
    */
   public java.lang.String getPlaceId() {
@@ -150,7 +204,7 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   }
 
   /**
-   * The place ID for the current set of inventory information.
+   * Optional. The place ID for the current set of inventory information.
    * @param placeId placeId or {@code null} for none
    */
   public GoogleCloudRetailV2alphaLocalInventory setPlaceId(java.lang.String placeId) {
@@ -159,7 +213,7 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   }
 
   /**
-   * Product price and cost information. Google Merchant Center property
+   * Optional. Product price and cost information. Google Merchant Center property
    * [price](https://support.google.com/merchants/answer/6324371).
    * @return value or {@code null} for none
    */
@@ -168,7 +222,7 @@ public final class GoogleCloudRetailV2alphaLocalInventory extends com.google.api
   }
 
   /**
-   * Product price and cost information. Google Merchant Center property
+   * Optional. Product price and cost information. Google Merchant Center property
    * [price](https://support.google.com/merchants/answer/6324371).
    * @param priceInfo priceInfo or {@code null} for none
    */

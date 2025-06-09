@@ -447,6 +447,29 @@ public class RapidMigrationAssessment extends com.google.api.client.googleapis.s
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -1011,7 +1034,7 @@ public class RapidMigrationAssessment extends com.google.api.client.googleapis.s
         }
         /**
          * Deletes a single Collector - changes state of collector to "Deleting". Background jobs does final
-         * deletion thorugh producer api.
+         * deletion through producer API.
          *
          * Create a request for the method "collectors.delete".
          *
@@ -1036,7 +1059,7 @@ public class RapidMigrationAssessment extends com.google.api.client.googleapis.s
 
           /**
            * Deletes a single Collector - changes state of collector to "Deleting". Background jobs does
-           * final deletion thorugh producer api.
+           * final deletion through producer API.
            *
            * Create a request for the method "collectors.delete".
            *
@@ -2157,7 +2180,7 @@ public class RapidMigrationAssessment extends com.google.api.client.googleapis.s
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -2188,7 +2211,7 @@ public class RapidMigrationAssessment extends com.google.api.client.googleapis.s
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".

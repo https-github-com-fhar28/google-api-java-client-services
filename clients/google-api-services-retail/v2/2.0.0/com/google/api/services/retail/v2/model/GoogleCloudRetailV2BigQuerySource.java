@@ -20,7 +20,7 @@ package com.google.api.services.retail.v2.model;
  * BigQuery source import data from.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the Vertex AI Search for Retail API. For a detailed
+ * transmitted over HTTP when working with the Vertex AI Search for commerce API. For a detailed
  * explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
@@ -64,8 +64,7 @@ public final class GoogleCloudRetailV2BigQuerySource extends com.google.api.clie
   private java.lang.String gcsStagingDir;
 
   /**
-   * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format. Only supported in
-   * ImportProductsRequest.
+   * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -162,8 +161,7 @@ public final class GoogleCloudRetailV2BigQuerySource extends com.google.api.clie
   }
 
   /**
-   * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format. Only supported in
-   * ImportProductsRequest.
+   * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
    * @return value or {@code null} for none
    */
   public GoogleTypeDate getPartitionDate() {
@@ -171,8 +169,7 @@ public final class GoogleCloudRetailV2BigQuerySource extends com.google.api.clie
   }
 
   /**
-   * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format. Only supported in
-   * ImportProductsRequest.
+   * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
    * @param partitionDate partitionDate or {@code null} for none
    */
   public GoogleCloudRetailV2BigQuerySource setPartitionDate(GoogleTypeDate partitionDate) {

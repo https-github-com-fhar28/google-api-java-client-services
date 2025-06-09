@@ -58,6 +58,13 @@ public final class Query extends com.google.api.client.json.GenericJson {
   private java.lang.String dataScope;
 
   /**
+   * Required when **SearchMethod** is **DRIVE_DOCUMENT**.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private DriveDocumentInfo driveDocumentInfo;
+
+  /**
    * Set Drive search-specific options.
    * The value may be {@code null}.
    */
@@ -71,6 +78,13 @@ public final class Query extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private String endTime;
+
+  /**
+   * Set Gemini search-specific options.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GeminiOptions geminiOptions;
 
   /**
    * Required when **SearchMethod** is **ROOM**. (read-only)
@@ -238,6 +252,23 @@ public final class Query extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Required when **SearchMethod** is **DRIVE_DOCUMENT**.
+   * @return value or {@code null} for none
+   */
+  public DriveDocumentInfo getDriveDocumentInfo() {
+    return driveDocumentInfo;
+  }
+
+  /**
+   * Required when **SearchMethod** is **DRIVE_DOCUMENT**.
+   * @param driveDocumentInfo driveDocumentInfo or {@code null} for none
+   */
+  public Query setDriveDocumentInfo(DriveDocumentInfo driveDocumentInfo) {
+    this.driveDocumentInfo = driveDocumentInfo;
+    return this;
+  }
+
+  /**
    * Set Drive search-specific options.
    * @return value or {@code null} for none
    */
@@ -270,6 +301,23 @@ public final class Query extends com.google.api.client.json.GenericJson {
    */
   public Query setEndTime(String endTime) {
     this.endTime = endTime;
+    return this;
+  }
+
+  /**
+   * Set Gemini search-specific options.
+   * @return value or {@code null} for none
+   */
+  public GeminiOptions getGeminiOptions() {
+    return geminiOptions;
+  }
+
+  /**
+   * Set Gemini search-specific options.
+   * @param geminiOptions geminiOptions or {@code null} for none
+   */
+  public Query setGeminiOptions(GeminiOptions geminiOptions) {
+    this.geminiOptions = geminiOptions;
     return this;
   }
 

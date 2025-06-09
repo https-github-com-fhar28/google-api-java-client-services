@@ -50,6 +50,9 @@ public final class OauthClient extends com.google.api.client.json.GenericJson {
    * Required. The list of scopes that the OauthClient is allowed to request during OAuth flows. The
    * following scopes are supported: * `https://www.googleapis.com/auth/cloud-platform`: See, edit,
    * configure, and delete your Google Cloud data and see the email address for your Google Account.
+   * * `openid`: The OAuth client can associate you with your personal information on Google Cloud.
+   * * `email`: The OAuth client can read a federated identity's email address. * `groups`: The
+   * OAuth client can read a federated identity's groups.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -100,7 +103,7 @@ public final class OauthClient extends com.google.api.client.json.GenericJson {
   private String expireTime;
 
   /**
-   * Immutable. The resource name of the OauthClient.
+   * Immutable. Identifier. The resource name of the OauthClient.
    * Format:`projects/{project}/locations/{location}/oauthClients/{oauth_client}`.
    * The value may be {@code null}.
    */
@@ -154,6 +157,9 @@ public final class OauthClient extends com.google.api.client.json.GenericJson {
    * Required. The list of scopes that the OauthClient is allowed to request during OAuth flows. The
    * following scopes are supported: * `https://www.googleapis.com/auth/cloud-platform`: See, edit,
    * configure, and delete your Google Cloud data and see the email address for your Google Account.
+   * * `openid`: The OAuth client can associate you with your personal information on Google Cloud.
+   * * `email`: The OAuth client can read a federated identity's email address. * `groups`: The
+   * OAuth client can read a federated identity's groups.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getAllowedScopes() {
@@ -164,6 +170,9 @@ public final class OauthClient extends com.google.api.client.json.GenericJson {
    * Required. The list of scopes that the OauthClient is allowed to request during OAuth flows. The
    * following scopes are supported: * `https://www.googleapis.com/auth/cloud-platform`: See, edit,
    * configure, and delete your Google Cloud data and see the email address for your Google Account.
+   * * `openid`: The OAuth client can associate you with your personal information on Google Cloud.
+   * * `email`: The OAuth client can read a federated identity's email address. * `groups`: The
+   * OAuth client can read a federated identity's groups.
    * @param allowedScopes allowedScopes or {@code null} for none
    */
   public OauthClient setAllowedScopes(java.util.List<java.lang.String> allowedScopes) {
@@ -278,7 +287,7 @@ public final class OauthClient extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Immutable. The resource name of the OauthClient.
+   * Immutable. Identifier. The resource name of the OauthClient.
    * Format:`projects/{project}/locations/{location}/oauthClients/{oauth_client}`.
    * @return value or {@code null} for none
    */
@@ -287,7 +296,7 @@ public final class OauthClient extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Immutable. The resource name of the OauthClient.
+   * Immutable. Identifier. The resource name of the OauthClient.
    * Format:`projects/{project}/locations/{location}/oauthClients/{oauth_client}`.
    * @param name name or {@code null} for none
    */

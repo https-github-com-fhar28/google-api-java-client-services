@@ -17,9 +17,9 @@
 package com.google.api.services.workspaceevents.v1.model;
 
 /**
- * [Developer Preview](https://developers.google.com/workspace/preview). A subscription to receive
- * events about a Google Workspace resource. To learn more about subscriptions, see the [Google
- * Workspace Events API overview](https://developers.google.com/workspace/events).
+ * A subscription to receive events about a Google Workspace resource. To learn more about
+ * subscriptions, see the [Google Workspace Events API
+ * overview](https://developers.google.com/workspace/events).
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Google Workspace Events API. For a detailed
@@ -82,8 +82,7 @@ public final class Subscription extends com.google.api.client.json.GenericJson {
   private String expireTime;
 
   /**
-   * Optional. Immutable. Identifier. Resource name of the subscription. Format:
-   * `subscriptions/{subscription}`
+   * Identifier. Resource name of the subscription. Format: `subscriptions/{subscription}`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -277,8 +276,7 @@ public final class Subscription extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Immutable. Identifier. Resource name of the subscription. Format:
-   * `subscriptions/{subscription}`
+   * Identifier. Resource name of the subscription. Format: `subscriptions/{subscription}`
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -286,8 +284,7 @@ public final class Subscription extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Immutable. Identifier. Resource name of the subscription. Format:
-   * `subscriptions/{subscription}`
+   * Identifier. Resource name of the subscription. Format: `subscriptions/{subscription}`
    * @param name name or {@code null} for none
    */
   public Subscription setName(java.lang.String name) {

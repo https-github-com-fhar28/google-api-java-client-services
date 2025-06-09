@@ -41,11 +41,27 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
-   * An optional description of the spoke.
+   * Optional. An optional description of the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String description;
+
+  /**
+   * Optional. This checksum is computed by the server based on the value of other fields, and may
+   * be sent on update and delete requests to ensure the client has an up-to-date value before
+   * proceeding.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String etag;
+
+  /**
+   * Optional. The list of fields waiting for hub administration's approval.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> fieldPathsPendingUpdate;
 
   /**
    * Optional. The name of the group that this spoke is associated with.
@@ -71,14 +87,21 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private java.util.Map<String, java.lang.String> labels;
 
   /**
-   * VLAN attachments that are associated with the spoke.
+   * Optional. VLAN attachments that are associated with the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private LinkedInterconnectAttachments linkedInterconnectAttachments;
 
   /**
-   * Router appliance instances that are associated with the spoke.
+   * Optional. The linked producer VPC that is associated with the spoke.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private LinkedProducerVpcNetwork linkedProducerVpcNetwork;
+
+  /**
+   * Optional. Router appliance instances that are associated with the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -92,7 +115,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private LinkedVpcNetwork linkedVpcNetwork;
 
   /**
-   * VPN tunnels that are associated with the spoke.
+   * Optional. VPN tunnels that are associated with the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -107,8 +130,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
-   * Output only. The reasons for current state of the spoke. Only present when the spoke is in the
-   * `INACTIVE` state.
+   * Output only. The reasons for current state of the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -162,7 +184,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * An optional description of the spoke.
+   * Optional. An optional description of the spoke.
    * @return value or {@code null} for none
    */
   public java.lang.String getDescription() {
@@ -170,11 +192,49 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * An optional description of the spoke.
+   * Optional. An optional description of the spoke.
    * @param description description or {@code null} for none
    */
   public Spoke setDescription(java.lang.String description) {
     this.description = description;
+    return this;
+  }
+
+  /**
+   * Optional. This checksum is computed by the server based on the value of other fields, and may
+   * be sent on update and delete requests to ensure the client has an up-to-date value before
+   * proceeding.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEtag() {
+    return etag;
+  }
+
+  /**
+   * Optional. This checksum is computed by the server based on the value of other fields, and may
+   * be sent on update and delete requests to ensure the client has an up-to-date value before
+   * proceeding.
+   * @param etag etag or {@code null} for none
+   */
+  public Spoke setEtag(java.lang.String etag) {
+    this.etag = etag;
+    return this;
+  }
+
+  /**
+   * Optional. The list of fields waiting for hub administration's approval.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getFieldPathsPendingUpdate() {
+    return fieldPathsPendingUpdate;
+  }
+
+  /**
+   * Optional. The list of fields waiting for hub administration's approval.
+   * @param fieldPathsPendingUpdate fieldPathsPendingUpdate or {@code null} for none
+   */
+  public Spoke setFieldPathsPendingUpdate(java.util.List<java.lang.String> fieldPathsPendingUpdate) {
+    this.fieldPathsPendingUpdate = fieldPathsPendingUpdate;
     return this;
   }
 
@@ -234,7 +294,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * VLAN attachments that are associated with the spoke.
+   * Optional. VLAN attachments that are associated with the spoke.
    * @return value or {@code null} for none
    */
   public LinkedInterconnectAttachments getLinkedInterconnectAttachments() {
@@ -242,7 +302,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * VLAN attachments that are associated with the spoke.
+   * Optional. VLAN attachments that are associated with the spoke.
    * @param linkedInterconnectAttachments linkedInterconnectAttachments or {@code null} for none
    */
   public Spoke setLinkedInterconnectAttachments(LinkedInterconnectAttachments linkedInterconnectAttachments) {
@@ -251,7 +311,24 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Router appliance instances that are associated with the spoke.
+   * Optional. The linked producer VPC that is associated with the spoke.
+   * @return value or {@code null} for none
+   */
+  public LinkedProducerVpcNetwork getLinkedProducerVpcNetwork() {
+    return linkedProducerVpcNetwork;
+  }
+
+  /**
+   * Optional. The linked producer VPC that is associated with the spoke.
+   * @param linkedProducerVpcNetwork linkedProducerVpcNetwork or {@code null} for none
+   */
+  public Spoke setLinkedProducerVpcNetwork(LinkedProducerVpcNetwork linkedProducerVpcNetwork) {
+    this.linkedProducerVpcNetwork = linkedProducerVpcNetwork;
+    return this;
+  }
+
+  /**
+   * Optional. Router appliance instances that are associated with the spoke.
    * @return value or {@code null} for none
    */
   public LinkedRouterApplianceInstances getLinkedRouterApplianceInstances() {
@@ -259,7 +336,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Router appliance instances that are associated with the spoke.
+   * Optional. Router appliance instances that are associated with the spoke.
    * @param linkedRouterApplianceInstances linkedRouterApplianceInstances or {@code null} for none
    */
   public Spoke setLinkedRouterApplianceInstances(LinkedRouterApplianceInstances linkedRouterApplianceInstances) {
@@ -285,7 +362,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * VPN tunnels that are associated with the spoke.
+   * Optional. VPN tunnels that are associated with the spoke.
    * @return value or {@code null} for none
    */
   public LinkedVpnTunnels getLinkedVpnTunnels() {
@@ -293,7 +370,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * VPN tunnels that are associated with the spoke.
+   * Optional. VPN tunnels that are associated with the spoke.
    * @param linkedVpnTunnels linkedVpnTunnels or {@code null} for none
    */
   public Spoke setLinkedVpnTunnels(LinkedVpnTunnels linkedVpnTunnels) {
@@ -321,8 +398,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. The reasons for current state of the spoke. Only present when the spoke is in the
-   * `INACTIVE` state.
+   * Output only. The reasons for current state of the spoke.
    * @return value or {@code null} for none
    */
   public java.util.List<StateReason> getReasons() {
@@ -330,8 +406,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. The reasons for current state of the spoke. Only present when the spoke is in the
-   * `INACTIVE` state.
+   * Output only. The reasons for current state of the spoke.
    * @param reasons reasons or {@code null} for none
    */
   public Spoke setReasons(java.util.List<StateReason> reasons) {

@@ -37,6 +37,13 @@ public final class SchedulingConfig extends com.google.api.client.json.GenericJs
   private java.lang.Boolean preemptible;
 
   /**
+   * Optional. Defines the provisioning model for the node.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String provisioningModel;
+
+  /**
    * Whether the node is created under a reservation.
    * The value may be {@code null}.
    */
@@ -49,6 +56,13 @@ public final class SchedulingConfig extends com.google.api.client.json.GenericJs
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean spot;
+
+  /**
+   * Output only. The time at which the node will be terminated.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String terminationTimestamp;
 
   /**
    * Defines whether the node is preemptible.
@@ -64,6 +78,23 @@ public final class SchedulingConfig extends com.google.api.client.json.GenericJs
    */
   public SchedulingConfig setPreemptible(java.lang.Boolean preemptible) {
     this.preemptible = preemptible;
+    return this;
+  }
+
+  /**
+   * Optional. Defines the provisioning model for the node.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getProvisioningModel() {
+    return provisioningModel;
+  }
+
+  /**
+   * Optional. Defines the provisioning model for the node.
+   * @param provisioningModel provisioningModel or {@code null} for none
+   */
+  public SchedulingConfig setProvisioningModel(java.lang.String provisioningModel) {
+    this.provisioningModel = provisioningModel;
     return this;
   }
 
@@ -98,6 +129,23 @@ public final class SchedulingConfig extends com.google.api.client.json.GenericJs
    */
   public SchedulingConfig setSpot(java.lang.Boolean spot) {
     this.spot = spot;
+    return this;
+  }
+
+  /**
+   * Output only. The time at which the node will be terminated.
+   * @return value or {@code null} for none
+   */
+  public String getTerminationTimestamp() {
+    return terminationTimestamp;
+  }
+
+  /**
+   * Output only. The time at which the node will be terminated.
+   * @param terminationTimestamp terminationTimestamp or {@code null} for none
+   */
+  public SchedulingConfig setTerminationTimestamp(String terminationTimestamp) {
+    this.terminationTimestamp = terminationTimestamp;
     return this;
   }
 

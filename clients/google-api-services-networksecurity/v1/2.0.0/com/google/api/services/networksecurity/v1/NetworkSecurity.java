@@ -1193,6 +1193,26 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
             return this;
           }
 
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
+            return this;
+          }
+
           @Override
           public List set(String parameterName, Object value) {
             return (List) super.set(parameterName, value);
@@ -2713,7 +2733,7 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -2744,7 +2764,7 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -5343,6 +5363,29 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -6628,6 +6671,26 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
            */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;
+            return this;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
             return this;
           }
 
@@ -8835,6 +8898,533 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
       public class AuthzPolicies {
 
         /**
+         * Creates a new AuthzPolicy in a given project and location.
+         *
+         * Create a request for the method "authzPolicies.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource of the `AuthzPolicy` resource. Must be in the format
+         *        `projects/{project}/locations/{location}`.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.AuthzPolicy}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.AuthzPolicy content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/authzPolicies";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates a new AuthzPolicy in a given project and location.
+           *
+           * Create a request for the method "authzPolicies.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource of the `AuthzPolicy` resource. Must be in the format
+         *        `projects/{project}/locations/{location}`.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.AuthzPolicy}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.AuthzPolicy content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource of the `AuthzPolicy` resource. Must be in the format
+           * `projects/{project}/locations/{location}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource of the `AuthzPolicy` resource. Must be in the format
+         `projects/{project}/locations/{location}`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource of the `AuthzPolicy` resource. Must be in the format
+           * `projects/{project}/locations/{location}`.
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /** Required. User-provided ID of the `AuthzPolicy` resource to be created. */
+          @com.google.api.client.util.Key
+          private java.lang.String authzPolicyId;
+
+          /** Required. User-provided ID of the `AuthzPolicy` resource to be created.
+           */
+          public java.lang.String getAuthzPolicyId() {
+            return authzPolicyId;
+          }
+
+          /** Required. User-provided ID of the `AuthzPolicy` resource to be created. */
+          public Create setAuthzPolicyId(java.lang.String authzPolicyId) {
+            this.authzPolicyId = authzPolicyId;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for at least 60 minutes since the
+           * first request. For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same request ID, the
+           * server can check if original operation with the same request ID was received, and if
+           * so, ignores the second request. This prevents clients from accidentally creating
+           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
+           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server can ignore the request if it has already been completed. The
+         server guarantees that for at least 60 minutes since the first request. For example, consider a
+         situation where you make an initial request and the request times out. If you make the request
+         again with the same request ID, the server can check if original operation with the same request ID
+         was received, and if so, ignores the second request. This prevents clients from accidentally
+         creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
+         UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for at least 60 minutes since the
+           * first request. For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same request ID, the
+           * server can check if original operation with the same request ID was received, and if
+           * so, ignores the second request. This prevents clients from accidentally creating
+           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
+           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes a single AuthzPolicy.
+         *
+         * Create a request for the method "authzPolicies.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the `AuthzPolicy` resource to delete. Must be in the format
+         *        `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+
+          /**
+           * Deletes a single AuthzPolicy.
+           *
+           * Create a request for the method "authzPolicies.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the `AuthzPolicy` resource to delete. Must be in the format
+         *        `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the `AuthzPolicy` resource to delete. Must be in the format
+           * `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the `AuthzPolicy` resource to delete. Must be in the format
+         `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the `AuthzPolicy` resource to delete. Must be in the format
+           * `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for at least 60 minutes after the
+           * first request. For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same request ID, the
+           * server can check if original operation with the same request ID was received, and if
+           * so, ignores the second request. This prevents clients from accidentally creating
+           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
+           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server can ignore the request if it has already been completed. The
+         server guarantees that for at least 60 minutes after the first request. For example, consider a
+         situation where you make an initial request and the request times out. If you make the request
+         again with the same request ID, the server can check if original operation with the same request ID
+         was received, and if so, ignores the second request. This prevents clients from accidentally
+         creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
+         UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for at least 60 minutes after the
+           * first request. For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same request ID, the
+           * server can check if original operation with the same request ID was received, and if
+           * so, ignores the second request. This prevents clients from accidentally creating
+           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
+           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets details of a single AuthzPolicy.
+         *
+         * Create a request for the method "authzPolicies.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. A name of the `AuthzPolicy` resource to get. Must be in the format
+         *        `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.AuthzPolicy> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+
+          /**
+           * Gets details of a single AuthzPolicy.
+           *
+           * Create a request for the method "authzPolicies.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. A name of the `AuthzPolicy` resource to get. Must be in the format
+         *        `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.AuthzPolicy.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. A name of the `AuthzPolicy` resource to get. Must be in the format
+           * `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. A name of the `AuthzPolicy` resource to get. Must be in the format
+         `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. A name of the `AuthzPolicy` resource to get. Must be in the format
+           * `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
          * Gets the access control policy for a resource. Returns an empty policy if the resource exists and
          * does not have a policy set.
          *
@@ -9031,6 +9621,436 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
           @Override
           public GetIamPolicy set(String parameterName, Object value) {
             return (GetIamPolicy) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists AuthzPolicies in a given project and location.
+         *
+         * Create a request for the method "authzPolicies.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The project and location from which the `AuthzPolicy` resources are listed, specified in
+         *        the following format: `projects/{project}/locations/{location}`.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListAuthzPoliciesResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/authzPolicies";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists AuthzPolicies in a given project and location.
+           *
+           * Create a request for the method "authzPolicies.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The project and location from which the `AuthzPolicy` resources are listed, specified in
+         *        the following format: `projects/{project}/locations/{location}`.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListAuthzPoliciesResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The project and location from which the `AuthzPolicy` resources are listed,
+           * specified in the following format: `projects/{project}/locations/{location}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The project and location from which the `AuthzPolicy` resources are listed, specified in
+         the following format: `projects/{project}/locations/{location}`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The project and location from which the `AuthzPolicy` resources are listed,
+           * specified in the following format: `projects/{project}/locations/{location}`.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /** Optional. Filtering results. */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filtering results.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /** Optional. Filtering results. */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /** Optional. Hint for how to order the results. */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Hint for how to order the results.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /** Optional. Hint for how to order the results. */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. The server might return fewer items than requested. If
+           * unspecified, the server picks an appropriate default.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. The server might return fewer items than requested. If unspecified,
+         the server picks an appropriate default.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. The server might return fewer items than requested. If
+           * unspecified, the server picks an appropriate default.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /** Optional. A token identifying a page of results that the server returns. */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A token identifying a page of results that the server returns.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /** Optional. A token identifying a page of results that the server returns. */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates the parameters of a single AuthzPolicy.
+         *
+         * Create a request for the method "authzPolicies.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. Identifier. Name of the `AuthzPolicy` resource in the following format:
+         *        `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.AuthzPolicy}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.AuthzPolicy content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+
+          /**
+           * Updates the parameters of a single AuthzPolicy.
+           *
+           * Create a request for the method "authzPolicies.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. Identifier. Name of the `AuthzPolicy` resource in the following format:
+         *        `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.AuthzPolicy}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.AuthzPolicy content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. Identifier. Name of the `AuthzPolicy` resource in the following format:
+           * `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. Identifier. Name of the `AuthzPolicy` resource in the following format:
+         `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. Identifier. Name of the `AuthzPolicy` resource in the following format:
+           * `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/authzPolicies/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for at least 60 minutes since the
+           * first request. For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same request ID, the
+           * server can check if original operation with the same request ID was received, and if
+           * so, ignores the second request. This prevents clients from accidentally creating
+           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
+           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server can ignore the request if it has already been completed. The
+         server guarantees that for at least 60 minutes since the first request. For example, consider a
+         situation where you make an initial request and the request times out. If you make the request
+         again with the same request ID, the server can check if original operation with the same request ID
+         was received, and if so, ignores the second request. This prevents clients from accidentally
+         creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
+         UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for at least 60 minutes since the
+           * first request. For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same request ID, the
+           * server can check if original operation with the same request ID was received, and if
+           * so, ignores the second request. This prevents clients from accidentally creating
+           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
+           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Required. Used to specify the fields to be overwritten in the `AuthzPolicy` resource by
+           * the update. The fields specified in the `update_mask` are relative to the resource, not
+           * the full request. A field is overwritten if it is in the mask. If the user does not
+           * specify a mask, then all fields are overwritten.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Required. Used to specify the fields to be overwritten in the `AuthzPolicy` resource by the update.
+         The fields specified in the `update_mask` are relative to the resource, not the full request. A
+         field is overwritten if it is in the mask. If the user does not specify a mask, then all fields are
+         overwritten.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Required. Used to specify the fields to be overwritten in the `AuthzPolicy` resource by
+           * the update. The fields specified in the `update_mask` are relative to the resource, not
+           * the full request. A field is overwritten if it is in the mask. If the user does not
+           * specify a mask, then all fields are overwritten.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
           }
         }
         /**
@@ -13289,6 +14309,7610 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
         }
       }
       /**
+       * An accessor for creating requests from the InterceptDeploymentGroups collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkSecurity networksecurity = new NetworkSecurity(...);}
+       *   {@code NetworkSecurity.InterceptDeploymentGroups.List request = networksecurity.interceptDeploymentGroups().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public InterceptDeploymentGroups interceptDeploymentGroups() {
+        return new InterceptDeploymentGroups();
+      }
+
+      /**
+       * The "interceptDeploymentGroups" collection of methods.
+       */
+      public class InterceptDeploymentGroups {
+
+        /**
+         * Creates a deployment group in a given project and location. See https://google.aip.dev/133.
+         *
+         * Create a request for the method "interceptDeploymentGroups.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this deployment group will be created. Format:
+         *        projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/interceptDeploymentGroups";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates a deployment group in a given project and location. See https://google.aip.dev/133.
+           *
+           * Create a request for the method "interceptDeploymentGroups.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this deployment group will be created. Format:
+         *        projects/{project}/locations/{location}
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this deployment group will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this deployment group will be created. Format:
+         projects/{project}/locations/{location}
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this deployment group will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Required. The ID to use for the new deployment group, which will become the final
+           * component of the deployment group's resource name.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String interceptDeploymentGroupId;
+
+          /** Required. The ID to use for the new deployment group, which will become the final component of the
+         deployment group's resource name.
+           */
+          public java.lang.String getInterceptDeploymentGroupId() {
+            return interceptDeploymentGroupId;
+          }
+
+          /**
+           * Required. The ID to use for the new deployment group, which will become the final
+           * component of the deployment group's resource name.
+           */
+          public Create setInterceptDeploymentGroupId(java.lang.String interceptDeploymentGroupId) {
+            this.interceptDeploymentGroupId = interceptDeploymentGroupId;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes a deployment group. See https://google.aip.dev/135.
+         *
+         * Create a request for the method "interceptDeploymentGroups.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The deployment group to delete.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+
+          /**
+           * Deletes a deployment group. See https://google.aip.dev/135.
+           *
+           * Create a request for the method "interceptDeploymentGroups.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The deployment group to delete.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. The deployment group to delete. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The deployment group to delete.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. The deployment group to delete. */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets a specific deployment group. See https://google.aip.dev/131.
+         *
+         * Create a request for the method "interceptDeploymentGroups.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the deployment group to retrieve. Format:
+         *        projects/{project}/locations/{location}/interceptDeploymentGroups/{intercept_deployment_gr
+         *        oup}
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+
+          /**
+           * Gets a specific deployment group. See https://google.aip.dev/131.
+           *
+           * Create a request for the method "interceptDeploymentGroups.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the deployment group to retrieve. Format:
+         *        projects/{project}/locations/{location}/interceptDeploymentGroups/{intercept_deployment_gr
+         *        oup}
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the deployment group to retrieve. Format: projects/{project}/loca
+           * tions/{location}/interceptDeploymentGroups/{intercept_deployment_group}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the deployment group to retrieve. Format:
+         projects/{project}/locations/{location}/interceptDeploymentGroups/{intercept_deployment_group}
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the deployment group to retrieve. Format: projects/{project}/loca
+           * tions/{location}/interceptDeploymentGroups/{intercept_deployment_group}
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists deployment groups in a given project and location. See https://google.aip.dev/132.
+         *
+         * Create a request for the method "interceptDeploymentGroups.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent, which owns this collection of deployment groups. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListInterceptDeploymentGroupsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/interceptDeploymentGroups";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists deployment groups in a given project and location. See https://google.aip.dev/132.
+           *
+           * Create a request for the method "interceptDeploymentGroups.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent, which owns this collection of deployment groups. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListInterceptDeploymentGroupsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent, which owns this collection of deployment groups. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent, which owns this collection of deployment groups. Example:
+         `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent, which owns this collection of deployment groups. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server
+         will pick an appropriate default. See https://google.aip.dev/158 for more details.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListInterceptDeploymentGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListInterceptDeploymentGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListInterceptDeploymentGroups` call. Provide this
+         to retrieve the subsequent page. When paginating, all other parameters provided to
+         `ListInterceptDeploymentGroups` must match the call that provided the page token. See
+         https://google.aip.dev/158 for more details.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListInterceptDeploymentGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListInterceptDeploymentGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates a deployment group. See https://google.aip.dev/134.
+         *
+         * Create a request for the method "interceptDeploymentGroups.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Immutable. Identifier. The resource name of this deployment group, for example:
+         *        `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+         *        https://google.aip.dev/122 for more details.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+
+          /**
+           * Updates a deployment group. See https://google.aip.dev/134.
+           *
+           * Create a request for the method "interceptDeploymentGroups.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Immutable. Identifier. The resource name of this deployment group, for example:
+         *        `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+         *        https://google.aip.dev/122 for more details.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.InterceptDeploymentGroup content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this deployment group, for example:
+           * `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Immutable. Identifier. The resource name of this deployment group, for example:
+         `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+         https://google.aip.dev/122 for more details.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this deployment group, for example:
+           * `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeploymentGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the deployment
+           * group (e.g. `description`; *not* `intercept_deployment_group.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. The list of fields to update. Fields are specified relative to the deployment group (e.g.
+         `description`; *not* `intercept_deployment_group.description`). See https://google.aip.dev/161 for
+         more details.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the deployment
+           * group (e.g. `description`; *not* `intercept_deployment_group.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the InterceptDeployments collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkSecurity networksecurity = new NetworkSecurity(...);}
+       *   {@code NetworkSecurity.InterceptDeployments.List request = networksecurity.interceptDeployments().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public InterceptDeployments interceptDeployments() {
+        return new InterceptDeployments();
+      }
+
+      /**
+       * The "interceptDeployments" collection of methods.
+       */
+      public class InterceptDeployments {
+
+        /**
+         * Creates a deployment in a given project and location. See https://google.aip.dev/133.
+         *
+         * Create a request for the method "interceptDeployments.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this deployment will be created. Format:
+         *        projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptDeployment}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.InterceptDeployment content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/interceptDeployments";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates a deployment in a given project and location. See https://google.aip.dev/133.
+           *
+           * Create a request for the method "interceptDeployments.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this deployment will be created. Format:
+         *        projects/{project}/locations/{location}
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptDeployment}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.InterceptDeployment content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this deployment will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this deployment will be created. Format:
+         projects/{project}/locations/{location}
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this deployment will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Required. The ID to use for the new deployment, which will become the final component
+           * of the deployment's resource name.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String interceptDeploymentId;
+
+          /** Required. The ID to use for the new deployment, which will become the final component of the
+         deployment's resource name.
+           */
+          public java.lang.String getInterceptDeploymentId() {
+            return interceptDeploymentId;
+          }
+
+          /**
+           * Required. The ID to use for the new deployment, which will become the final component
+           * of the deployment's resource name.
+           */
+          public Create setInterceptDeploymentId(java.lang.String interceptDeploymentId) {
+            this.interceptDeploymentId = interceptDeploymentId;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes a deployment. See https://google.aip.dev/135.
+         *
+         * Create a request for the method "interceptDeployments.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. Name of the resource
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+
+          /**
+           * Deletes a deployment. See https://google.aip.dev/135.
+           *
+           * Create a request for the method "interceptDeployments.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. Name of the resource
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. Name of the resource */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. Name of the resource
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. Name of the resource */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets a specific deployment. See https://google.aip.dev/131.
+         *
+         * Create a request for the method "interceptDeployments.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the deployment to retrieve. Format:
+         *        projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.InterceptDeployment> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+
+          /**
+           * Gets a specific deployment. See https://google.aip.dev/131.
+           *
+           * Create a request for the method "interceptDeployments.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the deployment to retrieve. Format:
+         *        projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.InterceptDeployment.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the deployment to retrieve. Format:
+           * projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the deployment to retrieve. Format:
+         projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the deployment to retrieve. Format:
+           * projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists deployments in a given project and location. See https://google.aip.dev/132.
+         *
+         * Create a request for the method "interceptDeployments.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent, which owns this collection of deployments. Example:
+         *        `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more
+         *        details.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListInterceptDeploymentsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/interceptDeployments";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists deployments in a given project and location. See https://google.aip.dev/132.
+           *
+           * Create a request for the method "interceptDeployments.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent, which owns this collection of deployments. Example:
+         *        `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more
+         *        details.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListInterceptDeploymentsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent, which owns this collection of deployments. Example:
+           * `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent, which owns this collection of deployments. Example:
+         `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more details.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent, which owns this collection of deployments. Example:
+           * `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more
+           * details.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server
+         will pick an appropriate default. See https://google.aip.dev/158 for more details.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListInterceptDeployments` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListInterceptDeployments` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListInterceptDeployments` call. Provide this to
+         retrieve the subsequent page. When paginating, all other parameters provided to
+         `ListInterceptDeployments` must match the call that provided the page token. See
+         https://google.aip.dev/158 for more details.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListInterceptDeployments` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListInterceptDeployments` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates a deployment. See https://google.aip.dev/134.
+         *
+         * Create a request for the method "interceptDeployments.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Immutable. Identifier. The resource name of this deployment, for example:
+         *        `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`. See
+         *        https://google.aip.dev/122 for more details.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptDeployment}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.InterceptDeployment content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+
+          /**
+           * Updates a deployment. See https://google.aip.dev/134.
+           *
+           * Create a request for the method "interceptDeployments.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Immutable. Identifier. The resource name of this deployment, for example:
+         *        `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`. See
+         *        https://google.aip.dev/122 for more details.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptDeployment}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.InterceptDeployment content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this deployment, for example:
+           * `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Immutable. Identifier. The resource name of this deployment, for example:
+         `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`. See
+         https://google.aip.dev/122 for more details.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this deployment, for example:
+           * `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptDeployments/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the deployment
+           * (e.g. `description`; *not* `intercept_deployment.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. The list of fields to update. Fields are specified relative to the deployment (e.g.
+         `description`; *not* `intercept_deployment.description`). See https://google.aip.dev/161 for more
+         details.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the deployment
+           * (e.g. `description`; *not* `intercept_deployment.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the InterceptEndpointGroupAssociations collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkSecurity networksecurity = new NetworkSecurity(...);}
+       *   {@code NetworkSecurity.InterceptEndpointGroupAssociations.List request = networksecurity.interceptEndpointGroupAssociations().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public InterceptEndpointGroupAssociations interceptEndpointGroupAssociations() {
+        return new InterceptEndpointGroupAssociations();
+      }
+
+      /**
+       * The "interceptEndpointGroupAssociations" collection of methods.
+       */
+      public class InterceptEndpointGroupAssociations {
+
+        /**
+         * Creates an association in a given project and location. See https://google.aip.dev/133.
+         *
+         * Create a request for the method "interceptEndpointGroupAssociations.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this association will be created. Format:
+         *        projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/interceptEndpointGroupAssociations";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates an association in a given project and location. See https://google.aip.dev/133.
+           *
+           * Create a request for the method "interceptEndpointGroupAssociations.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this association will be created. Format:
+         *        projects/{project}/locations/{location}
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this association will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this association will be created. Format:
+         projects/{project}/locations/{location}
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this association will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. The ID to use for the new association, which will become the final component
+           * of the endpoint group's resource name. If not provided, the server will generate a
+           * unique ID.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String interceptEndpointGroupAssociationId;
+
+          /** Optional. The ID to use for the new association, which will become the final component of the
+         endpoint group's resource name. If not provided, the server will generate a unique ID.
+           */
+          public java.lang.String getInterceptEndpointGroupAssociationId() {
+            return interceptEndpointGroupAssociationId;
+          }
+
+          /**
+           * Optional. The ID to use for the new association, which will become the final component
+           * of the endpoint group's resource name. If not provided, the server will generate a
+           * unique ID.
+           */
+          public Create setInterceptEndpointGroupAssociationId(java.lang.String interceptEndpointGroupAssociationId) {
+            this.interceptEndpointGroupAssociationId = interceptEndpointGroupAssociationId;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes an association. See https://google.aip.dev/135.
+         *
+         * Create a request for the method "interceptEndpointGroupAssociations.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The association to delete.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+
+          /**
+           * Deletes an association. See https://google.aip.dev/135.
+           *
+           * Create a request for the method "interceptEndpointGroupAssociations.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The association to delete.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. The association to delete. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The association to delete.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. The association to delete. */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets a specific association. See https://google.aip.dev/131.
+         *
+         * Create a request for the method "interceptEndpointGroupAssociations.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the association to retrieve. Format: projects/{project}/locations/{location}/i
+         *        nterceptEndpointGroupAssociations/{intercept_endpoint_group_association}
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+
+          /**
+           * Gets a specific association. See https://google.aip.dev/131.
+           *
+           * Create a request for the method "interceptEndpointGroupAssociations.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the association to retrieve. Format: projects/{project}/locations/{location}/i
+         *        nterceptEndpointGroupAssociations/{intercept_endpoint_group_association}
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the association to retrieve. Format: projects/{project}/locations
+           * /{location}/interceptEndpointGroupAssociations/{intercept_endpoint_group_association}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the association to retrieve. Format: projects/{project}/locations/{location}/
+         interceptEndpointGroupAssociations/{intercept_endpoint_group_association}
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the association to retrieve. Format: projects/{project}/locations
+           * /{location}/interceptEndpointGroupAssociations/{intercept_endpoint_group_association}
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists associations in a given project and location. See https://google.aip.dev/132.
+         *
+         * Create a request for the method "interceptEndpointGroupAssociations.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent, which owns this collection of associations. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListInterceptEndpointGroupAssociationsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/interceptEndpointGroupAssociations";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists associations in a given project and location. See https://google.aip.dev/132.
+           *
+           * Create a request for the method "interceptEndpointGroupAssociations.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent, which owns this collection of associations. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListInterceptEndpointGroupAssociationsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent, which owns this collection of associations. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent, which owns this collection of associations. Example:
+         `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent, which owns this collection of associations. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server
+         will pick an appropriate default. See https://google.aip.dev/158 for more details.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListInterceptEndpointGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListInterceptEndpointGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListInterceptEndpointGroups` call. Provide this
+         to retrieve the subsequent page. When paginating, all other parameters provided to
+         `ListInterceptEndpointGroups` must match the call that provided the page token. See
+         https://google.aip.dev/158 for more details.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListInterceptEndpointGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListInterceptEndpointGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates an association. See https://google.aip.dev/134.
+         *
+         * Create a request for the method "interceptEndpointGroupAssociations.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Immutable. Identifier. The resource name of this endpoint group association, for example:
+         *        `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-
+         *        association`. See https://google.aip.dev/122 for more details.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+
+          /**
+           * Updates an association. See https://google.aip.dev/134.
+           *
+           * Create a request for the method "interceptEndpointGroupAssociations.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Immutable. Identifier. The resource name of this endpoint group association, for example:
+         *        `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-
+         *        association`. See https://google.aip.dev/122 for more details.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroupAssociation content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this endpoint group association, for
+           * example: `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-
+           * association`. See https://google.aip.dev/122 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Immutable. Identifier. The resource name of this endpoint group association, for example:
+         `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-association`. See
+         https://google.aip.dev/122 for more details.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this endpoint group association, for
+           * example: `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-
+           * association`. See https://google.aip.dev/122 for more details.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroupAssociations/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the
+           * association (e.g. `description`; *not*
+           * `intercept_endpoint_group_association.description`). See https://google.aip.dev/161 for
+           * more details.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. The list of fields to update. Fields are specified relative to the association (e.g.
+         `description`; *not* `intercept_endpoint_group_association.description`). See
+         https://google.aip.dev/161 for more details.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the
+           * association (e.g. `description`; *not*
+           * `intercept_endpoint_group_association.description`). See https://google.aip.dev/161 for
+           * more details.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the InterceptEndpointGroups collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkSecurity networksecurity = new NetworkSecurity(...);}
+       *   {@code NetworkSecurity.InterceptEndpointGroups.List request = networksecurity.interceptEndpointGroups().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public InterceptEndpointGroups interceptEndpointGroups() {
+        return new InterceptEndpointGroups();
+      }
+
+      /**
+       * The "interceptEndpointGroups" collection of methods.
+       */
+      public class InterceptEndpointGroups {
+
+        /**
+         * Creates an endpoint group in a given project and location. See https://google.aip.dev/133.
+         *
+         * Create a request for the method "interceptEndpointGroups.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this endpoint group will be created. Format:
+         *        projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/interceptEndpointGroups";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates an endpoint group in a given project and location. See https://google.aip.dev/133.
+           *
+           * Create a request for the method "interceptEndpointGroups.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this endpoint group will be created. Format:
+         *        projects/{project}/locations/{location}
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this endpoint group will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this endpoint group will be created. Format:
+         projects/{project}/locations/{location}
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this endpoint group will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Required. The ID to use for the endpoint group, which will become the final component
+           * of the endpoint group's resource name.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String interceptEndpointGroupId;
+
+          /** Required. The ID to use for the endpoint group, which will become the final component of the
+         endpoint group's resource name.
+           */
+          public java.lang.String getInterceptEndpointGroupId() {
+            return interceptEndpointGroupId;
+          }
+
+          /**
+           * Required. The ID to use for the endpoint group, which will become the final component
+           * of the endpoint group's resource name.
+           */
+          public Create setInterceptEndpointGroupId(java.lang.String interceptEndpointGroupId) {
+            this.interceptEndpointGroupId = interceptEndpointGroupId;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes an endpoint group. See https://google.aip.dev/135.
+         *
+         * Create a request for the method "interceptEndpointGroups.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The endpoint group to delete.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+
+          /**
+           * Deletes an endpoint group. See https://google.aip.dev/135.
+           *
+           * Create a request for the method "interceptEndpointGroups.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The endpoint group to delete.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. The endpoint group to delete. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The endpoint group to delete.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. The endpoint group to delete. */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets a specific endpoint group. See https://google.aip.dev/131.
+         *
+         * Create a request for the method "interceptEndpointGroups.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the endpoint group to retrieve. Format:
+         *        projects/{project}/locations/{location}/interceptEndpointGroups/{intercept_endpoint_group}
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+
+          /**
+           * Gets a specific endpoint group. See https://google.aip.dev/131.
+           *
+           * Create a request for the method "interceptEndpointGroups.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the endpoint group to retrieve. Format:
+         *        projects/{project}/locations/{location}/interceptEndpointGroups/{intercept_endpoint_group}
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the endpoint group to retrieve. Format: projects/{project}/locati
+           * ons/{location}/interceptEndpointGroups/{intercept_endpoint_group}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the endpoint group to retrieve. Format:
+         projects/{project}/locations/{location}/interceptEndpointGroups/{intercept_endpoint_group}
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the endpoint group to retrieve. Format: projects/{project}/locati
+           * ons/{location}/interceptEndpointGroups/{intercept_endpoint_group}
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists endpoint groups in a given project and location. See https://google.aip.dev/132.
+         *
+         * Create a request for the method "interceptEndpointGroups.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent, which owns this collection of endpoint groups. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListInterceptEndpointGroupsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/interceptEndpointGroups";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists endpoint groups in a given project and location. See https://google.aip.dev/132.
+           *
+           * Create a request for the method "interceptEndpointGroups.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent, which owns this collection of endpoint groups. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListInterceptEndpointGroupsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent, which owns this collection of endpoint groups. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent, which owns this collection of endpoint groups. Example:
+         `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent, which owns this collection of endpoint groups. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server
+         will pick an appropriate default. See https://google.aip.dev/158 for more details.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListInterceptEndpointGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListInterceptEndpointGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListInterceptEndpointGroups` call. Provide this
+         to retrieve the subsequent page. When paginating, all other parameters provided to
+         `ListInterceptEndpointGroups` must match the call that provided the page token. See
+         https://google.aip.dev/158 for more details.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListInterceptEndpointGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListInterceptEndpointGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates an endpoint group. See https://google.aip.dev/134.
+         *
+         * Create a request for the method "interceptEndpointGroups.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Immutable. Identifier. The resource name of this endpoint group, for example:
+         *        `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+         *        https://google.aip.dev/122 for more details.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+
+          /**
+           * Updates an endpoint group. See https://google.aip.dev/134.
+           *
+           * Create a request for the method "interceptEndpointGroups.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Immutable. Identifier. The resource name of this endpoint group, for example:
+         *        `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+         *        https://google.aip.dev/122 for more details.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.InterceptEndpointGroup content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this endpoint group, for example:
+           * `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Immutable. Identifier. The resource name of this endpoint group, for example:
+         `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See https://google.aip.dev/122
+         for more details.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this endpoint group, for example:
+           * `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/interceptEndpointGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the endpoint
+           * group (e.g. `description`; *not* `intercept_endpoint_group.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. The list of fields to update. Fields are specified relative to the endpoint group (e.g.
+         `description`; *not* `intercept_endpoint_group.description`). See https://google.aip.dev/161 for
+         more details.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the endpoint
+           * group (e.g. `description`; *not* `intercept_endpoint_group.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the MirroringDeploymentGroups collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkSecurity networksecurity = new NetworkSecurity(...);}
+       *   {@code NetworkSecurity.MirroringDeploymentGroups.List request = networksecurity.mirroringDeploymentGroups().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public MirroringDeploymentGroups mirroringDeploymentGroups() {
+        return new MirroringDeploymentGroups();
+      }
+
+      /**
+       * The "mirroringDeploymentGroups" collection of methods.
+       */
+      public class MirroringDeploymentGroups {
+
+        /**
+         * Creates a deployment group in a given project and location. See https://google.aip.dev/133.
+         *
+         * Create a request for the method "mirroringDeploymentGroups.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this deployment group will be created. Format:
+         *        projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/mirroringDeploymentGroups";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates a deployment group in a given project and location. See https://google.aip.dev/133.
+           *
+           * Create a request for the method "mirroringDeploymentGroups.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this deployment group will be created. Format:
+         *        projects/{project}/locations/{location}
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this deployment group will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this deployment group will be created. Format:
+         projects/{project}/locations/{location}
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this deployment group will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Required. The ID to use for the new deployment group, which will become the final
+           * component of the deployment group's resource name.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String mirroringDeploymentGroupId;
+
+          /** Required. The ID to use for the new deployment group, which will become the final component of the
+         deployment group's resource name.
+           */
+          public java.lang.String getMirroringDeploymentGroupId() {
+            return mirroringDeploymentGroupId;
+          }
+
+          /**
+           * Required. The ID to use for the new deployment group, which will become the final
+           * component of the deployment group's resource name.
+           */
+          public Create setMirroringDeploymentGroupId(java.lang.String mirroringDeploymentGroupId) {
+            this.mirroringDeploymentGroupId = mirroringDeploymentGroupId;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes a deployment group. See https://google.aip.dev/135.
+         *
+         * Create a request for the method "mirroringDeploymentGroups.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The deployment group to delete.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+
+          /**
+           * Deletes a deployment group. See https://google.aip.dev/135.
+           *
+           * Create a request for the method "mirroringDeploymentGroups.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The deployment group to delete.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. The deployment group to delete. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The deployment group to delete.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. The deployment group to delete. */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets a specific deployment group. See https://google.aip.dev/131.
+         *
+         * Create a request for the method "mirroringDeploymentGroups.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the deployment group to retrieve. Format:
+         *        projects/{project}/locations/{location}/mirroringDeploymentGroups/{mirroring_deployment_gr
+         *        oup}
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+
+          /**
+           * Gets a specific deployment group. See https://google.aip.dev/131.
+           *
+           * Create a request for the method "mirroringDeploymentGroups.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the deployment group to retrieve. Format:
+         *        projects/{project}/locations/{location}/mirroringDeploymentGroups/{mirroring_deployment_gr
+         *        oup}
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the deployment group to retrieve. Format: projects/{project}/loca
+           * tions/{location}/mirroringDeploymentGroups/{mirroring_deployment_group}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the deployment group to retrieve. Format:
+         projects/{project}/locations/{location}/mirroringDeploymentGroups/{mirroring_deployment_group}
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the deployment group to retrieve. Format: projects/{project}/loca
+           * tions/{location}/mirroringDeploymentGroups/{mirroring_deployment_group}
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists deployment groups in a given project and location. See https://google.aip.dev/132.
+         *
+         * Create a request for the method "mirroringDeploymentGroups.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent, which owns this collection of deployment groups. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListMirroringDeploymentGroupsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/mirroringDeploymentGroups";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists deployment groups in a given project and location. See https://google.aip.dev/132.
+           *
+           * Create a request for the method "mirroringDeploymentGroups.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent, which owns this collection of deployment groups. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListMirroringDeploymentGroupsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent, which owns this collection of deployment groups. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent, which owns this collection of deployment groups. Example:
+         `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent, which owns this collection of deployment groups. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server
+         will pick an appropriate default. See https://google.aip.dev/158 for more details.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListMirroringDeploymentGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListMirroringDeploymentGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListMirroringDeploymentGroups` call. Provide this
+         to retrieve the subsequent page. When paginating, all other parameters provided to
+         `ListMirroringDeploymentGroups` must match the call that provided the page token. See
+         https://google.aip.dev/158 for more details.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListMirroringDeploymentGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListMirroringDeploymentGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates a deployment group. See https://google.aip.dev/134.
+         *
+         * Create a request for the method "mirroringDeploymentGroups.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Immutable. Identifier. The resource name of this deployment group, for example:
+         *        `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+         *        https://google.aip.dev/122 for more details.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+
+          /**
+           * Updates a deployment group. See https://google.aip.dev/134.
+           *
+           * Create a request for the method "mirroringDeploymentGroups.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Immutable. Identifier. The resource name of this deployment group, for example:
+         *        `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+         *        https://google.aip.dev/122 for more details.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.MirroringDeploymentGroup content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this deployment group, for example:
+           * `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Immutable. Identifier. The resource name of this deployment group, for example:
+         `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+         https://google.aip.dev/122 for more details.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this deployment group, for example:
+           * `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeploymentGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the deployment
+           * group (e.g. `description`; *not* `mirroring_deployment_group.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. The list of fields to update. Fields are specified relative to the deployment group (e.g.
+         `description`; *not* `mirroring_deployment_group.description`). See https://google.aip.dev/161 for
+         more details.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the deployment
+           * group (e.g. `description`; *not* `mirroring_deployment_group.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the MirroringDeployments collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkSecurity networksecurity = new NetworkSecurity(...);}
+       *   {@code NetworkSecurity.MirroringDeployments.List request = networksecurity.mirroringDeployments().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public MirroringDeployments mirroringDeployments() {
+        return new MirroringDeployments();
+      }
+
+      /**
+       * The "mirroringDeployments" collection of methods.
+       */
+      public class MirroringDeployments {
+
+        /**
+         * Creates a deployment in a given project and location. See https://google.aip.dev/133.
+         *
+         * Create a request for the method "mirroringDeployments.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this deployment will be created. Format:
+         *        projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringDeployment}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.MirroringDeployment content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/mirroringDeployments";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates a deployment in a given project and location. See https://google.aip.dev/133.
+           *
+           * Create a request for the method "mirroringDeployments.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this deployment will be created. Format:
+         *        projects/{project}/locations/{location}
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringDeployment}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.MirroringDeployment content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this deployment will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this deployment will be created. Format:
+         projects/{project}/locations/{location}
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this deployment will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Required. The ID to use for the new deployment, which will become the final component
+           * of the deployment's resource name.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String mirroringDeploymentId;
+
+          /** Required. The ID to use for the new deployment, which will become the final component of the
+         deployment's resource name.
+           */
+          public java.lang.String getMirroringDeploymentId() {
+            return mirroringDeploymentId;
+          }
+
+          /**
+           * Required. The ID to use for the new deployment, which will become the final component
+           * of the deployment's resource name.
+           */
+          public Create setMirroringDeploymentId(java.lang.String mirroringDeploymentId) {
+            this.mirroringDeploymentId = mirroringDeploymentId;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes a deployment. See https://google.aip.dev/135.
+         *
+         * Create a request for the method "mirroringDeployments.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. Name of the resource
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+
+          /**
+           * Deletes a deployment. See https://google.aip.dev/135.
+           *
+           * Create a request for the method "mirroringDeployments.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. Name of the resource
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. Name of the resource */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. Name of the resource
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. Name of the resource */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets a specific deployment. See https://google.aip.dev/131.
+         *
+         * Create a request for the method "mirroringDeployments.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the deployment to retrieve. Format:
+         *        projects/{project}/locations/{location}/mirroringDeployments/{mirroring_deployment}
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.MirroringDeployment> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+
+          /**
+           * Gets a specific deployment. See https://google.aip.dev/131.
+           *
+           * Create a request for the method "mirroringDeployments.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the deployment to retrieve. Format:
+         *        projects/{project}/locations/{location}/mirroringDeployments/{mirroring_deployment}
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.MirroringDeployment.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the deployment to retrieve. Format:
+           * projects/{project}/locations/{location}/mirroringDeployments/{mirroring_deployment}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the deployment to retrieve. Format:
+         projects/{project}/locations/{location}/mirroringDeployments/{mirroring_deployment}
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the deployment to retrieve. Format:
+           * projects/{project}/locations/{location}/mirroringDeployments/{mirroring_deployment}
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists deployments in a given project and location. See https://google.aip.dev/132.
+         *
+         * Create a request for the method "mirroringDeployments.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent, which owns this collection of deployments. Example:
+         *        `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more
+         *        details.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListMirroringDeploymentsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/mirroringDeployments";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists deployments in a given project and location. See https://google.aip.dev/132.
+           *
+           * Create a request for the method "mirroringDeployments.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent, which owns this collection of deployments. Example:
+         *        `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more
+         *        details.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListMirroringDeploymentsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent, which owns this collection of deployments. Example:
+           * `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent, which owns this collection of deployments. Example:
+         `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more details.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent, which owns this collection of deployments. Example:
+           * `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132 for more
+           * details.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server
+         will pick an appropriate default. See https://google.aip.dev/158 for more details.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListMirroringDeployments` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListMirroringDeployments` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListMirroringDeployments` call. Provide this to
+         retrieve the subsequent page. When paginating, all other parameters provided to
+         `ListMirroringDeployments` must match the call that provided the page token. See
+         https://google.aip.dev/158 for more details.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListMirroringDeployments` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListMirroringDeployments` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates a deployment. See https://google.aip.dev/134.
+         *
+         * Create a request for the method "mirroringDeployments.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Immutable. Identifier. The resource name of this deployment, for example:
+         *        `projects/123456789/locations/us-central1-a/mirroringDeployments/my-dep`. See
+         *        https://google.aip.dev/122 for more details.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringDeployment}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.MirroringDeployment content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+
+          /**
+           * Updates a deployment. See https://google.aip.dev/134.
+           *
+           * Create a request for the method "mirroringDeployments.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Immutable. Identifier. The resource name of this deployment, for example:
+         *        `projects/123456789/locations/us-central1-a/mirroringDeployments/my-dep`. See
+         *        https://google.aip.dev/122 for more details.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringDeployment}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.MirroringDeployment content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this deployment, for example:
+           * `projects/123456789/locations/us-central1-a/mirroringDeployments/my-dep`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Immutable. Identifier. The resource name of this deployment, for example:
+         `projects/123456789/locations/us-central1-a/mirroringDeployments/my-dep`. See
+         https://google.aip.dev/122 for more details.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this deployment, for example:
+           * `projects/123456789/locations/us-central1-a/mirroringDeployments/my-dep`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringDeployments/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the deployment
+           * (e.g. `description`; *not* `mirroring_deployment.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. The list of fields to update. Fields are specified relative to the deployment (e.g.
+         `description`; *not* `mirroring_deployment.description`). See https://google.aip.dev/161 for more
+         details.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the deployment
+           * (e.g. `description`; *not* `mirroring_deployment.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the MirroringEndpointGroupAssociations collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkSecurity networksecurity = new NetworkSecurity(...);}
+       *   {@code NetworkSecurity.MirroringEndpointGroupAssociations.List request = networksecurity.mirroringEndpointGroupAssociations().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public MirroringEndpointGroupAssociations mirroringEndpointGroupAssociations() {
+        return new MirroringEndpointGroupAssociations();
+      }
+
+      /**
+       * The "mirroringEndpointGroupAssociations" collection of methods.
+       */
+      public class MirroringEndpointGroupAssociations {
+
+        /**
+         * Creates an association in a given project and location. See https://google.aip.dev/133.
+         *
+         * Create a request for the method "mirroringEndpointGroupAssociations.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this association will be created. Format:
+         *        projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/mirroringEndpointGroupAssociations";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates an association in a given project and location. See https://google.aip.dev/133.
+           *
+           * Create a request for the method "mirroringEndpointGroupAssociations.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this association will be created. Format:
+         *        projects/{project}/locations/{location}
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this association will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this association will be created. Format:
+         projects/{project}/locations/{location}
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this association will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. The ID to use for the new association, which will become the final component
+           * of the endpoint group's resource name. If not provided, the server will generate a
+           * unique ID.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String mirroringEndpointGroupAssociationId;
+
+          /** Optional. The ID to use for the new association, which will become the final component of the
+         endpoint group's resource name. If not provided, the server will generate a unique ID.
+           */
+          public java.lang.String getMirroringEndpointGroupAssociationId() {
+            return mirroringEndpointGroupAssociationId;
+          }
+
+          /**
+           * Optional. The ID to use for the new association, which will become the final component
+           * of the endpoint group's resource name. If not provided, the server will generate a
+           * unique ID.
+           */
+          public Create setMirroringEndpointGroupAssociationId(java.lang.String mirroringEndpointGroupAssociationId) {
+            this.mirroringEndpointGroupAssociationId = mirroringEndpointGroupAssociationId;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes an association. See https://google.aip.dev/135.
+         *
+         * Create a request for the method "mirroringEndpointGroupAssociations.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The association to delete.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+
+          /**
+           * Deletes an association. See https://google.aip.dev/135.
+           *
+           * Create a request for the method "mirroringEndpointGroupAssociations.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The association to delete.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. The association to delete. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The association to delete.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. The association to delete. */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets a specific association. See https://google.aip.dev/131.
+         *
+         * Create a request for the method "mirroringEndpointGroupAssociations.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the association to retrieve. Format: projects/{project}/locations/{location}/m
+         *        irroringEndpointGroupAssociations/{mirroring_endpoint_group_association}
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+
+          /**
+           * Gets a specific association. See https://google.aip.dev/131.
+           *
+           * Create a request for the method "mirroringEndpointGroupAssociations.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the association to retrieve. Format: projects/{project}/locations/{location}/m
+         *        irroringEndpointGroupAssociations/{mirroring_endpoint_group_association}
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the association to retrieve. Format: projects/{project}/locations
+           * /{location}/mirroringEndpointGroupAssociations/{mirroring_endpoint_group_association}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the association to retrieve. Format: projects/{project}/locations/{location}/
+         mirroringEndpointGroupAssociations/{mirroring_endpoint_group_association}
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the association to retrieve. Format: projects/{project}/locations
+           * /{location}/mirroringEndpointGroupAssociations/{mirroring_endpoint_group_association}
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists associations in a given project and location. See https://google.aip.dev/132.
+         *
+         * Create a request for the method "mirroringEndpointGroupAssociations.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent, which owns this collection of associations. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListMirroringEndpointGroupAssociationsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/mirroringEndpointGroupAssociations";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists associations in a given project and location. See https://google.aip.dev/132.
+           *
+           * Create a request for the method "mirroringEndpointGroupAssociations.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent, which owns this collection of associations. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListMirroringEndpointGroupAssociationsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent, which owns this collection of associations. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent, which owns this collection of associations. Example:
+         `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent, which owns this collection of associations. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server
+         will pick an appropriate default. See https://google.aip.dev/158 for more details.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListMirroringEndpointGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListMirroringEndpointGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListMirroringEndpointGroups` call. Provide this
+         to retrieve the subsequent page. When paginating, all other parameters provided to
+         `ListMirroringEndpointGroups` must match the call that provided the page token. See
+         https://google.aip.dev/158 for more details.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListMirroringEndpointGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListMirroringEndpointGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates an association. See https://google.aip.dev/134.
+         *
+         * Create a request for the method "mirroringEndpointGroupAssociations.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Immutable. Identifier. The resource name of this endpoint group association, for example:
+         *        `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-
+         *        association`. See https://google.aip.dev/122 for more details.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+
+          /**
+           * Updates an association. See https://google.aip.dev/134.
+           *
+           * Create a request for the method "mirroringEndpointGroupAssociations.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Immutable. Identifier. The resource name of this endpoint group association, for example:
+         *        `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-
+         *        association`. See https://google.aip.dev/122 for more details.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroupAssociation content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this endpoint group association, for
+           * example: `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-
+           * association`. See https://google.aip.dev/122 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Immutable. Identifier. The resource name of this endpoint group association, for example:
+         `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-association`. See
+         https://google.aip.dev/122 for more details.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this endpoint group association, for
+           * example: `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-
+           * association`. See https://google.aip.dev/122 for more details.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroupAssociations/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the
+           * association (e.g. `description`; *not*
+           * `mirroring_endpoint_group_association.description`). See https://google.aip.dev/161 for
+           * more details.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. The list of fields to update. Fields are specified relative to the association (e.g.
+         `description`; *not* `mirroring_endpoint_group_association.description`). See
+         https://google.aip.dev/161 for more details.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the
+           * association (e.g. `description`; *not*
+           * `mirroring_endpoint_group_association.description`). See https://google.aip.dev/161 for
+           * more details.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the MirroringEndpointGroups collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkSecurity networksecurity = new NetworkSecurity(...);}
+       *   {@code NetworkSecurity.MirroringEndpointGroups.List request = networksecurity.mirroringEndpointGroups().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public MirroringEndpointGroups mirroringEndpointGroups() {
+        return new MirroringEndpointGroups();
+      }
+
+      /**
+       * The "mirroringEndpointGroups" collection of methods.
+       */
+      public class MirroringEndpointGroups {
+
+        /**
+         * Creates an endpoint group in a given project and location. See https://google.aip.dev/133.
+         *
+         * Create a request for the method "mirroringEndpointGroups.create".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this endpoint group will be created. Format:
+         *        projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+parent}/mirroringEndpointGroups";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates an endpoint group in a given project and location. See https://google.aip.dev/133.
+           *
+           * Create a request for the method "mirroringEndpointGroups.create".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this endpoint group will be created. Format:
+         *        projects/{project}/locations/{location}
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup content) {
+            super(NetworkSecurity.this, "POST", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this endpoint group will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this endpoint group will be created. Format:
+         projects/{project}/locations/{location}
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this endpoint group will be created. Format:
+           * projects/{project}/locations/{location}
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Required. The ID to use for the endpoint group, which will become the final component
+           * of the endpoint group's resource name.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String mirroringEndpointGroupId;
+
+          /** Required. The ID to use for the endpoint group, which will become the final component of the
+         endpoint group's resource name.
+           */
+          public java.lang.String getMirroringEndpointGroupId() {
+            return mirroringEndpointGroupId;
+          }
+
+          /**
+           * Required. The ID to use for the endpoint group, which will become the final component
+           * of the endpoint group's resource name.
+           */
+          public Create setMirroringEndpointGroupId(java.lang.String mirroringEndpointGroupId) {
+            this.mirroringEndpointGroupId = mirroringEndpointGroupId;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes an endpoint group. See https://google.aip.dev/135.
+         *
+         * Create a request for the method "mirroringEndpointGroups.delete".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The endpoint group to delete.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+
+          /**
+           * Deletes an endpoint group. See https://google.aip.dev/135.
+           *
+           * Create a request for the method "mirroringEndpointGroups.delete".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The endpoint group to delete.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkSecurity.this, "DELETE", REST_PATH, null, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /** Required. The endpoint group to delete. */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The endpoint group to delete.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /** Required. The endpoint group to delete. */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets a specific endpoint group. See https://google.aip.dev/131.
+         *
+         * Create a request for the method "mirroringEndpointGroups.get".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the endpoint group to retrieve. Format:
+         *        projects/{project}/locations/{location}/mirroringEndpointGroups/{mirroring_endpoint_group}
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+
+          /**
+           * Gets a specific endpoint group. See https://google.aip.dev/131.
+           *
+           * Create a request for the method "mirroringEndpointGroups.get".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the endpoint group to retrieve. Format:
+         *        projects/{project}/locations/{location}/mirroringEndpointGroups/{mirroring_endpoint_group}
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the endpoint group to retrieve. Format: projects/{project}/locati
+           * ons/{location}/mirroringEndpointGroups/{mirroring_endpoint_group}
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the endpoint group to retrieve. Format:
+         projects/{project}/locations/{location}/mirroringEndpointGroups/{mirroring_endpoint_group}
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the endpoint group to retrieve. Format: projects/{project}/locati
+           * ons/{location}/mirroringEndpointGroups/{mirroring_endpoint_group}
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists endpoint groups in a given project and location. See https://google.aip.dev/132.
+         *
+         * Create a request for the method "mirroringEndpointGroups.list".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent, which owns this collection of endpoint groups. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.ListMirroringEndpointGroupsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/mirroringEndpointGroups";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists endpoint groups in a given project and location. See https://google.aip.dev/132.
+           *
+           * Create a request for the method "mirroringEndpointGroups.list".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent, which owns this collection of endpoint groups. Example:
+         *        `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkSecurity.this, "GET", REST_PATH, null, com.google.api.services.networksecurity.v1.model.ListMirroringEndpointGroupsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent, which owns this collection of endpoint groups. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent, which owns this collection of endpoint groups. Example:
+         `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent, which owns this collection of endpoint groups. Example:
+           * `projects/123456789/locations/global`. See https://google.aip.dev/132 for more details.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter expression. See https://google.aip.dev/160#filtering for more details.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /**
+           * Optional. Sort expression. See https://google.aip.dev/132#ordering for more details.
+           */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server
+         will pick an appropriate default. See https://google.aip.dev/158 for more details.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. Server may return fewer items than requested. If
+           * unspecified, server will pick an appropriate default. See https://google.aip.dev/158
+           * for more details.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListMirroringEndpointGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListMirroringEndpointGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListMirroringEndpointGroups` call. Provide this
+         to retrieve the subsequent page. When paginating, all other parameters provided to
+         `ListMirroringEndpointGroups` must match the call that provided the page token. See
+         https://google.aip.dev/158 for more details.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListMirroringEndpointGroups` call.
+           * Provide this to retrieve the subsequent page. When paginating, all other parameters
+           * provided to `ListMirroringEndpointGroups` must match the call that provided the page
+           * token. See https://google.aip.dev/158 for more details.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates an endpoint group. See https://google.aip.dev/134.
+         *
+         * Create a request for the method "mirroringEndpointGroups.patch".
+         *
+         * This request holds the parameters needed by the networksecurity server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Immutable. Identifier. The resource name of this endpoint group, for example:
+         *        `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+         *        https://google.aip.dev/122 for more details.
+         * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkSecurityRequest<com.google.api.services.networksecurity.v1.model.Operation> {
+
+          private static final String REST_PATH = "v1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+
+          /**
+           * Updates an endpoint group. See https://google.aip.dev/134.
+           *
+           * Create a request for the method "mirroringEndpointGroups.patch".
+           *
+           * This request holds the parameters needed by the the networksecurity server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Immutable. Identifier. The resource name of this endpoint group, for example:
+         *        `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+         *        https://google.aip.dev/122 for more details.
+           * @param content the {@link com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networksecurity.v1.model.MirroringEndpointGroup content) {
+            super(NetworkSecurity.this, "PATCH", REST_PATH, content, com.google.api.services.networksecurity.v1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this endpoint group, for example:
+           * `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Immutable. Identifier. The resource name of this endpoint group, for example:
+         `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See https://google.aip.dev/122
+         for more details.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Immutable. Identifier. The resource name of this endpoint group, for example:
+           * `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+           * https://google.aip.dev/122 for more details.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/mirroringEndpointGroups/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Must be a UUID4. This request is only idempotent if
+         a `request_id` is provided. See https://google.aip.dev/155 for more details.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Must be a UUID4. This request is only
+           * idempotent if a `request_id` is provided. See https://google.aip.dev/155 for more
+           * details.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the endpoint
+           * group (e.g. `description`; *not* `mirroring_endpoint_group.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. The list of fields to update. Fields are specified relative to the endpoint group (e.g.
+         `description`; *not* `mirroring_endpoint_group.description`). See https://google.aip.dev/161 for
+         more details.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. The list of fields to update. Fields are specified relative to the endpoint
+           * group (e.g. `description`; *not* `mirroring_endpoint_group.description`). See
+           * https://google.aip.dev/161 for more details.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
        * An accessor for creating requests from the Operations collection.
        *
        * <p>The typical use is:</p>
@@ -13314,7 +21938,7 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -13345,7 +21969,7 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -14765,6 +23389,37 @@ public class NetworkSecurity extends com.google.api.client.googleapis.services.j
            */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;
+            return this;
+          }
+
+          /**
+           * Optional. Setting this field to `true` will opt the request into returning the
+           * resources that are reachable, and into including the names of those that were
+           * unreachable in the [ListServerTlsPoliciesResponse.unreachable] field. This can only be
+           * `true` when reading across collections e.g. when `parent` is set to
+           * `"projects/example/locations/-"`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. Setting this field to `true` will opt the request into returning the resources that are
+         reachable, and into including the names of those that were unreachable in the
+         [ListServerTlsPoliciesResponse.unreachable] field. This can only be `true` when reading across
+         collections e.g. when `parent` is set to `"projects/example/locations/-"`.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. Setting this field to `true` will opt the request into returning the
+           * resources that are reachable, and into including the names of those that were
+           * unreachable in the [ListServerTlsPoliciesResponse.unreachable] field. This can only be
+           * `true` when reading across collections e.g. when `parent` is set to
+           * `"projects/example/locations/-"`.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
             return this;
           }
 

@@ -55,7 +55,15 @@ public final class GooglePrivacyDlpV2DataProfileAction extends com.google.api.cl
   private GooglePrivacyDlpV2PublishToChronicle publishToChronicle;
 
   /**
-   * Publishes findings to SCC for each data profile.
+   * Publishes a portion of each profile to Dataplex Catalog with the aspect type Sensitive Data
+   * Protection Profile.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GooglePrivacyDlpV2PublishToDataplexCatalog publishToDataplexCatalog;
+
+  /**
+   * Publishes findings to Security Command Center for each data profile.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -126,7 +134,26 @@ public final class GooglePrivacyDlpV2DataProfileAction extends com.google.api.cl
   }
 
   /**
-   * Publishes findings to SCC for each data profile.
+   * Publishes a portion of each profile to Dataplex Catalog with the aspect type Sensitive Data
+   * Protection Profile.
+   * @return value or {@code null} for none
+   */
+  public GooglePrivacyDlpV2PublishToDataplexCatalog getPublishToDataplexCatalog() {
+    return publishToDataplexCatalog;
+  }
+
+  /**
+   * Publishes a portion of each profile to Dataplex Catalog with the aspect type Sensitive Data
+   * Protection Profile.
+   * @param publishToDataplexCatalog publishToDataplexCatalog or {@code null} for none
+   */
+  public GooglePrivacyDlpV2DataProfileAction setPublishToDataplexCatalog(GooglePrivacyDlpV2PublishToDataplexCatalog publishToDataplexCatalog) {
+    this.publishToDataplexCatalog = publishToDataplexCatalog;
+    return this;
+  }
+
+  /**
+   * Publishes findings to Security Command Center for each data profile.
    * @return value or {@code null} for none
    */
   public GooglePrivacyDlpV2PublishToSecurityCommandCenter getPublishToScc() {
@@ -134,7 +161,7 @@ public final class GooglePrivacyDlpV2DataProfileAction extends com.google.api.cl
   }
 
   /**
-   * Publishes findings to SCC for each data profile.
+   * Publishes findings to Security Command Center for each data profile.
    * @param publishToScc publishToScc or {@code null} for none
    */
   public GooglePrivacyDlpV2DataProfileAction setPublishToScc(GooglePrivacyDlpV2PublishToSecurityCommandCenter publishToScc) {

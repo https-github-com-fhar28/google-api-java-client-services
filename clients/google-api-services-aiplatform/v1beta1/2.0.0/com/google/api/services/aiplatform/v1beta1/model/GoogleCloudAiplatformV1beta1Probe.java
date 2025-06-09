@@ -38,12 +38,57 @@ public final class GoogleCloudAiplatformV1beta1Probe extends com.google.api.clie
   private GoogleCloudAiplatformV1beta1ProbeExecAction exec;
 
   /**
+   * Number of consecutive failures before the probe is considered failed. Defaults to 3. Minimum
+   * value is 1. Maps to Kubernetes probe argument 'failureThreshold'.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer failureThreshold;
+
+  /**
+   * GrpcAction probes the health of a container by sending a gRPC request.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1ProbeGrpcAction grpc;
+
+  /**
+   * HttpGetAction probes the health of a container by sending an HTTP GET request.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1ProbeHttpGetAction httpGet;
+
+  /**
+   * Number of seconds to wait before starting the probe. Defaults to 0. Minimum value is 0. Maps to
+   * Kubernetes probe argument 'initialDelaySeconds'.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer initialDelaySeconds;
+
+  /**
    * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. Must be
    * less than timeout_seconds. Maps to Kubernetes probe argument 'periodSeconds'.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Integer periodSeconds;
+
+  /**
+   * Number of consecutive successes before the probe is considered successful. Defaults to 1.
+   * Minimum value is 1. Maps to Kubernetes probe argument 'successThreshold'.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer successThreshold;
+
+  /**
+   * TcpSocketAction probes the health of a container by opening a TCP socket connection.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1ProbeTcpSocketAction tcpSocket;
 
   /**
    * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1.
@@ -71,6 +116,78 @@ public final class GoogleCloudAiplatformV1beta1Probe extends com.google.api.clie
   }
 
   /**
+   * Number of consecutive failures before the probe is considered failed. Defaults to 3. Minimum
+   * value is 1. Maps to Kubernetes probe argument 'failureThreshold'.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getFailureThreshold() {
+    return failureThreshold;
+  }
+
+  /**
+   * Number of consecutive failures before the probe is considered failed. Defaults to 3. Minimum
+   * value is 1. Maps to Kubernetes probe argument 'failureThreshold'.
+   * @param failureThreshold failureThreshold or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Probe setFailureThreshold(java.lang.Integer failureThreshold) {
+    this.failureThreshold = failureThreshold;
+    return this;
+  }
+
+  /**
+   * GrpcAction probes the health of a container by sending a gRPC request.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ProbeGrpcAction getGrpc() {
+    return grpc;
+  }
+
+  /**
+   * GrpcAction probes the health of a container by sending a gRPC request.
+   * @param grpc grpc or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Probe setGrpc(GoogleCloudAiplatformV1beta1ProbeGrpcAction grpc) {
+    this.grpc = grpc;
+    return this;
+  }
+
+  /**
+   * HttpGetAction probes the health of a container by sending an HTTP GET request.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ProbeHttpGetAction getHttpGet() {
+    return httpGet;
+  }
+
+  /**
+   * HttpGetAction probes the health of a container by sending an HTTP GET request.
+   * @param httpGet httpGet or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Probe setHttpGet(GoogleCloudAiplatformV1beta1ProbeHttpGetAction httpGet) {
+    this.httpGet = httpGet;
+    return this;
+  }
+
+  /**
+   * Number of seconds to wait before starting the probe. Defaults to 0. Minimum value is 0. Maps to
+   * Kubernetes probe argument 'initialDelaySeconds'.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getInitialDelaySeconds() {
+    return initialDelaySeconds;
+  }
+
+  /**
+   * Number of seconds to wait before starting the probe. Defaults to 0. Minimum value is 0. Maps to
+   * Kubernetes probe argument 'initialDelaySeconds'.
+   * @param initialDelaySeconds initialDelaySeconds or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Probe setInitialDelaySeconds(java.lang.Integer initialDelaySeconds) {
+    this.initialDelaySeconds = initialDelaySeconds;
+    return this;
+  }
+
+  /**
    * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. Must be
    * less than timeout_seconds. Maps to Kubernetes probe argument 'periodSeconds'.
    * @return value or {@code null} for none
@@ -86,6 +203,42 @@ public final class GoogleCloudAiplatformV1beta1Probe extends com.google.api.clie
    */
   public GoogleCloudAiplatformV1beta1Probe setPeriodSeconds(java.lang.Integer periodSeconds) {
     this.periodSeconds = periodSeconds;
+    return this;
+  }
+
+  /**
+   * Number of consecutive successes before the probe is considered successful. Defaults to 1.
+   * Minimum value is 1. Maps to Kubernetes probe argument 'successThreshold'.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getSuccessThreshold() {
+    return successThreshold;
+  }
+
+  /**
+   * Number of consecutive successes before the probe is considered successful. Defaults to 1.
+   * Minimum value is 1. Maps to Kubernetes probe argument 'successThreshold'.
+   * @param successThreshold successThreshold or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Probe setSuccessThreshold(java.lang.Integer successThreshold) {
+    this.successThreshold = successThreshold;
+    return this;
+  }
+
+  /**
+   * TcpSocketAction probes the health of a container by opening a TCP socket connection.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ProbeTcpSocketAction getTcpSocket() {
+    return tcpSocket;
+  }
+
+  /**
+   * TcpSocketAction probes the health of a container by opening a TCP socket connection.
+   * @param tcpSocket tcpSocket or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Probe setTcpSocket(GoogleCloudAiplatformV1beta1ProbeTcpSocketAction tcpSocket) {
+    this.tcpSocket = tcpSocket;
     return this;
   }
 

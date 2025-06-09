@@ -30,6 +30,15 @@ package com.google.api.services.gkebackup.v1.model;
 public final class BackupPlan extends com.google.api.client.json.GenericJson {
 
   /**
+   * Output only. The fully qualified name of the BackupChannel to be used to create a backup. This
+   * field is set only if the cluster being backed up is in a different project.
+   * `projects/locations/backupChannels`
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String backupChannel;
+
+  /**
    * Optional. Defines the configuration of Backups created via this BackupPlan.
    * The value may be {@code null}.
    */
@@ -96,6 +105,15 @@ public final class BackupPlan extends com.google.api.client.json.GenericJson {
   private java.util.Map<String, java.lang.String> labels;
 
   /**
+   * Output only. Completion time of the last successful Backup. This is sourced from a successful
+   * Backup's complete_time field. This field is added to maintain consistency with
+   * BackupPlanBinding to display last successful backup time.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String lastSuccessfulBackupTime;
+
+  /**
    * Output only. The full name of the BackupPlan resource. Format: `projects/locations/backupPlans`
    * The value may be {@code null}.
    */
@@ -143,7 +161,9 @@ public final class BackupPlan extends com.google.api.client.json.GenericJson {
   private java.lang.String state;
 
   /**
-   * Output only. Human-readable description of why BackupPlan is in the current `state`
+   * Output only. Human-readable description of why BackupPlan is in the current `state`. This field
+   * is only meant for human readability and should not be used programmatically as this field is
+   * not guaranteed to be consistent.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -163,6 +183,27 @@ public final class BackupPlan extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private String updateTime;
+
+  /**
+   * Output only. The fully qualified name of the BackupChannel to be used to create a backup. This
+   * field is set only if the cluster being backed up is in a different project.
+   * `projects/locations/backupChannels`
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getBackupChannel() {
+    return backupChannel;
+  }
+
+  /**
+   * Output only. The fully qualified name of the BackupChannel to be used to create a backup. This
+   * field is set only if the cluster being backed up is in a different project.
+   * `projects/locations/backupChannels`
+   * @param backupChannel backupChannel or {@code null} for none
+   */
+  public BackupPlan setBackupChannel(java.lang.String backupChannel) {
+    this.backupChannel = backupChannel;
+    return this;
+  }
 
   /**
    * Optional. Defines the configuration of Backups created via this BackupPlan.
@@ -321,6 +362,27 @@ public final class BackupPlan extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. Completion time of the last successful Backup. This is sourced from a successful
+   * Backup's complete_time field. This field is added to maintain consistency with
+   * BackupPlanBinding to display last successful backup time.
+   * @return value or {@code null} for none
+   */
+  public String getLastSuccessfulBackupTime() {
+    return lastSuccessfulBackupTime;
+  }
+
+  /**
+   * Output only. Completion time of the last successful Backup. This is sourced from a successful
+   * Backup's complete_time field. This field is added to maintain consistency with
+   * BackupPlanBinding to display last successful backup time.
+   * @param lastSuccessfulBackupTime lastSuccessfulBackupTime or {@code null} for none
+   */
+  public BackupPlan setLastSuccessfulBackupTime(String lastSuccessfulBackupTime) {
+    this.lastSuccessfulBackupTime = lastSuccessfulBackupTime;
+    return this;
+  }
+
+  /**
    * Output only. The full name of the BackupPlan resource. Format: `projects/locations/backupPlans`
    * @return value or {@code null} for none
    */
@@ -433,7 +495,9 @@ public final class BackupPlan extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. Human-readable description of why BackupPlan is in the current `state`
+   * Output only. Human-readable description of why BackupPlan is in the current `state`. This field
+   * is only meant for human readability and should not be used programmatically as this field is
+   * not guaranteed to be consistent.
    * @return value or {@code null} for none
    */
   public java.lang.String getStateReason() {
@@ -441,7 +505,9 @@ public final class BackupPlan extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. Human-readable description of why BackupPlan is in the current `state`
+   * Output only. Human-readable description of why BackupPlan is in the current `state`. This field
+   * is only meant for human readability and should not be used programmatically as this field is
+   * not guaranteed to be consistent.
    * @param stateReason stateReason or {@code null} for none
    */
   public BackupPlan setStateReason(java.lang.String stateReason) {

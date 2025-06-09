@@ -90,7 +90,8 @@ public final class GoogleCloudAiplatformV1NotebookRuntimeTemplate extends com.go
   private GoogleCloudAiplatformV1NotebookIdleShutdownConfig idleShutdownConfig;
 
   /**
-   * Output only. The default template to use if not specified.
+   * Output only. Deprecated: This field has no behavior. Use notebook_runtime_type = 'ONE_CLICK'
+   * instead. The default template to use if not specified.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -143,9 +144,20 @@ public final class GoogleCloudAiplatformV1NotebookRuntimeTemplate extends com.go
   private java.lang.String notebookRuntimeType;
 
   /**
-   * The service account that the runtime workload runs as. You can use any service account within
-   * the same project, but you must have the service account user permission to use the instance. If
-   * not specified, the [Compute Engine default service
+   * Optional. Reservation Affinity of the notebook runtime template.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1NotebookReservationAffinity reservationAffinity;
+
+  /**
+   * Deprecated: This field is ignored and the "Vertex AI Notebook Service Account" (service-
+   * PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com) is used for the runtime workload
+   * identity. See https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-
+   * account for more details. For NotebookExecutionJob, use NotebookExecutionJob.service_account
+   * instead. The service account that the runtime workload runs as. You can use any service account
+   * within the same project, but you must have the service account user permission to use the
+   * instance. If not specified, the [Compute Engine default service
    * account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
    * is used.
    * The value may be {@code null}.
@@ -159,6 +171,13 @@ public final class GoogleCloudAiplatformV1NotebookRuntimeTemplate extends com.go
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1ShieldedVmConfig shieldedVmConfig;
+
+  /**
+   * Optional. The notebook software configuration of the notebook runtime.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1NotebookSoftwareConfig softwareConfig;
 
   /**
    * Output only. Timestamp when this NotebookRuntimeTemplate was most recently updated.
@@ -310,7 +329,8 @@ public final class GoogleCloudAiplatformV1NotebookRuntimeTemplate extends com.go
   }
 
   /**
-   * Output only. The default template to use if not specified.
+   * Output only. Deprecated: This field has no behavior. Use notebook_runtime_type = 'ONE_CLICK'
+   * instead. The default template to use if not specified.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getIsDefault() {
@@ -318,7 +338,8 @@ public final class GoogleCloudAiplatformV1NotebookRuntimeTemplate extends com.go
   }
 
   /**
-   * Output only. The default template to use if not specified.
+   * Output only. Deprecated: This field has no behavior. Use notebook_runtime_type = 'ONE_CLICK'
+   * instead. The default template to use if not specified.
    * @param isDefault isDefault or {@code null} for none
    */
   public GoogleCloudAiplatformV1NotebookRuntimeTemplate setIsDefault(java.lang.Boolean isDefault) {
@@ -437,9 +458,30 @@ public final class GoogleCloudAiplatformV1NotebookRuntimeTemplate extends com.go
   }
 
   /**
-   * The service account that the runtime workload runs as. You can use any service account within
-   * the same project, but you must have the service account user permission to use the instance. If
-   * not specified, the [Compute Engine default service
+   * Optional. Reservation Affinity of the notebook runtime template.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookReservationAffinity getReservationAffinity() {
+    return reservationAffinity;
+  }
+
+  /**
+   * Optional. Reservation Affinity of the notebook runtime template.
+   * @param reservationAffinity reservationAffinity or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookRuntimeTemplate setReservationAffinity(GoogleCloudAiplatformV1NotebookReservationAffinity reservationAffinity) {
+    this.reservationAffinity = reservationAffinity;
+    return this;
+  }
+
+  /**
+   * Deprecated: This field is ignored and the "Vertex AI Notebook Service Account" (service-
+   * PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com) is used for the runtime workload
+   * identity. See https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-
+   * account for more details. For NotebookExecutionJob, use NotebookExecutionJob.service_account
+   * instead. The service account that the runtime workload runs as. You can use any service account
+   * within the same project, but you must have the service account user permission to use the
+   * instance. If not specified, the [Compute Engine default service
    * account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
    * is used.
    * @return value or {@code null} for none
@@ -449,9 +491,13 @@ public final class GoogleCloudAiplatformV1NotebookRuntimeTemplate extends com.go
   }
 
   /**
-   * The service account that the runtime workload runs as. You can use any service account within
-   * the same project, but you must have the service account user permission to use the instance. If
-   * not specified, the [Compute Engine default service
+   * Deprecated: This field is ignored and the "Vertex AI Notebook Service Account" (service-
+   * PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com) is used for the runtime workload
+   * identity. See https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-
+   * account for more details. For NotebookExecutionJob, use NotebookExecutionJob.service_account
+   * instead. The service account that the runtime workload runs as. You can use any service account
+   * within the same project, but you must have the service account user permission to use the
+   * instance. If not specified, the [Compute Engine default service
    * account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
    * is used.
    * @param serviceAccount serviceAccount or {@code null} for none
@@ -475,6 +521,23 @@ public final class GoogleCloudAiplatformV1NotebookRuntimeTemplate extends com.go
    */
   public GoogleCloudAiplatformV1NotebookRuntimeTemplate setShieldedVmConfig(GoogleCloudAiplatformV1ShieldedVmConfig shieldedVmConfig) {
     this.shieldedVmConfig = shieldedVmConfig;
+    return this;
+  }
+
+  /**
+   * Optional. The notebook software configuration of the notebook runtime.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookSoftwareConfig getSoftwareConfig() {
+    return softwareConfig;
+  }
+
+  /**
+   * Optional. The notebook software configuration of the notebook runtime.
+   * @param softwareConfig softwareConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookRuntimeTemplate setSoftwareConfig(GoogleCloudAiplatformV1NotebookSoftwareConfig softwareConfig) {
+    this.softwareConfig = softwareConfig;
     return this;
   }
 

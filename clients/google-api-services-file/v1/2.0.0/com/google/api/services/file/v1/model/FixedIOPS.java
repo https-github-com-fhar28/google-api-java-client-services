@@ -30,26 +30,26 @@ package com.google.api.services.file.v1.model;
 public final class FixedIOPS extends com.google.api.client.json.GenericJson {
 
   /**
-   * Required. Maximum raw read IOPS.
+   * Required. Maximum IOPS.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
-  private java.lang.Long maxReadIops;
+  private java.lang.Long maxIops;
 
   /**
-   * Required. Maximum raw read IOPS.
+   * Required. Maximum IOPS.
    * @return value or {@code null} for none
    */
-  public java.lang.Long getMaxReadIops() {
-    return maxReadIops;
+  public java.lang.Long getMaxIops() {
+    return maxIops;
   }
 
   /**
-   * Required. Maximum raw read IOPS.
-   * @param maxReadIops maxReadIops or {@code null} for none
+   * Required. Maximum IOPS.
+   * @param maxIops maxIops or {@code null} for none
    */
-  public FixedIOPS setMaxReadIops(java.lang.Long maxReadIops) {
-    this.maxReadIops = maxReadIops;
+  public FixedIOPS setMaxIops(java.lang.Long maxIops) {
+    this.maxIops = maxIops;
     return this;
   }
 

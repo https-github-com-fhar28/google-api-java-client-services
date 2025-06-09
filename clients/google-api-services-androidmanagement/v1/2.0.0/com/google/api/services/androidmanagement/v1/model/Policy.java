@@ -39,14 +39,16 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   private java.util.List<java.lang.String> accountTypesWithManagementDisabled;
 
   /**
-   * Whether adding new users and profiles is disabled.
+   * Whether adding new users and profiles is disabled. For devices where managementMode is
+   * DEVICE_OWNER this field is ignored and the user is never allowed to add or remove users.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean addUserDisabled;
 
   /**
-   * Whether adjusting the master volume is disabled. Also mutes the device.
+   * Whether adjusting the master volume is disabled. Also mutes the device. The setting has effect
+   * only on fully managed devices.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -305,6 +307,14 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean ensureVerifyAppsEnabled;
 
   /**
+   * Optional. Controls whether the enterpriseDisplayName is visible on the device (e.g. lock screen
+   * message on company-owned devices).
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String enterpriseDisplayNameVisibility;
+
+  /**
    * Whether factory resetting from settings is disabled.
    * The value may be {@code null}.
    */
@@ -346,7 +356,7 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   /**
    * If true, this disables the Lock Screen
    * (https://source.android.com/docs/core/display/multi_display/lock-screen) for primary and/or
-   * secondary displays.
+   * secondary displays. This policy is supported only in dedicated device management mode.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -592,11 +602,12 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   private java.util.List<PolicyEnforcementRule> policyEnforcementRules;
 
   /**
-   * Controls whether preferential network service is enabled on the work profile. For example, an
-   * organization may have an agreement with a carrier that all of the work data from its employees'
-   * devices will be sent via a network service dedicated for enterprise use. An example of a
-   * supported preferential network service is the enterprise slice on 5G networks. This has no
-   * effect on fully managed devices.
+   * Controls whether preferential network service is enabled on the work profile or on fully
+   * managed devices. For example, an organization may have an agreement with a carrier that all of
+   * the work data from its employees' devices will be sent via a network service dedicated for
+   * enterprise use. An example of a supported preferential network service is the enterprise slice
+   * on 5G networks. This policy has no effect if preferentialNetworkServiceSettings or
+   * ApplicationPolicy.preferentialNetworkId is set on devices running Android 13 or above.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -652,7 +663,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean screenCaptureDisabled;
 
   /**
-   * Whether changing the user icon is disabled.
+   * Whether changing the user icon is disabled. The setting has effect only on fully managed
+   * devices.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -825,6 +837,23 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean wifiConfigsLockdownEnabled;
 
   /**
+   * Optional. Wipe flags to indicate what data is wiped when a device or profile wipe is triggered
+   * due to any reason (for example, non-compliance). This does not apply to the
+   * enterprises.devices.delete method. . This list must not have duplicates.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> wipeDataFlags;
+
+  /**
+   * Optional. Controls the work account setup configuration, such as details of whether a Google
+   * authenticated account is required.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private WorkAccountSetupConfig workAccountSetupConfig;
+
+  /**
    * Account types that can't be managed by the user.
    * @return value or {@code null} for none
    */
@@ -842,7 +871,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether adding new users and profiles is disabled.
+   * Whether adding new users and profiles is disabled. For devices where managementMode is
+   * DEVICE_OWNER this field is ignored and the user is never allowed to add or remove users.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAddUserDisabled() {
@@ -850,7 +880,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether adding new users and profiles is disabled.
+   * Whether adding new users and profiles is disabled. For devices where managementMode is
+   * DEVICE_OWNER this field is ignored and the user is never allowed to add or remove users.
    * @param addUserDisabled addUserDisabled or {@code null} for none
    */
   public Policy setAddUserDisabled(java.lang.Boolean addUserDisabled) {
@@ -859,7 +890,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether adjusting the master volume is disabled. Also mutes the device.
+   * Whether adjusting the master volume is disabled. Also mutes the device. The setting has effect
+   * only on fully managed devices.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAdjustVolumeDisabled() {
@@ -867,7 +899,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether adjusting the master volume is disabled. Also mutes the device.
+   * Whether adjusting the master volume is disabled. Also mutes the device. The setting has effect
+   * only on fully managed devices.
    * @param adjustVolumeDisabled adjustVolumeDisabled or {@code null} for none
    */
   public Policy setAdjustVolumeDisabled(java.lang.Boolean adjustVolumeDisabled) {
@@ -1434,6 +1467,25 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. Controls whether the enterpriseDisplayName is visible on the device (e.g. lock screen
+   * message on company-owned devices).
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEnterpriseDisplayNameVisibility() {
+    return enterpriseDisplayNameVisibility;
+  }
+
+  /**
+   * Optional. Controls whether the enterpriseDisplayName is visible on the device (e.g. lock screen
+   * message on company-owned devices).
+   * @param enterpriseDisplayNameVisibility enterpriseDisplayNameVisibility or {@code null} for none
+   */
+  public Policy setEnterpriseDisplayNameVisibility(java.lang.String enterpriseDisplayNameVisibility) {
+    this.enterpriseDisplayNameVisibility = enterpriseDisplayNameVisibility;
+    return this;
+  }
+
+  /**
    * Whether factory resetting from settings is disabled.
    * @return value or {@code null} for none
    */
@@ -1529,7 +1581,7 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   /**
    * If true, this disables the Lock Screen
    * (https://source.android.com/docs/core/display/multi_display/lock-screen) for primary and/or
-   * secondary displays.
+   * secondary displays. This policy is supported only in dedicated device management mode.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getKeyguardDisabled() {
@@ -1539,7 +1591,7 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   /**
    * If true, this disables the Lock Screen
    * (https://source.android.com/docs/core/display/multi_display/lock-screen) for primary and/or
-   * secondary displays.
+   * secondary displays. This policy is supported only in dedicated device management mode.
    * @param keyguardDisabled keyguardDisabled or {@code null} for none
    */
   public Policy setKeyguardDisabled(java.lang.Boolean keyguardDisabled) {
@@ -2059,11 +2111,12 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Controls whether preferential network service is enabled on the work profile. For example, an
-   * organization may have an agreement with a carrier that all of the work data from its employees'
-   * devices will be sent via a network service dedicated for enterprise use. An example of a
-   * supported preferential network service is the enterprise slice on 5G networks. This has no
-   * effect on fully managed devices.
+   * Controls whether preferential network service is enabled on the work profile or on fully
+   * managed devices. For example, an organization may have an agreement with a carrier that all of
+   * the work data from its employees' devices will be sent via a network service dedicated for
+   * enterprise use. An example of a supported preferential network service is the enterprise slice
+   * on 5G networks. This policy has no effect if preferentialNetworkServiceSettings or
+   * ApplicationPolicy.preferentialNetworkId is set on devices running Android 13 or above.
    * @return value or {@code null} for none
    */
   public java.lang.String getPreferentialNetworkService() {
@@ -2071,11 +2124,12 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Controls whether preferential network service is enabled on the work profile. For example, an
-   * organization may have an agreement with a carrier that all of the work data from its employees'
-   * devices will be sent via a network service dedicated for enterprise use. An example of a
-   * supported preferential network service is the enterprise slice on 5G networks. This has no
-   * effect on fully managed devices.
+   * Controls whether preferential network service is enabled on the work profile or on fully
+   * managed devices. For example, an organization may have an agreement with a carrier that all of
+   * the work data from its employees' devices will be sent via a network service dedicated for
+   * enterprise use. An example of a supported preferential network service is the enterprise slice
+   * on 5G networks. This policy has no effect if preferentialNetworkServiceSettings or
+   * ApplicationPolicy.preferentialNetworkId is set on devices running Android 13 or above.
    * @param preferentialNetworkService preferentialNetworkService or {@code null} for none
    */
   public Policy setPreferentialNetworkService(java.lang.String preferentialNetworkService) {
@@ -2200,7 +2254,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether changing the user icon is disabled.
+   * Whether changing the user icon is disabled. The setting has effect only on fully managed
+   * devices.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getSetUserIconDisabled() {
@@ -2208,7 +2263,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether changing the user icon is disabled.
+   * Whether changing the user icon is disabled. The setting has effect only on fully managed
+   * devices.
    * @param setUserIconDisabled setUserIconDisabled or {@code null} for none
    */
   public Policy setSetUserIconDisabled(java.lang.Boolean setUserIconDisabled) {
@@ -2605,6 +2661,46 @@ public final class Policy extends com.google.api.client.json.GenericJson {
    */
   public Policy setWifiConfigsLockdownEnabled(java.lang.Boolean wifiConfigsLockdownEnabled) {
     this.wifiConfigsLockdownEnabled = wifiConfigsLockdownEnabled;
+    return this;
+  }
+
+  /**
+   * Optional. Wipe flags to indicate what data is wiped when a device or profile wipe is triggered
+   * due to any reason (for example, non-compliance). This does not apply to the
+   * enterprises.devices.delete method. . This list must not have duplicates.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getWipeDataFlags() {
+    return wipeDataFlags;
+  }
+
+  /**
+   * Optional. Wipe flags to indicate what data is wiped when a device or profile wipe is triggered
+   * due to any reason (for example, non-compliance). This does not apply to the
+   * enterprises.devices.delete method. . This list must not have duplicates.
+   * @param wipeDataFlags wipeDataFlags or {@code null} for none
+   */
+  public Policy setWipeDataFlags(java.util.List<java.lang.String> wipeDataFlags) {
+    this.wipeDataFlags = wipeDataFlags;
+    return this;
+  }
+
+  /**
+   * Optional. Controls the work account setup configuration, such as details of whether a Google
+   * authenticated account is required.
+   * @return value or {@code null} for none
+   */
+  public WorkAccountSetupConfig getWorkAccountSetupConfig() {
+    return workAccountSetupConfig;
+  }
+
+  /**
+   * Optional. Controls the work account setup configuration, such as details of whether a Google
+   * authenticated account is required.
+   * @param workAccountSetupConfig workAccountSetupConfig or {@code null} for none
+   */
+  public Policy setWorkAccountSetupConfig(WorkAccountSetupConfig workAccountSetupConfig) {
+    this.workAccountSetupConfig = workAccountSetupConfig;
     return this;
   }
 

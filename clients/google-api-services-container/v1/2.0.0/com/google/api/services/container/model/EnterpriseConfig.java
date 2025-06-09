@@ -38,6 +38,13 @@ public final class EnterpriseConfig extends com.google.api.client.json.GenericJs
   private java.lang.String clusterTier;
 
   /**
+   * desired_tier specifies the desired tier of the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String desiredTier;
+
+  /**
    * Output only. cluster_tier indicates the effective tier of the cluster.
    * @return value or {@code null} for none
    */
@@ -51,6 +58,23 @@ public final class EnterpriseConfig extends com.google.api.client.json.GenericJs
    */
   public EnterpriseConfig setClusterTier(java.lang.String clusterTier) {
     this.clusterTier = clusterTier;
+    return this;
+  }
+
+  /**
+   * desired_tier specifies the desired tier of the cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDesiredTier() {
+    return desiredTier;
+  }
+
+  /**
+   * desired_tier specifies the desired tier of the cluster.
+   * @param desiredTier desiredTier or {@code null} for none
+   */
+  public EnterpriseConfig setDesiredTier(java.lang.String desiredTier) {
+    this.desiredTier = desiredTier;
     return this;
   }
 

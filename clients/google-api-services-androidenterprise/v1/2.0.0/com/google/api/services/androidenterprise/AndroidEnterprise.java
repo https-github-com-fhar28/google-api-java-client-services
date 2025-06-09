@@ -1146,6 +1146,151 @@ public class AndroidEnterprise extends com.google.api.client.googleapis.services
   }
 
   /**
+   * An accessor for creating requests from the EnrollmentTokens collection.
+   *
+   * <p>The typical use is:</p>
+   * <pre>
+   *   {@code AndroidEnterprise androidenterprise = new AndroidEnterprise(...);}
+   *   {@code AndroidEnterprise.EnrollmentTokens.List request = androidenterprise.enrollmentTokens().list(parameters ...)}
+   * </pre>
+   *
+   * @return the resource collection
+   */
+  public EnrollmentTokens enrollmentTokens() {
+    return new EnrollmentTokens();
+  }
+
+  /**
+   * The "enrollmentTokens" collection of methods.
+   */
+  public class EnrollmentTokens {
+
+    /**
+     * Returns a token for device enrollment. The DPC can encode this token within the QR/NFC/zero-touch
+     * enrollment payload or fetch it before calling the on-device API to authenticate the user. The
+     * token can be generated for each device or reused across multiple devices.
+     *
+     * Create a request for the method "enrollmentTokens.create".
+     *
+     * This request holds the parameters needed by the androidenterprise server.  After setting any
+     * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+     *
+     * @param enterpriseId Required. The ID of the enterprise.
+     * @param content the {@link com.google.api.services.androidenterprise.model.EnrollmentToken}
+     * @return the request
+     */
+    public Create create(java.lang.String enterpriseId, com.google.api.services.androidenterprise.model.EnrollmentToken content) throws java.io.IOException {
+      Create result = new Create(enterpriseId, content);
+      initialize(result);
+      return result;
+    }
+
+    public class Create extends AndroidEnterpriseRequest<com.google.api.services.androidenterprise.model.EnrollmentToken> {
+
+      private static final String REST_PATH = "androidenterprise/v1/enterprises/{enterpriseId}/enrollmentTokens";
+
+      /**
+       * Returns a token for device enrollment. The DPC can encode this token within the QR/NFC/zero-
+       * touch enrollment payload or fetch it before calling the on-device API to authenticate the user.
+       * The token can be generated for each device or reused across multiple devices.
+       *
+       * Create a request for the method "enrollmentTokens.create".
+       *
+       * This request holds the parameters needed by the the androidenterprise server.  After setting
+       * any optional parameters, call the {@link Create#execute()} method to invoke the remote
+       * operation. <p> {@link
+       * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+       * be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param enterpriseId Required. The ID of the enterprise.
+       * @param content the {@link com.google.api.services.androidenterprise.model.EnrollmentToken}
+       * @since 1.13
+       */
+      protected Create(java.lang.String enterpriseId, com.google.api.services.androidenterprise.model.EnrollmentToken content) {
+        super(AndroidEnterprise.this, "POST", REST_PATH, content, com.google.api.services.androidenterprise.model.EnrollmentToken.class);
+        this.enterpriseId = com.google.api.client.util.Preconditions.checkNotNull(enterpriseId, "Required parameter enterpriseId must be specified.");
+      }
+
+      @Override
+      public Create set$Xgafv(java.lang.String $Xgafv) {
+        return (Create) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public Create setAccessToken(java.lang.String accessToken) {
+        return (Create) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public Create setAlt(java.lang.String alt) {
+        return (Create) super.setAlt(alt);
+      }
+
+      @Override
+      public Create setCallback(java.lang.String callback) {
+        return (Create) super.setCallback(callback);
+      }
+
+      @Override
+      public Create setFields(java.lang.String fields) {
+        return (Create) super.setFields(fields);
+      }
+
+      @Override
+      public Create setKey(java.lang.String key) {
+        return (Create) super.setKey(key);
+      }
+
+      @Override
+      public Create setOauthToken(java.lang.String oauthToken) {
+        return (Create) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (Create) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public Create setQuotaUser(java.lang.String quotaUser) {
+        return (Create) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public Create setUploadType(java.lang.String uploadType) {
+        return (Create) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public Create setUploadProtocol(java.lang.String uploadProtocol) {
+        return (Create) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /** Required. The ID of the enterprise. */
+      @com.google.api.client.util.Key
+      private java.lang.String enterpriseId;
+
+      /** Required. The ID of the enterprise.
+       */
+      public java.lang.String getEnterpriseId() {
+        return enterpriseId;
+      }
+
+      /** Required. The ID of the enterprise. */
+      public Create setEnterpriseId(java.lang.String enterpriseId) {
+        this.enterpriseId = enterpriseId;
+        return this;
+      }
+
+      @Override
+      public Create set(String parameterName, Object value) {
+        return (Create) super.set(parameterName, value);
+      }
+    }
+
+  }
+
+  /**
    * An accessor for creating requests from the Enterprises collection.
    *
    * <p>The typical use is:</p>
@@ -1420,143 +1565,6 @@ public class AndroidEnterprise extends com.google.api.client.googleapis.services
       }
     }
     /**
-     * Returns a token for device enrollment. The DPC can encode this token within the QR/NFC/zero-touch
-     * enrollment payload or fetch it before calling the on-device API to authenticate the user. The
-     * token can be generated for each device or reused across multiple devices.
-     *
-     * Create a request for the method "enterprises.createEnrollmentToken".
-     *
-     * This request holds the parameters needed by the androidenterprise server.  After setting any
-     * optional parameters, call the {@link CreateEnrollmentToken#execute()} method to invoke the remote
-     * operation.
-     *
-     * @param enterpriseId The ID of the enterprise.
-     * @return the request
-     */
-    public CreateEnrollmentToken createEnrollmentToken(java.lang.String enterpriseId) throws java.io.IOException {
-      CreateEnrollmentToken result = new CreateEnrollmentToken(enterpriseId);
-      initialize(result);
-      return result;
-    }
-
-    public class CreateEnrollmentToken extends AndroidEnterpriseRequest<com.google.api.services.androidenterprise.model.CreateEnrollmentTokenResponse> {
-
-      private static final String REST_PATH = "androidenterprise/v1/enterprises/{enterpriseId}/createEnrollmentToken";
-
-      /**
-       * Returns a token for device enrollment. The DPC can encode this token within the QR/NFC/zero-
-       * touch enrollment payload or fetch it before calling the on-device API to authenticate the user.
-       * The token can be generated for each device or reused across multiple devices.
-       *
-       * Create a request for the method "enterprises.createEnrollmentToken".
-       *
-       * This request holds the parameters needed by the the androidenterprise server.  After setting
-       * any optional parameters, call the {@link CreateEnrollmentToken#execute()} method to invoke the
-       * remote operation. <p> {@link CreateEnrollmentToken#initialize(com.google.api.client.googleapis.
-       * services.AbstractGoogleClientRequest)} must be called to initialize this instance immediately
-       * after invoking the constructor. </p>
-       *
-       * @param enterpriseId The ID of the enterprise.
-       * @since 1.13
-       */
-      protected CreateEnrollmentToken(java.lang.String enterpriseId) {
-        super(AndroidEnterprise.this, "POST", REST_PATH, null, com.google.api.services.androidenterprise.model.CreateEnrollmentTokenResponse.class);
-        this.enterpriseId = com.google.api.client.util.Preconditions.checkNotNull(enterpriseId, "Required parameter enterpriseId must be specified.");
-      }
-
-      @Override
-      public CreateEnrollmentToken set$Xgafv(java.lang.String $Xgafv) {
-        return (CreateEnrollmentToken) super.set$Xgafv($Xgafv);
-      }
-
-      @Override
-      public CreateEnrollmentToken setAccessToken(java.lang.String accessToken) {
-        return (CreateEnrollmentToken) super.setAccessToken(accessToken);
-      }
-
-      @Override
-      public CreateEnrollmentToken setAlt(java.lang.String alt) {
-        return (CreateEnrollmentToken) super.setAlt(alt);
-      }
-
-      @Override
-      public CreateEnrollmentToken setCallback(java.lang.String callback) {
-        return (CreateEnrollmentToken) super.setCallback(callback);
-      }
-
-      @Override
-      public CreateEnrollmentToken setFields(java.lang.String fields) {
-        return (CreateEnrollmentToken) super.setFields(fields);
-      }
-
-      @Override
-      public CreateEnrollmentToken setKey(java.lang.String key) {
-        return (CreateEnrollmentToken) super.setKey(key);
-      }
-
-      @Override
-      public CreateEnrollmentToken setOauthToken(java.lang.String oauthToken) {
-        return (CreateEnrollmentToken) super.setOauthToken(oauthToken);
-      }
-
-      @Override
-      public CreateEnrollmentToken setPrettyPrint(java.lang.Boolean prettyPrint) {
-        return (CreateEnrollmentToken) super.setPrettyPrint(prettyPrint);
-      }
-
-      @Override
-      public CreateEnrollmentToken setQuotaUser(java.lang.String quotaUser) {
-        return (CreateEnrollmentToken) super.setQuotaUser(quotaUser);
-      }
-
-      @Override
-      public CreateEnrollmentToken setUploadType(java.lang.String uploadType) {
-        return (CreateEnrollmentToken) super.setUploadType(uploadType);
-      }
-
-      @Override
-      public CreateEnrollmentToken setUploadProtocol(java.lang.String uploadProtocol) {
-        return (CreateEnrollmentToken) super.setUploadProtocol(uploadProtocol);
-      }
-
-      /** The ID of the enterprise. */
-      @com.google.api.client.util.Key
-      private java.lang.String enterpriseId;
-
-      /** The ID of the enterprise.
-       */
-      public java.lang.String getEnterpriseId() {
-        return enterpriseId;
-      }
-
-      /** The ID of the enterprise. */
-      public CreateEnrollmentToken setEnterpriseId(java.lang.String enterpriseId) {
-        this.enterpriseId = enterpriseId;
-        return this;
-      }
-
-      /** Whether it’s a dedicated device or a knowledge worker device. */
-      @com.google.api.client.util.Key
-      private java.lang.String deviceType;
-
-      /** Whether it’s a dedicated device or a knowledge worker device.
-       */
-      public java.lang.String getDeviceType() {
-        return deviceType;
-      }
-
-      /** Whether it’s a dedicated device or a knowledge worker device. */
-      public CreateEnrollmentToken setDeviceType(java.lang.String deviceType) {
-        this.deviceType = deviceType;
-        return this;
-      }
-
-      @Override
-      public CreateEnrollmentToken set(String parameterName, Object value) {
-        return (CreateEnrollmentToken) super.set(parameterName, value);
-      }
-    }
-    /**
      * Returns a unique token to access an embeddable UI. To generate a web UI, pass the generated token
      * into the managed Google Play javascript API. Each token may only be used to start one UI session.
      * See the JavaScript API documentation for further information.
@@ -1798,6 +1806,188 @@ public class AndroidEnterprise extends com.google.api.client.googleapis.services
       }
     }
     /**
+     * Generates an enterprise upgrade URL to upgrade an existing managed Google Play Accounts
+     * enterprise to a managed Google domain. **Note:** This feature is not generally available.
+     *
+     * Create a request for the method "enterprises.generateEnterpriseUpgradeUrl".
+     *
+     * This request holds the parameters needed by the androidenterprise server.  After setting any
+     * optional parameters, call the {@link GenerateEnterpriseUpgradeUrl#execute()} method to invoke the
+     * remote operation.
+     *
+     * @param enterpriseId Required. The ID of the enterprise.
+     * @return the request
+     */
+    public GenerateEnterpriseUpgradeUrl generateEnterpriseUpgradeUrl(java.lang.String enterpriseId) throws java.io.IOException {
+      GenerateEnterpriseUpgradeUrl result = new GenerateEnterpriseUpgradeUrl(enterpriseId);
+      initialize(result);
+      return result;
+    }
+
+    public class GenerateEnterpriseUpgradeUrl extends AndroidEnterpriseRequest<com.google.api.services.androidenterprise.model.GenerateEnterpriseUpgradeUrlResponse> {
+
+      private static final String REST_PATH = "androidenterprise/v1/enterprises/{enterpriseId}/generateEnterpriseUpgradeUrl";
+
+      /**
+       * Generates an enterprise upgrade URL to upgrade an existing managed Google Play Accounts
+       * enterprise to a managed Google domain. **Note:** This feature is not generally available.
+       *
+       * Create a request for the method "enterprises.generateEnterpriseUpgradeUrl".
+       *
+       * This request holds the parameters needed by the the androidenterprise server.  After setting
+       * any optional parameters, call the {@link GenerateEnterpriseUpgradeUrl#execute()} method to
+       * invoke the remote operation. <p> {@link GenerateEnterpriseUpgradeUrl#initialize(com.google.api.
+       * client.googleapis.services.AbstractGoogleClientRequest)} must be called to initialize this
+       * instance immediately after invoking the constructor. </p>
+       *
+       * @param enterpriseId Required. The ID of the enterprise.
+       * @since 1.13
+       */
+      protected GenerateEnterpriseUpgradeUrl(java.lang.String enterpriseId) {
+        super(AndroidEnterprise.this, "POST", REST_PATH, null, com.google.api.services.androidenterprise.model.GenerateEnterpriseUpgradeUrlResponse.class);
+        this.enterpriseId = com.google.api.client.util.Preconditions.checkNotNull(enterpriseId, "Required parameter enterpriseId must be specified.");
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl set$Xgafv(java.lang.String $Xgafv) {
+        return (GenerateEnterpriseUpgradeUrl) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setAccessToken(java.lang.String accessToken) {
+        return (GenerateEnterpriseUpgradeUrl) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setAlt(java.lang.String alt) {
+        return (GenerateEnterpriseUpgradeUrl) super.setAlt(alt);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setCallback(java.lang.String callback) {
+        return (GenerateEnterpriseUpgradeUrl) super.setCallback(callback);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setFields(java.lang.String fields) {
+        return (GenerateEnterpriseUpgradeUrl) super.setFields(fields);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setKey(java.lang.String key) {
+        return (GenerateEnterpriseUpgradeUrl) super.setKey(key);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setOauthToken(java.lang.String oauthToken) {
+        return (GenerateEnterpriseUpgradeUrl) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (GenerateEnterpriseUpgradeUrl) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setQuotaUser(java.lang.String quotaUser) {
+        return (GenerateEnterpriseUpgradeUrl) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setUploadType(java.lang.String uploadType) {
+        return (GenerateEnterpriseUpgradeUrl) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setUploadProtocol(java.lang.String uploadProtocol) {
+        return (GenerateEnterpriseUpgradeUrl) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /** Required. The ID of the enterprise. */
+      @com.google.api.client.util.Key
+      private java.lang.String enterpriseId;
+
+      /** Required. The ID of the enterprise.
+       */
+      public java.lang.String getEnterpriseId() {
+        return enterpriseId;
+      }
+
+      /** Required. The ID of the enterprise. */
+      public GenerateEnterpriseUpgradeUrl setEnterpriseId(java.lang.String enterpriseId) {
+        this.enterpriseId = enterpriseId;
+        return this;
+      }
+
+      /**
+       * Optional. Email address used to prefill the admin field of the enterprise signup form as
+       * part of the upgrade process. This value is a hint only and can be altered by the user.
+       * Personal email addresses are not allowed. If `allowedDomains` is non-empty then this must
+       * belong to one of the `allowedDomains`.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String adminEmail;
+
+      /** Optional. Email address used to prefill the admin field of the enterprise signup form as part of
+     the upgrade process. This value is a hint only and can be altered by the user. Personal email
+     addresses are not allowed. If `allowedDomains` is non-empty then this must belong to one of the
+     `allowedDomains`.
+       */
+      public java.lang.String getAdminEmail() {
+        return adminEmail;
+      }
+
+      /**
+       * Optional. Email address used to prefill the admin field of the enterprise signup form as
+       * part of the upgrade process. This value is a hint only and can be altered by the user.
+       * Personal email addresses are not allowed. If `allowedDomains` is non-empty then this must
+       * belong to one of the `allowedDomains`.
+       */
+      public GenerateEnterpriseUpgradeUrl setAdminEmail(java.lang.String adminEmail) {
+        this.adminEmail = adminEmail;
+        return this;
+      }
+
+      /**
+       * Optional. A list of domains that are permitted for the admin email. The IT admin cannot
+       * enter an email address with a domain name that is not in this list. Subdomains of domains
+       * in this list are not allowed but can be allowed by adding a second entry which has `*.`
+       * prefixed to the domain name (e.g. *.example.com). If the field is not present or is an
+       * empty list then the IT admin is free to use any valid domain name. Personal email domains
+       * are not allowed.
+       */
+      @com.google.api.client.util.Key
+      private java.util.List<java.lang.String> allowedDomains;
+
+      /** Optional. A list of domains that are permitted for the admin email. The IT admin cannot enter an
+     email address with a domain name that is not in this list. Subdomains of domains in this list are
+     not allowed but can be allowed by adding a second entry which has `*.` prefixed to the domain name
+     (e.g. *.example.com). If the field is not present or is an empty list then the IT admin is free to
+     use any valid domain name. Personal email domains are not allowed.
+       */
+      public java.util.List<java.lang.String> getAllowedDomains() {
+        return allowedDomains;
+      }
+
+      /**
+       * Optional. A list of domains that are permitted for the admin email. The IT admin cannot
+       * enter an email address with a domain name that is not in this list. Subdomains of domains
+       * in this list are not allowed but can be allowed by adding a second entry which has `*.`
+       * prefixed to the domain name (e.g. *.example.com). If the field is not present or is an
+       * empty list then the IT admin is free to use any valid domain name. Personal email domains
+       * are not allowed.
+       */
+      public GenerateEnterpriseUpgradeUrl setAllowedDomains(java.util.List<java.lang.String> allowedDomains) {
+        this.allowedDomains = allowedDomains;
+        return this;
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl set(String parameterName, Object value) {
+        return (GenerateEnterpriseUpgradeUrl) super.set(parameterName, value);
+      }
+    }
+    /**
      * Generates a sign-up URL.
      *
      * Create a request for the method "enterprises.generateSignupUrl".
@@ -1892,13 +2082,15 @@ public class AndroidEnterprise extends com.google.api.client.googleapis.services
 
       /**
        * Optional. Email address used to prefill the admin field of the enterprise signup form. This
-       * value is a hint only and can be altered by the user.
+       * value is a hint only and can be altered by the user. If `allowedDomains` is non-empty then
+       * this must belong to one of the `allowedDomains`.
        */
       @com.google.api.client.util.Key
       private java.lang.String adminEmail;
 
       /** Optional. Email address used to prefill the admin field of the enterprise signup form. This value
-     is a hint only and can be altered by the user.
+     is a hint only and can be altered by the user. If `allowedDomains` is non-empty then this must
+     belong to one of the `allowedDomains`.
        */
       public java.lang.String getAdminEmail() {
         return adminEmail;
@@ -1906,10 +2098,48 @@ public class AndroidEnterprise extends com.google.api.client.googleapis.services
 
       /**
        * Optional. Email address used to prefill the admin field of the enterprise signup form. This
-       * value is a hint only and can be altered by the user.
+       * value is a hint only and can be altered by the user. If `allowedDomains` is non-empty then
+       * this must belong to one of the `allowedDomains`.
        */
       public GenerateSignupUrl setAdminEmail(java.lang.String adminEmail) {
         this.adminEmail = adminEmail;
+        return this;
+      }
+
+      /**
+       * Optional. A list of domains that are permitted for the admin email. The IT admin cannot
+       * enter an email address with a domain name that is not in this list. Subdomains of domains
+       * in this list are not allowed but can be allowed by adding a second entry which has `*.`
+       * prefixed to the domain name (e.g. *.example.com). If the field is not present or is an
+       * empty list then the IT admin is free to use any valid domain name. Personal email domains
+       * are always allowed, but will result in the creation of a managed Google Play Accounts
+       * enterprise.
+       */
+      @com.google.api.client.util.Key
+      private java.util.List<java.lang.String> allowedDomains;
+
+      /** Optional. A list of domains that are permitted for the admin email. The IT admin cannot enter an
+     email address with a domain name that is not in this list. Subdomains of domains in this list are
+     not allowed but can be allowed by adding a second entry which has `*.` prefixed to the domain name
+     (e.g. *.example.com). If the field is not present or is an empty list then the IT admin is free to
+     use any valid domain name. Personal email domains are always allowed, but will result in the
+     creation of a managed Google Play Accounts enterprise.
+       */
+      public java.util.List<java.lang.String> getAllowedDomains() {
+        return allowedDomains;
+      }
+
+      /**
+       * Optional. A list of domains that are permitted for the admin email. The IT admin cannot
+       * enter an email address with a domain name that is not in this list. Subdomains of domains
+       * in this list are not allowed but can be allowed by adding a second entry which has `*.`
+       * prefixed to the domain name (e.g. *.example.com). If the field is not present or is an
+       * empty list then the IT admin is free to use any valid domain name. Personal email domains
+       * are always allowed, but will result in the creation of a managed Google Play Accounts
+       * enterprise.
+       */
+      public GenerateSignupUrl setAllowedDomains(java.util.List<java.lang.String> allowedDomains) {
+        this.allowedDomains = allowedDomains;
         return this;
       }
 
@@ -2087,7 +2317,10 @@ public class AndroidEnterprise extends com.google.api.client.googleapis.services
      * Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other times it will return an
      * error. Subsequent calls after the first will generate a new, unique set of credentials, and
      * invalidate the previously generated credentials. Once the service account is bound to the
-     * enterprise, it can be managed using the serviceAccountKeys resource.
+     * enterprise, it can be managed using the serviceAccountKeys resource. *Note:* After you create a
+     * key, you might need to wait for 60 seconds or more before you perform another operation with the
+     * key. If you try to perform an operation with the key immediately after you create the key, and
+     * you receive an error, you can retry the request with exponential backoff .
      *
      * Create a request for the method "enterprises.getServiceAccount".
      *
@@ -2116,7 +2349,10 @@ public class AndroidEnterprise extends com.google.api.client.googleapis.services
        * Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other times it will return an
        * error. Subsequent calls after the first will generate a new, unique set of credentials, and
        * invalidate the previously generated credentials. Once the service account is bound to the
-       * enterprise, it can be managed using the serviceAccountKeys resource.
+       * enterprise, it can be managed using the serviceAccountKeys resource. *Note:* After you create a
+       * key, you might need to wait for 60 seconds or more before you perform another operation with
+       * the key. If you try to perform an operation with the key immediately after you create the key,
+       * and you receive an error, you can retry the request with exponential backoff .
        *
        * Create a request for the method "enterprises.getServiceAccount".
        *

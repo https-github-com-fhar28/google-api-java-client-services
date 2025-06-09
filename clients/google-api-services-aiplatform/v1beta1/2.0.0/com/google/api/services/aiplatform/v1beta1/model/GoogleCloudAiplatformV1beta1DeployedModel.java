@@ -38,6 +38,13 @@ public final class GoogleCloudAiplatformV1beta1DeployedModel extends com.google.
   private GoogleCloudAiplatformV1beta1AutomaticResources automaticResources;
 
   /**
+   * The checkpoint id of the model.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String checkpointId;
+
+  /**
    * Output only. Timestamp when the DeployedModel was created.
    * The value may be {@code null}.
    */
@@ -100,6 +107,13 @@ public final class GoogleCloudAiplatformV1beta1DeployedModel extends com.google.
   private GoogleCloudAiplatformV1beta1ExplanationSpec explanationSpec;
 
   /**
+   * Configuration for faster model deployment.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1FasterDeploymentConfig fasterDeploymentConfig;
+
+  /**
    * Immutable. The ID of the DeployedModel. If not provided upon deployment, Vertex AI will
    * generate a value for this ID. This value should be 1-10 characters, and valid characters are
    * `/[0-9]/`.
@@ -137,6 +151,13 @@ public final class GoogleCloudAiplatformV1beta1DeployedModel extends com.google.
   private GoogleCloudAiplatformV1beta1PrivateEndpoints privateEndpoints;
 
   /**
+   * Options for configuring rolling deployments.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RolloutOptions rolloutOptions;
+
+  /**
    * The service account that the DeployedModel's container runs as. Specify the email address of
    * the service account. If this service account is not specified, the container runs as a service
    * account that doesn't have access to the resource project. Users deploying the Model must have
@@ -155,6 +176,28 @@ public final class GoogleCloudAiplatformV1beta1DeployedModel extends com.google.
   private java.lang.String sharedResources;
 
   /**
+   * Optional. Spec for configuring speculative decoding.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1SpeculativeDecodingSpec speculativeDecodingSpec;
+
+  /**
+   * Output only. Runtime status of the deployed model.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1DeployedModelStatus status;
+
+  /**
+   * System labels to apply to Model Garden deployments. System labels are managed by Google for
+   * internal use only.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> systemLabels;
+
+  /**
    * A description of resources that to large degree are decided by Vertex AI, and require only a
    * modest additional configuration.
    * @return value or {@code null} for none
@@ -170,6 +213,23 @@ public final class GoogleCloudAiplatformV1beta1DeployedModel extends com.google.
    */
   public GoogleCloudAiplatformV1beta1DeployedModel setAutomaticResources(GoogleCloudAiplatformV1beta1AutomaticResources automaticResources) {
     this.automaticResources = automaticResources;
+    return this;
+  }
+
+  /**
+   * The checkpoint id of the model.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getCheckpointId() {
+    return checkpointId;
+  }
+
+  /**
+   * The checkpoint id of the model.
+   * @param checkpointId checkpointId or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1DeployedModel setCheckpointId(java.lang.String checkpointId) {
+    this.checkpointId = checkpointId;
     return this;
   }
 
@@ -319,6 +379,23 @@ public final class GoogleCloudAiplatformV1beta1DeployedModel extends com.google.
   }
 
   /**
+   * Configuration for faster model deployment.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1FasterDeploymentConfig getFasterDeploymentConfig() {
+    return fasterDeploymentConfig;
+  }
+
+  /**
+   * Configuration for faster model deployment.
+   * @param fasterDeploymentConfig fasterDeploymentConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1DeployedModel setFasterDeploymentConfig(GoogleCloudAiplatformV1beta1FasterDeploymentConfig fasterDeploymentConfig) {
+    this.fasterDeploymentConfig = fasterDeploymentConfig;
+    return this;
+  }
+
+  /**
    * Immutable. The ID of the DeployedModel. If not provided upon deployment, Vertex AI will
    * generate a value for this ID. This value should be 1-10 characters, and valid characters are
    * `/[0-9]/`.
@@ -405,6 +482,23 @@ public final class GoogleCloudAiplatformV1beta1DeployedModel extends com.google.
   }
 
   /**
+   * Options for configuring rolling deployments.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RolloutOptions getRolloutOptions() {
+    return rolloutOptions;
+  }
+
+  /**
+   * Options for configuring rolling deployments.
+   * @param rolloutOptions rolloutOptions or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1DeployedModel setRolloutOptions(GoogleCloudAiplatformV1beta1RolloutOptions rolloutOptions) {
+    this.rolloutOptions = rolloutOptions;
+    return this;
+  }
+
+  /**
    * The service account that the DeployedModel's container runs as. Specify the email address of
    * the service account. If this service account is not specified, the container runs as a service
    * account that doesn't have access to the resource project. Users deploying the Model must have
@@ -443,6 +537,59 @@ public final class GoogleCloudAiplatformV1beta1DeployedModel extends com.google.
    */
   public GoogleCloudAiplatformV1beta1DeployedModel setSharedResources(java.lang.String sharedResources) {
     this.sharedResources = sharedResources;
+    return this;
+  }
+
+  /**
+   * Optional. Spec for configuring speculative decoding.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1SpeculativeDecodingSpec getSpeculativeDecodingSpec() {
+    return speculativeDecodingSpec;
+  }
+
+  /**
+   * Optional. Spec for configuring speculative decoding.
+   * @param speculativeDecodingSpec speculativeDecodingSpec or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1DeployedModel setSpeculativeDecodingSpec(GoogleCloudAiplatformV1beta1SpeculativeDecodingSpec speculativeDecodingSpec) {
+    this.speculativeDecodingSpec = speculativeDecodingSpec;
+    return this;
+  }
+
+  /**
+   * Output only. Runtime status of the deployed model.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1DeployedModelStatus getStatus() {
+    return status;
+  }
+
+  /**
+   * Output only. Runtime status of the deployed model.
+   * @param status status or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1DeployedModel setStatus(GoogleCloudAiplatformV1beta1DeployedModelStatus status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * System labels to apply to Model Garden deployments. System labels are managed by Google for
+   * internal use only.
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getSystemLabels() {
+    return systemLabels;
+  }
+
+  /**
+   * System labels to apply to Model Garden deployments. System labels are managed by Google for
+   * internal use only.
+   * @param systemLabels systemLabels or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1DeployedModel setSystemLabels(java.util.Map<String, java.lang.String> systemLabels) {
+    this.systemLabels = systemLabels;
     return this;
   }
 

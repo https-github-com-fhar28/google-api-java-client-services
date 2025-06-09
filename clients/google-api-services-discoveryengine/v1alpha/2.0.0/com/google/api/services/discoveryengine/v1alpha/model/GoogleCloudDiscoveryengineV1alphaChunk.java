@@ -31,6 +31,20 @@ package com.google.api.services.discoveryengine.v1alpha.model;
 public final class GoogleCloudDiscoveryengineV1alphaChunk extends com.google.api.client.json.GenericJson {
 
   /**
+   * Output only. Annotation contents if the current chunk contains annotations.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> annotationContents;
+
+  /**
+   * Output only. The annotation metadata includes structured content in the current chunk.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GoogleCloudDiscoveryengineV1alphaChunkAnnotationMetadata> annotationMetadata;
+
+  /**
    * Output only. Metadata of the current chunk.
    * The value may be {@code null}.
    */
@@ -43,6 +57,15 @@ public final class GoogleCloudDiscoveryengineV1alphaChunk extends com.google.api
    */
   @com.google.api.client.util.Key
   private java.lang.String content;
+
+  /**
+   * Output only. Image Data URLs if the current chunk contains images. Data URLs are composed of
+   * four parts: a prefix (data:), a MIME type indicating the type of data, an optional base64 token
+   * if non-textual, and the data itself: data:,
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> dataUrls;
 
   /**
    * Output only. This field is OUTPUT_ONLY. It contains derived data that are not in the original
@@ -84,12 +107,45 @@ public final class GoogleCloudDiscoveryengineV1alphaChunk extends com.google.api
 
   /**
    * Output only. Represents the relevance score based on similarity. Higher score indicates higher
-   * chunk relevance. The score is in range [-1.0, 1.0]. Only populated on
-   * SearchService.SearchResponse.
+   * chunk relevance. The score is in range [-1.0, 1.0]. Only populated on SearchResponse.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Double relevanceScore;
+
+  /**
+   * Output only. Annotation contents if the current chunk contains annotations.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getAnnotationContents() {
+    return annotationContents;
+  }
+
+  /**
+   * Output only. Annotation contents if the current chunk contains annotations.
+   * @param annotationContents annotationContents or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaChunk setAnnotationContents(java.util.List<java.lang.String> annotationContents) {
+    this.annotationContents = annotationContents;
+    return this;
+  }
+
+  /**
+   * Output only. The annotation metadata includes structured content in the current chunk.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GoogleCloudDiscoveryengineV1alphaChunkAnnotationMetadata> getAnnotationMetadata() {
+    return annotationMetadata;
+  }
+
+  /**
+   * Output only. The annotation metadata includes structured content in the current chunk.
+   * @param annotationMetadata annotationMetadata or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaChunk setAnnotationMetadata(java.util.List<GoogleCloudDiscoveryengineV1alphaChunkAnnotationMetadata> annotationMetadata) {
+    this.annotationMetadata = annotationMetadata;
+    return this;
+  }
 
   /**
    * Output only. Metadata of the current chunk.
@@ -122,6 +178,27 @@ public final class GoogleCloudDiscoveryengineV1alphaChunk extends com.google.api
    */
   public GoogleCloudDiscoveryengineV1alphaChunk setContent(java.lang.String content) {
     this.content = content;
+    return this;
+  }
+
+  /**
+   * Output only. Image Data URLs if the current chunk contains images. Data URLs are composed of
+   * four parts: a prefix (data:), a MIME type indicating the type of data, an optional base64 token
+   * if non-textual, and the data itself: data:,
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getDataUrls() {
+    return dataUrls;
+  }
+
+  /**
+   * Output only. Image Data URLs if the current chunk contains images. Data URLs are composed of
+   * four parts: a prefix (data:), a MIME type indicating the type of data, an optional base64 token
+   * if non-textual, and the data itself: data:,
+   * @param dataUrls dataUrls or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1alphaChunk setDataUrls(java.util.List<java.lang.String> dataUrls) {
+    this.dataUrls = dataUrls;
     return this;
   }
 
@@ -218,8 +295,7 @@ public final class GoogleCloudDiscoveryengineV1alphaChunk extends com.google.api
 
   /**
    * Output only. Represents the relevance score based on similarity. Higher score indicates higher
-   * chunk relevance. The score is in range [-1.0, 1.0]. Only populated on
-   * SearchService.SearchResponse.
+   * chunk relevance. The score is in range [-1.0, 1.0]. Only populated on SearchResponse.
    * @return value or {@code null} for none
    */
   public java.lang.Double getRelevanceScore() {
@@ -228,8 +304,7 @@ public final class GoogleCloudDiscoveryengineV1alphaChunk extends com.google.api
 
   /**
    * Output only. Represents the relevance score based on similarity. Higher score indicates higher
-   * chunk relevance. The score is in range [-1.0, 1.0]. Only populated on
-   * SearchService.SearchResponse.
+   * chunk relevance. The score is in range [-1.0, 1.0]. Only populated on SearchResponse.
    * @param relevanceScore relevanceScore or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1alphaChunk setRelevanceScore(java.lang.Double relevanceScore) {

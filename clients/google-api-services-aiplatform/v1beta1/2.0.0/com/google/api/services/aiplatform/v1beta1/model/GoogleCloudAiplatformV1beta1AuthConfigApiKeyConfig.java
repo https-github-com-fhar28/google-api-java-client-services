@@ -30,25 +30,33 @@ package com.google.api.services.aiplatform.v1beta1.model;
 public final class GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig extends com.google.api.client.json.GenericJson {
 
   /**
-   * Required. The name of the SecretManager secret version resource storing the API key. Format:
-   * `projects/{project}/secrets/{secrete}/versions/{version}` - If specified, the
-   * `secretmanager.versions.access` permission should be granted to Vertex AI Extension Service
-   * Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the
-   * specified resource.
+   * Optional. The name of the SecretManager secret version resource storing the API key. Format:
+   * `projects/{project}/secrets/{secrete}/versions/{version}` - If both `api_key_secret` and
+   * `api_key_string` are specified, this field takes precedence over `api_key_string`. - If
+   * specified, the `secretmanager.versions.access` permission should be granted to Vertex AI
+   * Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-
+   * control#service-agents) on the specified resource.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String apiKeySecret;
 
   /**
-   * Required. The location of the API key.
+   * Optional. The API key to be used in the request directly.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String apiKeyString;
+
+  /**
+   * Optional. The location of the API key.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String httpElementLocation;
 
   /**
-   * Required. The parameter name of the API key. E.g. If the API request is
+   * Optional. The parameter name of the API key. E.g. If the API request is
    * "https://example.com/act?api_key=", "api_key" would be the parameter name.
    * The value may be {@code null}.
    */
@@ -56,11 +64,12 @@ public final class GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig extends co
   private java.lang.String name;
 
   /**
-   * Required. The name of the SecretManager secret version resource storing the API key. Format:
-   * `projects/{project}/secrets/{secrete}/versions/{version}` - If specified, the
-   * `secretmanager.versions.access` permission should be granted to Vertex AI Extension Service
-   * Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the
-   * specified resource.
+   * Optional. The name of the SecretManager secret version resource storing the API key. Format:
+   * `projects/{project}/secrets/{secrete}/versions/{version}` - If both `api_key_secret` and
+   * `api_key_string` are specified, this field takes precedence over `api_key_string`. - If
+   * specified, the `secretmanager.versions.access` permission should be granted to Vertex AI
+   * Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-
+   * control#service-agents) on the specified resource.
    * @return value or {@code null} for none
    */
   public java.lang.String getApiKeySecret() {
@@ -68,11 +77,12 @@ public final class GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig extends co
   }
 
   /**
-   * Required. The name of the SecretManager secret version resource storing the API key. Format:
-   * `projects/{project}/secrets/{secrete}/versions/{version}` - If specified, the
-   * `secretmanager.versions.access` permission should be granted to Vertex AI Extension Service
-   * Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the
-   * specified resource.
+   * Optional. The name of the SecretManager secret version resource storing the API key. Format:
+   * `projects/{project}/secrets/{secrete}/versions/{version}` - If both `api_key_secret` and
+   * `api_key_string` are specified, this field takes precedence over `api_key_string`. - If
+   * specified, the `secretmanager.versions.access` permission should be granted to Vertex AI
+   * Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-
+   * control#service-agents) on the specified resource.
    * @param apiKeySecret apiKeySecret or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig setApiKeySecret(java.lang.String apiKeySecret) {
@@ -81,7 +91,24 @@ public final class GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig extends co
   }
 
   /**
-   * Required. The location of the API key.
+   * Optional. The API key to be used in the request directly.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getApiKeyString() {
+    return apiKeyString;
+  }
+
+  /**
+   * Optional. The API key to be used in the request directly.
+   * @param apiKeyString apiKeyString or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig setApiKeyString(java.lang.String apiKeyString) {
+    this.apiKeyString = apiKeyString;
+    return this;
+  }
+
+  /**
+   * Optional. The location of the API key.
    * @return value or {@code null} for none
    */
   public java.lang.String getHttpElementLocation() {
@@ -89,7 +116,7 @@ public final class GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig extends co
   }
 
   /**
-   * Required. The location of the API key.
+   * Optional. The location of the API key.
    * @param httpElementLocation httpElementLocation or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig setHttpElementLocation(java.lang.String httpElementLocation) {
@@ -98,7 +125,7 @@ public final class GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig extends co
   }
 
   /**
-   * Required. The parameter name of the API key. E.g. If the API request is
+   * Optional. The parameter name of the API key. E.g. If the API request is
    * "https://example.com/act?api_key=", "api_key" would be the parameter name.
    * @return value or {@code null} for none
    */
@@ -107,7 +134,7 @@ public final class GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig extends co
   }
 
   /**
-   * Required. The parameter name of the API key. E.g. If the API request is
+   * Optional. The parameter name of the API key. E.g. If the API request is
    * "https://example.com/act?api_key=", "api_key" would be the parameter name.
    * @param name name or {@code null} for none
    */

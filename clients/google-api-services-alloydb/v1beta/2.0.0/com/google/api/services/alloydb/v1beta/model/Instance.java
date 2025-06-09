@@ -31,6 +31,17 @@ package com.google.api.services.alloydb.v1beta.model;
 public final class Instance extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. Specifies whether an instance needs to spin up. Once the instance is active, the
+   * activation policy can be updated to the `NEVER` to stop the instance. Likewise, the activation
+   * policy can be updated to `ALWAYS` to start the instance. There are restrictions around when an
+   * instance can/cannot be activated (for example, a read pool instance should be stopped before
+   * stopping primary etc.). Please refer to the API documentation for more details.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String activationPolicy;
+
+  /**
    * Annotations to allow client tools to store small amount of arbitrary data. This is distinct
    * from labels. https://google.aip.dev/128
    * The value may be {@code null}.
@@ -56,6 +67,13 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private ClientConnectionConfig clientConnectionConfig;
 
   /**
+   * Optional. The configuration for Managed Connection Pool (MCP).
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ConnectionPoolConfig connectionPoolConfig;
+
+  /**
    * Output only. Create time stamp
    * The value may be {@code null}.
    */
@@ -63,14 +81,16 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
-   * Database flags. Set at instance level. * They are copied from primary instance on read instance
-   * creation. * Read instances can set new or override existing flags that are relevant for reads,
-   * e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not
-   * be present on primary. This is a list of "key": "value" pairs. "key": The name of the flag.
-   * These flags are passed at instance setup time, so include both server options and system
-   * variables for Postgres. Flags are specified with underscores, not hyphens. "value": The value
-   * of the flag. Booleans are set to **on** for true and **off** for false. This field must be
-   * omitted if the flag doesn't take a value.
+   * Database flags. Set at the instance level. They are copied from the primary instance on
+   * secondary instance creation. Flags that have restrictions default to the value at primary
+   * instance on read instances during creation. Read instances can set new flags or override
+   * existing flags that are relevant for reads, for example, for enabling columnar cache on a read
+   * instance. Flags set on read instance might or might not be present on the primary instance.
+   * This is a list of "key": "value" pairs. "key": The name of the flag. These flags are passed at
+   * instance setup time, so include both server options and system variables for Postgres. Flags
+   * are specified with underscores, not hyphens. "value": The value of the flag. Booleans are set
+   * to **on** for true and **off** for false. This field must be omitted if the flag doesn't take a
+   * value.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -98,6 +118,13 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String etag;
 
   /**
+   * Output only. Configuration parameters related to Gemini Cloud Assist.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GCAInstanceConfig gcaConfig;
+
+  /**
    * The Compute Engine zone that the instance should serve from, per
    * https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL
    * instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a
@@ -108,7 +135,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String gceZone;
 
   /**
-   * Optional. Configuration parameters related to the Gemini in Databases add-on.
+   * Optional. Deprecated and unused. This field will be removed in the near future.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -270,6 +297,31 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private Node writableNode;
 
   /**
+   * Optional. Specifies whether an instance needs to spin up. Once the instance is active, the
+   * activation policy can be updated to the `NEVER` to stop the instance. Likewise, the activation
+   * policy can be updated to `ALWAYS` to start the instance. There are restrictions around when an
+   * instance can/cannot be activated (for example, a read pool instance should be stopped before
+   * stopping primary etc.). Please refer to the API documentation for more details.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getActivationPolicy() {
+    return activationPolicy;
+  }
+
+  /**
+   * Optional. Specifies whether an instance needs to spin up. Once the instance is active, the
+   * activation policy can be updated to the `NEVER` to stop the instance. Likewise, the activation
+   * policy can be updated to `ALWAYS` to start the instance. There are restrictions around when an
+   * instance can/cannot be activated (for example, a read pool instance should be stopped before
+   * stopping primary etc.). Please refer to the API documentation for more details.
+   * @param activationPolicy activationPolicy or {@code null} for none
+   */
+  public Instance setActivationPolicy(java.lang.String activationPolicy) {
+    this.activationPolicy = activationPolicy;
+    return this;
+  }
+
+  /**
    * Annotations to allow client tools to store small amount of arbitrary data. This is distinct
    * from labels. https://google.aip.dev/128
    * @return value or {@code null} for none
@@ -329,6 +381,23 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. The configuration for Managed Connection Pool (MCP).
+   * @return value or {@code null} for none
+   */
+  public ConnectionPoolConfig getConnectionPoolConfig() {
+    return connectionPoolConfig;
+  }
+
+  /**
+   * Optional. The configuration for Managed Connection Pool (MCP).
+   * @param connectionPoolConfig connectionPoolConfig or {@code null} for none
+   */
+  public Instance setConnectionPoolConfig(ConnectionPoolConfig connectionPoolConfig) {
+    this.connectionPoolConfig = connectionPoolConfig;
+    return this;
+  }
+
+  /**
    * Output only. Create time stamp
    * @return value or {@code null} for none
    */
@@ -346,14 +415,16 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Database flags. Set at instance level. * They are copied from primary instance on read instance
-   * creation. * Read instances can set new or override existing flags that are relevant for reads,
-   * e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not
-   * be present on primary. This is a list of "key": "value" pairs. "key": The name of the flag.
-   * These flags are passed at instance setup time, so include both server options and system
-   * variables for Postgres. Flags are specified with underscores, not hyphens. "value": The value
-   * of the flag. Booleans are set to **on** for true and **off** for false. This field must be
-   * omitted if the flag doesn't take a value.
+   * Database flags. Set at the instance level. They are copied from the primary instance on
+   * secondary instance creation. Flags that have restrictions default to the value at primary
+   * instance on read instances during creation. Read instances can set new flags or override
+   * existing flags that are relevant for reads, for example, for enabling columnar cache on a read
+   * instance. Flags set on read instance might or might not be present on the primary instance.
+   * This is a list of "key": "value" pairs. "key": The name of the flag. These flags are passed at
+   * instance setup time, so include both server options and system variables for Postgres. Flags
+   * are specified with underscores, not hyphens. "value": The value of the flag. Booleans are set
+   * to **on** for true and **off** for false. This field must be omitted if the flag doesn't take a
+   * value.
    * @return value or {@code null} for none
    */
   public java.util.Map<String, java.lang.String> getDatabaseFlags() {
@@ -361,14 +432,16 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Database flags. Set at instance level. * They are copied from primary instance on read instance
-   * creation. * Read instances can set new or override existing flags that are relevant for reads,
-   * e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not
-   * be present on primary. This is a list of "key": "value" pairs. "key": The name of the flag.
-   * These flags are passed at instance setup time, so include both server options and system
-   * variables for Postgres. Flags are specified with underscores, not hyphens. "value": The value
-   * of the flag. Booleans are set to **on** for true and **off** for false. This field must be
-   * omitted if the flag doesn't take a value.
+   * Database flags. Set at the instance level. They are copied from the primary instance on
+   * secondary instance creation. Flags that have restrictions default to the value at primary
+   * instance on read instances during creation. Read instances can set new flags or override
+   * existing flags that are relevant for reads, for example, for enabling columnar cache on a read
+   * instance. Flags set on read instance might or might not be present on the primary instance.
+   * This is a list of "key": "value" pairs. "key": The name of the flag. These flags are passed at
+   * instance setup time, so include both server options and system variables for Postgres. Flags
+   * are specified with underscores, not hyphens. "value": The value of the flag. Booleans are set
+   * to **on** for true and **off** for false. This field must be omitted if the flag doesn't take a
+   * value.
    * @param databaseFlags databaseFlags or {@code null} for none
    */
   public Instance setDatabaseFlags(java.util.Map<String, java.lang.String> databaseFlags) {
@@ -428,6 +501,23 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. Configuration parameters related to Gemini Cloud Assist.
+   * @return value or {@code null} for none
+   */
+  public GCAInstanceConfig getGcaConfig() {
+    return gcaConfig;
+  }
+
+  /**
+   * Output only. Configuration parameters related to Gemini Cloud Assist.
+   * @param gcaConfig gcaConfig or {@code null} for none
+   */
+  public Instance setGcaConfig(GCAInstanceConfig gcaConfig) {
+    this.gcaConfig = gcaConfig;
+    return this;
+  }
+
+  /**
    * The Compute Engine zone that the instance should serve from, per
    * https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL
    * instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a
@@ -451,7 +541,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Configuration parameters related to the Gemini in Databases add-on.
+   * Optional. Deprecated and unused. This field will be removed in the near future.
    * @return value or {@code null} for none
    */
   public GeminiInstanceConfig getGeminiConfig() {
@@ -459,7 +549,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Configuration parameters related to the Gemini in Databases add-on.
+   * Optional. Deprecated and unused. This field will be removed in the near future.
    * @param geminiConfig geminiConfig or {@code null} for none
    */
   public Instance setGeminiConfig(GeminiInstanceConfig geminiConfig) {

@@ -46,6 +46,13 @@ public final class GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty 
   private java.lang.String displayName;
 
   /**
+   * Specifies how the entity's value is obtained.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String method;
+
+  /**
    * The name of the property. Follows the same guidelines as the EntityType name.
    * The value may be {@code null}.
    */
@@ -107,6 +114,23 @@ public final class GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty 
    */
   public GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty setDisplayName(java.lang.String displayName) {
     this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * Specifies how the entity's value is obtained.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getMethod() {
+    return method;
+  }
+
+  /**
+   * Specifies how the entity's value is obtained.
+   * @param method method or {@code null} for none
+   */
+  public GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty setMethod(java.lang.String method) {
+    this.method = method;
     return this;
   }
 

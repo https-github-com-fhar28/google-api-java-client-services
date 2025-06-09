@@ -20,7 +20,7 @@ package com.google.api.services.retail.v2alpha.model;
  * Product captures all metadata information of items to be recommended or searched.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the Vertex AI Search for Retail API. For a detailed
+ * transmitted over HTTP when working with the Vertex AI Search for commerce API. For a detailed
  * explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
@@ -350,9 +350,9 @@ public final class GoogleCloudRetailV2alphaProduct extends com.google.api.client
    * "attributes.key" where "key" is the key of a custom attribute, as specified in attributes. For
    * Type.PRIMARY and Type.COLLECTION, the following fields are always returned in SearchResponse by
    * default: * name For Type.VARIANT, the following fields are always returned in by default: *
-   * name * color_info The maximum number of paths is 30. Otherwise, an INVALID_ARGUMENT error is
-   * returned. Note: Returning more fields in SearchResponse can increase response payload size and
-   * serving latency. This field is deprecated. Use the retrievable site-wide control instead.
+   * name * color_info Note: Returning more fields in SearchResponse can increase response payload
+   * size and serving latency. This field is deprecated. Use the retrievable site-wide control
+   * instead.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -1102,9 +1102,9 @@ public final class GoogleCloudRetailV2alphaProduct extends com.google.api.client
    * "attributes.key" where "key" is the key of a custom attribute, as specified in attributes. For
    * Type.PRIMARY and Type.COLLECTION, the following fields are always returned in SearchResponse by
    * default: * name For Type.VARIANT, the following fields are always returned in by default: *
-   * name * color_info The maximum number of paths is 30. Otherwise, an INVALID_ARGUMENT error is
-   * returned. Note: Returning more fields in SearchResponse can increase response payload size and
-   * serving latency. This field is deprecated. Use the retrievable site-wide control instead.
+   * name * color_info Note: Returning more fields in SearchResponse can increase response payload
+   * size and serving latency. This field is deprecated. Use the retrievable site-wide control
+   * instead.
    * @return value or {@code null} for none
    */
   public String getRetrievableFields() {
@@ -1120,9 +1120,9 @@ public final class GoogleCloudRetailV2alphaProduct extends com.google.api.client
    * "attributes.key" where "key" is the key of a custom attribute, as specified in attributes. For
    * Type.PRIMARY and Type.COLLECTION, the following fields are always returned in SearchResponse by
    * default: * name For Type.VARIANT, the following fields are always returned in by default: *
-   * name * color_info The maximum number of paths is 30. Otherwise, an INVALID_ARGUMENT error is
-   * returned. Note: Returning more fields in SearchResponse can increase response payload size and
-   * serving latency. This field is deprecated. Use the retrievable site-wide control instead.
+   * name * color_info Note: Returning more fields in SearchResponse can increase response payload
+   * size and serving latency. This field is deprecated. Use the retrievable site-wide control
+   * instead.
    * @param retrievableFields retrievableFields or {@code null} for none
    */
   public GoogleCloudRetailV2alphaProduct setRetrievableFields(String retrievableFields) {

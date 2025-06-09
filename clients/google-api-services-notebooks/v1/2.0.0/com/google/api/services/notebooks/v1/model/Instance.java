@@ -171,7 +171,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
 
   /**
    * Required. The [Compute Engine machine type](https://cloud.google.com/compute/docs/machine-
-   * types) of this instance.
+   * resource) of this instance.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -307,8 +307,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.String subnet;
 
   /**
-   * Optional. The Compute Engine tags to add to runtime (see [Tagging
-   * instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+   * Optional. The Compute Engine network tags to add to runtime (see [Add network
+   * tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -656,7 +656,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
 
   /**
    * Required. The [Compute Engine machine type](https://cloud.google.com/compute/docs/machine-
-   * types) of this instance.
+   * resource) of this instance.
    * @return value or {@code null} for none
    */
   public java.lang.String getMachineType() {
@@ -665,7 +665,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
 
   /**
    * Required. The [Compute Engine machine type](https://cloud.google.com/compute/docs/machine-
-   * types) of this instance.
+   * resource) of this instance.
    * @param machineType machineType or {@code null} for none
    */
   public Instance setMachineType(java.lang.String machineType) {
@@ -980,8 +980,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The Compute Engine tags to add to runtime (see [Tagging
-   * instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+   * Optional. The Compute Engine network tags to add to runtime (see [Add network
+   * tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getTags() {
@@ -989,8 +989,8 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The Compute Engine tags to add to runtime (see [Tagging
-   * instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+   * Optional. The Compute Engine network tags to add to runtime (see [Add network
+   * tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
    * @param tags tags or {@code null} for none
    */
   public Instance setTags(java.util.List<java.lang.String> tags) {

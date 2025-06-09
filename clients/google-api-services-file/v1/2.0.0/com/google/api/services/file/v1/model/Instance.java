@@ -30,19 +30,19 @@ package com.google.api.services.file.v1.model;
 public final class Instance extends com.google.api.client.json.GenericJson {
 
   /**
-   * Output only. Indicates whether this instance's performance is configurable. If enabled, adjust
-   * it using the 'performance_config' field.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.lang.Boolean configurablePerformanceEnabled;
-
-  /**
    * Output only. The time when the instance was created.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private String createTime;
+
+  /**
+   * Output only. Indicates whether this instance supports configuring its performance. If true, the
+   * user can configure the instance's performance by using the 'performance_config' field.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean customPerformanceSupported;
 
   /**
    * Optional. Indicates whether the instance is protected against deletion.
@@ -182,8 +182,12 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.util.List<java.lang.String> suspensionReasons;
 
   /**
-   * Optional. Input only. Immutable. Tag key-value pairs are bound to this resource. For example:
-   * "123/environment": "production", "123/costCenter": "marketing"
+   * Optional. Input only. Immutable. Tag key-value pairs bound to this resource. Each key must be a
+   * namespaced name and each value a short name. Example: "123456789012/environment" :
+   * "production", "123456789013/costCenter" : "marketing" See the documentation for more
+   * information: - Namespaced name: https://cloud.google.com/resource-manager/docs/tags/tags-
+   * creating-and-managing#retrieving_tag_key - Short name: https://cloud.google.com/resource-
+   * manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -195,25 +199,6 @@ public final class Instance extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String tier;
-
-  /**
-   * Output only. Indicates whether this instance's performance is configurable. If enabled, adjust
-   * it using the 'performance_config' field.
-   * @return value or {@code null} for none
-   */
-  public java.lang.Boolean getConfigurablePerformanceEnabled() {
-    return configurablePerformanceEnabled;
-  }
-
-  /**
-   * Output only. Indicates whether this instance's performance is configurable. If enabled, adjust
-   * it using the 'performance_config' field.
-   * @param configurablePerformanceEnabled configurablePerformanceEnabled or {@code null} for none
-   */
-  public Instance setConfigurablePerformanceEnabled(java.lang.Boolean configurablePerformanceEnabled) {
-    this.configurablePerformanceEnabled = configurablePerformanceEnabled;
-    return this;
-  }
 
   /**
    * Output only. The time when the instance was created.
@@ -229,6 +214,25 @@ public final class Instance extends com.google.api.client.json.GenericJson {
    */
   public Instance setCreateTime(String createTime) {
     this.createTime = createTime;
+    return this;
+  }
+
+  /**
+   * Output only. Indicates whether this instance supports configuring its performance. If true, the
+   * user can configure the instance's performance by using the 'performance_config' field.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getCustomPerformanceSupported() {
+    return customPerformanceSupported;
+  }
+
+  /**
+   * Output only. Indicates whether this instance supports configuring its performance. If true, the
+   * user can configure the instance's performance by using the 'performance_config' field.
+   * @param customPerformanceSupported customPerformanceSupported or {@code null} for none
+   */
+  public Instance setCustomPerformanceSupported(java.lang.Boolean customPerformanceSupported) {
+    this.customPerformanceSupported = customPerformanceSupported;
     return this;
   }
 
@@ -549,8 +553,12 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Input only. Immutable. Tag key-value pairs are bound to this resource. For example:
-   * "123/environment": "production", "123/costCenter": "marketing"
+   * Optional. Input only. Immutable. Tag key-value pairs bound to this resource. Each key must be a
+   * namespaced name and each value a short name. Example: "123456789012/environment" :
+   * "production", "123456789013/costCenter" : "marketing" See the documentation for more
+   * information: - Namespaced name: https://cloud.google.com/resource-manager/docs/tags/tags-
+   * creating-and-managing#retrieving_tag_key - Short name: https://cloud.google.com/resource-
+   * manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
    * @return value or {@code null} for none
    */
   public java.util.Map<String, java.lang.String> getTags() {
@@ -558,8 +566,12 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Input only. Immutable. Tag key-value pairs are bound to this resource. For example:
-   * "123/environment": "production", "123/costCenter": "marketing"
+   * Optional. Input only. Immutable. Tag key-value pairs bound to this resource. Each key must be a
+   * namespaced name and each value a short name. Example: "123456789012/environment" :
+   * "production", "123456789013/costCenter" : "marketing" See the documentation for more
+   * information: - Namespaced name: https://cloud.google.com/resource-manager/docs/tags/tags-
+   * creating-and-managing#retrieving_tag_key - Short name: https://cloud.google.com/resource-
+   * manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
    * @param tags tags or {@code null} for none
    */
   public Instance setTags(java.util.Map<String, java.lang.String> tags) {

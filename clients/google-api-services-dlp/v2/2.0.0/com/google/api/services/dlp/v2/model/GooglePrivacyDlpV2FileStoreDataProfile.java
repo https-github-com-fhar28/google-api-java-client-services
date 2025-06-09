@@ -17,7 +17,8 @@
 package com.google.api.services.dlp.v2.model;
 
 /**
- * The profile for a file store. * Cloud Storage: maps 1:1 with a bucket.
+ * The profile for a file store. * Cloud Storage: maps 1:1 with a bucket. * Amazon S3: maps 1:1 with
+ * a bucket.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Sensitive Data Protection (DLP). For a detailed
@@ -89,7 +90,7 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   private java.util.List<GooglePrivacyDlpV2FileStoreInfoTypeSummary> fileStoreInfoTypeSummaries;
 
   /**
-   * The file store does not have any files.
+   * The file store does not have any files. If the profiling operation failed, this is false.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -97,14 +98,16 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
 
   /**
    * The location of the file store. * Cloud Storage:
-   * https://cloud.google.com/storage/docs/locations#available-locations
+   * https://cloud.google.com/storage/docs/locations#available-locations * Amazon S3:
+   * https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String fileStoreLocation;
 
   /**
-   * The file store path. * Cloud Storage: `gs://{bucket}`
+   * The file store path. * Cloud Storage: `gs://{bucket}` * Amazon S3: `s3://{bucket}` * Vertex AI
+   * dataset: `projects/{project_number}/locations/{location}/datasets/{dataset_id}`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -112,7 +115,9 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
 
   /**
    * The resource name of the resource profiled.
-   * https://cloud.google.com/apis/design/resource_names#full_resource_name
+   * https://cloud.google.com/apis/design/resource_names#full_resource_name Example format of an S3
+   * bucket full resource name: `//cloudasset.googleapis.com/organizations/{org_id}/otherCloudConnec
+   * tions/aws/arn:aws:s3:::{bucket_name}`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -126,7 +131,7 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   private String lastModifiedTime;
 
   /**
-   * The location type of the bucket (region, dual-region, multi-region, etc). If dual-region,
+   * The location type of the file store (region, dual-region, multi-region, etc). If dual-region,
    * expect data_storage_locations to be populated.
    * The value may be {@code null}.
    */
@@ -163,11 +168,19 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   private java.lang.String projectDataProfile;
 
   /**
-   * The Google Cloud project ID that owns the resource.
+   * The Google Cloud project ID that owns the resource. For Amazon S3 buckets, this is the AWS
+   * Account Id.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String projectId;
+
+  /**
+   * Resources related to this profile.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GooglePrivacyDlpV2RelatedResource> relatedResources;
 
   /**
    * Attributes of the resource being profiled. Currently used attributes: *
@@ -193,6 +206,13 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   private java.lang.String resourceVisibility;
 
   /**
+   * The BigQuery table to which the sample findings are written.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GooglePrivacyDlpV2BigQueryTable sampleFindingsTable;
+
+  /**
    * The sensitivity score of this resource.
    * The value may be {@code null}.
    */
@@ -205,6 +225,13 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
    */
   @com.google.api.client.util.Key
   private java.lang.String state;
+
+  /**
+   * The tags attached to the resource, including any tags attached during profiling.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GooglePrivacyDlpV2Tag> tags;
 
   /**
    * The snapshot of the configurations used to generate the profile.
@@ -332,7 +359,7 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
-   * The file store does not have any files.
+   * The file store does not have any files. If the profiling operation failed, this is false.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getFileStoreIsEmpty() {
@@ -340,7 +367,7 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
-   * The file store does not have any files.
+   * The file store does not have any files. If the profiling operation failed, this is false.
    * @param fileStoreIsEmpty fileStoreIsEmpty or {@code null} for none
    */
   public GooglePrivacyDlpV2FileStoreDataProfile setFileStoreIsEmpty(java.lang.Boolean fileStoreIsEmpty) {
@@ -350,7 +377,8 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
 
   /**
    * The location of the file store. * Cloud Storage:
-   * https://cloud.google.com/storage/docs/locations#available-locations
+   * https://cloud.google.com/storage/docs/locations#available-locations * Amazon S3:
+   * https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints
    * @return value or {@code null} for none
    */
   public java.lang.String getFileStoreLocation() {
@@ -359,7 +387,8 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
 
   /**
    * The location of the file store. * Cloud Storage:
-   * https://cloud.google.com/storage/docs/locations#available-locations
+   * https://cloud.google.com/storage/docs/locations#available-locations * Amazon S3:
+   * https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints
    * @param fileStoreLocation fileStoreLocation or {@code null} for none
    */
   public GooglePrivacyDlpV2FileStoreDataProfile setFileStoreLocation(java.lang.String fileStoreLocation) {
@@ -368,7 +397,8 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
-   * The file store path. * Cloud Storage: `gs://{bucket}`
+   * The file store path. * Cloud Storage: `gs://{bucket}` * Amazon S3: `s3://{bucket}` * Vertex AI
+   * dataset: `projects/{project_number}/locations/{location}/datasets/{dataset_id}`
    * @return value or {@code null} for none
    */
   public java.lang.String getFileStorePath() {
@@ -376,7 +406,8 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
-   * The file store path. * Cloud Storage: `gs://{bucket}`
+   * The file store path. * Cloud Storage: `gs://{bucket}` * Amazon S3: `s3://{bucket}` * Vertex AI
+   * dataset: `projects/{project_number}/locations/{location}/datasets/{dataset_id}`
    * @param fileStorePath fileStorePath or {@code null} for none
    */
   public GooglePrivacyDlpV2FileStoreDataProfile setFileStorePath(java.lang.String fileStorePath) {
@@ -386,7 +417,9 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
 
   /**
    * The resource name of the resource profiled.
-   * https://cloud.google.com/apis/design/resource_names#full_resource_name
+   * https://cloud.google.com/apis/design/resource_names#full_resource_name Example format of an S3
+   * bucket full resource name: `//cloudasset.googleapis.com/organizations/{org_id}/otherCloudConnec
+   * tions/aws/arn:aws:s3:::{bucket_name}`
    * @return value or {@code null} for none
    */
   public java.lang.String getFullResource() {
@@ -395,7 +428,9 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
 
   /**
    * The resource name of the resource profiled.
-   * https://cloud.google.com/apis/design/resource_names#full_resource_name
+   * https://cloud.google.com/apis/design/resource_names#full_resource_name Example format of an S3
+   * bucket full resource name: `//cloudasset.googleapis.com/organizations/{org_id}/otherCloudConnec
+   * tions/aws/arn:aws:s3:::{bucket_name}`
    * @param fullResource fullResource or {@code null} for none
    */
   public GooglePrivacyDlpV2FileStoreDataProfile setFullResource(java.lang.String fullResource) {
@@ -421,7 +456,7 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
-   * The location type of the bucket (region, dual-region, multi-region, etc). If dual-region,
+   * The location type of the file store (region, dual-region, multi-region, etc). If dual-region,
    * expect data_storage_locations to be populated.
    * @return value or {@code null} for none
    */
@@ -430,7 +465,7 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
-   * The location type of the bucket (region, dual-region, multi-region, etc). If dual-region,
+   * The location type of the file store (region, dual-region, multi-region, etc). If dual-region,
    * expect data_storage_locations to be populated.
    * @param locationType locationType or {@code null} for none
    */
@@ -510,7 +545,8 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
-   * The Google Cloud project ID that owns the resource.
+   * The Google Cloud project ID that owns the resource. For Amazon S3 buckets, this is the AWS
+   * Account Id.
    * @return value or {@code null} for none
    */
   public java.lang.String getProjectId() {
@@ -518,11 +554,29 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
-   * The Google Cloud project ID that owns the resource.
+   * The Google Cloud project ID that owns the resource. For Amazon S3 buckets, this is the AWS
+   * Account Id.
    * @param projectId projectId or {@code null} for none
    */
   public GooglePrivacyDlpV2FileStoreDataProfile setProjectId(java.lang.String projectId) {
     this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * Resources related to this profile.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GooglePrivacyDlpV2RelatedResource> getRelatedResources() {
+    return relatedResources;
+  }
+
+  /**
+   * Resources related to this profile.
+   * @param relatedResources relatedResources or {@code null} for none
+   */
+  public GooglePrivacyDlpV2FileStoreDataProfile setRelatedResources(java.util.List<GooglePrivacyDlpV2RelatedResource> relatedResources) {
+    this.relatedResources = relatedResources;
     return this;
   }
 
@@ -582,6 +636,23 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
   }
 
   /**
+   * The BigQuery table to which the sample findings are written.
+   * @return value or {@code null} for none
+   */
+  public GooglePrivacyDlpV2BigQueryTable getSampleFindingsTable() {
+    return sampleFindingsTable;
+  }
+
+  /**
+   * The BigQuery table to which the sample findings are written.
+   * @param sampleFindingsTable sampleFindingsTable or {@code null} for none
+   */
+  public GooglePrivacyDlpV2FileStoreDataProfile setSampleFindingsTable(GooglePrivacyDlpV2BigQueryTable sampleFindingsTable) {
+    this.sampleFindingsTable = sampleFindingsTable;
+    return this;
+  }
+
+  /**
    * The sensitivity score of this resource.
    * @return value or {@code null} for none
    */
@@ -612,6 +683,23 @@ public final class GooglePrivacyDlpV2FileStoreDataProfile extends com.google.api
    */
   public GooglePrivacyDlpV2FileStoreDataProfile setState(java.lang.String state) {
     this.state = state;
+    return this;
+  }
+
+  /**
+   * The tags attached to the resource, including any tags attached during profiling.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GooglePrivacyDlpV2Tag> getTags() {
+    return tags;
+  }
+
+  /**
+   * The tags attached to the resource, including any tags attached during profiling.
+   * @param tags tags or {@code null} for none
+   */
+  public GooglePrivacyDlpV2FileStoreDataProfile setTags(java.util.List<GooglePrivacyDlpV2Tag> tags) {
+    this.tags = tags;
     return this;
   }
 

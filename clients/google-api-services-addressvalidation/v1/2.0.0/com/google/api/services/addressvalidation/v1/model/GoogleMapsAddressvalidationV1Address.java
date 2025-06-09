@@ -43,7 +43,11 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * The post-processed address, formatted as a single-line address following the address formatting
-   * rules of the region where the address is located.
+   * rules of the region where the address is located. Note: the format of this address may not
+   * match the format of the address in the `postal_address` field. For example, the
+   * `postal_address` always represents the country as a 2 letter `region_code`, such as "US" or
+   * "NZ". By contrast, this field uses a longer form of the country name, such as "USA" or "New
+   * Zealand".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -51,11 +55,15 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * The types of components that were expected to be present in a correctly formatted mailing
-   * address but were not found in the input AND could not be inferred. Components of this type are
-   * not present in `formatted_address`, `postal_address`, or `address_components`. An example might
-   * be `['street_number', 'route']` for an input like "Boulder, Colorado, 80301, USA". The list of
+   * address but were not found in the input AND could not be inferred. An example might be
+   * `['street_number', 'route']` for an input like "Boulder, Colorado, 80301, USA". The list of
    * possible types can be found
    * [here](https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types).
+   * **Note: you might see a missing component type when you think you've already supplied the
+   * missing component.** For example, this can happen when the input address contains the building
+   * name, but not the premise number. In the address "渋谷区渋谷３丁目　Shibuya Stream", the building name
+   * "Shibuya Stream" has the component type `premise`, but the premise number is missing, so
+   * `missing_component_types` will contain `premise`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -82,9 +90,9 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * Any tokens in the input that could not be resolved. This might be an input that was not
-   * recognized as a valid part of an address (for example in an input like "123235253253 Main St,
-   * San Francisco, CA, 94105", the unresolved tokens may look like `["123235253253"]` since that
-   * does not look like a valid street number.
+   * recognized as a valid part of an address. For example, for an input such as "Parcel 0000123123
+   * & 0000456456 Str # Guthrie Center IA 50115 US", the unresolved tokens might look like
+   * `["Parcel", "0000123123", "&", "0000456456"]`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -115,7 +123,11 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * The post-processed address, formatted as a single-line address following the address formatting
-   * rules of the region where the address is located.
+   * rules of the region where the address is located. Note: the format of this address may not
+   * match the format of the address in the `postal_address` field. For example, the
+   * `postal_address` always represents the country as a 2 letter `region_code`, such as "US" or
+   * "NZ". By contrast, this field uses a longer form of the country name, such as "USA" or "New
+   * Zealand".
    * @return value or {@code null} for none
    */
   public java.lang.String getFormattedAddress() {
@@ -124,7 +136,11 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * The post-processed address, formatted as a single-line address following the address formatting
-   * rules of the region where the address is located.
+   * rules of the region where the address is located. Note: the format of this address may not
+   * match the format of the address in the `postal_address` field. For example, the
+   * `postal_address` always represents the country as a 2 letter `region_code`, such as "US" or
+   * "NZ". By contrast, this field uses a longer form of the country name, such as "USA" or "New
+   * Zealand".
    * @param formattedAddress formattedAddress or {@code null} for none
    */
   public GoogleMapsAddressvalidationV1Address setFormattedAddress(java.lang.String formattedAddress) {
@@ -134,11 +150,15 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * The types of components that were expected to be present in a correctly formatted mailing
-   * address but were not found in the input AND could not be inferred. Components of this type are
-   * not present in `formatted_address`, `postal_address`, or `address_components`. An example might
-   * be `['street_number', 'route']` for an input like "Boulder, Colorado, 80301, USA". The list of
+   * address but were not found in the input AND could not be inferred. An example might be
+   * `['street_number', 'route']` for an input like "Boulder, Colorado, 80301, USA". The list of
    * possible types can be found
    * [here](https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types).
+   * **Note: you might see a missing component type when you think you've already supplied the
+   * missing component.** For example, this can happen when the input address contains the building
+   * name, but not the premise number. In the address "渋谷区渋谷３丁目　Shibuya Stream", the building name
+   * "Shibuya Stream" has the component type `premise`, but the premise number is missing, so
+   * `missing_component_types` will contain `premise`.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getMissingComponentTypes() {
@@ -147,11 +167,15 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * The types of components that were expected to be present in a correctly formatted mailing
-   * address but were not found in the input AND could not be inferred. Components of this type are
-   * not present in `formatted_address`, `postal_address`, or `address_components`. An example might
-   * be `['street_number', 'route']` for an input like "Boulder, Colorado, 80301, USA". The list of
+   * address but were not found in the input AND could not be inferred. An example might be
+   * `['street_number', 'route']` for an input like "Boulder, Colorado, 80301, USA". The list of
    * possible types can be found
    * [here](https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types).
+   * **Note: you might see a missing component type when you think you've already supplied the
+   * missing component.** For example, this can happen when the input address contains the building
+   * name, but not the premise number. In the address "渋谷区渋谷３丁目　Shibuya Stream", the building name
+   * "Shibuya Stream" has the component type `premise`, but the premise number is missing, so
+   * `missing_component_types` will contain `premise`.
    * @param missingComponentTypes missingComponentTypes or {@code null} for none
    */
   public GoogleMapsAddressvalidationV1Address setMissingComponentTypes(java.util.List<java.lang.String> missingComponentTypes) {
@@ -205,9 +229,9 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * Any tokens in the input that could not be resolved. This might be an input that was not
-   * recognized as a valid part of an address (for example in an input like "123235253253 Main St,
-   * San Francisco, CA, 94105", the unresolved tokens may look like `["123235253253"]` since that
-   * does not look like a valid street number.
+   * recognized as a valid part of an address. For example, for an input such as "Parcel 0000123123
+   * & 0000456456 Str # Guthrie Center IA 50115 US", the unresolved tokens might look like
+   * `["Parcel", "0000123123", "&", "0000456456"]`.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getUnresolvedTokens() {
@@ -216,9 +240,9 @@ public final class GoogleMapsAddressvalidationV1Address extends com.google.api.c
 
   /**
    * Any tokens in the input that could not be resolved. This might be an input that was not
-   * recognized as a valid part of an address (for example in an input like "123235253253 Main St,
-   * San Francisco, CA, 94105", the unresolved tokens may look like `["123235253253"]` since that
-   * does not look like a valid street number.
+   * recognized as a valid part of an address. For example, for an input such as "Parcel 0000123123
+   * & 0000456456 Str # Guthrie Center IA 50115 US", the unresolved tokens might look like
+   * `["Parcel", "0000123123", "&", "0000456456"]`.
    * @param unresolvedTokens unresolvedTokens or {@code null} for none
    */
   public GoogleMapsAddressvalidationV1Address setUnresolvedTokens(java.util.List<java.lang.String> unresolvedTokens) {

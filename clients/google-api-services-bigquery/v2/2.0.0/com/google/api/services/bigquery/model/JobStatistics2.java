@@ -256,8 +256,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
   private java.util.List<RoutineReference> referencedRoutines;
 
   /**
-   * Output only. Referenced tables for the job. Queries that reference more than 50 tables will not
-   * have a complete list.
+   * Output only. Referenced tables for the job.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -307,7 +306,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * statements#assert) statement. * `INSERT`:
    * [`INSERT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-
    * syntax#insert_statement) statement. * `UPDATE`:
-   * [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-
+   * [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-
    * syntax#update_statement) statement. * `DELETE`:
    * [`DELETE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-
    * language) statement. * `MERGE`:
@@ -316,7 +315,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
    * language#create_table_statement) statement, without `AS SELECT`. * `CREATE_TABLE_AS_SELECT`:
    * [`CREATE TABLE AS SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
-   * definition-language#query_statement) statement. * `CREATE_VIEW`: [`CREATE
+   * definition-language#create_table_statement) statement. * `CREATE_VIEW`: [`CREATE
    * VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
    * language#create_view_statement) statement. * `CREATE_MODEL`: [`CREATE
    * MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-
@@ -368,7 +367,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * MATERIALIZED VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
    * definition-language#alter_materialized_view_set_options_statement) statement. * `ALTER_SCHEMA`:
    * [`ALTER SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
-   * language#aalter_schema_set_options_statement) statement. * `SCRIPT`:
+   * language#alter_schema_set_options_statement) statement. * `SCRIPT`:
    * [`SCRIPT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language).
    * * `TRUNCATE_TABLE`: [`TRUNCATE
    * TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-
@@ -975,8 +974,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Output only. Referenced tables for the job. Queries that reference more than 50 tables will not
-   * have a complete list.
+   * Output only. Referenced tables for the job.
    * @return value or {@code null} for none
    */
   public java.util.List<TableReference> getReferencedTables() {
@@ -984,8 +982,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Output only. Referenced tables for the job. Queries that reference more than 50 tables will not
-   * have a complete list.
+   * Output only. Referenced tables for the job.
    * @param referencedTables referencedTables or {@code null} for none
    */
   public JobStatistics2 setReferencedTables(java.util.List<TableReference> referencedTables) {
@@ -1073,7 +1070,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * statements#assert) statement. * `INSERT`:
    * [`INSERT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-
    * syntax#insert_statement) statement. * `UPDATE`:
-   * [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-
+   * [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-
    * syntax#update_statement) statement. * `DELETE`:
    * [`DELETE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-
    * language) statement. * `MERGE`:
@@ -1082,7 +1079,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
    * language#create_table_statement) statement, without `AS SELECT`. * `CREATE_TABLE_AS_SELECT`:
    * [`CREATE TABLE AS SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
-   * definition-language#query_statement) statement. * `CREATE_VIEW`: [`CREATE
+   * definition-language#create_table_statement) statement. * `CREATE_VIEW`: [`CREATE
    * VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
    * language#create_view_statement) statement. * `CREATE_MODEL`: [`CREATE
    * MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-
@@ -1134,7 +1131,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * MATERIALIZED VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
    * definition-language#alter_materialized_view_set_options_statement) statement. * `ALTER_SCHEMA`:
    * [`ALTER SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
-   * language#aalter_schema_set_options_statement) statement. * `SCRIPT`:
+   * language#alter_schema_set_options_statement) statement. * `SCRIPT`:
    * [`SCRIPT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language).
    * * `TRUNCATE_TABLE`: [`TRUNCATE
    * TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-
@@ -1163,7 +1160,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * statements#assert) statement. * `INSERT`:
    * [`INSERT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-
    * syntax#insert_statement) statement. * `UPDATE`:
-   * [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-
+   * [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-
    * syntax#update_statement) statement. * `DELETE`:
    * [`DELETE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-
    * language) statement. * `MERGE`:
@@ -1172,7 +1169,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
    * language#create_table_statement) statement, without `AS SELECT`. * `CREATE_TABLE_AS_SELECT`:
    * [`CREATE TABLE AS SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
-   * definition-language#query_statement) statement. * `CREATE_VIEW`: [`CREATE
+   * definition-language#create_table_statement) statement. * `CREATE_VIEW`: [`CREATE
    * VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
    * language#create_view_statement) statement. * `CREATE_MODEL`: [`CREATE
    * MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-
@@ -1224,7 +1221,7 @@ public final class JobStatistics2 extends com.google.api.client.json.GenericJson
    * MATERIALIZED VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
    * definition-language#alter_materialized_view_set_options_statement) statement. * `ALTER_SCHEMA`:
    * [`ALTER SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-
-   * language#aalter_schema_set_options_statement) statement. * `SCRIPT`:
+   * language#alter_schema_set_options_statement) statement. * `SCRIPT`:
    * [`SCRIPT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language).
    * * `TRUNCATE_TABLE`: [`TRUNCATE
    * TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-

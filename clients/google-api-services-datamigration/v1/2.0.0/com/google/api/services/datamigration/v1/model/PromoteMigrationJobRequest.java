@@ -30,6 +30,30 @@ package com.google.api.services.datamigration.v1.model;
 @SuppressWarnings("javadoc")
 public final class PromoteMigrationJobRequest extends com.google.api.client.json.GenericJson {
 
+  /**
+   * Optional. The object filter to apply to the migration job.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MigrationJobObjectsConfig objectsFilter;
+
+  /**
+   * Optional. The object filter to apply to the migration job.
+   * @return value or {@code null} for none
+   */
+  public MigrationJobObjectsConfig getObjectsFilter() {
+    return objectsFilter;
+  }
+
+  /**
+   * Optional. The object filter to apply to the migration job.
+   * @param objectsFilter objectsFilter or {@code null} for none
+   */
+  public PromoteMigrationJobRequest setObjectsFilter(MigrationJobObjectsConfig objectsFilter) {
+    this.objectsFilter = objectsFilter;
+    return this;
+  }
+
   @Override
   public PromoteMigrationJobRequest set(String fieldName, Object value) {
     return (PromoteMigrationJobRequest) super.set(fieldName, value);

@@ -278,15 +278,26 @@ public final class JobConfigurationQuery extends com.google.api.client.json.Gene
    * Optional. Specifies the action that occurs if the destination table already exists. The
    * following values are supported: * WRITE_TRUNCATE: If the table already exists, BigQuery
    * overwrites the data, removes the constraints, and uses the schema from the query result. *
-   * WRITE_APPEND: If the table already exists, BigQuery appends the data to the table. *
-   * WRITE_EMPTY: If the table already exists and contains data, a 'duplicate' error is returned in
-   * the job result. The default value is WRITE_EMPTY. Each action is atomic and only occurs if
-   * BigQuery is able to complete the job successfully. Creation, truncation and append actions
-   * occur as one atomic update upon job completion.
+   * WRITE_TRUNCATE_DATA: If the table already exists, BigQuery overwrites the data, but keeps the
+   * constraints and schema of the existing table. * WRITE_APPEND: If the table already exists,
+   * BigQuery appends the data to the table. * WRITE_EMPTY: If the table already exists and contains
+   * data, a 'duplicate' error is returned in the job result. The default value is WRITE_EMPTY. Each
+   * action is atomic and only occurs if BigQuery is able to complete the job successfully.
+   * Creation, truncation and append actions occur as one atomic update upon job completion.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String writeDisposition;
+
+  /**
+   * Optional. This is only supported for a SELECT query using a temporary table. If set, the query
+   * is allowed to write results incrementally to the temporary result table. This may incur a
+   * performance penalty. This option cannot be used with Legacy SQL. This feature is not yet
+   * available.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean writeIncrementalResults;
 
   /**
    * Optional. If true and query uses legacy SQL dialect, allows the query to produce arbitrarily
@@ -954,11 +965,12 @@ public final class JobConfigurationQuery extends com.google.api.client.json.Gene
    * Optional. Specifies the action that occurs if the destination table already exists. The
    * following values are supported: * WRITE_TRUNCATE: If the table already exists, BigQuery
    * overwrites the data, removes the constraints, and uses the schema from the query result. *
-   * WRITE_APPEND: If the table already exists, BigQuery appends the data to the table. *
-   * WRITE_EMPTY: If the table already exists and contains data, a 'duplicate' error is returned in
-   * the job result. The default value is WRITE_EMPTY. Each action is atomic and only occurs if
-   * BigQuery is able to complete the job successfully. Creation, truncation and append actions
-   * occur as one atomic update upon job completion.
+   * WRITE_TRUNCATE_DATA: If the table already exists, BigQuery overwrites the data, but keeps the
+   * constraints and schema of the existing table. * WRITE_APPEND: If the table already exists,
+   * BigQuery appends the data to the table. * WRITE_EMPTY: If the table already exists and contains
+   * data, a 'duplicate' error is returned in the job result. The default value is WRITE_EMPTY. Each
+   * action is atomic and only occurs if BigQuery is able to complete the job successfully.
+   * Creation, truncation and append actions occur as one atomic update upon job completion.
    * @return value or {@code null} for none
    */
   public java.lang.String getWriteDisposition() {
@@ -969,15 +981,39 @@ public final class JobConfigurationQuery extends com.google.api.client.json.Gene
    * Optional. Specifies the action that occurs if the destination table already exists. The
    * following values are supported: * WRITE_TRUNCATE: If the table already exists, BigQuery
    * overwrites the data, removes the constraints, and uses the schema from the query result. *
-   * WRITE_APPEND: If the table already exists, BigQuery appends the data to the table. *
-   * WRITE_EMPTY: If the table already exists and contains data, a 'duplicate' error is returned in
-   * the job result. The default value is WRITE_EMPTY. Each action is atomic and only occurs if
-   * BigQuery is able to complete the job successfully. Creation, truncation and append actions
-   * occur as one atomic update upon job completion.
+   * WRITE_TRUNCATE_DATA: If the table already exists, BigQuery overwrites the data, but keeps the
+   * constraints and schema of the existing table. * WRITE_APPEND: If the table already exists,
+   * BigQuery appends the data to the table. * WRITE_EMPTY: If the table already exists and contains
+   * data, a 'duplicate' error is returned in the job result. The default value is WRITE_EMPTY. Each
+   * action is atomic and only occurs if BigQuery is able to complete the job successfully.
+   * Creation, truncation and append actions occur as one atomic update upon job completion.
    * @param writeDisposition writeDisposition or {@code null} for none
    */
   public JobConfigurationQuery setWriteDisposition(java.lang.String writeDisposition) {
     this.writeDisposition = writeDisposition;
+    return this;
+  }
+
+  /**
+   * Optional. This is only supported for a SELECT query using a temporary table. If set, the query
+   * is allowed to write results incrementally to the temporary result table. This may incur a
+   * performance penalty. This option cannot be used with Legacy SQL. This feature is not yet
+   * available.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getWriteIncrementalResults() {
+    return writeIncrementalResults;
+  }
+
+  /**
+   * Optional. This is only supported for a SELECT query using a temporary table. If set, the query
+   * is allowed to write results incrementally to the temporary result table. This may incur a
+   * performance penalty. This option cannot be used with Legacy SQL. This feature is not yet
+   * available.
+   * @param writeIncrementalResults writeIncrementalResults or {@code null} for none
+   */
+  public JobConfigurationQuery setWriteIncrementalResults(java.lang.Boolean writeIncrementalResults) {
+    this.writeIncrementalResults = writeIncrementalResults;
     return this;
   }
 

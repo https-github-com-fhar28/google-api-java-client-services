@@ -1272,7 +1272,7 @@ public class CloudSupport extends com.google.api.client.googleapis.services.json
      * This request holds the parameters needed by the cloudsupport server.  After setting any optional
      * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
      *
-     * @param name The resource name for the case.
+     * @param name Identifier. The resource name for the case.
      * @param content the {@link com.google.api.services.cloudsupport.v2beta.model.CloudSupportCase}
      * @return the request
      */
@@ -1308,7 +1308,7 @@ public class CloudSupport extends com.google.api.client.googleapis.services.json
        * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
        * be called to initialize this instance immediately after invoking the constructor. </p>
        *
-       * @param name The resource name for the case.
+       * @param name Identifier. The resource name for the case.
        * @param content the {@link com.google.api.services.cloudsupport.v2beta.model.CloudSupportCase}
        * @since 1.13
        */
@@ -1377,17 +1377,17 @@ public class CloudSupport extends com.google.api.client.googleapis.services.json
         return (Patch) super.setUploadProtocol(uploadProtocol);
       }
 
-      /** The resource name for the case. */
+      /** Identifier. The resource name for the case. */
       @com.google.api.client.util.Key
       private java.lang.String name;
 
-      /** The resource name for the case.
+      /** Identifier. The resource name for the case.
        */
       public java.lang.String getName() {
         return name;
       }
 
-      /** The resource name for the case. */
+      /** Identifier. The resource name for the case. */
       public Patch setName(java.lang.String name) {
         if (!getSuppressPatternChecks()) {
           com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
@@ -2051,13 +2051,17 @@ public class CloudSupport extends com.google.api.client.googleapis.services.json
 
         /**
          * The maximum number of attachments fetched with each request. If not provided, the default
-         * is 10. The maximum page size that will be returned is 100.
+         * is 10. The maximum page size that will be returned is 100. The size of each page can be
+         * smaller than the requested page size and can include zero. For example, you could request
+         * 100 attachments on one page, receive 0, and then on the next page, receive 90.
          */
         @com.google.api.client.util.Key
         private java.lang.Integer pageSize;
 
         /** The maximum number of attachments fetched with each request. If not provided, the default is 10.
-       The maximum page size that will be returned is 100.
+       The maximum page size that will be returned is 100. The size of each page can be smaller than the
+       requested page size and can include zero. For example, you could request 100 attachments on one
+       page, receive 0, and then on the next page, receive 90.
          */
         public java.lang.Integer getPageSize() {
           return pageSize;
@@ -2065,7 +2069,9 @@ public class CloudSupport extends com.google.api.client.googleapis.services.json
 
         /**
          * The maximum number of attachments fetched with each request. If not provided, the default
-         * is 10. The maximum page size that will be returned is 100.
+         * is 10. The maximum page size that will be returned is 100. The size of each page can be
+         * smaller than the requested page size and can include zero. For example, you could request
+         * 100 attachments on one page, receive 0, and then on the next page, receive 90.
          */
         public List setPageSize(java.lang.Integer pageSize) {
           this.pageSize = pageSize;
@@ -2487,8 +2493,9 @@ public class CloudSupport extends com.google.api.client.googleapis.services.json
   public class Media {
 
     /**
-     * Download a file attached to a case. Note: HTTP requests must append "?alt=media" to the URL.
-     * EXAMPLES: cURL: ```shell name="projects/some-
+     * Download a file attached to a case. When this endpoint is called, no "response body" will be
+     * returned. Instead, the attachment's blob will be returned. Note: HTTP requests must append
+     * "?alt=media" to the URL. EXAMPLES: cURL: ```shell name="projects/some-
      * project/cases/43594844/attachments/0674M00000WijAnZAJ" curl \ --header "Authorization: Bearer
      * $(gcloud auth print-access-token)" \
      * "https://cloudsupport.googleapis.com/v2/$name:download?alt=media" ``` Python: ```python import
@@ -2521,8 +2528,9 @@ public class CloudSupport extends com.google.api.client.googleapis.services.json
           java.util.regex.Pattern.compile("^[^/]+/[^/]+/cases/[^/]+/attachments/[^/]+$");
 
       /**
-       * Download a file attached to a case. Note: HTTP requests must append "?alt=media" to the URL.
-       * EXAMPLES: cURL: ```shell name="projects/some-
+       * Download a file attached to a case. When this endpoint is called, no "response body" will be
+       * returned. Instead, the attachment's blob will be returned. Note: HTTP requests must append
+       * "?alt=media" to the URL. EXAMPLES: cURL: ```shell name="projects/some-
        * project/cases/43594844/attachments/0674M00000WijAnZAJ" curl \ --header "Authorization: Bearer
        * $(gcloud auth print-access-token)" \
        * "https://cloudsupport.googleapis.com/v2/$name:download?alt=media" ``` Python: ```python import

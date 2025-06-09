@@ -23,10 +23,9 @@ package com.google.api.services.orgpolicy.v2.model;
  * can be configured by the organization policy administrator to fit the needs of the organization
  * by setting a policy that includes constraints at different locations in the organization's
  * resource hierarchy. Policies are inherited down the resource hierarchy from higher levels, but
- * can also be overridden. For details about the inheritance rules please read about `policies`.
- * Constraints have a default behavior determined by the `constraint_default` field, which is the
- * enforcement behavior that is used in the absence of a policy being defined or inherited for the
- * resource in question.
+ * can also be overridden. For details about the inheritance rules, see `Policy`. Constraints have a
+ * default behavior determined by the `constraint_default` field, which is the enforcement behavior
+ * that is used in the absence of a policy being defined or inherited for the resource in question.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Organization Policy API. For a detailed explanation
@@ -40,7 +39,7 @@ package com.google.api.services.orgpolicy.v2.model;
 public final class GoogleCloudOrgpolicyV2Constraint extends com.google.api.client.json.GenericJson {
 
   /**
-   * Defines this constraint as being a BooleanConstraint.
+   * Defines this constraint as being a boolean constraint.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -69,7 +68,15 @@ public final class GoogleCloudOrgpolicyV2Constraint extends com.google.api.clien
   private java.lang.String displayName;
 
   /**
-   * Defines this constraint as being a ListConstraint.
+   * Managed constraint and canned constraint sometimes can have equivalents. This field is used to
+   * store the equivalent constraint name.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String equivalentConstraint;
+
+  /**
+   * Defines this constraint as being a list constraint.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -94,7 +101,14 @@ public final class GoogleCloudOrgpolicyV2Constraint extends com.google.api.clien
   private java.lang.Boolean supportsDryRun;
 
   /**
-   * Defines this constraint as being a BooleanConstraint.
+   * Shows if simulation is supported for this constraint or not.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean supportsSimulation;
+
+  /**
+   * Defines this constraint as being a boolean constraint.
    * @return value or {@code null} for none
    */
   public GoogleCloudOrgpolicyV2ConstraintBooleanConstraint getBooleanConstraint() {
@@ -102,7 +116,7 @@ public final class GoogleCloudOrgpolicyV2Constraint extends com.google.api.clien
   }
 
   /**
-   * Defines this constraint as being a BooleanConstraint.
+   * Defines this constraint as being a boolean constraint.
    * @param booleanConstraint booleanConstraint or {@code null} for none
    */
   public GoogleCloudOrgpolicyV2Constraint setBooleanConstraint(GoogleCloudOrgpolicyV2ConstraintBooleanConstraint booleanConstraint) {
@@ -164,7 +178,26 @@ public final class GoogleCloudOrgpolicyV2Constraint extends com.google.api.clien
   }
 
   /**
-   * Defines this constraint as being a ListConstraint.
+   * Managed constraint and canned constraint sometimes can have equivalents. This field is used to
+   * store the equivalent constraint name.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEquivalentConstraint() {
+    return equivalentConstraint;
+  }
+
+  /**
+   * Managed constraint and canned constraint sometimes can have equivalents. This field is used to
+   * store the equivalent constraint name.
+   * @param equivalentConstraint equivalentConstraint or {@code null} for none
+   */
+  public GoogleCloudOrgpolicyV2Constraint setEquivalentConstraint(java.lang.String equivalentConstraint) {
+    this.equivalentConstraint = equivalentConstraint;
+    return this;
+  }
+
+  /**
+   * Defines this constraint as being a list constraint.
    * @return value or {@code null} for none
    */
   public GoogleCloudOrgpolicyV2ConstraintListConstraint getListConstraint() {
@@ -172,7 +205,7 @@ public final class GoogleCloudOrgpolicyV2Constraint extends com.google.api.clien
   }
 
   /**
-   * Defines this constraint as being a ListConstraint.
+   * Defines this constraint as being a list constraint.
    * @param listConstraint listConstraint or {@code null} for none
    */
   public GoogleCloudOrgpolicyV2Constraint setListConstraint(GoogleCloudOrgpolicyV2ConstraintListConstraint listConstraint) {
@@ -219,6 +252,23 @@ public final class GoogleCloudOrgpolicyV2Constraint extends com.google.api.clien
    */
   public GoogleCloudOrgpolicyV2Constraint setSupportsDryRun(java.lang.Boolean supportsDryRun) {
     this.supportsDryRun = supportsDryRun;
+    return this;
+  }
+
+  /**
+   * Shows if simulation is supported for this constraint or not.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSupportsSimulation() {
+    return supportsSimulation;
+  }
+
+  /**
+   * Shows if simulation is supported for this constraint or not.
+   * @param supportsSimulation supportsSimulation or {@code null} for none
+   */
+  public GoogleCloudOrgpolicyV2Constraint setSupportsSimulation(java.lang.Boolean supportsSimulation) {
+    this.supportsSimulation = supportsSimulation;
     return this;
   }
 

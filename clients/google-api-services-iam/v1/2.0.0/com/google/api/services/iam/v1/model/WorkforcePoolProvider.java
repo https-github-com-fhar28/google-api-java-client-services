@@ -31,9 +31,9 @@ package com.google.api.services.iam.v1.model;
 public final class WorkforcePoolProvider extends com.google.api.client.json.GenericJson {
 
   /**
-   * A [Common Expression Language](https://opensource.google/projects/cel) expression, in plain
-   * text, to restrict what otherwise valid authentication credentials issued by the provider should
-   * not be accepted. The expression must output a boolean representing whether to allow the
+   * Optional. A [Common Expression Language](https://opensource.google/projects/cel) expression, in
+   * plain text, to restrict what otherwise valid authentication credentials issued by the provider
+   * should not be accepted. The expression must output a boolean representing whether to allow the
    * federation. The following keywords may be referenced in the expressions: * `assertion`: JSON
    * representing the authentication credential issued by the provider. * `google`: The Google
    * attributes mapped from the assertion in the `attribute_mappings`. `google.profile_photo`,
@@ -89,22 +89,31 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   private java.util.Map<String, java.lang.String> attributeMapping;
 
   /**
-   * A user-specified description of the provider. Cannot exceed 256 characters.
+   * Optional. A user-specified description of the provider. Cannot exceed 256 characters.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String description;
 
   /**
-   * Disables the workforce pool provider. You cannot use a disabled provider to exchange tokens.
-   * However, existing tokens still grant access.
+   * Optional. If true, populates additional debug information in Cloud Audit Logs for this
+   * provider. Logged attribute mappings and values can be found in `sts.googleapis.com` data access
+   * logs. Default value is false.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean detailedAuditLogging;
+
+  /**
+   * Optional. Disables the workforce pool provider. You cannot use a disabled provider to exchange
+   * tokens. However, existing tokens still grant access.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean disabled;
 
   /**
-   * A user-specified display name for the provider. Cannot exceed 32 characters.
+   * Optional. A user-specified display name for the provider. Cannot exceed 32 characters.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -128,7 +137,7 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   private GoogleIamAdminV1WorkforcePoolProviderExtraAttributesOAuth2Client extraAttributesOauth2Client;
 
   /**
-   * Output only. The resource name of the provider. Format:
+   * Identifier. The resource name of the provider. Format:
    * `locations/{location}/workforcePools/{workforce_pool_id}/providers/{provider_id}`
    * The value may be {@code null}.
    */
@@ -157,9 +166,9 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   private java.lang.String state;
 
   /**
-   * A [Common Expression Language](https://opensource.google/projects/cel) expression, in plain
-   * text, to restrict what otherwise valid authentication credentials issued by the provider should
-   * not be accepted. The expression must output a boolean representing whether to allow the
+   * Optional. A [Common Expression Language](https://opensource.google/projects/cel) expression, in
+   * plain text, to restrict what otherwise valid authentication credentials issued by the provider
+   * should not be accepted. The expression must output a boolean representing whether to allow the
    * federation. The following keywords may be referenced in the expressions: * `assertion`: JSON
    * representing the authentication credential issued by the provider. * `google`: The Google
    * attributes mapped from the assertion in the `attribute_mappings`. `google.profile_photo`,
@@ -175,9 +184,9 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * A [Common Expression Language](https://opensource.google/projects/cel) expression, in plain
-   * text, to restrict what otherwise valid authentication credentials issued by the provider should
-   * not be accepted. The expression must output a boolean representing whether to allow the
+   * Optional. A [Common Expression Language](https://opensource.google/projects/cel) expression, in
+   * plain text, to restrict what otherwise valid authentication credentials issued by the provider
+   * should not be accepted. The expression must output a boolean representing whether to allow the
    * federation. The following keywords may be referenced in the expressions: * `assertion`: JSON
    * representing the authentication credential issued by the provider. * `google`: The Google
    * attributes mapped from the assertion in the `attribute_mappings`. `google.profile_photo`,
@@ -279,7 +288,7 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * A user-specified description of the provider. Cannot exceed 256 characters.
+   * Optional. A user-specified description of the provider. Cannot exceed 256 characters.
    * @return value or {@code null} for none
    */
   public java.lang.String getDescription() {
@@ -287,7 +296,7 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * A user-specified description of the provider. Cannot exceed 256 characters.
+   * Optional. A user-specified description of the provider. Cannot exceed 256 characters.
    * @param description description or {@code null} for none
    */
   public WorkforcePoolProvider setDescription(java.lang.String description) {
@@ -296,8 +305,29 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * Disables the workforce pool provider. You cannot use a disabled provider to exchange tokens.
-   * However, existing tokens still grant access.
+   * Optional. If true, populates additional debug information in Cloud Audit Logs for this
+   * provider. Logged attribute mappings and values can be found in `sts.googleapis.com` data access
+   * logs. Default value is false.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getDetailedAuditLogging() {
+    return detailedAuditLogging;
+  }
+
+  /**
+   * Optional. If true, populates additional debug information in Cloud Audit Logs for this
+   * provider. Logged attribute mappings and values can be found in `sts.googleapis.com` data access
+   * logs. Default value is false.
+   * @param detailedAuditLogging detailedAuditLogging or {@code null} for none
+   */
+  public WorkforcePoolProvider setDetailedAuditLogging(java.lang.Boolean detailedAuditLogging) {
+    this.detailedAuditLogging = detailedAuditLogging;
+    return this;
+  }
+
+  /**
+   * Optional. Disables the workforce pool provider. You cannot use a disabled provider to exchange
+   * tokens. However, existing tokens still grant access.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getDisabled() {
@@ -305,8 +335,8 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * Disables the workforce pool provider. You cannot use a disabled provider to exchange tokens.
-   * However, existing tokens still grant access.
+   * Optional. Disables the workforce pool provider. You cannot use a disabled provider to exchange
+   * tokens. However, existing tokens still grant access.
    * @param disabled disabled or {@code null} for none
    */
   public WorkforcePoolProvider setDisabled(java.lang.Boolean disabled) {
@@ -315,7 +345,7 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * A user-specified display name for the provider. Cannot exceed 32 characters.
+   * Optional. A user-specified display name for the provider. Cannot exceed 32 characters.
    * @return value or {@code null} for none
    */
   public java.lang.String getDisplayName() {
@@ -323,7 +353,7 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * A user-specified display name for the provider. Cannot exceed 32 characters.
+   * Optional. A user-specified display name for the provider. Cannot exceed 32 characters.
    * @param displayName displayName or {@code null} for none
    */
   public WorkforcePoolProvider setDisplayName(java.lang.String displayName) {
@@ -372,7 +402,7 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * Output only. The resource name of the provider. Format:
+   * Identifier. The resource name of the provider. Format:
    * `locations/{location}/workforcePools/{workforce_pool_id}/providers/{provider_id}`
    * @return value or {@code null} for none
    */
@@ -381,7 +411,7 @@ public final class WorkforcePoolProvider extends com.google.api.client.json.Gene
   }
 
   /**
-   * Output only. The resource name of the provider. Format:
+   * Identifier. The resource name of the provider. Format:
    * `locations/{location}/workforcePools/{workforce_pool_id}/providers/{provider_id}`
    * @param name name or {@code null} for none
    */

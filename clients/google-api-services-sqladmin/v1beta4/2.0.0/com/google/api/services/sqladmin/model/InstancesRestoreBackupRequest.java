@@ -30,13 +30,22 @@ package com.google.api.services.sqladmin.model;
 public final class InstancesRestoreBackupRequest extends com.google.api.client.json.GenericJson {
 
   /**
-   * The name of the backup to restore from in following format: projects/{project-
-   * id}/backups/{backup-uid} Only one of restore_backup_context or backup can be passed to the
-   * input.
+   * The name of the backup that's used to restore a Cloud SQL instance: Format: projects/{project-
+   * id}/backups/{backup-uid}. Only one of restore_backup_context, backup, backupdr_backup can be
+   * passed to the input.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String backup;
+
+  /**
+   * The name of the backup that's used to restore a Cloud SQL instance: Format: "projects/{project-
+   * id}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}/backups/{backup-
+   * uid}". Only one of restore_backup_context, backup, backupdr_backup can be passed to the input.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String backupdrBackup;
 
   /**
    * Parameters required to perform the restore backup operation.
@@ -46,18 +55,19 @@ public final class InstancesRestoreBackupRequest extends com.google.api.client.j
   private RestoreBackupContext restoreBackupContext;
 
   /**
-   * Optional. Restore instance settings overrides the instance settings stored as part of the
-   * backup. Instance's major database version cannot be changed and the disk size can only be
-   * increased. This feature is only available for restores to new instances using the backup name.
+   * Optional. By using this parameter, Cloud SQL overrides any instance settings stored in the
+   * backup you are restoring from. You can't change the instance's major database version and you
+   * can only increase the disk size. You can use this field to restore new instances only. This
+   * field is not applicable for restore to existing instances.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private DatabaseInstance restoreInstanceSettings;
 
   /**
-   * The name of the backup to restore from in following format: projects/{project-
-   * id}/backups/{backup-uid} Only one of restore_backup_context or backup can be passed to the
-   * input.
+   * The name of the backup that's used to restore a Cloud SQL instance: Format: projects/{project-
+   * id}/backups/{backup-uid}. Only one of restore_backup_context, backup, backupdr_backup can be
+   * passed to the input.
    * @return value or {@code null} for none
    */
   public java.lang.String getBackup() {
@@ -65,13 +75,34 @@ public final class InstancesRestoreBackupRequest extends com.google.api.client.j
   }
 
   /**
-   * The name of the backup to restore from in following format: projects/{project-
-   * id}/backups/{backup-uid} Only one of restore_backup_context or backup can be passed to the
-   * input.
+   * The name of the backup that's used to restore a Cloud SQL instance: Format: projects/{project-
+   * id}/backups/{backup-uid}. Only one of restore_backup_context, backup, backupdr_backup can be
+   * passed to the input.
    * @param backup backup or {@code null} for none
    */
   public InstancesRestoreBackupRequest setBackup(java.lang.String backup) {
     this.backup = backup;
+    return this;
+  }
+
+  /**
+   * The name of the backup that's used to restore a Cloud SQL instance: Format: "projects/{project-
+   * id}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}/backups/{backup-
+   * uid}". Only one of restore_backup_context, backup, backupdr_backup can be passed to the input.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getBackupdrBackup() {
+    return backupdrBackup;
+  }
+
+  /**
+   * The name of the backup that's used to restore a Cloud SQL instance: Format: "projects/{project-
+   * id}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}/backups/{backup-
+   * uid}". Only one of restore_backup_context, backup, backupdr_backup can be passed to the input.
+   * @param backupdrBackup backupdrBackup or {@code null} for none
+   */
+  public InstancesRestoreBackupRequest setBackupdrBackup(java.lang.String backupdrBackup) {
+    this.backupdrBackup = backupdrBackup;
     return this;
   }
 
@@ -93,9 +124,10 @@ public final class InstancesRestoreBackupRequest extends com.google.api.client.j
   }
 
   /**
-   * Optional. Restore instance settings overrides the instance settings stored as part of the
-   * backup. Instance's major database version cannot be changed and the disk size can only be
-   * increased. This feature is only available for restores to new instances using the backup name.
+   * Optional. By using this parameter, Cloud SQL overrides any instance settings stored in the
+   * backup you are restoring from. You can't change the instance's major database version and you
+   * can only increase the disk size. You can use this field to restore new instances only. This
+   * field is not applicable for restore to existing instances.
    * @return value or {@code null} for none
    */
   public DatabaseInstance getRestoreInstanceSettings() {
@@ -103,9 +135,10 @@ public final class InstancesRestoreBackupRequest extends com.google.api.client.j
   }
 
   /**
-   * Optional. Restore instance settings overrides the instance settings stored as part of the
-   * backup. Instance's major database version cannot be changed and the disk size can only be
-   * increased. This feature is only available for restores to new instances using the backup name.
+   * Optional. By using this parameter, Cloud SQL overrides any instance settings stored in the
+   * backup you are restoring from. You can't change the instance's major database version and you
+   * can only increase the disk size. You can use this field to restore new instances only. This
+   * field is not applicable for restore to existing instances.
    * @param restoreInstanceSettings restoreInstanceSettings or {@code null} for none
    */
   public InstancesRestoreBackupRequest setRestoreInstanceSettings(DatabaseInstance restoreInstanceSettings) {

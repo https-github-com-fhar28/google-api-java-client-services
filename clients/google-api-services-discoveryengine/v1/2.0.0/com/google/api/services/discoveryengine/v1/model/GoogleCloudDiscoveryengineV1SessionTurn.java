@@ -38,11 +38,34 @@ public final class GoogleCloudDiscoveryengineV1SessionTurn extends com.google.ap
   private java.lang.String answer;
 
   /**
+   * Output only. In ConversationalSearchService.GetSession API, if
+   * GetSessionRequest.include_answer_details is set to true, this field will be populated when
+   * getting answer query session.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1Answer detailedAnswer;
+
+  /**
    * The user query.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudDiscoveryengineV1Query query;
+
+  /**
+   * Optional. Represents metadata related to the query config, for example LLM model and version
+   * used, model parameters (temperature, grounding parameters, etc.). We don't want to import
+   * directly the [AnswerGenerationSpec] structure as this will serve a more general purpose and a
+   * wider set of customers. This information is used in particular when rendering alternative
+   * answers to the same prompt, providing visual information about how each answer was generated.
+   * The prefix "google." will be reserved for the key, and 1P services (Answer, Assistant, etc.)
+   * should always store their information with "google..". 3P services can use anything not
+   * starting with "google."
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> queryConfigs;
 
   /**
    * The resource name of the answer to the user query. Only set if the answer generation (/answer
@@ -64,6 +87,27 @@ public final class GoogleCloudDiscoveryengineV1SessionTurn extends com.google.ap
   }
 
   /**
+   * Output only. In ConversationalSearchService.GetSession API, if
+   * GetSessionRequest.include_answer_details is set to true, this field will be populated when
+   * getting answer query session.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1Answer getDetailedAnswer() {
+    return detailedAnswer;
+  }
+
+  /**
+   * Output only. In ConversationalSearchService.GetSession API, if
+   * GetSessionRequest.include_answer_details is set to true, this field will be populated when
+   * getting answer query session.
+   * @param detailedAnswer detailedAnswer or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1SessionTurn setDetailedAnswer(GoogleCloudDiscoveryengineV1Answer detailedAnswer) {
+    this.detailedAnswer = detailedAnswer;
+    return this;
+  }
+
+  /**
    * The user query.
    * @return value or {@code null} for none
    */
@@ -77,6 +121,37 @@ public final class GoogleCloudDiscoveryengineV1SessionTurn extends com.google.ap
    */
   public GoogleCloudDiscoveryengineV1SessionTurn setQuery(GoogleCloudDiscoveryengineV1Query query) {
     this.query = query;
+    return this;
+  }
+
+  /**
+   * Optional. Represents metadata related to the query config, for example LLM model and version
+   * used, model parameters (temperature, grounding parameters, etc.). We don't want to import
+   * directly the [AnswerGenerationSpec] structure as this will serve a more general purpose and a
+   * wider set of customers. This information is used in particular when rendering alternative
+   * answers to the same prompt, providing visual information about how each answer was generated.
+   * The prefix "google." will be reserved for the key, and 1P services (Answer, Assistant, etc.)
+   * should always store their information with "google..". 3P services can use anything not
+   * starting with "google."
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getQueryConfigs() {
+    return queryConfigs;
+  }
+
+  /**
+   * Optional. Represents metadata related to the query config, for example LLM model and version
+   * used, model parameters (temperature, grounding parameters, etc.). We don't want to import
+   * directly the [AnswerGenerationSpec] structure as this will serve a more general purpose and a
+   * wider set of customers. This information is used in particular when rendering alternative
+   * answers to the same prompt, providing visual information about how each answer was generated.
+   * The prefix "google." will be reserved for the key, and 1P services (Answer, Assistant, etc.)
+   * should always store their information with "google..". 3P services can use anything not
+   * starting with "google."
+   * @param queryConfigs queryConfigs or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1SessionTurn setQueryConfigs(java.util.Map<String, java.lang.String> queryConfigs) {
+    this.queryConfigs = queryConfigs;
     return this;
   }
 

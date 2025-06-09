@@ -25,7 +25,7 @@ package com.google.api.services.drive;
  *
  * <p>
  * For more information about this service, see the
- * <a href="https://developers.google.com/drive/" target="_blank">API Documentation</a>
+ * <a href="https://developers.google.com/workspace/drive/" target="_blank">API Documentation</a>
  * </p>
  *
  * <p>
@@ -154,7 +154,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
   public class About {
 
     /**
-     * Gets information about the user, the user's Drive, and system capabilities.
+     * Gets information about the user, the user's Drive, and system capabilities. For more information,
+     * see [Return user info](https://developers.google.com/workspace/drive/api/guides/user-info).
+     * Required: The `fields` parameter must be set. To return the exact fields you need, see [Return
+     * specific fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
      *
      * Create a request for the method "about.get".
      *
@@ -174,7 +177,11 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "about";
 
       /**
-       * Gets information about the user, the user's Drive, and system capabilities.
+       * Gets information about the user, the user's Drive, and system capabilities. For more
+       * information, see [Return user
+       * info](https://developers.google.com/workspace/drive/api/guides/user-info). Required: The
+       * `fields` parameter must be set. To return the exact fields you need, see [Return specific
+       * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
        *
        * Create a request for the method "about.get".
        *
@@ -263,6 +270,469 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
   }
 
   /**
+   * An accessor for creating requests from the Accessproposals collection.
+   *
+   * <p>The typical use is:</p>
+   * <pre>
+   *   {@code Drive drive = new Drive(...);}
+   *   {@code Drive.Accessproposals.List request = drive.accessproposals().list(parameters ...)}
+   * </pre>
+   *
+   * @return the resource collection
+   */
+  public Accessproposals accessproposals() {
+    return new Accessproposals();
+  }
+
+  /**
+   * The "accessproposals" collection of methods.
+   */
+  public class Accessproposals {
+
+    /**
+     * Retrieves an AccessProposal by ID.
+     *
+     * Create a request for the method "accessproposals.get".
+     *
+     * This request holds the parameters needed by the drive server.  After setting any optional
+     * parameters, call the {@link Get#execute()} method to invoke the remote operation.
+     *
+     * @param fileId Required. The id of the item the request is on.
+     * @param proposalId Required. The id of the access proposal to resolve.
+     * @return the request
+     */
+    public Get get(java.lang.String fileId, java.lang.String proposalId) throws java.io.IOException {
+      Get result = new Get(fileId, proposalId);
+      initialize(result);
+      return result;
+    }
+
+    public class Get extends DriveRequest<com.google.api.services.drive.model.AccessProposal> {
+
+      private static final String REST_PATH = "files/{fileId}/accessproposals/{proposalId}";
+
+      /**
+       * Retrieves an AccessProposal by ID.
+       *
+       * Create a request for the method "accessproposals.get".
+       *
+       * This request holds the parameters needed by the the drive server.  After setting any optional
+       * parameters, call the {@link Get#execute()} method to invoke the remote operation. <p> {@link
+       * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+       * called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param fileId Required. The id of the item the request is on.
+       * @param proposalId Required. The id of the access proposal to resolve.
+       * @since 1.13
+       */
+      protected Get(java.lang.String fileId, java.lang.String proposalId) {
+        super(Drive.this, "GET", REST_PATH, null, com.google.api.services.drive.model.AccessProposal.class);
+        this.fileId = com.google.api.client.util.Preconditions.checkNotNull(fileId, "Required parameter fileId must be specified.");
+        this.proposalId = com.google.api.client.util.Preconditions.checkNotNull(proposalId, "Required parameter proposalId must be specified.");
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public Get set$Xgafv(java.lang.String $Xgafv) {
+        return (Get) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public Get setAccessToken(java.lang.String accessToken) {
+        return (Get) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public Get setAlt(java.lang.String alt) {
+        return (Get) super.setAlt(alt);
+      }
+
+      @Override
+      public Get setCallback(java.lang.String callback) {
+        return (Get) super.setCallback(callback);
+      }
+
+      @Override
+      public Get setFields(java.lang.String fields) {
+        return (Get) super.setFields(fields);
+      }
+
+      @Override
+      public Get setKey(java.lang.String key) {
+        return (Get) super.setKey(key);
+      }
+
+      @Override
+      public Get setOauthToken(java.lang.String oauthToken) {
+        return (Get) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (Get) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public Get setQuotaUser(java.lang.String quotaUser) {
+        return (Get) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public Get setUploadType(java.lang.String uploadType) {
+        return (Get) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public Get setUploadProtocol(java.lang.String uploadProtocol) {
+        return (Get) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /** Required. The id of the item the request is on. */
+      @com.google.api.client.util.Key
+      private java.lang.String fileId;
+
+      /** Required. The id of the item the request is on.
+       */
+      public java.lang.String getFileId() {
+        return fileId;
+      }
+
+      /** Required. The id of the item the request is on. */
+      public Get setFileId(java.lang.String fileId) {
+        this.fileId = fileId;
+        return this;
+      }
+
+      /** Required. The id of the access proposal to resolve. */
+      @com.google.api.client.util.Key
+      private java.lang.String proposalId;
+
+      /** Required. The id of the access proposal to resolve.
+       */
+      public java.lang.String getProposalId() {
+        return proposalId;
+      }
+
+      /** Required. The id of the access proposal to resolve. */
+      public Get setProposalId(java.lang.String proposalId) {
+        this.proposalId = proposalId;
+        return this;
+      }
+
+      @Override
+      public Get set(String parameterName, Object value) {
+        return (Get) super.set(parameterName, value);
+      }
+    }
+    /**
+     * List the AccessProposals on a file. Note: Only approvers are able to list AccessProposals on a
+     * file. If the user is not an approver, returns a 403.
+     *
+     * Create a request for the method "accessproposals.list".
+     *
+     * This request holds the parameters needed by the drive server.  After setting any optional
+     * parameters, call the {@link List#execute()} method to invoke the remote operation.
+     *
+     * @param fileId Required. The id of the item the request is on.
+     * @return the request
+     */
+    public List list(java.lang.String fileId) throws java.io.IOException {
+      List result = new List(fileId);
+      initialize(result);
+      return result;
+    }
+
+    public class List extends DriveRequest<com.google.api.services.drive.model.ListAccessProposalsResponse> {
+
+      private static final String REST_PATH = "files/{fileId}/accessproposals";
+
+      /**
+       * List the AccessProposals on a file. Note: Only approvers are able to list AccessProposals on a
+       * file. If the user is not an approver, returns a 403.
+       *
+       * Create a request for the method "accessproposals.list".
+       *
+       * This request holds the parameters needed by the the drive server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+       * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+       * called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param fileId Required. The id of the item the request is on.
+       * @since 1.13
+       */
+      protected List(java.lang.String fileId) {
+        super(Drive.this, "GET", REST_PATH, null, com.google.api.services.drive.model.ListAccessProposalsResponse.class);
+        this.fileId = com.google.api.client.util.Preconditions.checkNotNull(fileId, "Required parameter fileId must be specified.");
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public List set$Xgafv(java.lang.String $Xgafv) {
+        return (List) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public List setAccessToken(java.lang.String accessToken) {
+        return (List) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public List setAlt(java.lang.String alt) {
+        return (List) super.setAlt(alt);
+      }
+
+      @Override
+      public List setCallback(java.lang.String callback) {
+        return (List) super.setCallback(callback);
+      }
+
+      @Override
+      public List setFields(java.lang.String fields) {
+        return (List) super.setFields(fields);
+      }
+
+      @Override
+      public List setKey(java.lang.String key) {
+        return (List) super.setKey(key);
+      }
+
+      @Override
+      public List setOauthToken(java.lang.String oauthToken) {
+        return (List) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (List) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public List setQuotaUser(java.lang.String quotaUser) {
+        return (List) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public List setUploadType(java.lang.String uploadType) {
+        return (List) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public List setUploadProtocol(java.lang.String uploadProtocol) {
+        return (List) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /** Required. The id of the item the request is on. */
+      @com.google.api.client.util.Key
+      private java.lang.String fileId;
+
+      /** Required. The id of the item the request is on.
+       */
+      public java.lang.String getFileId() {
+        return fileId;
+      }
+
+      /** Required. The id of the item the request is on. */
+      public List setFileId(java.lang.String fileId) {
+        this.fileId = fileId;
+        return this;
+      }
+
+      /** Optional. The number of results per page */
+      @com.google.api.client.util.Key
+      private java.lang.Integer pageSize;
+
+      /** Optional. The number of results per page
+       */
+      public java.lang.Integer getPageSize() {
+        return pageSize;
+      }
+
+      /** Optional. The number of results per page */
+      public List setPageSize(java.lang.Integer pageSize) {
+        this.pageSize = pageSize;
+        return this;
+      }
+
+      /** Optional. The continuation token on the list of access requests. */
+      @com.google.api.client.util.Key
+      private java.lang.String pageToken;
+
+      /** Optional. The continuation token on the list of access requests.
+       */
+      public java.lang.String getPageToken() {
+        return pageToken;
+      }
+
+      /** Optional. The continuation token on the list of access requests. */
+      public List setPageToken(java.lang.String pageToken) {
+        this.pageToken = pageToken;
+        return this;
+      }
+
+      @Override
+      public List set(String parameterName, Object value) {
+        return (List) super.set(parameterName, value);
+      }
+    }
+    /**
+     * Used to approve or deny an Access Proposal.
+     *
+     * Create a request for the method "accessproposals.resolve".
+     *
+     * This request holds the parameters needed by the drive server.  After setting any optional
+     * parameters, call the {@link Resolve#execute()} method to invoke the remote operation.
+     *
+     * @param fileId Required. The id of the item the request is on.
+     * @param proposalId Required. The id of the access proposal to resolve.
+     * @param content the {@link com.google.api.services.drive.model.ResolveAccessProposalRequest}
+     * @return the request
+     */
+    public Resolve resolve(java.lang.String fileId, java.lang.String proposalId, com.google.api.services.drive.model.ResolveAccessProposalRequest content) throws java.io.IOException {
+      Resolve result = new Resolve(fileId, proposalId, content);
+      initialize(result);
+      return result;
+    }
+
+    public class Resolve extends DriveRequest<Void> {
+
+      private static final String REST_PATH = "files/{fileId}/accessproposals/{proposalId}:resolve";
+
+      /**
+       * Used to approve or deny an Access Proposal.
+       *
+       * Create a request for the method "accessproposals.resolve".
+       *
+       * This request holds the parameters needed by the the drive server.  After setting any optional
+       * parameters, call the {@link Resolve#execute()} method to invoke the remote operation. <p>
+       * {@link
+       * Resolve#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+       * be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param fileId Required. The id of the item the request is on.
+       * @param proposalId Required. The id of the access proposal to resolve.
+       * @param content the {@link com.google.api.services.drive.model.ResolveAccessProposalRequest}
+       * @since 1.13
+       */
+      protected Resolve(java.lang.String fileId, java.lang.String proposalId, com.google.api.services.drive.model.ResolveAccessProposalRequest content) {
+        super(Drive.this, "POST", REST_PATH, content, Void.class);
+        this.fileId = com.google.api.client.util.Preconditions.checkNotNull(fileId, "Required parameter fileId must be specified.");
+        this.proposalId = com.google.api.client.util.Preconditions.checkNotNull(proposalId, "Required parameter proposalId must be specified.");
+      }
+
+      @Override
+      public Resolve set$Xgafv(java.lang.String $Xgafv) {
+        return (Resolve) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public Resolve setAccessToken(java.lang.String accessToken) {
+        return (Resolve) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public Resolve setAlt(java.lang.String alt) {
+        return (Resolve) super.setAlt(alt);
+      }
+
+      @Override
+      public Resolve setCallback(java.lang.String callback) {
+        return (Resolve) super.setCallback(callback);
+      }
+
+      @Override
+      public Resolve setFields(java.lang.String fields) {
+        return (Resolve) super.setFields(fields);
+      }
+
+      @Override
+      public Resolve setKey(java.lang.String key) {
+        return (Resolve) super.setKey(key);
+      }
+
+      @Override
+      public Resolve setOauthToken(java.lang.String oauthToken) {
+        return (Resolve) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public Resolve setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (Resolve) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public Resolve setQuotaUser(java.lang.String quotaUser) {
+        return (Resolve) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public Resolve setUploadType(java.lang.String uploadType) {
+        return (Resolve) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public Resolve setUploadProtocol(java.lang.String uploadProtocol) {
+        return (Resolve) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /** Required. The id of the item the request is on. */
+      @com.google.api.client.util.Key
+      private java.lang.String fileId;
+
+      /** Required. The id of the item the request is on.
+       */
+      public java.lang.String getFileId() {
+        return fileId;
+      }
+
+      /** Required. The id of the item the request is on. */
+      public Resolve setFileId(java.lang.String fileId) {
+        this.fileId = fileId;
+        return this;
+      }
+
+      /** Required. The id of the access proposal to resolve. */
+      @com.google.api.client.util.Key
+      private java.lang.String proposalId;
+
+      /** Required. The id of the access proposal to resolve.
+       */
+      public java.lang.String getProposalId() {
+        return proposalId;
+      }
+
+      /** Required. The id of the access proposal to resolve. */
+      public Resolve setProposalId(java.lang.String proposalId) {
+        this.proposalId = proposalId;
+        return this;
+      }
+
+      @Override
+      public Resolve set(String parameterName, Object value) {
+        return (Resolve) super.set(parameterName, value);
+      }
+    }
+
+  }
+
+  /**
    * An accessor for creating requests from the Apps collection.
    *
    * <p>The typical use is:</p>
@@ -283,7 +753,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
   public class Apps {
 
     /**
-     * Gets a specific app.
+     * Gets a specific app. For more information, see [Return user
+     * info](https://developers.google.com/workspace/drive/api/guides/user-info).
      *
      * Create a request for the method "apps.get".
      *
@@ -304,7 +775,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "apps/{appId}";
 
       /**
-       * Gets a specific app.
+       * Gets a specific app. For more information, see [Return user
+       * info](https://developers.google.com/workspace/drive/api/guides/user-info).
        *
        * Create a request for the method "apps.get".
        *
@@ -408,7 +880,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       }
     }
     /**
-     * Lists a user's installed apps.
+     * Lists a user's installed apps. For more information, see [Return user
+     * info](https://developers.google.com/workspace/drive/api/guides/user-info).
      *
      * Create a request for the method "apps.list".
      *
@@ -428,7 +901,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "apps";
 
       /**
-       * Lists a user's installed apps.
+       * Lists a user's installed apps. For more information, see [Return user
+       * info](https://developers.google.com/workspace/drive/api/guides/user-info).
        *
        * Create a request for the method "apps.list".
        *
@@ -616,7 +1090,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
   public class Changes {
 
     /**
-     * Gets the starting pageToken for listing future changes.
+     * Gets the starting pageToken for listing future changes. For more information, see [Retrieve
+     * changes](https://developers.google.com/workspace/drive/api/guides/manage-changes).
      *
      * Create a request for the method "changes.getStartPageToken".
      *
@@ -636,7 +1111,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "changes/startPageToken";
 
       /**
-       * Gets the starting pageToken for listing future changes.
+       * Gets the starting pageToken for listing future changes. For more information, see [Retrieve
+       * changes](https://developers.google.com/workspace/drive/api/guides/manage-changes).
        *
        * Create a request for the method "changes.getStartPageToken".
        *
@@ -848,7 +1324,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       }
     }
     /**
-     * Lists the changes for a user or shared drive.
+     * Lists the changes for a user or shared drive. For more information, see [Retrieve
+     * changes](https://developers.google.com/workspace/drive/api/guides/manage-changes).
      *
      * Create a request for the method "changes.list".
      *
@@ -871,7 +1348,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "changes";
 
       /**
-       * Lists the changes for a user or shared drive.
+       * Lists the changes for a user or shared drive. For more information, see [Retrieve
+       * changes](https://developers.google.com/workspace/drive/api/guides/manage-changes).
        *
        * Create a request for the method "changes.list".
        *
@@ -1440,7 +1918,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       }
     }
     /**
-     * Subscribes to changes for a user.
+     * Subscribes to changes for a user. For more information, see [Notifications for resource
+     * changes](https://developers.google.com/workspace/drive/api/guides/push).
      *
      * Create a request for the method "changes.watch".
      *
@@ -1464,7 +1943,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "changes/watch";
 
       /**
-       * Subscribes to changes for a user.
+       * Subscribes to changes for a user. For more information, see [Notifications for resource
+       * changes](https://developers.google.com/workspace/drive/api/guides/push).
        *
        * Create a request for the method "changes.watch".
        *
@@ -2047,7 +2527,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
   public class Channels {
 
     /**
-     * Stops watching resources through this channel.
+     * Stops watching resources through this channel. For more information, see [Notifications for
+     * resource changes](https://developers.google.com/workspace/drive/api/guides/push).
      *
      * Create a request for the method "channels.stop".
      *
@@ -2068,7 +2549,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "channels/stop";
 
       /**
-       * Stops watching resources through this channel.
+       * Stops watching resources through this channel. For more information, see [Notifications for
+       * resource changes](https://developers.google.com/workspace/drive/api/guides/push).
        *
        * Create a request for the method "channels.stop".
        *
@@ -2168,7 +2650,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
   public class Comments {
 
     /**
-     * Creates a comment on a file.
+     * Creates a comment on a file. For more information, see [Manage comments and
+     * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required: The
+     * `fields` parameter must be set. To return the exact fields you need, see [Return specific
+     * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
      *
      * Create a request for the method "comments.create".
      *
@@ -2190,7 +2675,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "files/{fileId}/comments";
 
       /**
-       * Creates a comment on a file.
+       * Creates a comment on a file. For more information, see [Manage comments and
+       * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required:
+       * The `fields` parameter must be set. To return the exact fields you need, see [Return specific
+       * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
        *
        * Create a request for the method "comments.create".
        *
@@ -2287,7 +2775,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       }
     }
     /**
-     * Deletes a comment.
+     * Deletes a comment. For more information, see [Manage comments and
+     * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
      *
      * Create a request for the method "comments.delete".
      *
@@ -2309,7 +2798,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "files/{fileId}/comments/{commentId}";
 
       /**
-       * Deletes a comment.
+       * Deletes a comment. For more information, see [Manage comments and
+       * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
        *
        * Create a request for the method "comments.delete".
        *
@@ -2421,7 +2911,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       }
     }
     /**
-     * Gets a comment by ID.
+     * Gets a comment by ID. For more information, see [Manage comments and
+     * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required: The
+     * `fields` parameter must be set. To return the exact fields you need, see [Return specific
+     * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
      *
      * Create a request for the method "comments.get".
      *
@@ -2443,7 +2936,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "files/{fileId}/comments/{commentId}";
 
       /**
-       * Gets a comment by ID.
+       * Gets a comment by ID. For more information, see [Manage comments and
+       * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required:
+       * The `fields` parameter must be set. To return the exact fields you need, see [Return specific
+       * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
        *
        * Create a request for the method "comments.get".
        *
@@ -2615,7 +3111,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       }
     }
     /**
-     * Lists a file's comments.
+     * Lists a file's comments. For more information, see [Manage comments and
+     * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required: The
+     * `fields` parameter must be set. To return the exact fields you need, see [Return specific
+     * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
      *
      * Create a request for the method "comments.list".
      *
@@ -2636,7 +3135,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "files/{fileId}/comments";
 
       /**
-       * Lists a file's comments.
+       * Lists a file's comments. For more information, see [Manage comments and
+       * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required:
+       * The `fields` parameter must be set. To return the exact fields you need, see [Return specific
+       * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
        *
        * Create a request for the method "comments.list".
        *
@@ -2845,7 +3347,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       }
     }
     /**
-     * Updates a comment with patch semantics.
+     * Updates a comment with patch semantics. For more information, see [Manage comments and
+     * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required: The
+     * `fields` parameter must be set. To return the exact fields you need, see [Return specific
+     * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
      *
      * Create a request for the method "comments.update".
      *
@@ -2868,7 +3373,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       private static final String REST_PATH = "files/{fileId}/comments/{commentId}";
 
       /**
-       * Updates a comment with patch semantics.
+       * Updates a comment with patch semantics. For more information, see [Manage comments and
+       * replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required:
+       * The `fields` parameter must be set. To return the exact fields you need, see [Return specific
+       * fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
        *
        * Create a request for the method "comments.update".
        *
@@ -3660,7 +4168,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
     /**
      * Lists the user's shared drives. This method accepts the `q` parameter, which is a search query
      * combining one or more search terms. For more information, see the [Search for shared
-     * drives](/drive/api/guides/search-shareddrives) guide.
+     * drives](/workspace/drive/api/guides/search-shareddrives) guide.
      *
      * Create a request for the method "drives.list".
      *
@@ -3682,7 +4190,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       /**
        * Lists the user's shared drives. This method accepts the `q` parameter, which is a search query
        * combining one or more search terms. For more information, see the [Search for shared
-       * drives](/drive/api/guides/search-shareddrives) guide.
+       * drives](/workspace/drive/api/guides/search-shareddrives) guide.
        *
        * Create a request for the method "drives.list".
        *
@@ -4606,7 +5114,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*`
      * Note: Specify a valid MIME type, rather than the literal `*` value. The literal `*` is only used
      * to indicate that any valid MIME type can be uploaded. For more information on uploading files,
-     * see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
+     * see [Upload file data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts with
      * `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should
      * specify a file extension in the `name` property when inserting files with the API. For example,
      * an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the
@@ -4635,7 +5143,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*`
      * Note: Specify a valid MIME type, rather than the literal `*` value. The literal `*` is only used
      * to indicate that any valid MIME type can be uploaded. For more information on uploading files,
-     * see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
+     * see [Upload file data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts with
      * `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should
      * specify a file extension in the `name` property when inserting files with the API. For example,
      * an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the
@@ -4675,15 +5183,16 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*`
        * Note: Specify a valid MIME type, rather than the literal `*` value. The literal `*` is only
        * used to indicate that any valid MIME type can be uploaded. For more information on uploading
-       * files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
-       * `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should
-       * specify a file extension in the `name` property when inserting files with the API. For example,
-       * an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the
-       * metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated
-       * with the extension originally specified in the `title` property. When a Google Drive user
-       * requests to download a file, or when the file is downloaded through the sync client, Drive
-       * builds a full filename (with extension) based on the title. In cases where the extension is
-       * missing, Drive attempts to determine the extension based on the file's MIME type.
+       * files, see [Upload file data](/workspace/drive/api/guides/manage-uploads). Apps creating
+       * shortcuts with `files.create` must specify the MIME type `application/vnd.google-
+       * apps.shortcut`. Apps should specify a file extension in the `name` property when inserting
+       * files with the API. For example, an operation to insert a JPEG file should specify something
+       * like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only
+       * `fileExtension` property populated with the extension originally specified in the `title`
+       * property. When a Google Drive user requests to download a file, or when the file is downloaded
+       * through the sync client, Drive builds a full filename (with extension) based on the title. In
+       * cases where the extension is missing, Drive attempts to determine the extension based on the
+       * file's MIME type.
        *
        * Create a request for the method "files.create".
        *
@@ -4704,15 +5213,16 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*`
        * Note: Specify a valid MIME type, rather than the literal `*` value. The literal `*` is only
        * used to indicate that any valid MIME type can be uploaded. For more information on uploading
-       * files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with
-       * `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should
-       * specify a file extension in the `name` property when inserting files with the API. For example,
-       * an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the
-       * metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated
-       * with the extension originally specified in the `title` property. When a Google Drive user
-       * requests to download a file, or when the file is downloaded through the sync client, Drive
-       * builds a full filename (with extension) based on the title. In cases where the extension is
-       * missing, Drive attempts to determine the extension based on the file's MIME type.
+       * files, see [Upload file data](/workspace/drive/api/guides/manage-uploads). Apps creating
+       * shortcuts with `files.create` must specify the MIME type `application/vnd.google-
+       * apps.shortcut`. Apps should specify a file extension in the `name` property when inserting
+       * files with the API. For example, an operation to insert a JPEG file should specify something
+       * like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only
+       * `fileExtension` property populated with the extension originally specified in the `title`
+       * property. When a Google Drive user requests to download a file, or when the file is downloaded
+       * through the sync client, Drive builds a full filename (with extension) based on the title. In
+       * cases where the extension is missing, Drive attempts to determine the extension based on the
+       * file's MIME type.
        *
        * Create a request for the method "files.create".
        *
@@ -6080,8 +6590,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * Gets a file's metadata or content by ID. If you provide the URL parameter `alt=media`, then the
      * response includes the file contents in the response body. Downloading content with `alt=media`
      * only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use
-     * [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For more information, see
-     * [Download & export files](/drive/api/guides/manage-downloads).
+     * [`files.export`](/workspace/drive/api/reference/rest/v3/files/export) instead. For more
+     * information, see [Download & export files](/workspace/drive/api/guides/manage-downloads).
      *
      * Create a request for the method "files.get".
      *
@@ -6105,8 +6615,8 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * Gets a file's metadata or content by ID. If you provide the URL parameter `alt=media`, then the
        * response includes the file contents in the response body. Downloading content with `alt=media`
        * only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use
-       * [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For more information, see
-       * [Download & export files](/drive/api/guides/manage-downloads).
+       * [`files.export`](/workspace/drive/api/reference/rest/v3/files/export) instead. For more
+       * information, see [Download & export files](/workspace/drive/api/guides/manage-downloads).
        *
        * Create a request for the method "files.get".
        *
@@ -6420,9 +6930,9 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
     /**
      * Lists the user's files. This method accepts the `q` parameter, which is a search query combining
      * one or more search terms. For more information, see the [Search for files &
-     * folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by
-     * default, including trashed files. If you don't want trashed files to appear in the list, use the
-     * `trashed=false` query parameter to remove trashed files from the results.
+     * folders](/workspace/drive/api/guides/search-files) guide. *Note:* This method returns *all* files
+     * by default, including trashed files. If you don't want trashed files to appear in the list, use
+     * the `trashed=false` query parameter to remove trashed files from the results.
      *
      * Create a request for the method "files.list".
      *
@@ -6444,9 +6954,9 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       /**
        * Lists the user's files. This method accepts the `q` parameter, which is a search query
        * combining one or more search terms. For more information, see the [Search for files &
-       * folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by
-       * default, including trashed files. If you don't want trashed files to appear in the list, use
-       * the `trashed=false` query parameter to remove trashed files from the results.
+       * folders](/workspace/drive/api/guides/search-files) guide. *Note:* This method returns *all*
+       * files by default, including trashed files. If you don't want trashed files to appear in the
+       * list, use the `trashed=false` query parameter to remove trashed files from the results.
        *
        * Create a request for the method "files.list".
        *
@@ -7261,7 +7771,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * size:* 5,120 GB - *Accepted Media MIME types:*`*` Note: Specify a valid MIME type, rather than
      * the literal `*` value. The literal `*` is only used to indicate that any valid MIME type can be
      * uploaded. For more information on uploading files, see [Upload file
-     * data](/drive/api/guides/manage-uploads).
+     * data](/workspace/drive/api/guides/manage-uploads).
      *
      * Create a request for the method "files.update".
      *
@@ -7286,7 +7796,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * size:* 5,120 GB - *Accepted Media MIME types:*`*` Note: Specify a valid MIME type, rather than
      * the literal `*` value. The literal `*` is only used to indicate that any valid MIME type can be
      * uploaded. For more information on uploading files, see [Upload file
-     * data](/drive/api/guides/manage-uploads).
+     * data](/workspace/drive/api/guides/manage-uploads).
      *
      * Create a request for the method "files.update".
      *
@@ -7321,7 +7831,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*` Note: Specify a valid MIME
        * type, rather than the literal `*` value. The literal `*` is only used to indicate that any
        * valid MIME type can be uploaded. For more information on uploading files, see [Upload file
-       * data](/drive/api/guides/manage-uploads).
+       * data](/workspace/drive/api/guides/manage-uploads).
        *
        * Create a request for the method "files.update".
        *
@@ -7347,7 +7857,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*` Note: Specify a valid MIME
        * type, rather than the literal `*` value. The literal `*` is only used to indicate that any
        * valid MIME type can be uploaded. For more information on uploading files, see [Upload file
-       * data](/drive/api/guides/manage-uploads).
+       * data](/workspace/drive/api/guides/manage-uploads).
        *
        * Create a request for the method "files.update".
        *
@@ -8076,24 +8586,24 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
   }
 
   /**
-   * An accessor for creating requests from the Operation collection.
+   * An accessor for creating requests from the Operations collection.
    *
    * <p>The typical use is:</p>
    * <pre>
    *   {@code Drive drive = new Drive(...);}
-   *   {@code Drive.Operation.List request = drive.operation().list(parameters ...)}
+   *   {@code Drive.Operations.List request = drive.operations().list(parameters ...)}
    * </pre>
    *
    * @return the resource collection
    */
-  public Operation operation() {
-    return new Operation();
+  public Operations operations() {
+    return new Operations();
   }
 
   /**
-   * The "operation" collection of methods.
+   * The "operations" collection of methods.
    */
-  public class Operation {
+  public class Operations {
 
     /**
      * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to
@@ -8101,10 +8611,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
      * methods to check whether the cancellation succeeded or whether the operation completed despite
      * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-     * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+     * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
      * `Code.CANCELLED`.
      *
-     * Create a request for the method "operation.cancel".
+     * Create a request for the method "operations.cancel".
      *
      * This request holds the parameters needed by the drive server.  After setting any optional
      * parameters, call the {@link Cancel#execute()} method to invoke the remote operation.
@@ -8120,7 +8630,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
 
     public class Cancel extends DriveRequest<Void> {
 
-      private static final String REST_PATH = "operation/{name}:cancel";
+      private static final String REST_PATH = "operations/{name}:cancel";
 
       /**
        * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to
@@ -8128,10 +8638,10 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
        * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
        * methods to check whether the cancellation succeeded or whether the operation completed despite
        * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-       * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+       * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
        * `Code.CANCELLED`.
        *
-       * Create a request for the method "operation.cancel".
+       * Create a request for the method "operations.cancel".
        *
        * This request holds the parameters needed by the the drive server.  After setting any optional
        * parameters, call the {@link Cancel#execute()} method to invoke the remote operation. <p> {@link
@@ -8227,7 +8737,7 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
      * in the operation result. It does not cancel the operation. If the server doesn't support this
      * method, it returns `google.rpc.Code.UNIMPLEMENTED`.
      *
-     * Create a request for the method "operation.delete".
+     * Create a request for the method "operations.delete".
      *
      * This request holds the parameters needed by the drive server.  After setting any optional
      * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
@@ -8243,14 +8753,14 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
 
     public class Delete extends DriveRequest<Void> {
 
-      private static final String REST_PATH = "operation/{name}";
+      private static final String REST_PATH = "operations/{name}";
 
       /**
        * Deletes a long-running operation. This method indicates that the client is no longer interested
        * in the operation result. It does not cancel the operation. If the server doesn't support this
        * method, it returns `google.rpc.Code.UNIMPLEMENTED`.
        *
-       * Create a request for the method "operation.delete".
+       * Create a request for the method "operations.delete".
        *
        * This request holds the parameters needed by the the drive server.  After setting any optional
        * parameters, call the {@link Delete#execute()} method to invoke the remote operation. <p> {@link
@@ -8341,29 +8851,6 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
         return (Delete) super.set(parameterName, value);
       }
     }
-
-  }
-
-  /**
-   * An accessor for creating requests from the Operations collection.
-   *
-   * <p>The typical use is:</p>
-   * <pre>
-   *   {@code Drive drive = new Drive(...);}
-   *   {@code Drive.Operations.List request = drive.operations().list(parameters ...)}
-   * </pre>
-   *
-   * @return the resource collection
-   */
-  public Operations operations() {
-    return new Operations();
-  }
-
-  /**
-   * The "operations" collection of methods.
-   */
-  public class Operations {
-
     /**
      * Gets the latest state of a long-running operation. Clients can use this method to poll the
      * operation result at intervals as recommended by the API service.
@@ -8820,6 +9307,49 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
         return this;
       }
 
+      /** Whether the request should enforce expansive access rules. */
+      @com.google.api.client.util.Key
+      private java.lang.Boolean enforceExpansiveAccess;
+
+      /** Whether the request should enforce expansive access rules. [default: false]
+       */
+      public java.lang.Boolean getEnforceExpansiveAccess() {
+        return enforceExpansiveAccess;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      public Create setEnforceExpansiveAccess(java.lang.Boolean enforceExpansiveAccess) {
+        this.enforceExpansiveAccess = enforceExpansiveAccess;
+        return this;
+      }
+
+      /**
+       * Convenience method that returns only {@link Boolean#TRUE} or {@link Boolean#FALSE}.
+       *
+       * <p>
+       * Boolean properties can have four possible values:
+       * {@code null}, {@link com.google.api.client.util.Data#NULL_BOOLEAN}, {@link Boolean#TRUE}
+       * or {@link Boolean#FALSE}.
+       * </p>
+       *
+       * <p>
+       * This method returns {@link Boolean#TRUE} if the default of the property is {@link Boolean#TRUE}
+       * and it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * {@link Boolean#FALSE} is returned if the default of the property is {@link Boolean#FALSE} and
+       * it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * </p>
+       *
+       * <p>
+       * Whether the request should enforce expansive access rules.
+       * </p>
+       */
+      public boolean isEnforceExpansiveAccess() {
+        if (enforceExpansiveAccess == null || enforceExpansiveAccess == com.google.api.client.util.Data.NULL_BOOLEAN) {
+          return false;
+        }
+        return enforceExpansiveAccess;
+      }
+
       /** Deprecated: See `moveToNewOwnersRoot` for details. */
       @com.google.api.client.util.Key
       private java.lang.Boolean enforceSingleParent;
@@ -9274,6 +9804,49 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       public Delete setPermissionId(java.lang.String permissionId) {
         this.permissionId = permissionId;
         return this;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      @com.google.api.client.util.Key
+      private java.lang.Boolean enforceExpansiveAccess;
+
+      /** Whether the request should enforce expansive access rules. [default: false]
+       */
+      public java.lang.Boolean getEnforceExpansiveAccess() {
+        return enforceExpansiveAccess;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      public Delete setEnforceExpansiveAccess(java.lang.Boolean enforceExpansiveAccess) {
+        this.enforceExpansiveAccess = enforceExpansiveAccess;
+        return this;
+      }
+
+      /**
+       * Convenience method that returns only {@link Boolean#TRUE} or {@link Boolean#FALSE}.
+       *
+       * <p>
+       * Boolean properties can have four possible values:
+       * {@code null}, {@link com.google.api.client.util.Data#NULL_BOOLEAN}, {@link Boolean#TRUE}
+       * or {@link Boolean#FALSE}.
+       * </p>
+       *
+       * <p>
+       * This method returns {@link Boolean#TRUE} if the default of the property is {@link Boolean#TRUE}
+       * and it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * {@link Boolean#FALSE} is returned if the default of the property is {@link Boolean#FALSE} and
+       * it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * </p>
+       *
+       * <p>
+       * Whether the request should enforce expansive access rules.
+       * </p>
+       */
+      public boolean isEnforceExpansiveAccess() {
+        if (enforceExpansiveAccess == null || enforceExpansiveAccess == com.google.api.client.util.Data.NULL_BOOLEAN) {
+          return false;
+        }
+        return enforceExpansiveAccess;
       }
 
       /** Whether the requesting application supports both My Drives and shared drives. */
@@ -10178,6 +10751,49 @@ public class Drive extends com.google.api.client.googleapis.services.json.Abstra
       public Update setPermissionId(java.lang.String permissionId) {
         this.permissionId = permissionId;
         return this;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      @com.google.api.client.util.Key
+      private java.lang.Boolean enforceExpansiveAccess;
+
+      /** Whether the request should enforce expansive access rules. [default: false]
+       */
+      public java.lang.Boolean getEnforceExpansiveAccess() {
+        return enforceExpansiveAccess;
+      }
+
+      /** Whether the request should enforce expansive access rules. */
+      public Update setEnforceExpansiveAccess(java.lang.Boolean enforceExpansiveAccess) {
+        this.enforceExpansiveAccess = enforceExpansiveAccess;
+        return this;
+      }
+
+      /**
+       * Convenience method that returns only {@link Boolean#TRUE} or {@link Boolean#FALSE}.
+       *
+       * <p>
+       * Boolean properties can have four possible values:
+       * {@code null}, {@link com.google.api.client.util.Data#NULL_BOOLEAN}, {@link Boolean#TRUE}
+       * or {@link Boolean#FALSE}.
+       * </p>
+       *
+       * <p>
+       * This method returns {@link Boolean#TRUE} if the default of the property is {@link Boolean#TRUE}
+       * and it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * {@link Boolean#FALSE} is returned if the default of the property is {@link Boolean#FALSE} and
+       * it is {@code null} or {@link com.google.api.client.util.Data#NULL_BOOLEAN}.
+       * </p>
+       *
+       * <p>
+       * Whether the request should enforce expansive access rules.
+       * </p>
+       */
+      public boolean isEnforceExpansiveAccess() {
+        if (enforceExpansiveAccess == null || enforceExpansiveAccess == com.google.api.client.util.Data.NULL_BOOLEAN) {
+          return false;
+        }
+        return enforceExpansiveAccess;
       }
 
       /** Whether to remove the expiration date. */

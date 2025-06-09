@@ -33,14 +33,14 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   /**
    * An [App Engine](https://cloud.google.com/appengine) [service
    * version](https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions).
+   * api/reference/rest/v1/apps.services.versions). Applicable only to source endpoint.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private AppEngineVersionEndpoint appEngineVersion;
 
   /**
-   * A [Cloud Function](https://cloud.google.com/functions).
+   * A [Cloud Function](https://cloud.google.com/functions). Applicable only to source endpoint.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -49,6 +49,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   /**
    * A [Cloud Run](https://cloud.google.com/run)
    * [revision](https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get)
+   * Applicable only to source endpoint.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -65,7 +66,8 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
    * A forwarding rule and its corresponding IP address represent the frontend configuration of a
    * Google Cloud load balancer. Forwarding rules are also used for protocol forwarding, Private
    * Service Connect and other network services to provide forwarding information in the control
-   * plane. Format: projects/{project}/global/forwardingRules/{id} or
+   * plane. Applicable only to destination endpoint. Format:
+   * projects/{project}/global/forwardingRules/{id} or
    * projects/{project}/regions/{region}/forwardingRules/{id}
    * The value may be {@code null}.
    */
@@ -80,8 +82,18 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   private java.lang.String forwardingRuleTarget;
 
   /**
-   * A cluster URI for [Google Kubernetes Engine master](https://cloud.google.com/kubernetes-
-   * engine/docs/concepts/cluster-architecture).
+   * DNS endpoint of [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). Requires
+   * gke_master_cluster to be set, can't be used simultaneoulsly with ip_address or network.
+   * Applicable only to destination endpoint.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String fqdn;
+
+  /**
+   * A cluster URI for [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -117,7 +129,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   private java.lang.String loadBalancerType;
 
   /**
-   * A Compute Engine network URI.
+   * A VPC network URI.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -139,10 +151,10 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   private java.lang.Integer port;
 
   /**
-   * Project ID where the endpoint is located. The Project ID can be derived from the URI if you
-   * provide a VM instance or network URI. The following are two cases where you must provide the
-   * project ID: 1. Only the IP address is specified, and the IP address is within a Google Cloud
-   * project. 2. When you are using Shared VPC and the IP address that you provide is from the
+   * Project ID where the endpoint is located. The project ID can be derived from the URI if you
+   * provide a endpoint or network URI. The following are two cases where you may need to provide
+   * the project ID: 1. Only the IP address is specified, and the IP address is within a Google
+   * Cloud project. 2. When you are using Shared VPC and the IP address that you provide is from the
    * service project. In this case, the network that the IP address resides in is defined in the
    * host project.
    * The value may be {@code null}.
@@ -151,9 +163,25 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   private java.lang.String projectId;
 
   /**
+   * A [Redis Cluster](https://cloud.google.com/memorystore/docs/cluster) URI. Applicable only to
+   * destination endpoint.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String redisCluster;
+
+  /**
+   * A [Redis Instance](https://cloud.google.com/memorystore/docs/redis) URI. Applicable only to
+   * destination endpoint.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String redisInstance;
+
+  /**
    * An [App Engine](https://cloud.google.com/appengine) [service
    * version](https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions).
+   * api/reference/rest/v1/apps.services.versions). Applicable only to source endpoint.
    * @return value or {@code null} for none
    */
   public AppEngineVersionEndpoint getAppEngineVersion() {
@@ -163,7 +191,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   /**
    * An [App Engine](https://cloud.google.com/appengine) [service
    * version](https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions).
+   * api/reference/rest/v1/apps.services.versions). Applicable only to source endpoint.
    * @param appEngineVersion appEngineVersion or {@code null} for none
    */
   public Endpoint setAppEngineVersion(AppEngineVersionEndpoint appEngineVersion) {
@@ -172,7 +200,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A [Cloud Function](https://cloud.google.com/functions).
+   * A [Cloud Function](https://cloud.google.com/functions). Applicable only to source endpoint.
    * @return value or {@code null} for none
    */
   public CloudFunctionEndpoint getCloudFunction() {
@@ -180,7 +208,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A [Cloud Function](https://cloud.google.com/functions).
+   * A [Cloud Function](https://cloud.google.com/functions). Applicable only to source endpoint.
    * @param cloudFunction cloudFunction or {@code null} for none
    */
   public Endpoint setCloudFunction(CloudFunctionEndpoint cloudFunction) {
@@ -191,6 +219,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   /**
    * A [Cloud Run](https://cloud.google.com/run)
    * [revision](https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get)
+   * Applicable only to source endpoint.
    * @return value or {@code null} for none
    */
   public CloudRunRevisionEndpoint getCloudRunRevision() {
@@ -200,6 +229,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   /**
    * A [Cloud Run](https://cloud.google.com/run)
    * [revision](https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get)
+   * Applicable only to source endpoint.
    * @param cloudRunRevision cloudRunRevision or {@code null} for none
    */
   public Endpoint setCloudRunRevision(CloudRunRevisionEndpoint cloudRunRevision) {
@@ -228,7 +258,8 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
    * A forwarding rule and its corresponding IP address represent the frontend configuration of a
    * Google Cloud load balancer. Forwarding rules are also used for protocol forwarding, Private
    * Service Connect and other network services to provide forwarding information in the control
-   * plane. Format: projects/{project}/global/forwardingRules/{id} or
+   * plane. Applicable only to destination endpoint. Format:
+   * projects/{project}/global/forwardingRules/{id} or
    * projects/{project}/regions/{region}/forwardingRules/{id}
    * @return value or {@code null} for none
    */
@@ -240,7 +271,8 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
    * A forwarding rule and its corresponding IP address represent the frontend configuration of a
    * Google Cloud load balancer. Forwarding rules are also used for protocol forwarding, Private
    * Service Connect and other network services to provide forwarding information in the control
-   * plane. Format: projects/{project}/global/forwardingRules/{id} or
+   * plane. Applicable only to destination endpoint. Format:
+   * projects/{project}/global/forwardingRules/{id} or
    * projects/{project}/regions/{region}/forwardingRules/{id}
    * @param forwardingRule forwardingRule or {@code null} for none
    */
@@ -267,8 +299,31 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A cluster URI for [Google Kubernetes Engine master](https://cloud.google.com/kubernetes-
-   * engine/docs/concepts/cluster-architecture).
+   * DNS endpoint of [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). Requires
+   * gke_master_cluster to be set, can't be used simultaneoulsly with ip_address or network.
+   * Applicable only to destination endpoint.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getFqdn() {
+    return fqdn;
+  }
+
+  /**
+   * DNS endpoint of [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). Requires
+   * gke_master_cluster to be set, can't be used simultaneoulsly with ip_address or network.
+   * Applicable only to destination endpoint.
+   * @param fqdn fqdn or {@code null} for none
+   */
+  public Endpoint setFqdn(java.lang.String fqdn) {
+    this.fqdn = fqdn;
+    return this;
+  }
+
+  /**
+   * A cluster URI for [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
    * @return value or {@code null} for none
    */
   public java.lang.String getGkeMasterCluster() {
@@ -276,8 +331,8 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A cluster URI for [Google Kubernetes Engine master](https://cloud.google.com/kubernetes-
-   * engine/docs/concepts/cluster-architecture).
+   * A cluster URI for [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
    * @param gkeMasterCluster gkeMasterCluster or {@code null} for none
    */
   public Endpoint setGkeMasterCluster(java.lang.String gkeMasterCluster) {
@@ -356,7 +411,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A Compute Engine network URI.
+   * A VPC network URI.
    * @return value or {@code null} for none
    */
   public java.lang.String getNetwork() {
@@ -364,7 +419,7 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A Compute Engine network URI.
+   * A VPC network URI.
    * @param network network or {@code null} for none
    */
   public Endpoint setNetwork(java.lang.String network) {
@@ -409,10 +464,10 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Project ID where the endpoint is located. The Project ID can be derived from the URI if you
-   * provide a VM instance or network URI. The following are two cases where you must provide the
-   * project ID: 1. Only the IP address is specified, and the IP address is within a Google Cloud
-   * project. 2. When you are using Shared VPC and the IP address that you provide is from the
+   * Project ID where the endpoint is located. The project ID can be derived from the URI if you
+   * provide a endpoint or network URI. The following are two cases where you may need to provide
+   * the project ID: 1. Only the IP address is specified, and the IP address is within a Google
+   * Cloud project. 2. When you are using Shared VPC and the IP address that you provide is from the
    * service project. In this case, the network that the IP address resides in is defined in the
    * host project.
    * @return value or {@code null} for none
@@ -422,16 +477,54 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Project ID where the endpoint is located. The Project ID can be derived from the URI if you
-   * provide a VM instance or network URI. The following are two cases where you must provide the
-   * project ID: 1. Only the IP address is specified, and the IP address is within a Google Cloud
-   * project. 2. When you are using Shared VPC and the IP address that you provide is from the
+   * Project ID where the endpoint is located. The project ID can be derived from the URI if you
+   * provide a endpoint or network URI. The following are two cases where you may need to provide
+   * the project ID: 1. Only the IP address is specified, and the IP address is within a Google
+   * Cloud project. 2. When you are using Shared VPC and the IP address that you provide is from the
    * service project. In this case, the network that the IP address resides in is defined in the
    * host project.
    * @param projectId projectId or {@code null} for none
    */
   public Endpoint setProjectId(java.lang.String projectId) {
     this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * A [Redis Cluster](https://cloud.google.com/memorystore/docs/cluster) URI. Applicable only to
+   * destination endpoint.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getRedisCluster() {
+    return redisCluster;
+  }
+
+  /**
+   * A [Redis Cluster](https://cloud.google.com/memorystore/docs/cluster) URI. Applicable only to
+   * destination endpoint.
+   * @param redisCluster redisCluster or {@code null} for none
+   */
+  public Endpoint setRedisCluster(java.lang.String redisCluster) {
+    this.redisCluster = redisCluster;
+    return this;
+  }
+
+  /**
+   * A [Redis Instance](https://cloud.google.com/memorystore/docs/redis) URI. Applicable only to
+   * destination endpoint.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getRedisInstance() {
+    return redisInstance;
+  }
+
+  /**
+   * A [Redis Instance](https://cloud.google.com/memorystore/docs/redis) URI. Applicable only to
+   * destination endpoint.
+   * @param redisInstance redisInstance or {@code null} for none
+   */
+  public Endpoint setRedisInstance(java.lang.String redisInstance) {
+    this.redisInstance = redisInstance;
     return this;
   }
 

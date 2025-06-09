@@ -25,7 +25,7 @@ package com.google.api.services.vault.v1;
  *
  * <p>
  * For more information about this service, see the
- * <a href="https://developers.google.com/vault" target="_blank">API Documentation</a>
+ * <a href="https://developers.google.com/workspace/vault" target="_blank">API Documentation</a>
  * </p>
  *
  * <p>
@@ -4199,7 +4199,7 @@ public class Vault extends com.google.api.client.googleapis.services.json.Abstra
      * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
      * methods to check whether the cancellation succeeded or whether the operation completed despite
      * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-     * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+     * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
      * `Code.CANCELLED`.
      *
      * Create a request for the method "operations.cancel".
@@ -4230,7 +4230,7 @@ public class Vault extends com.google.api.client.googleapis.services.json.Abstra
        * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
        * methods to check whether the cancellation succeeded or whether the operation completed despite
        * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-       * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+       * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
        * `Code.CANCELLED`.
        *
        * Create a request for the method "operations.cancel".

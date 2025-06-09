@@ -30,11 +30,30 @@ package com.google.api.services.aiplatform.v1beta1.model;
 public final class GoogleCloudAiplatformV1beta1Fact extends com.google.api.client.json.GenericJson {
 
   /**
+   * If present, chunk properties.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RagChunk chunk;
+
+  /**
    * Query that is used to retrieve this fact.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String query;
+
+  /**
+   * If present, according to the underlying Vector DB and the selected metric type, the score can
+   * be either the distance or the similarity between the query and the fact and its range depends
+   * on the metric type. For example, if the metric type is COSINE_DISTANCE, it represents the
+   * distance between the query and the fact. The larger the distance, the less relevant the fact is
+   * to the query. The range is [0, 2], while 0 means the most relevant and 2 means the least
+   * relevant.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Double score;
 
   /**
    * If present, the summary/snippet of the fact.
@@ -65,6 +84,23 @@ public final class GoogleCloudAiplatformV1beta1Fact extends com.google.api.clien
   private java.lang.Double vectorDistance;
 
   /**
+   * If present, chunk properties.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagChunk getChunk() {
+    return chunk;
+  }
+
+  /**
+   * If present, chunk properties.
+   * @param chunk chunk or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Fact setChunk(GoogleCloudAiplatformV1beta1RagChunk chunk) {
+    this.chunk = chunk;
+    return this;
+  }
+
+  /**
    * Query that is used to retrieve this fact.
    * @return value or {@code null} for none
    */
@@ -78,6 +114,33 @@ public final class GoogleCloudAiplatformV1beta1Fact extends com.google.api.clien
    */
   public GoogleCloudAiplatformV1beta1Fact setQuery(java.lang.String query) {
     this.query = query;
+    return this;
+  }
+
+  /**
+   * If present, according to the underlying Vector DB and the selected metric type, the score can
+   * be either the distance or the similarity between the query and the fact and its range depends
+   * on the metric type. For example, if the metric type is COSINE_DISTANCE, it represents the
+   * distance between the query and the fact. The larger the distance, the less relevant the fact is
+   * to the query. The range is [0, 2], while 0 means the most relevant and 2 means the least
+   * relevant.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Double getScore() {
+    return score;
+  }
+
+  /**
+   * If present, according to the underlying Vector DB and the selected metric type, the score can
+   * be either the distance or the similarity between the query and the fact and its range depends
+   * on the metric type. For example, if the metric type is COSINE_DISTANCE, it represents the
+   * distance between the query and the fact. The larger the distance, the less relevant the fact is
+   * to the query. The range is [0, 2], while 0 means the most relevant and 2 means the least
+   * relevant.
+   * @param score score or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Fact setScore(java.lang.Double score) {
+    this.score = score;
     return this;
   }
 

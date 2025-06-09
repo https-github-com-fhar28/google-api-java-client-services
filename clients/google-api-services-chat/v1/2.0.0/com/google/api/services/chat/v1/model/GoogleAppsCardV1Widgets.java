@@ -17,7 +17,7 @@
 package com.google.api.services.chat.v1.model;
 
 /**
- * The supported widgets that you can include in a column. [Google Workspace Add-ons and Chat
+ * The supported widgets that you can include in a column. [Google Workspace add-ons and Chat
  * apps](https://developers.google.com/workspace/extend)
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
@@ -36,6 +36,13 @@ public final class GoogleAppsCardV1Widgets extends com.google.api.client.json.Ge
    */
   @com.google.api.client.util.Key
   private GoogleAppsCardV1ButtonList buttonList;
+
+  /**
+   * ChipList widget.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleAppsCardV1ChipList chipList;
 
   /**
    * DateTimePicker widget.
@@ -93,6 +100,23 @@ public final class GoogleAppsCardV1Widgets extends com.google.api.client.json.Ge
    */
   public GoogleAppsCardV1Widgets setButtonList(GoogleAppsCardV1ButtonList buttonList) {
     this.buttonList = buttonList;
+    return this;
+  }
+
+  /**
+   * ChipList widget.
+   * @return value or {@code null} for none
+   */
+  public GoogleAppsCardV1ChipList getChipList() {
+    return chipList;
+  }
+
+  /**
+   * ChipList widget.
+   * @param chipList chipList or {@code null} for none
+   */
+  public GoogleAppsCardV1Widgets setChipList(GoogleAppsCardV1ChipList chipList) {
+    this.chipList = chipList;
     return this;
   }
 

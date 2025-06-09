@@ -18,7 +18,7 @@ package com.google.api.services.compute.model;
 
 /**
  * Represents a Persistent Disk Snapshot resource. You can use snapshots to back up data on a
- * regular interval. For more information, read Creating persistent disk snapshots.
+ * regular interval. For more information, read Creating persistent disk snapshots. LINT.IfChange
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Compute Engine API. For a detailed explanation see:
@@ -254,6 +254,20 @@ public final class Snapshot extends com.google.api.client.json.GenericJson {
   private CustomerEncryptionKey snapshotEncryptionKey;
 
   /**
+   * [Output Only] The unique ID of the snapshot group that this snapshot belongs to.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String snapshotGroupId;
+
+  /**
+   * [Output only] The snapshot group that this snapshot belongs to.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String snapshotGroupName;
+
+  /**
    * Indicates the type of the snapshot.
    * The value may be {@code null}.
    */
@@ -312,10 +326,10 @@ public final class Snapshot extends com.google.api.client.json.GenericJson {
 
   /**
    * [Output Only] The unique ID of the instant snapshot used to create this snapshot. This value
-   * identifies the exact instant snapshot that was used to create this persistent disk. For
-   * example, if you created the persistent disk from an instant snapshot that was later deleted and
-   * recreated under the same name, the source instant snapshot ID would identify the exact instant
-   * snapshot that was used.
+   * identifies the exact instant snapshot that was used to create this snapshot. For example, if
+   * you created the snapshot from an instant snapshot that was later deleted and recreated under
+   * the same name, the source instant snapshot ID would identify the exact instant snapshot that
+   * was used.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -930,6 +944,40 @@ public final class Snapshot extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * [Output Only] The unique ID of the snapshot group that this snapshot belongs to.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSnapshotGroupId() {
+    return snapshotGroupId;
+  }
+
+  /**
+   * [Output Only] The unique ID of the snapshot group that this snapshot belongs to.
+   * @param snapshotGroupId snapshotGroupId or {@code null} for none
+   */
+  public Snapshot setSnapshotGroupId(java.lang.String snapshotGroupId) {
+    this.snapshotGroupId = snapshotGroupId;
+    return this;
+  }
+
+  /**
+   * [Output only] The snapshot group that this snapshot belongs to.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSnapshotGroupName() {
+    return snapshotGroupName;
+  }
+
+  /**
+   * [Output only] The snapshot group that this snapshot belongs to.
+   * @param snapshotGroupName snapshotGroupName or {@code null} for none
+   */
+  public Snapshot setSnapshotGroupName(java.lang.String snapshotGroupName) {
+    this.snapshotGroupName = snapshotGroupName;
+    return this;
+  }
+
+  /**
    * Indicates the type of the snapshot.
    * @return value or {@code null} for none
    */
@@ -1066,10 +1114,10 @@ public final class Snapshot extends com.google.api.client.json.GenericJson {
 
   /**
    * [Output Only] The unique ID of the instant snapshot used to create this snapshot. This value
-   * identifies the exact instant snapshot that was used to create this persistent disk. For
-   * example, if you created the persistent disk from an instant snapshot that was later deleted and
-   * recreated under the same name, the source instant snapshot ID would identify the exact instant
-   * snapshot that was used.
+   * identifies the exact instant snapshot that was used to create this snapshot. For example, if
+   * you created the snapshot from an instant snapshot that was later deleted and recreated under
+   * the same name, the source instant snapshot ID would identify the exact instant snapshot that
+   * was used.
    * @return value or {@code null} for none
    */
   public java.lang.String getSourceInstantSnapshotId() {
@@ -1078,10 +1126,10 @@ public final class Snapshot extends com.google.api.client.json.GenericJson {
 
   /**
    * [Output Only] The unique ID of the instant snapshot used to create this snapshot. This value
-   * identifies the exact instant snapshot that was used to create this persistent disk. For
-   * example, if you created the persistent disk from an instant snapshot that was later deleted and
-   * recreated under the same name, the source instant snapshot ID would identify the exact instant
-   * snapshot that was used.
+   * identifies the exact instant snapshot that was used to create this snapshot. For example, if
+   * you created the snapshot from an instant snapshot that was later deleted and recreated under
+   * the same name, the source instant snapshot ID would identify the exact instant snapshot that
+   * was used.
    * @param sourceInstantSnapshotId sourceInstantSnapshotId or {@code null} for none
    */
   public Snapshot setSourceInstantSnapshotId(java.lang.String sourceInstantSnapshotId) {

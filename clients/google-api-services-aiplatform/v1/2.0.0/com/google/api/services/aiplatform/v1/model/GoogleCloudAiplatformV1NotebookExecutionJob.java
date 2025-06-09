@@ -37,6 +37,13 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
   private String createTime;
 
   /**
+   * The custom compute configuration for an execution job.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1NotebookExecutionJobCustomEnvironmentSpec customEnvironmentSpec;
+
+  /**
    * The Dataform Repository pointing to a single file notebook repository.
    * The value may be {@code null}.
    */
@@ -60,7 +67,7 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
 
   /**
    * Customer-managed encryption key spec for the notebook execution job. This field is auto-
-   * populated if the NotebookService.NotebookRuntimeTemplate has an encryption spec.
+   * populated if the NotebookRuntimeTemplate has an encryption spec.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -102,6 +109,13 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
   private java.lang.String jobState;
 
   /**
+   * The name of the kernel to use during notebook execution. If unset, the default kernel is used.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String kernelName;
+
+  /**
    * The labels with user-defined metadata to organize NotebookExecutionJobs. Label keys and values
    * can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters,
    * numeric characters, underscores and dashes. International characters are allowed. See
@@ -128,7 +142,7 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
   private java.lang.String notebookRuntimeTemplateResourceName;
 
   /**
-   * Output only. The Schedule resource name if this job is triggered by one. Format:
+   * The Schedule resource name if this job is triggered by one. Format:
    * `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
    * The value may be {@code null}.
    */
@@ -158,6 +172,13 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
   private String updateTime;
 
   /**
+   * The Workbench runtime configuration to use for the notebook execution.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1NotebookExecutionJobWorkbenchRuntime workbenchRuntime;
+
+  /**
    * Output only. Timestamp when this NotebookExecutionJob was created.
    * @return value or {@code null} for none
    */
@@ -171,6 +192,23 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
    */
   public GoogleCloudAiplatformV1NotebookExecutionJob setCreateTime(String createTime) {
     this.createTime = createTime;
+    return this;
+  }
+
+  /**
+   * The custom compute configuration for an execution job.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookExecutionJobCustomEnvironmentSpec getCustomEnvironmentSpec() {
+    return customEnvironmentSpec;
+  }
+
+  /**
+   * The custom compute configuration for an execution job.
+   * @param customEnvironmentSpec customEnvironmentSpec or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookExecutionJob setCustomEnvironmentSpec(GoogleCloudAiplatformV1NotebookExecutionJobCustomEnvironmentSpec customEnvironmentSpec) {
+    this.customEnvironmentSpec = customEnvironmentSpec;
     return this;
   }
 
@@ -229,7 +267,7 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
 
   /**
    * Customer-managed encryption key spec for the notebook execution job. This field is auto-
-   * populated if the NotebookService.NotebookRuntimeTemplate has an encryption spec.
+   * populated if the NotebookRuntimeTemplate has an encryption spec.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1EncryptionSpec getEncryptionSpec() {
@@ -238,7 +276,7 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
 
   /**
    * Customer-managed encryption key spec for the notebook execution job. This field is auto-
-   * populated if the NotebookService.NotebookRuntimeTemplate has an encryption spec.
+   * populated if the NotebookRuntimeTemplate has an encryption spec.
    * @param encryptionSpec encryptionSpec or {@code null} for none
    */
   public GoogleCloudAiplatformV1NotebookExecutionJob setEncryptionSpec(GoogleCloudAiplatformV1EncryptionSpec encryptionSpec) {
@@ -332,6 +370,23 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
   }
 
   /**
+   * The name of the kernel to use during notebook execution. If unset, the default kernel is used.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getKernelName() {
+    return kernelName;
+  }
+
+  /**
+   * The name of the kernel to use during notebook execution. If unset, the default kernel is used.
+   * @param kernelName kernelName or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookExecutionJob setKernelName(java.lang.String kernelName) {
+    this.kernelName = kernelName;
+    return this;
+  }
+
+  /**
    * The labels with user-defined metadata to organize NotebookExecutionJobs. Label keys and values
    * can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters,
    * numeric characters, underscores and dashes. International characters are allowed. See
@@ -393,7 +448,7 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
   }
 
   /**
-   * Output only. The Schedule resource name if this job is triggered by one. Format:
+   * The Schedule resource name if this job is triggered by one. Format:
    * `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
    * @return value or {@code null} for none
    */
@@ -402,7 +457,7 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
   }
 
   /**
-   * Output only. The Schedule resource name if this job is triggered by one. Format:
+   * The Schedule resource name if this job is triggered by one. Format:
    * `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
    * @param scheduleResourceName scheduleResourceName or {@code null} for none
    */
@@ -461,6 +516,23 @@ public final class GoogleCloudAiplatformV1NotebookExecutionJob extends com.googl
    */
   public GoogleCloudAiplatformV1NotebookExecutionJob setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
+    return this;
+  }
+
+  /**
+   * The Workbench runtime configuration to use for the notebook execution.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookExecutionJobWorkbenchRuntime getWorkbenchRuntime() {
+    return workbenchRuntime;
+  }
+
+  /**
+   * The Workbench runtime configuration to use for the notebook execution.
+   * @param workbenchRuntime workbenchRuntime or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1NotebookExecutionJob setWorkbenchRuntime(GoogleCloudAiplatformV1NotebookExecutionJobWorkbenchRuntime workbenchRuntime) {
+    this.workbenchRuntime = workbenchRuntime;
     return this;
   }
 

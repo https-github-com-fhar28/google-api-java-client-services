@@ -17,7 +17,7 @@
 package com.google.api.services.aiplatform.v1beta1.model;
 
 /**
- * Content blob. It's preferred to send as text directly rather than raw bytes.
+ * Content blob.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Vertex AI API. For a detailed explanation see:
@@ -35,6 +35,15 @@ public final class GoogleCloudAiplatformV1beta1Blob extends com.google.api.clien
    */
   @com.google.api.client.util.Key
   private java.lang.String data;
+
+  /**
+   * Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs.
+   * This field is only returned in PromptMessage for prompt management. It is not currently used in
+   * the Gemini GenerateContent calls.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String displayName;
 
   /**
    * Required. The IANA standard MIME type of the source data.
@@ -85,6 +94,27 @@ public final class GoogleCloudAiplatformV1beta1Blob extends com.google.api.clien
    */
   public GoogleCloudAiplatformV1beta1Blob encodeData(byte[] data) {
     this.data = com.google.api.client.util.Base64.encodeBase64URLSafeString(data);
+    return this;
+  }
+
+  /**
+   * Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs.
+   * This field is only returned in PromptMessage for prompt management. It is not currently used in
+   * the Gemini GenerateContent calls.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDisplayName() {
+    return displayName;
+  }
+
+  /**
+   * Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs.
+   * This field is only returned in PromptMessage for prompt management. It is not currently used in
+   * the Gemini GenerateContent calls.
+   * @param displayName displayName or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Blob setDisplayName(java.lang.String displayName) {
+    this.displayName = displayName;
     return this;
   }
 

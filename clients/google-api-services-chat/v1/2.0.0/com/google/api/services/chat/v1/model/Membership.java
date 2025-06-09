@@ -49,16 +49,18 @@ public final class Membership extends com.google.api.client.json.GenericJson {
   private String deleteTime;
 
   /**
-   * The Google Group the membership corresponds to.
+   * Optional. The Google Group the membership corresponds to. Reading or mutating memberships for
+   * Google Groups requires [user
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Group groupMember;
 
   /**
-   * The Google Chat user or app the membership corresponds to. If your Chat app [authenticates as a
-   * user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user), the
-   * output populates the
+   * Optional. The Google Chat user or app the membership corresponds to. If your Chat app
+   * [authenticates as a user](https://developers.google.com/workspace/chat/authenticate-authorize-
+   * chat-user), the output populates the
    * [user](https://developers.google.com/workspace/chat/api/reference/rest/v1/User) `name` and
    * `type`.
    * The value may be {@code null}.
@@ -67,7 +69,7 @@ public final class Membership extends com.google.api.client.json.GenericJson {
   private User member;
 
   /**
-   * Resource name of the membership, assigned by the server. Format:
+   * Identifier. Resource name of the membership, assigned by the server. Format:
    * `spaces/{space}/members/{member}`
    * The value may be {@code null}.
    */
@@ -132,7 +134,9 @@ public final class Membership extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The Google Group the membership corresponds to.
+   * Optional. The Google Group the membership corresponds to. Reading or mutating memberships for
+   * Google Groups requires [user
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
    * @return value or {@code null} for none
    */
   public Group getGroupMember() {
@@ -140,7 +144,9 @@ public final class Membership extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The Google Group the membership corresponds to.
+   * Optional. The Google Group the membership corresponds to. Reading or mutating memberships for
+   * Google Groups requires [user
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
    * @param groupMember groupMember or {@code null} for none
    */
   public Membership setGroupMember(Group groupMember) {
@@ -149,9 +155,9 @@ public final class Membership extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The Google Chat user or app the membership corresponds to. If your Chat app [authenticates as a
-   * user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user), the
-   * output populates the
+   * Optional. The Google Chat user or app the membership corresponds to. If your Chat app
+   * [authenticates as a user](https://developers.google.com/workspace/chat/authenticate-authorize-
+   * chat-user), the output populates the
    * [user](https://developers.google.com/workspace/chat/api/reference/rest/v1/User) `name` and
    * `type`.
    * @return value or {@code null} for none
@@ -161,9 +167,9 @@ public final class Membership extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The Google Chat user or app the membership corresponds to. If your Chat app [authenticates as a
-   * user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user), the
-   * output populates the
+   * Optional. The Google Chat user or app the membership corresponds to. If your Chat app
+   * [authenticates as a user](https://developers.google.com/workspace/chat/authenticate-authorize-
+   * chat-user), the output populates the
    * [user](https://developers.google.com/workspace/chat/api/reference/rest/v1/User) `name` and
    * `type`.
    * @param member member or {@code null} for none
@@ -174,7 +180,7 @@ public final class Membership extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Resource name of the membership, assigned by the server. Format:
+   * Identifier. Resource name of the membership, assigned by the server. Format:
    * `spaces/{space}/members/{member}`
    * @return value or {@code null} for none
    */
@@ -183,7 +189,7 @@ public final class Membership extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Resource name of the membership, assigned by the server. Format:
+   * Identifier. Resource name of the membership, assigned by the server. Format:
    * `spaces/{space}/members/{member}`
    * @param name name or {@code null} for none
    */

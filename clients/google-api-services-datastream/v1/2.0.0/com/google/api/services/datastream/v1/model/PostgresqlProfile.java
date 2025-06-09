@@ -44,7 +44,8 @@ public final class PostgresqlProfile extends com.google.api.client.json.GenericJ
   private java.lang.String hostname;
 
   /**
-   * Required. Password for the PostgreSQL connection.
+   * Optional. Password for the PostgreSQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -56,6 +57,23 @@ public final class PostgresqlProfile extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key
   private java.lang.Integer port;
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the PostgreSQL connection
+   * password. Mutually exclusive with the `password` field.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String secretManagerStoredPassword;
+
+  /**
+   * Optional. SSL configuration for the PostgreSQL connection. In case PostgresqlSslConfig is not
+   * set, the connection will use the default SSL mode, which is `prefer` (i.e. this mode will only
+   * use encryption if enabled from database side, otherwise will use unencrypted communication)
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private PostgresqlSslConfig sslConfig;
 
   /**
    * Required. Username for the PostgreSQL connection.
@@ -99,7 +117,8 @@ public final class PostgresqlProfile extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Required. Password for the PostgreSQL connection.
+   * Optional. Password for the PostgreSQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * @return value or {@code null} for none
    */
   public java.lang.String getPassword() {
@@ -107,7 +126,8 @@ public final class PostgresqlProfile extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Required. Password for the PostgreSQL connection.
+   * Optional. Password for the PostgreSQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * @param password password or {@code null} for none
    */
   public PostgresqlProfile setPassword(java.lang.String password) {
@@ -129,6 +149,46 @@ public final class PostgresqlProfile extends com.google.api.client.json.GenericJ
    */
   public PostgresqlProfile setPort(java.lang.Integer port) {
     this.port = port;
+    return this;
+  }
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the PostgreSQL connection
+   * password. Mutually exclusive with the `password` field.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSecretManagerStoredPassword() {
+    return secretManagerStoredPassword;
+  }
+
+  /**
+   * Optional. A reference to a Secret Manager resource name storing the PostgreSQL connection
+   * password. Mutually exclusive with the `password` field.
+   * @param secretManagerStoredPassword secretManagerStoredPassword or {@code null} for none
+   */
+  public PostgresqlProfile setSecretManagerStoredPassword(java.lang.String secretManagerStoredPassword) {
+    this.secretManagerStoredPassword = secretManagerStoredPassword;
+    return this;
+  }
+
+  /**
+   * Optional. SSL configuration for the PostgreSQL connection. In case PostgresqlSslConfig is not
+   * set, the connection will use the default SSL mode, which is `prefer` (i.e. this mode will only
+   * use encryption if enabled from database side, otherwise will use unencrypted communication)
+   * @return value or {@code null} for none
+   */
+  public PostgresqlSslConfig getSslConfig() {
+    return sslConfig;
+  }
+
+  /**
+   * Optional. SSL configuration for the PostgreSQL connection. In case PostgresqlSslConfig is not
+   * set, the connection will use the default SSL mode, which is `prefer` (i.e. this mode will only
+   * use encryption if enabled from database side, otherwise will use unencrypted communication)
+   * @param sslConfig sslConfig or {@code null} for none
+   */
+  public PostgresqlProfile setSslConfig(PostgresqlSslConfig sslConfig) {
+    this.sslConfig = sslConfig;
     return this;
   }
 

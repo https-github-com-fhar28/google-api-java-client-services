@@ -31,21 +31,21 @@ package com.google.api.services.verifiedaccess.v2.model;
 public final class CrowdStrikeAgent extends com.google.api.client.json.GenericJson {
 
   /**
-   * The Agent ID of the Crowdstrike agent.
+   * Output only. The Agent ID of the Crowdstrike agent.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String agentId;
 
   /**
-   * The Customer ID to which the agent belongs to.
+   * Output only. The Customer ID to which the agent belongs to.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String customerId;
 
   /**
-   * The Agent ID of the Crowdstrike agent.
+   * Output only. The Agent ID of the Crowdstrike agent.
    * @return value or {@code null} for none
    */
   public java.lang.String getAgentId() {
@@ -53,7 +53,7 @@ public final class CrowdStrikeAgent extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * The Agent ID of the Crowdstrike agent.
+   * Output only. The Agent ID of the Crowdstrike agent.
    * @param agentId agentId or {@code null} for none
    */
   public CrowdStrikeAgent setAgentId(java.lang.String agentId) {
@@ -62,7 +62,7 @@ public final class CrowdStrikeAgent extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * The Customer ID to which the agent belongs to.
+   * Output only. The Customer ID to which the agent belongs to.
    * @return value or {@code null} for none
    */
   public java.lang.String getCustomerId() {
@@ -70,7 +70,7 @@ public final class CrowdStrikeAgent extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * The Customer ID to which the agent belongs to.
+   * Output only. The Customer ID to which the agent belongs to.
    * @param customerId customerId or {@code null} for none
    */
   public CrowdStrikeAgent setCustomerId(java.lang.String customerId) {

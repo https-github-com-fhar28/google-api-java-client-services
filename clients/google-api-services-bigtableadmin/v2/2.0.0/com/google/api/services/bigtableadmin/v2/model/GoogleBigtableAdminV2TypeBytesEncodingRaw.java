@@ -17,7 +17,8 @@
 package com.google.api.services.bigtableadmin.v2.model;
 
 /**
- * Leaves the value "as-is" * Order-preserving? Yes * Self-delimiting? No * Compatibility? N/A
+ * Leaves the value as-is. Sorted mode: all values are supported. Distinct mode: all values are
+ * supported.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Cloud Bigtable Admin API. For a detailed explanation
@@ -29,6 +30,33 @@ package com.google.api.services.bigtableadmin.v2.model;
  */
 @SuppressWarnings("javadoc")
 public final class GoogleBigtableAdminV2TypeBytesEncodingRaw extends com.google.api.client.json.GenericJson {
+
+  /**
+   * If set, allows NULL values to be encoded as the empty string "". The actual empty string, or
+   * any value which only contains the null byte 0x00, has one more null byte appended.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean escapeNulls;
+
+  /**
+   * If set, allows NULL values to be encoded as the empty string "". The actual empty string, or
+   * any value which only contains the null byte 0x00, has one more null byte appended.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEscapeNulls() {
+    return escapeNulls;
+  }
+
+  /**
+   * If set, allows NULL values to be encoded as the empty string "". The actual empty string, or
+   * any value which only contains the null byte 0x00, has one more null byte appended.
+   * @param escapeNulls escapeNulls or {@code null} for none
+   */
+  public GoogleBigtableAdminV2TypeBytesEncodingRaw setEscapeNulls(java.lang.Boolean escapeNulls) {
+    this.escapeNulls = escapeNulls;
+    return this;
+  }
 
   @Override
   public GoogleBigtableAdminV2TypeBytesEncodingRaw set(String fieldName, Object value) {

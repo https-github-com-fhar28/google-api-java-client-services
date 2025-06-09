@@ -17,8 +17,7 @@
 package com.google.api.services.spanner.v1.model;
 
 /**
- * BackupSchedule expresses the automated backup creation specification for a Spanner database. Next
- * ID: 10
+ * BackupSchedule expresses the automated backup creation specification for a Spanner database.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Cloud Spanner API. For a detailed explanation see:
@@ -31,8 +30,8 @@ package com.google.api.services.spanner.v1.model;
 public final class BackupSchedule extends com.google.api.client.json.GenericJson {
 
   /**
-   * Optional. The encryption configuration that will be used to encrypt the backup. If this field
-   * is not specified, the backup will use the same encryption configuration as the database.
+   * Optional. The encryption configuration that is used to encrypt the backup. If this field is not
+   * specified, the backup uses the same encryption configuration as the database.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -87,8 +86,8 @@ public final class BackupSchedule extends com.google.api.client.json.GenericJson
   private String updateTime;
 
   /**
-   * Optional. The encryption configuration that will be used to encrypt the backup. If this field
-   * is not specified, the backup will use the same encryption configuration as the database.
+   * Optional. The encryption configuration that is used to encrypt the backup. If this field is not
+   * specified, the backup uses the same encryption configuration as the database.
    * @return value or {@code null} for none
    */
   public CreateBackupEncryptionConfig getEncryptionConfig() {
@@ -96,8 +95,8 @@ public final class BackupSchedule extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Optional. The encryption configuration that will be used to encrypt the backup. If this field
-   * is not specified, the backup will use the same encryption configuration as the database.
+   * Optional. The encryption configuration that is used to encrypt the backup. If this field is not
+   * specified, the backup uses the same encryption configuration as the database.
    * @param encryptionConfig encryptionConfig or {@code null} for none
    */
   public BackupSchedule setEncryptionConfig(CreateBackupEncryptionConfig encryptionConfig) {

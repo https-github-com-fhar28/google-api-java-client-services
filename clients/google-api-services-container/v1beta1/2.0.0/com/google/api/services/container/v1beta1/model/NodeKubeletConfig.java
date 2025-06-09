@@ -31,6 +31,40 @@ package com.google.api.services.container.v1beta1.model;
 public final class NodeKubeletConfig extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. Defines a comma-separated allowlist of unsafe sysctls or sysctl patterns (ending in
+   * `*`). The unsafe namespaced sysctl groups are `kernel.shm*`, `kernel.msg*`, `kernel.sem`,
+   * `fs.mqueue.*`, and `net.*`. Leaving this allowlist empty means they cannot be set on Pods. To
+   * allow certain sysctls or sysctl patterns to be set on Pods, list them separated by commas. For
+   * example: `kernel.msg*,net.ipv4.route.min_pmtu`. See
+   * https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/ for more details.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> allowedUnsafeSysctls;
+
+  /**
+   * Optional. Defines the maximum number of container log files that can be present for a
+   * container. See https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation
+   * The value must be an integer between 2 and 10, inclusive. The default value is 5 if
+   * unspecified.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer containerLogMaxFiles;
+
+  /**
+   * Optional. Defines the maximum size of the container log file before it is rotated. See
+   * https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation Valid format
+   * is positive number + unit, e.g. 100Ki, 10Mi. Valid units are Ki, Mi, Gi. The value must be
+   * between 10Mi and 500Mi, inclusive. Note that the total container log size
+   * (container_log_max_size * container_log_max_files) cannot exceed 1% of the total storage of the
+   * node, to avoid disk pressure caused by log files. The default value is 10Mi if unspecified.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String containerLogMaxSize;
+
+  /**
    * Enable CPU CFS quota enforcement for containers that specify CPU limits. This option is enabled
    * by default which makes kubelet use CFS quota
    * (https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt) to enforce container CPU
@@ -63,11 +97,62 @@ public final class NodeKubeletConfig extends com.google.api.client.json.GenericJ
   private java.lang.String cpuManagerPolicy;
 
   /**
+   * Optional. Defines the percent of disk usage after which image garbage collection is always run.
+   * The percent is calculated as this field value out of 100. The value must be between 10 and 85,
+   * inclusive and greater than image_gc_low_threshold_percent. The default value is 85 if
+   * unspecified.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer imageGcHighThresholdPercent;
+
+  /**
+   * Optional. Defines the percent of disk usage before which image garbage collection is never run.
+   * Lowest disk usage to garbage collect to. The percent is calculated as this field value out of
+   * 100. The value must be between 10 and 85, inclusive and smaller than
+   * image_gc_high_threshold_percent. The default value is 80 if unspecified.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer imageGcLowThresholdPercent;
+
+  /**
+   * Optional. Defines the maximum age an image can be unused before it is garbage collected. The
+   * string must be a sequence of decimal numbers, each with optional fraction and a unit suffix,
+   * such as "300s", "1.5h", and "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
+   * "h". The value must be a positive duration greater than image_minimum_gc_age or "0s". The
+   * default value is "0s" if unspecified, which disables this field, meaning images won't be
+   * garbage collected based on being unused for too long.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String imageMaximumGcAge;
+
+  /**
+   * Optional. Defines the minimum age for an unused image before it is garbage collected. The
+   * string must be a sequence of decimal numbers, each with optional fraction and a unit suffix,
+   * such as "300s", "1.5h", and "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
+   * "h". The value must be a positive duration less than or equal to 2 minutes. The default value
+   * is "2m0s" if unspecified.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String imageMinimumGcAge;
+
+  /**
    * Enable or disable Kubelet read only port.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean insecureKubeletReadonlyPortEnabled;
+
+  /**
+   * Optional. Controls NUMA-aware Memory Manager configuration on the node. For more information,
+   * see: https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MemoryManager memoryManager;
 
   /**
    * Set the Pod PID limits. See https://kubernetes.io/docs/concepts/policy/pid-limiting/#pod-pid-
@@ -77,6 +162,91 @@ public final class NodeKubeletConfig extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.lang.Long podPidsLimit;
+
+  /**
+   * Optional. Controls Topology Manager configuration on the node. For more information, see:
+   * https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private TopologyManager topologyManager;
+
+  /**
+   * Optional. Defines a comma-separated allowlist of unsafe sysctls or sysctl patterns (ending in
+   * `*`). The unsafe namespaced sysctl groups are `kernel.shm*`, `kernel.msg*`, `kernel.sem`,
+   * `fs.mqueue.*`, and `net.*`. Leaving this allowlist empty means they cannot be set on Pods. To
+   * allow certain sysctls or sysctl patterns to be set on Pods, list them separated by commas. For
+   * example: `kernel.msg*,net.ipv4.route.min_pmtu`. See
+   * https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/ for more details.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getAllowedUnsafeSysctls() {
+    return allowedUnsafeSysctls;
+  }
+
+  /**
+   * Optional. Defines a comma-separated allowlist of unsafe sysctls or sysctl patterns (ending in
+   * `*`). The unsafe namespaced sysctl groups are `kernel.shm*`, `kernel.msg*`, `kernel.sem`,
+   * `fs.mqueue.*`, and `net.*`. Leaving this allowlist empty means they cannot be set on Pods. To
+   * allow certain sysctls or sysctl patterns to be set on Pods, list them separated by commas. For
+   * example: `kernel.msg*,net.ipv4.route.min_pmtu`. See
+   * https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/ for more details.
+   * @param allowedUnsafeSysctls allowedUnsafeSysctls or {@code null} for none
+   */
+  public NodeKubeletConfig setAllowedUnsafeSysctls(java.util.List<java.lang.String> allowedUnsafeSysctls) {
+    this.allowedUnsafeSysctls = allowedUnsafeSysctls;
+    return this;
+  }
+
+  /**
+   * Optional. Defines the maximum number of container log files that can be present for a
+   * container. See https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation
+   * The value must be an integer between 2 and 10, inclusive. The default value is 5 if
+   * unspecified.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getContainerLogMaxFiles() {
+    return containerLogMaxFiles;
+  }
+
+  /**
+   * Optional. Defines the maximum number of container log files that can be present for a
+   * container. See https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation
+   * The value must be an integer between 2 and 10, inclusive. The default value is 5 if
+   * unspecified.
+   * @param containerLogMaxFiles containerLogMaxFiles or {@code null} for none
+   */
+  public NodeKubeletConfig setContainerLogMaxFiles(java.lang.Integer containerLogMaxFiles) {
+    this.containerLogMaxFiles = containerLogMaxFiles;
+    return this;
+  }
+
+  /**
+   * Optional. Defines the maximum size of the container log file before it is rotated. See
+   * https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation Valid format
+   * is positive number + unit, e.g. 100Ki, 10Mi. Valid units are Ki, Mi, Gi. The value must be
+   * between 10Mi and 500Mi, inclusive. Note that the total container log size
+   * (container_log_max_size * container_log_max_files) cannot exceed 1% of the total storage of the
+   * node, to avoid disk pressure caused by log files. The default value is 10Mi if unspecified.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getContainerLogMaxSize() {
+    return containerLogMaxSize;
+  }
+
+  /**
+   * Optional. Defines the maximum size of the container log file before it is rotated. See
+   * https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation Valid format
+   * is positive number + unit, e.g. 100Ki, 10Mi. Valid units are Ki, Mi, Gi. The value must be
+   * between 10Mi and 500Mi, inclusive. Note that the total container log size
+   * (container_log_max_size * container_log_max_files) cannot exceed 1% of the total storage of the
+   * node, to avoid disk pressure caused by log files. The default value is 10Mi if unspecified.
+   * @param containerLogMaxSize containerLogMaxSize or {@code null} for none
+   */
+  public NodeKubeletConfig setContainerLogMaxSize(java.lang.String containerLogMaxSize) {
+    this.containerLogMaxSize = containerLogMaxSize;
+    return this;
+  }
 
   /**
    * Enable CPU CFS quota enforcement for containers that specify CPU limits. This option is enabled
@@ -152,6 +322,104 @@ public final class NodeKubeletConfig extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * Optional. Defines the percent of disk usage after which image garbage collection is always run.
+   * The percent is calculated as this field value out of 100. The value must be between 10 and 85,
+   * inclusive and greater than image_gc_low_threshold_percent. The default value is 85 if
+   * unspecified.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getImageGcHighThresholdPercent() {
+    return imageGcHighThresholdPercent;
+  }
+
+  /**
+   * Optional. Defines the percent of disk usage after which image garbage collection is always run.
+   * The percent is calculated as this field value out of 100. The value must be between 10 and 85,
+   * inclusive and greater than image_gc_low_threshold_percent. The default value is 85 if
+   * unspecified.
+   * @param imageGcHighThresholdPercent imageGcHighThresholdPercent or {@code null} for none
+   */
+  public NodeKubeletConfig setImageGcHighThresholdPercent(java.lang.Integer imageGcHighThresholdPercent) {
+    this.imageGcHighThresholdPercent = imageGcHighThresholdPercent;
+    return this;
+  }
+
+  /**
+   * Optional. Defines the percent of disk usage before which image garbage collection is never run.
+   * Lowest disk usage to garbage collect to. The percent is calculated as this field value out of
+   * 100. The value must be between 10 and 85, inclusive and smaller than
+   * image_gc_high_threshold_percent. The default value is 80 if unspecified.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getImageGcLowThresholdPercent() {
+    return imageGcLowThresholdPercent;
+  }
+
+  /**
+   * Optional. Defines the percent of disk usage before which image garbage collection is never run.
+   * Lowest disk usage to garbage collect to. The percent is calculated as this field value out of
+   * 100. The value must be between 10 and 85, inclusive and smaller than
+   * image_gc_high_threshold_percent. The default value is 80 if unspecified.
+   * @param imageGcLowThresholdPercent imageGcLowThresholdPercent or {@code null} for none
+   */
+  public NodeKubeletConfig setImageGcLowThresholdPercent(java.lang.Integer imageGcLowThresholdPercent) {
+    this.imageGcLowThresholdPercent = imageGcLowThresholdPercent;
+    return this;
+  }
+
+  /**
+   * Optional. Defines the maximum age an image can be unused before it is garbage collected. The
+   * string must be a sequence of decimal numbers, each with optional fraction and a unit suffix,
+   * such as "300s", "1.5h", and "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
+   * "h". The value must be a positive duration greater than image_minimum_gc_age or "0s". The
+   * default value is "0s" if unspecified, which disables this field, meaning images won't be
+   * garbage collected based on being unused for too long.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getImageMaximumGcAge() {
+    return imageMaximumGcAge;
+  }
+
+  /**
+   * Optional. Defines the maximum age an image can be unused before it is garbage collected. The
+   * string must be a sequence of decimal numbers, each with optional fraction and a unit suffix,
+   * such as "300s", "1.5h", and "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
+   * "h". The value must be a positive duration greater than image_minimum_gc_age or "0s". The
+   * default value is "0s" if unspecified, which disables this field, meaning images won't be
+   * garbage collected based on being unused for too long.
+   * @param imageMaximumGcAge imageMaximumGcAge or {@code null} for none
+   */
+  public NodeKubeletConfig setImageMaximumGcAge(java.lang.String imageMaximumGcAge) {
+    this.imageMaximumGcAge = imageMaximumGcAge;
+    return this;
+  }
+
+  /**
+   * Optional. Defines the minimum age for an unused image before it is garbage collected. The
+   * string must be a sequence of decimal numbers, each with optional fraction and a unit suffix,
+   * such as "300s", "1.5h", and "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
+   * "h". The value must be a positive duration less than or equal to 2 minutes. The default value
+   * is "2m0s" if unspecified.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getImageMinimumGcAge() {
+    return imageMinimumGcAge;
+  }
+
+  /**
+   * Optional. Defines the minimum age for an unused image before it is garbage collected. The
+   * string must be a sequence of decimal numbers, each with optional fraction and a unit suffix,
+   * such as "300s", "1.5h", and "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
+   * "h". The value must be a positive duration less than or equal to 2 minutes. The default value
+   * is "2m0s" if unspecified.
+   * @param imageMinimumGcAge imageMinimumGcAge or {@code null} for none
+   */
+  public NodeKubeletConfig setImageMinimumGcAge(java.lang.String imageMinimumGcAge) {
+    this.imageMinimumGcAge = imageMinimumGcAge;
+    return this;
+  }
+
+  /**
    * Enable or disable Kubelet read only port.
    * @return value or {@code null} for none
    */
@@ -165,6 +433,25 @@ public final class NodeKubeletConfig extends com.google.api.client.json.GenericJ
    */
   public NodeKubeletConfig setInsecureKubeletReadonlyPortEnabled(java.lang.Boolean insecureKubeletReadonlyPortEnabled) {
     this.insecureKubeletReadonlyPortEnabled = insecureKubeletReadonlyPortEnabled;
+    return this;
+  }
+
+  /**
+   * Optional. Controls NUMA-aware Memory Manager configuration on the node. For more information,
+   * see: https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/
+   * @return value or {@code null} for none
+   */
+  public MemoryManager getMemoryManager() {
+    return memoryManager;
+  }
+
+  /**
+   * Optional. Controls NUMA-aware Memory Manager configuration on the node. For more information,
+   * see: https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/
+   * @param memoryManager memoryManager or {@code null} for none
+   */
+  public NodeKubeletConfig setMemoryManager(MemoryManager memoryManager) {
+    this.memoryManager = memoryManager;
     return this;
   }
 
@@ -186,6 +473,25 @@ public final class NodeKubeletConfig extends com.google.api.client.json.GenericJ
    */
   public NodeKubeletConfig setPodPidsLimit(java.lang.Long podPidsLimit) {
     this.podPidsLimit = podPidsLimit;
+    return this;
+  }
+
+  /**
+   * Optional. Controls Topology Manager configuration on the node. For more information, see:
+   * https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/
+   * @return value or {@code null} for none
+   */
+  public TopologyManager getTopologyManager() {
+    return topologyManager;
+  }
+
+  /**
+   * Optional. Controls Topology Manager configuration on the node. For more information, see:
+   * https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/
+   * @param topologyManager topologyManager or {@code null} for none
+   */
+  public NodeKubeletConfig setTopologyManager(TopologyManager topologyManager) {
+    this.topologyManager = topologyManager;
     return this;
   }
 

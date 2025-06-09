@@ -30,11 +30,25 @@ package com.google.api.services.compute.model;
 public final class AllocationResourceStatus extends com.google.api.client.json.GenericJson {
 
   /**
-   * Indicates number of blocks for accelerator optimized family (applicable beyond A3 only).
+   * Properties of this aggregatereservation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private AllocationResourceStatusAggregateAllocation aggregateAllocation;
+
+  /**
+   * The number of reservation blocks associated with this reservation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Integer reservationBlockCount;
+
+  /**
+   * Maintenance information for this reservation
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GroupMaintenanceInfo reservationMaintenance;
 
   /**
    * Allocation Properties of this reservation.
@@ -44,7 +58,24 @@ public final class AllocationResourceStatus extends com.google.api.client.json.G
   private AllocationResourceStatusSpecificSKUAllocation specificSkuAllocation;
 
   /**
-   * Indicates number of blocks for accelerator optimized family (applicable beyond A3 only).
+   * Properties of this aggregatereservation.
+   * @return value or {@code null} for none
+   */
+  public AllocationResourceStatusAggregateAllocation getAggregateAllocation() {
+    return aggregateAllocation;
+  }
+
+  /**
+   * Properties of this aggregatereservation.
+   * @param aggregateAllocation aggregateAllocation or {@code null} for none
+   */
+  public AllocationResourceStatus setAggregateAllocation(AllocationResourceStatusAggregateAllocation aggregateAllocation) {
+    this.aggregateAllocation = aggregateAllocation;
+    return this;
+  }
+
+  /**
+   * The number of reservation blocks associated with this reservation.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getReservationBlockCount() {
@@ -52,11 +83,28 @@ public final class AllocationResourceStatus extends com.google.api.client.json.G
   }
 
   /**
-   * Indicates number of blocks for accelerator optimized family (applicable beyond A3 only).
+   * The number of reservation blocks associated with this reservation.
    * @param reservationBlockCount reservationBlockCount or {@code null} for none
    */
   public AllocationResourceStatus setReservationBlockCount(java.lang.Integer reservationBlockCount) {
     this.reservationBlockCount = reservationBlockCount;
+    return this;
+  }
+
+  /**
+   * Maintenance information for this reservation
+   * @return value or {@code null} for none
+   */
+  public GroupMaintenanceInfo getReservationMaintenance() {
+    return reservationMaintenance;
+  }
+
+  /**
+   * Maintenance information for this reservation
+   * @param reservationMaintenance reservationMaintenance or {@code null} for none
+   */
+  public AllocationResourceStatus setReservationMaintenance(GroupMaintenanceInfo reservationMaintenance) {
+    this.reservationMaintenance = reservationMaintenance;
     return this;
   }
 

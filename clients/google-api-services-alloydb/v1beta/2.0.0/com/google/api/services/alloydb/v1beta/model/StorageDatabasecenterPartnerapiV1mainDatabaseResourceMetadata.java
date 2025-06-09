@@ -17,7 +17,7 @@
 package com.google.api.services.alloydb.v1beta.model;
 
 /**
- * Common model for database resource instance metadata. Next ID: 22
+ * Common model for database resource instance metadata. Next ID: 25
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the AlloyDB API. For a detailed explanation see:
@@ -73,6 +73,14 @@ public final class StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata
   private StorageDatabasecenterPartnerapiV1mainCustomMetadataData customMetadata;
 
   /**
+   * Optional. Edition represents whether the instance is ENTERPRISE or ENTERPRISE_PLUS. This
+   * information is core to Cloud SQL only and is used to identify the edition of the instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String edition;
+
+  /**
    * Entitlements associated with the resource
    * The value may be {@code null}.
    */
@@ -86,6 +94,13 @@ public final class StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata
    */
   @com.google.api.client.util.Key
   private java.lang.String expectedState;
+
+  /**
+   * GCBDR configuration for the resource.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration gcbdrConfiguration;
 
   /**
    * Required. Unique identifier for a Database resource
@@ -157,6 +172,13 @@ public final class StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata
    */
   @com.google.api.client.util.Key
   private java.lang.String resourceName;
+
+  /**
+   * Optional. Suspension reason for the resource.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String suspensionReason;
 
   /**
    * Optional. Tags associated with this resources.
@@ -284,6 +306,25 @@ public final class StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata
   }
 
   /**
+   * Optional. Edition represents whether the instance is ENTERPRISE or ENTERPRISE_PLUS. This
+   * information is core to Cloud SQL only and is used to identify the edition of the instance.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEdition() {
+    return edition;
+  }
+
+  /**
+   * Optional. Edition represents whether the instance is ENTERPRISE or ENTERPRISE_PLUS. This
+   * information is core to Cloud SQL only and is used to identify the edition of the instance.
+   * @param edition edition or {@code null} for none
+   */
+  public StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata setEdition(java.lang.String edition) {
+    this.edition = edition;
+    return this;
+  }
+
+  /**
    * Entitlements associated with the resource
    * @return value or {@code null} for none
    */
@@ -316,6 +357,23 @@ public final class StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata
    */
   public StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata setExpectedState(java.lang.String expectedState) {
     this.expectedState = expectedState;
+    return this;
+  }
+
+  /**
+   * GCBDR configuration for the resource.
+   * @return value or {@code null} for none
+   */
+  public StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration getGcbdrConfiguration() {
+    return gcbdrConfiguration;
+  }
+
+  /**
+   * GCBDR configuration for the resource.
+   * @param gcbdrConfiguration gcbdrConfiguration or {@code null} for none
+   */
+  public StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata setGcbdrConfiguration(StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration gcbdrConfiguration) {
+    this.gcbdrConfiguration = gcbdrConfiguration;
     return this;
   }
 
@@ -485,6 +543,23 @@ public final class StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata
    */
   public StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata setResourceName(java.lang.String resourceName) {
     this.resourceName = resourceName;
+    return this;
+  }
+
+  /**
+   * Optional. Suspension reason for the resource.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSuspensionReason() {
+    return suspensionReason;
+  }
+
+  /**
+   * Optional. Suspension reason for the resource.
+   * @param suspensionReason suspensionReason or {@code null} for none
+   */
+  public StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata setSuspensionReason(java.lang.String suspensionReason) {
+    this.suspensionReason = suspensionReason;
     return this;
   }
 

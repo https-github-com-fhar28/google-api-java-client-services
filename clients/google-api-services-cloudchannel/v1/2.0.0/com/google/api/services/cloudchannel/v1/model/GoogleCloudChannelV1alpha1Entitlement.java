@@ -123,6 +123,15 @@ public final class GoogleCloudChannelV1alpha1Entitlement extends com.google.api.
   private java.util.List<GoogleCloudChannelV1alpha1Parameter> parameters;
 
   /**
+   * Optional. Price reference ID for the offer. Only for offers that require additional price
+   * information. Used to guarantee that the pricing is consistent between quoting the offer and
+   * placing the order.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String priceReferenceId;
+
+  /**
    * Output only. Service provisioning details for the entitlement.
    * The value may be {@code null}.
    */
@@ -383,6 +392,27 @@ public final class GoogleCloudChannelV1alpha1Entitlement extends com.google.api.
    */
   public GoogleCloudChannelV1alpha1Entitlement setParameters(java.util.List<GoogleCloudChannelV1alpha1Parameter> parameters) {
     this.parameters = parameters;
+    return this;
+  }
+
+  /**
+   * Optional. Price reference ID for the offer. Only for offers that require additional price
+   * information. Used to guarantee that the pricing is consistent between quoting the offer and
+   * placing the order.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getPriceReferenceId() {
+    return priceReferenceId;
+  }
+
+  /**
+   * Optional. Price reference ID for the offer. Only for offers that require additional price
+   * information. Used to guarantee that the pricing is consistent between quoting the offer and
+   * placing the order.
+   * @param priceReferenceId priceReferenceId or {@code null} for none
+   */
+  public GoogleCloudChannelV1alpha1Entitlement setPriceReferenceId(java.lang.String priceReferenceId) {
+    this.priceReferenceId = priceReferenceId;
     return this;
   }
 

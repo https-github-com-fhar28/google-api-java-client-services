@@ -30,6 +30,13 @@ package com.google.api.services.aiplatform.v1.model;
 public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. Autorater config used for evaluation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1AutoraterConfig autoraterConfig;
+
+  /**
    * Instances and metric spec for bleu metric.
    * The value may be {@code null}.
    */
@@ -42,6 +49,13 @@ public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.g
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1CoherenceInput coherenceInput;
+
+  /**
+   * Translation metrics. Input for Comet metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1CometInput cometInput;
 
   /**
    * Auto metric instances. Instances and metric spec for exact match metric.
@@ -71,6 +85,13 @@ public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.g
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1GroundednessInput groundednessInput;
+
+  /**
+   * Input for Metricx metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1MetricxInput metricxInput;
 
   /**
    * Input for pairwise metric.
@@ -136,6 +157,13 @@ public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.g
   private GoogleCloudAiplatformV1RougeInput rougeInput;
 
   /**
+   * Rubric Based Instruction Following metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1RubricBasedInstructionFollowingInput rubricBasedInstructionFollowingInput;
+
+  /**
    * Input for safety metric.
    * The value may be {@code null}.
    */
@@ -192,6 +220,65 @@ public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.g
   private GoogleCloudAiplatformV1ToolParameterKVMatchInput toolParameterKvMatchInput;
 
   /**
+   * Input for trajectory match any order metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInput trajectoryAnyOrderMatchInput;
+
+  /**
+   * Input for trajectory exact match metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1TrajectoryExactMatchInput trajectoryExactMatchInput;
+
+  /**
+   * Input for trajectory in order match metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1TrajectoryInOrderMatchInput trajectoryInOrderMatchInput;
+
+  /**
+   * Input for trajectory precision metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1TrajectoryPrecisionInput trajectoryPrecisionInput;
+
+  /**
+   * Input for trajectory recall metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1TrajectoryRecallInput trajectoryRecallInput;
+
+  /**
+   * Input for trajectory single tool use metric.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1TrajectorySingleToolUseInput trajectorySingleToolUseInput;
+
+  /**
+   * Optional. Autorater config used for evaluation.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1AutoraterConfig getAutoraterConfig() {
+    return autoraterConfig;
+  }
+
+  /**
+   * Optional. Autorater config used for evaluation.
+   * @param autoraterConfig autoraterConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setAutoraterConfig(GoogleCloudAiplatformV1AutoraterConfig autoraterConfig) {
+    this.autoraterConfig = autoraterConfig;
+    return this;
+  }
+
+  /**
    * Instances and metric spec for bleu metric.
    * @return value or {@code null} for none
    */
@@ -222,6 +309,23 @@ public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.g
    */
   public GoogleCloudAiplatformV1EvaluateInstancesRequest setCoherenceInput(GoogleCloudAiplatformV1CoherenceInput coherenceInput) {
     this.coherenceInput = coherenceInput;
+    return this;
+  }
+
+  /**
+   * Translation metrics. Input for Comet metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1CometInput getCometInput() {
+    return cometInput;
+  }
+
+  /**
+   * Translation metrics. Input for Comet metric.
+   * @param cometInput cometInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setCometInput(GoogleCloudAiplatformV1CometInput cometInput) {
+    this.cometInput = cometInput;
     return this;
   }
 
@@ -292,6 +396,23 @@ public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.g
    */
   public GoogleCloudAiplatformV1EvaluateInstancesRequest setGroundednessInput(GoogleCloudAiplatformV1GroundednessInput groundednessInput) {
     this.groundednessInput = groundednessInput;
+    return this;
+  }
+
+  /**
+   * Input for Metricx metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1MetricxInput getMetricxInput() {
+    return metricxInput;
+  }
+
+  /**
+   * Input for Metricx metric.
+   * @param metricxInput metricxInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setMetricxInput(GoogleCloudAiplatformV1MetricxInput metricxInput) {
+    this.metricxInput = metricxInput;
     return this;
   }
 
@@ -449,6 +570,23 @@ public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.g
   }
 
   /**
+   * Rubric Based Instruction Following metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1RubricBasedInstructionFollowingInput getRubricBasedInstructionFollowingInput() {
+    return rubricBasedInstructionFollowingInput;
+  }
+
+  /**
+   * Rubric Based Instruction Following metric.
+   * @param rubricBasedInstructionFollowingInput rubricBasedInstructionFollowingInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setRubricBasedInstructionFollowingInput(GoogleCloudAiplatformV1RubricBasedInstructionFollowingInput rubricBasedInstructionFollowingInput) {
+    this.rubricBasedInstructionFollowingInput = rubricBasedInstructionFollowingInput;
+    return this;
+  }
+
+  /**
    * Input for safety metric.
    * @return value or {@code null} for none
    */
@@ -581,6 +719,108 @@ public final class GoogleCloudAiplatformV1EvaluateInstancesRequest extends com.g
    */
   public GoogleCloudAiplatformV1EvaluateInstancesRequest setToolParameterKvMatchInput(GoogleCloudAiplatformV1ToolParameterKVMatchInput toolParameterKvMatchInput) {
     this.toolParameterKvMatchInput = toolParameterKvMatchInput;
+    return this;
+  }
+
+  /**
+   * Input for trajectory match any order metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInput getTrajectoryAnyOrderMatchInput() {
+    return trajectoryAnyOrderMatchInput;
+  }
+
+  /**
+   * Input for trajectory match any order metric.
+   * @param trajectoryAnyOrderMatchInput trajectoryAnyOrderMatchInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setTrajectoryAnyOrderMatchInput(GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInput trajectoryAnyOrderMatchInput) {
+    this.trajectoryAnyOrderMatchInput = trajectoryAnyOrderMatchInput;
+    return this;
+  }
+
+  /**
+   * Input for trajectory exact match metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1TrajectoryExactMatchInput getTrajectoryExactMatchInput() {
+    return trajectoryExactMatchInput;
+  }
+
+  /**
+   * Input for trajectory exact match metric.
+   * @param trajectoryExactMatchInput trajectoryExactMatchInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setTrajectoryExactMatchInput(GoogleCloudAiplatformV1TrajectoryExactMatchInput trajectoryExactMatchInput) {
+    this.trajectoryExactMatchInput = trajectoryExactMatchInput;
+    return this;
+  }
+
+  /**
+   * Input for trajectory in order match metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1TrajectoryInOrderMatchInput getTrajectoryInOrderMatchInput() {
+    return trajectoryInOrderMatchInput;
+  }
+
+  /**
+   * Input for trajectory in order match metric.
+   * @param trajectoryInOrderMatchInput trajectoryInOrderMatchInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setTrajectoryInOrderMatchInput(GoogleCloudAiplatformV1TrajectoryInOrderMatchInput trajectoryInOrderMatchInput) {
+    this.trajectoryInOrderMatchInput = trajectoryInOrderMatchInput;
+    return this;
+  }
+
+  /**
+   * Input for trajectory precision metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1TrajectoryPrecisionInput getTrajectoryPrecisionInput() {
+    return trajectoryPrecisionInput;
+  }
+
+  /**
+   * Input for trajectory precision metric.
+   * @param trajectoryPrecisionInput trajectoryPrecisionInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setTrajectoryPrecisionInput(GoogleCloudAiplatformV1TrajectoryPrecisionInput trajectoryPrecisionInput) {
+    this.trajectoryPrecisionInput = trajectoryPrecisionInput;
+    return this;
+  }
+
+  /**
+   * Input for trajectory recall metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1TrajectoryRecallInput getTrajectoryRecallInput() {
+    return trajectoryRecallInput;
+  }
+
+  /**
+   * Input for trajectory recall metric.
+   * @param trajectoryRecallInput trajectoryRecallInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setTrajectoryRecallInput(GoogleCloudAiplatformV1TrajectoryRecallInput trajectoryRecallInput) {
+    this.trajectoryRecallInput = trajectoryRecallInput;
+    return this;
+  }
+
+  /**
+   * Input for trajectory single tool use metric.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1TrajectorySingleToolUseInput getTrajectorySingleToolUseInput() {
+    return trajectorySingleToolUseInput;
+  }
+
+  /**
+   * Input for trajectory single tool use metric.
+   * @param trajectorySingleToolUseInput trajectorySingleToolUseInput or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1EvaluateInstancesRequest setTrajectorySingleToolUseInput(GoogleCloudAiplatformV1TrajectorySingleToolUseInput trajectorySingleToolUseInput) {
+    this.trajectorySingleToolUseInput = trajectorySingleToolUseInput;
     return this;
   }
 

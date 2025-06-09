@@ -31,42 +31,41 @@ package com.google.api.services.merchantapi.accounts_v1beta.model;
 public final class OnlineReturnPolicy extends com.google.api.client.json.GenericJson {
 
   /**
-   * This field specifies if merchant only accepts defective products for returns, and this field is
-   * required.
+   * Optional. This field specifies if business only accepts defective products for returns.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean acceptDefectiveOnly;
 
   /**
-   * This field specifies if merchant allows customers to exchange products, this field is required.
+   * Optional. This field specifies if business allows customers to exchange products.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean acceptExchange;
 
   /**
-   * The countries of sale where the return policy applies. The values must be a valid 2 letter ISO
-   * 3166 code.
+   * Required. Immutable. The countries of sale where the return policy applies. The values must be
+   * a valid 2 letter ISO 3166 code.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> countries;
 
   /**
-   * The item conditions accepted for returns must not be empty unless the type of return policy is
-   * 'noReturns'.
+   * Optional. The item conditions accepted for returns must not be empty unless the type of return
+   * policy is 'noReturns'.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> itemConditions;
 
   /**
-   * This field represents the unique user-defined label of the return policy. It is important to
-   * note that the same label cannot be used in different return policies for the same country.
-   * Unless a product specifies a specific label attribute, policies will be automatically labeled
-   * as 'default'. To assign a custom return policy to certain product groups, follow the
-   * instructions provided in the [Return policy label]
+   * Required. Immutable. This field represents the unique user-defined label of the return policy.
+   * It is important to note that the same label cannot be used in different return policies for the
+   * same country. Unless a product specifies a specific label attribute, policies will be
+   * automatically labeled as 'default'. To assign a custom return policy to certain product groups,
+   * follow the instructions provided in the [Return policy label]
    * (https://support.google.com/merchants/answer/9445425). The label can contain up to 50
    * characters.
    * The value may be {@code null}.
@@ -83,31 +82,37 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   private java.lang.String name;
 
   /**
-   * The return policy.
+   * Optional. The return policy.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Policy policy;
 
   /**
-   * The field specifies the number of days it takes for merchants to process refunds, field is
-   * optional.
+   * Optional. The field specifies the number of days it takes for business to process refunds.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Integer processRefundDays;
 
   /**
-   * The restocking fee that applies to all return reason categories. This would be treated as a
-   * free restocking fee if the value is not set.
+   * Optional. The restocking fee that applies to all return reason categories. This would be
+   * treated as a free restocking fee if the value is not set.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private RestockingFee restockingFee;
 
   /**
-   * The return methods of how customers can return an item. This value is required to not be empty
-   * unless the type of return policy is noReturns.
+   * Optional. The field specifies the return label source.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String returnLabelSource;
+
+  /**
+   * Optional. The return methods of how customers can return an item. This value is required to not
+   * be empty unless the type of return policy is noReturns.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -121,24 +126,31 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   private java.lang.String returnPolicyId;
 
   /**
-   * The return policy uri. This can used by Google to do a sanity check for the policy. It must be
-   * a valid URL.
+   * Required. The return policy uri. This can used by Google to do a sanity check for the policy.
+   * It must be a valid URL.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String returnPolicyUri;
 
   /**
-   * The return shipping fee. Should be set only when customer need to download and print the return
-   * label.
+   * Optional. The return shipping fee. Should be set only when customer need to download and print
+   * the return label.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private ReturnShippingFee returnShippingFee;
 
   /**
-   * This field specifies if merchant only accepts defective products for returns, and this field is
-   * required.
+   * Optional. Overrides to the general policy for orders placed during a specific set of time
+   * intervals.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<SeasonalOverride> seasonalOverrides;
+
+  /**
+   * Optional. This field specifies if business only accepts defective products for returns.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAcceptDefectiveOnly() {
@@ -146,8 +158,7 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * This field specifies if merchant only accepts defective products for returns, and this field is
-   * required.
+   * Optional. This field specifies if business only accepts defective products for returns.
    * @param acceptDefectiveOnly acceptDefectiveOnly or {@code null} for none
    */
   public OnlineReturnPolicy setAcceptDefectiveOnly(java.lang.Boolean acceptDefectiveOnly) {
@@ -156,7 +167,7 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * This field specifies if merchant allows customers to exchange products, this field is required.
+   * Optional. This field specifies if business allows customers to exchange products.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAcceptExchange() {
@@ -164,7 +175,7 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * This field specifies if merchant allows customers to exchange products, this field is required.
+   * Optional. This field specifies if business allows customers to exchange products.
    * @param acceptExchange acceptExchange or {@code null} for none
    */
   public OnlineReturnPolicy setAcceptExchange(java.lang.Boolean acceptExchange) {
@@ -173,8 +184,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The countries of sale where the return policy applies. The values must be a valid 2 letter ISO
-   * 3166 code.
+   * Required. Immutable. The countries of sale where the return policy applies. The values must be
+   * a valid 2 letter ISO 3166 code.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getCountries() {
@@ -182,8 +193,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The countries of sale where the return policy applies. The values must be a valid 2 letter ISO
-   * 3166 code.
+   * Required. Immutable. The countries of sale where the return policy applies. The values must be
+   * a valid 2 letter ISO 3166 code.
    * @param countries countries or {@code null} for none
    */
   public OnlineReturnPolicy setCountries(java.util.List<java.lang.String> countries) {
@@ -192,8 +203,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The item conditions accepted for returns must not be empty unless the type of return policy is
-   * 'noReturns'.
+   * Optional. The item conditions accepted for returns must not be empty unless the type of return
+   * policy is 'noReturns'.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getItemConditions() {
@@ -201,8 +212,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The item conditions accepted for returns must not be empty unless the type of return policy is
-   * 'noReturns'.
+   * Optional. The item conditions accepted for returns must not be empty unless the type of return
+   * policy is 'noReturns'.
    * @param itemConditions itemConditions or {@code null} for none
    */
   public OnlineReturnPolicy setItemConditions(java.util.List<java.lang.String> itemConditions) {
@@ -211,11 +222,11 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * This field represents the unique user-defined label of the return policy. It is important to
-   * note that the same label cannot be used in different return policies for the same country.
-   * Unless a product specifies a specific label attribute, policies will be automatically labeled
-   * as 'default'. To assign a custom return policy to certain product groups, follow the
-   * instructions provided in the [Return policy label]
+   * Required. Immutable. This field represents the unique user-defined label of the return policy.
+   * It is important to note that the same label cannot be used in different return policies for the
+   * same country. Unless a product specifies a specific label attribute, policies will be
+   * automatically labeled as 'default'. To assign a custom return policy to certain product groups,
+   * follow the instructions provided in the [Return policy label]
    * (https://support.google.com/merchants/answer/9445425). The label can contain up to 50
    * characters.
    * @return value or {@code null} for none
@@ -225,11 +236,11 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * This field represents the unique user-defined label of the return policy. It is important to
-   * note that the same label cannot be used in different return policies for the same country.
-   * Unless a product specifies a specific label attribute, policies will be automatically labeled
-   * as 'default'. To assign a custom return policy to certain product groups, follow the
-   * instructions provided in the [Return policy label]
+   * Required. Immutable. This field represents the unique user-defined label of the return policy.
+   * It is important to note that the same label cannot be used in different return policies for the
+   * same country. Unless a product specifies a specific label attribute, policies will be
+   * automatically labeled as 'default'. To assign a custom return policy to certain product groups,
+   * follow the instructions provided in the [Return policy label]
    * (https://support.google.com/merchants/answer/9445425). The label can contain up to 50
    * characters.
    * @param label label or {@code null} for none
@@ -259,7 +270,7 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The return policy.
+   * Optional. The return policy.
    * @return value or {@code null} for none
    */
   public Policy getPolicy() {
@@ -267,7 +278,7 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The return policy.
+   * Optional. The return policy.
    * @param policy policy or {@code null} for none
    */
   public OnlineReturnPolicy setPolicy(Policy policy) {
@@ -276,8 +287,7 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The field specifies the number of days it takes for merchants to process refunds, field is
-   * optional.
+   * Optional. The field specifies the number of days it takes for business to process refunds.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getProcessRefundDays() {
@@ -285,8 +295,7 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The field specifies the number of days it takes for merchants to process refunds, field is
-   * optional.
+   * Optional. The field specifies the number of days it takes for business to process refunds.
    * @param processRefundDays processRefundDays or {@code null} for none
    */
   public OnlineReturnPolicy setProcessRefundDays(java.lang.Integer processRefundDays) {
@@ -295,8 +304,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The restocking fee that applies to all return reason categories. This would be treated as a
-   * free restocking fee if the value is not set.
+   * Optional. The restocking fee that applies to all return reason categories. This would be
+   * treated as a free restocking fee if the value is not set.
    * @return value or {@code null} for none
    */
   public RestockingFee getRestockingFee() {
@@ -304,8 +313,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The restocking fee that applies to all return reason categories. This would be treated as a
-   * free restocking fee if the value is not set.
+   * Optional. The restocking fee that applies to all return reason categories. This would be
+   * treated as a free restocking fee if the value is not set.
    * @param restockingFee restockingFee or {@code null} for none
    */
   public OnlineReturnPolicy setRestockingFee(RestockingFee restockingFee) {
@@ -314,8 +323,25 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The return methods of how customers can return an item. This value is required to not be empty
-   * unless the type of return policy is noReturns.
+   * Optional. The field specifies the return label source.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getReturnLabelSource() {
+    return returnLabelSource;
+  }
+
+  /**
+   * Optional. The field specifies the return label source.
+   * @param returnLabelSource returnLabelSource or {@code null} for none
+   */
+  public OnlineReturnPolicy setReturnLabelSource(java.lang.String returnLabelSource) {
+    this.returnLabelSource = returnLabelSource;
+    return this;
+  }
+
+  /**
+   * Optional. The return methods of how customers can return an item. This value is required to not
+   * be empty unless the type of return policy is noReturns.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getReturnMethods() {
@@ -323,8 +349,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The return methods of how customers can return an item. This value is required to not be empty
-   * unless the type of return policy is noReturns.
+   * Optional. The return methods of how customers can return an item. This value is required to not
+   * be empty unless the type of return policy is noReturns.
    * @param returnMethods returnMethods or {@code null} for none
    */
   public OnlineReturnPolicy setReturnMethods(java.util.List<java.lang.String> returnMethods) {
@@ -350,8 +376,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The return policy uri. This can used by Google to do a sanity check for the policy. It must be
-   * a valid URL.
+   * Required. The return policy uri. This can used by Google to do a sanity check for the policy.
+   * It must be a valid URL.
    * @return value or {@code null} for none
    */
   public java.lang.String getReturnPolicyUri() {
@@ -359,8 +385,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The return policy uri. This can used by Google to do a sanity check for the policy. It must be
-   * a valid URL.
+   * Required. The return policy uri. This can used by Google to do a sanity check for the policy.
+   * It must be a valid URL.
    * @param returnPolicyUri returnPolicyUri or {@code null} for none
    */
   public OnlineReturnPolicy setReturnPolicyUri(java.lang.String returnPolicyUri) {
@@ -369,8 +395,8 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The return shipping fee. Should be set only when customer need to download and print the return
-   * label.
+   * Optional. The return shipping fee. Should be set only when customer need to download and print
+   * the return label.
    * @return value or {@code null} for none
    */
   public ReturnShippingFee getReturnShippingFee() {
@@ -378,12 +404,31 @@ public final class OnlineReturnPolicy extends com.google.api.client.json.Generic
   }
 
   /**
-   * The return shipping fee. Should be set only when customer need to download and print the return
-   * label.
+   * Optional. The return shipping fee. Should be set only when customer need to download and print
+   * the return label.
    * @param returnShippingFee returnShippingFee or {@code null} for none
    */
   public OnlineReturnPolicy setReturnShippingFee(ReturnShippingFee returnShippingFee) {
     this.returnShippingFee = returnShippingFee;
+    return this;
+  }
+
+  /**
+   * Optional. Overrides to the general policy for orders placed during a specific set of time
+   * intervals.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<SeasonalOverride> getSeasonalOverrides() {
+    return seasonalOverrides;
+  }
+
+  /**
+   * Optional. Overrides to the general policy for orders placed during a specific set of time
+   * intervals.
+   * @param seasonalOverrides seasonalOverrides or {@code null} for none
+   */
+  public OnlineReturnPolicy setSeasonalOverrides(java.util.List<SeasonalOverride> seasonalOverrides) {
+    this.seasonalOverrides = seasonalOverrides;
     return this;
   }
 

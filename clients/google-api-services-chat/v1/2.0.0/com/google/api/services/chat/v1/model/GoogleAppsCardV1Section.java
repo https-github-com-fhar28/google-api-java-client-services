@@ -18,7 +18,7 @@ package com.google.api.services.chat.v1.model;
 
 /**
  * A section contains a collection of widgets that are rendered vertically in the order that they're
- * specified. [Google Workspace Add-ons and Chat
+ * specified. [Google Workspace add-ons and Chat
  * apps](https://developers.google.com/workspace/extend):
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
@@ -30,6 +30,14 @@ package com.google.api.services.chat.v1.model;
  */
 @SuppressWarnings("javadoc")
 public final class GoogleAppsCardV1Section extends com.google.api.client.json.GenericJson {
+
+  /**
+   * Optional. Define the expand and collapse button of the section. This button will be shown only
+   * if the section is collapsible. If this field isn't set, the default button is used.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleAppsCardV1CollapseControl collapseControl;
 
   /**
    * Indicates whether this section is collapsible. Collapsible sections hide some or all widgets,
@@ -45,7 +53,7 @@ public final class GoogleAppsCardV1Section extends com.google.api.client.json.Ge
    * Text that appears at the top of a section. Supports simple HTML formatted text. For more
    * information about formatting text, see [Formatting text in Google Chat
    * apps](https://developers.google.com/workspace/chat/format-messages#card-formatting) and
-   * [Formatting text in Google Workspace Add-ons](https://developers.google.com/apps-script/add-
+   * [Formatting text in Google Workspace add-ons](https://developers.google.com/apps-script/add-
    * ons/concepts/widgets#text_formatting).
    * The value may be {@code null}.
    */
@@ -68,6 +76,25 @@ public final class GoogleAppsCardV1Section extends com.google.api.client.json.Ge
    */
   @com.google.api.client.util.Key
   private java.util.List<GoogleAppsCardV1Widget> widgets;
+
+  /**
+   * Optional. Define the expand and collapse button of the section. This button will be shown only
+   * if the section is collapsible. If this field isn't set, the default button is used.
+   * @return value or {@code null} for none
+   */
+  public GoogleAppsCardV1CollapseControl getCollapseControl() {
+    return collapseControl;
+  }
+
+  /**
+   * Optional. Define the expand and collapse button of the section. This button will be shown only
+   * if the section is collapsible. If this field isn't set, the default button is used.
+   * @param collapseControl collapseControl or {@code null} for none
+   */
+  public GoogleAppsCardV1Section setCollapseControl(GoogleAppsCardV1CollapseControl collapseControl) {
+    this.collapseControl = collapseControl;
+    return this;
+  }
 
   /**
    * Indicates whether this section is collapsible. Collapsible sections hide some or all widgets,
@@ -96,7 +123,7 @@ public final class GoogleAppsCardV1Section extends com.google.api.client.json.Ge
    * Text that appears at the top of a section. Supports simple HTML formatted text. For more
    * information about formatting text, see [Formatting text in Google Chat
    * apps](https://developers.google.com/workspace/chat/format-messages#card-formatting) and
-   * [Formatting text in Google Workspace Add-ons](https://developers.google.com/apps-script/add-
+   * [Formatting text in Google Workspace add-ons](https://developers.google.com/apps-script/add-
    * ons/concepts/widgets#text_formatting).
    * @return value or {@code null} for none
    */
@@ -108,7 +135,7 @@ public final class GoogleAppsCardV1Section extends com.google.api.client.json.Ge
    * Text that appears at the top of a section. Supports simple HTML formatted text. For more
    * information about formatting text, see [Formatting text in Google Chat
    * apps](https://developers.google.com/workspace/chat/format-messages#card-formatting) and
-   * [Formatting text in Google Workspace Add-ons](https://developers.google.com/apps-script/add-
+   * [Formatting text in Google Workspace add-ons](https://developers.google.com/apps-script/add-
    * ons/concepts/widgets#text_formatting).
    * @param header header or {@code null} for none
    */

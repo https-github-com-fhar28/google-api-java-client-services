@@ -32,12 +32,37 @@ package com.google.api.services.androidmanagement.v1.model;
 public final class DeviceConnectivityManagement extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. Access Point Name (APN) policy. Configuration for Access Point Names (APNs) which may
+   * override any other APNs on the device. See OVERRIDE_APNS_ENABLED and overrideApns for details.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ApnPolicy apnPolicy;
+
+  /**
+   * Optional. Controls whether Bluetooth sharing is allowed.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String bluetoothSharing;
+
+  /**
    * Controls Wi-Fi configuring privileges. Based on the option set, user will have either full or
    * limited or no control in configuring Wi-Fi networks.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String configureWifi;
+
+  /**
+   * Optional. Preferential network service configuration. Setting this field will override
+   * preferentialNetworkService. This can be set on both work profiles and fully managed devices on
+   * Android 13 and above. See 5G network slicing
+   * (https://developers.google.com/android/management/5g-network-slicing) guide for more details.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private PreferentialNetworkServiceSettings preferentialNetworkServiceSettings;
 
   /**
    * Controls tethering settings. Based on the value set, the user is partially or fully disallowed
@@ -80,6 +105,42 @@ public final class DeviceConnectivityManagement extends com.google.api.client.js
   private WifiSsidPolicy wifiSsidPolicy;
 
   /**
+   * Optional. Access Point Name (APN) policy. Configuration for Access Point Names (APNs) which may
+   * override any other APNs on the device. See OVERRIDE_APNS_ENABLED and overrideApns for details.
+   * @return value or {@code null} for none
+   */
+  public ApnPolicy getApnPolicy() {
+    return apnPolicy;
+  }
+
+  /**
+   * Optional. Access Point Name (APN) policy. Configuration for Access Point Names (APNs) which may
+   * override any other APNs on the device. See OVERRIDE_APNS_ENABLED and overrideApns for details.
+   * @param apnPolicy apnPolicy or {@code null} for none
+   */
+  public DeviceConnectivityManagement setApnPolicy(ApnPolicy apnPolicy) {
+    this.apnPolicy = apnPolicy;
+    return this;
+  }
+
+  /**
+   * Optional. Controls whether Bluetooth sharing is allowed.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getBluetoothSharing() {
+    return bluetoothSharing;
+  }
+
+  /**
+   * Optional. Controls whether Bluetooth sharing is allowed.
+   * @param bluetoothSharing bluetoothSharing or {@code null} for none
+   */
+  public DeviceConnectivityManagement setBluetoothSharing(java.lang.String bluetoothSharing) {
+    this.bluetoothSharing = bluetoothSharing;
+    return this;
+  }
+
+  /**
    * Controls Wi-Fi configuring privileges. Based on the option set, user will have either full or
    * limited or no control in configuring Wi-Fi networks.
    * @return value or {@code null} for none
@@ -95,6 +156,29 @@ public final class DeviceConnectivityManagement extends com.google.api.client.js
    */
   public DeviceConnectivityManagement setConfigureWifi(java.lang.String configureWifi) {
     this.configureWifi = configureWifi;
+    return this;
+  }
+
+  /**
+   * Optional. Preferential network service configuration. Setting this field will override
+   * preferentialNetworkService. This can be set on both work profiles and fully managed devices on
+   * Android 13 and above. See 5G network slicing
+   * (https://developers.google.com/android/management/5g-network-slicing) guide for more details.
+   * @return value or {@code null} for none
+   */
+  public PreferentialNetworkServiceSettings getPreferentialNetworkServiceSettings() {
+    return preferentialNetworkServiceSettings;
+  }
+
+  /**
+   * Optional. Preferential network service configuration. Setting this field will override
+   * preferentialNetworkService. This can be set on both work profiles and fully managed devices on
+   * Android 13 and above. See 5G network slicing
+   * (https://developers.google.com/android/management/5g-network-slicing) guide for more details.
+   * @param preferentialNetworkServiceSettings preferentialNetworkServiceSettings or {@code null} for none
+   */
+  public DeviceConnectivityManagement setPreferentialNetworkServiceSettings(PreferentialNetworkServiceSettings preferentialNetworkServiceSettings) {
+    this.preferentialNetworkServiceSettings = preferentialNetworkServiceSettings;
     return this;
   }
 

@@ -30,8 +30,7 @@ package com.google.api.services.compute.model;
 public final class ReservationBlock extends com.google.api.client.json.GenericJson {
 
   /**
-   * [Output Only] Specifies the number of resources that are allocated in this block. It indicates
-   * the maximum number of VMs that a user can run on this particular block.
+   * [Output Only] The number of resources that are allocated in this reservation block.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -52,7 +51,7 @@ public final class ReservationBlock extends com.google.api.client.json.GenericJs
   private java.math.BigInteger id;
 
   /**
-   * [Output Only] Indicates how many instances are in use on this block.
+   * [Output Only] The number of instances that are currently in use on this reservation block.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -84,6 +83,35 @@ public final class ReservationBlock extends com.google.api.client.json.GenericJs
   private java.lang.String name;
 
   /**
+   * [Output Only] The physical topology of the reservation block.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ReservationBlockPhysicalTopology physicalTopology;
+
+  /**
+   * [Output Only] Maintenance information for this reservation block.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GroupMaintenanceInfo reservationMaintenance;
+
+  /**
+   * [Output Only] The number of reservation subBlocks associated with this reservation block.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer reservationSubBlockCount;
+
+  /**
+   * [Output Only] The number of in-use reservation subBlocks associated with this reservation
+   * block. If at least one VM is running on a subBlock, it is considered in-use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer reservationSubBlockInUseCount;
+
+  /**
    * [Output Only] Server-defined fully-qualified URL for this resource.
    * The value may be {@code null}.
    */
@@ -112,8 +140,7 @@ public final class ReservationBlock extends com.google.api.client.json.GenericJs
   private java.lang.String zone;
 
   /**
-   * [Output Only] Specifies the number of resources that are allocated in this block. It indicates
-   * the maximum number of VMs that a user can run on this particular block.
+   * [Output Only] The number of resources that are allocated in this reservation block.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getCount() {
@@ -121,8 +148,7 @@ public final class ReservationBlock extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * [Output Only] Specifies the number of resources that are allocated in this block. It indicates
-   * the maximum number of VMs that a user can run on this particular block.
+   * [Output Only] The number of resources that are allocated in this reservation block.
    * @param count count or {@code null} for none
    */
   public ReservationBlock setCount(java.lang.Integer count) {
@@ -165,7 +191,7 @@ public final class ReservationBlock extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * [Output Only] Indicates how many instances are in use on this block.
+   * [Output Only] The number of instances that are currently in use on this reservation block.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getInUseCount() {
@@ -173,7 +199,7 @@ public final class ReservationBlock extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * [Output Only] Indicates how many instances are in use on this block.
+   * [Output Only] The number of instances that are currently in use on this reservation block.
    * @param inUseCount inUseCount or {@code null} for none
    */
   public ReservationBlock setInUseCount(java.lang.Integer inUseCount) {
@@ -237,6 +263,76 @@ public final class ReservationBlock extends com.google.api.client.json.GenericJs
    */
   public ReservationBlock setName(java.lang.String name) {
     this.name = name;
+    return this;
+  }
+
+  /**
+   * [Output Only] The physical topology of the reservation block.
+   * @return value or {@code null} for none
+   */
+  public ReservationBlockPhysicalTopology getPhysicalTopology() {
+    return physicalTopology;
+  }
+
+  /**
+   * [Output Only] The physical topology of the reservation block.
+   * @param physicalTopology physicalTopology or {@code null} for none
+   */
+  public ReservationBlock setPhysicalTopology(ReservationBlockPhysicalTopology physicalTopology) {
+    this.physicalTopology = physicalTopology;
+    return this;
+  }
+
+  /**
+   * [Output Only] Maintenance information for this reservation block.
+   * @return value or {@code null} for none
+   */
+  public GroupMaintenanceInfo getReservationMaintenance() {
+    return reservationMaintenance;
+  }
+
+  /**
+   * [Output Only] Maintenance information for this reservation block.
+   * @param reservationMaintenance reservationMaintenance or {@code null} for none
+   */
+  public ReservationBlock setReservationMaintenance(GroupMaintenanceInfo reservationMaintenance) {
+    this.reservationMaintenance = reservationMaintenance;
+    return this;
+  }
+
+  /**
+   * [Output Only] The number of reservation subBlocks associated with this reservation block.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getReservationSubBlockCount() {
+    return reservationSubBlockCount;
+  }
+
+  /**
+   * [Output Only] The number of reservation subBlocks associated with this reservation block.
+   * @param reservationSubBlockCount reservationSubBlockCount or {@code null} for none
+   */
+  public ReservationBlock setReservationSubBlockCount(java.lang.Integer reservationSubBlockCount) {
+    this.reservationSubBlockCount = reservationSubBlockCount;
+    return this;
+  }
+
+  /**
+   * [Output Only] The number of in-use reservation subBlocks associated with this reservation
+   * block. If at least one VM is running on a subBlock, it is considered in-use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getReservationSubBlockInUseCount() {
+    return reservationSubBlockInUseCount;
+  }
+
+  /**
+   * [Output Only] The number of in-use reservation subBlocks associated with this reservation
+   * block. If at least one VM is running on a subBlock, it is considered in-use.
+   * @param reservationSubBlockInUseCount reservationSubBlockInUseCount or {@code null} for none
+   */
+  public ReservationBlock setReservationSubBlockInUseCount(java.lang.Integer reservationSubBlockInUseCount) {
+    this.reservationSubBlockInUseCount = reservationSubBlockInUseCount;
     return this;
   }
 

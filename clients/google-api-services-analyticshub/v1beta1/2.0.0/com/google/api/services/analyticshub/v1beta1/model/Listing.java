@@ -32,6 +32,14 @@ package com.google.api.services.analyticshub.v1beta1.model;
 public final class Listing extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. If true, the listing is only available to get the resource metadata. Listing is non
+   * subscribable.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean allowOnlyMetadataSharing;
+
+  /**
    * Required. Shared dataset i.e. BigQuery dataset source.
    * The value may be {@code null}.
    */
@@ -89,7 +97,7 @@ public final class Listing extends com.google.api.client.json.GenericJson {
 
   /**
    * Output only. The resource name of the listing. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123/listings/456`
+   * `projects/myproject/locations/us/dataExchanges/123/listings/456`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -131,6 +139,25 @@ public final class Listing extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String state;
+
+  /**
+   * Optional. If true, the listing is only available to get the resource metadata. Listing is non
+   * subscribable.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAllowOnlyMetadataSharing() {
+    return allowOnlyMetadataSharing;
+  }
+
+  /**
+   * Optional. If true, the listing is only available to get the resource metadata. Listing is non
+   * subscribable.
+   * @param allowOnlyMetadataSharing allowOnlyMetadataSharing or {@code null} for none
+   */
+  public Listing setAllowOnlyMetadataSharing(java.lang.Boolean allowOnlyMetadataSharing) {
+    this.allowOnlyMetadataSharing = allowOnlyMetadataSharing;
+    return this;
+  }
 
   /**
    * Required. Shared dataset i.e. BigQuery dataset source.
@@ -301,7 +328,7 @@ public final class Listing extends com.google.api.client.json.GenericJson {
 
   /**
    * Output only. The resource name of the listing. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123/listings/456`
+   * `projects/myproject/locations/us/dataExchanges/123/listings/456`
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -310,7 +337,7 @@ public final class Listing extends com.google.api.client.json.GenericJson {
 
   /**
    * Output only. The resource name of the listing. e.g.
-   * `projects/myproject/locations/US/dataExchanges/123/listings/456`
+   * `projects/myproject/locations/us/dataExchanges/123/listings/456`
    * @param name name or {@code null} for none
    */
   public Listing setName(java.lang.String name) {

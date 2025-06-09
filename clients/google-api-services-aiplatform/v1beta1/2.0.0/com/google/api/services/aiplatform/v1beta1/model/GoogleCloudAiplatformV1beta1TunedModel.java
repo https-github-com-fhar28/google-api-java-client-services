@@ -17,7 +17,7 @@
 package com.google.api.services.aiplatform.v1beta1.model;
 
 /**
- * The Model Registry Model and Online Prediction Endpoint assiociated with this TuningJob.
+ * The Model Registry Model and Online Prediction Endpoint associated with this TuningJob.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Vertex AI API. For a detailed explanation see:
@@ -28,6 +28,14 @@ package com.google.api.services.aiplatform.v1beta1.model;
  */
 @SuppressWarnings("javadoc")
 public final class GoogleCloudAiplatformV1beta1TunedModel extends com.google.api.client.json.GenericJson {
+
+  /**
+   * Output only. The checkpoints associated with this TunedModel. This field is only populated for
+   * tuning jobs that enable intermediate checkpoints.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GoogleCloudAiplatformV1beta1TunedModelCheckpoint> checkpoints;
 
   /**
    * Output only. A resource name of an Endpoint. Format:
@@ -44,6 +52,25 @@ public final class GoogleCloudAiplatformV1beta1TunedModel extends com.google.api
    */
   @com.google.api.client.util.Key
   private java.lang.String model;
+
+  /**
+   * Output only. The checkpoints associated with this TunedModel. This field is only populated for
+   * tuning jobs that enable intermediate checkpoints.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GoogleCloudAiplatformV1beta1TunedModelCheckpoint> getCheckpoints() {
+    return checkpoints;
+  }
+
+  /**
+   * Output only. The checkpoints associated with this TunedModel. This field is only populated for
+   * tuning jobs that enable intermediate checkpoints.
+   * @param checkpoints checkpoints or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1TunedModel setCheckpoints(java.util.List<GoogleCloudAiplatformV1beta1TunedModelCheckpoint> checkpoints) {
+    this.checkpoints = checkpoints;
+    return this;
+  }
 
   /**
    * Output only. A resource name of an Endpoint. Format:

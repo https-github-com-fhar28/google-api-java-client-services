@@ -445,6 +445,29 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -688,23 +711,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes since the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes since the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -715,13 +736,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Create setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -869,23 +889,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes after the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes after the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes after the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes after the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -896,13 +914,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes after the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes after the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Delete setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -1069,8 +1086,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * This request holds the parameters needed by the networkservices server.  After setting any
          * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
-         * @param parent Required. The project and location from which the `AuthzExtension` resources are listed, specified
-         *        in the following format: `projects/{project}/locations/{location}`.
+         * @param parent Required. The project and location from which the `AuthzExtension` resources are listed. These
+         *        values are specified in the following format: `projects/{project}/locations/{location}`.
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -1096,8 +1113,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
            * must be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param parent Required. The project and location from which the `AuthzExtension` resources are listed, specified
-         *        in the following format: `projects/{project}/locations/{location}`.
+           * @param parent Required. The project and location from which the `AuthzExtension` resources are listed. These
+         *        values are specified in the following format: `projects/{project}/locations/{location}`.
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -1177,13 +1194,14 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The project and location from which the `AuthzExtension` resources are
-           * listed, specified in the following format: `projects/{project}/locations/{location}`.
+           * listed. These values are specified in the following format:
+           * `projects/{project}/locations/{location}`.
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** Required. The project and location from which the `AuthzExtension` resources are listed, specified
-         in the following format: `projects/{project}/locations/{location}`.
+          /** Required. The project and location from which the `AuthzExtension` resources are listed. These
+         values are specified in the following format: `projects/{project}/locations/{location}`.
            */
           public java.lang.String getParent() {
             return parent;
@@ -1191,7 +1209,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The project and location from which the `AuthzExtension` resources are
-           * listed, specified in the following format: `projects/{project}/locations/{location}`.
+           * listed. These values are specified in the following format:
+           * `projects/{project}/locations/{location}`.
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -1219,17 +1238,17 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
             return this;
           }
 
-          /** Optional. Hint for how to order the results. */
+          /** Optional. Hint about how to order the results. */
           @com.google.api.client.util.Key
           private java.lang.String orderBy;
 
-          /** Optional. Hint for how to order the results.
+          /** Optional. Hint about how to order the results.
            */
           public java.lang.String getOrderBy() {
             return orderBy;
           }
 
-          /** Optional. Hint for how to order the results. */
+          /** Optional. Hint about how to order the results. */
           public List setOrderBy(java.lang.String orderBy) {
             this.orderBy = orderBy;
             return this;
@@ -1417,23 +1436,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes since the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes since the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -1444,13 +1461,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Patch setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -1459,7 +1475,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. Used to specify the fields to be overwritten in the `AuthzExtension` resource
-           * by the update. The fields specified in the update_mask are relative to the resource,
+           * by the update. The fields specified in the `update_mask` are relative to the resource,
            * not the full request. A field is overwritten if it is in the mask. If the user does not
            * specify a mask, then all fields are overwritten.
            */
@@ -1467,9 +1483,9 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           private String updateMask;
 
           /** Required. Used to specify the fields to be overwritten in the `AuthzExtension` resource by the
-         update. The fields specified in the update_mask are relative to the resource, not the full request.
-         A field is overwritten if it is in the mask. If the user does not specify a mask, then all fields
-         are overwritten.
+         update. The fields specified in the `update_mask` are relative to the resource, not the full
+         request. A field is overwritten if it is in the mask. If the user does not specify a mask, then all
+         fields are overwritten.
            */
           public String getUpdateMask() {
             return updateMask;
@@ -1477,7 +1493,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. Used to specify the fields to be overwritten in the `AuthzExtension` resource
-           * by the update. The fields specified in the update_mask are relative to the resource,
+           * by the update. The fields specified in the `update_mask` are relative to the resource,
            * not the full request. A field is overwritten if it is in the mask. If the user does not
            * specify a mask, then all fields are overwritten.
            */
@@ -2138,6 +2154,31 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;
+            return this;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If true, allow partial responses for multi-regional Aggregated List requests. Otherwise
+         if one of the locations is down or unreachable, the Aggregated List request will fail.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
             return this;
           }
 
@@ -3124,6 +3165,366 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           }
         }
 
+        /**
+         * An accessor for creating requests from the RouteViews collection.
+         *
+         * <p>The typical use is:</p>
+         * <pre>
+         *   {@code NetworkServices networkservices = new NetworkServices(...);}
+         *   {@code NetworkServices.RouteViews.List request = networkservices.routeViews().list(parameters ...)}
+         * </pre>
+         *
+         * @return the resource collection
+         */
+        public RouteViews routeViews() {
+          return new RouteViews();
+        }
+
+        /**
+         * The "routeViews" collection of methods.
+         */
+        public class RouteViews {
+
+          /**
+           * Get a single RouteView of a Gateway.
+           *
+           * Create a request for the method "routeViews.get".
+           *
+           * This request holds the parameters needed by the networkservices server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Name of the GatewayRouteView resource. Formats:
+           *        projects/{project_number}/locations/{location}/gateways/{gateway_name}/routeViews/{route_v
+           *        iew_name}
+           * @return the request
+           */
+          public Get get(java.lang.String name) throws java.io.IOException {
+            Get result = new Get(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Get extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.GatewayRouteView> {
+
+            private static final String REST_PATH = "v1beta1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/gateways/[^/]+/routeViews/[^/]+$");
+
+            /**
+             * Get a single RouteView of a Gateway.
+             *
+             * Create a request for the method "routeViews.get".
+             *
+             * This request holds the parameters needed by the the networkservices server.  After setting any
+             * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+             * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Name of the GatewayRouteView resource. Formats:
+           *        projects/{project_number}/locations/{location}/gateways/{gateway_name}/routeViews/{route_v
+           *        iew_name}
+             * @since 1.13
+             */
+            protected Get(java.lang.String name) {
+              super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.GatewayRouteView.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/gateways/[^/]+/routeViews/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public Get set$Xgafv(java.lang.String $Xgafv) {
+              return (Get) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Get setAccessToken(java.lang.String accessToken) {
+              return (Get) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Get setAlt(java.lang.String alt) {
+              return (Get) super.setAlt(alt);
+            }
+
+            @Override
+            public Get setCallback(java.lang.String callback) {
+              return (Get) super.setCallback(callback);
+            }
+
+            @Override
+            public Get setFields(java.lang.String fields) {
+              return (Get) super.setFields(fields);
+            }
+
+            @Override
+            public Get setKey(java.lang.String key) {
+              return (Get) super.setKey(key);
+            }
+
+            @Override
+            public Get setOauthToken(java.lang.String oauthToken) {
+              return (Get) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Get) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Get setQuotaUser(java.lang.String quotaUser) {
+              return (Get) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Get setUploadType(java.lang.String uploadType) {
+              return (Get) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Get setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Get) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Name of the GatewayRouteView resource. Formats: projects/{project_number}/l
+             * ocations/{location}/gateways/{gateway_name}/routeViews/{route_view_name}
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Name of the GatewayRouteView resource. Formats:
+           projects/{project_number}/locations/{location}/gateways/{gateway_name}/routeViews/{route_view_name}
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Name of the GatewayRouteView resource. Formats: projects/{project_number}/l
+             * ocations/{location}/gateways/{gateway_name}/routeViews/{route_view_name}
+             */
+            public Get setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/gateways/[^/]+/routeViews/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Get set(String parameterName, Object value) {
+              return (Get) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Lists RouteViews
+           *
+           * Create a request for the method "routeViews.list".
+           *
+           * This request holds the parameters needed by the networkservices server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+           *
+           * @param parent Required. The Gateway to which a Route is associated. Formats:
+           *        projects/{project_number}/locations/{location}/gateways/{gateway_name}
+           * @return the request
+           */
+          public List list(java.lang.String parent) throws java.io.IOException {
+            List result = new List(parent);
+            initialize(result);
+            return result;
+          }
+
+          public class List extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.ListGatewayRouteViewsResponse> {
+
+            private static final String REST_PATH = "v1beta1/{+parent}/routeViews";
+
+            private final java.util.regex.Pattern PARENT_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/gateways/[^/]+$");
+
+            /**
+             * Lists RouteViews
+             *
+             * Create a request for the method "routeViews.list".
+             *
+             * This request holds the parameters needed by the the networkservices server.  After setting any
+             * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+             * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param parent Required. The Gateway to which a Route is associated. Formats:
+           *        projects/{project_number}/locations/{location}/gateways/{gateway_name}
+             * @since 1.13
+             */
+            protected List(java.lang.String parent) {
+              super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.ListGatewayRouteViewsResponse.class);
+              this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/gateways/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public List set$Xgafv(java.lang.String $Xgafv) {
+              return (List) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public List setAccessToken(java.lang.String accessToken) {
+              return (List) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public List setAlt(java.lang.String alt) {
+              return (List) super.setAlt(alt);
+            }
+
+            @Override
+            public List setCallback(java.lang.String callback) {
+              return (List) super.setCallback(callback);
+            }
+
+            @Override
+            public List setFields(java.lang.String fields) {
+              return (List) super.setFields(fields);
+            }
+
+            @Override
+            public List setKey(java.lang.String key) {
+              return (List) super.setKey(key);
+            }
+
+            @Override
+            public List setOauthToken(java.lang.String oauthToken) {
+              return (List) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (List) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public List setQuotaUser(java.lang.String quotaUser) {
+              return (List) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public List setUploadType(java.lang.String uploadType) {
+              return (List) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public List setUploadProtocol(java.lang.String uploadProtocol) {
+              return (List) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The Gateway to which a Route is associated. Formats:
+             * projects/{project_number}/locations/{location}/gateways/{gateway_name}
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String parent;
+
+            /** Required. The Gateway to which a Route is associated. Formats:
+           projects/{project_number}/locations/{location}/gateways/{gateway_name}
+             */
+            public java.lang.String getParent() {
+              return parent;
+            }
+
+            /**
+             * Required. The Gateway to which a Route is associated. Formats:
+             * projects/{project_number}/locations/{location}/gateways/{gateway_name}
+             */
+            public List setParent(java.lang.String parent) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/gateways/[^/]+$");
+              }
+              this.parent = parent;
+              return this;
+            }
+
+            /** Maximum number of GatewayRouteViews to return per call. */
+            @com.google.api.client.util.Key
+            private java.lang.Integer pageSize;
+
+            /** Maximum number of GatewayRouteViews to return per call.
+             */
+            public java.lang.Integer getPageSize() {
+              return pageSize;
+            }
+
+            /** Maximum number of GatewayRouteViews to return per call. */
+            public List setPageSize(java.lang.Integer pageSize) {
+              this.pageSize = pageSize;
+              return this;
+            }
+
+            /**
+             * The value returned by the last `ListGatewayRouteViewsResponse` Indicates that this is
+             * a continuation of a prior `ListGatewayRouteViews` call, and that the system should
+             * return the next page of data.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String pageToken;
+
+            /** The value returned by the last `ListGatewayRouteViewsResponse` Indicates that this is a
+           continuation of a prior `ListGatewayRouteViews` call, and that the system should return the next
+           page of data.
+             */
+            public java.lang.String getPageToken() {
+              return pageToken;
+            }
+
+            /**
+             * The value returned by the last `ListGatewayRouteViewsResponse` Indicates that this is
+             * a continuation of a prior `ListGatewayRouteViews` call, and that the system should
+             * return the next page of data.
+             */
+            public List setPageToken(java.lang.String pageToken) {
+              this.pageToken = pageToken;
+              return this;
+            }
+
+            @Override
+            public List set(String parameterName, Object value) {
+              return (List) super.set(parameterName, value);
+            }
+          }
+
+        }
       }
       /**
        * An accessor for creating requests from the GrpcRoutes collection.
@@ -3763,6 +4164,31 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;
+            return this;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If true, allow partial responses for multi-regional Aggregated List requests. Otherwise
+         if one of the locations is down or unreachable, the Aggregated List request will fail.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
             return this;
           }
 
@@ -4583,6 +5009,31 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
             return this;
           }
 
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If true, allow partial responses for multi-regional Aggregated List requests. Otherwise
+         if one of the locations is down or unreachable, the Aggregated List request will fail.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
+            return this;
+          }
+
           @Override
           public List set(String parameterName, Object value) {
             return (List) super.set(parameterName, value);
@@ -4746,6 +5197,978 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * resource by the update. The fields specified in the update_mask are relative to the
            * resource, not the full request. A field will be overwritten if it is in the mask. If
            * the user does not provide a mask then all fields will be overwritten.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
+       * An accessor for creating requests from the LbEdgeExtensions collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkServices networkservices = new NetworkServices(...);}
+       *   {@code NetworkServices.LbEdgeExtensions.List request = networkservices.lbEdgeExtensions().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public LbEdgeExtensions lbEdgeExtensions() {
+        return new LbEdgeExtensions();
+      }
+
+      /**
+       * The "lbEdgeExtensions" collection of methods.
+       */
+      public class LbEdgeExtensions {
+
+        /**
+         * Creates a new `LbEdgeExtension` resource in a given project and location.
+         *
+         * Create a request for the method "lbEdgeExtensions.create".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource of the `LbEdgeExtension` resource. Must be in the format
+         *        `projects/{project}/locations/{location}`.
+         * @param content the {@link com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+          private static final String REST_PATH = "v1beta1/{+parent}/lbEdgeExtensions";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates a new `LbEdgeExtension` resource in a given project and location.
+           *
+           * Create a request for the method "lbEdgeExtensions.create".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource of the `LbEdgeExtension` resource. Must be in the format
+         *        `projects/{project}/locations/{location}`.
+           * @param content the {@link com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension content) {
+            super(NetworkServices.this, "POST", REST_PATH, content, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource of the `LbEdgeExtension` resource. Must be in the format
+           * `projects/{project}/locations/{location}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource of the `LbEdgeExtension` resource. Must be in the format
+         `projects/{project}/locations/{location}`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource of the `LbEdgeExtension` resource. Must be in the format
+           * `projects/{project}/locations/{location}`.
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /** Required. User-provided ID of the `LbEdgeExtension` resource to be created. */
+          @com.google.api.client.util.Key
+          private java.lang.String lbEdgeExtensionId;
+
+          /** Required. User-provided ID of the `LbEdgeExtension` resource to be created.
+           */
+          public java.lang.String getLbEdgeExtensionId() {
+            return lbEdgeExtensionId;
+          }
+
+          /** Required. User-provided ID of the `LbEdgeExtension` resource to be created. */
+          public Create setLbEdgeExtensionId(java.lang.String lbEdgeExtensionId) {
+            this.lbEdgeExtensionId = lbEdgeExtensionId;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server can ignore the request if it has already been completed. The
+         server guarantees that for 60 minutes since the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
+         creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
+         UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public Create setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes the specified `LbEdgeExtension` resource.
+         *
+         * Create a request for the method "lbEdgeExtensions.delete".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the `LbEdgeExtension` resource to delete. Must be in the format
+         *        `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+          private static final String REST_PATH = "v1beta1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+
+          /**
+           * Deletes the specified `LbEdgeExtension` resource.
+           *
+           * Create a request for the method "lbEdgeExtensions.delete".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the `LbEdgeExtension` resource to delete. Must be in the format
+         *        `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkServices.this, "DELETE", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the `LbEdgeExtension` resource to delete. Must be in the format
+           * `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the `LbEdgeExtension` resource to delete. Must be in the format
+         `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the `LbEdgeExtension` resource to delete. Must be in the format
+           * `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for 60 minutes after the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server can ignore the request if it has already been completed. The
+         server guarantees that for 60 minutes after the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
+         creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
+         UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for 60 minutes after the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public Delete setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets details of the specified `LbEdgeExtension` resource.
+         *
+         * Create a request for the method "lbEdgeExtensions.get".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. A name of the `LbEdgeExtension` resource to get. Must be in the format
+         *        `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension> {
+
+          private static final String REST_PATH = "v1beta1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+
+          /**
+           * Gets details of the specified `LbEdgeExtension` resource.
+           *
+           * Create a request for the method "lbEdgeExtensions.get".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. A name of the `LbEdgeExtension` resource to get. Must be in the format
+         *        `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. A name of the `LbEdgeExtension` resource to get. Must be in the format
+           * `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. A name of the `LbEdgeExtension` resource to get. Must be in the format
+         `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. A name of the `LbEdgeExtension` resource to get. Must be in the format
+           * `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists `LbEdgeExtension` resources in a given project and location.
+         *
+         * Create a request for the method "lbEdgeExtensions.list".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The project and location from which the `LbEdgeExtension` resources are listed. These
+         *        values are specified in the following format: `projects/{project}/locations/{location}`.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.ListLbEdgeExtensionsResponse> {
+
+          private static final String REST_PATH = "v1beta1/{+parent}/lbEdgeExtensions";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists `LbEdgeExtension` resources in a given project and location.
+           *
+           * Create a request for the method "lbEdgeExtensions.list".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The project and location from which the `LbEdgeExtension` resources are listed. These
+         *        values are specified in the following format: `projects/{project}/locations/{location}`.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.ListLbEdgeExtensionsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The project and location from which the `LbEdgeExtension` resources are
+           * listed. These values are specified in the following format:
+           * `projects/{project}/locations/{location}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The project and location from which the `LbEdgeExtension` resources are listed. These
+         values are specified in the following format: `projects/{project}/locations/{location}`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The project and location from which the `LbEdgeExtension` resources are
+           * listed. These values are specified in the following format:
+           * `projects/{project}/locations/{location}`.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /** Optional. Filtering results. */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filtering results.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /** Optional. Filtering results. */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
+          /** Optional. Hint about how to order the results. */
+          @com.google.api.client.util.Key
+          private java.lang.String orderBy;
+
+          /** Optional. Hint about how to order the results.
+           */
+          public java.lang.String getOrderBy() {
+            return orderBy;
+          }
+
+          /** Optional. Hint about how to order the results. */
+          public List setOrderBy(java.lang.String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+          }
+
+          /**
+           * Optional. Requested page size. The server might return fewer items than requested. If
+           * unspecified, the server picks an appropriate default.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Requested page size. The server might return fewer items than requested. If unspecified,
+         the server picks an appropriate default.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Requested page size. The server might return fewer items than requested. If
+           * unspecified, the server picks an appropriate default.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /** Optional. A token identifying a page of results that the server returns. */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A token identifying a page of results that the server returns.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /** Optional. A token identifying a page of results that the server returns. */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates the parameters of the specified `LbEdgeExtension` resource.
+         *
+         * Create a request for the method "lbEdgeExtensions.patch".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. Identifier. Name of the `LbEdgeExtension` resource in the following format:
+         *        `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+         * @param content the {@link com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+          private static final String REST_PATH = "v1beta1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+
+          /**
+           * Updates the parameters of the specified `LbEdgeExtension` resource.
+           *
+           * Create a request for the method "lbEdgeExtensions.patch".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. Identifier. Name of the `LbEdgeExtension` resource in the following format:
+         *        `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           * @param content the {@link com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networkservices.v1beta1.model.LbEdgeExtension content) {
+            super(NetworkServices.this, "PATCH", REST_PATH, content, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. Identifier. Name of the `LbEdgeExtension` resource in the following format:
+           * `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. Identifier. Name of the `LbEdgeExtension` resource in the following format:
+         `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. Identifier. Name of the `LbEdgeExtension` resource in the following format:
+           * `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/lbEdgeExtensions/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
+         must retry your request, the server can ignore the request if it has already been completed. The
+         server guarantees that for 60 minutes since the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
+         creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
+         UUID is not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server can ignore the request if it has
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
+          /**
+           * Optional. Used to specify the fields to be overwritten in the `LbEdgeExtension`
+           * resource by the update. The fields specified in the `update_mask` are relative to the
+           * resource, not the full request. A field is overwritten if it is in the mask. If the
+           * user does not specify a mask, then all fields are overwritten.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. Used to specify the fields to be overwritten in the `LbEdgeExtension` resource by the
+         update. The fields specified in the `update_mask` are relative to the resource, not the full
+         request. A field is overwritten if it is in the mask. If the user does not specify a mask, then all
+         fields are overwritten.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. Used to specify the fields to be overwritten in the `LbEdgeExtension`
+           * resource by the update. The fields specified in the `update_mask` are relative to the
+           * resource, not the full request. A field is overwritten if it is in the mask. If the
+           * user does not specify a mask, then all fields are overwritten.
            */
           public Patch setUpdateMask(String updateMask) {
             this.updateMask = updateMask;
@@ -4933,23 +6356,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes since the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes since the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -4960,13 +6381,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Create setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -5114,23 +6534,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes after the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes after the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes after the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes after the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -5141,13 +6559,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes after the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes after the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Delete setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -5314,8 +6731,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * This request holds the parameters needed by the networkservices server.  After setting any
          * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
-         * @param parent Required. The project and location from which the `LbRouteExtension` resources are listed, specified
-         *        in the following format: `projects/{project}/locations/{location}`.
+         * @param parent Required. The project and location from which the `LbRouteExtension` resources are listed. These
+         *        values are specified in the following format: `projects/{project}/locations/{location}`.
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -5341,8 +6758,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
            * must be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param parent Required. The project and location from which the `LbRouteExtension` resources are listed, specified
-         *        in the following format: `projects/{project}/locations/{location}`.
+           * @param parent Required. The project and location from which the `LbRouteExtension` resources are listed. These
+         *        values are specified in the following format: `projects/{project}/locations/{location}`.
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -5422,13 +6839,14 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The project and location from which the `LbRouteExtension` resources are
-           * listed, specified in the following format: `projects/{project}/locations/{location}`.
+           * listed. These values are specified in the following format:
+           * `projects/{project}/locations/{location}`.
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** Required. The project and location from which the `LbRouteExtension` resources are listed,
-         specified in the following format: `projects/{project}/locations/{location}`.
+          /** Required. The project and location from which the `LbRouteExtension` resources are listed. These
+         values are specified in the following format: `projects/{project}/locations/{location}`.
            */
           public java.lang.String getParent() {
             return parent;
@@ -5436,7 +6854,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The project and location from which the `LbRouteExtension` resources are
-           * listed, specified in the following format: `projects/{project}/locations/{location}`.
+           * listed. These values are specified in the following format:
+           * `projects/{project}/locations/{location}`.
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -5464,17 +6883,17 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
             return this;
           }
 
-          /** Optional. Hint for how to order the results. */
+          /** Optional. Hint about how to order the results. */
           @com.google.api.client.util.Key
           private java.lang.String orderBy;
 
-          /** Optional. Hint for how to order the results.
+          /** Optional. Hint about how to order the results.
            */
           public java.lang.String getOrderBy() {
             return orderBy;
           }
 
-          /** Optional. Hint for how to order the results. */
+          /** Optional. Hint about how to order the results. */
           public List setOrderBy(java.lang.String orderBy) {
             this.orderBy = orderBy;
             return this;
@@ -5662,23 +7081,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes since the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes since the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -5689,13 +7106,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Patch setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -5704,7 +7120,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Optional. Used to specify the fields to be overwritten in the `LbRouteExtension`
-           * resource by the update. The fields specified in the update_mask are relative to the
+           * resource by the update. The fields specified in the `update_mask` are relative to the
            * resource, not the full request. A field is overwritten if it is in the mask. If the
            * user does not specify a mask, then all fields are overwritten.
            */
@@ -5712,9 +7128,9 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           private String updateMask;
 
           /** Optional. Used to specify the fields to be overwritten in the `LbRouteExtension` resource by the
-         update. The fields specified in the update_mask are relative to the resource, not the full request.
-         A field is overwritten if it is in the mask. If the user does not specify a mask, then all fields
-         are overwritten.
+         update. The fields specified in the `update_mask` are relative to the resource, not the full
+         request. A field is overwritten if it is in the mask. If the user does not specify a mask, then all
+         fields are overwritten.
            */
           public String getUpdateMask() {
             return updateMask;
@@ -5722,7 +7138,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Optional. Used to specify the fields to be overwritten in the `LbRouteExtension`
-           * resource by the update. The fields specified in the update_mask are relative to the
+           * resource by the update. The fields specified in the `update_mask` are relative to the
            * resource, not the full request. A field is overwritten if it is in the mask. If the
            * user does not specify a mask, then all fields are overwritten.
            */
@@ -5912,23 +7328,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes since the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes since the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -5939,13 +7353,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Create setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -6095,23 +7508,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes after the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes after the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes after the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes after the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -6122,13 +7533,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes after the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes after the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Delete setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -6295,8 +7705,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * This request holds the parameters needed by the networkservices server.  After setting any
          * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
-         * @param parent Required. The project and location from which the `LbTrafficExtension` resources are listed,
-         *        specified in the following format: `projects/{project}/locations/{location}`.
+         * @param parent Required. The project and location from which the `LbTrafficExtension` resources are listed. These
+         *        values are specified in the following format: `projects/{project}/locations/{location}`.
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -6322,8 +7732,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
            * must be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param parent Required. The project and location from which the `LbTrafficExtension` resources are listed,
-         *        specified in the following format: `projects/{project}/locations/{location}`.
+           * @param parent Required. The project and location from which the `LbTrafficExtension` resources are listed. These
+         *        values are specified in the following format: `projects/{project}/locations/{location}`.
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -6403,13 +7813,14 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The project and location from which the `LbTrafficExtension` resources are
-           * listed, specified in the following format: `projects/{project}/locations/{location}`.
+           * listed. These values are specified in the following format:
+           * `projects/{project}/locations/{location}`.
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** Required. The project and location from which the `LbTrafficExtension` resources are listed,
-         specified in the following format: `projects/{project}/locations/{location}`.
+          /** Required. The project and location from which the `LbTrafficExtension` resources are listed. These
+         values are specified in the following format: `projects/{project}/locations/{location}`.
            */
           public java.lang.String getParent() {
             return parent;
@@ -6417,7 +7828,8 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The project and location from which the `LbTrafficExtension` resources are
-           * listed, specified in the following format: `projects/{project}/locations/{location}`.
+           * listed. These values are specified in the following format:
+           * `projects/{project}/locations/{location}`.
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -6445,17 +7857,17 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
             return this;
           }
 
-          /** Optional. Hint for how to order the results. */
+          /** Optional. Hint about how to order the results. */
           @com.google.api.client.util.Key
           private java.lang.String orderBy;
 
-          /** Optional. Hint for how to order the results.
+          /** Optional. Hint about how to order the results.
            */
           public java.lang.String getOrderBy() {
             return orderBy;
           }
 
-          /** Optional. Hint for how to order the results. */
+          /** Optional. Hint about how to order the results. */
           public List setOrderBy(java.lang.String orderBy) {
             this.orderBy = orderBy;
             return this;
@@ -6645,23 +8057,21 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
           /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you
          must retry your request, the server can ignore the request if it has already been completed. The
-         server guarantees that for at least 60 minutes since the first request. For example, consider a
-         situation where you make an initial request and the request times out. If you make the request
-         again with the same request ID, the server can check if original operation with the same request ID
-         was received, and if so, ignores the second request. This prevents clients from accidentally
+         server guarantees that for 60 minutes since the first request. For example, consider a situation
+         where you make an initial request and the request times out. If you make the request again with the
+         same request ID, the server ignores the second request This prevents clients from accidentally
          creating duplicate commitments. The request ID must be a valid UUID with the exception that zero
          UUID is not supported (00000000-0000-0000-0000-000000000000).
            */
@@ -6672,13 +8082,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           /**
            * Optional. An optional request ID to identify requests. Specify a unique request ID so
            * that if you must retry your request, the server can ignore the request if it has
-           * already been completed. The server guarantees that for at least 60 minutes since the
-           * first request. For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same request ID, the
-           * server can check if original operation with the same request ID was received, and if
-           * so, ignores the second request. This prevents clients from accidentally creating
-           * duplicate commitments. The request ID must be a valid UUID with the exception that zero
-           * UUID is not supported (00000000-0000-0000-0000-000000000000).
+           * already been completed. The server guarantees that for 60 minutes since the first
+           * request. For example, consider a situation where you make an initial request and the
+           * request times out. If you make the request again with the same request ID, the server
+           * ignores the second request This prevents clients from accidentally creating duplicate
+           * commitments. The request ID must be a valid UUID with the exception that zero UUID is
+           * not supported (00000000-0000-0000-0000-000000000000).
            */
           public Patch setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -6687,7 +8096,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Optional. Used to specify the fields to be overwritten in the `LbTrafficExtension`
-           * resource by the update. The fields specified in the update_mask are relative to the
+           * resource by the update. The fields specified in the `update_mask` are relative to the
            * resource, not the full request. A field is overwritten if it is in the mask. If the
            * user does not specify a mask, then all fields are overwritten.
            */
@@ -6695,9 +8104,9 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           private String updateMask;
 
           /** Optional. Used to specify the fields to be overwritten in the `LbTrafficExtension` resource by the
-         update. The fields specified in the update_mask are relative to the resource, not the full request.
-         A field is overwritten if it is in the mask. If the user does not specify a mask, then all fields
-         are overwritten.
+         update. The fields specified in the `update_mask` are relative to the resource, not the full
+         request. A field is overwritten if it is in the mask. If the user does not specify a mask, then all
+         fields are overwritten.
            */
           public String getUpdateMask() {
             return updateMask;
@@ -6705,7 +8114,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Optional. Used to specify the fields to be overwritten in the `LbTrafficExtension`
-           * resource by the update. The fields specified in the update_mask are relative to the
+           * resource by the update. The fields specified in the `update_mask` are relative to the
            * resource, not the full request. A field is overwritten if it is in the mask. If the
            * user does not specify a mask, then all fields are overwritten.
            */
@@ -7356,6 +8765,31 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
             return this;
           }
 
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If true, allow partial responses for multi-regional Aggregated List requests. Otherwise
+         if one of the locations is down or unreachable, the Aggregated List request will fail.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
+            return this;
+          }
+
           @Override
           public List set(String parameterName, Object value) {
             return (List) super.set(parameterName, value);
@@ -7528,6 +8962,365 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           }
         }
 
+        /**
+         * An accessor for creating requests from the RouteViews collection.
+         *
+         * <p>The typical use is:</p>
+         * <pre>
+         *   {@code NetworkServices networkservices = new NetworkServices(...);}
+         *   {@code NetworkServices.RouteViews.List request = networkservices.routeViews().list(parameters ...)}
+         * </pre>
+         *
+         * @return the resource collection
+         */
+        public RouteViews routeViews() {
+          return new RouteViews();
+        }
+
+        /**
+         * The "routeViews" collection of methods.
+         */
+        public class RouteViews {
+
+          /**
+           * Get a single RouteView of a Mesh.
+           *
+           * Create a request for the method "routeViews.get".
+           *
+           * This request holds the parameters needed by the networkservices server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. Name of the MeshRouteView resource. Format:
+           *        projects/{project_number}/locations/{location}/meshes/{mesh_name}/routeViews/{route_view_n
+           *        ame}
+           * @return the request
+           */
+          public Get get(java.lang.String name) throws java.io.IOException {
+            Get result = new Get(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Get extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.MeshRouteView> {
+
+            private static final String REST_PATH = "v1beta1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/meshes/[^/]+/routeViews/[^/]+$");
+
+            /**
+             * Get a single RouteView of a Mesh.
+             *
+             * Create a request for the method "routeViews.get".
+             *
+             * This request holds the parameters needed by the the networkservices server.  After setting any
+             * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+             * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. Name of the MeshRouteView resource. Format:
+           *        projects/{project_number}/locations/{location}/meshes/{mesh_name}/routeViews/{route_view_n
+           *        ame}
+             * @since 1.13
+             */
+            protected Get(java.lang.String name) {
+              super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.MeshRouteView.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/meshes/[^/]+/routeViews/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public Get set$Xgafv(java.lang.String $Xgafv) {
+              return (Get) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Get setAccessToken(java.lang.String accessToken) {
+              return (Get) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Get setAlt(java.lang.String alt) {
+              return (Get) super.setAlt(alt);
+            }
+
+            @Override
+            public Get setCallback(java.lang.String callback) {
+              return (Get) super.setCallback(callback);
+            }
+
+            @Override
+            public Get setFields(java.lang.String fields) {
+              return (Get) super.setFields(fields);
+            }
+
+            @Override
+            public Get setKey(java.lang.String key) {
+              return (Get) super.setKey(key);
+            }
+
+            @Override
+            public Get setOauthToken(java.lang.String oauthToken) {
+              return (Get) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Get) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Get setQuotaUser(java.lang.String quotaUser) {
+              return (Get) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Get setUploadType(java.lang.String uploadType) {
+              return (Get) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Get setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Get) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. Name of the MeshRouteView resource. Format: projects/{project_number}/locat
+             * ions/{location}/meshes/{mesh_name}/routeViews/{route_view_name}
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. Name of the MeshRouteView resource. Format:
+           projects/{project_number}/locations/{location}/meshes/{mesh_name}/routeViews/{route_view_name}
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. Name of the MeshRouteView resource. Format: projects/{project_number}/locat
+             * ions/{location}/meshes/{mesh_name}/routeViews/{route_view_name}
+             */
+            public Get setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/meshes/[^/]+/routeViews/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Get set(String parameterName, Object value) {
+              return (Get) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Lists RouteViews
+           *
+           * Create a request for the method "routeViews.list".
+           *
+           * This request holds the parameters needed by the networkservices server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+           *
+           * @param parent Required. The Mesh to which a Route is associated. Format:
+           *        projects/{project_number}/locations/{location}/meshes/{mesh_name}
+           * @return the request
+           */
+          public List list(java.lang.String parent) throws java.io.IOException {
+            List result = new List(parent);
+            initialize(result);
+            return result;
+          }
+
+          public class List extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.ListMeshRouteViewsResponse> {
+
+            private static final String REST_PATH = "v1beta1/{+parent}/routeViews";
+
+            private final java.util.regex.Pattern PARENT_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/meshes/[^/]+$");
+
+            /**
+             * Lists RouteViews
+             *
+             * Create a request for the method "routeViews.list".
+             *
+             * This request holds the parameters needed by the the networkservices server.  After setting any
+             * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+             * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param parent Required. The Mesh to which a Route is associated. Format:
+           *        projects/{project_number}/locations/{location}/meshes/{mesh_name}
+             * @since 1.13
+             */
+            protected List(java.lang.String parent) {
+              super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.ListMeshRouteViewsResponse.class);
+              this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/meshes/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public List set$Xgafv(java.lang.String $Xgafv) {
+              return (List) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public List setAccessToken(java.lang.String accessToken) {
+              return (List) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public List setAlt(java.lang.String alt) {
+              return (List) super.setAlt(alt);
+            }
+
+            @Override
+            public List setCallback(java.lang.String callback) {
+              return (List) super.setCallback(callback);
+            }
+
+            @Override
+            public List setFields(java.lang.String fields) {
+              return (List) super.setFields(fields);
+            }
+
+            @Override
+            public List setKey(java.lang.String key) {
+              return (List) super.setKey(key);
+            }
+
+            @Override
+            public List setOauthToken(java.lang.String oauthToken) {
+              return (List) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (List) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public List setQuotaUser(java.lang.String quotaUser) {
+              return (List) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public List setUploadType(java.lang.String uploadType) {
+              return (List) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public List setUploadProtocol(java.lang.String uploadProtocol) {
+              return (List) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The Mesh to which a Route is associated. Format:
+             * projects/{project_number}/locations/{location}/meshes/{mesh_name}
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String parent;
+
+            /** Required. The Mesh to which a Route is associated. Format:
+           projects/{project_number}/locations/{location}/meshes/{mesh_name}
+             */
+            public java.lang.String getParent() {
+              return parent;
+            }
+
+            /**
+             * Required. The Mesh to which a Route is associated. Format:
+             * projects/{project_number}/locations/{location}/meshes/{mesh_name}
+             */
+            public List setParent(java.lang.String parent) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/meshes/[^/]+$");
+              }
+              this.parent = parent;
+              return this;
+            }
+
+            /** Maximum number of MeshRouteViews to return per call. */
+            @com.google.api.client.util.Key
+            private java.lang.Integer pageSize;
+
+            /** Maximum number of MeshRouteViews to return per call.
+             */
+            public java.lang.Integer getPageSize() {
+              return pageSize;
+            }
+
+            /** Maximum number of MeshRouteViews to return per call. */
+            public List setPageSize(java.lang.Integer pageSize) {
+              this.pageSize = pageSize;
+              return this;
+            }
+
+            /**
+             * The value returned by the last `ListMeshRouteViewsResponse` Indicates that this is a
+             * continuation of a prior `ListMeshRouteViews` call, and that the system should return
+             * the next page of data.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String pageToken;
+
+            /** The value returned by the last `ListMeshRouteViewsResponse` Indicates that this is a continuation
+           of a prior `ListMeshRouteViews` call, and that the system should return the next page of data.
+             */
+            public java.lang.String getPageToken() {
+              return pageToken;
+            }
+
+            /**
+             * The value returned by the last `ListMeshRouteViewsResponse` Indicates that this is a
+             * continuation of a prior `ListMeshRouteViews` call, and that the system should return
+             * the next page of data.
+             */
+            public List setPageToken(java.lang.String pageToken) {
+              this.pageToken = pageToken;
+              return this;
+            }
+
+            @Override
+            public List set(String parameterName, Object value) {
+              return (List) super.set(parameterName, value);
+            }
+          }
+
+        }
       }
       /**
        * An accessor for creating requests from the Operations collection.
@@ -7555,7 +9348,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -7586,7 +9379,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -8183,8 +9976,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * This request holds the parameters needed by the networkservices server.  After setting any
          * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
          *
-         * @param parent Required. The parent resource of the ServiceBinding. Must be in the format
-         *        `projects/locations/global`.
+         * @param parent Required. The parent resource of the ServiceBinding. Must be in the format `projects/locations`.
          * @param content the {@link com.google.api.services.networkservices.v1beta1.model.ServiceBinding}
          * @return the request
          */
@@ -8212,8 +10004,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param parent Required. The parent resource of the ServiceBinding. Must be in the format
-         *        `projects/locations/global`.
+           * @param parent Required. The parent resource of the ServiceBinding. Must be in the format `projects/locations`.
            * @param content the {@link com.google.api.services.networkservices.v1beta1.model.ServiceBinding}
            * @since 1.13
            */
@@ -8284,13 +10075,12 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The parent resource of the ServiceBinding. Must be in the format
-           * `projects/locations/global`.
+           * `projects/locations`.
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** Required. The parent resource of the ServiceBinding. Must be in the format
-         `projects/locations/global`.
+          /** Required. The parent resource of the ServiceBinding. Must be in the format `projects/locations`.
            */
           public java.lang.String getParent() {
             return parent;
@@ -8298,7 +10088,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The parent resource of the ServiceBinding. Must be in the format
-           * `projects/locations/global`.
+           * `projects/locations`.
            */
           public Create setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -8340,7 +10130,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
          *
          * @param name Required. A name of the ServiceBinding to delete. Must be in the format
-         *        `projects/locations/global/serviceBindings`.
+         *        `projects/locations/serviceBindings`.
          * @return the request
          */
         public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -8368,7 +10158,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. A name of the ServiceBinding to delete. Must be in the format
-         *        `projects/locations/global/serviceBindings`.
+         *        `projects/locations/serviceBindings`.
            * @since 1.13
            */
           protected Delete(java.lang.String name) {
@@ -8438,13 +10228,13 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. A name of the ServiceBinding to delete. Must be in the format
-           * `projects/locations/global/serviceBindings`.
+           * `projects/locations/serviceBindings`.
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. A name of the ServiceBinding to delete. Must be in the format
-         `projects/locations/global/serviceBindings`.
+         `projects/locations/serviceBindings`.
            */
           public java.lang.String getName() {
             return name;
@@ -8452,7 +10242,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. A name of the ServiceBinding to delete. Must be in the format
-           * `projects/locations/global/serviceBindings`.
+           * `projects/locations/serviceBindings`.
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -8478,7 +10268,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
          *
          * @param name Required. A name of the ServiceBinding to get. Must be in the format
-         *        `projects/locations/global/serviceBindings`.
+         *        `projects/locations/serviceBindings`.
          * @return the request
          */
         public Get get(java.lang.String name) throws java.io.IOException {
@@ -8505,7 +10295,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * must be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param name Required. A name of the ServiceBinding to get. Must be in the format
-         *        `projects/locations/global/serviceBindings`.
+         *        `projects/locations/serviceBindings`.
            * @since 1.13
            */
           protected Get(java.lang.String name) {
@@ -8585,13 +10375,13 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. A name of the ServiceBinding to get. Must be in the format
-           * `projects/locations/global/serviceBindings`.
+           * `projects/locations/serviceBindings`.
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
           /** Required. A name of the ServiceBinding to get. Must be in the format
-         `projects/locations/global/serviceBindings`.
+         `projects/locations/serviceBindings`.
            */
           public java.lang.String getName() {
             return name;
@@ -8599,7 +10389,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. A name of the ServiceBinding to get. Must be in the format
-           * `projects/locations/global/serviceBindings`.
+           * `projects/locations/serviceBindings`.
            */
           public Get setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -8625,7 +10415,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
          * @param parent Required. The project and location from which the ServiceBindings should be listed, specified in the
-         *        format `projects/locations/global`.
+         *        format `projects/locations`.
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -8652,7 +10442,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * must be called to initialize this instance immediately after invoking the constructor. </p>
            *
            * @param parent Required. The project and location from which the ServiceBindings should be listed, specified in the
-         *        format `projects/locations/global`.
+         *        format `projects/locations`.
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -8732,13 +10522,13 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The project and location from which the ServiceBindings should be listed,
-           * specified in the format `projects/locations/global`.
+           * specified in the format `projects/locations`.
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. The project and location from which the ServiceBindings should be listed, specified in
-         the format `projects/locations/global`.
+         the format `projects/locations`.
            */
           public java.lang.String getParent() {
             return parent;
@@ -8746,7 +10536,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
 
           /**
            * Required. The project and location from which the ServiceBindings should be listed,
-           * specified in the format `projects/locations/global`.
+           * specified in the format `projects/locations`.
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -8802,6 +10592,175 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           @Override
           public List set(String parameterName, Object value) {
             return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates the parameters of a single ServiceBinding.
+         *
+         * Create a request for the method "serviceBindings.patch".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Identifier. Name of the ServiceBinding resource. It matches pattern
+         *        `projects/locations/serviceBindings/`.
+         * @param content the {@link com.google.api.services.networkservices.v1beta1.model.ServiceBinding}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networkservices.v1beta1.model.ServiceBinding content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+          private static final String REST_PATH = "v1beta1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/serviceBindings/[^/]+$");
+
+          /**
+           * Updates the parameters of a single ServiceBinding.
+           *
+           * Create a request for the method "serviceBindings.patch".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Identifier. Name of the ServiceBinding resource. It matches pattern
+         *        `projects/locations/serviceBindings/`.
+           * @param content the {@link com.google.api.services.networkservices.v1beta1.model.ServiceBinding}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networkservices.v1beta1.model.ServiceBinding content) {
+            super(NetworkServices.this, "PATCH", REST_PATH, content, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/serviceBindings/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Identifier. Name of the ServiceBinding resource. It matches pattern
+           * `projects/locations/serviceBindings/`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Identifier. Name of the ServiceBinding resource. It matches pattern
+         `projects/locations/serviceBindings/`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Identifier. Name of the ServiceBinding resource. It matches pattern
+           * `projects/locations/serviceBindings/`.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/serviceBindings/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. Field mask is used to specify the fields to be overwritten in the
+           * ServiceBinding resource by the update. The fields specified in the update_mask are
+           * relative to the resource, not the full request. A field will be overwritten if it is in
+           * the mask. If the user does not provide a mask then all fields will be overwritten.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. Field mask is used to specify the fields to be overwritten in the ServiceBinding resource
+         by the update. The fields specified in the update_mask are relative to the resource, not the full
+         request. A field will be overwritten if it is in the mask. If the user does not provide a mask then
+         all fields will be overwritten.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. Field mask is used to specify the fields to be overwritten in the
+           * ServiceBinding resource by the update. The fields specified in the update_mask are
+           * relative to the resource, not the full request. A field will be overwritten if it is in
+           * the mask. If the user does not provide a mask then all fields will be overwritten.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
           }
         }
 
@@ -9280,205 +11239,6 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           }
         }
         /**
-         * Gets the access control policy for a resource. Returns an empty policy if the resource exists and
-         * does not have a policy set.
-         *
-         * Create a request for the method "serviceLbPolicies.getIamPolicy".
-         *
-         * This request holds the parameters needed by the networkservices server.  After setting any
-         * optional parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote
-         * operation.
-         *
-         * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
-         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-         *        this field.
-         * @return the request
-         */
-        public GetIamPolicy getIamPolicy(java.lang.String resource) throws java.io.IOException {
-          GetIamPolicy result = new GetIamPolicy(resource);
-          initialize(result);
-          return result;
-        }
-
-        public class GetIamPolicy extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Policy> {
-
-          private static final String REST_PATH = "v1beta1/{+resource}:getIamPolicy";
-
-          private final java.util.regex.Pattern RESOURCE_PATTERN =
-              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-
-          /**
-           * Gets the access control policy for a resource. Returns an empty policy if the resource exists
-           * and does not have a policy set.
-           *
-           * Create a request for the method "serviceLbPolicies.getIamPolicy".
-           *
-           * This request holds the parameters needed by the the networkservices server.  After setting any
-           * optional parameters, call the {@link GetIamPolicy#execute()} method to invoke the remote
-           * operation. <p> {@link
-           * GetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-           * must be called to initialize this instance immediately after invoking the constructor. </p>
-           *
-           * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource
-         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-         *        this field.
-           * @since 1.13
-           */
-          protected GetIamPolicy(java.lang.String resource) {
-            super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.Policy.class);
-            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                  "Parameter resource must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-            }
-          }
-
-          @Override
-          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
-            return super.executeUsingHead();
-          }
-
-          @Override
-          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
-            return super.buildHttpRequestUsingHead();
-          }
-
-          @Override
-          public GetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-            return (GetIamPolicy) super.set$Xgafv($Xgafv);
-          }
-
-          @Override
-          public GetIamPolicy setAccessToken(java.lang.String accessToken) {
-            return (GetIamPolicy) super.setAccessToken(accessToken);
-          }
-
-          @Override
-          public GetIamPolicy setAlt(java.lang.String alt) {
-            return (GetIamPolicy) super.setAlt(alt);
-          }
-
-          @Override
-          public GetIamPolicy setCallback(java.lang.String callback) {
-            return (GetIamPolicy) super.setCallback(callback);
-          }
-
-          @Override
-          public GetIamPolicy setFields(java.lang.String fields) {
-            return (GetIamPolicy) super.setFields(fields);
-          }
-
-          @Override
-          public GetIamPolicy setKey(java.lang.String key) {
-            return (GetIamPolicy) super.setKey(key);
-          }
-
-          @Override
-          public GetIamPolicy setOauthToken(java.lang.String oauthToken) {
-            return (GetIamPolicy) super.setOauthToken(oauthToken);
-          }
-
-          @Override
-          public GetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-            return (GetIamPolicy) super.setPrettyPrint(prettyPrint);
-          }
-
-          @Override
-          public GetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-            return (GetIamPolicy) super.setQuotaUser(quotaUser);
-          }
-
-          @Override
-          public GetIamPolicy setUploadType(java.lang.String uploadType) {
-            return (GetIamPolicy) super.setUploadType(uploadType);
-          }
-
-          @Override
-          public GetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-            return (GetIamPolicy) super.setUploadProtocol(uploadProtocol);
-          }
-
-          /**
-           * REQUIRED: The resource for which the policy is being requested. See [Resource
-           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-           * for this field.
-           */
-          @com.google.api.client.util.Key
-          private java.lang.String resource;
-
-          /** REQUIRED: The resource for which the policy is being requested. See [Resource
-         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-         field.
-           */
-          public java.lang.String getResource() {
-            return resource;
-          }
-
-          /**
-           * REQUIRED: The resource for which the policy is being requested. See [Resource
-           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-           * for this field.
-           */
-          public GetIamPolicy setResource(java.lang.String resource) {
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                  "Parameter resource must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-            }
-            this.resource = resource;
-            return this;
-          }
-
-          /**
-           * Optional. The maximum policy version that will be used to format the policy. Valid
-           * values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests
-           * for policies with any conditional role bindings must specify version 3. Policies with
-           * no conditional role bindings may specify any valid value or leave the field unset. The
-           * policy in the response might use the policy version that you specified, or it might use
-           * a lower policy version. For example, if you specify version 3, but the policy has no
-           * conditional role bindings, the response uses version 1. To learn which resources
-           * support conditions in their IAM policies, see the [IAM
-           * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-           */
-          @com.google.api.client.util.Key("options.requestedPolicyVersion")
-          private java.lang.Integer optionsRequestedPolicyVersion;
-
-          /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1,
-         and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
-         conditional role bindings must specify version 3. Policies with no conditional role bindings may
-         specify any valid value or leave the field unset. The policy in the response might use the policy
-         version that you specified, or it might use a lower policy version. For example, if you specify
-         version 3, but the policy has no conditional role bindings, the response uses version 1. To learn
-         which resources support conditions in their IAM policies, see the [IAM
-         documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-           */
-          public java.lang.Integer getOptionsRequestedPolicyVersion() {
-            return optionsRequestedPolicyVersion;
-          }
-
-          /**
-           * Optional. The maximum policy version that will be used to format the policy. Valid
-           * values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests
-           * for policies with any conditional role bindings must specify version 3. Policies with
-           * no conditional role bindings may specify any valid value or leave the field unset. The
-           * policy in the response might use the policy version that you specified, or it might use
-           * a lower policy version. For example, if you specify version 3, but the policy has no
-           * conditional role bindings, the response uses version 1. To learn which resources
-           * support conditions in their IAM policies, see the [IAM
-           * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-           */
-          public GetIamPolicy setOptionsRequestedPolicyVersion(java.lang.Integer optionsRequestedPolicyVersion) {
-            this.optionsRequestedPolicyVersion = optionsRequestedPolicyVersion;
-            return this;
-          }
-
-          @Override
-          public GetIamPolicy set(String parameterName, Object value) {
-            return (GetIamPolicy) super.set(parameterName, value);
-          }
-        }
-        /**
          * Lists ServiceLbPolicies in a given project and location.
          *
          * Create a request for the method "serviceLbPolicies.list".
@@ -9675,7 +11435,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
          * This request holds the parameters needed by the networkservices server.  After setting any
          * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Required. Name of the ServiceLbPolicy resource. It matches pattern
+         * @param name Identifier. Name of the ServiceLbPolicy resource. It matches pattern
          *        `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
          * @param content the {@link com.google.api.services.networkservices.v1beta1.model.ServiceLbPolicy}
          * @return the request
@@ -9704,7 +11464,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Required. Name of the ServiceLbPolicy resource. It matches pattern
+           * @param name Identifier. Name of the ServiceLbPolicy resource. It matches pattern
          *        `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
            * @param content the {@link com.google.api.services.networkservices.v1beta1.model.ServiceLbPolicy}
            * @since 1.13
@@ -9775,13 +11535,13 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           }
 
           /**
-           * Required. Name of the ServiceLbPolicy resource. It matches pattern
+           * Identifier. Name of the ServiceLbPolicy resource. It matches pattern
            * `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Required. Name of the ServiceLbPolicy resource. It matches pattern
+          /** Identifier. Name of the ServiceLbPolicy resource. It matches pattern
          `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
            */
           public java.lang.String getName() {
@@ -9789,7 +11549,7 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           }
 
           /**
-           * Required. Name of the ServiceLbPolicy resource. It matches pattern
+           * Identifier. Name of the ServiceLbPolicy resource. It matches pattern
            * `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
            */
           public Patch setName(java.lang.String name) {
@@ -9834,306 +11594,6 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           @Override
           public Patch set(String parameterName, Object value) {
             return (Patch) super.set(parameterName, value);
-          }
-        }
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-         * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-         *
-         * Create a request for the method "serviceLbPolicies.setIamPolicy".
-         *
-         * This request holds the parameters needed by the networkservices server.  After setting any
-         * optional parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote
-         * operation.
-         *
-         * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-         *        this field.
-         * @param content the {@link com.google.api.services.networkservices.v1beta1.model.SetIamPolicyRequest}
-         * @return the request
-         */
-        public SetIamPolicy setIamPolicy(java.lang.String resource, com.google.api.services.networkservices.v1beta1.model.SetIamPolicyRequest content) throws java.io.IOException {
-          SetIamPolicy result = new SetIamPolicy(resource, content);
-          initialize(result);
-          return result;
-        }
-
-        public class SetIamPolicy extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Policy> {
-
-          private static final String REST_PATH = "v1beta1/{+resource}:setIamPolicy";
-
-          private final java.util.regex.Pattern RESOURCE_PATTERN =
-              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-
-          /**
-           * Sets the access control policy on the specified resource. Replaces any existing policy. Can
-           * return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-           *
-           * Create a request for the method "serviceLbPolicies.setIamPolicy".
-           *
-           * This request holds the parameters needed by the the networkservices server.  After setting any
-           * optional parameters, call the {@link SetIamPolicy#execute()} method to invoke the remote
-           * operation. <p> {@link
-           * SetIamPolicy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-           * must be called to initialize this instance immediately after invoking the constructor. </p>
-           *
-           * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource
-         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-         *        this field.
-           * @param content the {@link com.google.api.services.networkservices.v1beta1.model.SetIamPolicyRequest}
-           * @since 1.13
-           */
-          protected SetIamPolicy(java.lang.String resource, com.google.api.services.networkservices.v1beta1.model.SetIamPolicyRequest content) {
-            super(NetworkServices.this, "POST", REST_PATH, content, com.google.api.services.networkservices.v1beta1.model.Policy.class);
-            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                  "Parameter resource must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-            }
-          }
-
-          @Override
-          public SetIamPolicy set$Xgafv(java.lang.String $Xgafv) {
-            return (SetIamPolicy) super.set$Xgafv($Xgafv);
-          }
-
-          @Override
-          public SetIamPolicy setAccessToken(java.lang.String accessToken) {
-            return (SetIamPolicy) super.setAccessToken(accessToken);
-          }
-
-          @Override
-          public SetIamPolicy setAlt(java.lang.String alt) {
-            return (SetIamPolicy) super.setAlt(alt);
-          }
-
-          @Override
-          public SetIamPolicy setCallback(java.lang.String callback) {
-            return (SetIamPolicy) super.setCallback(callback);
-          }
-
-          @Override
-          public SetIamPolicy setFields(java.lang.String fields) {
-            return (SetIamPolicy) super.setFields(fields);
-          }
-
-          @Override
-          public SetIamPolicy setKey(java.lang.String key) {
-            return (SetIamPolicy) super.setKey(key);
-          }
-
-          @Override
-          public SetIamPolicy setOauthToken(java.lang.String oauthToken) {
-            return (SetIamPolicy) super.setOauthToken(oauthToken);
-          }
-
-          @Override
-          public SetIamPolicy setPrettyPrint(java.lang.Boolean prettyPrint) {
-            return (SetIamPolicy) super.setPrettyPrint(prettyPrint);
-          }
-
-          @Override
-          public SetIamPolicy setQuotaUser(java.lang.String quotaUser) {
-            return (SetIamPolicy) super.setQuotaUser(quotaUser);
-          }
-
-          @Override
-          public SetIamPolicy setUploadType(java.lang.String uploadType) {
-            return (SetIamPolicy) super.setUploadType(uploadType);
-          }
-
-          @Override
-          public SetIamPolicy setUploadProtocol(java.lang.String uploadProtocol) {
-            return (SetIamPolicy) super.setUploadProtocol(uploadProtocol);
-          }
-
-          /**
-           * REQUIRED: The resource for which the policy is being specified. See [Resource
-           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-           * for this field.
-           */
-          @com.google.api.client.util.Key
-          private java.lang.String resource;
-
-          /** REQUIRED: The resource for which the policy is being specified. See [Resource
-         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-         field.
-           */
-          public java.lang.String getResource() {
-            return resource;
-          }
-
-          /**
-           * REQUIRED: The resource for which the policy is being specified. See [Resource
-           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-           * for this field.
-           */
-          public SetIamPolicy setResource(java.lang.String resource) {
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                  "Parameter resource must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-            }
-            this.resource = resource;
-            return this;
-          }
-
-          @Override
-          public SetIamPolicy set(String parameterName, Object value) {
-            return (SetIamPolicy) super.set(parameterName, value);
-          }
-        }
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist,
-         * this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is
-         * designed to be used for building permission-aware UIs and command-line tools, not for
-         * authorization checking. This operation may "fail open" without warning.
-         *
-         * Create a request for the method "serviceLbPolicies.testIamPermissions".
-         *
-         * This request holds the parameters needed by the networkservices server.  After setting any
-         * optional parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote
-         * operation.
-         *
-         * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
-         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-         *        this field.
-         * @param content the {@link com.google.api.services.networkservices.v1beta1.model.TestIamPermissionsRequest}
-         * @return the request
-         */
-        public TestIamPermissions testIamPermissions(java.lang.String resource, com.google.api.services.networkservices.v1beta1.model.TestIamPermissionsRequest content) throws java.io.IOException {
-          TestIamPermissions result = new TestIamPermissions(resource, content);
-          initialize(result);
-          return result;
-        }
-
-        public class TestIamPermissions extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.TestIamPermissionsResponse> {
-
-          private static final String REST_PATH = "v1beta1/{+resource}:testIamPermissions";
-
-          private final java.util.regex.Pattern RESOURCE_PATTERN =
-              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-
-          /**
-           * Returns permissions that a caller has on the specified resource. If the resource does not
-           * exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-           * operation is designed to be used for building permission-aware UIs and command-line tools, not
-           * for authorization checking. This operation may "fail open" without warning.
-           *
-           * Create a request for the method "serviceLbPolicies.testIamPermissions".
-           *
-           * This request holds the parameters needed by the the networkservices server.  After setting any
-           * optional parameters, call the {@link TestIamPermissions#execute()} method to invoke the remote
-           * operation. <p> {@link TestIamPermissions#initialize(com.google.api.client.googleapis.services.A
-           * bstractGoogleClientRequest)} must be called to initialize this instance immediately after
-           * invoking the constructor. </p>
-           *
-           * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource
-         *        names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-         *        this field.
-           * @param content the {@link com.google.api.services.networkservices.v1beta1.model.TestIamPermissionsRequest}
-           * @since 1.13
-           */
-          protected TestIamPermissions(java.lang.String resource, com.google.api.services.networkservices.v1beta1.model.TestIamPermissionsRequest content) {
-            super(NetworkServices.this, "POST", REST_PATH, content, com.google.api.services.networkservices.v1beta1.model.TestIamPermissionsResponse.class);
-            this.resource = com.google.api.client.util.Preconditions.checkNotNull(resource, "Required parameter resource must be specified.");
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                  "Parameter resource must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-            }
-          }
-
-          @Override
-          public TestIamPermissions set$Xgafv(java.lang.String $Xgafv) {
-            return (TestIamPermissions) super.set$Xgafv($Xgafv);
-          }
-
-          @Override
-          public TestIamPermissions setAccessToken(java.lang.String accessToken) {
-            return (TestIamPermissions) super.setAccessToken(accessToken);
-          }
-
-          @Override
-          public TestIamPermissions setAlt(java.lang.String alt) {
-            return (TestIamPermissions) super.setAlt(alt);
-          }
-
-          @Override
-          public TestIamPermissions setCallback(java.lang.String callback) {
-            return (TestIamPermissions) super.setCallback(callback);
-          }
-
-          @Override
-          public TestIamPermissions setFields(java.lang.String fields) {
-            return (TestIamPermissions) super.setFields(fields);
-          }
-
-          @Override
-          public TestIamPermissions setKey(java.lang.String key) {
-            return (TestIamPermissions) super.setKey(key);
-          }
-
-          @Override
-          public TestIamPermissions setOauthToken(java.lang.String oauthToken) {
-            return (TestIamPermissions) super.setOauthToken(oauthToken);
-          }
-
-          @Override
-          public TestIamPermissions setPrettyPrint(java.lang.Boolean prettyPrint) {
-            return (TestIamPermissions) super.setPrettyPrint(prettyPrint);
-          }
-
-          @Override
-          public TestIamPermissions setQuotaUser(java.lang.String quotaUser) {
-            return (TestIamPermissions) super.setQuotaUser(quotaUser);
-          }
-
-          @Override
-          public TestIamPermissions setUploadType(java.lang.String uploadType) {
-            return (TestIamPermissions) super.setUploadType(uploadType);
-          }
-
-          @Override
-          public TestIamPermissions setUploadProtocol(java.lang.String uploadProtocol) {
-            return (TestIamPermissions) super.setUploadProtocol(uploadProtocol);
-          }
-
-          /**
-           * REQUIRED: The resource for which the policy detail is being requested. See [Resource
-           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-           * for this field.
-           */
-          @com.google.api.client.util.Key
-          private java.lang.String resource;
-
-          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource
-         names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-         field.
-           */
-          public java.lang.String getResource() {
-            return resource;
-          }
-
-          /**
-           * REQUIRED: The resource for which the policy detail is being requested. See [Resource
-           * names](https://cloud.google.com/apis/design/resource_names) for the appropriate value
-           * for this field.
-           */
-          public TestIamPermissions setResource(java.lang.String resource) {
-            if (!getSuppressPatternChecks()) {
-              com.google.api.client.util.Preconditions.checkArgument(RESOURCE_PATTERN.matcher(resource).matches(),
-                  "Parameter resource must conform to the pattern " +
-                  "^projects/[^/]+/locations/[^/]+/serviceLbPolicies/[^/]+$");
-            }
-            this.resource = resource;
-            return this;
-          }
-
-          @Override
-          public TestIamPermissions set(String parameterName, Object value) {
-            return (TestIamPermissions) super.set(parameterName, value);
           }
         }
 
@@ -10776,6 +12236,31 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
            */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;
+            return this;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If true, allow partial responses for multi-regional Aggregated List requests. Otherwise
+         if one of the locations is down or unreachable, the Aggregated List request will fail.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
             return this;
           }
 
@@ -11596,6 +13081,31 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
             return this;
           }
 
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If true, allow partial responses for multi-regional Aggregated List requests. Otherwise
+         if one of the locations is down or unreachable, the Aggregated List request will fail.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If true, allow partial responses for multi-regional Aggregated List requests.
+           * Otherwise if one of the locations is down or unreachable, the Aggregated List request
+           * will fail.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
+            return this;
+          }
+
           @Override
           public List set(String parameterName, Object value) {
             return (List) super.set(parameterName, value);
@@ -11771,6 +13281,1539 @@ public class NetworkServices extends com.google.api.client.googleapis.services.j
           }
         }
 
+      }
+      /**
+       * An accessor for creating requests from the WasmPlugins collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code NetworkServices networkservices = new NetworkServices(...);}
+       *   {@code NetworkServices.WasmPlugins.List request = networkservices.wasmPlugins().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public WasmPlugins wasmPlugins() {
+        return new WasmPlugins();
+      }
+
+      /**
+       * The "wasmPlugins" collection of methods.
+       */
+      public class WasmPlugins {
+
+        /**
+         * Creates a new `WasmPlugin` resource in a given project and location.
+         *
+         * Create a request for the method "wasmPlugins.create".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource of the `WasmPlugin` resource. Must be in the format
+         *        `projects/{project}/locations/global`.
+         * @param content the {@link com.google.api.services.networkservices.v1beta1.model.WasmPlugin}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.networkservices.v1beta1.model.WasmPlugin content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+          private static final String REST_PATH = "v1beta1/{+parent}/wasmPlugins";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Creates a new `WasmPlugin` resource in a given project and location.
+           *
+           * Create a request for the method "wasmPlugins.create".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource of the `WasmPlugin` resource. Must be in the format
+         *        `projects/{project}/locations/global`.
+           * @param content the {@link com.google.api.services.networkservices.v1beta1.model.WasmPlugin}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.networkservices.v1beta1.model.WasmPlugin content) {
+            super(NetworkServices.this, "POST", REST_PATH, content, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource of the `WasmPlugin` resource. Must be in the format
+           * `projects/{project}/locations/global`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource of the `WasmPlugin` resource. Must be in the format
+         `projects/{project}/locations/global`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource of the `WasmPlugin` resource. Must be in the format
+           * `projects/{project}/locations/global`.
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /** Required. User-provided ID of the `WasmPlugin` resource to be created. */
+          @com.google.api.client.util.Key
+          private java.lang.String wasmPluginId;
+
+          /** Required. User-provided ID of the `WasmPlugin` resource to be created.
+           */
+          public java.lang.String getWasmPluginId() {
+            return wasmPluginId;
+          }
+
+          /** Required. User-provided ID of the `WasmPlugin` resource to be created. */
+          public Create setWasmPluginId(java.lang.String wasmPluginId) {
+            this.wasmPluginId = wasmPluginId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Deletes the specified `WasmPlugin` resource.
+         *
+         * Create a request for the method "wasmPlugins.delete".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. A name of the `WasmPlugin` resource to delete. Must be in the format
+         *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+          private static final String REST_PATH = "v1beta1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+
+          /**
+           * Deletes the specified `WasmPlugin` resource.
+           *
+           * Create a request for the method "wasmPlugins.delete".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. A name of the `WasmPlugin` resource to delete. Must be in the format
+         *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(NetworkServices.this, "DELETE", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. A name of the `WasmPlugin` resource to delete. Must be in the format
+           * `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. A name of the `WasmPlugin` resource to delete. Must be in the format
+         `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. A name of the `WasmPlugin` resource to delete. Must be in the format
+           * `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Gets details of the specified `WasmPlugin` resource.
+         *
+         * Create a request for the method "wasmPlugins.get".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. A name of the `WasmPlugin` resource to get. Must be in the format
+         *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.WasmPlugin> {
+
+          private static final String REST_PATH = "v1beta1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+
+          /**
+           * Gets details of the specified `WasmPlugin` resource.
+           *
+           * Create a request for the method "wasmPlugins.get".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. A name of the `WasmPlugin` resource to get. Must be in the format
+         *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.WasmPlugin.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. A name of the `WasmPlugin` resource to get. Must be in the format
+           * `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. A name of the `WasmPlugin` resource to get. Must be in the format
+         `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. A name of the `WasmPlugin` resource to get. Must be in the format
+           * `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Determines how much data must be returned in the response. See
+           * [AIP-157](https://google.aip.dev/157).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String view;
+
+          /** Determines how much data must be returned in the response. See
+         [AIP-157](https://google.aip.dev/157).
+           */
+          public java.lang.String getView() {
+            return view;
+          }
+
+          /**
+           * Determines how much data must be returned in the response. See
+           * [AIP-157](https://google.aip.dev/157).
+           */
+          public Get setView(java.lang.String view) {
+            this.view = view;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists `WasmPlugin` resources in a given project and location.
+         *
+         * Create a request for the method "wasmPlugins.list".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The project and location from which the `WasmPlugin` resources are listed, specified in
+         *        the following format: `projects/{project}/locations/global`.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.ListWasmPluginsResponse> {
+
+          private static final String REST_PATH = "v1beta1/{+parent}/wasmPlugins";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists `WasmPlugin` resources in a given project and location.
+           *
+           * Create a request for the method "wasmPlugins.list".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The project and location from which the `WasmPlugin` resources are listed, specified in
+         *        the following format: `projects/{project}/locations/global`.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.ListWasmPluginsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The project and location from which the `WasmPlugin` resources are listed,
+           * specified in the following format: `projects/{project}/locations/global`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The project and location from which the `WasmPlugin` resources are listed, specified in
+         the following format: `projects/{project}/locations/global`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The project and location from which the `WasmPlugin` resources are listed,
+           * specified in the following format: `projects/{project}/locations/global`.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Maximum number of `WasmPlugin` resources to return per call. If not specified, at most
+           * 50 `WasmPlugin` resources are returned. The maximum value is 1000; values above 1000
+           * are coerced to 1000.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Maximum number of `WasmPlugin` resources to return per call. If not specified, at most 50
+         `WasmPlugin` resources are returned. The maximum value is 1000; values above 1000 are coerced to
+         1000.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Maximum number of `WasmPlugin` resources to return per call. If not specified, at most
+           * 50 `WasmPlugin` resources are returned. The maximum value is 1000; values above 1000
+           * are coerced to 1000.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * The value returned by the last `ListWasmPluginsResponse` call. Indicates that this is a
+           * continuation of a prior `ListWasmPlugins` call, and that the next page of data is to be
+           * returned.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** The value returned by the last `ListWasmPluginsResponse` call. Indicates that this is a
+         continuation of a prior `ListWasmPlugins` call, and that the next page of data is to be returned.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * The value returned by the last `ListWasmPluginsResponse` call. Indicates that this is a
+           * continuation of a prior `ListWasmPlugins` call, and that the next page of data is to be
+           * returned.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Updates the parameters of the specified `WasmPlugin` resource.
+         *
+         * Create a request for the method "wasmPlugins.patch".
+         *
+         * This request holds the parameters needed by the networkservices server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Identifier. Name of the `WasmPlugin` resource in the following format:
+         *        `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}`.
+         * @param content the {@link com.google.api.services.networkservices.v1beta1.model.WasmPlugin}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.networkservices.v1beta1.model.WasmPlugin content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+          private static final String REST_PATH = "v1beta1/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+
+          /**
+           * Updates the parameters of the specified `WasmPlugin` resource.
+           *
+           * Create a request for the method "wasmPlugins.patch".
+           *
+           * This request holds the parameters needed by the the networkservices server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Identifier. Name of the `WasmPlugin` resource in the following format:
+         *        `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}`.
+           * @param content the {@link com.google.api.services.networkservices.v1beta1.model.WasmPlugin}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.networkservices.v1beta1.model.WasmPlugin content) {
+            super(NetworkServices.this, "PATCH", REST_PATH, content, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Identifier. Name of the `WasmPlugin` resource in the following format:
+           * `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Identifier. Name of the `WasmPlugin` resource in the following format:
+         `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Identifier. Name of the `WasmPlugin` resource in the following format:
+           * `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}`.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Optional. Used to specify the fields to be overwritten in the `WasmPlugin` resource by
+           * the update. The fields specified in the `update_mask` field are relative to the
+           * resource, not the full request. An omitted `update_mask` field is treated as an implied
+           * `update_mask` field equivalent to all fields that are populated (that have a non-empty
+           * value). The `update_mask` field supports a special value `*`, which means that each
+           * field in the given `WasmPlugin` resource (including the empty ones) replaces the
+           * current value.
+           */
+          @com.google.api.client.util.Key
+          private String updateMask;
+
+          /** Optional. Used to specify the fields to be overwritten in the `WasmPlugin` resource by the update.
+         The fields specified in the `update_mask` field are relative to the resource, not the full request.
+         An omitted `update_mask` field is treated as an implied `update_mask` field equivalent to all
+         fields that are populated (that have a non-empty value). The `update_mask` field supports a special
+         value `*`, which means that each field in the given `WasmPlugin` resource (including the empty
+         ones) replaces the current value.
+           */
+          public String getUpdateMask() {
+            return updateMask;
+          }
+
+          /**
+           * Optional. Used to specify the fields to be overwritten in the `WasmPlugin` resource by
+           * the update. The fields specified in the `update_mask` field are relative to the
+           * resource, not the full request. An omitted `update_mask` field is treated as an implied
+           * `update_mask` field equivalent to all fields that are populated (that have a non-empty
+           * value). The `update_mask` field supports a special value `*`, which means that each
+           * field in the given `WasmPlugin` resource (including the empty ones) replaces the
+           * current value.
+           */
+          public Patch setUpdateMask(String updateMask) {
+            this.updateMask = updateMask;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+        /**
+         * An accessor for creating requests from the Versions collection.
+         *
+         * <p>The typical use is:</p>
+         * <pre>
+         *   {@code NetworkServices networkservices = new NetworkServices(...);}
+         *   {@code NetworkServices.Versions.List request = networkservices.versions().list(parameters ...)}
+         * </pre>
+         *
+         * @return the resource collection
+         */
+        public Versions versions() {
+          return new Versions();
+        }
+
+        /**
+         * The "versions" collection of methods.
+         */
+        public class Versions {
+
+          /**
+           * Creates a new `WasmPluginVersion` resource in a given project and location.
+           *
+           * Create a request for the method "versions.create".
+           *
+           * This request holds the parameters needed by the networkservices server.  After setting any
+           * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+           *
+           * @param parent Required. The parent resource of the `WasmPluginVersion` resource. Must be in the format
+           *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           * @param content the {@link com.google.api.services.networkservices.v1beta1.model.WasmPluginVersion}
+           * @return the request
+           */
+          public Create create(java.lang.String parent, com.google.api.services.networkservices.v1beta1.model.WasmPluginVersion content) throws java.io.IOException {
+            Create result = new Create(parent, content);
+            initialize(result);
+            return result;
+          }
+
+          public class Create extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+            private static final String REST_PATH = "v1beta1/{+parent}/versions";
+
+            private final java.util.regex.Pattern PARENT_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+
+            /**
+             * Creates a new `WasmPluginVersion` resource in a given project and location.
+             *
+             * Create a request for the method "versions.create".
+             *
+             * This request holds the parameters needed by the the networkservices server.  After setting any
+             * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+             * <p> {@link
+             * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param parent Required. The parent resource of the `WasmPluginVersion` resource. Must be in the format
+           *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+             * @param content the {@link com.google.api.services.networkservices.v1beta1.model.WasmPluginVersion}
+             * @since 1.13
+             */
+            protected Create(java.lang.String parent, com.google.api.services.networkservices.v1beta1.model.WasmPluginVersion content) {
+              super(NetworkServices.this, "POST", REST_PATH, content, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+              this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+              }
+            }
+
+            @Override
+            public Create set$Xgafv(java.lang.String $Xgafv) {
+              return (Create) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Create setAccessToken(java.lang.String accessToken) {
+              return (Create) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Create setAlt(java.lang.String alt) {
+              return (Create) super.setAlt(alt);
+            }
+
+            @Override
+            public Create setCallback(java.lang.String callback) {
+              return (Create) super.setCallback(callback);
+            }
+
+            @Override
+            public Create setFields(java.lang.String fields) {
+              return (Create) super.setFields(fields);
+            }
+
+            @Override
+            public Create setKey(java.lang.String key) {
+              return (Create) super.setKey(key);
+            }
+
+            @Override
+            public Create setOauthToken(java.lang.String oauthToken) {
+              return (Create) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Create) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Create setQuotaUser(java.lang.String quotaUser) {
+              return (Create) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Create setUploadType(java.lang.String uploadType) {
+              return (Create) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Create setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Create) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The parent resource of the `WasmPluginVersion` resource. Must be in the
+             * format `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String parent;
+
+            /** Required. The parent resource of the `WasmPluginVersion` resource. Must be in the format
+           `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+             */
+            public java.lang.String getParent() {
+              return parent;
+            }
+
+            /**
+             * Required. The parent resource of the `WasmPluginVersion` resource. Must be in the
+             * format `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+             */
+            public Create setParent(java.lang.String parent) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+              }
+              this.parent = parent;
+              return this;
+            }
+
+            /** Required. User-provided ID of the `WasmPluginVersion` resource to be created. */
+            @com.google.api.client.util.Key
+            private java.lang.String wasmPluginVersionId;
+
+            /** Required. User-provided ID of the `WasmPluginVersion` resource to be created.
+             */
+            public java.lang.String getWasmPluginVersionId() {
+              return wasmPluginVersionId;
+            }
+
+            /** Required. User-provided ID of the `WasmPluginVersion` resource to be created. */
+            public Create setWasmPluginVersionId(java.lang.String wasmPluginVersionId) {
+              this.wasmPluginVersionId = wasmPluginVersionId;
+              return this;
+            }
+
+            @Override
+            public Create set(String parameterName, Object value) {
+              return (Create) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Deletes the specified `WasmPluginVersion` resource.
+           *
+           * Create a request for the method "versions.delete".
+           *
+           * This request holds the parameters needed by the networkservices server.  After setting any
+           * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. A name of the `WasmPluginVersion` resource to delete. Must be in the format
+           *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_versi
+           *        on}`.
+           * @return the request
+           */
+          public Delete delete(java.lang.String name) throws java.io.IOException {
+            Delete result = new Delete(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Delete extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.Operation> {
+
+            private static final String REST_PATH = "v1beta1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+/versions/[^/]+$");
+
+            /**
+             * Deletes the specified `WasmPluginVersion` resource.
+             *
+             * Create a request for the method "versions.delete".
+             *
+             * This request holds the parameters needed by the the networkservices server.  After setting any
+             * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+             * <p> {@link
+             * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. A name of the `WasmPluginVersion` resource to delete. Must be in the format
+           *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_versi
+           *        on}`.
+             * @since 1.13
+             */
+            protected Delete(java.lang.String name) {
+              super(NetworkServices.this, "DELETE", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.Operation.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+/versions/[^/]+$");
+              }
+            }
+
+            @Override
+            public Delete set$Xgafv(java.lang.String $Xgafv) {
+              return (Delete) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Delete setAccessToken(java.lang.String accessToken) {
+              return (Delete) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Delete setAlt(java.lang.String alt) {
+              return (Delete) super.setAlt(alt);
+            }
+
+            @Override
+            public Delete setCallback(java.lang.String callback) {
+              return (Delete) super.setCallback(callback);
+            }
+
+            @Override
+            public Delete setFields(java.lang.String fields) {
+              return (Delete) super.setFields(fields);
+            }
+
+            @Override
+            public Delete setKey(java.lang.String key) {
+              return (Delete) super.setKey(key);
+            }
+
+            @Override
+            public Delete setOauthToken(java.lang.String oauthToken) {
+              return (Delete) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Delete) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Delete setQuotaUser(java.lang.String quotaUser) {
+              return (Delete) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Delete setUploadType(java.lang.String uploadType) {
+              return (Delete) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Delete) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. A name of the `WasmPluginVersion` resource to delete. Must be in the format
+             * `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_
+             * version}`.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. A name of the `WasmPluginVersion` resource to delete. Must be in the format
+           `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_version}`.
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. A name of the `WasmPluginVersion` resource to delete. Must be in the format
+             * `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_
+             * version}`.
+             */
+            public Delete setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+/versions/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Delete set(String parameterName, Object value) {
+              return (Delete) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Gets details of the specified `WasmPluginVersion` resource.
+           *
+           * Create a request for the method "versions.get".
+           *
+           * This request holds the parameters needed by the networkservices server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. A name of the `WasmPluginVersion` resource to get. Must be in the format
+           *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_versi
+           *        on}`.
+           * @return the request
+           */
+          public Get get(java.lang.String name) throws java.io.IOException {
+            Get result = new Get(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Get extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.WasmPluginVersion> {
+
+            private static final String REST_PATH = "v1beta1/{+name}";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+/versions/[^/]+$");
+
+            /**
+             * Gets details of the specified `WasmPluginVersion` resource.
+             *
+             * Create a request for the method "versions.get".
+             *
+             * This request holds the parameters needed by the the networkservices server.  After setting any
+             * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+             * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. A name of the `WasmPluginVersion` resource to get. Must be in the format
+           *        `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_versi
+           *        on}`.
+             * @since 1.13
+             */
+            protected Get(java.lang.String name) {
+              super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.WasmPluginVersion.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+/versions/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public Get set$Xgafv(java.lang.String $Xgafv) {
+              return (Get) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Get setAccessToken(java.lang.String accessToken) {
+              return (Get) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Get setAlt(java.lang.String alt) {
+              return (Get) super.setAlt(alt);
+            }
+
+            @Override
+            public Get setCallback(java.lang.String callback) {
+              return (Get) super.setCallback(callback);
+            }
+
+            @Override
+            public Get setFields(java.lang.String fields) {
+              return (Get) super.setFields(fields);
+            }
+
+            @Override
+            public Get setKey(java.lang.String key) {
+              return (Get) super.setKey(key);
+            }
+
+            @Override
+            public Get setOauthToken(java.lang.String oauthToken) {
+              return (Get) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Get) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Get setQuotaUser(java.lang.String quotaUser) {
+              return (Get) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Get setUploadType(java.lang.String uploadType) {
+              return (Get) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Get setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Get) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. A name of the `WasmPluginVersion` resource to get. Must be in the format `p
+             * rojects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_ve
+             * rsion}`.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. A name of the `WasmPluginVersion` resource to get. Must be in the format
+           `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_version}`.
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. A name of the `WasmPluginVersion` resource to get. Must be in the format `p
+             * rojects/{project}/locations/global/wasmPlugins/{wasm_plugin}/versions/{wasm_plugin_ve
+             * rsion}`.
+             */
+            public Get setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+/versions/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Get set(String parameterName, Object value) {
+              return (Get) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Lists `WasmPluginVersion` resources in a given project and location.
+           *
+           * Create a request for the method "versions.list".
+           *
+           * This request holds the parameters needed by the networkservices server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+           *
+           * @param parent Required. The `WasmPlugin` resource whose `WasmPluginVersion`s are listed, specified in the
+           *        following format: `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+           * @return the request
+           */
+          public List list(java.lang.String parent) throws java.io.IOException {
+            List result = new List(parent);
+            initialize(result);
+            return result;
+          }
+
+          public class List extends NetworkServicesRequest<com.google.api.services.networkservices.v1beta1.model.ListWasmPluginVersionsResponse> {
+
+            private static final String REST_PATH = "v1beta1/{+parent}/versions";
+
+            private final java.util.regex.Pattern PARENT_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+
+            /**
+             * Lists `WasmPluginVersion` resources in a given project and location.
+             *
+             * Create a request for the method "versions.list".
+             *
+             * This request holds the parameters needed by the the networkservices server.  After setting any
+             * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+             * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param parent Required. The `WasmPlugin` resource whose `WasmPluginVersion`s are listed, specified in the
+           *        following format: `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+             * @since 1.13
+             */
+            protected List(java.lang.String parent) {
+              super(NetworkServices.this, "GET", REST_PATH, null, com.google.api.services.networkservices.v1beta1.model.ListWasmPluginVersionsResponse.class);
+              this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public List set$Xgafv(java.lang.String $Xgafv) {
+              return (List) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public List setAccessToken(java.lang.String accessToken) {
+              return (List) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public List setAlt(java.lang.String alt) {
+              return (List) super.setAlt(alt);
+            }
+
+            @Override
+            public List setCallback(java.lang.String callback) {
+              return (List) super.setCallback(callback);
+            }
+
+            @Override
+            public List setFields(java.lang.String fields) {
+              return (List) super.setFields(fields);
+            }
+
+            @Override
+            public List setKey(java.lang.String key) {
+              return (List) super.setKey(key);
+            }
+
+            @Override
+            public List setOauthToken(java.lang.String oauthToken) {
+              return (List) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (List) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public List setQuotaUser(java.lang.String quotaUser) {
+              return (List) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public List setUploadType(java.lang.String uploadType) {
+              return (List) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public List setUploadProtocol(java.lang.String uploadProtocol) {
+              return (List) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The `WasmPlugin` resource whose `WasmPluginVersion`s are listed, specified
+             * in the following format:
+             * `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String parent;
+
+            /** Required. The `WasmPlugin` resource whose `WasmPluginVersion`s are listed, specified in the
+           following format: `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+             */
+            public java.lang.String getParent() {
+              return parent;
+            }
+
+            /**
+             * Required. The `WasmPlugin` resource whose `WasmPluginVersion`s are listed, specified
+             * in the following format:
+             * `projects/{project}/locations/global/wasmPlugins/{wasm_plugin}`.
+             */
+            public List setParent(java.lang.String parent) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                    "Parameter parent must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/wasmPlugins/[^/]+$");
+              }
+              this.parent = parent;
+              return this;
+            }
+
+            /**
+             * Maximum number of `WasmPluginVersion` resources to return per call. If not specified,
+             * at most 50 `WasmPluginVersion` resources are returned. The maximum value is 1000;
+             * values above 1000 are coerced to 1000.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.Integer pageSize;
+
+            /** Maximum number of `WasmPluginVersion` resources to return per call. If not specified, at most 50
+           `WasmPluginVersion` resources are returned. The maximum value is 1000; values above 1000 are
+           coerced to 1000.
+             */
+            public java.lang.Integer getPageSize() {
+              return pageSize;
+            }
+
+            /**
+             * Maximum number of `WasmPluginVersion` resources to return per call. If not specified,
+             * at most 50 `WasmPluginVersion` resources are returned. The maximum value is 1000;
+             * values above 1000 are coerced to 1000.
+             */
+            public List setPageSize(java.lang.Integer pageSize) {
+              this.pageSize = pageSize;
+              return this;
+            }
+
+            /**
+             * The value returned by the last `ListWasmPluginVersionsResponse` call. Indicates that
+             * this is a continuation of a prior `ListWasmPluginVersions` call, and that the next
+             * page of data is to be returned.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String pageToken;
+
+            /** The value returned by the last `ListWasmPluginVersionsResponse` call. Indicates that this is a
+           continuation of a prior `ListWasmPluginVersions` call, and that the next page of data is to be
+           returned.
+             */
+            public java.lang.String getPageToken() {
+              return pageToken;
+            }
+
+            /**
+             * The value returned by the last `ListWasmPluginVersionsResponse` call. Indicates that
+             * this is a continuation of a prior `ListWasmPluginVersions` call, and that the next
+             * page of data is to be returned.
+             */
+            public List setPageToken(java.lang.String pageToken) {
+              this.pageToken = pageToken;
+              return this;
+            }
+
+            @Override
+            public List set(String parameterName, Object value) {
+              return (List) super.set(parameterName, value);
+            }
+          }
+
+        }
       }
     }
   }

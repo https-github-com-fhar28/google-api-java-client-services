@@ -30,28 +30,28 @@ package com.google.api.services.connectors.v1.model;
 public final class JwtClaims extends com.google.api.client.json.GenericJson {
 
   /**
-   * Value for the "aud" claim.
+   * Optional. Value for the "aud" claim.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String audience;
 
   /**
-   * Value for the "iss" claim.
+   * Optional. Value for the "iss" claim.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String issuer;
 
   /**
-   * Value for the "sub" claim.
+   * Optional. Value for the "sub" claim.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String subject;
 
   /**
-   * Value for the "aud" claim.
+   * Optional. Value for the "aud" claim.
    * @return value or {@code null} for none
    */
   public java.lang.String getAudience() {
@@ -59,7 +59,7 @@ public final class JwtClaims extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Value for the "aud" claim.
+   * Optional. Value for the "aud" claim.
    * @param audience audience or {@code null} for none
    */
   public JwtClaims setAudience(java.lang.String audience) {
@@ -68,7 +68,7 @@ public final class JwtClaims extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Value for the "iss" claim.
+   * Optional. Value for the "iss" claim.
    * @return value or {@code null} for none
    */
   public java.lang.String getIssuer() {
@@ -76,7 +76,7 @@ public final class JwtClaims extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Value for the "iss" claim.
+   * Optional. Value for the "iss" claim.
    * @param issuer issuer or {@code null} for none
    */
   public JwtClaims setIssuer(java.lang.String issuer) {
@@ -85,7 +85,7 @@ public final class JwtClaims extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Value for the "sub" claim.
+   * Optional. Value for the "sub" claim.
    * @return value or {@code null} for none
    */
   public java.lang.String getSubject() {
@@ -93,7 +93,7 @@ public final class JwtClaims extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Value for the "sub" claim.
+   * Optional. Value for the "sub" claim.
    * @param subject subject or {@code null} for none
    */
   public JwtClaims setSubject(java.lang.String subject) {

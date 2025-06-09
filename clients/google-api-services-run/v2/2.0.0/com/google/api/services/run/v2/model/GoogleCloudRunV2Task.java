@@ -136,6 +136,13 @@ public final class GoogleCloudRunV2Task extends com.google.api.client.json.Gener
   private java.lang.Long generation;
 
   /**
+   * Optional. Output only. True if GPU zonal redundancy is disabled on this task.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean gpuZonalRedundancyDisabled;
+
+  /**
    * Output only. Index of the Task, unique per execution, and beginning at 0.
    * The value may be {@code null}.
    */
@@ -187,6 +194,13 @@ public final class GoogleCloudRunV2Task extends com.google.api.client.json.Gener
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
+
+  /**
+   * Output only. The node selector for the task.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudRunV2NodeSelector nodeSelector;
 
   /**
    * Output only. The generation of this Task. See comments in `Job.reconciling` for additional
@@ -508,6 +522,23 @@ public final class GoogleCloudRunV2Task extends com.google.api.client.json.Gener
   }
 
   /**
+   * Optional. Output only. True if GPU zonal redundancy is disabled on this task.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getGpuZonalRedundancyDisabled() {
+    return gpuZonalRedundancyDisabled;
+  }
+
+  /**
+   * Optional. Output only. True if GPU zonal redundancy is disabled on this task.
+   * @param gpuZonalRedundancyDisabled gpuZonalRedundancyDisabled or {@code null} for none
+   */
+  public GoogleCloudRunV2Task setGpuZonalRedundancyDisabled(java.lang.Boolean gpuZonalRedundancyDisabled) {
+    this.gpuZonalRedundancyDisabled = gpuZonalRedundancyDisabled;
+    return this;
+  }
+
+  /**
    * Output only. Index of the Task, unique per execution, and beginning at 0.
    * @return value or {@code null} for none
    */
@@ -631,6 +662,23 @@ public final class GoogleCloudRunV2Task extends com.google.api.client.json.Gener
    */
   public GoogleCloudRunV2Task setName(java.lang.String name) {
     this.name = name;
+    return this;
+  }
+
+  /**
+   * Output only. The node selector for the task.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudRunV2NodeSelector getNodeSelector() {
+    return nodeSelector;
+  }
+
+  /**
+   * Output only. The node selector for the task.
+   * @param nodeSelector nodeSelector or {@code null} for none
+   */
+  public GoogleCloudRunV2Task setNodeSelector(GoogleCloudRunV2NodeSelector nodeSelector) {
+    this.nodeSelector = nodeSelector;
     return this;
   }
 

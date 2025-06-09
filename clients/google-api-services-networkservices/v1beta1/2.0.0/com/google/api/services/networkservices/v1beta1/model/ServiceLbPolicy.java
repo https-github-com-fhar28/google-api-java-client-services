@@ -60,6 +60,13 @@ public final class ServiceLbPolicy extends com.google.api.client.json.GenericJso
   private ServiceLbPolicyFailoverConfig failoverConfig;
 
   /**
+   * Optional. Configuration to provide isolation support for the associated Backend Service.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ServiceLbPolicyIsolationConfig isolationConfig;
+
+  /**
    * Optional. Set of label tags associated with the ServiceLbPolicy resource.
    * The value may be {@code null}.
    */
@@ -75,7 +82,7 @@ public final class ServiceLbPolicy extends com.google.api.client.json.GenericJso
   private java.lang.String loadBalancingAlgorithm;
 
   /**
-   * Required. Name of the ServiceLbPolicy resource. It matches pattern
+   * Identifier. Name of the ServiceLbPolicy resource. It matches pattern
    * `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
    * The value may be {@code null}.
    */
@@ -160,6 +167,23 @@ public final class ServiceLbPolicy extends com.google.api.client.json.GenericJso
   }
 
   /**
+   * Optional. Configuration to provide isolation support for the associated Backend Service.
+   * @return value or {@code null} for none
+   */
+  public ServiceLbPolicyIsolationConfig getIsolationConfig() {
+    return isolationConfig;
+  }
+
+  /**
+   * Optional. Configuration to provide isolation support for the associated Backend Service.
+   * @param isolationConfig isolationConfig or {@code null} for none
+   */
+  public ServiceLbPolicy setIsolationConfig(ServiceLbPolicyIsolationConfig isolationConfig) {
+    this.isolationConfig = isolationConfig;
+    return this;
+  }
+
+  /**
    * Optional. Set of label tags associated with the ServiceLbPolicy resource.
    * @return value or {@code null} for none
    */
@@ -196,7 +220,7 @@ public final class ServiceLbPolicy extends com.google.api.client.json.GenericJso
   }
 
   /**
-   * Required. Name of the ServiceLbPolicy resource. It matches pattern
+   * Identifier. Name of the ServiceLbPolicy resource. It matches pattern
    * `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
    * @return value or {@code null} for none
    */
@@ -205,7 +229,7 @@ public final class ServiceLbPolicy extends com.google.api.client.json.GenericJso
   }
 
   /**
-   * Required. Name of the ServiceLbPolicy resource. It matches pattern
+   * Identifier. Name of the ServiceLbPolicy resource. It matches pattern
    * `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
    * @param name name or {@code null} for none
    */

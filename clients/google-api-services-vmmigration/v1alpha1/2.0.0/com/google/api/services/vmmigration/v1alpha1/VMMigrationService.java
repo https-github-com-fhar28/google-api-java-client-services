@@ -445,6 +445,29 @@ public class VMMigrationService extends com.google.api.client.googleapis.service
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -3030,7 +3053,7 @@ public class VMMigrationService extends com.google.api.client.googleapis.service
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -3061,7 +3084,7 @@ public class VMMigrationService extends com.google.api.client.googleapis.service
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -6027,6 +6050,137 @@ public class VMMigrationService extends com.google.api.client.googleapis.service
             @Override
             public Delete set(String parameterName, Object value) {
               return (Delete) super.set(parameterName, value);
+            }
+          }
+          /**
+           * Extend the migrating VM time to live.
+           *
+           * Create a request for the method "migratingVms.extendMigration".
+           *
+           * This request holds the parameters needed by the vmmigration server.  After setting any optional
+           * parameters, call the {@link ExtendMigration#execute()} method to invoke the remote operation.
+           *
+           * @param migratingVm Required. The name of the MigratingVm.
+           * @param content the {@link com.google.api.services.vmmigration.v1alpha1.model.ExtendMigrationRequest}
+           * @return the request
+           */
+          public ExtendMigration extendMigration(java.lang.String migratingVm, com.google.api.services.vmmigration.v1alpha1.model.ExtendMigrationRequest content) throws java.io.IOException {
+            ExtendMigration result = new ExtendMigration(migratingVm, content);
+            initialize(result);
+            return result;
+          }
+
+          public class ExtendMigration extends VMMigrationServiceRequest<com.google.api.services.vmmigration.v1alpha1.model.Operation> {
+
+            private static final String REST_PATH = "v1alpha1/{+migratingVm}:extendMigration";
+
+            private final java.util.regex.Pattern MIGRATING_VM_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/sources/[^/]+/migratingVms/[^/]+$");
+
+            /**
+             * Extend the migrating VM time to live.
+             *
+             * Create a request for the method "migratingVms.extendMigration".
+             *
+             * This request holds the parameters needed by the the vmmigration server.  After setting any
+             * optional parameters, call the {@link ExtendMigration#execute()} method to invoke the remote
+             * operation. <p> {@link ExtendMigration#initialize(com.google.api.client.googleapis.services.Abst
+             * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
+             * the constructor. </p>
+             *
+             * @param migratingVm Required. The name of the MigratingVm.
+             * @param content the {@link com.google.api.services.vmmigration.v1alpha1.model.ExtendMigrationRequest}
+             * @since 1.13
+             */
+            protected ExtendMigration(java.lang.String migratingVm, com.google.api.services.vmmigration.v1alpha1.model.ExtendMigrationRequest content) {
+              super(VMMigrationService.this, "POST", REST_PATH, content, com.google.api.services.vmmigration.v1alpha1.model.Operation.class);
+              this.migratingVm = com.google.api.client.util.Preconditions.checkNotNull(migratingVm, "Required parameter migratingVm must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(MIGRATING_VM_PATTERN.matcher(migratingVm).matches(),
+                    "Parameter migratingVm must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/sources/[^/]+/migratingVms/[^/]+$");
+              }
+            }
+
+            @Override
+            public ExtendMigration set$Xgafv(java.lang.String $Xgafv) {
+              return (ExtendMigration) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public ExtendMigration setAccessToken(java.lang.String accessToken) {
+              return (ExtendMigration) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public ExtendMigration setAlt(java.lang.String alt) {
+              return (ExtendMigration) super.setAlt(alt);
+            }
+
+            @Override
+            public ExtendMigration setCallback(java.lang.String callback) {
+              return (ExtendMigration) super.setCallback(callback);
+            }
+
+            @Override
+            public ExtendMigration setFields(java.lang.String fields) {
+              return (ExtendMigration) super.setFields(fields);
+            }
+
+            @Override
+            public ExtendMigration setKey(java.lang.String key) {
+              return (ExtendMigration) super.setKey(key);
+            }
+
+            @Override
+            public ExtendMigration setOauthToken(java.lang.String oauthToken) {
+              return (ExtendMigration) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public ExtendMigration setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (ExtendMigration) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public ExtendMigration setQuotaUser(java.lang.String quotaUser) {
+              return (ExtendMigration) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public ExtendMigration setUploadType(java.lang.String uploadType) {
+              return (ExtendMigration) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public ExtendMigration setUploadProtocol(java.lang.String uploadProtocol) {
+              return (ExtendMigration) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /** Required. The name of the MigratingVm. */
+            @com.google.api.client.util.Key
+            private java.lang.String migratingVm;
+
+            /** Required. The name of the MigratingVm.
+             */
+            public java.lang.String getMigratingVm() {
+              return migratingVm;
+            }
+
+            /** Required. The name of the MigratingVm. */
+            public ExtendMigration setMigratingVm(java.lang.String migratingVm) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(MIGRATING_VM_PATTERN.matcher(migratingVm).matches(),
+                    "Parameter migratingVm must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/sources/[^/]+/migratingVms/[^/]+$");
+              }
+              this.migratingVm = migratingVm;
+              return this;
+            }
+
+            @Override
+            public ExtendMigration set(String parameterName, Object value) {
+              return (ExtendMigration) super.set(parameterName, value);
             }
           }
           /**

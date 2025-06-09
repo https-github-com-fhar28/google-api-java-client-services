@@ -73,6 +73,13 @@ public final class GoogleCloudRunV2Revision extends com.google.api.client.json.G
   private String createTime;
 
   /**
+   * Output only. Email address of the authenticated creator.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String creator;
+
+  /**
    * Output only. For a deleted resource, the deletion time. It is only populated as a response to a
    * Delete request.
    * The value may be {@code null}.
@@ -133,6 +140,13 @@ public final class GoogleCloudRunV2Revision extends com.google.api.client.json.G
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.lang.Long generation;
+
+  /**
+   * Optional. Output only. True if GPU zonal redundancy is disabled on this revision.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean gpuZonalRedundancyDisabled;
 
   /**
    * Output only. Unstructured key value map that can be used to organize and categorize objects.
@@ -361,6 +375,23 @@ public final class GoogleCloudRunV2Revision extends com.google.api.client.json.G
   }
 
   /**
+   * Output only. Email address of the authenticated creator.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getCreator() {
+    return creator;
+  }
+
+  /**
+   * Output only. Email address of the authenticated creator.
+   * @param creator creator or {@code null} for none
+   */
+  public GoogleCloudRunV2Revision setCreator(java.lang.String creator) {
+    this.creator = creator;
+    return this;
+  }
+
+  /**
    * Output only. For a deleted resource, the deletion time. It is only populated as a response to a
    * Delete request.
    * @return value or {@code null} for none
@@ -505,6 +536,23 @@ public final class GoogleCloudRunV2Revision extends com.google.api.client.json.G
    */
   public GoogleCloudRunV2Revision setGeneration(java.lang.Long generation) {
     this.generation = generation;
+    return this;
+  }
+
+  /**
+   * Optional. Output only. True if GPU zonal redundancy is disabled on this revision.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getGpuZonalRedundancyDisabled() {
+    return gpuZonalRedundancyDisabled;
+  }
+
+  /**
+   * Optional. Output only. True if GPU zonal redundancy is disabled on this revision.
+   * @param gpuZonalRedundancyDisabled gpuZonalRedundancyDisabled or {@code null} for none
+   */
+  public GoogleCloudRunV2Revision setGpuZonalRedundancyDisabled(java.lang.Boolean gpuZonalRedundancyDisabled) {
+    this.gpuZonalRedundancyDisabled = gpuZonalRedundancyDisabled;
     return this;
   }
 

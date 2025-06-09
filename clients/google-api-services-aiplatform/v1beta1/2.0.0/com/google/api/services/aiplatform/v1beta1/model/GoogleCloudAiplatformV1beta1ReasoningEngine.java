@@ -60,14 +60,15 @@ public final class GoogleCloudAiplatformV1beta1ReasoningEngine extends com.googl
   private java.lang.String etag;
 
   /**
-   * Identifier. The resource name of the ReasoningEngine.
+   * Identifier. The resource name of the ReasoningEngine. Format:
+   * `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
 
   /**
-   * Required. Configurations of the ReasoningEngine
+   * Optional. Configurations of the ReasoningEngine
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -151,7 +152,8 @@ public final class GoogleCloudAiplatformV1beta1ReasoningEngine extends com.googl
   }
 
   /**
-   * Identifier. The resource name of the ReasoningEngine.
+   * Identifier. The resource name of the ReasoningEngine. Format:
+   * `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -159,7 +161,8 @@ public final class GoogleCloudAiplatformV1beta1ReasoningEngine extends com.googl
   }
 
   /**
-   * Identifier. The resource name of the ReasoningEngine.
+   * Identifier. The resource name of the ReasoningEngine. Format:
+   * `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
    * @param name name or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ReasoningEngine setName(java.lang.String name) {
@@ -168,7 +171,7 @@ public final class GoogleCloudAiplatformV1beta1ReasoningEngine extends com.googl
   }
 
   /**
-   * Required. Configurations of the ReasoningEngine
+   * Optional. Configurations of the ReasoningEngine
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ReasoningEngineSpec getSpec() {
@@ -176,7 +179,7 @@ public final class GoogleCloudAiplatformV1beta1ReasoningEngine extends com.googl
   }
 
   /**
-   * Required. Configurations of the ReasoningEngine
+   * Optional. Configurations of the ReasoningEngine
    * @param spec spec or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ReasoningEngine setSpec(GoogleCloudAiplatformV1beta1ReasoningEngineSpec spec) {

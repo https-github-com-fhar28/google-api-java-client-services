@@ -31,9 +31,16 @@ package com.google.api.services.clouddeploy.v1.model;
 public final class Rollout extends com.google.api.client.json.GenericJson {
 
   /**
-   * User annotations. These attributes can only be set and used by the user, and not by Cloud
-   * Deploy. See https://google.aip.dev/128#annotations for more details such as format and size
-   * limitations.
+   * Output only. The AutomationRun actively repairing the rollout.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String activeRepairAutomationRun;
+
+  /**
+   * Optional. User annotations. These attributes can only be set and used by the user, and not by
+   * Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and
+   * size limitations.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -99,7 +106,7 @@ public final class Rollout extends com.google.api.client.json.GenericJson {
   private java.lang.String deployingBuild;
 
   /**
-   * Description of the `Rollout` for user purposes. Max length is 255 characters.
+   * Optional. Description of the `Rollout` for user purposes. Max length is 255 characters.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -147,9 +154,9 @@ public final class Rollout extends com.google.api.client.json.GenericJson {
   private Metadata metadata;
 
   /**
-   * Optional. Name of the `Rollout`. Format is `projects/{project}/locations/{location}/deliveryPip
-   * elines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`. The `rollout` component must
-   * match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
+   * Identifier. Name of the `Rollout`. Format is `projects/{project}/locations/{location}/deliveryP
+   * ipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`. The `rollout` component
+   * must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -205,9 +212,26 @@ public final class Rollout extends com.google.api.client.json.GenericJson {
   private java.lang.String uid;
 
   /**
-   * User annotations. These attributes can only be set and used by the user, and not by Cloud
-   * Deploy. See https://google.aip.dev/128#annotations for more details such as format and size
-   * limitations.
+   * Output only. The AutomationRun actively repairing the rollout.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getActiveRepairAutomationRun() {
+    return activeRepairAutomationRun;
+  }
+
+  /**
+   * Output only. The AutomationRun actively repairing the rollout.
+   * @param activeRepairAutomationRun activeRepairAutomationRun or {@code null} for none
+   */
+  public Rollout setActiveRepairAutomationRun(java.lang.String activeRepairAutomationRun) {
+    this.activeRepairAutomationRun = activeRepairAutomationRun;
+    return this;
+  }
+
+  /**
+   * Optional. User annotations. These attributes can only be set and used by the user, and not by
+   * Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and
+   * size limitations.
    * @return value or {@code null} for none
    */
   public java.util.Map<String, java.lang.String> getAnnotations() {
@@ -215,9 +239,9 @@ public final class Rollout extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User annotations. These attributes can only be set and used by the user, and not by Cloud
-   * Deploy. See https://google.aip.dev/128#annotations for more details such as format and size
-   * limitations.
+   * Optional. User annotations. These attributes can only be set and used by the user, and not by
+   * Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and
+   * size limitations.
    * @param annotations annotations or {@code null} for none
    */
   public Rollout setAnnotations(java.util.Map<String, java.lang.String> annotations) {
@@ -368,7 +392,7 @@ public final class Rollout extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Description of the `Rollout` for user purposes. Max length is 255 characters.
+   * Optional. Description of the `Rollout` for user purposes. Max length is 255 characters.
    * @return value or {@code null} for none
    */
   public java.lang.String getDescription() {
@@ -376,7 +400,7 @@ public final class Rollout extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Description of the `Rollout` for user purposes. Max length is 255 characters.
+   * Optional. Description of the `Rollout` for user purposes. Max length is 255 characters.
    * @param description description or {@code null} for none
    */
   public Rollout setDescription(java.lang.String description) {
@@ -482,9 +506,9 @@ public final class Rollout extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Name of the `Rollout`. Format is `projects/{project}/locations/{location}/deliveryPip
-   * elines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`. The `rollout` component must
-   * match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
+   * Identifier. Name of the `Rollout`. Format is `projects/{project}/locations/{location}/deliveryP
+   * ipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`. The `rollout` component
+   * must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -492,9 +516,9 @@ public final class Rollout extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. Name of the `Rollout`. Format is `projects/{project}/locations/{location}/deliveryPip
-   * elines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`. The `rollout` component must
-   * match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
+   * Identifier. Name of the `Rollout`. Format is `projects/{project}/locations/{location}/deliveryP
+   * ipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`. The `rollout` component
+   * must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
    * @param name name or {@code null} for none
    */
   public Rollout setName(java.lang.String name) {

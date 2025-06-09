@@ -31,6 +31,14 @@ package com.google.api.services.tagmanager.model;
 public final class GalleryReference extends com.google.api.client.json.GenericJson {
 
   /**
+   * ID for the gallery template that is generated once during first sync and travels with the
+   * template redirects.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String galleryTemplateId;
+
+  /**
    * The name of the host for the community gallery template.
    * The value may be {@code null}.
    */
@@ -67,11 +75,38 @@ public final class GalleryReference extends com.google.api.client.json.GenericJs
   private java.lang.String signature;
 
   /**
+   * The developer id of the community gallery template. This value is set whenever the template is
+   * created from the gallery.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String templateDeveloperId;
+
+  /**
    * The version of the community gallery template.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String version;
+
+  /**
+   * ID for the gallery template that is generated once during first sync and travels with the
+   * template redirects.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getGalleryTemplateId() {
+    return galleryTemplateId;
+  }
+
+  /**
+   * ID for the gallery template that is generated once during first sync and travels with the
+   * template redirects.
+   * @param galleryTemplateId galleryTemplateId or {@code null} for none
+   */
+  public GalleryReference setGalleryTemplateId(java.lang.String galleryTemplateId) {
+    this.galleryTemplateId = galleryTemplateId;
+    return this;
+  }
 
   /**
    * The name of the host for the community gallery template.
@@ -157,6 +192,25 @@ public final class GalleryReference extends com.google.api.client.json.GenericJs
    */
   public GalleryReference setSignature(java.lang.String signature) {
     this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The developer id of the community gallery template. This value is set whenever the template is
+   * created from the gallery.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getTemplateDeveloperId() {
+    return templateDeveloperId;
+  }
+
+  /**
+   * The developer id of the community gallery template. This value is set whenever the template is
+   * created from the gallery.
+   * @param templateDeveloperId templateDeveloperId or {@code null} for none
+   */
+  public GalleryReference setTemplateDeveloperId(java.lang.String templateDeveloperId) {
+    this.templateDeveloperId = templateDeveloperId;
     return this;
   }
 

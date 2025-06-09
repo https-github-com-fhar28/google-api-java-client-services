@@ -79,7 +79,8 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
 
   /**
    * Size of the disk attached to each node, specified in GB. The smallest allowed disk size is
-   * 10GB. If unspecified, the default disk size is 100GB.
+   * 10GB. TODO(b/395671893) - Deprecate disk_size_gb and disk_type fields. If unspecified, the
+   * default disk size is 100GB.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -92,6 +93,15 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String diskType;
+
+  /**
+   * Output only. effective_cgroup_mode is the cgroup mode actually used by the node pool. It is
+   * determined by the cgroup mode specified in the LinuxNodeConfig or the default cgroup mode based
+   * on the cluster creation version.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String effectiveCgroupMode;
 
   /**
    * Optional. Reserved for future use.
@@ -123,6 +133,13 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private FastSocket fastSocket;
+
+  /**
+   * Flex Start flag for enabling Flex Start VM.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean flexStart;
 
   /**
    * GCFS (Google Container File System) configs.
@@ -198,6 +215,13 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
   private java.lang.Integer localSsdCount;
 
   /**
+   * Specifies which method should be used for encrypting the Local SSDs attached to the node.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String localSsdEncryptionMode;
+
+  /**
    * Logging configuration.
    * The value may be {@code null}.
    */
@@ -212,6 +236,13 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String machineType;
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String maxRunDuration;
 
   /**
    * The metadata key/value pairs assigned to instances in the cluster. Keys must conform to the
@@ -483,7 +514,8 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
 
   /**
    * Size of the disk attached to each node, specified in GB. The smallest allowed disk size is
-   * 10GB. If unspecified, the default disk size is 100GB.
+   * 10GB. TODO(b/395671893) - Deprecate disk_size_gb and disk_type fields. If unspecified, the
+   * default disk size is 100GB.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getDiskSizeGb() {
@@ -492,7 +524,8 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
 
   /**
    * Size of the disk attached to each node, specified in GB. The smallest allowed disk size is
-   * 10GB. If unspecified, the default disk size is 100GB.
+   * 10GB. TODO(b/395671893) - Deprecate disk_size_gb and disk_type fields. If unspecified, the
+   * default disk size is 100GB.
    * @param diskSizeGb diskSizeGb or {@code null} for none
    */
   public NodeConfig setDiskSizeGb(java.lang.Integer diskSizeGb) {
@@ -516,6 +549,27 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
    */
   public NodeConfig setDiskType(java.lang.String diskType) {
     this.diskType = diskType;
+    return this;
+  }
+
+  /**
+   * Output only. effective_cgroup_mode is the cgroup mode actually used by the node pool. It is
+   * determined by the cgroup mode specified in the LinuxNodeConfig or the default cgroup mode based
+   * on the cluster creation version.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEffectiveCgroupMode() {
+    return effectiveCgroupMode;
+  }
+
+  /**
+   * Output only. effective_cgroup_mode is the cgroup mode actually used by the node pool. It is
+   * determined by the cgroup mode specified in the LinuxNodeConfig or the default cgroup mode based
+   * on the cluster creation version.
+   * @param effectiveCgroupMode effectiveCgroupMode or {@code null} for none
+   */
+  public NodeConfig setEffectiveCgroupMode(java.lang.String effectiveCgroupMode) {
+    this.effectiveCgroupMode = effectiveCgroupMode;
     return this;
   }
 
@@ -590,6 +644,23 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
    */
   public NodeConfig setFastSocket(FastSocket fastSocket) {
     this.fastSocket = fastSocket;
+    return this;
+  }
+
+  /**
+   * Flex Start flag for enabling Flex Start VM.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getFlexStart() {
+    return flexStart;
+  }
+
+  /**
+   * Flex Start flag for enabling Flex Start VM.
+   * @param flexStart flexStart or {@code null} for none
+   */
+  public NodeConfig setFlexStart(java.lang.Boolean flexStart) {
+    this.flexStart = flexStart;
     return this;
   }
 
@@ -767,6 +838,23 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Specifies which method should be used for encrypting the Local SSDs attached to the node.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getLocalSsdEncryptionMode() {
+    return localSsdEncryptionMode;
+  }
+
+  /**
+   * Specifies which method should be used for encrypting the Local SSDs attached to the node.
+   * @param localSsdEncryptionMode localSsdEncryptionMode or {@code null} for none
+   */
+  public NodeConfig setLocalSsdEncryptionMode(java.lang.String localSsdEncryptionMode) {
+    this.localSsdEncryptionMode = localSsdEncryptionMode;
+    return this;
+  }
+
+  /**
    * Logging configuration.
    * @return value or {@code null} for none
    */
@@ -801,6 +889,23 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
    */
   public NodeConfig setMachineType(java.lang.String machineType) {
     this.machineType = machineType;
+    return this;
+  }
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * @return value or {@code null} for none
+   */
+  public String getMaxRunDuration() {
+    return maxRunDuration;
+  }
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * @param maxRunDuration maxRunDuration or {@code null} for none
+   */
+  public NodeConfig setMaxRunDuration(String maxRunDuration) {
+    this.maxRunDuration = maxRunDuration;
     return this;
   }
 

@@ -37,14 +37,21 @@ public final class EventSubscriptionDestination extends com.google.api.client.js
   private EndPoint endpoint;
 
   /**
-   * Service account needed for runtime plane to trigger IP workflow.
+   * OPTION 3: Write the event to Pub/Sub topic.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private PubSub pubsub;
+
+  /**
+   * Optional. Service account needed for runtime plane to trigger IP workflow.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String serviceAccount;
 
   /**
-   * type of the destination
+   * Optional. type of the destination
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -68,7 +75,24 @@ public final class EventSubscriptionDestination extends com.google.api.client.js
   }
 
   /**
-   * Service account needed for runtime plane to trigger IP workflow.
+   * OPTION 3: Write the event to Pub/Sub topic.
+   * @return value or {@code null} for none
+   */
+  public PubSub getPubsub() {
+    return pubsub;
+  }
+
+  /**
+   * OPTION 3: Write the event to Pub/Sub topic.
+   * @param pubsub pubsub or {@code null} for none
+   */
+  public EventSubscriptionDestination setPubsub(PubSub pubsub) {
+    this.pubsub = pubsub;
+    return this;
+  }
+
+  /**
+   * Optional. Service account needed for runtime plane to trigger IP workflow.
    * @return value or {@code null} for none
    */
   public java.lang.String getServiceAccount() {
@@ -76,7 +100,7 @@ public final class EventSubscriptionDestination extends com.google.api.client.js
   }
 
   /**
-   * Service account needed for runtime plane to trigger IP workflow.
+   * Optional. Service account needed for runtime plane to trigger IP workflow.
    * @param serviceAccount serviceAccount or {@code null} for none
    */
   public EventSubscriptionDestination setServiceAccount(java.lang.String serviceAccount) {
@@ -85,7 +109,7 @@ public final class EventSubscriptionDestination extends com.google.api.client.js
   }
 
   /**
-   * type of the destination
+   * Optional. type of the destination
    * @return value or {@code null} for none
    */
   public java.lang.String getType() {
@@ -93,7 +117,7 @@ public final class EventSubscriptionDestination extends com.google.api.client.js
   }
 
   /**
-   * type of the destination
+   * Optional. type of the destination
    * @param type type or {@code null} for none
    */
   public EventSubscriptionDestination setType(java.lang.String type) {

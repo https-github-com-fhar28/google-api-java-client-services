@@ -30,10 +30,58 @@ package com.google.api.services.compute.model;
 public final class InstancesReportHostAsFaultyRequest extends com.google.api.client.json.GenericJson {
 
   /**
+   * The action hint to report the host as faulty.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String actionHint;
+
+  /**
+   * The disruption schedule for the VM. Required field, only allows IMMEDIATE.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String disruptionSchedule;
+
+  /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<InstancesReportHostAsFaultyRequestFaultReason> faultReasons;
+
+  /**
+   * The action hint to report the host as faulty.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getActionHint() {
+    return actionHint;
+  }
+
+  /**
+   * The action hint to report the host as faulty.
+   * @param actionHint actionHint or {@code null} for none
+   */
+  public InstancesReportHostAsFaultyRequest setActionHint(java.lang.String actionHint) {
+    this.actionHint = actionHint;
+    return this;
+  }
+
+  /**
+   * The disruption schedule for the VM. Required field, only allows IMMEDIATE.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDisruptionSchedule() {
+    return disruptionSchedule;
+  }
+
+  /**
+   * The disruption schedule for the VM. Required field, only allows IMMEDIATE.
+   * @param disruptionSchedule disruptionSchedule or {@code null} for none
+   */
+  public InstancesReportHostAsFaultyRequest setDisruptionSchedule(java.lang.String disruptionSchedule) {
+    this.disruptionSchedule = disruptionSchedule;
+    return this;
+  }
 
   /**
    * @return value or {@code null} for none

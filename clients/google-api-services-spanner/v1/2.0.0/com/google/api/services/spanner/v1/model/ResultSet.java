@@ -37,6 +37,15 @@ public final class ResultSet extends com.google.api.client.json.GenericJson {
   private ResultSetMetadata metadata;
 
   /**
+   * Optional. A precommit token is included if the read-write transaction is on a multiplexed
+   * session. Pass the precommit token with the highest sequence number from this transaction
+   * attempt to the Commit request for this transaction.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MultiplexedSessionPrecommitToken precommitToken;
+
+  /**
    * Each element in `rows` is a row whose format is defined by metadata.row_type. The ith element
    * in each row matches the ith field in metadata.row_type. Elements are encoded based on type as
    * described here.
@@ -49,8 +58,8 @@ public final class ResultSet extends com.google.api.client.json.GenericJson {
    * Query plan and execution statistics for the SQL statement that produced this result set. These
    * can be requested by setting ExecuteSqlRequest.query_mode. DML statements always produce stats
    * containing the number of rows modified, unless executed using the
-   * ExecuteSqlRequest.QueryMode.PLAN ExecuteSqlRequest.query_mode. Other fields may or may not be
-   * populated, based on the ExecuteSqlRequest.query_mode.
+   * ExecuteSqlRequest.QueryMode.PLAN ExecuteSqlRequest.query_mode. Other fields might or might not
+   * be populated, based on the ExecuteSqlRequest.query_mode.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -70,6 +79,27 @@ public final class ResultSet extends com.google.api.client.json.GenericJson {
    */
   public ResultSet setMetadata(ResultSetMetadata metadata) {
     this.metadata = metadata;
+    return this;
+  }
+
+  /**
+   * Optional. A precommit token is included if the read-write transaction is on a multiplexed
+   * session. Pass the precommit token with the highest sequence number from this transaction
+   * attempt to the Commit request for this transaction.
+   * @return value or {@code null} for none
+   */
+  public MultiplexedSessionPrecommitToken getPrecommitToken() {
+    return precommitToken;
+  }
+
+  /**
+   * Optional. A precommit token is included if the read-write transaction is on a multiplexed
+   * session. Pass the precommit token with the highest sequence number from this transaction
+   * attempt to the Commit request for this transaction.
+   * @param precommitToken precommitToken or {@code null} for none
+   */
+  public ResultSet setPrecommitToken(MultiplexedSessionPrecommitToken precommitToken) {
+    this.precommitToken = precommitToken;
     return this;
   }
 
@@ -98,8 +128,8 @@ public final class ResultSet extends com.google.api.client.json.GenericJson {
    * Query plan and execution statistics for the SQL statement that produced this result set. These
    * can be requested by setting ExecuteSqlRequest.query_mode. DML statements always produce stats
    * containing the number of rows modified, unless executed using the
-   * ExecuteSqlRequest.QueryMode.PLAN ExecuteSqlRequest.query_mode. Other fields may or may not be
-   * populated, based on the ExecuteSqlRequest.query_mode.
+   * ExecuteSqlRequest.QueryMode.PLAN ExecuteSqlRequest.query_mode. Other fields might or might not
+   * be populated, based on the ExecuteSqlRequest.query_mode.
    * @return value or {@code null} for none
    */
   public ResultSetStats getStats() {
@@ -110,8 +140,8 @@ public final class ResultSet extends com.google.api.client.json.GenericJson {
    * Query plan and execution statistics for the SQL statement that produced this result set. These
    * can be requested by setting ExecuteSqlRequest.query_mode. DML statements always produce stats
    * containing the number of rows modified, unless executed using the
-   * ExecuteSqlRequest.QueryMode.PLAN ExecuteSqlRequest.query_mode. Other fields may or may not be
-   * populated, based on the ExecuteSqlRequest.query_mode.
+   * ExecuteSqlRequest.QueryMode.PLAN ExecuteSqlRequest.query_mode. Other fields might or might not
+   * be populated, based on the ExecuteSqlRequest.query_mode.
    * @param stats stats or {@code null} for none
    */
   public ResultSet setStats(ResultSetStats stats) {

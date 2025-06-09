@@ -48,6 +48,20 @@ public final class GoogleCloudDiscoveryengineV1AnswerQueryRequest extends com.go
   private java.lang.Boolean asynchronousMode;
 
   /**
+   * Optional. End user specification.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpec endUserSpec;
+
+  /**
+   * Optional. Grounding specification.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1AnswerQueryRequestGroundingSpec groundingSpec;
+
+  /**
    * Required. Current user query.
    * The value may be {@code null}.
    */
@@ -157,6 +171,40 @@ public final class GoogleCloudDiscoveryengineV1AnswerQueryRequest extends com.go
    */
   public GoogleCloudDiscoveryengineV1AnswerQueryRequest setAsynchronousMode(java.lang.Boolean asynchronousMode) {
     this.asynchronousMode = asynchronousMode;
+    return this;
+  }
+
+  /**
+   * Optional. End user specification.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpec getEndUserSpec() {
+    return endUserSpec;
+  }
+
+  /**
+   * Optional. End user specification.
+   * @param endUserSpec endUserSpec or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1AnswerQueryRequest setEndUserSpec(GoogleCloudDiscoveryengineV1AnswerQueryRequestEndUserSpec endUserSpec) {
+    this.endUserSpec = endUserSpec;
+    return this;
+  }
+
+  /**
+   * Optional. Grounding specification.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1AnswerQueryRequestGroundingSpec getGroundingSpec() {
+    return groundingSpec;
+  }
+
+  /**
+   * Optional. Grounding specification.
+   * @param groundingSpec groundingSpec or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1AnswerQueryRequest setGroundingSpec(GoogleCloudDiscoveryengineV1AnswerQueryRequestGroundingSpec groundingSpec) {
+    this.groundingSpec = groundingSpec;
     return this;
   }
 

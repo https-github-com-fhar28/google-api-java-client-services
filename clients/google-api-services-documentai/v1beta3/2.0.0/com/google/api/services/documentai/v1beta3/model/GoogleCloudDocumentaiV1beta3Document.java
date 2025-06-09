@@ -33,6 +33,15 @@ package com.google.api.services.documentai.v1beta3.model;
 public final class GoogleCloudDocumentaiV1beta3Document extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. The blob assets in this document. This is used to store the content of the inline
+   * blobs in this document, e.g. image bytes, such that it can be referenced by other fields in the
+   * document via asset id.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GoogleCloudDocumentaiV1beta3DocumentBlobAsset> blobAssets;
+
+  /**
    * Document chunked based on chunking config.
    * The value may be {@code null}.
    */
@@ -46,6 +55,13 @@ public final class GoogleCloudDocumentaiV1beta3Document extends com.google.api.c
    */
   @com.google.api.client.util.Key
   private java.lang.String content;
+
+  /**
+   * Optional. An internal identifier for document. Should be loggable (no PII).
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String docid;
 
   /**
    * Parsed layout of the document.
@@ -139,6 +155,27 @@ public final class GoogleCloudDocumentaiV1beta3Document extends com.google.api.c
   private java.lang.String uri;
 
   /**
+   * Optional. The blob assets in this document. This is used to store the content of the inline
+   * blobs in this document, e.g. image bytes, such that it can be referenced by other fields in the
+   * document via asset id.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GoogleCloudDocumentaiV1beta3DocumentBlobAsset> getBlobAssets() {
+    return blobAssets;
+  }
+
+  /**
+   * Optional. The blob assets in this document. This is used to store the content of the inline
+   * blobs in this document, e.g. image bytes, such that it can be referenced by other fields in the
+   * document via asset id.
+   * @param blobAssets blobAssets or {@code null} for none
+   */
+  public GoogleCloudDocumentaiV1beta3Document setBlobAssets(java.util.List<GoogleCloudDocumentaiV1beta3DocumentBlobAsset> blobAssets) {
+    this.blobAssets = blobAssets;
+    return this;
+  }
+
+  /**
    * Document chunked based on chunking config.
    * @return value or {@code null} for none
    */
@@ -201,6 +238,23 @@ public final class GoogleCloudDocumentaiV1beta3Document extends com.google.api.c
    */
   public GoogleCloudDocumentaiV1beta3Document encodeContent(byte[] content) {
     this.content = com.google.api.client.util.Base64.encodeBase64URLSafeString(content);
+    return this;
+  }
+
+  /**
+   * Optional. An internal identifier for document. Should be loggable (no PII).
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDocid() {
+    return docid;
+  }
+
+  /**
+   * Optional. An internal identifier for document. Should be loggable (no PII).
+   * @param docid docid or {@code null} for none
+   */
+  public GoogleCloudDocumentaiV1beta3Document setDocid(java.lang.String docid) {
+    this.docid = docid;
     return this;
   }
 

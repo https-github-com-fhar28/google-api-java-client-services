@@ -44,6 +44,21 @@ public final class WorkflowConfig extends com.google.api.client.json.GenericJson
   private java.lang.String cronSchedule;
 
   /**
+   * Optional. Disables automatic creation of workflow invocations.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean disabled;
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String internalMetadata;
+
+  /**
    * Optional. If left unset, a default InvocationConfig will be used.
    * The value may be {@code null}.
    */
@@ -58,9 +73,9 @@ public final class WorkflowConfig extends com.google.api.client.json.GenericJson
   private java.lang.String name;
 
   /**
-   * Output only. Records of the 10 most recent scheduled execution attempts, ordered in in
-   * descending order of `execution_time`. Updated whenever automatic creation of a workflow
-   * invocation is triggered by cron_schedule.
+   * Output only. Records of the 10 most recent scheduled execution attempts, ordered in descending
+   * order of `execution_time`. Updated whenever automatic creation of a workflow invocation is
+   * triggered by cron_schedule.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -132,6 +147,42 @@ public final class WorkflowConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
+   * Optional. Disables automatic creation of workflow invocations.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getDisabled() {
+    return disabled;
+  }
+
+  /**
+   * Optional. Disables automatic creation of workflow invocations.
+   * @param disabled disabled or {@code null} for none
+   */
+  public WorkflowConfig setDisabled(java.lang.Boolean disabled) {
+    this.disabled = disabled;
+    return this;
+  }
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getInternalMetadata() {
+    return internalMetadata;
+  }
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * @param internalMetadata internalMetadata or {@code null} for none
+   */
+  public WorkflowConfig setInternalMetadata(java.lang.String internalMetadata) {
+    this.internalMetadata = internalMetadata;
+    return this;
+  }
+
+  /**
    * Optional. If left unset, a default InvocationConfig will be used.
    * @return value or {@code null} for none
    */
@@ -166,9 +217,9 @@ public final class WorkflowConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Output only. Records of the 10 most recent scheduled execution attempts, ordered in in
-   * descending order of `execution_time`. Updated whenever automatic creation of a workflow
-   * invocation is triggered by cron_schedule.
+   * Output only. Records of the 10 most recent scheduled execution attempts, ordered in descending
+   * order of `execution_time`. Updated whenever automatic creation of a workflow invocation is
+   * triggered by cron_schedule.
    * @return value or {@code null} for none
    */
   public java.util.List<ScheduledExecutionRecord> getRecentScheduledExecutionRecords() {
@@ -176,9 +227,9 @@ public final class WorkflowConfig extends com.google.api.client.json.GenericJson
   }
 
   /**
-   * Output only. Records of the 10 most recent scheduled execution attempts, ordered in in
-   * descending order of `execution_time`. Updated whenever automatic creation of a workflow
-   * invocation is triggered by cron_schedule.
+   * Output only. Records of the 10 most recent scheduled execution attempts, ordered in descending
+   * order of `execution_time`. Updated whenever automatic creation of a workflow invocation is
+   * triggered by cron_schedule.
    * @param recentScheduledExecutionRecords recentScheduledExecutionRecords or {@code null} for none
    */
   public WorkflowConfig setRecentScheduledExecutionRecords(java.util.List<ScheduledExecutionRecord> recentScheduledExecutionRecords) {

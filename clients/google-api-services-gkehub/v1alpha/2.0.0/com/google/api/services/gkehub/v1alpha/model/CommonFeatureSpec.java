@@ -30,13 +30,6 @@ package com.google.api.services.gkehub.v1alpha.model;
 public final class CommonFeatureSpec extends com.google.api.client.json.GenericJson {
 
   /**
-   * Anthos Observability spec
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private AnthosObservabilityFeatureSpec anthosobservability;
-
-  /**
    * Appdevexperience specific spec.
    * The value may be {@code null}.
    */
@@ -86,6 +79,13 @@ public final class CommonFeatureSpec extends com.google.api.client.json.GenericJ
   private NamespaceActuationFeatureSpec namespaceactuation;
 
   /**
+   * RBAC Role Binding Actuation feature spec
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private RBACRoleBindingActuationFeatureSpec rbacrolebindingactuation;
+
+  /**
    * Workload Certificate spec.
    * The value may be {@code null}.
    */
@@ -93,21 +93,11 @@ public final class CommonFeatureSpec extends com.google.api.client.json.GenericJ
   private FeatureSpec workloadcertificate;
 
   /**
-   * Anthos Observability spec
-   * @return value or {@code null} for none
+   * Workload Identity feature spec.
+   * The value may be {@code null}.
    */
-  public AnthosObservabilityFeatureSpec getAnthosobservability() {
-    return anthosobservability;
-  }
-
-  /**
-   * Anthos Observability spec
-   * @param anthosobservability anthosobservability or {@code null} for none
-   */
-  public CommonFeatureSpec setAnthosobservability(AnthosObservabilityFeatureSpec anthosobservability) {
-    this.anthosobservability = anthosobservability;
-    return this;
-  }
+  @com.google.api.client.util.Key
+  private WorkloadIdentityFeatureSpec workloadidentity;
 
   /**
    * Appdevexperience specific spec.
@@ -229,6 +219,23 @@ public final class CommonFeatureSpec extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * RBAC Role Binding Actuation feature spec
+   * @return value or {@code null} for none
+   */
+  public RBACRoleBindingActuationFeatureSpec getRbacrolebindingactuation() {
+    return rbacrolebindingactuation;
+  }
+
+  /**
+   * RBAC Role Binding Actuation feature spec
+   * @param rbacrolebindingactuation rbacrolebindingactuation or {@code null} for none
+   */
+  public CommonFeatureSpec setRbacrolebindingactuation(RBACRoleBindingActuationFeatureSpec rbacrolebindingactuation) {
+    this.rbacrolebindingactuation = rbacrolebindingactuation;
+    return this;
+  }
+
+  /**
    * Workload Certificate spec.
    * @return value or {@code null} for none
    */
@@ -242,6 +249,23 @@ public final class CommonFeatureSpec extends com.google.api.client.json.GenericJ
    */
   public CommonFeatureSpec setWorkloadcertificate(FeatureSpec workloadcertificate) {
     this.workloadcertificate = workloadcertificate;
+    return this;
+  }
+
+  /**
+   * Workload Identity feature spec.
+   * @return value or {@code null} for none
+   */
+  public WorkloadIdentityFeatureSpec getWorkloadidentity() {
+    return workloadidentity;
+  }
+
+  /**
+   * Workload Identity feature spec.
+   * @param workloadidentity workloadidentity or {@code null} for none
+   */
+  public CommonFeatureSpec setWorkloadidentity(WorkloadIdentityFeatureSpec workloadidentity) {
+    this.workloadidentity = workloadidentity;
     return this;
   }
 

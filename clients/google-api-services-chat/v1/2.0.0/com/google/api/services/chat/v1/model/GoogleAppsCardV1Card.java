@@ -17,26 +17,29 @@
 package com.google.api.services.chat.v1.model;
 
 /**
- * A card interface displayed in a Google Chat message or Google Workspace Add-on. Cards support a
+ * A card interface displayed in a Google Chat message or Google Workspace add-on. Cards support a
  * defined layout, interactive UI elements like buttons, and rich media like images. Use cards to
  * present detailed information, gather information from users, and guide users to take a next step.
  * [Card builder](https://addons.gsuite.google.com/uikit/builder) To learn how to build cards, see
  * the following documentation: * For Google Chat apps, see [Design the components of a card or
  * dialog](https://developers.google.com/workspace/chat/design-components-card-dialog). * For Google
- * Workspace Add-ons, see [Card-based interfaces](https://developers.google.com/apps-script/add-
- * ons/concepts/cards). **Example: Card message for a Google Chat app** ![Example contact
- * card](https://developers.google.com/workspace/chat/images/card_api_reference.png) To create the
- * sample card message in Google Chat, use the following JSON: ``` { "cardsV2": [ { "cardId":
- * "unique-card-id", "card": { "header": { "title": "Sasha", "subtitle": "Software Engineer",
- * "imageUrl": "https://developers.google.com/workspace/chat/images/quickstart-app-avatar.png",
- * "imageType": "CIRCLE", "imageAltText": "Avatar for Sasha" }, "sections": [ { "header": "Contact
- * Info", "collapsible": true, "uncollapsibleWidgetsCount": 1, "widgets": [ { "decoratedText": {
- * "startIcon": { "knownIcon": "EMAIL" }, "text": "sasha@example.com" } }, { "decoratedText": {
- * "startIcon": { "knownIcon": "PERSON" }, "text": "Online" } }, { "decoratedText": { "startIcon": {
- * "knownIcon": "PHONE" }, "text": "+1 (555) 555-1234" } }, { "buttonList": { "buttons": [ { "text":
- * "Share", "onClick": { "openLink": { "url": "https://example.com/share" } } }, { "text": "Edit",
- * "onClick": { "action": { "function": "goToView", "parameters": [ { "key": "viewType", "value":
- * "EDIT" } ] } } } ] } } ] } ] } } ] } ```
+ * Workspace add-ons, see [Card-based interfaces](https://developers.google.com/apps-script/add-
+ * ons/concepts/cards). Note: You can add up to 100 widgets per card. Any widgets beyond this limit
+ * are ignored. This limit applies to both card messages and dialogs in Google Chat apps, and to
+ * cards in Google Workspace add-ons. **Example: Card message for a Google Chat app** ![Example
+ * contact card](https://developers.google.com/workspace/chat/images/card_api_reference.png) To
+ * create the sample card message in Google Chat, use the following JSON: ``` { "cardsV2": [ {
+ * "cardId": "unique-card-id", "card": { "header": { "title": "Sasha", "subtitle": "Software
+ * Engineer", "imageUrl": "https://developers.google.com/workspace/chat/images/quickstart-app-
+ * avatar.png", "imageType": "CIRCLE", "imageAltText": "Avatar for Sasha" }, "sections": [ {
+ * "header": "Contact Info", "collapsible": true, "uncollapsibleWidgetsCount": 1, "widgets": [ {
+ * "decoratedText": { "startIcon": { "knownIcon": "EMAIL" }, "text": "sasha@example.com" } }, {
+ * "decoratedText": { "startIcon": { "knownIcon": "PERSON" }, "text": "Online" } }, {
+ * "decoratedText": { "startIcon": { "knownIcon": "PHONE" }, "text": "+1 (555) 555-1234" } }, {
+ * "buttonList": { "buttons": [ { "text": "Share", "onClick": { "openLink": { "url":
+ * "https://example.com/share" } } }, { "text": "Edit", "onClick": { "action": { "function":
+ * "goToView", "parameters": [ { "key": "viewType", "value": "EDIT" } ] } } } ] } } ] } ] } } ] }
+ * ```
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Google Chat API. For a detailed explanation see:
@@ -49,7 +52,7 @@ package com.google.api.services.chat.v1.model;
 public final class GoogleAppsCardV1Card extends com.google.api.client.json.GenericJson {
 
   /**
-   * The card's actions. Actions are added to the card's toolbar menu. [Google Workspace Add-
+   * The card's actions. Actions are added to the card's toolbar menu. [Google Workspace add-
    * ons](https://developers.google.com/workspace/add-ons): For example, the following JSON
    * constructs a card action menu with `Settings` and `Send Feedback` options: ``` "card_actions":
    * [ { "actionLabel": "Settings", "onClick": { "action": { "functionName": "goToView",
@@ -62,8 +65,8 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   private java.util.List<GoogleAppsCardV1CardAction> cardActions;
 
   /**
-   * In Google Workspace Add-ons, sets the display properties of the `peekCardHeader`. [Google
-   * Workspace Add-ons](https://developers.google.com/workspace/add-ons):
+   * In Google Workspace add-ons, sets the display properties of the `peekCardHeader`. [Google
+   * Workspace add-ons](https://developers.google.com/workspace/add-ons):
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -74,7 +77,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
    * `primaryButton` or a `secondaryButton` causes an error. For Chat apps, you can use fixed
    * footers in [dialogs](https://developers.google.com/workspace/chat/dialogs), but not [card
    * messages](https://developers.google.com/workspace/chat/create-messages#create). [Google
-   * Workspace Add-ons and Chat apps](https://developers.google.com/workspace/extend):
+   * Workspace add-ons and Chat apps](https://developers.google.com/workspace/extend):
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -89,7 +92,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   private GoogleAppsCardV1CardHeader header;
 
   /**
-   * Name of the card. Used as a card identifier in card navigation. [Google Workspace Add-
+   * Name of the card. Used as a card identifier in card navigation. [Google Workspace add-
    * ons](https://developers.google.com/workspace/add-ons):
    * The value may be {@code null}.
    */
@@ -99,7 +102,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   /**
    * When displaying contextual content, the peek card header acts as a placeholder so that the user
    * can navigate forward between the homepage cards and the contextual cards. [Google Workspace
-   * Add-ons](https://developers.google.com/workspace/add-ons):
+   * add-ons](https://developers.google.com/workspace/add-ons):
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -123,7 +126,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   private java.util.List<GoogleAppsCardV1Section> sections;
 
   /**
-   * The card's actions. Actions are added to the card's toolbar menu. [Google Workspace Add-
+   * The card's actions. Actions are added to the card's toolbar menu. [Google Workspace add-
    * ons](https://developers.google.com/workspace/add-ons): For example, the following JSON
    * constructs a card action menu with `Settings` and `Send Feedback` options: ``` "card_actions":
    * [ { "actionLabel": "Settings", "onClick": { "action": { "functionName": "goToView",
@@ -137,7 +140,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   }
 
   /**
-   * The card's actions. Actions are added to the card's toolbar menu. [Google Workspace Add-
+   * The card's actions. Actions are added to the card's toolbar menu. [Google Workspace add-
    * ons](https://developers.google.com/workspace/add-ons): For example, the following JSON
    * constructs a card action menu with `Settings` and `Send Feedback` options: ``` "card_actions":
    * [ { "actionLabel": "Settings", "onClick": { "action": { "functionName": "goToView",
@@ -152,8 +155,8 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   }
 
   /**
-   * In Google Workspace Add-ons, sets the display properties of the `peekCardHeader`. [Google
-   * Workspace Add-ons](https://developers.google.com/workspace/add-ons):
+   * In Google Workspace add-ons, sets the display properties of the `peekCardHeader`. [Google
+   * Workspace add-ons](https://developers.google.com/workspace/add-ons):
    * @return value or {@code null} for none
    */
   public java.lang.String getDisplayStyle() {
@@ -161,8 +164,8 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   }
 
   /**
-   * In Google Workspace Add-ons, sets the display properties of the `peekCardHeader`. [Google
-   * Workspace Add-ons](https://developers.google.com/workspace/add-ons):
+   * In Google Workspace add-ons, sets the display properties of the `peekCardHeader`. [Google
+   * Workspace add-ons](https://developers.google.com/workspace/add-ons):
    * @param displayStyle displayStyle or {@code null} for none
    */
   public GoogleAppsCardV1Card setDisplayStyle(java.lang.String displayStyle) {
@@ -175,7 +178,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
    * `primaryButton` or a `secondaryButton` causes an error. For Chat apps, you can use fixed
    * footers in [dialogs](https://developers.google.com/workspace/chat/dialogs), but not [card
    * messages](https://developers.google.com/workspace/chat/create-messages#create). [Google
-   * Workspace Add-ons and Chat apps](https://developers.google.com/workspace/extend):
+   * Workspace add-ons and Chat apps](https://developers.google.com/workspace/extend):
    * @return value or {@code null} for none
    */
   public GoogleAppsCardV1CardFixedFooter getFixedFooter() {
@@ -187,7 +190,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
    * `primaryButton` or a `secondaryButton` causes an error. For Chat apps, you can use fixed
    * footers in [dialogs](https://developers.google.com/workspace/chat/dialogs), but not [card
    * messages](https://developers.google.com/workspace/chat/create-messages#create). [Google
-   * Workspace Add-ons and Chat apps](https://developers.google.com/workspace/extend):
+   * Workspace add-ons and Chat apps](https://developers.google.com/workspace/extend):
    * @param fixedFooter fixedFooter or {@code null} for none
    */
   public GoogleAppsCardV1Card setFixedFooter(GoogleAppsCardV1CardFixedFooter fixedFooter) {
@@ -215,7 +218,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   }
 
   /**
-   * Name of the card. Used as a card identifier in card navigation. [Google Workspace Add-
+   * Name of the card. Used as a card identifier in card navigation. [Google Workspace add-
    * ons](https://developers.google.com/workspace/add-ons):
    * @return value or {@code null} for none
    */
@@ -224,7 +227,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   }
 
   /**
-   * Name of the card. Used as a card identifier in card navigation. [Google Workspace Add-
+   * Name of the card. Used as a card identifier in card navigation. [Google Workspace add-
    * ons](https://developers.google.com/workspace/add-ons):
    * @param name name or {@code null} for none
    */
@@ -236,7 +239,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   /**
    * When displaying contextual content, the peek card header acts as a placeholder so that the user
    * can navigate forward between the homepage cards and the contextual cards. [Google Workspace
-   * Add-ons](https://developers.google.com/workspace/add-ons):
+   * add-ons](https://developers.google.com/workspace/add-ons):
    * @return value or {@code null} for none
    */
   public GoogleAppsCardV1CardHeader getPeekCardHeader() {
@@ -246,7 +249,7 @@ public final class GoogleAppsCardV1Card extends com.google.api.client.json.Gener
   /**
    * When displaying contextual content, the peek card header acts as a placeholder so that the user
    * can navigate forward between the homepage cards and the contextual cards. [Google Workspace
-   * Add-ons](https://developers.google.com/workspace/add-ons):
+   * add-ons](https://developers.google.com/workspace/add-ons):
    * @param peekCardHeader peekCardHeader or {@code null} for none
    */
   public GoogleAppsCardV1Card setPeekCardHeader(GoogleAppsCardV1CardHeader peekCardHeader) {

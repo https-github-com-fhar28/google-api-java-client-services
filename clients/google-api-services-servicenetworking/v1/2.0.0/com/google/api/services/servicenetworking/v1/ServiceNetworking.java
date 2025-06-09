@@ -159,7 +159,7 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
      * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
      * methods to check whether the cancellation succeeded or whether the operation completed despite
      * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-     * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+     * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
      * `Code.CANCELLED`.
      *
      * Create a request for the method "operations.cancel".
@@ -190,7 +190,7 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
        * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
        * methods to check whether the cancellation succeeded or whether the operation completed despite
        * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-       * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+       * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
        * `Code.CANCELLED`.
        *
        * Create a request for the method "operations.cancel".
@@ -961,8 +961,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
      * optional parameters, call the {@link DisableVpcServiceControls#execute()} method to invoke the
      * remote operation.
      *
-     * @param parent The service that is managing peering connectivity for a service producer's organization. For Google
-     *        services that support this functionality, this value is
+     * @param parent Required. The service that is managing peering connectivity for a service producer's organization.
+     *        For Google services that support this functionality, this value is
      *        `services/servicenetworking.googleapis.com`.
      * @param content the {@link com.google.api.services.servicenetworking.v1.model.DisableVpcServiceControlsRequest}
      * @return the request
@@ -991,8 +991,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
        * gleapis.services.AbstractGoogleClientRequest)} must be called to initialize this instance
        * immediately after invoking the constructor. </p>
        *
-       * @param parent The service that is managing peering connectivity for a service producer's organization. For Google
-     *        services that support this functionality, this value is
+       * @param parent Required. The service that is managing peering connectivity for a service producer's organization.
+     *        For Google services that support this functionality, this value is
      *        `services/servicenetworking.googleapis.com`.
        * @param content the {@link com.google.api.services.servicenetworking.v1.model.DisableVpcServiceControlsRequest}
        * @since 1.13
@@ -1063,15 +1063,15 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
       }
 
       /**
-       * The service that is managing peering connectivity for a service producer's organization.
-       * For Google services that support this functionality, this value is
+       * Required. The service that is managing peering connectivity for a service producer's
+       * organization. For Google services that support this functionality, this value is
        * `services/servicenetworking.googleapis.com`.
        */
       @com.google.api.client.util.Key
       private java.lang.String parent;
 
-      /** The service that is managing peering connectivity for a service producer's organization. For Google
-     services that support this functionality, this value is
+      /** Required. The service that is managing peering connectivity for a service producer's organization.
+     For Google services that support this functionality, this value is
      `services/servicenetworking.googleapis.com`.
        */
       public java.lang.String getParent() {
@@ -1079,8 +1079,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
       }
 
       /**
-       * The service that is managing peering connectivity for a service producer's organization.
-       * For Google services that support this functionality, this value is
+       * Required. The service that is managing peering connectivity for a service producer's
+       * organization. For Google services that support this functionality, this value is
        * `services/servicenetworking.googleapis.com`.
        */
       public DisableVpcServiceControls setParent(java.lang.String parent) {
@@ -1107,8 +1107,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
      * optional parameters, call the {@link EnableVpcServiceControls#execute()} method to invoke the
      * remote operation.
      *
-     * @param parent The service that is managing peering connectivity for a service producer's organization. For Google
-     *        services that support this functionality, this value is
+     * @param parent Required. The service that is managing peering connectivity for a service producer's organization.
+     *        For Google services that support this functionality, this value is
      *        `services/servicenetworking.googleapis.com`.
      * @param content the {@link com.google.api.services.servicenetworking.v1.model.EnableVpcServiceControlsRequest}
      * @return the request
@@ -1137,8 +1137,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
        * leapis.services.AbstractGoogleClientRequest)} must be called to initialize this instance
        * immediately after invoking the constructor. </p>
        *
-       * @param parent The service that is managing peering connectivity for a service producer's organization. For Google
-     *        services that support this functionality, this value is
+       * @param parent Required. The service that is managing peering connectivity for a service producer's organization.
+     *        For Google services that support this functionality, this value is
      *        `services/servicenetworking.googleapis.com`.
        * @param content the {@link com.google.api.services.servicenetworking.v1.model.EnableVpcServiceControlsRequest}
        * @since 1.13
@@ -1209,15 +1209,15 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
       }
 
       /**
-       * The service that is managing peering connectivity for a service producer's organization.
-       * For Google services that support this functionality, this value is
+       * Required. The service that is managing peering connectivity for a service producer's
+       * organization. For Google services that support this functionality, this value is
        * `services/servicenetworking.googleapis.com`.
        */
       @com.google.api.client.util.Key
       private java.lang.String parent;
 
-      /** The service that is managing peering connectivity for a service producer's organization. For Google
-     services that support this functionality, this value is
+      /** Required. The service that is managing peering connectivity for a service producer's organization.
+     For Google services that support this functionality, this value is
      `services/servicenetworking.googleapis.com`.
        */
       public java.lang.String getParent() {
@@ -1225,8 +1225,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
       }
 
       /**
-       * The service that is managing peering connectivity for a service producer's organization.
-       * For Google services that support this functionality, this value is
+       * Required. The service that is managing peering connectivity for a service producer's
+       * organization. For Google services that support this functionality, this value is
        * `services/servicenetworking.googleapis.com`.
        */
       public EnableVpcServiceControls setParent(java.lang.String parent) {
@@ -1570,8 +1570,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
        * This request holds the parameters needed by the servicenetworking server.  After setting any
        * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
        *
-       * @param parent The service that is managing peering connectivity for a service producer's organization. For Google
-       *        services that support this functionality, this value is
+       * @param parent Required. The service that is managing peering connectivity for a service producer's organization.
+       *        For Google services that support this functionality, this value is
        *        `services/servicenetworking.googleapis.com`.
        * @param content the {@link com.google.api.services.servicenetworking.v1.model.Connection}
        * @return the request
@@ -1604,8 +1604,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
          * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent The service that is managing peering connectivity for a service producer's organization. For Google
-       *        services that support this functionality, this value is
+         * @param parent Required. The service that is managing peering connectivity for a service producer's organization.
+       *        For Google services that support this functionality, this value is
        *        `services/servicenetworking.googleapis.com`.
          * @param content the {@link com.google.api.services.servicenetworking.v1.model.Connection}
          * @since 1.13
@@ -1676,15 +1676,15 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
         }
 
         /**
-         * The service that is managing peering connectivity for a service producer's organization.
-         * For Google services that support this functionality, this value is
+         * Required. The service that is managing peering connectivity for a service producer's
+         * organization. For Google services that support this functionality, this value is
          * `services/servicenetworking.googleapis.com`.
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** The service that is managing peering connectivity for a service producer's organization. For Google
-       services that support this functionality, this value is
+        /** Required. The service that is managing peering connectivity for a service producer's organization.
+       For Google services that support this functionality, this value is
        `services/servicenetworking.googleapis.com`.
          */
         public java.lang.String getParent() {
@@ -1692,8 +1692,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
         }
 
         /**
-         * The service that is managing peering connectivity for a service producer's organization.
-         * For Google services that support this functionality, this value is
+         * Required. The service that is managing peering connectivity for a service producer's
+         * organization. For Google services that support this functionality, this value is
          * `services/servicenetworking.googleapis.com`.
          */
         public Create setParent(java.lang.String parent) {
@@ -1875,8 +1875,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
        * This request holds the parameters needed by the servicenetworking server.  After setting any
        * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
        *
-       * @param parent The service that is managing peering connectivity for a service producer's organization. For Google
-       *        services that support this functionality, this value is
+       * @param parent Required. The service that is managing peering connectivity for a service producer's organization.
+       *        For Google services that support this functionality, this value is
        *        `services/servicenetworking.googleapis.com`. If you specify `services/-` as the parameter
        *        value, all configured peering services are listed.
        * @return the request
@@ -1905,8 +1905,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
          * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent The service that is managing peering connectivity for a service producer's organization. For Google
-       *        services that support this functionality, this value is
+         * @param parent Required. The service that is managing peering connectivity for a service producer's organization.
+       *        For Google services that support this functionality, this value is
        *        `services/servicenetworking.googleapis.com`. If you specify `services/-` as the parameter
        *        value, all configured peering services are listed.
          * @since 1.13
@@ -1987,16 +1987,16 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
         }
 
         /**
-         * The service that is managing peering connectivity for a service producer's organization.
-         * For Google services that support this functionality, this value is
+         * Required. The service that is managing peering connectivity for a service producer's
+         * organization. For Google services that support this functionality, this value is
          * `services/servicenetworking.googleapis.com`. If you specify `services/-` as the parameter
          * value, all configured peering services are listed.
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** The service that is managing peering connectivity for a service producer's organization. For Google
-       services that support this functionality, this value is
+        /** Required. The service that is managing peering connectivity for a service producer's organization.
+       For Google services that support this functionality, this value is
        `services/servicenetworking.googleapis.com`. If you specify `services/-` as the parameter value,
        all configured peering services are listed.
          */
@@ -2005,8 +2005,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
         }
 
         /**
-         * The service that is managing peering connectivity for a service producer's organization.
-         * For Google services that support this functionality, this value is
+         * Required. The service that is managing peering connectivity for a service producer's
+         * organization. For Google services that support this functionality, this value is
          * `services/servicenetworking.googleapis.com`. If you specify `services/-` as the parameter
          * value, all configured peering services are listed.
          */
@@ -2021,17 +2021,17 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
         }
 
         /**
-         * The name of service consumer's VPC network that's connected with service producer network
-         * through a private connection. The network name must be in the following format:
-         * `projects/{project}/global/networks/{network}`. {project} is a project number, such as in
-         * `12345` that includes the VPC service consumer's VPC network. {network} is the name of
-         * the service consumer's VPC network.
+         * Required. The name of service consumer's VPC network that's connected with service
+         * producer network through a private connection. The network name must be in the following
+         * format: `projects/{project}/global/networks/{network}`. {project} is a project number,
+         * such as in `12345` that includes the VPC service consumer's VPC network. {network} is the
+         * name of the service consumer's VPC network.
          */
         @com.google.api.client.util.Key
         private java.lang.String network;
 
-        /** The name of service consumer's VPC network that's connected with service producer network through a
-       private connection. The network name must be in the following format:
+        /** Required. The name of service consumer's VPC network that's connected with service producer network
+       through a private connection. The network name must be in the following format:
        `projects/{project}/global/networks/{network}`. {project} is a project number, such as in `12345`
        that includes the VPC service consumer's VPC network. {network} is the name of the service
        consumer's VPC network.
@@ -2041,11 +2041,11 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
         }
 
         /**
-         * The name of service consumer's VPC network that's connected with service producer network
-         * through a private connection. The network name must be in the following format:
-         * `projects/{project}/global/networks/{network}`. {project} is a project number, such as in
-         * `12345` that includes the VPC service consumer's VPC network. {network} is the name of
-         * the service consumer's VPC network.
+         * Required. The name of service consumer's VPC network that's connected with service
+         * producer network through a private connection. The network name must be in the following
+         * format: `projects/{project}/global/networks/{network}`. {project} is a project number,
+         * such as in `12345` that includes the VPC service consumer's VPC network. {network} is the
+         * name of the service consumer's VPC network.
          */
         public List setNetwork(java.lang.String network) {
           this.network = network;
@@ -2065,8 +2065,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
        * This request holds the parameters needed by the servicenetworking server.  After setting any
        * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
        *
-       * @param name The private service connection that connects to a service producer organization. The name includes
-       *        both the private service name and the VPC network peering name in the format of
+       * @param name Required. The private service connection that connects to a service producer organization. The name
+       *        includes both the private service name and the VPC network peering name in the format of
        *        `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services that
        *        support this functionality, this is
        *        `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
@@ -2097,8 +2097,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
          * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name The private service connection that connects to a service producer organization. The name includes
-       *        both the private service name and the VPC network peering name in the format of
+         * @param name Required. The private service connection that connects to a service producer organization. The name
+       *        includes both the private service name and the VPC network peering name in the format of
        *        `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services that
        *        support this functionality, this is
        *        `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
@@ -2171,17 +2171,17 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
         }
 
         /**
-         * The private service connection that connects to a service producer organization. The name
-         * includes both the private service name and the VPC network peering name in the format of
-         * `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services
-         * that support this functionality, this is
+         * Required. The private service connection that connects to a service producer
+         * organization. The name includes both the private service name and the VPC network peering
+         * name in the format of `services/{peering_service_name}/connections/{vpc_peering_name}`.
+         * For Google services that support this functionality, this is
          * `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** The private service connection that connects to a service producer organization. The name includes
-       both the private service name and the VPC network peering name in the format of
+        /** Required. The private service connection that connects to a service producer organization. The name
+       includes both the private service name and the VPC network peering name in the format of
        `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services that support
        this functionality, this is
        `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
@@ -2191,10 +2191,10 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
         }
 
         /**
-         * The private service connection that connects to a service producer organization. The name
-         * includes both the private service name and the VPC network peering name in the format of
-         * `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services
-         * that support this functionality, this is
+         * Required. The private service connection that connects to a service producer
+         * organization. The name includes both the private service name and the VPC network peering
+         * name in the format of `services/{peering_service_name}/connections/{vpc_peering_name}`.
+         * For Google services that support this functionality, this is
          * `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
          */
         public Patch setName(java.lang.String name) {
@@ -4102,7 +4102,7 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
              * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
              *
              * @param name Required. The network that the consumer is using to connect with services. Must be in the form of
-             *        services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName} Where
+             *        services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName} Where
              *        {service} is the peering service that is managing connectivity for the service producer's
              *        organization. For Google services that support this {project} is the project number, as in
              *        '12345' {network} is the network name. {zoneName} is the DNS zone name
@@ -4134,7 +4134,7 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
                * called to initialize this instance immediately after invoking the constructor. </p>
                *
                * @param name Required. The network that the consumer is using to connect with services. Must be in the form of
-             *        services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName} Where
+             *        services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName} Where
              *        {service} is the peering service that is managing connectivity for the service producer's
              *        organization. For Google services that support this {project} is the project number, as in
              *        '12345' {network} is the network name. {zoneName} is the DNS zone name
@@ -4218,7 +4218,7 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
               /**
                * Required. The network that the consumer is using to connect with services. Must be
                * in the form of
-               * services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName}
+               * services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName}
                * Where {service} is the peering service that is managing connectivity for the
                * service producer's organization. For Google services that support this {project} is
                * the project number, as in '12345' {network} is the network name. {zoneName} is the
@@ -4228,8 +4228,8 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
               private java.lang.String name;
 
               /** Required. The network that the consumer is using to connect with services. Must be in the form of
-             services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName} Where {service} is
-             the peering service that is managing connectivity for the service producer's organization. For
+             services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName} Where {service}
+             is the peering service that is managing connectivity for the service producer's organization. For
              Google services that support this {project} is the project number, as in '12345' {network} is the
              network name. {zoneName} is the DNS zone name
                */
@@ -4240,7 +4240,7 @@ public class ServiceNetworking extends com.google.api.client.googleapis.services
               /**
                * Required. The network that the consumer is using to connect with services. Must be
                * in the form of
-               * services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName}
+               * services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName}
                * Where {service} is the peering service that is managing connectivity for the
                * service producer's organization. For Google services that support this {project} is
                * the project number, as in '12345' {network} is the network name. {zoneName} is the

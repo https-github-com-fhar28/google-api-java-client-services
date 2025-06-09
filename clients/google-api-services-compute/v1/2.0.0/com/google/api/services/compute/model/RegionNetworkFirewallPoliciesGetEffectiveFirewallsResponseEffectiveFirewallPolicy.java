@@ -45,7 +45,27 @@ public final class RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEff
   private java.lang.String name;
 
   /**
-   * The rules that apply to the network.
+   * [Output only] The packet mirroring rules that apply to the network.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<FirewallPolicyRule> packetMirroringRules;
+
+  static {
+    // hack to force ProGuard to consider FirewallPolicyRule used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(FirewallPolicyRule.class);
+  }
+
+  /**
+   * [Output only] Priority of firewall policy association. Not applicable for type=HIERARCHY.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer priority;
+
+  /**
+   * [Output only] The rules that apply to the network.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -100,7 +120,41 @@ public final class RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEff
   }
 
   /**
-   * The rules that apply to the network.
+   * [Output only] The packet mirroring rules that apply to the network.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<FirewallPolicyRule> getPacketMirroringRules() {
+    return packetMirroringRules;
+  }
+
+  /**
+   * [Output only] The packet mirroring rules that apply to the network.
+   * @param packetMirroringRules packetMirroringRules or {@code null} for none
+   */
+  public RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy setPacketMirroringRules(java.util.List<FirewallPolicyRule> packetMirroringRules) {
+    this.packetMirroringRules = packetMirroringRules;
+    return this;
+  }
+
+  /**
+   * [Output only] Priority of firewall policy association. Not applicable for type=HIERARCHY.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getPriority() {
+    return priority;
+  }
+
+  /**
+   * [Output only] Priority of firewall policy association. Not applicable for type=HIERARCHY.
+   * @param priority priority or {@code null} for none
+   */
+  public RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy setPriority(java.lang.Integer priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * [Output only] The rules that apply to the network.
    * @return value or {@code null} for none
    */
   public java.util.List<FirewallPolicyRule> getRules() {
@@ -108,7 +162,7 @@ public final class RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEff
   }
 
   /**
-   * The rules that apply to the network.
+   * [Output only] The rules that apply to the network.
    * @param rules rules or {@code null} for none
    */
   public RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy setRules(java.util.List<FirewallPolicyRule> rules) {

@@ -44,6 +44,13 @@ public final class MachineArchitectureDetails extends com.google.api.client.json
   private java.lang.String cpuArchitecture;
 
   /**
+   * Optional. CPU manufacturer, e.g., "Intel", "AMD".
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String cpuManufacturer;
+
+  /**
    * CPU name, e.g., "Intel Xeon E5-2690", "AMD EPYC 7571" etc.
    * The value may be {@code null}.
    */
@@ -58,7 +65,8 @@ public final class MachineArchitectureDetails extends com.google.api.client.json
   private java.lang.Integer cpuSocketCount;
 
   /**
-   * Number of CPU threads allocated to the machine.
+   * Deprecated: use MachineDetails.core_count instead. Number of CPU threads allocated to the
+   * machine.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -120,6 +128,23 @@ public final class MachineArchitectureDetails extends com.google.api.client.json
   }
 
   /**
+   * Optional. CPU manufacturer, e.g., "Intel", "AMD".
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getCpuManufacturer() {
+    return cpuManufacturer;
+  }
+
+  /**
+   * Optional. CPU manufacturer, e.g., "Intel", "AMD".
+   * @param cpuManufacturer cpuManufacturer or {@code null} for none
+   */
+  public MachineArchitectureDetails setCpuManufacturer(java.lang.String cpuManufacturer) {
+    this.cpuManufacturer = cpuManufacturer;
+    return this;
+  }
+
+  /**
    * CPU name, e.g., "Intel Xeon E5-2690", "AMD EPYC 7571" etc.
    * @return value or {@code null} for none
    */
@@ -154,7 +179,8 @@ public final class MachineArchitectureDetails extends com.google.api.client.json
   }
 
   /**
-   * Number of CPU threads allocated to the machine.
+   * Deprecated: use MachineDetails.core_count instead. Number of CPU threads allocated to the
+   * machine.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getCpuThreadCount() {
@@ -162,7 +188,8 @@ public final class MachineArchitectureDetails extends com.google.api.client.json
   }
 
   /**
-   * Number of CPU threads allocated to the machine.
+   * Deprecated: use MachineDetails.core_count instead. Number of CPU threads allocated to the
+   * machine.
    * @param cpuThreadCount cpuThreadCount or {@code null} for none
    */
   public MachineArchitectureDetails setCpuThreadCount(java.lang.Integer cpuThreadCount) {

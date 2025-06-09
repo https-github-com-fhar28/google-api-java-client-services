@@ -61,7 +61,14 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   private java.lang.Integer computeCount;
 
   /**
-   * Optional. The number of enabled CPU cores.
+   * Output only. The compute model of the Exadata Infrastructure.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String computeModel;
+
+  /**
+   * Output only. The number of enabled CPU cores.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -82,7 +89,14 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   private java.lang.Double dataStorageSizeTb;
 
   /**
-   * Optional. The local node storage allocated in GBs.
+   * Output only. The database server type of the Exadata Infrastructure.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String databaseServerType;
+
+  /**
+   * Output only. The local node storage allocated in GBs.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -131,7 +145,7 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   private java.lang.Integer maxMemoryGb;
 
   /**
-   * Optional. The memory allocated in GBs.
+   * Output only. The memory allocated in GBs.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -210,6 +224,13 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
    */
   @com.google.api.client.util.Key
   private java.lang.Integer storageCount;
+
+  /**
+   * Output only. The storage server type of the Exadata Infrastructure.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String storageServerType;
 
   /**
    * Output only. The software version of the storage servers (cells) in the Exadata Infrastructure.
@@ -299,7 +320,24 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   }
 
   /**
-   * Optional. The number of enabled CPU cores.
+   * Output only. The compute model of the Exadata Infrastructure.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getComputeModel() {
+    return computeModel;
+  }
+
+  /**
+   * Output only. The compute model of the Exadata Infrastructure.
+   * @param computeModel computeModel or {@code null} for none
+   */
+  public CloudExadataInfrastructureProperties setComputeModel(java.lang.String computeModel) {
+    this.computeModel = computeModel;
+    return this;
+  }
+
+  /**
+   * Output only. The number of enabled CPU cores.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getCpuCount() {
@@ -307,7 +345,7 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   }
 
   /**
-   * Optional. The number of enabled CPU cores.
+   * Output only. The number of enabled CPU cores.
    * @param cpuCount cpuCount or {@code null} for none
    */
   public CloudExadataInfrastructureProperties setCpuCount(java.lang.Integer cpuCount) {
@@ -350,7 +388,24 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   }
 
   /**
-   * Optional. The local node storage allocated in GBs.
+   * Output only. The database server type of the Exadata Infrastructure.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDatabaseServerType() {
+    return databaseServerType;
+  }
+
+  /**
+   * Output only. The database server type of the Exadata Infrastructure.
+   * @param databaseServerType databaseServerType or {@code null} for none
+   */
+  public CloudExadataInfrastructureProperties setDatabaseServerType(java.lang.String databaseServerType) {
+    this.databaseServerType = databaseServerType;
+    return this;
+  }
+
+  /**
+   * Output only. The local node storage allocated in GBs.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getDbNodeStorageSizeGb() {
@@ -358,7 +413,7 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   }
 
   /**
-   * Optional. The local node storage allocated in GBs.
+   * Output only. The local node storage allocated in GBs.
    * @param dbNodeStorageSizeGb dbNodeStorageSizeGb or {@code null} for none
    */
   public CloudExadataInfrastructureProperties setDbNodeStorageSizeGb(java.lang.Integer dbNodeStorageSizeGb) {
@@ -469,7 +524,7 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   }
 
   /**
-   * Optional. The memory allocated in GBs.
+   * Output only. The memory allocated in GBs.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getMemorySizeGb() {
@@ -477,7 +532,7 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
   }
 
   /**
-   * Optional. The memory allocated in GBs.
+   * Output only. The memory allocated in GBs.
    * @param memorySizeGb memorySizeGb or {@code null} for none
    */
   public CloudExadataInfrastructureProperties setMemorySizeGb(java.lang.Integer memorySizeGb) {
@@ -660,6 +715,23 @@ public final class CloudExadataInfrastructureProperties extends com.google.api.c
    */
   public CloudExadataInfrastructureProperties setStorageCount(java.lang.Integer storageCount) {
     this.storageCount = storageCount;
+    return this;
+  }
+
+  /**
+   * Output only. The storage server type of the Exadata Infrastructure.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getStorageServerType() {
+    return storageServerType;
+  }
+
+  /**
+   * Output only. The storage server type of the Exadata Infrastructure.
+   * @param storageServerType storageServerType or {@code null} for none
+   */
+  public CloudExadataInfrastructureProperties setStorageServerType(java.lang.String storageServerType) {
+    this.storageServerType = storageServerType;
     return this;
   }
 

@@ -38,12 +38,34 @@ public final class PscInstanceConfig extends com.google.api.client.json.GenericJ
   private java.util.List<java.lang.String> allowedConsumerProjects;
 
   /**
+   * Optional. Configurations for setting up PSC service automation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<PscAutoConnectionConfig> pscAutoConnections;
+
+  static {
+    // hack to force ProGuard to consider PscAutoConnectionConfig used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(PscAutoConnectionConfig.class);
+  }
+
+  /**
    * Output only. The DNS name of the instance for PSC connectivity. Name convention: ...alloydb-
    * psc.goog
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String pscDnsName;
+
+  /**
+   * Optional. Configurations for setting up PSC interfaces attached to the instance which are used
+   * for outbound connectivity. Only primary instances can have PSC interface attached. Currently we
+   * only support 0 or 1 PSC interface.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<PscInterfaceConfig> pscInterfaceConfigs;
 
   /**
    * Output only. The service attachment created when Private Service Connect (PSC) is enabled for
@@ -74,6 +96,23 @@ public final class PscInstanceConfig extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * Optional. Configurations for setting up PSC service automation.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<PscAutoConnectionConfig> getPscAutoConnections() {
+    return pscAutoConnections;
+  }
+
+  /**
+   * Optional. Configurations for setting up PSC service automation.
+   * @param pscAutoConnections pscAutoConnections or {@code null} for none
+   */
+  public PscInstanceConfig setPscAutoConnections(java.util.List<PscAutoConnectionConfig> pscAutoConnections) {
+    this.pscAutoConnections = pscAutoConnections;
+    return this;
+  }
+
+  /**
    * Output only. The DNS name of the instance for PSC connectivity. Name convention: ...alloydb-
    * psc.goog
    * @return value or {@code null} for none
@@ -89,6 +128,27 @@ public final class PscInstanceConfig extends com.google.api.client.json.GenericJ
    */
   public PscInstanceConfig setPscDnsName(java.lang.String pscDnsName) {
     this.pscDnsName = pscDnsName;
+    return this;
+  }
+
+  /**
+   * Optional. Configurations for setting up PSC interfaces attached to the instance which are used
+   * for outbound connectivity. Only primary instances can have PSC interface attached. Currently we
+   * only support 0 or 1 PSC interface.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<PscInterfaceConfig> getPscInterfaceConfigs() {
+    return pscInterfaceConfigs;
+  }
+
+  /**
+   * Optional. Configurations for setting up PSC interfaces attached to the instance which are used
+   * for outbound connectivity. Only primary instances can have PSC interface attached. Currently we
+   * only support 0 or 1 PSC interface.
+   * @param pscInterfaceConfigs pscInterfaceConfigs or {@code null} for none
+   */
+  public PscInstanceConfig setPscInterfaceConfigs(java.util.List<PscInterfaceConfig> pscInterfaceConfigs) {
+    this.pscInterfaceConfigs = pscInterfaceConfigs;
     return this;
   }
 

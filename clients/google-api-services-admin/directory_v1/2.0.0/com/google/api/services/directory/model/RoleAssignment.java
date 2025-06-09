@@ -47,6 +47,33 @@ public final class RoleAssignment extends com.google.api.client.json.GenericJson
   private java.lang.String assigneeType;
 
   /**
+   * Optional. The condition associated with this role assignment. Note: Feature is available to
+   * Enterprise Standard, Enterprise Plus, Google Workspace for Education Plus and Cloud Identity
+   * Premium customers. A `RoleAssignment` with the `condition` field set will only take effect when
+   * the resource being accessed meets the condition. If `condition` is empty, the role (`role_id`)
+   * is applied to the actor (`assigned_to`) at the scope (`scope_type`) unconditionally. Currently,
+   * the following conditions are supported: - To make the `RoleAssignment` only applicable to
+   * [Security Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.security'])
+   * && resource.type == 'cloudidentity.googleapis.com/Group'` - To make the `RoleAssignment` not
+   * applicable to [Security Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `!api.getAttribute('cloudidentity.googleapis.com/groups.labels',
+   * []).hasAny(['groups.security']) && resource.type == 'cloudidentity.googleapis.com/Group'`
+   * Currently, the condition strings have to be verbatim and they only work with the following
+   * [pre-built administrator roles](https://support.google.com/a/answer/2405986): - Groups Editor -
+   * Groups Reader The condition follows [Cloud IAM condition
+   * syntax](https://cloud.google.com/iam/docs/conditions-overview). Additional conditions related
+   * to Locked Groups are available under Open Beta. - To make the `RoleAssignment` not applicable
+   * to [Locked Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `!api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.locked'])
+   * && resource.type == 'cloudidentity.googleapis.com/Group'` This condition can also be used in
+   * conjunction with a Security-related condition.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String condition;
+
+  /**
    * ETag of the resource.
    * The value may be {@code null}.
    */
@@ -126,6 +153,63 @@ public final class RoleAssignment extends com.google.api.client.json.GenericJson
    */
   public RoleAssignment setAssigneeType(java.lang.String assigneeType) {
     this.assigneeType = assigneeType;
+    return this;
+  }
+
+  /**
+   * Optional. The condition associated with this role assignment. Note: Feature is available to
+   * Enterprise Standard, Enterprise Plus, Google Workspace for Education Plus and Cloud Identity
+   * Premium customers. A `RoleAssignment` with the `condition` field set will only take effect when
+   * the resource being accessed meets the condition. If `condition` is empty, the role (`role_id`)
+   * is applied to the actor (`assigned_to`) at the scope (`scope_type`) unconditionally. Currently,
+   * the following conditions are supported: - To make the `RoleAssignment` only applicable to
+   * [Security Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.security'])
+   * && resource.type == 'cloudidentity.googleapis.com/Group'` - To make the `RoleAssignment` not
+   * applicable to [Security Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `!api.getAttribute('cloudidentity.googleapis.com/groups.labels',
+   * []).hasAny(['groups.security']) && resource.type == 'cloudidentity.googleapis.com/Group'`
+   * Currently, the condition strings have to be verbatim and they only work with the following
+   * [pre-built administrator roles](https://support.google.com/a/answer/2405986): - Groups Editor -
+   * Groups Reader The condition follows [Cloud IAM condition
+   * syntax](https://cloud.google.com/iam/docs/conditions-overview). Additional conditions related
+   * to Locked Groups are available under Open Beta. - To make the `RoleAssignment` not applicable
+   * to [Locked Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `!api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.locked'])
+   * && resource.type == 'cloudidentity.googleapis.com/Group'` This condition can also be used in
+   * conjunction with a Security-related condition.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getCondition() {
+    return condition;
+  }
+
+  /**
+   * Optional. The condition associated with this role assignment. Note: Feature is available to
+   * Enterprise Standard, Enterprise Plus, Google Workspace for Education Plus and Cloud Identity
+   * Premium customers. A `RoleAssignment` with the `condition` field set will only take effect when
+   * the resource being accessed meets the condition. If `condition` is empty, the role (`role_id`)
+   * is applied to the actor (`assigned_to`) at the scope (`scope_type`) unconditionally. Currently,
+   * the following conditions are supported: - To make the `RoleAssignment` only applicable to
+   * [Security Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.security'])
+   * && resource.type == 'cloudidentity.googleapis.com/Group'` - To make the `RoleAssignment` not
+   * applicable to [Security Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `!api.getAttribute('cloudidentity.googleapis.com/groups.labels',
+   * []).hasAny(['groups.security']) && resource.type == 'cloudidentity.googleapis.com/Group'`
+   * Currently, the condition strings have to be verbatim and they only work with the following
+   * [pre-built administrator roles](https://support.google.com/a/answer/2405986): - Groups Editor -
+   * Groups Reader The condition follows [Cloud IAM condition
+   * syntax](https://cloud.google.com/iam/docs/conditions-overview). Additional conditions related
+   * to Locked Groups are available under Open Beta. - To make the `RoleAssignment` not applicable
+   * to [Locked Groups](https://cloud.google.com/identity/docs/groups#group_types):
+   * `!api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.locked'])
+   * && resource.type == 'cloudidentity.googleapis.com/Group'` This condition can also be used in
+   * conjunction with a Security-related condition.
+   * @param condition condition or {@code null} for none
+   */
+  public RoleAssignment setCondition(java.lang.String condition) {
+    this.condition = condition;
     return this;
   }
 

@@ -1609,25 +1609,25 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
       }
 
       /**
-       * Indicates that the changes in this edit will not be reviewed until they are explicitly sent
-       * for review from the Google Play Console UI. These changes will be added to any other
-       * changes that are not yet sent for review.
+       * When a rejection happens, the parameter will make sure that the changes in this edit won't
+       * be reviewed until they are explicitly sent for review from within the Google Play Console
+       * UI. These changes will be added to any other changes that are not yet sent for review.
        */
       @com.google.api.client.util.Key
       private java.lang.Boolean changesNotSentForReview;
 
-      /** Indicates that the changes in this edit will not be reviewed until they are explicitly sent for
-     review from the Google Play Console UI. These changes will be added to any other changes that are
-     not yet sent for review.
+      /** When a rejection happens, the parameter will make sure that the changes in this edit won't be
+     reviewed until they are explicitly sent for review from within the Google Play Console UI. These
+     changes will be added to any other changes that are not yet sent for review.
        */
       public java.lang.Boolean getChangesNotSentForReview() {
         return changesNotSentForReview;
       }
 
       /**
-       * Indicates that the changes in this edit will not be reviewed until they are explicitly sent
-       * for review from the Google Play Console UI. These changes will be added to any other
-       * changes that are not yet sent for review.
+       * When a rejection happens, the parameter will make sure that the changes in this edit won't
+       * be reviewed until they are explicitly sent for review from within the Google Play Console
+       * UI. These changes will be added to any other changes that are not yet sent for review.
        */
       public Commit setChangesNotSentForReview(java.lang.Boolean changesNotSentForReview) {
         this.changesNotSentForReview = changesNotSentForReview;
@@ -11736,24 +11736,24 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
 
         /**
          * Required. A string representing the version of available regions being used for the
-         * specified resource. Regional prices for the resource have to be specified according to
-         * the information published in [this
+         * specified resource. Regional prices and latest supported version for the resource have to
+         * be specified according to the information published in [this
          * article](https://support.google.com/googleplay/android-developer/answer/10532353). Each
          * time the supported locations substantially change, the version will be incremented. Using
          * this field will ensure that creating and updating the resource with an older region's
          * version and set of regional prices and currencies will succeed even though a new version
-         * is available. The latest version is 2022/02.
+         * is available.
          */
         @com.google.api.client.util.Key("regionsVersion.version")
         private java.lang.String regionsVersionVersion;
 
         /** Required. A string representing the version of available regions being used for the specified
-       resource. Regional prices for the resource have to be specified according to the information
-       published in [this article](https://support.google.com/googleplay/android-
-       developer/answer/10532353). Each time the supported locations substantially change, the version
-       will be incremented. Using this field will ensure that creating and updating the resource with an
-       older region's version and set of regional prices and currencies will succeed even though a new
-       version is available. The latest version is 2022/02.
+       resource. Regional prices and latest supported version for the resource have to be specified
+       according to the information published in [this
+       article](https://support.google.com/googleplay/android-developer/answer/10532353). Each time the
+       supported locations substantially change, the version will be incremented. Using this field will
+       ensure that creating and updating the resource with an older region's version and set of regional
+       prices and currencies will succeed even though a new version is available.
          */
         public java.lang.String getRegionsVersionVersion() {
           return regionsVersionVersion;
@@ -11761,13 +11761,13 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
 
         /**
          * Required. A string representing the version of available regions being used for the
-         * specified resource. Regional prices for the resource have to be specified according to
-         * the information published in [this
+         * specified resource. Regional prices and latest supported version for the resource have to
+         * be specified according to the information published in [this
          * article](https://support.google.com/googleplay/android-developer/answer/10532353). Each
          * time the supported locations substantially change, the version will be incremented. Using
          * this field will ensure that creating and updating the resource with an older region's
          * version and set of regional prices and currencies will succeed even though a new version
-         * is available. The latest version is 2022/02.
+         * is available.
          */
         public Create setRegionsVersionVersion(java.lang.String regionsVersionVersion) {
           this.regionsVersionVersion = regionsVersionVersion;
@@ -12453,24 +12453,24 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
 
         /**
          * Required. A string representing the version of available regions being used for the
-         * specified resource. Regional prices for the resource have to be specified according to
-         * the information published in [this
+         * specified resource. Regional prices and latest supported version for the resource have to
+         * be specified according to the information published in [this
          * article](https://support.google.com/googleplay/android-developer/answer/10532353). Each
          * time the supported locations substantially change, the version will be incremented. Using
          * this field will ensure that creating and updating the resource with an older region's
          * version and set of regional prices and currencies will succeed even though a new version
-         * is available. The latest version is 2022/02.
+         * is available.
          */
         @com.google.api.client.util.Key("regionsVersion.version")
         private java.lang.String regionsVersionVersion;
 
         /** Required. A string representing the version of available regions being used for the specified
-       resource. Regional prices for the resource have to be specified according to the information
-       published in [this article](https://support.google.com/googleplay/android-
-       developer/answer/10532353). Each time the supported locations substantially change, the version
-       will be incremented. Using this field will ensure that creating and updating the resource with an
-       older region's version and set of regional prices and currencies will succeed even though a new
-       version is available. The latest version is 2022/02.
+       resource. Regional prices and latest supported version for the resource have to be specified
+       according to the information published in [this
+       article](https://support.google.com/googleplay/android-developer/answer/10532353). Each time the
+       supported locations substantially change, the version will be incremented. Using this field will
+       ensure that creating and updating the resource with an older region's version and set of regional
+       prices and currencies will succeed even though a new version is available.
          */
         public java.lang.String getRegionsVersionVersion() {
           return regionsVersionVersion;
@@ -12478,13 +12478,13 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
 
         /**
          * Required. A string representing the version of available regions being used for the
-         * specified resource. Regional prices for the resource have to be specified according to
-         * the information published in [this
+         * specified resource. Regional prices and latest supported version for the resource have to
+         * be specified according to the information published in [this
          * article](https://support.google.com/googleplay/android-developer/answer/10532353). Each
          * time the supported locations substantially change, the version will be incremented. Using
          * this field will ensure that creating and updating the resource with an older region's
          * version and set of regional prices and currencies will succeed even though a new version
-         * is available. The latest version is 2022/02.
+         * is available.
          */
         public Patch setRegionsVersionVersion(java.lang.String regionsVersionVersion) {
           this.regionsVersionVersion = regionsVersionVersion;
@@ -14471,24 +14471,24 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
 
             /**
              * Required. A string representing the version of available regions being used for the
-             * specified resource. Regional prices for the resource have to be specified according
-             * to the information published in [this
+             * specified resource. Regional prices and latest supported version for the resource
+             * have to be specified according to the information published in [this
              * article](https://support.google.com/googleplay/android-developer/answer/10532353).
              * Each time the supported locations substantially change, the version will be
              * incremented. Using this field will ensure that creating and updating the resource
              * with an older region's version and set of regional prices and currencies will succeed
-             * even though a new version is available. The latest version is 2022/02.
+             * even though a new version is available.
              */
             @com.google.api.client.util.Key("regionsVersion.version")
             private java.lang.String regionsVersionVersion;
 
             /** Required. A string representing the version of available regions being used for the specified
-           resource. Regional prices for the resource have to be specified according to the information
-           published in [this article](https://support.google.com/googleplay/android-
-           developer/answer/10532353). Each time the supported locations substantially change, the version
-           will be incremented. Using this field will ensure that creating and updating the resource with an
-           older region's version and set of regional prices and currencies will succeed even though a new
-           version is available. The latest version is 2022/02.
+           resource. Regional prices and latest supported version for the resource have to be specified
+           according to the information published in [this
+           article](https://support.google.com/googleplay/android-developer/answer/10532353). Each time the
+           supported locations substantially change, the version will be incremented. Using this field will
+           ensure that creating and updating the resource with an older region's version and set of regional
+           prices and currencies will succeed even though a new version is available.
              */
             public java.lang.String getRegionsVersionVersion() {
               return regionsVersionVersion;
@@ -14496,13 +14496,13 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
 
             /**
              * Required. A string representing the version of available regions being used for the
-             * specified resource. Regional prices for the resource have to be specified according
-             * to the information published in [this
+             * specified resource. Regional prices and latest supported version for the resource
+             * have to be specified according to the information published in [this
              * article](https://support.google.com/googleplay/android-developer/answer/10532353).
              * Each time the supported locations substantially change, the version will be
              * incremented. Using this field will ensure that creating and updating the resource
              * with an older region's version and set of regional prices and currencies will succeed
-             * even though a new version is available. The latest version is 2022/02.
+             * even though a new version is available.
              */
             public Create setRegionsVersionVersion(java.lang.String regionsVersionVersion) {
               this.regionsVersionVersion = regionsVersionVersion;
@@ -15523,24 +15523,24 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
 
             /**
              * Required. A string representing the version of available regions being used for the
-             * specified resource. Regional prices for the resource have to be specified according
-             * to the information published in [this
+             * specified resource. Regional prices and latest supported version for the resource
+             * have to be specified according to the information published in [this
              * article](https://support.google.com/googleplay/android-developer/answer/10532353).
              * Each time the supported locations substantially change, the version will be
              * incremented. Using this field will ensure that creating and updating the resource
              * with an older region's version and set of regional prices and currencies will succeed
-             * even though a new version is available. The latest version is 2022/02.
+             * even though a new version is available.
              */
             @com.google.api.client.util.Key("regionsVersion.version")
             private java.lang.String regionsVersionVersion;
 
             /** Required. A string representing the version of available regions being used for the specified
-           resource. Regional prices for the resource have to be specified according to the information
-           published in [this article](https://support.google.com/googleplay/android-
-           developer/answer/10532353). Each time the supported locations substantially change, the version
-           will be incremented. Using this field will ensure that creating and updating the resource with an
-           older region's version and set of regional prices and currencies will succeed even though a new
-           version is available. The latest version is 2022/02.
+           resource. Regional prices and latest supported version for the resource have to be specified
+           according to the information published in [this
+           article](https://support.google.com/googleplay/android-developer/answer/10532353). Each time the
+           supported locations substantially change, the version will be incremented. Using this field will
+           ensure that creating and updating the resource with an older region's version and set of regional
+           prices and currencies will succeed even though a new version is available.
              */
             public java.lang.String getRegionsVersionVersion() {
               return regionsVersionVersion;
@@ -15548,13 +15548,13 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
 
             /**
              * Required. A string representing the version of available regions being used for the
-             * specified resource. Regional prices for the resource have to be specified according
-             * to the information published in [this
+             * specified resource. Regional prices and latest supported version for the resource
+             * have to be specified according to the information published in [this
              * article](https://support.google.com/googleplay/android-developer/answer/10532353).
              * Each time the supported locations substantially change, the version will be
              * incremented. Using this field will ensure that creating and updating the resource
              * with an older region's version and set of regional prices and currencies will succeed
-             * even though a new version is available. The latest version is 2022/02.
+             * even though a new version is available.
              */
             public Patch setRegionsVersionVersion(java.lang.String regionsVersionVersion) {
               this.regionsVersionVersion = regionsVersionVersion;
@@ -15608,6 +15608,328 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
    */
   public class Orders {
 
+    /**
+     * Get order details for a list of orders.
+     *
+     * Create a request for the method "orders.batchget".
+     *
+     * This request holds the parameters needed by the androidpublisher server.  After setting any
+     * optional parameters, call the {@link Batchget#execute()} method to invoke the remote operation.
+     *
+     * @param packageName Required. The package name of the application for which this subscription or in-app item was
+     *        purchased (for example, 'com.some.thing').
+     * @return the request
+     */
+    public Batchget batchget(java.lang.String packageName) throws java.io.IOException {
+      Batchget result = new Batchget(packageName);
+      initialize(result);
+      return result;
+    }
+
+    public class Batchget extends AndroidPublisherRequest<com.google.api.services.androidpublisher.model.BatchGetOrdersResponse> {
+
+      private static final String REST_PATH = "androidpublisher/v3/applications/{packageName}/orders:batchGet";
+
+      /**
+       * Get order details for a list of orders.
+       *
+       * Create a request for the method "orders.batchget".
+       *
+       * This request holds the parameters needed by the the androidpublisher server.  After setting any
+       * optional parameters, call the {@link Batchget#execute()} method to invoke the remote operation.
+       * <p> {@link
+       * Batchget#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+       * must be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param packageName Required. The package name of the application for which this subscription or in-app item was
+     *        purchased (for example, 'com.some.thing').
+       * @since 1.13
+       */
+      protected Batchget(java.lang.String packageName) {
+        super(AndroidPublisher.this, "GET", REST_PATH, null, com.google.api.services.androidpublisher.model.BatchGetOrdersResponse.class);
+        this.packageName = com.google.api.client.util.Preconditions.checkNotNull(packageName, "Required parameter packageName must be specified.");
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public Batchget set$Xgafv(java.lang.String $Xgafv) {
+        return (Batchget) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public Batchget setAccessToken(java.lang.String accessToken) {
+        return (Batchget) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public Batchget setAlt(java.lang.String alt) {
+        return (Batchget) super.setAlt(alt);
+      }
+
+      @Override
+      public Batchget setCallback(java.lang.String callback) {
+        return (Batchget) super.setCallback(callback);
+      }
+
+      @Override
+      public Batchget setFields(java.lang.String fields) {
+        return (Batchget) super.setFields(fields);
+      }
+
+      @Override
+      public Batchget setKey(java.lang.String key) {
+        return (Batchget) super.setKey(key);
+      }
+
+      @Override
+      public Batchget setOauthToken(java.lang.String oauthToken) {
+        return (Batchget) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public Batchget setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (Batchget) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public Batchget setQuotaUser(java.lang.String quotaUser) {
+        return (Batchget) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public Batchget setUploadType(java.lang.String uploadType) {
+        return (Batchget) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public Batchget setUploadProtocol(java.lang.String uploadProtocol) {
+        return (Batchget) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The package name of the application for which this subscription or in-app item
+       * was purchased (for example, 'com.some.thing').
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String packageName;
+
+      /** Required. The package name of the application for which this subscription or in-app item was
+     purchased (for example, 'com.some.thing').
+       */
+      public java.lang.String getPackageName() {
+        return packageName;
+      }
+
+      /**
+       * Required. The package name of the application for which this subscription or in-app item
+       * was purchased (for example, 'com.some.thing').
+       */
+      public Batchget setPackageName(java.lang.String packageName) {
+        this.packageName = packageName;
+        return this;
+      }
+
+      /**
+       * Required. The list of order IDs to retrieve order details for. There must be between 1 and
+       * 1000 (inclusive) order IDs per request. If any order ID is not found or does not match the
+       * provided package, the entire request will fail with an error. The order IDs must be
+       * distinct.
+       */
+      @com.google.api.client.util.Key
+      private java.util.List<java.lang.String> orderIds;
+
+      /** Required. The list of order IDs to retrieve order details for. There must be between 1 and 1000
+     (inclusive) order IDs per request. If any order ID is not found or does not match the provided
+     package, the entire request will fail with an error. The order IDs must be distinct.
+       */
+      public java.util.List<java.lang.String> getOrderIds() {
+        return orderIds;
+      }
+
+      /**
+       * Required. The list of order IDs to retrieve order details for. There must be between 1 and
+       * 1000 (inclusive) order IDs per request. If any order ID is not found or does not match the
+       * provided package, the entire request will fail with an error. The order IDs must be
+       * distinct.
+       */
+      public Batchget setOrderIds(java.util.List<java.lang.String> orderIds) {
+        this.orderIds = orderIds;
+        return this;
+      }
+
+      @Override
+      public Batchget set(String parameterName, Object value) {
+        return (Batchget) super.set(parameterName, value);
+      }
+    }
+    /**
+     * Get order details for a single order.
+     *
+     * Create a request for the method "orders.get".
+     *
+     * This request holds the parameters needed by the androidpublisher server.  After setting any
+     * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+     *
+     * @param packageName Required. The package name of the application for which this subscription or in-app item was
+     *        purchased (for example, 'com.some.thing').
+     * @param orderId Required. The order ID provided to the user when the subscription or in-app order was purchased.
+     * @return the request
+     */
+    public Get get(java.lang.String packageName, java.lang.String orderId) throws java.io.IOException {
+      Get result = new Get(packageName, orderId);
+      initialize(result);
+      return result;
+    }
+
+    public class Get extends AndroidPublisherRequest<com.google.api.services.androidpublisher.model.Order> {
+
+      private static final String REST_PATH = "androidpublisher/v3/applications/{packageName}/orders/{orderId}";
+
+      /**
+       * Get order details for a single order.
+       *
+       * Create a request for the method "orders.get".
+       *
+       * This request holds the parameters needed by the the androidpublisher server.  After setting any
+       * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+       * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+       * must be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param packageName Required. The package name of the application for which this subscription or in-app item was
+     *        purchased (for example, 'com.some.thing').
+       * @param orderId Required. The order ID provided to the user when the subscription or in-app order was purchased.
+       * @since 1.13
+       */
+      protected Get(java.lang.String packageName, java.lang.String orderId) {
+        super(AndroidPublisher.this, "GET", REST_PATH, null, com.google.api.services.androidpublisher.model.Order.class);
+        this.packageName = com.google.api.client.util.Preconditions.checkNotNull(packageName, "Required parameter packageName must be specified.");
+        this.orderId = com.google.api.client.util.Preconditions.checkNotNull(orderId, "Required parameter orderId must be specified.");
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public Get set$Xgafv(java.lang.String $Xgafv) {
+        return (Get) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public Get setAccessToken(java.lang.String accessToken) {
+        return (Get) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public Get setAlt(java.lang.String alt) {
+        return (Get) super.setAlt(alt);
+      }
+
+      @Override
+      public Get setCallback(java.lang.String callback) {
+        return (Get) super.setCallback(callback);
+      }
+
+      @Override
+      public Get setFields(java.lang.String fields) {
+        return (Get) super.setFields(fields);
+      }
+
+      @Override
+      public Get setKey(java.lang.String key) {
+        return (Get) super.setKey(key);
+      }
+
+      @Override
+      public Get setOauthToken(java.lang.String oauthToken) {
+        return (Get) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (Get) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public Get setQuotaUser(java.lang.String quotaUser) {
+        return (Get) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public Get setUploadType(java.lang.String uploadType) {
+        return (Get) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public Get setUploadProtocol(java.lang.String uploadProtocol) {
+        return (Get) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The package name of the application for which this subscription or in-app item
+       * was purchased (for example, 'com.some.thing').
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String packageName;
+
+      /** Required. The package name of the application for which this subscription or in-app item was
+     purchased (for example, 'com.some.thing').
+       */
+      public java.lang.String getPackageName() {
+        return packageName;
+      }
+
+      /**
+       * Required. The package name of the application for which this subscription or in-app item
+       * was purchased (for example, 'com.some.thing').
+       */
+      public Get setPackageName(java.lang.String packageName) {
+        this.packageName = packageName;
+        return this;
+      }
+
+      /**
+       * Required. The order ID provided to the user when the subscription or in-app order was
+       * purchased.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String orderId;
+
+      /** Required. The order ID provided to the user when the subscription or in-app order was purchased.
+       */
+      public java.lang.String getOrderId() {
+        return orderId;
+      }
+
+      /**
+       * Required. The order ID provided to the user when the subscription or in-app order was
+       * purchased.
+       */
+      public Get setOrderId(java.lang.String orderId) {
+        this.orderId = orderId;
+        return this;
+      }
+
+      @Override
+      public Get set(String parameterName, Object value) {
+        return (Get) super.set(parameterName, value);
+      }
+    }
     /**
      * Refunds a user's subscription or in-app purchase order. Orders older than 3 years cannot be
      * refunded.
@@ -16350,7 +16672,8 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
        *
        * @param packageName The package name of the application for which this subscription was purchased (for example,
        *        'com.some.thing').
-       * @param subscriptionId The purchased subscription ID (for example, 'monthly001').
+       * @param subscriptionId Note: Since May 21, 2025, subscription_id is not required, and not recommended for subscription with
+       *        add-ons. The purchased subscription ID (for example, 'monthly001').
        * @param token The token provided to the user's device when the subscription was purchased.
        * @param content the {@link com.google.api.services.androidpublisher.model.SubscriptionPurchasesAcknowledgeRequest}
        * @return the request
@@ -16378,7 +16701,8 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
          *
          * @param packageName The package name of the application for which this subscription was purchased (for example,
        *        'com.some.thing').
-         * @param subscriptionId The purchased subscription ID (for example, 'monthly001').
+         * @param subscriptionId Note: Since May 21, 2025, subscription_id is not required, and not recommended for subscription with
+       *        add-ons. The purchased subscription ID (for example, 'monthly001').
          * @param token The token provided to the user's device when the subscription was purchased.
          * @param content the {@link com.google.api.services.androidpublisher.model.SubscriptionPurchasesAcknowledgeRequest}
          * @since 1.13
@@ -16468,17 +16792,24 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
           return this;
         }
 
-        /** The purchased subscription ID (for example, 'monthly001'). */
+        /**
+         * Note: Since May 21, 2025, subscription_id is not required, and not recommended for
+         * subscription with add-ons. The purchased subscription ID (for example, 'monthly001').
+         */
         @com.google.api.client.util.Key
         private java.lang.String subscriptionId;
 
-        /** The purchased subscription ID (for example, 'monthly001').
+        /** Note: Since May 21, 2025, subscription_id is not required, and not recommended for subscription
+       with add-ons. The purchased subscription ID (for example, 'monthly001').
          */
         public java.lang.String getSubscriptionId() {
           return subscriptionId;
         }
 
-        /** The purchased subscription ID (for example, 'monthly001'). */
+        /**
+         * Note: Since May 21, 2025, subscription_id is not required, and not recommended for
+         * subscription with add-ons. The purchased subscription ID (for example, 'monthly001').
+         */
         public Acknowledge setSubscriptionId(java.lang.String subscriptionId) {
           this.subscriptionId = subscriptionId;
           return this;
@@ -16515,7 +16846,8 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
        *
        * @param packageName The package name of the application for which this subscription was purchased (for example,
        *        'com.some.thing').
-       * @param subscriptionId The purchased subscription ID (for example, 'monthly001').
+       * @param subscriptionId Note: Since May 21, 2025, subscription_id is not required, and not recommended for subscription with
+       *        add-ons. The purchased subscription ID (for example, 'monthly001').
        * @param token The token provided to the user's device when the subscription was purchased.
        * @return the request
        */
@@ -16543,7 +16875,8 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
          *
          * @param packageName The package name of the application for which this subscription was purchased (for example,
        *        'com.some.thing').
-         * @param subscriptionId The purchased subscription ID (for example, 'monthly001').
+         * @param subscriptionId Note: Since May 21, 2025, subscription_id is not required, and not recommended for subscription with
+       *        add-ons. The purchased subscription ID (for example, 'monthly001').
          * @param token The token provided to the user's device when the subscription was purchased.
          * @since 1.13
          */
@@ -16632,17 +16965,24 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
           return this;
         }
 
-        /** The purchased subscription ID (for example, 'monthly001'). */
+        /**
+         * Note: Since May 21, 2025, subscription_id is not required, and not recommended for
+         * subscription with add-ons. The purchased subscription ID (for example, 'monthly001').
+         */
         @com.google.api.client.util.Key
         private java.lang.String subscriptionId;
 
-        /** The purchased subscription ID (for example, 'monthly001').
+        /** Note: Since May 21, 2025, subscription_id is not required, and not recommended for subscription
+       with add-ons. The purchased subscription ID (for example, 'monthly001').
          */
         public java.lang.String getSubscriptionId() {
           return subscriptionId;
         }
 
-        /** The purchased subscription ID (for example, 'monthly001'). */
+        /**
+         * Note: Since May 21, 2025, subscription_id is not required, and not recommended for
+         * subscription with add-ons. The purchased subscription ID (for example, 'monthly001').
+         */
         public Cancel setSubscriptionId(java.lang.String subscriptionId) {
           this.subscriptionId = subscriptionId;
           return this;
@@ -16835,7 +17175,8 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
         }
       }
       /**
-       * Checks whether a user's subscription purchase is valid and returns its expiry time.
+       * Deprecated: Use purchases.subscriptionsv2.get instead. Checks whether a user's subscription
+       * purchase is valid and returns its expiry time.
        *
        * Create a request for the method "subscriptions.get".
        *
@@ -16859,7 +17200,8 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
         private static final String REST_PATH = "androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}";
 
         /**
-         * Checks whether a user's subscription purchase is valid and returns its expiry time.
+         * Deprecated: Use purchases.subscriptionsv2.get instead. Checks whether a user's subscription
+         * purchase is valid and returns its expiry time.
          *
          * Create a request for the method "subscriptions.get".
          *
@@ -17007,8 +17349,8 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
         }
       }
       /**
-       * Refunds a user's subscription purchase, but the subscription remains valid until its expiration
-       * time and it will continue to recur.
+       * Deprecated: Use orders.refund instead. Refunds a user's subscription purchase, but the
+       * subscription remains valid until its expiration time and it will continue to recur.
        *
        * Create a request for the method "subscriptions.refund".
        *
@@ -17032,8 +17374,8 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
         private static final String REST_PATH = "androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:refund";
 
         /**
-         * Refunds a user's subscription purchase, but the subscription remains valid until its expiration
-         * time and it will continue to recur.
+         * Deprecated: Use orders.refund instead. Refunds a user's subscription purchase, but the
+         * subscription remains valid until its expiration time and it will continue to recur.
          *
          * Create a request for the method "subscriptions.refund".
          *
@@ -17174,8 +17516,9 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
         }
       }
       /**
-       * Refunds and immediately revokes a user's subscription purchase. Access to the subscription will
-       * be terminated immediately and it will stop recurring.
+       * Deprecated: Use purchases.subscriptionsv2.revoke instead. Refunds and immediately revokes a
+       * user's subscription purchase. Access to the subscription will be terminated immediately and it
+       * will stop recurring.
        *
        * Create a request for the method "subscriptions.revoke".
        *
@@ -17199,8 +17542,9 @@ public class AndroidPublisher extends com.google.api.client.googleapis.services.
         private static final String REST_PATH = "androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:revoke";
 
         /**
-         * Refunds and immediately revokes a user's subscription purchase. Access to the subscription will
-         * be terminated immediately and it will stop recurring.
+         * Deprecated: Use purchases.subscriptionsv2.revoke instead. Refunds and immediately revokes a
+         * user's subscription purchase. Access to the subscription will be terminated immediately and it
+         * will stop recurring.
          *
          * Create a request for the method "subscriptions.revoke".
          *

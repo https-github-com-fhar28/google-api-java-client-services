@@ -31,7 +31,6 @@ packages on [Maven Central][maven-search].
 | Ad Exchange Buyer API II | [v2beta1](clients/google-api-services-adexchangebuyer2/v2beta1) |
 | Ad Experience Report API | [v1](clients/google-api-services-adexperiencereport/v1) |
 | AdMob API | [v1](clients/google-api-services-admob/v1), [v1beta](clients/google-api-services-admob/v1beta) |
-| AdSense Host API | [v4.1](clients/google-api-services-adsensehost/v4.1) |
 | AdSense Management API | [v2](clients/google-api-services-adsense/v2) |
 | AdSense Platform API | [v1](clients/google-api-services-adsenseplatform/v1), [v1alpha](clients/google-api-services-adsenseplatform/v1alpha) |
 | Address Validation API | [v1](clients/google-api-services-addressvalidation/v1) |
@@ -94,7 +93,7 @@ packages on [Maven Central][maven-search].
 | Cloud Datastore API | [v1](clients/google-api-services-datastore/v1), [v1beta1](clients/google-api-services-datastore/v1beta1), [v1beta3](clients/google-api-services-datastore/v1beta3) |
 | Cloud Deploy API | [v1](clients/google-api-services-clouddeploy/v1) |
 | Cloud Deployment Manager V2 API | [alpha](clients/google-api-services-deploymentmanager/alpha), [v2](clients/google-api-services-deploymentmanager/v2), [v2beta](clients/google-api-services-deploymentmanager/v2beta) |
-| Cloud Document AI API | [v1](clients/google-api-services-documentai/v1), [v1beta2](clients/google-api-services-documentai/v1beta2), [v1beta3](clients/google-api-services-documentai/v1beta3) |
+| Cloud Document AI API | [v1](clients/google-api-services-documentai/v1), [v1beta3](clients/google-api-services-documentai/v1beta3) |
 | Cloud Domains API | [v1](clients/google-api-services-domains/v1), [v1alpha2](clients/google-api-services-domains/v1alpha2), [v1beta1](clients/google-api-services-domains/v1beta1) |
 | Cloud Filestore API | [v1](clients/google-api-services-file/v1), [v1beta1](clients/google-api-services-file/v1beta1) |
 | Cloud Firestore API | [v1](clients/google-api-services-firestore/v1), [v1beta1](clients/google-api-services-firestore/v1beta1), [v1beta2](clients/google-api-services-firestore/v1beta2) |
@@ -148,13 +147,13 @@ packages on [Maven Central][maven-search].
 | Database Migration API | [v1](clients/google-api-services-datamigration/v1), [v1beta1](clients/google-api-services-datamigration/v1beta1) |
 | Dataflow API | [v1b3](clients/google-api-services-dataflow/v1b3) |
 | Dataform API | [v1beta1](clients/google-api-services-dataform/v1beta1) |
-| Dataproc Metastore API | [v1](clients/google-api-services-metastore/v1), [v1alpha](clients/google-api-services-metastore/v1alpha), [v1beta](clients/google-api-services-metastore/v1beta) |
+| Dataproc Metastore API | [v1](clients/google-api-services-metastore/v1), [v1alpha](clients/google-api-services-metastore/v1alpha), [v1beta](clients/google-api-services-metastore/v1beta), [v2](clients/google-api-services-metastore/v2), [v2alpha](clients/google-api-services-metastore/v2alpha), [v2beta](clients/google-api-services-metastore/v2beta) |
 | Datastream API | [v1](clients/google-api-services-datastream/v1), [v1alpha1](clients/google-api-services-datastream/v1alpha1) |
 | Developer Connect API | [v1](clients/google-api-services-developerconnect/v1) |
 | Dialogflow API | [v2](clients/google-api-services-dialogflow/v2), [v2beta1](clients/google-api-services-dialogflow/v2beta1), [v3](clients/google-api-services-dialogflow/v3), [v3beta1](clients/google-api-services-dialogflow/v3beta1) |
 | Digital Asset Links API | [v1](clients/google-api-services-digitalassetlinks/v1) |
 | Discovery Engine API | [v1](clients/google-api-services-discoveryengine/v1), [v1alpha](clients/google-api-services-discoveryengine/v1alpha), [v1beta](clients/google-api-services-discoveryengine/v1beta) |
-| Display & Video 360 API | [v2](clients/google-api-services-displayvideo/v2), [v3](clients/google-api-services-displayvideo/v3) |
+| Display & Video 360 API | [v2](clients/google-api-services-displayvideo/v2), [v3](clients/google-api-services-displayvideo/v3), [v4](clients/google-api-services-displayvideo/v4) |
 | Document AI Warehouse API | [v1](clients/google-api-services-contentwarehouse/v1) |
 | DoubleClick Bid Manager API | [v2](clients/google-api-services-doubleclickbidmanager/v2) |
 | Drive Activity API | [v2](clients/google-api-services-driveactivity/v2) |
@@ -168,15 +167,16 @@ packages on [Maven Central][maven-search].
 | Firebase App Distribution API | [v1](clients/google-api-services-firebaseappdistribution/v1), [v1alpha](clients/google-api-services-firebaseappdistribution/v1alpha) |
 | Firebase Cloud Messaging API | [v1](clients/google-api-services-fcm/v1) |
 | Firebase Cloud Messaging Data API | [v1beta1](clients/google-api-services-fcmdata/v1beta1) |
+| Firebase Data Connect API | [v1beta](clients/google-api-services-firebasedataconnect/v1beta) |
 | Firebase Dynamic Links API | [v1](clients/google-api-services-firebasedynamiclinks/v1) |
 | Firebase Hosting API | [v1](clients/google-api-services-firebasehosting/v1), [v1beta1](clients/google-api-services-firebasehosting/v1beta1) |
 | Firebase ML API | [v1](clients/google-api-services-firebaseml/v1), [v1beta2](clients/google-api-services-firebaseml/v1beta2), [v2beta](clients/google-api-services-firebaseml/v2beta) |
 | Firebase Management API | [v1beta1](clients/google-api-services-firebase/v1beta1) |
-| Firebase Realtime Database API | [v1beta](clients/google-api-services-firebasedatabase/v1beta) |
+| Firebase Realtime Database Management API | [v1beta](clients/google-api-services-firebasedatabase/v1beta) |
 | Firebase Rules API | [v1](clients/google-api-services-firebaserules/v1) |
 | Fitness API | [v1](clients/google-api-services-fitness/v1) |
-| GDC Virtual API | [v1](clients/google-api-services-gkeonprem/v1) |
 | GKE Hub API | [v1](clients/google-api-services-gkehub/v1), [v1alpha](clients/google-api-services-gkehub/v1alpha), [v1beta](clients/google-api-services-gkehub/v1beta), [v1beta1](clients/google-api-services-gkehub/v1beta1), [v2](clients/google-api-services-gkehub/v2), [v2alpha](clients/google-api-services-gkehub/v2alpha), [v2beta](clients/google-api-services-gkehub/v2beta) |
+| GKE On-Prem API | [v1](clients/google-api-services-gkeonprem/v1) |
 | Gmail API | [v1](clients/google-api-services-gmail/v1) |
 | Gmail Postmaster Tools API | [v1](clients/google-api-services-gmailpostmastertools/v1), [v1beta1](clients/google-api-services-gmailpostmastertools/v1beta1) |
 | Google Analytics API | [v3](clients/google-api-services-analytics/v3) |
@@ -231,7 +231,7 @@ packages on [Maven Central][maven-search].
 | Looker (Google Cloud core) API | [v1](clients/google-api-services-looker/v1) |
 | Managed Service for Microsoft Active Directory API | [v1](clients/google-api-services-managedidentities/v1), [v1alpha1](clients/google-api-services-managedidentities/v1alpha1), [v1beta1](clients/google-api-services-managedidentities/v1beta1) |
 | Manufacturer Center API | [v1](clients/google-api-services-manufacturers/v1) |
-| Merchant API | [accounts_v1beta](clients/google-api-services-merchantapi/accounts_v1beta), [conversions_v1beta](clients/google-api-services-merchantapi/conversions_v1beta), [datasources_v1beta](clients/google-api-services-merchantapi/datasources_v1beta), [inventories_v1beta](clients/google-api-services-merchantapi/inventories_v1beta), [lfp_v1beta](clients/google-api-services-merchantapi/lfp_v1beta), [notifications_v1beta](clients/google-api-services-merchantapi/notifications_v1beta), [products_v1beta](clients/google-api-services-merchantapi/products_v1beta), [promotions_v1beta](clients/google-api-services-merchantapi/promotions_v1beta), [quota_v1beta](clients/google-api-services-merchantapi/quota_v1beta), [reports_v1beta](clients/google-api-services-merchantapi/reports_v1beta) |
+| Merchant API | [accounts_v1beta](clients/google-api-services-merchantapi/accounts_v1beta), [conversions_v1beta](clients/google-api-services-merchantapi/conversions_v1beta), [datasources_v1beta](clients/google-api-services-merchantapi/datasources_v1beta), [inventories_v1beta](clients/google-api-services-merchantapi/inventories_v1beta), [lfp_v1beta](clients/google-api-services-merchantapi/lfp_v1beta), [notifications_v1beta](clients/google-api-services-merchantapi/notifications_v1beta), [products_v1beta](clients/google-api-services-merchantapi/products_v1beta), [promotions_v1beta](clients/google-api-services-merchantapi/promotions_v1beta), [quota_v1beta](clients/google-api-services-merchantapi/quota_v1beta), [reports_v1beta](clients/google-api-services-merchantapi/reports_v1beta), [reviews_v1beta](clients/google-api-services-merchantapi/reviews_v1beta) |
 | Migration Center API | [v1](clients/google-api-services-migrationcenter/v1), [v1alpha1](clients/google-api-services-migrationcenter/v1alpha1) |
 | My Business Account Management API | [v1](clients/google-api-services-mybusinessaccountmanagement/v1) |
 | My Business Business Information API | [v1](clients/google-api-services-mybusinessbusinessinformation/v1) |
@@ -240,18 +240,22 @@ packages on [Maven Central][maven-search].
 | My Business Place Actions API | [v1](clients/google-api-services-mybusinessplaceactions/v1) |
 | My Business Q&A API | [v1](clients/google-api-services-mybusinessqanda/v1) |
 | My Business Verifications API | [v1](clients/google-api-services-mybusinessverifications/v1) |
+| NetApp API | [v1](clients/google-api-services-netapp/v1), [v1beta1](clients/google-api-services-netapp/v1beta1) |
 | Network Connectivity API | [v1](clients/google-api-services-networkconnectivity/v1), [v1alpha1](clients/google-api-services-networkconnectivity/v1alpha1) |
 | Network Management API | [v1](clients/google-api-services-networkmanagement/v1), [v1beta1](clients/google-api-services-networkmanagement/v1beta1) |
 | Network Security API | [v1](clients/google-api-services-networksecurity/v1), [v1beta1](clients/google-api-services-networksecurity/v1beta1) |
 | Network Services API | [v1](clients/google-api-services-networkservices/v1), [v1beta1](clients/google-api-services-networkservices/v1beta1) |
 | Notebooks API | [v1](clients/google-api-services-notebooks/v1), [v2](clients/google-api-services-notebooks/v2) |
-| OS Config API | [v1](clients/google-api-services-osconfig/v1), [v1alpha](clients/google-api-services-osconfig/v1alpha), [v1beta](clients/google-api-services-osconfig/v1beta) |
+| OS Config API | [v1](clients/google-api-services-osconfig/v1), [v1alpha](clients/google-api-services-osconfig/v1alpha), [v1beta](clients/google-api-services-osconfig/v1beta), [v2beta](clients/google-api-services-osconfig/v2beta) |
 | On-Demand Scanning API | [v1](clients/google-api-services-ondemandscanning/v1), [v1beta1](clients/google-api-services-ondemandscanning/v1beta1) |
+| Oracle Database@Google Cloud API | [v1](clients/google-api-services-oracledatabase/v1) |
 | Organization Policy API | [v2](clients/google-api-services-orgpolicy/v2) |
 | PageSpeed Insights API | [v5](clients/google-api-services-pagespeedonline/v5) |
+| Parallelstore API | [v1](clients/google-api-services-parallelstore/v1), [v1beta](clients/google-api-services-parallelstore/v1beta) |
 | Payments Reseller Subscription API | [v1](clients/google-api-services-paymentsresellersubscription/v1) |
 | People API | [v1](clients/google-api-services-people/v1) |
 | Places API (New) | [v1](clients/google-api-services-places/v1) |
+| Places Insights API | [v1](clients/google-api-services-areainsights/v1) |
 | Policy Analyzer API | [v1](clients/google-api-services-policyanalyzer/v1), [v1beta1](clients/google-api-services-policyanalyzer/v1beta1) |
 | Policy Simulator API | [v1](clients/google-api-services-policysimulator/v1), [v1alpha](clients/google-api-services-policysimulator/v1alpha), [v1beta](clients/google-api-services-policysimulator/v1beta) |
 | Policy Troubleshooter API | [v1](clients/google-api-services-policytroubleshooter/v1), [v1beta](clients/google-api-services-policytroubleshooter/v1beta) |
@@ -263,7 +267,6 @@ packages on [Maven Central][maven-search].
 | Real-time Bidding API | [v1](clients/google-api-services-realtimebidding/v1) |
 | Recommendations AI (Beta) | [v1beta1](clients/google-api-services-recommendationengine/v1beta1) |
 | Recommender API | [v1](clients/google-api-services-recommender/v1), [v1beta1](clients/google-api-services-recommender/v1beta1) |
-| Resource Settings API | [v1](clients/google-api-services-resourcesettings/v1) |
 | SAS Portal API | [v1alpha1](clients/google-api-services-sasportal/v1alpha1) |
 | SAS Portal API (Testing) | [v1alpha1](clients/google-api-services-prod_tt_sasportal/v1alpha1) |
 | Safe Browsing API | [v4](clients/google-api-services-safebrowsing/v4), [v5](clients/google-api-services-safebrowsing/v5) |
@@ -271,6 +274,7 @@ packages on [Maven Central][maven-search].
 | Search Ads 360 Reporting API | [v0](clients/google-api-services-searchads360/v0) |
 | Secret Manager API | [v1](clients/google-api-services-secretmanager/v1), [v1beta1](clients/google-api-services-secretmanager/v1beta1), [v1beta2](clients/google-api-services-secretmanager/v1beta2) |
 | Security Command Center API | [v1](clients/google-api-services-securitycenter/v1), [v1beta1](clients/google-api-services-securitycenter/v1beta1), [v1beta2](clients/google-api-services-securitycenter/v1beta2) |
+| Security Posture API | [v1](clients/google-api-services-securityposture/v1) |
 | Security Token Service API | [v1](clients/google-api-services-sts/v1), [v1beta](clients/google-api-services-sts/v1beta) |
 | Sensitive Data Protection (DLP) | [v2](clients/google-api-services-dlp/v2) |
 | Serverless VPC Access API | [v1](clients/google-api-services-vpcaccess/v1), [v1beta1](clients/google-api-services-vpcaccess/v1beta1) |
@@ -291,7 +295,7 @@ packages on [Maven Central][maven-search].
 | VM Migration API | [v1](clients/google-api-services-vmmigration/v1), [v1alpha1](clients/google-api-services-vmmigration/v1alpha1) |
 | VMware Engine API | [v1](clients/google-api-services-vmwareengine/v1) |
 | Vertex AI API | [v1](clients/google-api-services-aiplatform/v1), [v1beta1](clients/google-api-services-aiplatform/v1beta1) |
-| Vertex AI Search for Retail API | [v2](clients/google-api-services-retail/v2), [v2alpha](clients/google-api-services-retail/v2alpha), [v2beta](clients/google-api-services-retail/v2beta) |
+| Vertex AI Search for commerce API | [v2](clients/google-api-services-retail/v2), [v2alpha](clients/google-api-services-retail/v2alpha), [v2beta](clients/google-api-services-retail/v2beta) |
 | Web Fonts Developer API | [v1](clients/google-api-services-webfonts/v1) |
 | Web Risk API | [v1](clients/google-api-services-webrisk/v1) |
 | Web Search Indexing API | [v3](clients/google-api-services-indexing/v3) |

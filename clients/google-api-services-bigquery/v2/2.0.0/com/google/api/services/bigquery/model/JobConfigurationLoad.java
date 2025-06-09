@@ -124,6 +124,20 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
   private java.lang.Boolean createSession;
 
   /**
+   * Optional. Date format used for parsing DATE values.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String dateFormat;
+
+  /**
+   * Optional. Date format used for parsing DATETIME values.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String datetimeFormat;
+
+  /**
    * Defines the list of possible SQL data types to which the source decimal values are converted.
    * This list and the precision and the scale parameters of the decimal field determine the target
    * type. In the order of NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the
@@ -134,7 +148,7 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
    * this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: * (38,9) -> NUMERIC; * (39,9)
    * -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot
    * hold 10 fractional digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC (error if value
-   * exeeds supported range). This field cannot contain duplicate types. The order of the types in
+   * exceeds supported range). This field cannot contain duplicate types. The order of the types in
    * this field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC",
    * "BIGNUMERIC"] and NUMERIC always takes precedence over BIGNUMERIC. Defaults to ["NUMERIC",
    * "STRING"] for ORC and ["NUMERIC"] for the other file formats.
@@ -255,6 +269,18 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
   private java.lang.String nullMarker;
 
   /**
+   * Optional. A list of strings represented as SQL NULL value in a CSV file. null_marker and
+   * null_markers can't be set at the same time. If null_marker is set, null_markers has to be not
+   * set. If null_markers is set, null_marker has to be not set. If both null_marker and
+   * null_markers are set at the same time, a user error would be thrown. Any strings listed in
+   * null_markers, including empty string would be interpreted as SQL NULL. This applies to all
+   * column types.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> nullMarkers;
+
+  /**
    * Optional. Additional properties to set if sourceFormat is set to PARQUET.
    * The value may be {@code null}.
    */
@@ -364,6 +390,16 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
   private java.lang.Integer skipLeadingRows;
 
   /**
+   * Optional. Controls the strategy used to match loaded columns to the schema. If not set, a
+   * sensible default is chosen based on how the schema is provided. If autodetect is used, then
+   * columns are matched by name. Otherwise, columns are matched by position. This is done to keep
+   * the behavior backward-compatible.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String sourceColumnMatch;
+
+  /**
    * Optional. The format of the data files. For CSV files, specify "CSV". For datastore backups,
    * specify "DATASTORE_BACKUP". For newline-delimited JSON, specify "NEWLINE_DELIMITED_JSON". For
    * Avro, specify "AVRO". For parquet, specify "PARQUET". For orc, specify "ORC". The default value
@@ -386,12 +422,34 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
   private java.util.List<java.lang.String> sourceUris;
 
   /**
+   * Optional. Date format used for parsing TIME values.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String timeFormat;
+
+  /**
    * Time-based partitioning specification for the destination table. Only one of timePartitioning
    * and rangePartitioning should be specified.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private TimePartitioning timePartitioning;
+
+  /**
+   * Optional. Default time zone that will apply when parsing timestamp values that have no specific
+   * time zone.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String timeZone;
+
+  /**
+   * Optional. Date format used for parsing TIMESTAMP values.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String timestampFormat;
 
   /**
    * Optional. If sourceFormat is set to "AVRO", indicates whether to interpret logical types as the
@@ -406,11 +464,12 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
    * Optional. Specifies the action that occurs if the destination table already exists. The
    * following values are supported: * WRITE_TRUNCATE: If the table already exists, BigQuery
    * overwrites the data, removes the constraints and uses the schema from the load job. *
-   * WRITE_APPEND: If the table already exists, BigQuery appends the data to the table. *
-   * WRITE_EMPTY: If the table already exists and contains data, a 'duplicate' error is returned in
-   * the job result. The default value is WRITE_APPEND. Each action is atomic and only occurs if
-   * BigQuery is able to complete the job successfully. Creation, truncation and append actions
-   * occur as one atomic update upon job completion.
+   * WRITE_TRUNCATE_DATA: If the table already exists, BigQuery overwrites the data, but keeps the
+   * constraints and schema of the existing table. * WRITE_APPEND: If the table already exists,
+   * BigQuery appends the data to the table. * WRITE_EMPTY: If the table already exists and contains
+   * data, a 'duplicate' error is returned in the job result. The default value is WRITE_APPEND.
+   * Each action is atomic and only occurs if BigQuery is able to complete the job successfully.
+   * Creation, truncation and append actions occur as one atomic update upon job completion.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -618,6 +677,40 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
   }
 
   /**
+   * Optional. Date format used for parsing DATE values.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDateFormat() {
+    return dateFormat;
+  }
+
+  /**
+   * Optional. Date format used for parsing DATE values.
+   * @param dateFormat dateFormat or {@code null} for none
+   */
+  public JobConfigurationLoad setDateFormat(java.lang.String dateFormat) {
+    this.dateFormat = dateFormat;
+    return this;
+  }
+
+  /**
+   * Optional. Date format used for parsing DATETIME values.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDatetimeFormat() {
+    return datetimeFormat;
+  }
+
+  /**
+   * Optional. Date format used for parsing DATETIME values.
+   * @param datetimeFormat datetimeFormat or {@code null} for none
+   */
+  public JobConfigurationLoad setDatetimeFormat(java.lang.String datetimeFormat) {
+    this.datetimeFormat = datetimeFormat;
+    return this;
+  }
+
+  /**
    * Defines the list of possible SQL data types to which the source decimal values are converted.
    * This list and the precision and the scale parameters of the decimal field determine the target
    * type. In the order of NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the
@@ -628,7 +721,7 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
    * this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: * (38,9) -> NUMERIC; * (39,9)
    * -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot
    * hold 10 fractional digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC (error if value
-   * exeeds supported range). This field cannot contain duplicate types. The order of the types in
+   * exceeds supported range). This field cannot contain duplicate types. The order of the types in
    * this field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC",
    * "BIGNUMERIC"] and NUMERIC always takes precedence over BIGNUMERIC. Defaults to ["NUMERIC",
    * "STRING"] for ORC and ["NUMERIC"] for the other file formats.
@@ -649,7 +742,7 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
    * this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: * (38,9) -> NUMERIC; * (39,9)
    * -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot
    * hold 10 fractional digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC (error if value
-   * exeeds supported range). This field cannot contain duplicate types. The order of the types in
+   * exceeds supported range). This field cannot contain duplicate types. The order of the types in
    * this field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC",
    * "BIGNUMERIC"] and NUMERIC always takes precedence over BIGNUMERIC. Defaults to ["NUMERIC",
    * "STRING"] for ORC and ["NUMERIC"] for the other file formats.
@@ -916,6 +1009,33 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
   }
 
   /**
+   * Optional. A list of strings represented as SQL NULL value in a CSV file. null_marker and
+   * null_markers can't be set at the same time. If null_marker is set, null_markers has to be not
+   * set. If null_markers is set, null_marker has to be not set. If both null_marker and
+   * null_markers are set at the same time, a user error would be thrown. Any strings listed in
+   * null_markers, including empty string would be interpreted as SQL NULL. This applies to all
+   * column types.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getNullMarkers() {
+    return nullMarkers;
+  }
+
+  /**
+   * Optional. A list of strings represented as SQL NULL value in a CSV file. null_marker and
+   * null_markers can't be set at the same time. If null_marker is set, null_markers has to be not
+   * set. If null_markers is set, null_marker has to be not set. If both null_marker and
+   * null_markers are set at the same time, a user error would be thrown. Any strings listed in
+   * null_markers, including empty string would be interpreted as SQL NULL. This applies to all
+   * column types.
+   * @param nullMarkers nullMarkers or {@code null} for none
+   */
+  public JobConfigurationLoad setNullMarkers(java.util.List<java.lang.String> nullMarkers) {
+    this.nullMarkers = nullMarkers;
+    return this;
+  }
+
+  /**
    * Optional. Additional properties to set if sourceFormat is set to PARQUET.
    * @return value or {@code null} for none
    */
@@ -1167,6 +1287,29 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
   }
 
   /**
+   * Optional. Controls the strategy used to match loaded columns to the schema. If not set, a
+   * sensible default is chosen based on how the schema is provided. If autodetect is used, then
+   * columns are matched by name. Otherwise, columns are matched by position. This is done to keep
+   * the behavior backward-compatible.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSourceColumnMatch() {
+    return sourceColumnMatch;
+  }
+
+  /**
+   * Optional. Controls the strategy used to match loaded columns to the schema. If not set, a
+   * sensible default is chosen based on how the schema is provided. If autodetect is used, then
+   * columns are matched by name. Otherwise, columns are matched by position. This is done to keep
+   * the behavior backward-compatible.
+   * @param sourceColumnMatch sourceColumnMatch or {@code null} for none
+   */
+  public JobConfigurationLoad setSourceColumnMatch(java.lang.String sourceColumnMatch) {
+    this.sourceColumnMatch = sourceColumnMatch;
+    return this;
+  }
+
+  /**
    * Optional. The format of the data files. For CSV files, specify "CSV". For datastore backups,
    * specify "DATASTORE_BACKUP". For newline-delimited JSON, specify "NEWLINE_DELIMITED_JSON". For
    * Avro, specify "AVRO". For parquet, specify "PARQUET". For orc, specify "ORC". The default value
@@ -1217,6 +1360,23 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
   }
 
   /**
+   * Optional. Date format used for parsing TIME values.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getTimeFormat() {
+    return timeFormat;
+  }
+
+  /**
+   * Optional. Date format used for parsing TIME values.
+   * @param timeFormat timeFormat or {@code null} for none
+   */
+  public JobConfigurationLoad setTimeFormat(java.lang.String timeFormat) {
+    this.timeFormat = timeFormat;
+    return this;
+  }
+
+  /**
    * Time-based partitioning specification for the destination table. Only one of timePartitioning
    * and rangePartitioning should be specified.
    * @return value or {@code null} for none
@@ -1232,6 +1392,42 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
    */
   public JobConfigurationLoad setTimePartitioning(TimePartitioning timePartitioning) {
     this.timePartitioning = timePartitioning;
+    return this;
+  }
+
+  /**
+   * Optional. Default time zone that will apply when parsing timestamp values that have no specific
+   * time zone.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getTimeZone() {
+    return timeZone;
+  }
+
+  /**
+   * Optional. Default time zone that will apply when parsing timestamp values that have no specific
+   * time zone.
+   * @param timeZone timeZone or {@code null} for none
+   */
+  public JobConfigurationLoad setTimeZone(java.lang.String timeZone) {
+    this.timeZone = timeZone;
+    return this;
+  }
+
+  /**
+   * Optional. Date format used for parsing TIMESTAMP values.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getTimestampFormat() {
+    return timestampFormat;
+  }
+
+  /**
+   * Optional. Date format used for parsing TIMESTAMP values.
+   * @param timestampFormat timestampFormat or {@code null} for none
+   */
+  public JobConfigurationLoad setTimestampFormat(java.lang.String timestampFormat) {
+    this.timestampFormat = timestampFormat;
     return this;
   }
 
@@ -1260,11 +1456,12 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
    * Optional. Specifies the action that occurs if the destination table already exists. The
    * following values are supported: * WRITE_TRUNCATE: If the table already exists, BigQuery
    * overwrites the data, removes the constraints and uses the schema from the load job. *
-   * WRITE_APPEND: If the table already exists, BigQuery appends the data to the table. *
-   * WRITE_EMPTY: If the table already exists and contains data, a 'duplicate' error is returned in
-   * the job result. The default value is WRITE_APPEND. Each action is atomic and only occurs if
-   * BigQuery is able to complete the job successfully. Creation, truncation and append actions
-   * occur as one atomic update upon job completion.
+   * WRITE_TRUNCATE_DATA: If the table already exists, BigQuery overwrites the data, but keeps the
+   * constraints and schema of the existing table. * WRITE_APPEND: If the table already exists,
+   * BigQuery appends the data to the table. * WRITE_EMPTY: If the table already exists and contains
+   * data, a 'duplicate' error is returned in the job result. The default value is WRITE_APPEND.
+   * Each action is atomic and only occurs if BigQuery is able to complete the job successfully.
+   * Creation, truncation and append actions occur as one atomic update upon job completion.
    * @return value or {@code null} for none
    */
   public java.lang.String getWriteDisposition() {
@@ -1275,11 +1472,12 @@ public final class JobConfigurationLoad extends com.google.api.client.json.Gener
    * Optional. Specifies the action that occurs if the destination table already exists. The
    * following values are supported: * WRITE_TRUNCATE: If the table already exists, BigQuery
    * overwrites the data, removes the constraints and uses the schema from the load job. *
-   * WRITE_APPEND: If the table already exists, BigQuery appends the data to the table. *
-   * WRITE_EMPTY: If the table already exists and contains data, a 'duplicate' error is returned in
-   * the job result. The default value is WRITE_APPEND. Each action is atomic and only occurs if
-   * BigQuery is able to complete the job successfully. Creation, truncation and append actions
-   * occur as one atomic update upon job completion.
+   * WRITE_TRUNCATE_DATA: If the table already exists, BigQuery overwrites the data, but keeps the
+   * constraints and schema of the existing table. * WRITE_APPEND: If the table already exists,
+   * BigQuery appends the data to the table. * WRITE_EMPTY: If the table already exists and contains
+   * data, a 'duplicate' error is returned in the job result. The default value is WRITE_APPEND.
+   * Each action is atomic and only occurs if BigQuery is able to complete the job successfully.
+   * Creation, truncation and append actions occur as one atomic update upon job completion.
    * @param writeDisposition writeDisposition or {@code null} for none
    */
   public JobConfigurationLoad setWriteDisposition(java.lang.String writeDisposition) {

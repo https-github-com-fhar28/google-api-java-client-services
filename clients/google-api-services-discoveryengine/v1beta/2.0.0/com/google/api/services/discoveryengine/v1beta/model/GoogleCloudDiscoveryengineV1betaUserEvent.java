@@ -82,6 +82,16 @@ public final class GoogleCloudDiscoveryengineV1betaUserEvent extends com.google.
   private GoogleCloudDiscoveryengineV1betaCompletionInfo completionInfo;
 
   /**
+   * Optional. Conversion type. Required if UserEvent.event_type is `conversion`. This is a
+   * customer-defined conversion name in lowercase letters or numbers separated by "-", such as
+   * "watch", "good-visit" etc. Do not set the field if UserEvent.event_type is not `conversion`.
+   * This mixes the custom conversion event with predefined events like `search`, `view-item` etc.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String conversionType;
+
+  /**
    * The DataStore resource full name, of the form `projects/{project}/locations/{location}/collecti
    * ons/{collection_id}/dataStores/{data_store_id}`. Optional. Only required for user events whose
    * data store can't by determined by UserEvent.engine or UserEvent.documents. If data store is set
@@ -142,10 +152,11 @@ public final class GoogleCloudDiscoveryengineV1betaUserEvent extends com.google.
    * Required. User event type. Allowed values are: Generic values: * `search`: Search for
    * Documents. * `view-item`: Detailed page view of a Document. * `view-item-list`: View of a panel
    * or ordered list of Documents. * `view-home-page`: View of the home page. * `view-category-
-   * page`: View of a category page, e.g. Home > Men > Jeans Retail-related values: * `add-to-cart`:
-   * Add an item(s) to cart, e.g. in Retail online shopping * `purchase`: Purchase an item(s) Media-
-   * related values: * `media-play`: Start/resume watching a video, playing a song, etc. * `media-
-   * complete`: Finished or stopped midway through a video, song, etc.
+   * page`: View of a category page, e.g. Home > Men > Jeans * `add-feedback`: Add a user feedback.
+   * Retail-related values: * `add-to-cart`: Add an item(s) to cart, e.g. in Retail online shopping
+   * * `purchase`: Purchase an item(s) Media-related values: * `media-play`: Start/resume watching a
+   * video, playing a song, etc. * `media-complete`: Finished or stopped midway through a video,
+   * song, etc. Custom conversion value: * `conversion`: Customer defined conversion event.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -185,6 +196,19 @@ public final class GoogleCloudDiscoveryengineV1betaUserEvent extends com.google.
    */
   @com.google.api.client.util.Key
   private GoogleCloudDiscoveryengineV1betaPanelInfo panel;
+
+  /**
+   * Optional. List of panels associated with this event. Used for page-level impression data.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GoogleCloudDiscoveryengineV1betaPanelInfo> panels;
+
+  static {
+    // hack to force ProGuard to consider GoogleCloudDiscoveryengineV1betaPanelInfo used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(GoogleCloudDiscoveryengineV1betaPanelInfo.class);
+  }
 
   /**
    * The promotion IDs if this is an event associated with promotions. Currently, this field is
@@ -349,6 +373,29 @@ public final class GoogleCloudDiscoveryengineV1betaUserEvent extends com.google.
   }
 
   /**
+   * Optional. Conversion type. Required if UserEvent.event_type is `conversion`. This is a
+   * customer-defined conversion name in lowercase letters or numbers separated by "-", such as
+   * "watch", "good-visit" etc. Do not set the field if UserEvent.event_type is not `conversion`.
+   * This mixes the custom conversion event with predefined events like `search`, `view-item` etc.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getConversionType() {
+    return conversionType;
+  }
+
+  /**
+   * Optional. Conversion type. Required if UserEvent.event_type is `conversion`. This is a
+   * customer-defined conversion name in lowercase letters or numbers separated by "-", such as
+   * "watch", "good-visit" etc. Do not set the field if UserEvent.event_type is not `conversion`.
+   * This mixes the custom conversion event with predefined events like `search`, `view-item` etc.
+   * @param conversionType conversionType or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1betaUserEvent setConversionType(java.lang.String conversionType) {
+    this.conversionType = conversionType;
+    return this;
+  }
+
+  /**
    * The DataStore resource full name, of the form `projects/{project}/locations/{location}/collecti
    * ons/{collection_id}/dataStores/{data_store_id}`. Optional. Only required for user events whose
    * data store can't by determined by UserEvent.engine or UserEvent.documents. If data store is set
@@ -469,10 +516,11 @@ public final class GoogleCloudDiscoveryengineV1betaUserEvent extends com.google.
    * Required. User event type. Allowed values are: Generic values: * `search`: Search for
    * Documents. * `view-item`: Detailed page view of a Document. * `view-item-list`: View of a panel
    * or ordered list of Documents. * `view-home-page`: View of the home page. * `view-category-
-   * page`: View of a category page, e.g. Home > Men > Jeans Retail-related values: * `add-to-cart`:
-   * Add an item(s) to cart, e.g. in Retail online shopping * `purchase`: Purchase an item(s) Media-
-   * related values: * `media-play`: Start/resume watching a video, playing a song, etc. * `media-
-   * complete`: Finished or stopped midway through a video, song, etc.
+   * page`: View of a category page, e.g. Home > Men > Jeans * `add-feedback`: Add a user feedback.
+   * Retail-related values: * `add-to-cart`: Add an item(s) to cart, e.g. in Retail online shopping
+   * * `purchase`: Purchase an item(s) Media-related values: * `media-play`: Start/resume watching a
+   * video, playing a song, etc. * `media-complete`: Finished or stopped midway through a video,
+   * song, etc. Custom conversion value: * `conversion`: Customer defined conversion event.
    * @return value or {@code null} for none
    */
   public java.lang.String getEventType() {
@@ -483,10 +531,11 @@ public final class GoogleCloudDiscoveryengineV1betaUserEvent extends com.google.
    * Required. User event type. Allowed values are: Generic values: * `search`: Search for
    * Documents. * `view-item`: Detailed page view of a Document. * `view-item-list`: View of a panel
    * or ordered list of Documents. * `view-home-page`: View of the home page. * `view-category-
-   * page`: View of a category page, e.g. Home > Men > Jeans Retail-related values: * `add-to-cart`:
-   * Add an item(s) to cart, e.g. in Retail online shopping * `purchase`: Purchase an item(s) Media-
-   * related values: * `media-play`: Start/resume watching a video, playing a song, etc. * `media-
-   * complete`: Finished or stopped midway through a video, song, etc.
+   * page`: View of a category page, e.g. Home > Men > Jeans * `add-feedback`: Add a user feedback.
+   * Retail-related values: * `add-to-cart`: Add an item(s) to cart, e.g. in Retail online shopping
+   * * `purchase`: Purchase an item(s) Media-related values: * `media-play`: Start/resume watching a
+   * video, playing a song, etc. * `media-complete`: Finished or stopped midway through a video,
+   * song, etc. Custom conversion value: * `conversion`: Customer defined conversion event.
    * @param eventType eventType or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1betaUserEvent setEventType(java.lang.String eventType) {
@@ -573,6 +622,23 @@ public final class GoogleCloudDiscoveryengineV1betaUserEvent extends com.google.
    */
   public GoogleCloudDiscoveryengineV1betaUserEvent setPanel(GoogleCloudDiscoveryengineV1betaPanelInfo panel) {
     this.panel = panel;
+    return this;
+  }
+
+  /**
+   * Optional. List of panels associated with this event. Used for page-level impression data.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GoogleCloudDiscoveryengineV1betaPanelInfo> getPanels() {
+    return panels;
+  }
+
+  /**
+   * Optional. List of panels associated with this event. Used for page-level impression data.
+   * @param panels panels or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1betaUserEvent setPanels(java.util.List<GoogleCloudDiscoveryengineV1betaPanelInfo> panels) {
+    this.panels = panels;
     return this;
   }
 

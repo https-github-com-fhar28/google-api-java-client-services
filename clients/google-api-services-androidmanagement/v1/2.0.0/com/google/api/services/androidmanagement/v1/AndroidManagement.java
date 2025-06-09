@@ -500,6 +500,144 @@ public class AndroidManagement extends com.google.api.client.googleapis.services
       }
     }
     /**
+     * Generates an enterprise upgrade URL to upgrade an existing managed Google Play Accounts
+     * enterprise to a managed Google domain.Note: This feature is not generally available.
+     *
+     * Create a request for the method "enterprises.generateEnterpriseUpgradeUrl".
+     *
+     * This request holds the parameters needed by the androidmanagement server.  After setting any
+     * optional parameters, call the {@link GenerateEnterpriseUpgradeUrl#execute()} method to invoke the
+     * remote operation.
+     *
+     * @param name Required. The name of the enterprise to be upgraded in the form enterprises/{enterpriseId}.
+     * @param content the {@link com.google.api.services.androidmanagement.v1.model.GenerateEnterpriseUpgradeUrlRequest}
+     * @return the request
+     */
+    public GenerateEnterpriseUpgradeUrl generateEnterpriseUpgradeUrl(java.lang.String name, com.google.api.services.androidmanagement.v1.model.GenerateEnterpriseUpgradeUrlRequest content) throws java.io.IOException {
+      GenerateEnterpriseUpgradeUrl result = new GenerateEnterpriseUpgradeUrl(name, content);
+      initialize(result);
+      return result;
+    }
+
+    public class GenerateEnterpriseUpgradeUrl extends AndroidManagementRequest<com.google.api.services.androidmanagement.v1.model.GenerateEnterpriseUpgradeUrlResponse> {
+
+      private static final String REST_PATH = "v1/{+name}:generateEnterpriseUpgradeUrl";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^enterprises/[^/]+$");
+
+      /**
+       * Generates an enterprise upgrade URL to upgrade an existing managed Google Play Accounts
+       * enterprise to a managed Google domain.Note: This feature is not generally available.
+       *
+       * Create a request for the method "enterprises.generateEnterpriseUpgradeUrl".
+       *
+       * This request holds the parameters needed by the the androidmanagement server.  After setting
+       * any optional parameters, call the {@link GenerateEnterpriseUpgradeUrl#execute()} method to
+       * invoke the remote operation. <p> {@link GenerateEnterpriseUpgradeUrl#initialize(com.google.api.
+       * client.googleapis.services.AbstractGoogleClientRequest)} must be called to initialize this
+       * instance immediately after invoking the constructor. </p>
+       *
+       * @param name Required. The name of the enterprise to be upgraded in the form enterprises/{enterpriseId}.
+       * @param content the {@link com.google.api.services.androidmanagement.v1.model.GenerateEnterpriseUpgradeUrlRequest}
+       * @since 1.13
+       */
+      protected GenerateEnterpriseUpgradeUrl(java.lang.String name, com.google.api.services.androidmanagement.v1.model.GenerateEnterpriseUpgradeUrlRequest content) {
+        super(AndroidManagement.this, "POST", REST_PATH, content, com.google.api.services.androidmanagement.v1.model.GenerateEnterpriseUpgradeUrlResponse.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^enterprises/[^/]+$");
+        }
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl set$Xgafv(java.lang.String $Xgafv) {
+        return (GenerateEnterpriseUpgradeUrl) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setAccessToken(java.lang.String accessToken) {
+        return (GenerateEnterpriseUpgradeUrl) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setAlt(java.lang.String alt) {
+        return (GenerateEnterpriseUpgradeUrl) super.setAlt(alt);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setCallback(java.lang.String callback) {
+        return (GenerateEnterpriseUpgradeUrl) super.setCallback(callback);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setFields(java.lang.String fields) {
+        return (GenerateEnterpriseUpgradeUrl) super.setFields(fields);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setKey(java.lang.String key) {
+        return (GenerateEnterpriseUpgradeUrl) super.setKey(key);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setOauthToken(java.lang.String oauthToken) {
+        return (GenerateEnterpriseUpgradeUrl) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (GenerateEnterpriseUpgradeUrl) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setQuotaUser(java.lang.String quotaUser) {
+        return (GenerateEnterpriseUpgradeUrl) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setUploadType(java.lang.String uploadType) {
+        return (GenerateEnterpriseUpgradeUrl) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl setUploadProtocol(java.lang.String uploadProtocol) {
+        return (GenerateEnterpriseUpgradeUrl) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The name of the enterprise to be upgraded in the form enterprises/{enterpriseId}.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Required. The name of the enterprise to be upgraded in the form enterprises/{enterpriseId}.
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Required. The name of the enterprise to be upgraded in the form enterprises/{enterpriseId}.
+       */
+      public GenerateEnterpriseUpgradeUrl setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^enterprises/[^/]+$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      @Override
+      public GenerateEnterpriseUpgradeUrl set(String parameterName, Object value) {
+        return (GenerateEnterpriseUpgradeUrl) super.set(parameterName, value);
+      }
+    }
+    /**
      * Gets an enterprise.
      *
      * Create a request for the method "enterprises.get".
@@ -1174,7 +1312,8 @@ public class AndroidManagement extends com.google.api.client.googleapis.services
     public class Devices {
 
       /**
-       * Deletes a device. This operation wipes the device. Deleted devices do not show up in
+       * Deletes a device. This operation attempts to wipe the device but this is not guaranteed to
+       * succeed if the device is offline for an extended period. Deleted devices do not show up in
        * enterprises.devices.list calls and a 404 is returned from enterprises.devices.get.
        *
        * Create a request for the method "devices.delete".
@@ -1199,7 +1338,8 @@ public class AndroidManagement extends com.google.api.client.googleapis.services
             java.util.regex.Pattern.compile("^enterprises/[^/]+/devices/[^/]+$");
 
         /**
-         * Deletes a device. This operation wipes the device. Deleted devices do not show up in
+         * Deletes a device. This operation attempts to wipe the device but this is not guaranteed to
+         * succeed if the device is offline for an extended period. Deleted devices do not show up in
          * enterprises.devices.list calls and a 404 is returned from enterprises.devices.get.
          *
          * Create a request for the method "devices.delete".
@@ -4497,7 +4637,7 @@ public class AndroidManagement extends com.google.api.client.googleapis.services
        * This request holds the parameters needed by the androidmanagement server.  After setting any
        * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
-       * @param name The name of the web app in the form enterprises/{enterpriseId}/webApp/{packageName}.
+       * @param name The name of the web app in the form enterprises/{enterpriseId}/webApps/{packageName}.
        * @return the request
        */
       public Get get(java.lang.String name) throws java.io.IOException {
@@ -4524,7 +4664,7 @@ public class AndroidManagement extends com.google.api.client.googleapis.services
          * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name The name of the web app in the form enterprises/{enterpriseId}/webApp/{packageName}.
+         * @param name The name of the web app in the form enterprises/{enterpriseId}/webApps/{packageName}.
          * @since 1.13
          */
         protected Get(java.lang.String name) {
@@ -4602,17 +4742,21 @@ public class AndroidManagement extends com.google.api.client.googleapis.services
           return (Get) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** The name of the web app in the form enterprises/{enterpriseId}/webApp/{packageName}. */
+        /**
+         * The name of the web app in the form enterprises/{enterpriseId}/webApps/{packageName}.
+         */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** The name of the web app in the form enterprises/{enterpriseId}/webApp/{packageName}.
+        /** The name of the web app in the form enterprises/{enterpriseId}/webApps/{packageName}.
          */
         public java.lang.String getName() {
           return name;
         }
 
-        /** The name of the web app in the form enterprises/{enterpriseId}/webApp/{packageName}. */
+        /**
+         * The name of the web app in the form enterprises/{enterpriseId}/webApps/{packageName}.
+         */
         public Get setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
@@ -5404,13 +5548,15 @@ public class AndroidManagement extends com.google.api.client.googleapis.services
 
       /**
        * Optional. Email address used to prefill the admin field of the enterprise signup form. This
-       * value is a hint only and can be altered by the user.
+       * value is a hint only and can be altered by the user. If allowedDomains is non-empty then
+       * this must belong to one of the allowedDomains.
        */
       @com.google.api.client.util.Key
       private java.lang.String adminEmail;
 
       /** Optional. Email address used to prefill the admin field of the enterprise signup form. This value
-     is a hint only and can be altered by the user.
+     is a hint only and can be altered by the user. If allowedDomains is non-empty then this must belong
+     to one of the allowedDomains.
        */
       public java.lang.String getAdminEmail() {
         return adminEmail;
@@ -5418,10 +5564,48 @@ public class AndroidManagement extends com.google.api.client.googleapis.services
 
       /**
        * Optional. Email address used to prefill the admin field of the enterprise signup form. This
-       * value is a hint only and can be altered by the user.
+       * value is a hint only and can be altered by the user. If allowedDomains is non-empty then
+       * this must belong to one of the allowedDomains.
        */
       public Create setAdminEmail(java.lang.String adminEmail) {
         this.adminEmail = adminEmail;
+        return this;
+      }
+
+      /**
+       * Optional. A list of domains that are permitted for the admin email. The IT admin cannot
+       * enter an email address with a domain name that is not in this list. Subdomains of domains
+       * in this list are not allowed but can be allowed by adding a second entry which has *.
+       * prefixed to the domain name (e.g. *.example.com). If the field is not present or is an
+       * empty list then the IT admin is free to use any valid domain name. Personal email domains
+       * are always allowed, but will result in the creation of a managed Google Play Accounts
+       * enterprise.
+       */
+      @com.google.api.client.util.Key
+      private java.util.List<java.lang.String> allowedDomains;
+
+      /** Optional. A list of domains that are permitted for the admin email. The IT admin cannot enter an
+     email address with a domain name that is not in this list. Subdomains of domains in this list are
+     not allowed but can be allowed by adding a second entry which has *. prefixed to the domain name
+     (e.g. *.example.com). If the field is not present or is an empty list then the IT admin is free to
+     use any valid domain name. Personal email domains are always allowed, but will result in the
+     creation of a managed Google Play Accounts enterprise.
+       */
+      public java.util.List<java.lang.String> getAllowedDomains() {
+        return allowedDomains;
+      }
+
+      /**
+       * Optional. A list of domains that are permitted for the admin email. The IT admin cannot
+       * enter an email address with a domain name that is not in this list. Subdomains of domains
+       * in this list are not allowed but can be allowed by adding a second entry which has *.
+       * prefixed to the domain name (e.g. *.example.com). If the field is not present or is an
+       * empty list then the IT admin is free to use any valid domain name. Personal email domains
+       * are always allowed, but will result in the creation of a managed Google Play Accounts
+       * enterprise.
+       */
+      public Create setAllowedDomains(java.util.List<java.lang.String> allowedDomains) {
+        this.allowedDomains = allowedDomains;
         return this;
       }
 

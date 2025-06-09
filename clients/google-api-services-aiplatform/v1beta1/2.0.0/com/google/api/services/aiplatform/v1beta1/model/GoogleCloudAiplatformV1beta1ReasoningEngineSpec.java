@@ -30,21 +30,57 @@ package com.google.api.services.aiplatform.v1beta1.model;
 public final class GoogleCloudAiplatformV1beta1ReasoningEngineSpec extends com.google.api.client.json.GenericJson {
 
   /**
-   * Optional. Declarations for object class methods.
+   * Optional. The OSS agent framework used to develop the agent. Currently supported values:
+   * "google-adk", "langchain", "langgraph", "ag2", "llama-index", "custom".
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String agentFramework;
+
+  /**
+   * Optional. Declarations for object class methods in OpenAPI specification format.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<java.util.Map<String, java.lang.Object>> classMethods;
 
   /**
-   * Required. User provided package spec of the ReasoningEngine.
+   * Optional. The specification of a Reasoning Engine deployment.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1ReasoningEngineSpecDeploymentSpec deploymentSpec;
+
+  /**
+   * Optional. User provided package spec of the ReasoningEngine. Ignored when users directly
+   * specify a deployment image through `deployment_spec.first_party_image_override`, but keeping
+   * the field_behavior to avoid introducing breaking changes.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1ReasoningEngineSpecPackageSpec packageSpec;
 
   /**
-   * Optional. Declarations for object class methods.
+   * Optional. The OSS agent framework used to develop the agent. Currently supported values:
+   * "google-adk", "langchain", "langgraph", "ag2", "llama-index", "custom".
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getAgentFramework() {
+    return agentFramework;
+  }
+
+  /**
+   * Optional. The OSS agent framework used to develop the agent. Currently supported values:
+   * "google-adk", "langchain", "langgraph", "ag2", "llama-index", "custom".
+   * @param agentFramework agentFramework or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ReasoningEngineSpec setAgentFramework(java.lang.String agentFramework) {
+    this.agentFramework = agentFramework;
+    return this;
+  }
+
+  /**
+   * Optional. Declarations for object class methods in OpenAPI specification format.
    * @return value or {@code null} for none
    */
   public java.util.List<java.util.Map<String, java.lang.Object>> getClassMethods() {
@@ -52,7 +88,7 @@ public final class GoogleCloudAiplatformV1beta1ReasoningEngineSpec extends com.g
   }
 
   /**
-   * Optional. Declarations for object class methods.
+   * Optional. Declarations for object class methods in OpenAPI specification format.
    * @param classMethods classMethods or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ReasoningEngineSpec setClassMethods(java.util.List<java.util.Map<String, java.lang.Object>> classMethods) {
@@ -61,7 +97,26 @@ public final class GoogleCloudAiplatformV1beta1ReasoningEngineSpec extends com.g
   }
 
   /**
-   * Required. User provided package spec of the ReasoningEngine.
+   * Optional. The specification of a Reasoning Engine deployment.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ReasoningEngineSpecDeploymentSpec getDeploymentSpec() {
+    return deploymentSpec;
+  }
+
+  /**
+   * Optional. The specification of a Reasoning Engine deployment.
+   * @param deploymentSpec deploymentSpec or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ReasoningEngineSpec setDeploymentSpec(GoogleCloudAiplatformV1beta1ReasoningEngineSpecDeploymentSpec deploymentSpec) {
+    this.deploymentSpec = deploymentSpec;
+    return this;
+  }
+
+  /**
+   * Optional. User provided package spec of the ReasoningEngine. Ignored when users directly
+   * specify a deployment image through `deployment_spec.first_party_image_override`, but keeping
+   * the field_behavior to avoid introducing breaking changes.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ReasoningEngineSpecPackageSpec getPackageSpec() {
@@ -69,7 +124,9 @@ public final class GoogleCloudAiplatformV1beta1ReasoningEngineSpec extends com.g
   }
 
   /**
-   * Required. User provided package spec of the ReasoningEngine.
+   * Optional. User provided package spec of the ReasoningEngine. Ignored when users directly
+   * specify a deployment image through `deployment_spec.first_party_image_override`, but keeping
+   * the field_behavior to avoid introducing breaking changes.
    * @param packageSpec packageSpec or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ReasoningEngineSpec setPackageSpec(GoogleCloudAiplatformV1beta1ReasoningEngineSpecPackageSpec packageSpec) {

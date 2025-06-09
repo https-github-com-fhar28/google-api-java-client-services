@@ -103,11 +103,25 @@ public final class Stream extends com.google.api.client.json.GenericJson {
   private String lastRecoveryTime;
 
   /**
-   * Output only. The stream's name.
+   * Output only. Identifier. The stream's name.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzs;
 
   /**
    * Required. Source connection profile configuration.
@@ -292,7 +306,7 @@ public final class Stream extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. The stream's name.
+   * Output only. Identifier. The stream's name.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -300,11 +314,45 @@ public final class Stream extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. The stream's name.
+   * Output only. Identifier. The stream's name.
    * @param name name or {@code null} for none
    */
   public Stream setName(java.lang.String name) {
     this.name = name;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public Stream setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzs() {
+    return satisfiesPzs;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzs satisfiesPzs or {@code null} for none
+   */
+  public Stream setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
+    this.satisfiesPzs = satisfiesPzs;
     return this;
   }
 

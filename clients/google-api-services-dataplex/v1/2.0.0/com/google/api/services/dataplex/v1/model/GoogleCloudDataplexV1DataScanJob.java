@@ -37,28 +37,42 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   private String createTime;
 
   /**
-   * Output only. The result of the data profile scan.
+   * Output only. The result of a data discovery scan.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDataplexV1DataDiscoveryResult dataDiscoveryResult;
+
+  /**
+   * Output only. Settings for a data discovery scan.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDataplexV1DataDiscoverySpec dataDiscoverySpec;
+
+  /**
+   * Output only. The result of a data profile scan.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudDataplexV1DataProfileResult dataProfileResult;
 
   /**
-   * Output only. DataProfileScan related setting.
+   * Output only. Settings for a data profile scan.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudDataplexV1DataProfileSpec dataProfileSpec;
 
   /**
-   * Output only. The result of the data quality scan.
+   * Output only. The result of a data quality scan.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudDataplexV1DataQualityResult dataQualityResult;
 
   /**
-   * Output only. DataQualityScan related setting.
+   * Output only. Settings for a data quality scan.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -79,7 +93,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   private java.lang.String message;
 
   /**
-   * Output only. The relative resource name of the DataScanJob, of the form:
+   * Output only. Identifier. The relative resource name of the DataScanJob, of the form:
    * projects/{project}/locations/{location_id}/dataScans/{datascan_id}/jobs/{job_id}, where project
    * refers to a project_id or project_number and location_id refers to a GCP region.
    * The value may be {@code null}.
@@ -133,7 +147,41 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. The result of the data profile scan.
+   * Output only. The result of a data discovery scan.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDataplexV1DataDiscoveryResult getDataDiscoveryResult() {
+    return dataDiscoveryResult;
+  }
+
+  /**
+   * Output only. The result of a data discovery scan.
+   * @param dataDiscoveryResult dataDiscoveryResult or {@code null} for none
+   */
+  public GoogleCloudDataplexV1DataScanJob setDataDiscoveryResult(GoogleCloudDataplexV1DataDiscoveryResult dataDiscoveryResult) {
+    this.dataDiscoveryResult = dataDiscoveryResult;
+    return this;
+  }
+
+  /**
+   * Output only. Settings for a data discovery scan.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDataplexV1DataDiscoverySpec getDataDiscoverySpec() {
+    return dataDiscoverySpec;
+  }
+
+  /**
+   * Output only. Settings for a data discovery scan.
+   * @param dataDiscoverySpec dataDiscoverySpec or {@code null} for none
+   */
+  public GoogleCloudDataplexV1DataScanJob setDataDiscoverySpec(GoogleCloudDataplexV1DataDiscoverySpec dataDiscoverySpec) {
+    this.dataDiscoverySpec = dataDiscoverySpec;
+    return this;
+  }
+
+  /**
+   * Output only. The result of a data profile scan.
    * @return value or {@code null} for none
    */
   public GoogleCloudDataplexV1DataProfileResult getDataProfileResult() {
@@ -141,7 +189,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. The result of the data profile scan.
+   * Output only. The result of a data profile scan.
    * @param dataProfileResult dataProfileResult or {@code null} for none
    */
   public GoogleCloudDataplexV1DataScanJob setDataProfileResult(GoogleCloudDataplexV1DataProfileResult dataProfileResult) {
@@ -150,7 +198,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. DataProfileScan related setting.
+   * Output only. Settings for a data profile scan.
    * @return value or {@code null} for none
    */
   public GoogleCloudDataplexV1DataProfileSpec getDataProfileSpec() {
@@ -158,7 +206,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. DataProfileScan related setting.
+   * Output only. Settings for a data profile scan.
    * @param dataProfileSpec dataProfileSpec or {@code null} for none
    */
   public GoogleCloudDataplexV1DataScanJob setDataProfileSpec(GoogleCloudDataplexV1DataProfileSpec dataProfileSpec) {
@@ -167,7 +215,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. The result of the data quality scan.
+   * Output only. The result of a data quality scan.
    * @return value or {@code null} for none
    */
   public GoogleCloudDataplexV1DataQualityResult getDataQualityResult() {
@@ -175,7 +223,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. The result of the data quality scan.
+   * Output only. The result of a data quality scan.
    * @param dataQualityResult dataQualityResult or {@code null} for none
    */
   public GoogleCloudDataplexV1DataScanJob setDataQualityResult(GoogleCloudDataplexV1DataQualityResult dataQualityResult) {
@@ -184,7 +232,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. DataQualityScan related setting.
+   * Output only. Settings for a data quality scan.
    * @return value or {@code null} for none
    */
   public GoogleCloudDataplexV1DataQualitySpec getDataQualitySpec() {
@@ -192,7 +240,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. DataQualityScan related setting.
+   * Output only. Settings for a data quality scan.
    * @param dataQualitySpec dataQualitySpec or {@code null} for none
    */
   public GoogleCloudDataplexV1DataScanJob setDataQualitySpec(GoogleCloudDataplexV1DataQualitySpec dataQualitySpec) {
@@ -235,7 +283,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. The relative resource name of the DataScanJob, of the form:
+   * Output only. Identifier. The relative resource name of the DataScanJob, of the form:
    * projects/{project}/locations/{location_id}/dataScans/{datascan_id}/jobs/{job_id}, where project
    * refers to a project_id or project_number and location_id refers to a GCP region.
    * @return value or {@code null} for none
@@ -245,7 +293,7 @@ public final class GoogleCloudDataplexV1DataScanJob extends com.google.api.clien
   }
 
   /**
-   * Output only. The relative resource name of the DataScanJob, of the form:
+   * Output only. Identifier. The relative resource name of the DataScanJob, of the form:
    * projects/{project}/locations/{location_id}/dataScans/{datascan_id}/jobs/{job_id}, where project
    * refers to a project_id or project_number and location_id refers to a GCP region.
    * @param name name or {@code null} for none

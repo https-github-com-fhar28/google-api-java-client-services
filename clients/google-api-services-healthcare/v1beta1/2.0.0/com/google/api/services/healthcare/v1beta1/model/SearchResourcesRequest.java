@@ -30,22 +30,22 @@ package com.google.api.services.healthcare.v1beta1.model;
 public final class SearchResourcesRequest extends com.google.api.client.json.GenericJson {
 
   /**
-   * Required. The FHIR resource type to search, such as Patient or Observation. For a complete
-   * list, see the FHIR Resource Index
-   * ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-   * [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
-   * [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+   * Optional. The FHIR resource type to search, such as Patient or Observation. For a complete
+   * list, see the FHIR Resource Index ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+   * [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+   * [R4](https://hl7.org/fhir/R4/resourcelist.html),
+   * [R5](https://hl7.org/fhir/R5/resourcelist.html)).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String resourceType;
 
   /**
-   * Required. The FHIR resource type to search, such as Patient or Observation. For a complete
-   * list, see the FHIR Resource Index
-   * ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-   * [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
-   * [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+   * Optional. The FHIR resource type to search, such as Patient or Observation. For a complete
+   * list, see the FHIR Resource Index ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+   * [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+   * [R4](https://hl7.org/fhir/R4/resourcelist.html),
+   * [R5](https://hl7.org/fhir/R5/resourcelist.html)).
    * @return value or {@code null} for none
    */
   public java.lang.String getResourceType() {
@@ -53,11 +53,11 @@ public final class SearchResourcesRequest extends com.google.api.client.json.Gen
   }
 
   /**
-   * Required. The FHIR resource type to search, such as Patient or Observation. For a complete
-   * list, see the FHIR Resource Index
-   * ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-   * [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
-   * [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+   * Optional. The FHIR resource type to search, such as Patient or Observation. For a complete
+   * list, see the FHIR Resource Index ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+   * [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+   * [R4](https://hl7.org/fhir/R4/resourcelist.html),
+   * [R5](https://hl7.org/fhir/R5/resourcelist.html)).
    * @param resourceType resourceType or {@code null} for none
    */
   public SearchResourcesRequest setResourceType(java.lang.String resourceType) {

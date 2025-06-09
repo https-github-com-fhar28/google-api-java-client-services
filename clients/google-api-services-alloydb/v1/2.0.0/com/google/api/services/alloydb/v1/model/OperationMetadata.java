@@ -52,8 +52,8 @@ public final class OperationMetadata extends com.google.api.client.json.GenericJ
 
   /**
    * Output only. Identifies whether the user has requested cancellation of the operation.
-   * Operations that have successfully been cancelled have Operation.error value with a
-   * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+   * Operations that have successfully been cancelled have google.longrunning.Operation.error value
+   * with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -72,6 +72,13 @@ public final class OperationMetadata extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key
   private java.lang.String target;
+
+  /**
+   * Output only. UpgradeClusterStatus related metadata.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private UpgradeClusterStatus upgradeClusterStatus;
 
   /**
    * Output only. Name of the verb executed by the operation.
@@ -133,8 +140,8 @@ public final class OperationMetadata extends com.google.api.client.json.GenericJ
 
   /**
    * Output only. Identifies whether the user has requested cancellation of the operation.
-   * Operations that have successfully been cancelled have Operation.error value with a
-   * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+   * Operations that have successfully been cancelled have google.longrunning.Operation.error value
+   * with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getRequestedCancellation() {
@@ -143,8 +150,8 @@ public final class OperationMetadata extends com.google.api.client.json.GenericJ
 
   /**
    * Output only. Identifies whether the user has requested cancellation of the operation.
-   * Operations that have successfully been cancelled have Operation.error value with a
-   * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+   * Operations that have successfully been cancelled have google.longrunning.Operation.error value
+   * with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
    * @param requestedCancellation requestedCancellation or {@code null} for none
    */
   public OperationMetadata setRequestedCancellation(java.lang.Boolean requestedCancellation) {
@@ -183,6 +190,23 @@ public final class OperationMetadata extends com.google.api.client.json.GenericJ
    */
   public OperationMetadata setTarget(java.lang.String target) {
     this.target = target;
+    return this;
+  }
+
+  /**
+   * Output only. UpgradeClusterStatus related metadata.
+   * @return value or {@code null} for none
+   */
+  public UpgradeClusterStatus getUpgradeClusterStatus() {
+    return upgradeClusterStatus;
+  }
+
+  /**
+   * Output only. UpgradeClusterStatus related metadata.
+   * @param upgradeClusterStatus upgradeClusterStatus or {@code null} for none
+   */
+  public OperationMetadata setUpgradeClusterStatus(UpgradeClusterStatus upgradeClusterStatus) {
+    this.upgradeClusterStatus = upgradeClusterStatus;
     return this;
   }
 

@@ -259,6 +259,16 @@ public final class LoyaltyClass extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Merchant locations. There is a maximum of ten on the class. Any additional MerchantLocations
+   * added beyond the 10 will be rejected. These locations will trigger a notification when a user
+   * enters within a Google-set radius of the point. This field replaces the deprecated
+   * LatLongPoints.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<MerchantLocation> merchantLocations;
+
+  /**
    * An array of messages displayed in the app. All users of this object will receive its associated
    * messages. The maximum number of these fields is 10.
    * The value may be {@code null}.
@@ -272,6 +282,17 @@ public final class LoyaltyClass extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String multipleDevicesAndHoldersAllowedStatus;
+
+  /**
+   * Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we
+   * will attempt to trigger a field update notification to users. These notifications will only be
+   * sent to users if the field is part of an allowlist. If not specified, no notification will be
+   * triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+   * otherwise a notification will not be triggered.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String notifyPreference;
 
   /**
    * Required. The logo of the loyalty program or company. This logo is displayed in both the
@@ -919,6 +940,29 @@ public final class LoyaltyClass extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Merchant locations. There is a maximum of ten on the class. Any additional MerchantLocations
+   * added beyond the 10 will be rejected. These locations will trigger a notification when a user
+   * enters within a Google-set radius of the point. This field replaces the deprecated
+   * LatLongPoints.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<MerchantLocation> getMerchantLocations() {
+    return merchantLocations;
+  }
+
+  /**
+   * Merchant locations. There is a maximum of ten on the class. Any additional MerchantLocations
+   * added beyond the 10 will be rejected. These locations will trigger a notification when a user
+   * enters within a Google-set radius of the point. This field replaces the deprecated
+   * LatLongPoints.
+   * @param merchantLocations merchantLocations or {@code null} for none
+   */
+  public LoyaltyClass setMerchantLocations(java.util.List<MerchantLocation> merchantLocations) {
+    this.merchantLocations = merchantLocations;
+    return this;
+  }
+
+  /**
    * An array of messages displayed in the app. All users of this object will receive its associated
    * messages. The maximum number of these fields is 10.
    * @return value or {@code null} for none
@@ -951,6 +995,31 @@ public final class LoyaltyClass extends com.google.api.client.json.GenericJson {
    */
   public LoyaltyClass setMultipleDevicesAndHoldersAllowedStatus(java.lang.String multipleDevicesAndHoldersAllowedStatus) {
     this.multipleDevicesAndHoldersAllowedStatus = multipleDevicesAndHoldersAllowedStatus;
+    return this;
+  }
+
+  /**
+   * Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we
+   * will attempt to trigger a field update notification to users. These notifications will only be
+   * sent to users if the field is part of an allowlist. If not specified, no notification will be
+   * triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+   * otherwise a notification will not be triggered.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getNotifyPreference() {
+    return notifyPreference;
+  }
+
+  /**
+   * Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we
+   * will attempt to trigger a field update notification to users. These notifications will only be
+   * sent to users if the field is part of an allowlist. If not specified, no notification will be
+   * triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request,
+   * otherwise a notification will not be triggered.
+   * @param notifyPreference notifyPreference or {@code null} for none
+   */
+  public LoyaltyClass setNotifyPreference(java.lang.String notifyPreference) {
+    this.notifyPreference = notifyPreference;
     return this;
   }
 

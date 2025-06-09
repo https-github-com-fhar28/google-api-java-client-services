@@ -37,6 +37,13 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
   private GoogleCloudAiplatformV1beta1CorpusStatus corpusStatus;
 
   /**
+   * Optional. The corpus type config of the RagCorpus.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RagCorpusCorpusTypeConfig corpusTypeConfig;
+
+  /**
    * Output only. Timestamp when this RagCorpus was created.
    * The value may be {@code null}.
    */
@@ -59,6 +66,15 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
   private java.lang.String displayName;
 
   /**
+   * Optional. Immutable. The CMEK key name used to encrypt at-rest data related to this Corpus.
+   * Only applicable to RagManagedDb option for Vector DB. This field can only be set at corpus
+   * creation time, and cannot be updated or deleted.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1EncryptionSpec encryptionSpec;
+
+  /**
    * Output only. The resource name of the RagCorpus.
    * The value may be {@code null}.
    */
@@ -71,6 +87,13 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1RagEmbeddingModelConfig ragEmbeddingModelConfig;
+
+  /**
+   * Output only. Number of RagFiles in the RagCorpus.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer ragFilesCount;
 
   /**
    * Optional. Immutable. The Vector DB config of the RagCorpus.
@@ -87,6 +110,20 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
   private String updateTime;
 
   /**
+   * Optional. Immutable. The config for the Vector DBs.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RagVectorDbConfig vectorDbConfig;
+
+  /**
+   * Optional. Immutable. The config for the Vertex AI Search.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1VertexAiSearchConfig vertexAiSearchConfig;
+
+  /**
    * Output only. RagCorpus state.
    * @return value or {@code null} for none
    */
@@ -100,6 +137,23 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
    */
   public GoogleCloudAiplatformV1beta1RagCorpus setCorpusStatus(GoogleCloudAiplatformV1beta1CorpusStatus corpusStatus) {
     this.corpusStatus = corpusStatus;
+    return this;
+  }
+
+  /**
+   * Optional. The corpus type config of the RagCorpus.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpusCorpusTypeConfig getCorpusTypeConfig() {
+    return corpusTypeConfig;
+  }
+
+  /**
+   * Optional. The corpus type config of the RagCorpus.
+   * @param corpusTypeConfig corpusTypeConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpus setCorpusTypeConfig(GoogleCloudAiplatformV1beta1RagCorpusCorpusTypeConfig corpusTypeConfig) {
+    this.corpusTypeConfig = corpusTypeConfig;
     return this;
   }
 
@@ -157,6 +211,27 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
   }
 
   /**
+   * Optional. Immutable. The CMEK key name used to encrypt at-rest data related to this Corpus.
+   * Only applicable to RagManagedDb option for Vector DB. This field can only be set at corpus
+   * creation time, and cannot be updated or deleted.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EncryptionSpec getEncryptionSpec() {
+    return encryptionSpec;
+  }
+
+  /**
+   * Optional. Immutable. The CMEK key name used to encrypt at-rest data related to this Corpus.
+   * Only applicable to RagManagedDb option for Vector DB. This field can only be set at corpus
+   * creation time, and cannot be updated or deleted.
+   * @param encryptionSpec encryptionSpec or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpus setEncryptionSpec(GoogleCloudAiplatformV1beta1EncryptionSpec encryptionSpec) {
+    this.encryptionSpec = encryptionSpec;
+    return this;
+  }
+
+  /**
    * Output only. The resource name of the RagCorpus.
    * @return value or {@code null} for none
    */
@@ -191,6 +266,23 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
   }
 
   /**
+   * Output only. Number of RagFiles in the RagCorpus.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getRagFilesCount() {
+    return ragFilesCount;
+  }
+
+  /**
+   * Output only. Number of RagFiles in the RagCorpus.
+   * @param ragFilesCount ragFilesCount or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpus setRagFilesCount(java.lang.Integer ragFilesCount) {
+    this.ragFilesCount = ragFilesCount;
+    return this;
+  }
+
+  /**
    * Optional. Immutable. The Vector DB config of the RagCorpus.
    * @return value or {@code null} for none
    */
@@ -221,6 +313,40 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
    */
   public GoogleCloudAiplatformV1beta1RagCorpus setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
+    return this;
+  }
+
+  /**
+   * Optional. Immutable. The config for the Vector DBs.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagVectorDbConfig getVectorDbConfig() {
+    return vectorDbConfig;
+  }
+
+  /**
+   * Optional. Immutable. The config for the Vector DBs.
+   * @param vectorDbConfig vectorDbConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpus setVectorDbConfig(GoogleCloudAiplatformV1beta1RagVectorDbConfig vectorDbConfig) {
+    this.vectorDbConfig = vectorDbConfig;
+    return this;
+  }
+
+  /**
+   * Optional. Immutable. The config for the Vertex AI Search.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1VertexAiSearchConfig getVertexAiSearchConfig() {
+    return vertexAiSearchConfig;
+  }
+
+  /**
+   * Optional. Immutable. The config for the Vertex AI Search.
+   * @param vertexAiSearchConfig vertexAiSearchConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpus setVertexAiSearchConfig(GoogleCloudAiplatformV1beta1VertexAiSearchConfig vertexAiSearchConfig) {
+    this.vertexAiSearchConfig = vertexAiSearchConfig;
     return this;
   }
 

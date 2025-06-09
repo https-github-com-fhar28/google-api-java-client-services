@@ -1677,6 +1677,29 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like "displayName=tokyo", and is documented in more detail in AIP-160
          * (https://google.aip.dev/160).
@@ -3250,9 +3273,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            *
            * @param parent Required. The full resource name of the bucket to create a link for.
            *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
            * @param content the {@link com.google.api.services.logging.v2.model.Link}
            * @return the request
            */
@@ -3282,9 +3302,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
              *
              * @param parent Required. The full resource name of the bucket to create a link for.
            *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              * @param content the {@link com.google.api.services.logging.v2.model.Link}
              * @since 1.13
              */
@@ -3356,18 +3373,12 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Required. The full resource name of the bucket to create a link for.
              * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
             /** Required. The full resource name of the bucket to create a link for.
            "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             public java.lang.String getParent() {
               return parent;
@@ -3376,9 +3387,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Required. The full resource name of the bucket to create a link for.
              * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             public Create setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -4102,14 +4110,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             @com.google.api.client.util.Key
             private java.lang.String viewId;
 
             /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-           and can include only letters, digits, underscores, hyphens, and periods.
+           and can include only letters, digits, underscores, and hyphens.
              */
             public java.lang.String getViewId() {
               return viewId;
@@ -4117,8 +4124,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             public Create setViewId(java.lang.String viewId) {
               this.viewId = viewId;
@@ -6876,7 +6882,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
     public class Logs {
 
       /**
-       * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
+       * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it
        * receives new entries. Log entries written shortly before the delete operation might not be
        * deleted. Entries received after the delete operation with a timestamp before the operation will
        * be deleted.
@@ -6908,8 +6914,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             java.util.regex.Pattern.compile("^billingAccounts/[^/]+/logs/[^/]+$");
 
         /**
-         * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
-         * receives new entries. Log entries written shortly before the delete operation might not be
+         * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if
+         * it receives new entries. Log entries written shortly before the delete operation might not be
          * deleted. Entries received after the delete operation with a timestamp before the operation will
          * be deleted.
          *
@@ -11654,6 +11660,29 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like "displayName=tokyo", and is documented in more detail in AIP-160
          * (https://google.aip.dev/160).
@@ -13227,9 +13256,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            *
            * @param parent Required. The full resource name of the bucket to create a link for.
            *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
            * @param content the {@link com.google.api.services.logging.v2.model.Link}
            * @return the request
            */
@@ -13259,9 +13285,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
              *
              * @param parent Required. The full resource name of the bucket to create a link for.
            *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              * @param content the {@link com.google.api.services.logging.v2.model.Link}
              * @since 1.13
              */
@@ -13333,18 +13356,12 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Required. The full resource name of the bucket to create a link for.
              * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
             /** Required. The full resource name of the bucket to create a link for.
            "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             public java.lang.String getParent() {
               return parent;
@@ -13353,9 +13370,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Required. The full resource name of the bucket to create a link for.
              * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             public Create setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -14079,14 +14093,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             @com.google.api.client.util.Key
             private java.lang.String viewId;
 
             /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-           and can include only letters, digits, underscores, hyphens, and periods.
+           and can include only letters, digits, underscores, and hyphens.
              */
             public java.lang.String getViewId() {
               return viewId;
@@ -14094,8 +14107,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             public Create setViewId(java.lang.String viewId) {
               this.viewId = viewId;
@@ -16196,8 +16208,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
          * This request holds the parameters needed by the logging server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+         * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
          * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
          * @return the request
          */
@@ -16224,8 +16236,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+           * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
            * @since 1.13
            */
@@ -16295,22 +16307,24 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Output only. The resource name of the log scope.For example:projects/my-
-         project/locations/global/logScopes/my-log-scope
+          /** Output only. The resource name of the log scope.Log scopes are only available in the global
+         location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            */
           public java.lang.String getName() {
             return name;
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           public Patch setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -18153,7 +18167,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
     public class Logs {
 
       /**
-       * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
+       * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it
        * receives new entries. Log entries written shortly before the delete operation might not be
        * deleted. Entries received after the delete operation with a timestamp before the operation will
        * be deleted.
@@ -18185,8 +18199,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             java.util.regex.Pattern.compile("^folders/[^/]+/logs/[^/]+$");
 
         /**
-         * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
-         * receives new entries. Log entries written shortly before the delete operation might not be
+         * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if
+         * it receives new entries. Log entries written shortly before the delete operation might not be
          * deleted. Entries received after the delete operation with a timestamp before the operation will
          * be deleted.
          *
@@ -20182,6 +20196,29 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
       }
 
       /**
+       * Optional. A list of extra location types that should be used as conditions for controlling
+       * the visibility of the locations.
+       */
+      @com.google.api.client.util.Key
+      private java.util.List<java.lang.String> extraLocationTypes;
+
+      /** Optional. A list of extra location types that should be used as conditions for controlling the
+     visibility of the locations.
+       */
+      public java.util.List<java.lang.String> getExtraLocationTypes() {
+        return extraLocationTypes;
+      }
+
+      /**
+       * Optional. A list of extra location types that should be used as conditions for controlling
+       * the visibility of the locations.
+       */
+      public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+        this.extraLocationTypes = extraLocationTypes;
+        return this;
+      }
+
+      /**
        * A filter to narrow down results to a preferred subset. The filtering language accepts
        * strings like "displayName=tokyo", and is documented in more detail in AIP-160
        * (https://google.aip.dev/160).
@@ -21753,9 +21790,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
          *
          * @param parent Required. The full resource name of the bucket to create a link for.
          *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
          * @param content the {@link com.google.api.services.logging.v2.model.Link}
          * @return the request
          */
@@ -21785,9 +21819,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            *
            * @param parent Required. The full resource name of the bucket to create a link for.
          *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
            * @param content the {@link com.google.api.services.logging.v2.model.Link}
            * @since 1.13
            */
@@ -21859,18 +21890,12 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Required. The full resource name of the bucket to create a link for.
            * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
           /** Required. The full resource name of the bucket to create a link for.
          "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-         "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
            */
           public java.lang.String getParent() {
             return parent;
@@ -21879,9 +21904,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Required. The full resource name of the bucket to create a link for.
            * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
            */
           public Create setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -22605,13 +22627,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
           /**
            * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-           * 100 characters and can include only letters, digits, underscores, hyphens, and periods.
+           * 100 characters and can include only letters, digits, underscores, and hyphens.
            */
           @com.google.api.client.util.Key
           private java.lang.String viewId;
 
           /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-         and can include only letters, digits, underscores, hyphens, and periods.
+         and can include only letters, digits, underscores, and hyphens.
            */
           public java.lang.String getViewId() {
             return viewId;
@@ -22619,7 +22641,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
           /**
            * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-           * 100 characters and can include only letters, digits, underscores, hyphens, and periods.
+           * 100 characters and can include only letters, digits, underscores, and hyphens.
            */
           public Create setViewId(java.lang.String viewId) {
             this.viewId = viewId;
@@ -24273,7 +24295,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
   public class Logs {
 
     /**
-     * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
+     * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it
      * receives new entries. Log entries written shortly before the delete operation might not be
      * deleted. Entries received after the delete operation with a timestamp before the operation will
      * be deleted.
@@ -24305,8 +24327,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           java.util.regex.Pattern.compile("^[^/]+/[^/]+/logs/[^/]+$");
 
       /**
-       * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
-       * receives new entries. Log entries written shortly before the delete operation might not be
+       * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if
+       * it receives new entries. Log entries written shortly before the delete operation might not be
        * deleted. Entries received after the delete operation with a timestamp before the operation will
        * be deleted.
        *
@@ -26783,6 +26805,29 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like "displayName=tokyo", and is documented in more detail in AIP-160
          * (https://google.aip.dev/160).
@@ -28356,9 +28401,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            *
            * @param parent Required. The full resource name of the bucket to create a link for.
            *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
            * @param content the {@link com.google.api.services.logging.v2.model.Link}
            * @return the request
            */
@@ -28388,9 +28430,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
              *
              * @param parent Required. The full resource name of the bucket to create a link for.
            *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              * @param content the {@link com.google.api.services.logging.v2.model.Link}
              * @since 1.13
              */
@@ -28462,18 +28501,12 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Required. The full resource name of the bucket to create a link for.
              * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
             /** Required. The full resource name of the bucket to create a link for.
            "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             public java.lang.String getParent() {
               return parent;
@@ -28482,9 +28515,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Required. The full resource name of the bucket to create a link for.
              * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             public Create setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -29208,14 +29238,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             @com.google.api.client.util.Key
             private java.lang.String viewId;
 
             /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-           and can include only letters, digits, underscores, hyphens, and periods.
+           and can include only letters, digits, underscores, and hyphens.
              */
             public java.lang.String getViewId() {
               return viewId;
@@ -29223,8 +29252,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             public Create setViewId(java.lang.String viewId) {
               this.viewId = viewId;
@@ -31325,8 +31353,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
          * This request holds the parameters needed by the logging server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+         * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
          * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
          * @return the request
          */
@@ -31353,8 +31381,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+           * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
            * @since 1.13
            */
@@ -31424,22 +31452,24 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Output only. The resource name of the log scope.For example:projects/my-
-         project/locations/global/logScopes/my-log-scope
+          /** Output only. The resource name of the log scope.Log scopes are only available in the global
+         location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            */
           public java.lang.String getName() {
             return name;
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           public Patch setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -33282,7 +33312,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
     public class Logs {
 
       /**
-       * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
+       * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it
        * receives new entries. Log entries written shortly before the delete operation might not be
        * deleted. Entries received after the delete operation with a timestamp before the operation will
        * be deleted.
@@ -33314,8 +33344,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             java.util.regex.Pattern.compile("^organizations/[^/]+/logs/[^/]+$");
 
         /**
-         * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
-         * receives new entries. Log entries written shortly before the delete operation might not be
+         * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if
+         * it receives new entries. Log entries written shortly before the delete operation might not be
          * deleted. Entries received after the delete operation with a timestamp before the operation will
          * be deleted.
          *
@@ -36563,6 +36593,29 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like "displayName=tokyo", and is documented in more detail in AIP-160
          * (https://google.aip.dev/160).
@@ -38136,9 +38189,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            *
            * @param parent Required. The full resource name of the bucket to create a link for.
            *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
            * @param content the {@link com.google.api.services.logging.v2.model.Link}
            * @return the request
            */
@@ -38168,9 +38218,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
              *
              * @param parent Required. The full resource name of the bucket to create a link for.
            *        "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           *        "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              * @param content the {@link com.google.api.services.logging.v2.model.Link}
              * @since 1.13
              */
@@ -38242,18 +38289,12 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Required. The full resource name of the bucket to create a link for.
              * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
             /** Required. The full resource name of the bucket to create a link for.
            "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-           "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             public java.lang.String getParent() {
               return parent;
@@ -38262,9 +38303,6 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Required. The full resource name of the bucket to create a link for.
              * "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-             * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
              */
             public Create setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -38988,14 +39026,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             @com.google.api.client.util.Key
             private java.lang.String viewId;
 
             /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-           and can include only letters, digits, underscores, hyphens, and periods.
+           and can include only letters, digits, underscores, and hyphens.
              */
             public java.lang.String getViewId() {
               return viewId;
@@ -39003,8 +39040,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             public Create setViewId(java.lang.String viewId) {
               this.viewId = viewId;
@@ -41105,8 +41141,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
          * This request holds the parameters needed by the logging server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+         * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
          * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
          * @return the request
          */
@@ -41133,8 +41169,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+           * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
            * @since 1.13
            */
@@ -41204,22 +41240,24 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Output only. The resource name of the log scope.For example:projects/my-
-         project/locations/global/logScopes/my-log-scope
+          /** Output only. The resource name of the log scope.Log scopes are only available in the global
+         location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            */
           public java.lang.String getName() {
             return name;
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           public Patch setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -43062,7 +43100,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
     public class Logs {
 
       /**
-       * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
+       * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it
        * receives new entries. Log entries written shortly before the delete operation might not be
        * deleted. Entries received after the delete operation with a timestamp before the operation will
        * be deleted.
@@ -43094,8 +43132,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
             java.util.regex.Pattern.compile("^projects/[^/]+/logs/[^/]+$");
 
         /**
-         * Deletes all the log entries in a log for the _Default Log Bucket. The log reappears if it
-         * receives new entries. Log entries written shortly before the delete operation might not be
+         * Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if
+         * it receives new entries. Log entries written shortly before the delete operation might not be
          * deleted. Entries received after the delete operation with a timestamp before the operation will
          * be deleted.
          *

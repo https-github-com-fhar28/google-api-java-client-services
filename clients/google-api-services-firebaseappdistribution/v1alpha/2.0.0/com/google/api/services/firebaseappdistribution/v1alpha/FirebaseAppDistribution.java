@@ -450,136 +450,6 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
         return (GetJwt) super.set(parameterName, value);
       }
     }
-    /**
-     * Provision app distribution for an existing Firebase app, enabling it to subsequently be used by
-     * appdistro.
-     *
-     * Create a request for the method "apps.provisionApp".
-     *
-     * This request holds the parameters needed by the firebaseappdistribution server.  After setting
-     * any optional parameters, call the {@link ProvisionApp#execute()} method to invoke the remote
-     * operation.
-     *
-     * @param mobilesdkAppId Unique id for a Firebase app of the format: {version}:{project_number}:{platform}:{hash(bundle_id)}
-     *        Example: 1:581234567376:android:aa0a3c7b135e90289
-     * @return the request
-     */
-    public ProvisionApp provisionApp(java.lang.String mobilesdkAppId) throws java.io.IOException {
-      ProvisionApp result = new ProvisionApp(mobilesdkAppId);
-      initialize(result);
-      return result;
-    }
-
-    public class ProvisionApp extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaProvisionAppResponse> {
-
-      private static final String REST_PATH = "v1alpha/apps/{mobilesdkAppId}";
-
-      /**
-       * Provision app distribution for an existing Firebase app, enabling it to subsequently be used by
-       * appdistro.
-       *
-       * Create a request for the method "apps.provisionApp".
-       *
-       * This request holds the parameters needed by the the firebaseappdistribution server.  After
-       * setting any optional parameters, call the {@link ProvisionApp#execute()} method to invoke the
-       * remote operation. <p> {@link
-       * ProvisionApp#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
-       * must be called to initialize this instance immediately after invoking the constructor. </p>
-       *
-       * @param mobilesdkAppId Unique id for a Firebase app of the format: {version}:{project_number}:{platform}:{hash(bundle_id)}
-     *        Example: 1:581234567376:android:aa0a3c7b135e90289
-       * @since 1.13
-       */
-      protected ProvisionApp(java.lang.String mobilesdkAppId) {
-        super(FirebaseAppDistribution.this, "POST", REST_PATH, null, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaProvisionAppResponse.class);
-        this.mobilesdkAppId = com.google.api.client.util.Preconditions.checkNotNull(mobilesdkAppId, "Required parameter mobilesdkAppId must be specified.");
-      }
-
-      @Override
-      public ProvisionApp set$Xgafv(java.lang.String $Xgafv) {
-        return (ProvisionApp) super.set$Xgafv($Xgafv);
-      }
-
-      @Override
-      public ProvisionApp setAccessToken(java.lang.String accessToken) {
-        return (ProvisionApp) super.setAccessToken(accessToken);
-      }
-
-      @Override
-      public ProvisionApp setAlt(java.lang.String alt) {
-        return (ProvisionApp) super.setAlt(alt);
-      }
-
-      @Override
-      public ProvisionApp setCallback(java.lang.String callback) {
-        return (ProvisionApp) super.setCallback(callback);
-      }
-
-      @Override
-      public ProvisionApp setFields(java.lang.String fields) {
-        return (ProvisionApp) super.setFields(fields);
-      }
-
-      @Override
-      public ProvisionApp setKey(java.lang.String key) {
-        return (ProvisionApp) super.setKey(key);
-      }
-
-      @Override
-      public ProvisionApp setOauthToken(java.lang.String oauthToken) {
-        return (ProvisionApp) super.setOauthToken(oauthToken);
-      }
-
-      @Override
-      public ProvisionApp setPrettyPrint(java.lang.Boolean prettyPrint) {
-        return (ProvisionApp) super.setPrettyPrint(prettyPrint);
-      }
-
-      @Override
-      public ProvisionApp setQuotaUser(java.lang.String quotaUser) {
-        return (ProvisionApp) super.setQuotaUser(quotaUser);
-      }
-
-      @Override
-      public ProvisionApp setUploadType(java.lang.String uploadType) {
-        return (ProvisionApp) super.setUploadType(uploadType);
-      }
-
-      @Override
-      public ProvisionApp setUploadProtocol(java.lang.String uploadProtocol) {
-        return (ProvisionApp) super.setUploadProtocol(uploadProtocol);
-      }
-
-      /**
-       * Unique id for a Firebase app of the format:
-       * {version}:{project_number}:{platform}:{hash(bundle_id)} Example:
-       * 1:581234567376:android:aa0a3c7b135e90289
-       */
-      @com.google.api.client.util.Key
-      private java.lang.String mobilesdkAppId;
-
-      /** Unique id for a Firebase app of the format: {version}:{project_number}:{platform}:{hash(bundle_id)}
-     Example: 1:581234567376:android:aa0a3c7b135e90289
-       */
-      public java.lang.String getMobilesdkAppId() {
-        return mobilesdkAppId;
-      }
-
-      /**
-       * Unique id for a Firebase app of the format:
-       * {version}:{project_number}:{platform}:{hash(bundle_id)} Example:
-       * 1:581234567376:android:aa0a3c7b135e90289
-       */
-      public ProvisionApp setMobilesdkAppId(java.lang.String mobilesdkAppId) {
-        this.mobilesdkAppId = mobilesdkAppId;
-        return this;
-      }
-
-      @Override
-      public ProvisionApp set(String parameterName, Object value) {
-        return (ProvisionApp) super.set(parameterName, value);
-      }
-    }
 
     /**
      * An accessor for creating requests from the ReleaseByHash collection.
@@ -1483,6 +1353,156 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
   public class Projects {
 
     /**
+     * Get information about the quota for `ReleaseTests`.
+     *
+     * Create a request for the method "projects.getTestQuota".
+     *
+     * This request holds the parameters needed by the firebaseappdistribution server.  After setting
+     * any optional parameters, call the {@link GetTestQuota#execute()} method to invoke the remote
+     * operation.
+     *
+     * @param name Required. The name of the `TestQuota` resource to retrieve. Format:
+     *        `projects/{project_number}/testQuota`
+     * @return the request
+     */
+    public GetTestQuota getTestQuota(java.lang.String name) throws java.io.IOException {
+      GetTestQuota result = new GetTestQuota(name);
+      initialize(result);
+      return result;
+    }
+
+    public class GetTestQuota extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestQuota> {
+
+      private static final String REST_PATH = "v1alpha/{+name}";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+/testQuota$");
+
+      /**
+       * Get information about the quota for `ReleaseTests`.
+       *
+       * Create a request for the method "projects.getTestQuota".
+       *
+       * This request holds the parameters needed by the the firebaseappdistribution server.  After
+       * setting any optional parameters, call the {@link GetTestQuota#execute()} method to invoke the
+       * remote operation. <p> {@link
+       * GetTestQuota#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+       * must be called to initialize this instance immediately after invoking the constructor. </p>
+       *
+       * @param name Required. The name of the `TestQuota` resource to retrieve. Format:
+     *        `projects/{project_number}/testQuota`
+       * @since 1.13
+       */
+      protected GetTestQuota(java.lang.String name) {
+        super(FirebaseAppDistribution.this, "GET", REST_PATH, null, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestQuota.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+/testQuota$");
+        }
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public GetTestQuota set$Xgafv(java.lang.String $Xgafv) {
+        return (GetTestQuota) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public GetTestQuota setAccessToken(java.lang.String accessToken) {
+        return (GetTestQuota) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public GetTestQuota setAlt(java.lang.String alt) {
+        return (GetTestQuota) super.setAlt(alt);
+      }
+
+      @Override
+      public GetTestQuota setCallback(java.lang.String callback) {
+        return (GetTestQuota) super.setCallback(callback);
+      }
+
+      @Override
+      public GetTestQuota setFields(java.lang.String fields) {
+        return (GetTestQuota) super.setFields(fields);
+      }
+
+      @Override
+      public GetTestQuota setKey(java.lang.String key) {
+        return (GetTestQuota) super.setKey(key);
+      }
+
+      @Override
+      public GetTestQuota setOauthToken(java.lang.String oauthToken) {
+        return (GetTestQuota) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public GetTestQuota setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (GetTestQuota) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public GetTestQuota setQuotaUser(java.lang.String quotaUser) {
+        return (GetTestQuota) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public GetTestQuota setUploadType(java.lang.String uploadType) {
+        return (GetTestQuota) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public GetTestQuota setUploadProtocol(java.lang.String uploadProtocol) {
+        return (GetTestQuota) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The name of the `TestQuota` resource to retrieve. Format:
+       * `projects/{project_number}/testQuota`
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Required. The name of the `TestQuota` resource to retrieve. Format:
+     `projects/{project_number}/testQuota`
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Required. The name of the `TestQuota` resource to retrieve. Format:
+       * `projects/{project_number}/testQuota`
+       */
+      public GetTestQuota setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+/testQuota$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      @Override
+      public GetTestQuota set(String parameterName, Object value) {
+        return (GetTestQuota) super.set(parameterName, value);
+      }
+    }
+
+    /**
      * An accessor for creating requests from the Apps collection.
      *
      * <p>The typical use is:</p>
@@ -1652,7 +1672,7 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
         }
       }
       /**
-       * Updates a release.
+       * Updates automated test configuration.
        *
        * Create a request for the method "apps.updateTestConfig".
        *
@@ -1679,7 +1699,7 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
             java.util.regex.Pattern.compile("^projects/[^/]+/apps/[^/]+/testConfig$");
 
         /**
-         * Updates a release.
+         * Updates automated test configuration.
          *
          * Create a request for the method "apps.updateTestConfig".
          *
@@ -1850,6 +1870,154 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
         public class Tests {
 
           /**
+           * Abort automated test run on release.
+           *
+           * Create a request for the method "tests.cancel".
+           *
+           * This request holds the parameters needed by the firebaseappdistribution server.  After setting
+           * any optional parameters, call the {@link Cancel#execute()} method to invoke the remote operation.
+           *
+           * @param name Required. The name of the release test resource. Format:
+           *        `projects/{project_number}/apps/{app_id}/releases/{release_id}/tests/{test_id}`
+           * @return the request
+           */
+          public Cancel cancel(java.lang.String name) throws java.io.IOException {
+            Cancel result = new Cancel(name);
+            initialize(result);
+            return result;
+          }
+
+          public class Cancel extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaCancelReleaseTestResponse> {
+
+            private static final String REST_PATH = "v1alpha/{+name}:cancel";
+
+            private final java.util.regex.Pattern NAME_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/apps/[^/]+/releases/[^/]+/tests/[^/]+$");
+
+            /**
+             * Abort automated test run on release.
+             *
+             * Create a request for the method "tests.cancel".
+             *
+             * This request holds the parameters needed by the the firebaseappdistribution server.  After
+             * setting any optional parameters, call the {@link Cancel#execute()} method to invoke the remote
+             * operation. <p> {@link
+             * Cancel#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+             * be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param name Required. The name of the release test resource. Format:
+           *        `projects/{project_number}/apps/{app_id}/releases/{release_id}/tests/{test_id}`
+             * @since 1.13
+             */
+            protected Cancel(java.lang.String name) {
+              super(FirebaseAppDistribution.this, "GET", REST_PATH, null, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaCancelReleaseTestResponse.class);
+              this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/apps/[^/]+/releases/[^/]+/tests/[^/]+$");
+              }
+            }
+
+            @Override
+            public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+              return super.executeUsingHead();
+            }
+
+            @Override
+            public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+              return super.buildHttpRequestUsingHead();
+            }
+
+            @Override
+            public Cancel set$Xgafv(java.lang.String $Xgafv) {
+              return (Cancel) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public Cancel setAccessToken(java.lang.String accessToken) {
+              return (Cancel) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public Cancel setAlt(java.lang.String alt) {
+              return (Cancel) super.setAlt(alt);
+            }
+
+            @Override
+            public Cancel setCallback(java.lang.String callback) {
+              return (Cancel) super.setCallback(callback);
+            }
+
+            @Override
+            public Cancel setFields(java.lang.String fields) {
+              return (Cancel) super.setFields(fields);
+            }
+
+            @Override
+            public Cancel setKey(java.lang.String key) {
+              return (Cancel) super.setKey(key);
+            }
+
+            @Override
+            public Cancel setOauthToken(java.lang.String oauthToken) {
+              return (Cancel) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public Cancel setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (Cancel) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public Cancel setQuotaUser(java.lang.String quotaUser) {
+              return (Cancel) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public Cancel setUploadType(java.lang.String uploadType) {
+              return (Cancel) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public Cancel setUploadProtocol(java.lang.String uploadProtocol) {
+              return (Cancel) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The name of the release test resource. Format:
+             * `projects/{project_number}/apps/{app_id}/releases/{release_id}/tests/{test_id}`
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String name;
+
+            /** Required. The name of the release test resource. Format:
+           `projects/{project_number}/apps/{app_id}/releases/{release_id}/tests/{test_id}`
+             */
+            public java.lang.String getName() {
+              return name;
+            }
+
+            /**
+             * Required. The name of the release test resource. Format:
+             * `projects/{project_number}/apps/{app_id}/releases/{release_id}/tests/{test_id}`
+             */
+            public Cancel setName(java.lang.String name) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                    "Parameter name must conform to the pattern " +
+                    "^projects/[^/]+/apps/[^/]+/releases/[^/]+/tests/[^/]+$");
+              }
+              this.name = name;
+              return this;
+            }
+
+            @Override
+            public Cancel set(String parameterName, Object value) {
+              return (Cancel) super.set(parameterName, value);
+            }
+          }
+          /**
            * Run automated test(s) on release.
            *
            * Create a request for the method "tests.create".
@@ -1986,13 +2154,13 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
 
             /**
              * Optional. The ID to use for the test, which will become the final component of the
-             * tests's resource name. This value should be 4-63 characters, and valid characters are
+             * test's resource name. This value should be 4-63 characters, and valid characters are
              * /a-z-/. If it is not provided one will be automatically generated.
              */
             @com.google.api.client.util.Key
             private java.lang.String releaseTestId;
 
-            /** Optional. The ID to use for the test, which will become the final component of the tests's resource
+            /** Optional. The ID to use for the test, which will become the final component of the test's resource
            name. This value should be 4-63 characters, and valid characters are /a-z-/. If it is not provided
            one will be automatically generated.
              */
@@ -2002,7 +2170,7 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
 
             /**
              * Optional. The ID to use for the test, which will become the final component of the
-             * tests's resource name. This value should be 4-63 characters, and valid characters are
+             * test's resource name. This value should be 4-63 characters, and valid characters are
              * /a-z-/. If it is not provided one will be automatically generated.
              */
             public Create setReleaseTestId(java.lang.String releaseTestId) {
@@ -2351,6 +2519,28 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
               return this;
             }
 
+            /**
+             * Optional. The requested view on the returned ReleaseTests. Defaults to the basic
+             * view.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String view;
+
+            /** Optional. The requested view on the returned ReleaseTests. Defaults to the basic view.
+             */
+            public java.lang.String getView() {
+              return view;
+            }
+
+            /**
+             * Optional. The requested view on the returned ReleaseTests. Defaults to the basic
+             * view.
+             */
+            public List setView(java.lang.String view) {
+              this.view = view;
+              return this;
+            }
+
             @Override
             public List set(String parameterName, Object value) {
               return (List) super.set(parameterName, value);
@@ -2358,6 +2548,960 @@ public class FirebaseAppDistribution extends com.google.api.client.googleapis.se
           }
 
         }
+      }
+      /**
+       * An accessor for creating requests from the TestCases collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code FirebaseAppDistribution firebaseappdistribution = new FirebaseAppDistribution(...);}
+       *   {@code FirebaseAppDistribution.TestCases.List request = firebaseappdistribution.testCases().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public TestCases testCases() {
+        return new TestCases();
+      }
+
+      /**
+       * The "testCases" collection of methods.
+       */
+      public class TestCases {
+
+        /**
+         * Delete test cases.
+         *
+         * Create a request for the method "testCases.batchDelete".
+         *
+         * This request holds the parameters needed by the firebaseappdistribution server.  After setting
+         * any optional parameters, call the {@link BatchDelete#execute()} method to invoke the remote
+         * operation.
+         *
+         * @param parent Required. The parent resource where these test cases will be deleted. Format:
+         *        `projects/{project_number}/apps/{app_id}`
+         * @param content the {@link com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaBatchDeleteTestCasesRequest}
+         * @return the request
+         */
+        public BatchDelete batchDelete(java.lang.String parent, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaBatchDeleteTestCasesRequest content) throws java.io.IOException {
+          BatchDelete result = new BatchDelete(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class BatchDelete extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleProtobufEmpty> {
+
+          private static final String REST_PATH = "v1alpha/{+parent}/testCases:batchDelete";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/apps/[^/]+$");
+
+          /**
+           * Delete test cases.
+           *
+           * Create a request for the method "testCases.batchDelete".
+           *
+           * This request holds the parameters needed by the the firebaseappdistribution server.  After
+           * setting any optional parameters, call the {@link BatchDelete#execute()} method to invoke the
+           * remote operation. <p> {@link
+           * BatchDelete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where these test cases will be deleted. Format:
+         *        `projects/{project_number}/apps/{app_id}`
+           * @param content the {@link com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaBatchDeleteTestCasesRequest}
+           * @since 1.13
+           */
+          protected BatchDelete(java.lang.String parent, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaBatchDeleteTestCasesRequest content) {
+            super(FirebaseAppDistribution.this, "POST", REST_PATH, content, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleProtobufEmpty.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+$");
+            }
+          }
+
+          @Override
+          public BatchDelete set$Xgafv(java.lang.String $Xgafv) {
+            return (BatchDelete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public BatchDelete setAccessToken(java.lang.String accessToken) {
+            return (BatchDelete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public BatchDelete setAlt(java.lang.String alt) {
+            return (BatchDelete) super.setAlt(alt);
+          }
+
+          @Override
+          public BatchDelete setCallback(java.lang.String callback) {
+            return (BatchDelete) super.setCallback(callback);
+          }
+
+          @Override
+          public BatchDelete setFields(java.lang.String fields) {
+            return (BatchDelete) super.setFields(fields);
+          }
+
+          @Override
+          public BatchDelete setKey(java.lang.String key) {
+            return (BatchDelete) super.setKey(key);
+          }
+
+          @Override
+          public BatchDelete setOauthToken(java.lang.String oauthToken) {
+            return (BatchDelete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public BatchDelete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (BatchDelete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public BatchDelete setQuotaUser(java.lang.String quotaUser) {
+            return (BatchDelete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public BatchDelete setUploadType(java.lang.String uploadType) {
+            return (BatchDelete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public BatchDelete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (BatchDelete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where these test cases will be deleted. Format:
+           * `projects/{project_number}/apps/{app_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where these test cases will be deleted. Format:
+         `projects/{project_number}/apps/{app_id}`
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where these test cases will be deleted. Format:
+           * `projects/{project_number}/apps/{app_id}`
+           */
+          public BatchDelete setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          @Override
+          public BatchDelete set(String parameterName, Object value) {
+            return (BatchDelete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Create a new test case.
+         *
+         * Create a request for the method "testCases.create".
+         *
+         * This request holds the parameters needed by the firebaseappdistribution server.  After setting
+         * any optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource where this test case will be created. Format:
+         *        `projects/{project_number}/apps/{app_id}`
+         * @param content the {@link com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase}
+         * @return the request
+         */
+        public Create create(java.lang.String parent, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase content) throws java.io.IOException {
+          Create result = new Create(parent, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Create extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase> {
+
+          private static final String REST_PATH = "v1alpha/{+parent}/testCases";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/apps/[^/]+$");
+
+          /**
+           * Create a new test case.
+           *
+           * Create a request for the method "testCases.create".
+           *
+           * This request holds the parameters needed by the the firebaseappdistribution server.  After
+           * setting any optional parameters, call the {@link Create#execute()} method to invoke the remote
+           * operation. <p> {@link
+           * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource where this test case will be created. Format:
+         *        `projects/{project_number}/apps/{app_id}`
+           * @param content the {@link com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase}
+           * @since 1.13
+           */
+          protected Create(java.lang.String parent, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase content) {
+            super(FirebaseAppDistribution.this, "POST", REST_PATH, content, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+$");
+            }
+          }
+
+          @Override
+          public Create set$Xgafv(java.lang.String $Xgafv) {
+            return (Create) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Create setAccessToken(java.lang.String accessToken) {
+            return (Create) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Create setAlt(java.lang.String alt) {
+            return (Create) super.setAlt(alt);
+          }
+
+          @Override
+          public Create setCallback(java.lang.String callback) {
+            return (Create) super.setCallback(callback);
+          }
+
+          @Override
+          public Create setFields(java.lang.String fields) {
+            return (Create) super.setFields(fields);
+          }
+
+          @Override
+          public Create setKey(java.lang.String key) {
+            return (Create) super.setKey(key);
+          }
+
+          @Override
+          public Create setOauthToken(java.lang.String oauthToken) {
+            return (Create) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Create) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Create setQuotaUser(java.lang.String quotaUser) {
+            return (Create) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Create setUploadType(java.lang.String uploadType) {
+            return (Create) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Create setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Create) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource where this test case will be created. Format:
+           * `projects/{project_number}/apps/{app_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource where this test case will be created. Format:
+         `projects/{project_number}/apps/{app_id}`
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource where this test case will be created. Format:
+           * `projects/{project_number}/apps/{app_id}`
+           */
+          public Create setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. The ID to use for the test case, which will become the final component of the
+           * test case's resource name. This value should be 4-63 characters, and valid characters
+           * are /a-z-/.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String testCaseId;
+
+          /** Optional. The ID to use for the test case, which will become the final component of the test case's
+         resource name. This value should be 4-63 characters, and valid characters are /a-z-/.
+           */
+          public java.lang.String getTestCaseId() {
+            return testCaseId;
+          }
+
+          /**
+           * Optional. The ID to use for the test case, which will become the final component of the
+           * test case's resource name. This value should be 4-63 characters, and valid characters
+           * are /a-z-/.
+           */
+          public Create setTestCaseId(java.lang.String testCaseId) {
+            this.testCaseId = testCaseId;
+            return this;
+          }
+
+          @Override
+          public Create set(String parameterName, Object value) {
+            return (Create) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Delete a test case.
+         *
+         * Create a request for the method "testCases.delete".
+         *
+         * This request holds the parameters needed by the firebaseappdistribution server.  After setting
+         * any optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the test case resource to delete. Format:
+         *        `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+         * @return the request
+         */
+        public Delete delete(java.lang.String name) throws java.io.IOException {
+          Delete result = new Delete(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Delete extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleProtobufEmpty> {
+
+          private static final String REST_PATH = "v1alpha/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+
+          /**
+           * Delete a test case.
+           *
+           * Create a request for the method "testCases.delete".
+           *
+           * This request holds the parameters needed by the the firebaseappdistribution server.  After
+           * setting any optional parameters, call the {@link Delete#execute()} method to invoke the remote
+           * operation. <p> {@link
+           * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the test case resource to delete. Format:
+         *        `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           * @since 1.13
+           */
+          protected Delete(java.lang.String name) {
+            super(FirebaseAppDistribution.this, "DELETE", REST_PATH, null, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleProtobufEmpty.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+            }
+          }
+
+          @Override
+          public Delete set$Xgafv(java.lang.String $Xgafv) {
+            return (Delete) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Delete setAccessToken(java.lang.String accessToken) {
+            return (Delete) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Delete setAlt(java.lang.String alt) {
+            return (Delete) super.setAlt(alt);
+          }
+
+          @Override
+          public Delete setCallback(java.lang.String callback) {
+            return (Delete) super.setCallback(callback);
+          }
+
+          @Override
+          public Delete setFields(java.lang.String fields) {
+            return (Delete) super.setFields(fields);
+          }
+
+          @Override
+          public Delete setKey(java.lang.String key) {
+            return (Delete) super.setKey(key);
+          }
+
+          @Override
+          public Delete setOauthToken(java.lang.String oauthToken) {
+            return (Delete) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Delete) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Delete setQuotaUser(java.lang.String quotaUser) {
+            return (Delete) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Delete setUploadType(java.lang.String uploadType) {
+            return (Delete) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Delete) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the test case resource to delete. Format:
+           * `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the test case resource to delete. Format:
+         `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the test case resource to delete. Format:
+           * `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          public Delete setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Delete set(String parameterName, Object value) {
+            return (Delete) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Get a test case.
+         *
+         * Create a request for the method "testCases.get".
+         *
+         * This request holds the parameters needed by the firebaseappdistribution server.  After setting
+         * any optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. The name of the test case resource to retrieve. Format:
+         *        `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase> {
+
+          private static final String REST_PATH = "v1alpha/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+
+          /**
+           * Get a test case.
+           *
+           * Create a request for the method "testCases.get".
+           *
+           * This request holds the parameters needed by the the firebaseappdistribution server.  After
+           * setting any optional parameters, call the {@link Get#execute()} method to invoke the remote
+           * operation. <p> {@link
+           * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+           * called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. The name of the test case resource to retrieve. Format:
+         *        `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(FirebaseAppDistribution.this, "GET", REST_PATH, null, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the test case resource to retrieve. Format:
+           * `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. The name of the test case resource to retrieve. Format:
+         `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. The name of the test case resource to retrieve. Format:
+           * `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * List test cases.
+         *
+         * Create a request for the method "testCases.list".
+         *
+         * This request holds the parameters needed by the firebaseappdistribution server.  After setting
+         * any optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent resource from which to list test cases. Format:
+         *        `projects/{project_number}/apps/{app_id}`
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaListTestCasesResponse> {
+
+          private static final String REST_PATH = "v1alpha/{+parent}/testCases";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/apps/[^/]+$");
+
+          /**
+           * List test cases.
+           *
+           * Create a request for the method "testCases.list".
+           *
+           * This request holds the parameters needed by the the firebaseappdistribution server.  After
+           * setting any optional parameters, call the {@link List#execute()} method to invoke the remote
+           * operation. <p> {@link
+           * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+           * called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent resource from which to list test cases. Format:
+         *        `projects/{project_number}/apps/{app_id}`
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(FirebaseAppDistribution.this, "GET", REST_PATH, null, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaListTestCasesResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent resource from which to list test cases. Format:
+           * `projects/{project_number}/apps/{app_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent resource from which to list test cases. Format:
+         `projects/{project_number}/apps/{app_id}`
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent resource from which to list test cases. Format:
+           * `projects/{project_number}/apps/{app_id}`
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. The maximum number of test cases to return. The service may return fewer than
+           * this value. If unspecified, at most 50 test cases will be returned. The maximum value
+           * is 1000; values above 1000 will be coerced to 1000.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. The maximum number of test cases to return. The service may return fewer than this value.
+         If unspecified, at most 50 test cases will be returned. The maximum value is 1000; values above
+         1000 will be coerced to 1000.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. The maximum number of test cases to return. The service may return fewer than
+           * this value. If unspecified, at most 50 test cases will be returned. The maximum value
+           * is 1000; values above 1000 will be coerced to 1000.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListTestCases` call. Provide this to
+           * retrieve the subsequent page. When paginating, all other parameters provided to
+           * `ListTestCases` must match the call that provided the page token.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. A page token, received from a previous `ListTestCases` call. Provide this to retrieve the
+         subsequent page. When paginating, all other parameters provided to `ListTestCases` must match the
+         call that provided the page token.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. A page token, received from a previous `ListTestCases` call. Provide this to
+           * retrieve the subsequent page. When paginating, all other parameters provided to
+           * `ListTestCases` must match the call that provided the page token.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Update a test case.
+         *
+         * Create a request for the method "testCases.patch".
+         *
+         * This request holds the parameters needed by the firebaseappdistribution server.  After setting
+         * any optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Identifier. The name of the test case resource. Format:
+         *        `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+         * @param content the {@link com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends FirebaseAppDistributionRequest<com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase> {
+
+          private static final String REST_PATH = "v1alpha/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+
+          /**
+           * Update a test case.
+           *
+           * Create a request for the method "testCases.patch".
+           *
+           * This request holds the parameters needed by the the firebaseappdistribution server.  After
+           * setting any optional parameters, call the {@link Patch#execute()} method to invoke the remote
+           * operation. <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Identifier. The name of the test case resource. Format:
+         *        `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           * @param content the {@link com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase content) {
+            super(FirebaseAppDistribution.this, "PATCH", REST_PATH, content, com.google.api.services.firebaseappdistribution.v1alpha.model.GoogleFirebaseAppdistroV1alphaTestCase.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Identifier. The name of the test case resource. Format:
+           * `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Identifier. The name of the test case resource. Format:
+         `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Identifier. The name of the test case resource. Format:
+           * `projects/{project_number}/apps/{app_id}/testCases/{test_case_id}`
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/apps/[^/]+/testCases/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
       }
     }
     /**

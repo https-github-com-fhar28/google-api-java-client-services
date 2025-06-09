@@ -17,7 +17,7 @@
 package com.google.api.services.dataflow.model;
 
 /**
- * The environment values to set at runtime. LINT.IfChange
+ * The environment values to set at runtime.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Dataflow API. For a detailed explanation see:
@@ -35,6 +35,13 @@ public final class RuntimeEnvironment extends com.google.api.client.json.Generic
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> additionalExperiments;
+
+  /**
+   * Optional. Additional pipeline option flags for the job.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> additionalPipelineOptions;
 
   /**
    * Optional. Additional user labels to be specified for the job. Keys and values should follow the
@@ -197,6 +204,23 @@ public final class RuntimeEnvironment extends com.google.api.client.json.Generic
    */
   public RuntimeEnvironment setAdditionalExperiments(java.util.List<java.lang.String> additionalExperiments) {
     this.additionalExperiments = additionalExperiments;
+    return this;
+  }
+
+  /**
+   * Optional. Additional pipeline option flags for the job.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getAdditionalPipelineOptions() {
+    return additionalPipelineOptions;
+  }
+
+  /**
+   * Optional. Additional pipeline option flags for the job.
+   * @param additionalPipelineOptions additionalPipelineOptions or {@code null} for none
+   */
+  public RuntimeEnvironment setAdditionalPipelineOptions(java.util.List<java.lang.String> additionalPipelineOptions) {
+    this.additionalPipelineOptions = additionalPipelineOptions;
     return this;
   }
 

@@ -30,21 +30,21 @@ package com.google.api.services.connectors.v1.model;
 public final class EnumOption extends com.google.api.client.json.GenericJson {
 
   /**
-   * Display name of the option.
+   * Optional. Display name of the option.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String displayName;
 
   /**
-   * Id of the option.
+   * Optional. Id of the option.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String id;
 
   /**
-   * Display name of the option.
+   * Optional. Display name of the option.
    * @return value or {@code null} for none
    */
   public java.lang.String getDisplayName() {
@@ -52,7 +52,7 @@ public final class EnumOption extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Display name of the option.
+   * Optional. Display name of the option.
    * @param displayName displayName or {@code null} for none
    */
   public EnumOption setDisplayName(java.lang.String displayName) {
@@ -61,7 +61,7 @@ public final class EnumOption extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Id of the option.
+   * Optional. Id of the option.
    * @return value or {@code null} for none
    */
   public java.lang.String getId() {
@@ -69,7 +69,7 @@ public final class EnumOption extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Id of the option.
+   * Optional. Id of the option.
    * @param id id or {@code null} for none
    */
   public EnumOption setId(java.lang.String id) {

@@ -59,11 +59,32 @@ public final class PrivateConnection extends com.google.api.client.json.GenericJ
   private java.util.Map<String, java.lang.String> labels;
 
   /**
-   * Output only. The resource's name.
+   * Output only. Identifier. The resource's name.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
+
+  /**
+   * PSC Interface Config.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private PscInterfaceConfig pscInterfaceConfig;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzi;
+
+  /**
+   * Output only. Reserved for future use.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean satisfiesPzs;
 
   /**
    * Output only. The state of the Private Connection.
@@ -155,7 +176,7 @@ public final class PrivateConnection extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Output only. The resource's name.
+   * Output only. Identifier. The resource's name.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -163,11 +184,62 @@ public final class PrivateConnection extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Output only. The resource's name.
+   * Output only. Identifier. The resource's name.
    * @param name name or {@code null} for none
    */
   public PrivateConnection setName(java.lang.String name) {
     this.name = name;
+    return this;
+  }
+
+  /**
+   * PSC Interface Config.
+   * @return value or {@code null} for none
+   */
+  public PscInterfaceConfig getPscInterfaceConfig() {
+    return pscInterfaceConfig;
+  }
+
+  /**
+   * PSC Interface Config.
+   * @param pscInterfaceConfig pscInterfaceConfig or {@code null} for none
+   */
+  public PrivateConnection setPscInterfaceConfig(PscInterfaceConfig pscInterfaceConfig) {
+    this.pscInterfaceConfig = pscInterfaceConfig;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzi() {
+    return satisfiesPzi;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzi satisfiesPzi or {@code null} for none
+   */
+  public PrivateConnection setSatisfiesPzi(java.lang.Boolean satisfiesPzi) {
+    this.satisfiesPzi = satisfiesPzi;
+    return this;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSatisfiesPzs() {
+    return satisfiesPzs;
+  }
+
+  /**
+   * Output only. Reserved for future use.
+   * @param satisfiesPzs satisfiesPzs or {@code null} for none
+   */
+  public PrivateConnection setSatisfiesPzs(java.lang.Boolean satisfiesPzs) {
+    this.satisfiesPzs = satisfiesPzs;
     return this;
   }
 

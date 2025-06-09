@@ -31,10 +31,15 @@ package com.google.api.services.workspaceevents.v1.model;
 public final class NotificationEndpoint extends com.google.api.client.json.GenericJson {
 
   /**
-   * Immutable. The Cloud Pub/Sub topic that receives events for the subscription. Format:
+   * Immutable. The Pub/Sub topic that receives events for the subscription. Format:
    * `projects/{project}/topics/{topic}` You must create the topic in the same Google Cloud project
-   * where you create this subscription. When the topic receives events, the events are encoded as
-   * Cloud Pub/Sub messages. For details, see the [Google Cloud Pub/Sub Protocol Binding for
+   * where you create this subscription. Note: The Workspace Events API uses [ordering
+   * keys](https://cloud.google.com/pubsub/docs/ordering) for the benefit of sequential events. If
+   * the Cloud Pub/Sub topic has a [message storage
+   * policy](https://cloud.google.com/pubsub/docs/resource-location-restriction#exceptions)
+   * configured to exclude the nearest Google Cloud region, publishing events with ordering keys
+   * will fail. When the topic receives events, the events are encoded as Pub/Sub messages. For
+   * details, see the [Google Cloud Pub/Sub Protocol Binding for
    * CloudEvents](https://github.com/googleapis/google-cloudevents/blob/main/docs/spec/pubsub.md).
    * The value may be {@code null}.
    */
@@ -42,10 +47,15 @@ public final class NotificationEndpoint extends com.google.api.client.json.Gener
   private java.lang.String pubsubTopic;
 
   /**
-   * Immutable. The Cloud Pub/Sub topic that receives events for the subscription. Format:
+   * Immutable. The Pub/Sub topic that receives events for the subscription. Format:
    * `projects/{project}/topics/{topic}` You must create the topic in the same Google Cloud project
-   * where you create this subscription. When the topic receives events, the events are encoded as
-   * Cloud Pub/Sub messages. For details, see the [Google Cloud Pub/Sub Protocol Binding for
+   * where you create this subscription. Note: The Workspace Events API uses [ordering
+   * keys](https://cloud.google.com/pubsub/docs/ordering) for the benefit of sequential events. If
+   * the Cloud Pub/Sub topic has a [message storage
+   * policy](https://cloud.google.com/pubsub/docs/resource-location-restriction#exceptions)
+   * configured to exclude the nearest Google Cloud region, publishing events with ordering keys
+   * will fail. When the topic receives events, the events are encoded as Pub/Sub messages. For
+   * details, see the [Google Cloud Pub/Sub Protocol Binding for
    * CloudEvents](https://github.com/googleapis/google-cloudevents/blob/main/docs/spec/pubsub.md).
    * @return value or {@code null} for none
    */
@@ -54,10 +64,15 @@ public final class NotificationEndpoint extends com.google.api.client.json.Gener
   }
 
   /**
-   * Immutable. The Cloud Pub/Sub topic that receives events for the subscription. Format:
+   * Immutable. The Pub/Sub topic that receives events for the subscription. Format:
    * `projects/{project}/topics/{topic}` You must create the topic in the same Google Cloud project
-   * where you create this subscription. When the topic receives events, the events are encoded as
-   * Cloud Pub/Sub messages. For details, see the [Google Cloud Pub/Sub Protocol Binding for
+   * where you create this subscription. Note: The Workspace Events API uses [ordering
+   * keys](https://cloud.google.com/pubsub/docs/ordering) for the benefit of sequential events. If
+   * the Cloud Pub/Sub topic has a [message storage
+   * policy](https://cloud.google.com/pubsub/docs/resource-location-restriction#exceptions)
+   * configured to exclude the nearest Google Cloud region, publishing events with ordering keys
+   * will fail. When the topic receives events, the events are encoded as Pub/Sub messages. For
+   * details, see the [Google Cloud Pub/Sub Protocol Binding for
    * CloudEvents](https://github.com/googleapis/google-cloudevents/blob/main/docs/spec/pubsub.md).
    * @param pubsubTopic pubsubTopic or {@code null} for none
    */

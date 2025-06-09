@@ -46,6 +46,19 @@ public final class GoogleCloudAiplatformV1beta1Model extends com.google.api.clie
   private GoogleCloudAiplatformV1beta1ModelBaseModelSource baseModelSource;
 
   /**
+   * Optional. Output only. The checkpoints of the model.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GoogleCloudAiplatformV1beta1Checkpoint> checkpoints;
+
+  static {
+    // hack to force ProGuard to consider GoogleCloudAiplatformV1beta1Checkpoint used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(GoogleCloudAiplatformV1beta1Checkpoint.class);
+  }
+
+  /**
    * Input only. The specification of the container that is to be used when deploying this Model.
    * The specification is ingested upon ModelService.UploadModel, and all binaries it contains are
    * copied and stored internally by Vertex AI. Not required for AutoML Models.
@@ -60,6 +73,13 @@ public final class GoogleCloudAiplatformV1beta1Model extends com.google.api.clie
    */
   @com.google.api.client.util.Key
   private String createTime;
+
+  /**
+   * The default checkpoint id of a model version.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String defaultCheckpointId;
 
   /**
    * Output only. The pointers to DeployedModels created from this Model. Note that Model could have
@@ -360,6 +380,23 @@ public final class GoogleCloudAiplatformV1beta1Model extends com.google.api.clie
   }
 
   /**
+   * Optional. Output only. The checkpoints of the model.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GoogleCloudAiplatformV1beta1Checkpoint> getCheckpoints() {
+    return checkpoints;
+  }
+
+  /**
+   * Optional. Output only. The checkpoints of the model.
+   * @param checkpoints checkpoints or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Model setCheckpoints(java.util.List<GoogleCloudAiplatformV1beta1Checkpoint> checkpoints) {
+    this.checkpoints = checkpoints;
+    return this;
+  }
+
+  /**
    * Input only. The specification of the container that is to be used when deploying this Model.
    * The specification is ingested upon ModelService.UploadModel, and all binaries it contains are
    * copied and stored internally by Vertex AI. Not required for AutoML Models.
@@ -394,6 +431,23 @@ public final class GoogleCloudAiplatformV1beta1Model extends com.google.api.clie
    */
   public GoogleCloudAiplatformV1beta1Model setCreateTime(String createTime) {
     this.createTime = createTime;
+    return this;
+  }
+
+  /**
+   * The default checkpoint id of a model version.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDefaultCheckpointId() {
+    return defaultCheckpointId;
+  }
+
+  /**
+   * The default checkpoint id of a model version.
+   * @param defaultCheckpointId defaultCheckpointId or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Model setDefaultCheckpointId(java.lang.String defaultCheckpointId) {
+    this.defaultCheckpointId = defaultCheckpointId;
     return this;
   }
 

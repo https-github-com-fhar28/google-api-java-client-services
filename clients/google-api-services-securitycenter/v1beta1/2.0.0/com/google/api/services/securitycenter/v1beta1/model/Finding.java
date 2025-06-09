@@ -42,6 +42,13 @@ public final class Finding extends com.google.api.client.json.GenericJson {
   private Access access;
 
   /**
+   * AffectedResources associated with the finding.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private AffectedResources affectedResources;
+
+  /**
    * Represents an application associated with the finding.
    * The value may be {@code null}.
    */
@@ -80,6 +87,16 @@ public final class Finding extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String category;
+
+  /**
+   * Contains details about a chokepoint, which is a resource or resource group where high-risk
+   * attack paths converge, based on [attack path simulations] (https://cloud.google.com/security-
+   * command-center/docs/attack-exposure-learn#attack_path_simulations). This field cannot be
+   * updated. Its value is ignored in all update requests.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private Chokepoint chokepoint;
 
   /**
    * Fields related to Cloud Armor findings.
@@ -193,6 +210,19 @@ public final class Finding extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Data retention deletion events associated with the finding.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<DataRetentionDeletionEvent> dataRetentionDeletionEvents;
+
+  static {
+    // hack to force ProGuard to consider DataRetentionDeletionEvent used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(DataRetentionDeletionEvent.class);
+  }
+
+  /**
    * Database associated with the finding.
    * The value may be {@code null}.
    */
@@ -205,6 +235,13 @@ public final class Finding extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String description;
+
+  /**
+   * Disk associated with the finding.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private Disk disk;
 
   /**
    * The time the finding was first detected. If an existing finding is updated, then this is the
@@ -286,6 +323,20 @@ public final class Finding extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private Indicator indicator;
+
+  /**
+   * IP rules associated with the finding.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private IpRules ipRules;
+
+  /**
+   * Job associated with the finding.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private Job job;
 
   /**
    * Signature of the kernel rootkit.
@@ -371,6 +422,13 @@ public final class Finding extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String name;
+
+  /**
+   * Represents the VPC networks that the resource is attached to.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<Network> networks;
 
   /**
    * Steps to address the finding.
@@ -505,6 +563,23 @@ public final class Finding extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * AffectedResources associated with the finding.
+   * @return value or {@code null} for none
+   */
+  public AffectedResources getAffectedResources() {
+    return affectedResources;
+  }
+
+  /**
+   * AffectedResources associated with the finding.
+   * @param affectedResources affectedResources or {@code null} for none
+   */
+  public Finding setAffectedResources(AffectedResources affectedResources) {
+    this.affectedResources = affectedResources;
+    return this;
+  }
+
+  /**
    * Represents an application associated with the finding.
    * @return value or {@code null} for none
    */
@@ -596,6 +671,29 @@ public final class Finding extends com.google.api.client.json.GenericJson {
    */
   public Finding setCategory(java.lang.String category) {
     this.category = category;
+    return this;
+  }
+
+  /**
+   * Contains details about a chokepoint, which is a resource or resource group where high-risk
+   * attack paths converge, based on [attack path simulations] (https://cloud.google.com/security-
+   * command-center/docs/attack-exposure-learn#attack_path_simulations). This field cannot be
+   * updated. Its value is ignored in all update requests.
+   * @return value or {@code null} for none
+   */
+  public Chokepoint getChokepoint() {
+    return chokepoint;
+  }
+
+  /**
+   * Contains details about a chokepoint, which is a resource or resource group where high-risk
+   * attack paths converge, based on [attack path simulations] (https://cloud.google.com/security-
+   * command-center/docs/attack-exposure-learn#attack_path_simulations). This field cannot be
+   * updated. Its value is ignored in all update requests.
+   * @param chokepoint chokepoint or {@code null} for none
+   */
+  public Finding setChokepoint(Chokepoint chokepoint) {
+    this.chokepoint = chokepoint;
     return this;
   }
 
@@ -780,6 +878,23 @@ public final class Finding extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Data retention deletion events associated with the finding.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<DataRetentionDeletionEvent> getDataRetentionDeletionEvents() {
+    return dataRetentionDeletionEvents;
+  }
+
+  /**
+   * Data retention deletion events associated with the finding.
+   * @param dataRetentionDeletionEvents dataRetentionDeletionEvents or {@code null} for none
+   */
+  public Finding setDataRetentionDeletionEvents(java.util.List<DataRetentionDeletionEvent> dataRetentionDeletionEvents) {
+    this.dataRetentionDeletionEvents = dataRetentionDeletionEvents;
+    return this;
+  }
+
+  /**
    * Database associated with the finding.
    * @return value or {@code null} for none
    */
@@ -810,6 +925,23 @@ public final class Finding extends com.google.api.client.json.GenericJson {
    */
   public Finding setDescription(java.lang.String description) {
     this.description = description;
+    return this;
+  }
+
+  /**
+   * Disk associated with the finding.
+   * @return value or {@code null} for none
+   */
+  public Disk getDisk() {
+    return disk;
+  }
+
+  /**
+   * Disk associated with the finding.
+   * @param disk disk or {@code null} for none
+   */
+  public Finding setDisk(Disk disk) {
+    this.disk = disk;
     return this;
   }
 
@@ -987,6 +1119,40 @@ public final class Finding extends com.google.api.client.json.GenericJson {
    */
   public Finding setIndicator(Indicator indicator) {
     this.indicator = indicator;
+    return this;
+  }
+
+  /**
+   * IP rules associated with the finding.
+   * @return value or {@code null} for none
+   */
+  public IpRules getIpRules() {
+    return ipRules;
+  }
+
+  /**
+   * IP rules associated with the finding.
+   * @param ipRules ipRules or {@code null} for none
+   */
+  public Finding setIpRules(IpRules ipRules) {
+    this.ipRules = ipRules;
+    return this;
+  }
+
+  /**
+   * Job associated with the finding.
+   * @return value or {@code null} for none
+   */
+  public Job getJob() {
+    return job;
+  }
+
+  /**
+   * Job associated with the finding.
+   * @param job job or {@code null} for none
+   */
+  public Finding setJob(Job job) {
+    this.job = job;
     return this;
   }
 
@@ -1190,6 +1356,23 @@ public final class Finding extends com.google.api.client.json.GenericJson {
    */
   public Finding setName(java.lang.String name) {
     this.name = name;
+    return this;
+  }
+
+  /**
+   * Represents the VPC networks that the resource is attached to.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<Network> getNetworks() {
+    return networks;
+  }
+
+  /**
+   * Represents the VPC networks that the resource is attached to.
+   * @param networks networks or {@code null} for none
+   */
+  public Finding setNetworks(java.util.List<Network> networks) {
+    this.networks = networks;
     return this;
   }
 

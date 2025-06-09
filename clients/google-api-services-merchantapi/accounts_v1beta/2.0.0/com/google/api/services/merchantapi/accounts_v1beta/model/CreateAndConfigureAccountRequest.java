@@ -30,13 +30,6 @@ package com.google.api.services.merchantapi.accounts_v1beta.model;
 public final class CreateAndConfigureAccountRequest extends com.google.api.client.json.GenericJson {
 
   /**
-   * Optional. The Terms of Service (ToS) to be accepted immediately upon account creation.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private AcceptTermsOfService acceptTermsOfService;
-
-  /**
    * Required. The account to be created.
    * The value may be {@code null}.
    */
@@ -46,8 +39,9 @@ public final class CreateAndConfigureAccountRequest extends com.google.api.clien
   /**
    * Required. An account service between the account to be created and the provider account is
    * initialized as part of the creation. At least one such service needs to be provided. Currently
-   * only `account_aggregation` is supported which means the newly created account will be a
-   * subaccount of the provider defined in the `account_aggregation` service.
+   * exactly one of these needs to be `account_aggregation` and `accounts.createAndConfigure` method
+   * can be used to create a sub-account under an existing advanced account through this method.
+   * Additional `account_management` or `product_management` services may be provided.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -64,24 +58,21 @@ public final class CreateAndConfigureAccountRequest extends com.google.api.clien
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
+  private java.util.List<AddUser> user;
+
+  static {
+    // hack to force ProGuard to consider AddUser used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(AddUser.class);
+  }
+
+  /**
+   * Optional. Users to be added to the account. This field is deprecated and will not exist after
+   * the API evolves out of beta. Use the `user` field instead.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
   private java.util.List<CreateUserRequest> users;
-
-  /**
-   * Optional. The Terms of Service (ToS) to be accepted immediately upon account creation.
-   * @return value or {@code null} for none
-   */
-  public AcceptTermsOfService getAcceptTermsOfService() {
-    return acceptTermsOfService;
-  }
-
-  /**
-   * Optional. The Terms of Service (ToS) to be accepted immediately upon account creation.
-   * @param acceptTermsOfService acceptTermsOfService or {@code null} for none
-   */
-  public CreateAndConfigureAccountRequest setAcceptTermsOfService(AcceptTermsOfService acceptTermsOfService) {
-    this.acceptTermsOfService = acceptTermsOfService;
-    return this;
-  }
 
   /**
    * Required. The account to be created.
@@ -103,8 +94,9 @@ public final class CreateAndConfigureAccountRequest extends com.google.api.clien
   /**
    * Required. An account service between the account to be created and the provider account is
    * initialized as part of the creation. At least one such service needs to be provided. Currently
-   * only `account_aggregation` is supported which means the newly created account will be a
-   * subaccount of the provider defined in the `account_aggregation` service.
+   * exactly one of these needs to be `account_aggregation` and `accounts.createAndConfigure` method
+   * can be used to create a sub-account under an existing advanced account through this method.
+   * Additional `account_management` or `product_management` services may be provided.
    * @return value or {@code null} for none
    */
   public java.util.List<AddAccountService> getService() {
@@ -114,8 +106,9 @@ public final class CreateAndConfigureAccountRequest extends com.google.api.clien
   /**
    * Required. An account service between the account to be created and the provider account is
    * initialized as part of the creation. At least one such service needs to be provided. Currently
-   * only `account_aggregation` is supported which means the newly created account will be a
-   * subaccount of the provider defined in the `account_aggregation` service.
+   * exactly one of these needs to be `account_aggregation` and `accounts.createAndConfigure` method
+   * can be used to create a sub-account under an existing advanced account through this method.
+   * Additional `account_management` or `product_management` services may be provided.
    * @param service service or {@code null} for none
    */
   public CreateAndConfigureAccountRequest setService(java.util.List<AddAccountService> service) {
@@ -127,12 +120,31 @@ public final class CreateAndConfigureAccountRequest extends com.google.api.clien
    * Optional. Users to be added to the account.
    * @return value or {@code null} for none
    */
+  public java.util.List<AddUser> getUser() {
+    return user;
+  }
+
+  /**
+   * Optional. Users to be added to the account.
+   * @param user user or {@code null} for none
+   */
+  public CreateAndConfigureAccountRequest setUser(java.util.List<AddUser> user) {
+    this.user = user;
+    return this;
+  }
+
+  /**
+   * Optional. Users to be added to the account. This field is deprecated and will not exist after
+   * the API evolves out of beta. Use the `user` field instead.
+   * @return value or {@code null} for none
+   */
   public java.util.List<CreateUserRequest> getUsers() {
     return users;
   }
 
   /**
-   * Optional. Users to be added to the account.
+   * Optional. Users to be added to the account. This field is deprecated and will not exist after
+   * the API evolves out of beta. Use the `user` field instead.
    * @param users users or {@code null} for none
    */
   public CreateAndConfigureAccountRequest setUsers(java.util.List<CreateUserRequest> users) {

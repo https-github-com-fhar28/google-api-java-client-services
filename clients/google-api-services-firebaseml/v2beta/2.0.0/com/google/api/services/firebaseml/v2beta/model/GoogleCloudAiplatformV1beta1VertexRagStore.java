@@ -46,11 +46,28 @@ public final class GoogleCloudAiplatformV1beta1VertexRagStore extends com.google
   private java.util.List<GoogleCloudAiplatformV1beta1VertexRagStoreRagResource> ragResources;
 
   /**
+   * Optional. The retrieval config for the Rag query.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RagRetrievalConfig ragRetrievalConfig;
+
+  /**
    * Optional. Number of top k results to return from the selected corpora.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Integer similarityTopK;
+
+  /**
+   * Optional. Currently only supported for Gemini Multimodal Live API. In Gemini Multimodal Live
+   * API, if `store_context` bool is specified, Gemini will leverage it to automatically memorize
+   * the interactions between the client and Gemini, and retrieve context when needed to augment the
+   * response generation for users' ongoing and future interactions.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean storeContext;
 
   /**
    * Optional. Only return results with vector distance smaller than the threshold.
@@ -98,6 +115,23 @@ public final class GoogleCloudAiplatformV1beta1VertexRagStore extends com.google
   }
 
   /**
+   * Optional. The retrieval config for the Rag query.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagRetrievalConfig getRagRetrievalConfig() {
+    return ragRetrievalConfig;
+  }
+
+  /**
+   * Optional. The retrieval config for the Rag query.
+   * @param ragRetrievalConfig ragRetrievalConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1VertexRagStore setRagRetrievalConfig(GoogleCloudAiplatformV1beta1RagRetrievalConfig ragRetrievalConfig) {
+    this.ragRetrievalConfig = ragRetrievalConfig;
+    return this;
+  }
+
+  /**
    * Optional. Number of top k results to return from the selected corpora.
    * @return value or {@code null} for none
    */
@@ -111,6 +145,29 @@ public final class GoogleCloudAiplatformV1beta1VertexRagStore extends com.google
    */
   public GoogleCloudAiplatformV1beta1VertexRagStore setSimilarityTopK(java.lang.Integer similarityTopK) {
     this.similarityTopK = similarityTopK;
+    return this;
+  }
+
+  /**
+   * Optional. Currently only supported for Gemini Multimodal Live API. In Gemini Multimodal Live
+   * API, if `store_context` bool is specified, Gemini will leverage it to automatically memorize
+   * the interactions between the client and Gemini, and retrieve context when needed to augment the
+   * response generation for users' ongoing and future interactions.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getStoreContext() {
+    return storeContext;
+  }
+
+  /**
+   * Optional. Currently only supported for Gemini Multimodal Live API. In Gemini Multimodal Live
+   * API, if `store_context` bool is specified, Gemini will leverage it to automatically memorize
+   * the interactions between the client and Gemini, and retrieve context when needed to augment the
+   * response generation for users' ongoing and future interactions.
+   * @param storeContext storeContext or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1VertexRagStore setStoreContext(java.lang.Boolean storeContext) {
+    this.storeContext = storeContext;
     return this;
   }
 

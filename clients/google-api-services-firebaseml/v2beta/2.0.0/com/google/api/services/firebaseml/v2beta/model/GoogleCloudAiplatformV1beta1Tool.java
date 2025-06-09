@@ -33,6 +33,29 @@ package com.google.api.services.firebaseml.v2beta.model;
 public final class GoogleCloudAiplatformV1beta1Tool extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. CodeExecution tool type. Enables the model to execute code as part of generation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1ToolCodeExecution codeExecution;
+
+  /**
+   * Optional. Tool to support the model interacting directly with the computer. If enabled, it
+   * automatically populates computer-use specific Function Declarations.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1ToolComputerUse computerUse;
+
+  /**
+   * Optional. Tool to support searching public web data, powered by Vertex AI Search and Sec4
+   * compliance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1EnterpriseWebSearch enterpriseWebSearch;
+
+  /**
    * Optional. Function tool type. One or more function declarations to be passed to the model along
    * with the current user query. Model may decide to call a subset of these functions by populating
    * FunctionCall in the response. User should provide a FunctionResponse for each function call in
@@ -50,6 +73,13 @@ public final class GoogleCloudAiplatformV1beta1Tool extends com.google.api.clien
   }
 
   /**
+   * Optional. GoogleSearch tool type. Tool to support Google Search in Model. Powered by Google.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1ToolGoogleSearch googleSearch;
+
+  /**
    * Optional. GoogleSearchRetrieval tool type. Specialized retrieval tool that is powered by Google
    * search.
    * The value may be {@code null}.
@@ -65,6 +95,68 @@ public final class GoogleCloudAiplatformV1beta1Tool extends com.google.api.clien
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1Retrieval retrieval;
+
+  /**
+   * Optional. Tool to support URL context retrieval.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1UrlContext urlContext;
+
+  /**
+   * Optional. CodeExecution tool type. Enables the model to execute code as part of generation.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ToolCodeExecution getCodeExecution() {
+    return codeExecution;
+  }
+
+  /**
+   * Optional. CodeExecution tool type. Enables the model to execute code as part of generation.
+   * @param codeExecution codeExecution or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Tool setCodeExecution(GoogleCloudAiplatformV1beta1ToolCodeExecution codeExecution) {
+    this.codeExecution = codeExecution;
+    return this;
+  }
+
+  /**
+   * Optional. Tool to support the model interacting directly with the computer. If enabled, it
+   * automatically populates computer-use specific Function Declarations.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ToolComputerUse getComputerUse() {
+    return computerUse;
+  }
+
+  /**
+   * Optional. Tool to support the model interacting directly with the computer. If enabled, it
+   * automatically populates computer-use specific Function Declarations.
+   * @param computerUse computerUse or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Tool setComputerUse(GoogleCloudAiplatformV1beta1ToolComputerUse computerUse) {
+    this.computerUse = computerUse;
+    return this;
+  }
+
+  /**
+   * Optional. Tool to support searching public web data, powered by Vertex AI Search and Sec4
+   * compliance.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1EnterpriseWebSearch getEnterpriseWebSearch() {
+    return enterpriseWebSearch;
+  }
+
+  /**
+   * Optional. Tool to support searching public web data, powered by Vertex AI Search and Sec4
+   * compliance.
+   * @param enterpriseWebSearch enterpriseWebSearch or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Tool setEnterpriseWebSearch(GoogleCloudAiplatformV1beta1EnterpriseWebSearch enterpriseWebSearch) {
+    this.enterpriseWebSearch = enterpriseWebSearch;
+    return this;
+  }
 
   /**
    * Optional. Function tool type. One or more function declarations to be passed to the model along
@@ -88,6 +180,23 @@ public final class GoogleCloudAiplatformV1beta1Tool extends com.google.api.clien
    */
   public GoogleCloudAiplatformV1beta1Tool setFunctionDeclarations(java.util.List<GoogleCloudAiplatformV1beta1FunctionDeclaration> functionDeclarations) {
     this.functionDeclarations = functionDeclarations;
+    return this;
+  }
+
+  /**
+   * Optional. GoogleSearch tool type. Tool to support Google Search in Model. Powered by Google.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ToolGoogleSearch getGoogleSearch() {
+    return googleSearch;
+  }
+
+  /**
+   * Optional. GoogleSearch tool type. Tool to support Google Search in Model. Powered by Google.
+   * @param googleSearch googleSearch or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Tool setGoogleSearch(GoogleCloudAiplatformV1beta1ToolGoogleSearch googleSearch) {
+    this.googleSearch = googleSearch;
     return this;
   }
 
@@ -128,6 +237,23 @@ public final class GoogleCloudAiplatformV1beta1Tool extends com.google.api.clien
    */
   public GoogleCloudAiplatformV1beta1Tool setRetrieval(GoogleCloudAiplatformV1beta1Retrieval retrieval) {
     this.retrieval = retrieval;
+    return this;
+  }
+
+  /**
+   * Optional. Tool to support URL context retrieval.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1UrlContext getUrlContext() {
+    return urlContext;
+  }
+
+  /**
+   * Optional. Tool to support URL context retrieval.
+   * @param urlContext urlContext or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Tool setUrlContext(GoogleCloudAiplatformV1beta1UrlContext urlContext) {
+    this.urlContext = urlContext;
     return this;
   }
 

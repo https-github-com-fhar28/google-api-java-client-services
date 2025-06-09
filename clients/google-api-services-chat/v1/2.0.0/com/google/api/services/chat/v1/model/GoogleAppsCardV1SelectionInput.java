@@ -17,13 +17,16 @@
 package com.google.api.services.chat.v1.model;
 
 /**
- * A widget that creates one or more UI items that users can select. For example, a dropdown menu or
- * checkboxes. You can use this widget to collect data that can be predicted or enumerated. For an
- * example in Google Chat apps, see [Add selectable UI elements](/workspace/chat/design-interactive-
- * card-dialog#add_selectable_ui_elements). Chat apps can process the value of items that users
- * select or input. For details about working with form inputs, see [Receive form
+ * A widget that creates one or more UI items that users can select. Supports form submission
+ * validation for `dropdown` and `multiselect` menus only. When `Action.all_widgets_are_required` is
+ * set to `true` or this widget is specified in `Action.required_widgets`, the submission action is
+ * blocked unless a value is selected. For example, a dropdown menu or checkboxes. You can use this
+ * widget to collect data that can be predicted or enumerated. For an example in Google Chat apps,
+ * see [Add selectable UI elements](/workspace/chat/design-interactive-card-
+ * dialog#add_selectable_ui_elements). Chat apps can process the value of items that users select or
+ * input. For details about working with form inputs, see [Receive form
  * data](https://developers.google.com/workspace/chat/read-form-data). To collect undefined or
- * abstract data from users, use the TextInput widget. [Google Workspace Add-ons and Chat
+ * abstract data from users, use the TextInput widget. [Google Workspace add-ons and Chat
  * apps](https://developers.google.com/workspace/extend):
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
@@ -37,7 +40,7 @@ package com.google.api.services.chat.v1.model;
 public final class GoogleAppsCardV1SelectionInput extends com.google.api.client.json.GenericJson {
 
   /**
-   * An external data source, such as a relational data base.
+   * An external data source, such as a relational database.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -70,9 +73,12 @@ public final class GoogleAppsCardV1SelectionInput extends com.google.api.client.
   private java.lang.Integer multiSelectMaxSelectedItems;
 
   /**
-   * For multiselect menus, the number of text characters that a user inputs before the app queries
-   * autocomplete and displays suggested items in the menu. If unspecified, defaults to 0 characters
-   * for static data sources and 3 characters for external data sources.
+   * For multiselect menus, the number of text characters that a user inputs before the menu returns
+   * suggested selection items. If unset, the multiselect menu uses the following default values: *
+   * If the menu uses a static array of `SelectionInput` items, defaults to 0 characters and
+   * immediately populates items from the array. * If the menu uses a dynamic data source
+   * (`multi_select_data_source`), defaults to 3 characters before querying the data source to
+   * return suggested items.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -113,7 +119,7 @@ public final class GoogleAppsCardV1SelectionInput extends com.google.api.client.
   private java.lang.String type;
 
   /**
-   * An external data source, such as a relational data base.
+   * An external data source, such as a relational database.
    * @return value or {@code null} for none
    */
   public GoogleAppsCardV1Action getExternalDataSource() {
@@ -121,7 +127,7 @@ public final class GoogleAppsCardV1SelectionInput extends com.google.api.client.
   }
 
   /**
-   * An external data source, such as a relational data base.
+   * An external data source, such as a relational database.
    * @param externalDataSource externalDataSource or {@code null} for none
    */
   public GoogleAppsCardV1SelectionInput setExternalDataSource(GoogleAppsCardV1Action externalDataSource) {
@@ -191,9 +197,12 @@ public final class GoogleAppsCardV1SelectionInput extends com.google.api.client.
   }
 
   /**
-   * For multiselect menus, the number of text characters that a user inputs before the app queries
-   * autocomplete and displays suggested items in the menu. If unspecified, defaults to 0 characters
-   * for static data sources and 3 characters for external data sources.
+   * For multiselect menus, the number of text characters that a user inputs before the menu returns
+   * suggested selection items. If unset, the multiselect menu uses the following default values: *
+   * If the menu uses a static array of `SelectionInput` items, defaults to 0 characters and
+   * immediately populates items from the array. * If the menu uses a dynamic data source
+   * (`multi_select_data_source`), defaults to 3 characters before querying the data source to
+   * return suggested items.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getMultiSelectMinQueryLength() {
@@ -201,9 +210,12 @@ public final class GoogleAppsCardV1SelectionInput extends com.google.api.client.
   }
 
   /**
-   * For multiselect menus, the number of text characters that a user inputs before the app queries
-   * autocomplete and displays suggested items in the menu. If unspecified, defaults to 0 characters
-   * for static data sources and 3 characters for external data sources.
+   * For multiselect menus, the number of text characters that a user inputs before the menu returns
+   * suggested selection items. If unset, the multiselect menu uses the following default values: *
+   * If the menu uses a static array of `SelectionInput` items, defaults to 0 characters and
+   * immediately populates items from the array. * If the menu uses a dynamic data source
+   * (`multi_select_data_source`), defaults to 3 characters before querying the data source to
+   * return suggested items.
    * @param multiSelectMinQueryLength multiSelectMinQueryLength or {@code null} for none
    */
   public GoogleAppsCardV1SelectionInput setMultiSelectMinQueryLength(java.lang.Integer multiSelectMinQueryLength) {

@@ -38,6 +38,20 @@ public final class GoogleCloudDocumentaiV1beta3DocumentDocumentLayoutDocumentLay
   private java.lang.String blockId;
 
   /**
+   * Identifies the bounding box for the block.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDocumentaiV1beta3BoundingPoly boundingBox;
+
+  /**
+   * Block consisting of image content.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDocumentaiV1beta3DocumentDocumentLayoutDocumentLayoutBlockLayoutImageBlock imageBlock;
+
+  /**
    * Block consisting of list content/structure.
    * The value may be {@code null}.
    */
@@ -79,6 +93,40 @@ public final class GoogleCloudDocumentaiV1beta3DocumentDocumentLayoutDocumentLay
    */
   public GoogleCloudDocumentaiV1beta3DocumentDocumentLayoutDocumentLayoutBlock setBlockId(java.lang.String blockId) {
     this.blockId = blockId;
+    return this;
+  }
+
+  /**
+   * Identifies the bounding box for the block.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDocumentaiV1beta3BoundingPoly getBoundingBox() {
+    return boundingBox;
+  }
+
+  /**
+   * Identifies the bounding box for the block.
+   * @param boundingBox boundingBox or {@code null} for none
+   */
+  public GoogleCloudDocumentaiV1beta3DocumentDocumentLayoutDocumentLayoutBlock setBoundingBox(GoogleCloudDocumentaiV1beta3BoundingPoly boundingBox) {
+    this.boundingBox = boundingBox;
+    return this;
+  }
+
+  /**
+   * Block consisting of image content.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDocumentaiV1beta3DocumentDocumentLayoutDocumentLayoutBlockLayoutImageBlock getImageBlock() {
+    return imageBlock;
+  }
+
+  /**
+   * Block consisting of image content.
+   * @param imageBlock imageBlock or {@code null} for none
+   */
+  public GoogleCloudDocumentaiV1beta3DocumentDocumentLayoutDocumentLayoutBlock setImageBlock(GoogleCloudDocumentaiV1beta3DocumentDocumentLayoutDocumentLayoutBlockLayoutImageBlock imageBlock) {
+    this.imageBlock = imageBlock;
     return this;
   }
 

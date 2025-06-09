@@ -61,9 +61,10 @@ public final class StreamConfig extends com.google.api.client.json.GenericJson {
   /**
    * The destination FHIR store for de-identified resources. After this field is added, all
    * subsequent creates/updates/patches to the source store will be de-identified using the provided
-   * configuration and applied to the destination store. Importing resources to the source store
-   * will not trigger the streaming. If the source store already contains resources when this option
-   * is enabled, those resources will not be copied to the destination store unless they are
+   * configuration and applied to the destination store. Resources deleted from the source store
+   * will be deleted from the destination store. Importing resources to the source store will not
+   * trigger the streaming. If the source store already contains resources when this option is
+   * enabled, those resources will not be copied to the destination store unless they are
    * subsequently updated. This may result in invalid references in the destination store. Before
    * adding this config, you must grant the healthcare.fhirResources.update permission on the
    * destination store to your project's **Cloud Healthcare Service Agent** [service
@@ -72,7 +73,7 @@ public final class StreamConfig extends com.google.api.client.json.GenericJson {
    * enable_update_create to true. The destination store must have disable_referential_integrity set
    * to true. If a resource cannot be de-identified, errors will be logged to Cloud Logging (see
    * [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-
-   * tos/logging)).
+   * tos/logging)). Not supported for R5 stores.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -152,9 +153,10 @@ public final class StreamConfig extends com.google.api.client.json.GenericJson {
   /**
    * The destination FHIR store for de-identified resources. After this field is added, all
    * subsequent creates/updates/patches to the source store will be de-identified using the provided
-   * configuration and applied to the destination store. Importing resources to the source store
-   * will not trigger the streaming. If the source store already contains resources when this option
-   * is enabled, those resources will not be copied to the destination store unless they are
+   * configuration and applied to the destination store. Resources deleted from the source store
+   * will be deleted from the destination store. Importing resources to the source store will not
+   * trigger the streaming. If the source store already contains resources when this option is
+   * enabled, those resources will not be copied to the destination store unless they are
    * subsequently updated. This may result in invalid references in the destination store. Before
    * adding this config, you must grant the healthcare.fhirResources.update permission on the
    * destination store to your project's **Cloud Healthcare Service Agent** [service
@@ -163,7 +165,7 @@ public final class StreamConfig extends com.google.api.client.json.GenericJson {
    * enable_update_create to true. The destination store must have disable_referential_integrity set
    * to true. If a resource cannot be de-identified, errors will be logged to Cloud Logging (see
    * [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-
-   * tos/logging)).
+   * tos/logging)). Not supported for R5 stores.
    * @return value or {@code null} for none
    */
   public DeidentifiedStoreDestination getDeidentifiedStoreDestination() {
@@ -173,9 +175,10 @@ public final class StreamConfig extends com.google.api.client.json.GenericJson {
   /**
    * The destination FHIR store for de-identified resources. After this field is added, all
    * subsequent creates/updates/patches to the source store will be de-identified using the provided
-   * configuration and applied to the destination store. Importing resources to the source store
-   * will not trigger the streaming. If the source store already contains resources when this option
-   * is enabled, those resources will not be copied to the destination store unless they are
+   * configuration and applied to the destination store. Resources deleted from the source store
+   * will be deleted from the destination store. Importing resources to the source store will not
+   * trigger the streaming. If the source store already contains resources when this option is
+   * enabled, those resources will not be copied to the destination store unless they are
    * subsequently updated. This may result in invalid references in the destination store. Before
    * adding this config, you must grant the healthcare.fhirResources.update permission on the
    * destination store to your project's **Cloud Healthcare Service Agent** [service
@@ -184,7 +187,7 @@ public final class StreamConfig extends com.google.api.client.json.GenericJson {
    * enable_update_create to true. The destination store must have disable_referential_integrity set
    * to true. If a resource cannot be de-identified, errors will be logged to Cloud Logging (see
    * [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-
-   * tos/logging)).
+   * tos/logging)). Not supported for R5 stores.
    * @param deidentifiedStoreDestination deidentifiedStoreDestination or {@code null} for none
    */
   public StreamConfig setDeidentifiedStoreDestination(DeidentifiedStoreDestination deidentifiedStoreDestination) {

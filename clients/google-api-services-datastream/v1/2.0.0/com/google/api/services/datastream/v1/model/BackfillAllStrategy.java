@@ -31,6 +31,13 @@ package com.google.api.services.datastream.v1.model;
 public final class BackfillAllStrategy extends com.google.api.client.json.GenericJson {
 
   /**
+   * MongoDB data source objects to avoid backfilling
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MongodbCluster mongodbExcludedObjects;
+
+  /**
    * MySQL data source objects to avoid backfilling.
    * The value may be {@code null}.
    */
@@ -52,11 +59,35 @@ public final class BackfillAllStrategy extends com.google.api.client.json.Generi
   private PostgresqlRdbms postgresqlExcludedObjects;
 
   /**
+   * Salesforce data source objects to avoid backfilling
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private SalesforceOrg salesforceExcludedObjects;
+
+  /**
    * SQLServer data source objects to avoid backfilling
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private SqlServerRdbms sqlServerExcludedObjects;
+
+  /**
+   * MongoDB data source objects to avoid backfilling
+   * @return value or {@code null} for none
+   */
+  public MongodbCluster getMongodbExcludedObjects() {
+    return mongodbExcludedObjects;
+  }
+
+  /**
+   * MongoDB data source objects to avoid backfilling
+   * @param mongodbExcludedObjects mongodbExcludedObjects or {@code null} for none
+   */
+  public BackfillAllStrategy setMongodbExcludedObjects(MongodbCluster mongodbExcludedObjects) {
+    this.mongodbExcludedObjects = mongodbExcludedObjects;
+    return this;
+  }
 
   /**
    * MySQL data source objects to avoid backfilling.
@@ -106,6 +137,23 @@ public final class BackfillAllStrategy extends com.google.api.client.json.Generi
    */
   public BackfillAllStrategy setPostgresqlExcludedObjects(PostgresqlRdbms postgresqlExcludedObjects) {
     this.postgresqlExcludedObjects = postgresqlExcludedObjects;
+    return this;
+  }
+
+  /**
+   * Salesforce data source objects to avoid backfilling
+   * @return value or {@code null} for none
+   */
+  public SalesforceOrg getSalesforceExcludedObjects() {
+    return salesforceExcludedObjects;
+  }
+
+  /**
+   * Salesforce data source objects to avoid backfilling
+   * @param salesforceExcludedObjects salesforceExcludedObjects or {@code null} for none
+   */
+  public BackfillAllStrategy setSalesforceExcludedObjects(SalesforceOrg salesforceExcludedObjects) {
+    this.salesforceExcludedObjects = salesforceExcludedObjects;
     return this;
   }
 

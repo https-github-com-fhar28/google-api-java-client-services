@@ -488,15 +488,15 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
 
       /**
        * Optional. The maximum number of accounts to return. The service may return fewer than this
-       * value. If unspecified, at most 50 accounts will be returned. The maximum value is 1000;
-       * values above 1000 will be coerced to 1000.
+       * value. If unspecified, at most 50 accounts will be returned. The maximum value is 100;
+       * values above 100 will be coerced to 100.
        */
       @com.google.api.client.util.Key
       private java.lang.Integer pageSize;
 
       /** Optional. The maximum number of accounts to return. The service may return fewer than this value.
-     If unspecified, at most 50 accounts will be returned. The maximum value is 1000; values above 1000
-     will be coerced to 1000.
+     If unspecified, at most 50 accounts will be returned. The maximum value is 100; values above 100
+     will be coerced to 100.
        */
       public java.lang.Integer getPageSize() {
         return pageSize;
@@ -504,8 +504,8 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
 
       /**
        * Optional. The maximum number of accounts to return. The service may return fewer than this
-       * value. If unspecified, at most 50 accounts will be returned. The maximum value is 1000;
-       * values above 1000 will be coerced to 1000.
+       * value. If unspecified, at most 50 accounts will be returned. The maximum value is 100;
+       * values above 100 will be coerced to 100.
        */
       public ListChildAccounts setPageSize(java.lang.Integer pageSize) {
         this.pageSize = pageSize;
@@ -705,7 +705,9 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
        * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
        *
        * @param name Required. The name of the CSS product input resource to delete. Format:
-       *        accounts/{account}/cssProductInputs/{css_product_input}
+       *        accounts/{account}/cssProductInputs/{css_product_input}, where the last section
+       *        `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+       *        accounts/123/cssProductInputs/de~DE~rawProvidedId123
        * @return the request
        */
       public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -733,7 +735,9 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
          * @param name Required. The name of the CSS product input resource to delete. Format:
-       *        accounts/{account}/cssProductInputs/{css_product_input}
+       *        accounts/{account}/cssProductInputs/{css_product_input}, where the last section
+       *        `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+       *        accounts/123/cssProductInputs/de~DE~rawProvidedId123
          * @since 1.13
          */
         protected Delete(java.lang.String name) {
@@ -803,13 +807,17 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
 
         /**
          * Required. The name of the CSS product input resource to delete. Format:
-         * accounts/{account}/cssProductInputs/{css_product_input}
+         * accounts/{account}/cssProductInputs/{css_product_input}, where the last section
+         * `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+         * accounts/123/cssProductInputs/de~DE~rawProvidedId123
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
         /** Required. The name of the CSS product input resource to delete. Format:
-       accounts/{account}/cssProductInputs/{css_product_input}
+       accounts/{account}/cssProductInputs/{css_product_input}, where the last section `css_product_input`
+       consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+       accounts/123/cssProductInputs/de~DE~rawProvidedId123
          */
         public java.lang.String getName() {
           return name;
@@ -817,7 +825,9 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
 
         /**
          * Required. The name of the CSS product input resource to delete. Format:
-         * accounts/{account}/cssProductInputs/{css_product_input}
+         * accounts/{account}/cssProductInputs/{css_product_input}, where the last section
+         * `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+         * accounts/123/cssProductInputs/de~DE~rawProvidedId123
          */
         public Delete setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -996,28 +1006,30 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
         }
 
         /**
-         * Required. The primary or supplemental feed id. If CSS Product already exists and feed id
-         * provided is different, then the CSS Product will be moved to a new feed. Note: For now,
-         * CSSs do not need to provide feed ids as we create feeds on the fly. We do not have
-         * supplemental feed support for CSS Products yet.
+         * Optional. DEPRECATED. Feed id is not required for CSS Products. The primary or
+         * supplemental feed id. If CSS Product already exists and feed id provided is different,
+         * then the CSS Product will be moved to a new feed. Note: For now, CSSs do not need to
+         * provide feed ids as we create feeds on the fly. We do not have supplemental feed support
+         * for CSS Products yet.
          */
         @com.google.api.client.util.Key
         private java.lang.Long feedId;
 
-        /** Required. The primary or supplemental feed id. If CSS Product already exists and feed id provided
-       is different, then the CSS Product will be moved to a new feed. Note: For now, CSSs do not need to
-       provide feed ids as we create feeds on the fly. We do not have supplemental feed support for CSS
-       Products yet.
+        /** Optional. DEPRECATED. Feed id is not required for CSS Products. The primary or supplemental feed
+       id. If CSS Product already exists and feed id provided is different, then the CSS Product will be
+       moved to a new feed. Note: For now, CSSs do not need to provide feed ids as we create feeds on the
+       fly. We do not have supplemental feed support for CSS Products yet.
          */
         public java.lang.Long getFeedId() {
           return feedId;
         }
 
         /**
-         * Required. The primary or supplemental feed id. If CSS Product already exists and feed id
-         * provided is different, then the CSS Product will be moved to a new feed. Note: For now,
-         * CSSs do not need to provide feed ids as we create feeds on the fly. We do not have
-         * supplemental feed support for CSS Products yet.
+         * Optional. DEPRECATED. Feed id is not required for CSS Products. The primary or
+         * supplemental feed id. If CSS Product already exists and feed id provided is different,
+         * then the CSS Product will be moved to a new feed. Note: For now, CSSs do not need to
+         * provide feed ids as we create feeds on the fly. We do not have supplemental feed support
+         * for CSS Products yet.
          */
         public Insert setFeedId(java.lang.Long feedId) {
           this.feedId = feedId;
@@ -1027,6 +1039,197 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
         @Override
         public Insert set(String parameterName, Object value) {
           return (Insert) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Updates the existing Css Product input in your CSS Center account. After inserting, updating, or
+       * deleting a CSS Product input, it may take several minutes before the processed Css Product can be
+       * retrieved.
+       *
+       * Create a request for the method "cssProductInputs.patch".
+       *
+       * This request holds the parameters needed by the css server.  After setting any optional
+       * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+       *
+       * @param name Identifier. The name of the CSS Product input. Format:
+       *        `accounts/{account}/cssProductInputs/{css_product_input}`, where the last section
+       *        `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+       *        accounts/123/cssProductInputs/de~DE~rawProvidedId123
+       * @param content the {@link com.google.api.services.css.v1.model.CssProductInput}
+       * @return the request
+       */
+      public Patch patch(java.lang.String name, com.google.api.services.css.v1.model.CssProductInput content) throws java.io.IOException {
+        Patch result = new Patch(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Patch extends CssRequest<com.google.api.services.css.v1.model.CssProductInput> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+/cssProductInputs/[^/]+$");
+
+        /**
+         * Updates the existing Css Product input in your CSS Center account. After inserting, updating,
+         * or deleting a CSS Product input, it may take several minutes before the processed Css Product
+         * can be retrieved.
+         *
+         * Create a request for the method "cssProductInputs.patch".
+         *
+         * This request holds the parameters needed by the the css server.  After setting any optional
+         * parameters, call the {@link Patch#execute()} method to invoke the remote operation. <p> {@link
+         * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param name Identifier. The name of the CSS Product input. Format:
+       *        `accounts/{account}/cssProductInputs/{css_product_input}`, where the last section
+       *        `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+       *        accounts/123/cssProductInputs/de~DE~rawProvidedId123
+         * @param content the {@link com.google.api.services.css.v1.model.CssProductInput}
+         * @since 1.13
+         */
+        protected Patch(java.lang.String name, com.google.api.services.css.v1.model.CssProductInput content) {
+          super(Css.this, "PATCH", REST_PATH, content, com.google.api.services.css.v1.model.CssProductInput.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/cssProductInputs/[^/]+$");
+          }
+        }
+
+        @Override
+        public Patch set$Xgafv(java.lang.String $Xgafv) {
+          return (Patch) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Patch setAccessToken(java.lang.String accessToken) {
+          return (Patch) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Patch setAlt(java.lang.String alt) {
+          return (Patch) super.setAlt(alt);
+        }
+
+        @Override
+        public Patch setCallback(java.lang.String callback) {
+          return (Patch) super.setCallback(callback);
+        }
+
+        @Override
+        public Patch setFields(java.lang.String fields) {
+          return (Patch) super.setFields(fields);
+        }
+
+        @Override
+        public Patch setKey(java.lang.String key) {
+          return (Patch) super.setKey(key);
+        }
+
+        @Override
+        public Patch setOauthToken(java.lang.String oauthToken) {
+          return (Patch) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Patch) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Patch setQuotaUser(java.lang.String quotaUser) {
+          return (Patch) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Patch setUploadType(java.lang.String uploadType) {
+          return (Patch) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Patch) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. The name of the CSS Product input. Format:
+         * `accounts/{account}/cssProductInputs/{css_product_input}`, where the last section
+         * `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+         * accounts/123/cssProductInputs/de~DE~rawProvidedId123
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. The name of the CSS Product input. Format:
+       `accounts/{account}/cssProductInputs/{css_product_input}`, where the last section
+       `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+       accounts/123/cssProductInputs/de~DE~rawProvidedId123
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. The name of the CSS Product input. Format:
+         * `accounts/{account}/cssProductInputs/{css_product_input}`, where the last section
+         * `css_product_input` consists of 3 parts: contentLanguage~feedLabel~offerId. Example:
+         * accounts/123/cssProductInputs/de~DE~rawProvidedId123
+         */
+        public Patch setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^accounts/[^/]+/cssProductInputs/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * The list of CSS product attributes to be updated. If the update mask is omitted, then it
+         * is treated as implied field mask equivalent to all fields that are populated (have a non-
+         * empty value). Attributes specified in the update mask without a value specified in the
+         * body will be deleted from the CSS product. Update mask can only be specified for top
+         * level fields in attributes and custom attributes. To specify the update mask for custom
+         * attributes you need to add the `custom_attribute.` prefix. Providing special "*" value
+         * for full CSS product replacement is not supported.
+         */
+        @com.google.api.client.util.Key
+        private String updateMask;
+
+        /** The list of CSS product attributes to be updated. If the update mask is omitted, then it is treated
+       as implied field mask equivalent to all fields that are populated (have a non-empty value).
+       Attributes specified in the update mask without a value specified in the body will be deleted from
+       the CSS product. Update mask can only be specified for top level fields in attributes and custom
+       attributes. To specify the update mask for custom attributes you need to add the
+       `custom_attribute.` prefix. Providing special "*" value for full CSS product replacement is not
+       supported.
+         */
+        public String getUpdateMask() {
+          return updateMask;
+        }
+
+        /**
+         * The list of CSS product attributes to be updated. If the update mask is omitted, then it
+         * is treated as implied field mask equivalent to all fields that are populated (have a non-
+         * empty value). Attributes specified in the update mask without a value specified in the
+         * body will be deleted from the CSS product. Update mask can only be specified for top
+         * level fields in attributes and custom attributes. To specify the update mask for custom
+         * attributes you need to add the `custom_attribute.` prefix. Providing special "*" value
+         * for full CSS product replacement is not supported.
+         */
+        public Patch setUpdateMask(String updateMask) {
+          this.updateMask = updateMask;
+          return this;
+        }
+
+        @Override
+        public Patch set(String parameterName, Object value) {
+          return (Patch) super.set(parameterName, value);
         }
       }
 
@@ -1061,7 +1264,8 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
        * This request holds the parameters needed by the css server.  After setting any optional
        * parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The name of the CSS product to retrieve.
+       * @param name Required. The name of the CSS product to retrieve. Format:
+       *        `accounts/{account}/cssProducts/{css_product}`
        * @return the request
        */
       public Get get(java.lang.String name) throws java.io.IOException {
@@ -1089,7 +1293,8 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
          * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. The name of the CSS product to retrieve.
+         * @param name Required. The name of the CSS product to retrieve. Format:
+       *        `accounts/{account}/cssProducts/{css_product}`
          * @since 1.13
          */
         protected Get(java.lang.String name) {
@@ -1167,17 +1372,24 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
           return (Get) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** Required. The name of the CSS product to retrieve. */
+        /**
+         * Required. The name of the CSS product to retrieve. Format:
+         * `accounts/{account}/cssProducts/{css_product}`
+         */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The name of the CSS product to retrieve.
+        /** Required. The name of the CSS product to retrieve. Format:
+       `accounts/{account}/cssProducts/{css_product}`
          */
         public java.lang.String getName() {
           return name;
         }
 
-        /** Required. The name of the CSS product to retrieve. */
+        /**
+         * Required. The name of the CSS product to retrieve. Format:
+         * `accounts/{account}/cssProducts/{css_product}`
+         */
         public Get setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
@@ -1676,7 +1888,7 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
         }
       }
       /**
-       * Lists the labels assigned to an account.
+       * Lists the labels owned by an account.
        *
        * Create a request for the method "labels.list".
        *
@@ -1700,7 +1912,7 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
             java.util.regex.Pattern.compile("^accounts/[^/]+$");
 
         /**
-         * Lists the labels assigned to an account.
+         * Lists the labels owned by an account.
          *
          * Create a request for the method "labels.list".
          *
@@ -1873,7 +2085,7 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
        * This request holds the parameters needed by the css server.  After setting any optional
        * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
        *
-       * @param name The resource name of the label. Format: accounts/{account}/labels/{label}
+       * @param name Identifier. The resource name of the label. Format: accounts/{account}/labels/{label}
        * @param content the {@link com.google.api.services.css.v1.model.AccountLabel}
        * @return the request
        */
@@ -1900,7 +2112,7 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
          * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name The resource name of the label. Format: accounts/{account}/labels/{label}
+         * @param name Identifier. The resource name of the label. Format: accounts/{account}/labels/{label}
          * @param content the {@link com.google.api.services.css.v1.model.AccountLabel}
          * @since 1.13
          */
@@ -1969,17 +2181,21 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
           return (Patch) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** The resource name of the label. Format: accounts/{account}/labels/{label} */
+        /**
+         * Identifier. The resource name of the label. Format: accounts/{account}/labels/{label}
+         */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** The resource name of the label. Format: accounts/{account}/labels/{label}
+        /** Identifier. The resource name of the label. Format: accounts/{account}/labels/{label}
          */
         public java.lang.String getName() {
           return name;
         }
 
-        /** The resource name of the label. Format: accounts/{account}/labels/{label} */
+        /**
+         * Identifier. The resource name of the label. Format: accounts/{account}/labels/{label}
+         */
         public Patch setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
@@ -1993,6 +2209,221 @@ public class Css extends com.google.api.client.googleapis.services.json.Abstract
         @Override
         public Patch set(String parameterName, Object value) {
           return (Patch) super.set(parameterName, value);
+        }
+      }
+
+    }
+    /**
+     * An accessor for creating requests from the Quotas collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code Css css = new Css(...);}
+     *   {@code Css.Quotas.List request = css.quotas().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public Quotas quotas() {
+      return new Quotas();
+    }
+
+    /**
+     * The "quotas" collection of methods.
+     */
+    public class Quotas {
+
+      /**
+       * Lists the daily call quota and usage per group for your CSS Center account.
+       *
+       * Create a request for the method "quotas.list".
+       *
+       * This request holds the parameters needed by the css server.  After setting any optional
+       * parameters, call the {@link List#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The CSS account that owns the collection of method quotas and resources. In most cases,
+       *        this is the CSS domain. Format: accounts/{account}
+       * @return the request
+       */
+      public List list(java.lang.String parent) throws java.io.IOException {
+        List result = new List(parent);
+        initialize(result);
+        return result;
+      }
+
+      public class List extends CssRequest<com.google.api.services.css.v1.model.ListQuotaGroupsResponse> {
+
+        private static final String REST_PATH = "v1/{+parent}/quotas";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^accounts/[^/]+$");
+
+        /**
+         * Lists the daily call quota and usage per group for your CSS Center account.
+         *
+         * Create a request for the method "quotas.list".
+         *
+         * This request holds the parameters needed by the the css server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+         * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+         * called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param parent Required. The CSS account that owns the collection of method quotas and resources. In most cases,
+       *        this is the CSS domain. Format: accounts/{account}
+         * @since 1.13
+         */
+        protected List(java.lang.String parent) {
+          super(Css.this, "GET", REST_PATH, null, com.google.api.services.css.v1.model.ListQuotaGroupsResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public List set$Xgafv(java.lang.String $Xgafv) {
+          return (List) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public List setAccessToken(java.lang.String accessToken) {
+          return (List) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public List setAlt(java.lang.String alt) {
+          return (List) super.setAlt(alt);
+        }
+
+        @Override
+        public List setCallback(java.lang.String callback) {
+          return (List) super.setCallback(callback);
+        }
+
+        @Override
+        public List setFields(java.lang.String fields) {
+          return (List) super.setFields(fields);
+        }
+
+        @Override
+        public List setKey(java.lang.String key) {
+          return (List) super.setKey(key);
+        }
+
+        @Override
+        public List setOauthToken(java.lang.String oauthToken) {
+          return (List) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (List) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public List setQuotaUser(java.lang.String quotaUser) {
+          return (List) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public List setUploadType(java.lang.String uploadType) {
+          return (List) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public List setUploadProtocol(java.lang.String uploadProtocol) {
+          return (List) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The CSS account that owns the collection of method quotas and resources. In
+         * most cases, this is the CSS domain. Format: accounts/{account}
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The CSS account that owns the collection of method quotas and resources. In most cases,
+       this is the CSS domain. Format: accounts/{account}
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The CSS account that owns the collection of method quotas and resources. In
+         * most cases, this is the CSS domain. Format: accounts/{account}
+         */
+        public List setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^accounts/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        /**
+         * Optional. The maximum number of quotas to return in the response, used for paging.
+         * Defaults to 500; values above 1000 will be coerced to 1000.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Integer pageSize;
+
+        /** Optional. The maximum number of quotas to return in the response, used for paging. Defaults to 500;
+       values above 1000 will be coerced to 1000.
+         */
+        public java.lang.Integer getPageSize() {
+          return pageSize;
+        }
+
+        /**
+         * Optional. The maximum number of quotas to return in the response, used for paging.
+         * Defaults to 500; values above 1000 will be coerced to 1000.
+         */
+        public List setPageSize(java.lang.Integer pageSize) {
+          this.pageSize = pageSize;
+          return this;
+        }
+
+        /**
+         * Optional. Token (if provided) to retrieve the subsequent page. All other parameters must
+         * match the original call that provided the page token.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String pageToken;
+
+        /** Optional. Token (if provided) to retrieve the subsequent page. All other parameters must match the
+       original call that provided the page token.
+         */
+        public java.lang.String getPageToken() {
+          return pageToken;
+        }
+
+        /**
+         * Optional. Token (if provided) to retrieve the subsequent page. All other parameters must
+         * match the original call that provided the page token.
+         */
+        public List setPageToken(java.lang.String pageToken) {
+          this.pageToken = pageToken;
+          return this;
+        }
+
+        @Override
+        public List set(String parameterName, Object value) {
+          return (List) super.set(parameterName, value);
         }
       }
 

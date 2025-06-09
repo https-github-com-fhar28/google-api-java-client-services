@@ -87,6 +87,13 @@ public final class Settings extends com.google.api.client.json.GenericJson {
   private java.lang.String collation;
 
   /**
+   * Optional. The managed connection pooling configuration for the instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ConnectionPoolConfig connectionPoolConfig;
+
+  /**
    * Specifies if connections must use Cloud SQL connectors. Option values include the following:
    * `NOT_REQUIRED` (Cloud SQL instances can be connected without Cloud SQL Connectors) and
    * `REQUIRED` (Only allow connections that use Cloud SQL Connectors). Note that using REQUIRED
@@ -112,6 +119,22 @@ public final class Settings extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private DataCacheConfig dataCacheConfig;
+
+  /**
+   * Optional. Provisioned number of I/O operations per second for the data disk. This field is only
+   * used for hyperdisk-balanced disk types.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key @com.google.api.client.json.JsonString
+  private java.lang.Long dataDiskProvisionedIops;
+
+  /**
+   * Optional. Provisioned throughput measured in MiB per second for the data disk. This field is
+   * only used for hyperdisk-balanced disk types.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key @com.google.api.client.json.JsonString
+  private java.lang.Long dataDiskProvisionedThroughput;
 
   /**
    * The size of data disk, in GB. The data disk size minimum is 10GB.
@@ -187,7 +210,7 @@ public final class Settings extends com.google.api.client.json.GenericJson {
   /**
    * Optional. When this parameter is set to true, Cloud SQL instances can connect to Vertex AI to
    * pass requests for real-time predictions and insights to the AI. The default value is false.
-   * This applies only to Cloud SQL for PostgreSQL instances.
+   * This applies only to Cloud SQL for MySQL and Cloud SQL for PostgreSQL instances.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -249,12 +272,29 @@ public final class Settings extends com.google.api.client.json.GenericJson {
   private java.lang.String pricingPlan;
 
   /**
+   * Optional. Configuration value for recreation of replica after certain replication lag
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer replicationLagMaxSeconds;
+
+  /**
    * The type of replication this instance uses. This can be either `ASYNCHRONOUS` or `SYNCHRONOUS`.
    * (Deprecated) This property was only applicable to First Generation instances.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String replicationType;
+
+  /**
+   * Optional. When this parameter is set to true, Cloud SQL retains backups of the instance even
+   * after the instance is deleted. The ON_DEMAND backup will be retained until customer deletes the
+   * backup or the project. The AUTOMATED backup will be retained based on the backups retention
+   * setting.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean retainBackupsOnDelete;
 
   /**
    * The version of instance settings. This is a required field for update method to make sure
@@ -445,6 +485,23 @@ public final class Settings extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. The managed connection pooling configuration for the instance.
+   * @return value or {@code null} for none
+   */
+  public ConnectionPoolConfig getConnectionPoolConfig() {
+    return connectionPoolConfig;
+  }
+
+  /**
+   * Optional. The managed connection pooling configuration for the instance.
+   * @param connectionPoolConfig connectionPoolConfig or {@code null} for none
+   */
+  public Settings setConnectionPoolConfig(ConnectionPoolConfig connectionPoolConfig) {
+    this.connectionPoolConfig = connectionPoolConfig;
+    return this;
+  }
+
+  /**
    * Specifies if connections must use Cloud SQL connectors. Option values include the following:
    * `NOT_REQUIRED` (Cloud SQL instances can be connected without Cloud SQL Connectors) and
    * `REQUIRED` (Only allow connections that use Cloud SQL Connectors). Note that using REQUIRED
@@ -504,6 +561,44 @@ public final class Settings extends com.google.api.client.json.GenericJson {
    */
   public Settings setDataCacheConfig(DataCacheConfig dataCacheConfig) {
     this.dataCacheConfig = dataCacheConfig;
+    return this;
+  }
+
+  /**
+   * Optional. Provisioned number of I/O operations per second for the data disk. This field is only
+   * used for hyperdisk-balanced disk types.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Long getDataDiskProvisionedIops() {
+    return dataDiskProvisionedIops;
+  }
+
+  /**
+   * Optional. Provisioned number of I/O operations per second for the data disk. This field is only
+   * used for hyperdisk-balanced disk types.
+   * @param dataDiskProvisionedIops dataDiskProvisionedIops or {@code null} for none
+   */
+  public Settings setDataDiskProvisionedIops(java.lang.Long dataDiskProvisionedIops) {
+    this.dataDiskProvisionedIops = dataDiskProvisionedIops;
+    return this;
+  }
+
+  /**
+   * Optional. Provisioned throughput measured in MiB per second for the data disk. This field is
+   * only used for hyperdisk-balanced disk types.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Long getDataDiskProvisionedThroughput() {
+    return dataDiskProvisionedThroughput;
+  }
+
+  /**
+   * Optional. Provisioned throughput measured in MiB per second for the data disk. This field is
+   * only used for hyperdisk-balanced disk types.
+   * @param dataDiskProvisionedThroughput dataDiskProvisionedThroughput or {@code null} for none
+   */
+  public Settings setDataDiskProvisionedThroughput(java.lang.Long dataDiskProvisionedThroughput) {
+    this.dataDiskProvisionedThroughput = dataDiskProvisionedThroughput;
     return this;
   }
 
@@ -652,7 +747,7 @@ public final class Settings extends com.google.api.client.json.GenericJson {
   /**
    * Optional. When this parameter is set to true, Cloud SQL instances can connect to Vertex AI to
    * pass requests for real-time predictions and insights to the AI. The default value is false.
-   * This applies only to Cloud SQL for PostgreSQL instances.
+   * This applies only to Cloud SQL for MySQL and Cloud SQL for PostgreSQL instances.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnableGoogleMlIntegration() {
@@ -662,7 +757,7 @@ public final class Settings extends com.google.api.client.json.GenericJson {
   /**
    * Optional. When this parameter is set to true, Cloud SQL instances can connect to Vertex AI to
    * pass requests for real-time predictions and insights to the AI. The default value is false.
-   * This applies only to Cloud SQL for PostgreSQL instances.
+   * This applies only to Cloud SQL for MySQL and Cloud SQL for PostgreSQL instances.
    * @param enableGoogleMlIntegration enableGoogleMlIntegration or {@code null} for none
    */
   public Settings setEnableGoogleMlIntegration(java.lang.Boolean enableGoogleMlIntegration) {
@@ -802,6 +897,23 @@ public final class Settings extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. Configuration value for recreation of replica after certain replication lag
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getReplicationLagMaxSeconds() {
+    return replicationLagMaxSeconds;
+  }
+
+  /**
+   * Optional. Configuration value for recreation of replica after certain replication lag
+   * @param replicationLagMaxSeconds replicationLagMaxSeconds or {@code null} for none
+   */
+  public Settings setReplicationLagMaxSeconds(java.lang.Integer replicationLagMaxSeconds) {
+    this.replicationLagMaxSeconds = replicationLagMaxSeconds;
+    return this;
+  }
+
+  /**
    * The type of replication this instance uses. This can be either `ASYNCHRONOUS` or `SYNCHRONOUS`.
    * (Deprecated) This property was only applicable to First Generation instances.
    * @return value or {@code null} for none
@@ -817,6 +929,29 @@ public final class Settings extends com.google.api.client.json.GenericJson {
    */
   public Settings setReplicationType(java.lang.String replicationType) {
     this.replicationType = replicationType;
+    return this;
+  }
+
+  /**
+   * Optional. When this parameter is set to true, Cloud SQL retains backups of the instance even
+   * after the instance is deleted. The ON_DEMAND backup will be retained until customer deletes the
+   * backup or the project. The AUTOMATED backup will be retained based on the backups retention
+   * setting.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getRetainBackupsOnDelete() {
+    return retainBackupsOnDelete;
+  }
+
+  /**
+   * Optional. When this parameter is set to true, Cloud SQL retains backups of the instance even
+   * after the instance is deleted. The ON_DEMAND backup will be retained until customer deletes the
+   * backup or the project. The AUTOMATED backup will be retained based on the backups retention
+   * setting.
+   * @param retainBackupsOnDelete retainBackupsOnDelete or {@code null} for none
+   */
+  public Settings setRetainBackupsOnDelete(java.lang.Boolean retainBackupsOnDelete) {
+    this.retainBackupsOnDelete = retainBackupsOnDelete;
     return this;
   }
 

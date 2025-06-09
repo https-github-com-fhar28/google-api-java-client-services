@@ -30,6 +30,17 @@ package com.google.api.services.alloydb.v1beta.model;
 public final class InstanceNetworkConfig extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. Name of the allocated IP range for the private IP AlloyDB instance, for example:
+   * "google-managed-services-default". If set, the instance IPs will be created from this allocated
+   * range and will override the IP range used by the parent cluster. The range name must comply
+   * with [RFC 1035](http://go/rfc/1035). Specifically, the name must be 1-63 characters long and
+   * match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String allocatedIpRangeOverride;
+
+  /**
    * Optional. A list of external network authorized to access this instance.
    * The value may be {@code null}.
    */
@@ -56,6 +67,41 @@ public final class InstanceNetworkConfig extends com.google.api.client.json.Gene
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean enablePublicIp;
+
+  /**
+   * Output only. The resource link for the VPC network in which instance resources are created and
+   * from which they are accessible via Private IP. This will be the same value as the parent
+   * cluster's network. It is specified in the form: //
+   * `projects/{project_number}/global/networks/{network_id}`.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String network;
+
+  /**
+   * Optional. Name of the allocated IP range for the private IP AlloyDB instance, for example:
+   * "google-managed-services-default". If set, the instance IPs will be created from this allocated
+   * range and will override the IP range used by the parent cluster. The range name must comply
+   * with [RFC 1035](http://go/rfc/1035). Specifically, the name must be 1-63 characters long and
+   * match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getAllocatedIpRangeOverride() {
+    return allocatedIpRangeOverride;
+  }
+
+  /**
+   * Optional. Name of the allocated IP range for the private IP AlloyDB instance, for example:
+   * "google-managed-services-default". If set, the instance IPs will be created from this allocated
+   * range and will override the IP range used by the parent cluster. The range name must comply
+   * with [RFC 1035](http://go/rfc/1035). Specifically, the name must be 1-63 characters long and
+   * match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
+   * @param allocatedIpRangeOverride allocatedIpRangeOverride or {@code null} for none
+   */
+  public InstanceNetworkConfig setAllocatedIpRangeOverride(java.lang.String allocatedIpRangeOverride) {
+    this.allocatedIpRangeOverride = allocatedIpRangeOverride;
+    return this;
+  }
 
   /**
    * Optional. A list of external network authorized to access this instance.
@@ -107,6 +153,29 @@ public final class InstanceNetworkConfig extends com.google.api.client.json.Gene
    */
   public InstanceNetworkConfig setEnablePublicIp(java.lang.Boolean enablePublicIp) {
     this.enablePublicIp = enablePublicIp;
+    return this;
+  }
+
+  /**
+   * Output only. The resource link for the VPC network in which instance resources are created and
+   * from which they are accessible via Private IP. This will be the same value as the parent
+   * cluster's network. It is specified in the form: //
+   * `projects/{project_number}/global/networks/{network_id}`.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getNetwork() {
+    return network;
+  }
+
+  /**
+   * Output only. The resource link for the VPC network in which instance resources are created and
+   * from which they are accessible via Private IP. This will be the same value as the parent
+   * cluster's network. It is specified in the form: //
+   * `projects/{project_number}/global/networks/{network_id}`.
+   * @param network network or {@code null} for none
+   */
+  public InstanceNetworkConfig setNetwork(java.lang.String network) {
+    this.network = network;
     return this;
   }
 

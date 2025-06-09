@@ -30,21 +30,21 @@ package com.google.api.services.connectors.v1.model;
 public final class EndPoint extends com.google.api.client.json.GenericJson {
 
   /**
-   * The URI of the Endpoint.
+   * Optional. The URI of the Endpoint.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String endpointUri;
 
   /**
-   * List of Header to be added to the Endpoint.
+   * Optional. List of Header to be added to the Endpoint.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<Header> headers;
 
   /**
-   * The URI of the Endpoint.
+   * Optional. The URI of the Endpoint.
    * @return value or {@code null} for none
    */
   public java.lang.String getEndpointUri() {
@@ -52,7 +52,7 @@ public final class EndPoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The URI of the Endpoint.
+   * Optional. The URI of the Endpoint.
    * @param endpointUri endpointUri or {@code null} for none
    */
   public EndPoint setEndpointUri(java.lang.String endpointUri) {
@@ -61,7 +61,7 @@ public final class EndPoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * List of Header to be added to the Endpoint.
+   * Optional. List of Header to be added to the Endpoint.
    * @return value or {@code null} for none
    */
   public java.util.List<Header> getHeaders() {
@@ -69,7 +69,7 @@ public final class EndPoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * List of Header to be added to the Endpoint.
+   * Optional. List of Header to be added to the Endpoint.
    * @param headers headers or {@code null} for none
    */
   public EndPoint setHeaders(java.util.List<Header> headers) {

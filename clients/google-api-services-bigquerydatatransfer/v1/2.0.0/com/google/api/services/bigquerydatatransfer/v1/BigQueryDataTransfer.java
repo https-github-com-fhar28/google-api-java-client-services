@@ -323,8 +323,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
        * optional parameters, call the {@link CheckValidCreds#execute()} method to invoke the remote
        * operation.
        *
-       * @param name Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-       *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+       * @param name Required. The name of the data source. If you are using the regionless method, the location must be
+       *        `US` and the name should be in the following form: *
+       *        `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
+       *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
        * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.CheckValidCredsRequest}
        * @return the request
        */
@@ -352,8 +355,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
          * the constructor. </p>
          *
-         * @param name Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-       *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+         * @param name Required. The name of the data source. If you are using the regionless method, the location must be
+       *        `US` and the name should be in the following form: *
+       *        `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
+       *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.CheckValidCredsRequest}
          * @since 1.13
          */
@@ -423,24 +429,31 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. The data source in the form:
-         * `projects/{project_id}/dataSources/{data_source_id}` or
-         * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+         * Required. The name of the data source. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
+         * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-       `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+        /** Required. The name of the data source. If you are using the regionless method, the location must be
+       `US` and the name should be in the following form: *
+       `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized method, the
+       name should be in the following form: *
+       `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          */
         public java.lang.String getName() {
           return name;
         }
 
         /**
-         * Required. The data source in the form:
-         * `projects/{project_id}/dataSources/{data_source_id}` or
-         * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+         * Required. The name of the data source. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
+         * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          */
         public CheckValidCreds setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
@@ -465,8 +478,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
        * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
        * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The field will contain name of the resource requested, for example:
-       *        `projects/{project_id}/dataSources/{data_source_id}` or
+       * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+       *        must be `US` and the name should be in the following form: *
+       *        `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
        *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
        * @return the request
        */
@@ -494,8 +509,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. The field will contain name of the resource requested, for example:
-       *        `projects/{project_id}/dataSources/{data_source_id}` or
+         * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+       *        must be `US` and the name should be in the following form: *
+       *        `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
        *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          * @since 1.13
          */
@@ -575,15 +592,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. The field will contain name of the resource requested, for example:
-         * `projects/{project_id}/dataSources/{data_source_id}` or
+         * Required. The name of the resource requested. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
          * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The field will contain name of the resource requested, for example:
-       `projects/{project_id}/dataSources/{data_source_id}` or
+        /** Required. The name of the resource requested. If you are using the regionless method, the location
+       must be `US` and the name should be in the following form: *
+       `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized method, the
+       name should be in the following form: *
        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          */
         public java.lang.String getName() {
@@ -591,8 +612,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. The field will contain name of the resource requested, for example:
-         * `projects/{project_id}/dataSources/{data_source_id}` or
+         * Required. The name of the resource requested. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
          * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          */
         public Get setName(java.lang.String name) {
@@ -1238,6 +1261,29 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -1474,8 +1520,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * optional parameters, call the {@link CheckValidCreds#execute()} method to invoke the remote
          * operation.
          *
-         * @param name Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-         *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+         * @param name Required. The name of the data source. If you are using the regionless method, the location must be
+         *        `US` and the name should be in the following form: *
+         *        `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
+         *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.CheckValidCredsRequest}
          * @return the request
          */
@@ -1503,8 +1552,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
            * the constructor. </p>
            *
-           * @param name Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-         *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+           * @param name Required. The name of the data source. If you are using the regionless method, the location must be
+         *        `US` and the name should be in the following form: *
+         *        `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
+         *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
            * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.CheckValidCredsRequest}
            * @since 1.13
            */
@@ -1574,24 +1626,31 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The data source in the form:
-           * `projects/{project_id}/dataSources/{data_source_id}` or
-           * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+           * Required. The name of the data source. If you are using the regionless method, the
+           * location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-         `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+          /** Required. The name of the data source. If you are using the regionless method, the location must be
+         `US` and the name should be in the following form: *
+         `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized method, the
+         name should be in the following form: *
+         `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
            */
           public java.lang.String getName() {
             return name;
           }
 
           /**
-           * Required. The data source in the form:
-           * `projects/{project_id}/dataSources/{data_source_id}` or
-           * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
+           * Required. The name of the data source. If you are using the regionless method, the
+           * location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
            */
           public CheckValidCreds setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -1616,8 +1675,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
          * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
          *
-         * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/dataSources/{data_source_id}` or
+         * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
          * @return the request
          */
@@ -1645,8 +1706,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/dataSources/{data_source_id}` or
+           * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
            * @since 1.13
            */
@@ -1726,15 +1789,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/dataSources/{data_source_id}` or
+           * Required. The name of the resource requested. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
            * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Required. The field will contain name of the resource requested, for example:
-         `projects/{project_id}/dataSources/{data_source_id}` or
+          /** Required. The name of the resource requested. If you are using the regionless method, the location
+         must be `US` and the name should be in the following form: *
+         `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized method, the
+         name should be in the following form: *
          `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
            */
           public java.lang.String getName() {
@@ -1742,8 +1809,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/dataSources/{data_source_id}` or
+           * Required. The name of the resource requested. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/dataSources/{data_source_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
            * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
            */
           public Get setName(java.lang.String name) {
@@ -2258,8 +2327,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
          * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
          *
-         * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
+         * @param name Required. The name of the resource to delete. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @return the request
          */
@@ -2287,8 +2358,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
+           * @param name Required. The name of the resource to delete. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            * @since 1.13
            */
@@ -2358,15 +2431,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
+           * Required. The name of the resource to delete. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
            * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Required. The field will contain name of the resource requested, for example:
-         `projects/{project_id}/transferConfigs/{config_id}` or
+          /** Required. The name of the resource to delete. If you are using the regionless method, the location
+         must be `US` and the name should be in the following form: *
+         `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized method, the
+         name should be in the following form: *
          `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public java.lang.String getName() {
@@ -2374,8 +2451,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
+           * Required. The name of the resource to delete. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
            * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public Delete setName(java.lang.String name) {
@@ -2401,8 +2480,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
          * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
          *
-         * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
+         * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @return the request
          */
@@ -2430,8 +2511,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
+           * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            * @since 1.13
            */
@@ -2511,15 +2594,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
+           * Required. The name of the resource requested. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
            * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Required. The field will contain name of the resource requested, for example:
-         `projects/{project_id}/transferConfigs/{config_id}` or
+          /** Required. The name of the resource requested. If you are using the regionless method, the location
+         must be `US` and the name should be in the following form: *
+         `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized method, the
+         name should be in the following form: *
          `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public java.lang.String getName() {
@@ -2527,8 +2614,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
+           * Required. The name of the resource requested. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
            * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public Get setName(java.lang.String name) {
@@ -2554,8 +2643,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
          * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
-         * @param parent Required. The BigQuery project id for which transfer configs should be returned:
-         *        `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+         * @param parent Required. The BigQuery project id for which transfer configs should be returned. If you are using
+         *        the regionless method, the location must be `US` and `parent` should be in the following
+         *        form: * `projects/{project_id} If you are using the regionalized method, `parent` should
+         *        be in the following form: * `projects/{project_id}/locations/{location_id}`
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -2582,8 +2673,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param parent Required. The BigQuery project id for which transfer configs should be returned:
-         *        `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+           * @param parent Required. The BigQuery project id for which transfer configs should be returned. If you are using
+         *        the regionless method, the location must be `US` and `parent` should be in the following
+         *        form: * `projects/{project_id} If you are using the regionalized method, `parent` should
+         *        be in the following form: * `projects/{project_id}/locations/{location_id}`
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -2662,22 +2755,30 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The BigQuery project id for which transfer configs should be returned:
-           * `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+           * Required. The BigQuery project id for which transfer configs should be returned. If you
+           * are using the regionless method, the location must be `US` and `parent` should be in
+           * the following form: * `projects/{project_id} If you are using the regionalized method,
+           * `parent` should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** Required. The BigQuery project id for which transfer configs should be returned:
-         `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+          /** Required. The BigQuery project id for which transfer configs should be returned. If you are using
+         the regionless method, the location must be `US` and `parent` should be in the following form: *
+         `projects/{project_id} If you are using the regionalized method, `parent` should be in the
+         following form: * `projects/{project_id}/locations/{location_id}`
            */
           public java.lang.String getParent() {
             return parent;
           }
 
           /**
-           * Required. The BigQuery project id for which transfer configs should be returned:
-           * `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+           * Required. The BigQuery project id for which transfer configs should be returned. If you
+           * are using the regionless method, the location must be `US` and `parent` should be in
+           * the following form: * `projects/{project_id} If you are using the regionalized method,
+           * `parent` should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}`
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -3061,9 +3162,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * optional parameters, call the {@link ScheduleRuns#execute()} method to invoke the remote
          * operation.
          *
-         * @param parent Required. Transfer configuration name in the form:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
-         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * @param parent Required. Transfer configuration name. If you are using the regionless method, the location must be
+         *        `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
+         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.ScheduleTransferRunsRequest}
          * @return the request
          */
@@ -3094,9 +3197,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * ScheduleRuns#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
            * must be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param parent Required. Transfer configuration name in the form:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
-         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * @param parent Required. Transfer configuration name. If you are using the regionless method, the location must be
+         *        `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
+         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.ScheduleTransferRunsRequest}
            * @since 1.13
            */
@@ -3166,25 +3271,31 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. Transfer configuration name in the form:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
-           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * Required. Transfer configuration name. If you are using the regionless method, the
+           * location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** Required. Transfer configuration name in the form:
-         `projects/{project_id}/transferConfigs/{config_id}` or
-         `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+          /** Required. Transfer configuration name. If you are using the regionless method, the location must be
+         `US` and the name should be in the following form: *
+         `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized method, the
+         name should be in the following form: *
+         `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public java.lang.String getParent() {
             return parent;
           }
 
           /**
-           * Required. Transfer configuration name in the form:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
-           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * Required. Transfer configuration name. If you are using the regionless method, the
+           * location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public ScheduleRuns setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -3202,9 +3313,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
         }
         /**
-         * Start manual transfer runs to be executed now with schedule_time equal to current time. The
-         * transfer runs can be created for a time range where the run_time is between start_time
-         * (inclusive) and end_time (exclusive), or for a specific run_time.
+         * Manually initiates transfer runs. You can schedule these runs in two ways: 1. For a specific
+         * point in time using the 'requested_run_time' parameter. 2. For a period between 'start_time'
+         * (inclusive) and 'end_time' (exclusive). If scheduling a single run, it is set to execute
+         * immediately (schedule_time equals the current time). When scheduling multiple runs within a time
+         * range, the first run starts now, and subsequent runs are delayed by 15 seconds each.
          *
          * Create a request for the method "transferConfigs.startManualRuns".
          *
@@ -3212,9 +3325,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * optional parameters, call the {@link StartManualRuns#execute()} method to invoke the remote
          * operation.
          *
-         * @param parent Required. Transfer configuration name in the form:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
-         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * @param parent Required. Transfer configuration name. If you are using the regionless method, the location must be
+         *        `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
+         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.StartManualTransferRunsRequest}
          * @return the request
          */
@@ -3232,9 +3347,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
               java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/transferConfigs/[^/]+$");
 
           /**
-           * Start manual transfer runs to be executed now with schedule_time equal to current time. The
-           * transfer runs can be created for a time range where the run_time is between start_time
-           * (inclusive) and end_time (exclusive), or for a specific run_time.
+           * Manually initiates transfer runs. You can schedule these runs in two ways: 1. For a specific
+           * point in time using the 'requested_run_time' parameter. 2. For a period between 'start_time'
+           * (inclusive) and 'end_time' (exclusive). If scheduling a single run, it is set to execute
+           * immediately (schedule_time equals the current time). When scheduling multiple runs within a
+           * time range, the first run starts now, and subsequent runs are delayed by 15 seconds each.
            *
            * Create a request for the method "transferConfigs.startManualRuns".
            *
@@ -3244,9 +3361,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
            * the constructor. </p>
            *
-           * @param parent Required. Transfer configuration name in the form:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
-         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * @param parent Required. Transfer configuration name. If you are using the regionless method, the location must be
+         *        `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         *        method, the name should be in the following form: *
+         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.StartManualTransferRunsRequest}
            * @since 1.13
            */
@@ -3316,25 +3435,31 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. Transfer configuration name in the form:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
-           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * Required. Transfer configuration name. If you are using the regionless method, the
+           * location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** Required. Transfer configuration name in the form:
-         `projects/{project_id}/transferConfigs/{config_id}` or
-         `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+          /** Required. Transfer configuration name. If you are using the regionless method, the location must be
+         `US` and the name should be in the following form: *
+         `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized method, the
+         name should be in the following form: *
+         `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public java.lang.String getParent() {
             return parent;
           }
 
           /**
-           * Required. Transfer configuration name in the form:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
-           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * Required. Transfer configuration name. If you are using the regionless method, the
+           * location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           * method, the name should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public StartManualRuns setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -3380,8 +3505,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
            * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
            *
-           * @param name Required. The field will contain name of the resource requested, for example:
-           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+           * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+           *        must be `US` and the name should be in the following form: *
+           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           *        regionalized method, the name should be in the following form: *
            *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            * @return the request
            */
@@ -3409,8 +3536,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
              * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
              * be called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param name Required. The field will contain name of the resource requested, for example:
-           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+             * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+           *        must be `US` and the name should be in the following form: *
+           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           *        regionalized method, the name should be in the following form: *
            *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              * @since 1.13
              */
@@ -3480,15 +3609,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
             }
 
             /**
-             * Required. The field will contain name of the resource requested, for example:
-             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{proje
+             * Required. The name of the resource requested. If you are using the regionless method,
+             * the location must be `US` and the name should be in the following form: *
+             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using
+             * the regionalized method, the name should be in the following form: * `projects/{proje
              * ct_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
-            /** Required. The field will contain name of the resource requested, for example:
-           `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+            /** Required. The name of the resource requested. If you are using the regionless method, the location
+           must be `US` and the name should be in the following form: *
+           `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the regionalized
+           method, the name should be in the following form: *
            `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             public java.lang.String getName() {
@@ -3496,8 +3629,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
             }
 
             /**
-             * Required. The field will contain name of the resource requested, for example:
-             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{proje
+             * Required. The name of the resource requested. If you are using the regionless method,
+             * the location must be `US` and the name should be in the following form: *
+             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using
+             * the regionalized method, the name should be in the following form: * `projects/{proje
              * ct_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             public Delete setName(java.lang.String name) {
@@ -3523,8 +3658,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
            * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
            *
-           * @param name Required. The field will contain name of the resource requested, for example:
-           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+           * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+           *        must be `US` and the name should be in the following form: *
+           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           *        regionalized method, the name should be in the following form: *
            *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            * @return the request
            */
@@ -3552,8 +3689,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
              * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
              * called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param name Required. The field will contain name of the resource requested, for example:
-           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+             * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+           *        must be `US` and the name should be in the following form: *
+           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           *        regionalized method, the name should be in the following form: *
            *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              * @since 1.13
              */
@@ -3633,15 +3772,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
             }
 
             /**
-             * Required. The field will contain name of the resource requested, for example:
-             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{proje
+             * Required. The name of the resource requested. If you are using the regionless method,
+             * the location must be `US` and the name should be in the following form: *
+             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using
+             * the regionalized method, the name should be in the following form: * `projects/{proje
              * ct_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
-            /** Required. The field will contain name of the resource requested, for example:
-           `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+            /** Required. The name of the resource requested. If you are using the regionless method, the location
+           must be `US` and the name should be in the following form: *
+           `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the regionalized
+           method, the name should be in the following form: *
            `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             public java.lang.String getName() {
@@ -3649,8 +3792,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
             }
 
             /**
-             * Required. The field will contain name of the resource requested, for example:
-             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{proje
+             * Required. The name of the resource requested. If you are using the regionless method,
+             * the location must be `US` and the name should be in the following form: *
+             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using
+             * the regionalized method, the name should be in the following form: * `projects/{proje
              * ct_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             public Get setName(java.lang.String name) {
@@ -3676,10 +3821,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
            * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
            *
-           * @param parent Required. Name of transfer configuration for which transfer runs should be retrieved. Format of
-           *        transfer configuration resource name is:
-           *        `projects/{project_id}/transferConfigs/{config_id}` or
-           *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * @param parent Required. Name of transfer configuration for which transfer runs should be retrieved. If you are
+           *        using the regionless method, the location must be `US` and the name should be in the
+           *        following form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using the
+           *        regionalized method, the name should be in the following form: *
+           *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            * @return the request
            */
           public List list(java.lang.String parent) throws java.io.IOException {
@@ -3706,10 +3852,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
              * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
              * called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param parent Required. Name of transfer configuration for which transfer runs should be retrieved. Format of
-           *        transfer configuration resource name is:
-           *        `projects/{project_id}/transferConfigs/{config_id}` or
-           *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+             * @param parent Required. Name of transfer configuration for which transfer runs should be retrieved. If you are
+           *        using the regionless method, the location must be `US` and the name should be in the
+           *        following form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using the
+           *        regionalized method, the name should be in the following form: *
+           *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
              * @since 1.13
              */
             protected List(java.lang.String parent) {
@@ -3789,16 +3936,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
 
             /**
              * Required. Name of transfer configuration for which transfer runs should be retrieved.
-             * Format of transfer configuration resource name is:
-             * `projects/{project_id}/transferConfigs/{config_id}` or
-             * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+             * If you are using the regionless method, the location must be `US` and the name should
+             * be in the following form: * `projects/{project_id}/transferConfigs/{config_id}` If
+             * you are using the regionalized method, the name should be in the following form: *
+             * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
-            /** Required. Name of transfer configuration for which transfer runs should be retrieved. Format of
-           transfer configuration resource name is: `projects/{project_id}/transferConfigs/{config_id}` or
-           `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+            /** Required. Name of transfer configuration for which transfer runs should be retrieved. If you are
+           using the regionless method, the location must be `US` and the name should be in the following
+           form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+           method, the name should be in the following form: *
+           `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
              */
             public java.lang.String getParent() {
               return parent;
@@ -3806,9 +3956,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
 
             /**
              * Required. Name of transfer configuration for which transfer runs should be retrieved.
-             * Format of transfer configuration resource name is:
-             * `projects/{project_id}/transferConfigs/{config_id}` or
-             * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+             * If you are using the regionless method, the location must be `US` and the name should
+             * be in the following form: * `projects/{project_id}/transferConfigs/{config_id}` If
+             * you are using the regionalized method, the name should be in the following form: *
+             * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
              */
             public List setParent(java.lang.String parent) {
               if (!getSuppressPatternChecks()) {
@@ -3930,8 +4081,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
              * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
              * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
              *
-             * @param parent Required. Transfer run name in the form:
-             *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+             * @param parent Required. Transfer run name. If you are using the regionless method, the location must be `US` and
+             *        the name should be in the following form: *
+             *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+             *        regionalized method, the name should be in the following form: *
              *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              * @return the request
              */
@@ -3959,8 +4112,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
                * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
                * called to initialize this instance immediately after invoking the constructor. </p>
                *
-               * @param parent Required. Transfer run name in the form:
-             *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+               * @param parent Required. Transfer run name. If you are using the regionless method, the location must be `US` and
+             *        the name should be in the following form: *
+             *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+             *        regionalized method, the name should be in the following form: *
              *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
                * @since 1.13
                */
@@ -4040,15 +4195,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
               }
 
               /**
-               * Required. Transfer run name in the form:
-               * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{pro
+               * Required. Transfer run name. If you are using the regionless method, the location
+               * must be `US` and the name should be in the following form: *
+               * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using
+               * the regionalized method, the name should be in the following form: * `projects/{pro
                * ject_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
                */
               @com.google.api.client.util.Key
               private java.lang.String parent;
 
-              /** Required. Transfer run name in the form:
-             `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+              /** Required. Transfer run name. If you are using the regionless method, the location must be `US` and
+             the name should be in the following form: *
+             `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the regionalized
+             method, the name should be in the following form: *
              `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
                */
               public java.lang.String getParent() {
@@ -4056,8 +4215,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
               }
 
               /**
-               * Required. Transfer run name in the form:
-               * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{pro
+               * Required. Transfer run name. If you are using the regionless method, the location
+               * must be `US` and the name should be in the following form: *
+               * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using
+               * the regionalized method, the name should be in the following form: * `projects/{pro
                * ject_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
                */
               public List setParent(java.lang.String parent) {
@@ -4449,8 +4610,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
        * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
        * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The field will contain name of the resource requested, for example:
-       *        `projects/{project_id}/transferConfigs/{config_id}` or
+       * @param name Required. The name of the resource to delete. If you are using the regionless method, the location
+       *        must be `US` and the name should be in the following form: *
+       *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
        *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
        * @return the request
        */
@@ -4478,8 +4641,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. The field will contain name of the resource requested, for example:
-       *        `projects/{project_id}/transferConfigs/{config_id}` or
+         * @param name Required. The name of the resource to delete. If you are using the regionless method, the location
+       *        must be `US` and the name should be in the following form: *
+       *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
        *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @since 1.13
          */
@@ -4549,15 +4714,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. The field will contain name of the resource requested, for example:
-         * `projects/{project_id}/transferConfigs/{config_id}` or
+         * Required. The name of the resource to delete. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
          * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The field will contain name of the resource requested, for example:
-       `projects/{project_id}/transferConfigs/{config_id}` or
+        /** Required. The name of the resource to delete. If you are using the regionless method, the location
+       must be `US` and the name should be in the following form: *
+       `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized method, the
+       name should be in the following form: *
        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         public java.lang.String getName() {
@@ -4565,8 +4734,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. The field will contain name of the resource requested, for example:
-         * `projects/{project_id}/transferConfigs/{config_id}` or
+         * Required. The name of the resource to delete. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
          * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         public Delete setName(java.lang.String name) {
@@ -4592,8 +4763,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
        * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
        * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The field will contain name of the resource requested, for example:
-       *        `projects/{project_id}/transferConfigs/{config_id}` or
+       * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+       *        must be `US` and the name should be in the following form: *
+       *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
        *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
        * @return the request
        */
@@ -4621,8 +4794,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. The field will contain name of the resource requested, for example:
-       *        `projects/{project_id}/transferConfigs/{config_id}` or
+         * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+       *        must be `US` and the name should be in the following form: *
+       *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
        *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @since 1.13
          */
@@ -4702,15 +4877,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. The field will contain name of the resource requested, for example:
-         * `projects/{project_id}/transferConfigs/{config_id}` or
+         * Required. The name of the resource requested. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
          * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The field will contain name of the resource requested, for example:
-       `projects/{project_id}/transferConfigs/{config_id}` or
+        /** Required. The name of the resource requested. If you are using the regionless method, the location
+       must be `US` and the name should be in the following form: *
+       `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized method, the
+       name should be in the following form: *
        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         public java.lang.String getName() {
@@ -4718,8 +4897,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. The field will contain name of the resource requested, for example:
-         * `projects/{project_id}/transferConfigs/{config_id}` or
+         * Required. The name of the resource requested. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
          * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         public Get setName(java.lang.String name) {
@@ -4745,8 +4926,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
        * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
        * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
        *
-       * @param parent Required. The BigQuery project id for which transfer configs should be returned:
-       *        `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+       * @param parent Required. The BigQuery project id for which transfer configs should be returned. If you are using
+       *        the regionless method, the location must be `US` and `parent` should be in the following
+       *        form: * `projects/{project_id} If you are using the regionalized method, `parent` should
+       *        be in the following form: * `projects/{project_id}/locations/{location_id}`
        * @return the request
        */
       public List list(java.lang.String parent) throws java.io.IOException {
@@ -4773,8 +4956,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. The BigQuery project id for which transfer configs should be returned:
-       *        `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+         * @param parent Required. The BigQuery project id for which transfer configs should be returned. If you are using
+       *        the regionless method, the location must be `US` and `parent` should be in the following
+       *        form: * `projects/{project_id} If you are using the regionalized method, `parent` should
+       *        be in the following form: * `projects/{project_id}/locations/{location_id}`
          * @since 1.13
          */
         protected List(java.lang.String parent) {
@@ -4853,22 +5038,30 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. The BigQuery project id for which transfer configs should be returned:
-         * `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+         * Required. The BigQuery project id for which transfer configs should be returned. If you
+         * are using the regionless method, the location must be `US` and `parent` should be in the
+         * following form: * `projects/{project_id} If you are using the regionalized method,
+         * `parent` should be in the following form: *
+         * `projects/{project_id}/locations/{location_id}`
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. The BigQuery project id for which transfer configs should be returned:
-       `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+        /** Required. The BigQuery project id for which transfer configs should be returned. If you are using
+       the regionless method, the location must be `US` and `parent` should be in the following form: *
+       `projects/{project_id} If you are using the regionalized method, `parent` should be in the
+       following form: * `projects/{project_id}/locations/{location_id}`
          */
         public java.lang.String getParent() {
           return parent;
         }
 
         /**
-         * Required. The BigQuery project id for which transfer configs should be returned:
-         * `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+         * Required. The BigQuery project id for which transfer configs should be returned. If you
+         * are using the regionless method, the location must be `US` and `parent` should be in the
+         * following form: * `projects/{project_id} If you are using the regionalized method,
+         * `parent` should be in the following form: *
+         * `projects/{project_id}/locations/{location_id}`
          */
         public List setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -5252,9 +5445,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
        * optional parameters, call the {@link ScheduleRuns#execute()} method to invoke the remote
        * operation.
        *
-       * @param parent Required. Transfer configuration name in the form:
-       *        `projects/{project_id}/transferConfigs/{config_id}` or
-       *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+       * @param parent Required. Transfer configuration name. If you are using the regionless method, the location must be
+       *        `US` and the name should be in the following form: *
+       *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
+       *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
        * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.ScheduleTransferRunsRequest}
        * @return the request
        */
@@ -5285,9 +5480,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * ScheduleRuns#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
          * must be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. Transfer configuration name in the form:
-       *        `projects/{project_id}/transferConfigs/{config_id}` or
-       *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * @param parent Required. Transfer configuration name. If you are using the regionless method, the location must be
+       *        `US` and the name should be in the following form: *
+       *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
+       *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.ScheduleTransferRunsRequest}
          * @since 1.13
          */
@@ -5357,25 +5554,31 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. Transfer configuration name in the form:
-         * `projects/{project_id}/transferConfigs/{config_id}` or
-         * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * Required. Transfer configuration name. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
+         * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. Transfer configuration name in the form:
-       `projects/{project_id}/transferConfigs/{config_id}` or
-       `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+        /** Required. Transfer configuration name. If you are using the regionless method, the location must be
+       `US` and the name should be in the following form: *
+       `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized method, the
+       name should be in the following form: *
+       `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         public java.lang.String getParent() {
           return parent;
         }
 
         /**
-         * Required. Transfer configuration name in the form:
-         * `projects/{project_id}/transferConfigs/{config_id}` or
-         * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * Required. Transfer configuration name. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
+         * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         public ScheduleRuns setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -5393,9 +5596,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
       }
       /**
-       * Start manual transfer runs to be executed now with schedule_time equal to current time. The
-       * transfer runs can be created for a time range where the run_time is between start_time
-       * (inclusive) and end_time (exclusive), or for a specific run_time.
+       * Manually initiates transfer runs. You can schedule these runs in two ways: 1. For a specific
+       * point in time using the 'requested_run_time' parameter. 2. For a period between 'start_time'
+       * (inclusive) and 'end_time' (exclusive). If scheduling a single run, it is set to execute
+       * immediately (schedule_time equals the current time). When scheduling multiple runs within a time
+       * range, the first run starts now, and subsequent runs are delayed by 15 seconds each.
        *
        * Create a request for the method "transferConfigs.startManualRuns".
        *
@@ -5403,9 +5608,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
        * optional parameters, call the {@link StartManualRuns#execute()} method to invoke the remote
        * operation.
        *
-       * @param parent Required. Transfer configuration name in the form:
-       *        `projects/{project_id}/transferConfigs/{config_id}` or
-       *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+       * @param parent Required. Transfer configuration name. If you are using the regionless method, the location must be
+       *        `US` and the name should be in the following form: *
+       *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
+       *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
        * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.StartManualTransferRunsRequest}
        * @return the request
        */
@@ -5423,9 +5630,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
             java.util.regex.Pattern.compile("^projects/[^/]+/transferConfigs/[^/]+$");
 
         /**
-         * Start manual transfer runs to be executed now with schedule_time equal to current time. The
-         * transfer runs can be created for a time range where the run_time is between start_time
-         * (inclusive) and end_time (exclusive), or for a specific run_time.
+         * Manually initiates transfer runs. You can schedule these runs in two ways: 1. For a specific
+         * point in time using the 'requested_run_time' parameter. 2. For a period between 'start_time'
+         * (inclusive) and 'end_time' (exclusive). If scheduling a single run, it is set to execute
+         * immediately (schedule_time equals the current time). When scheduling multiple runs within a
+         * time range, the first run starts now, and subsequent runs are delayed by 15 seconds each.
          *
          * Create a request for the method "transferConfigs.startManualRuns".
          *
@@ -5435,9 +5644,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
          * the constructor. </p>
          *
-         * @param parent Required. Transfer configuration name in the form:
-       *        `projects/{project_id}/transferConfigs/{config_id}` or
-       *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * @param parent Required. Transfer configuration name. If you are using the regionless method, the location must be
+       *        `US` and the name should be in the following form: *
+       *        `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+       *        method, the name should be in the following form: *
+       *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @param content the {@link com.google.api.services.bigquerydatatransfer.v1.model.StartManualTransferRunsRequest}
          * @since 1.13
          */
@@ -5507,25 +5718,31 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
         }
 
         /**
-         * Required. Transfer configuration name in the form:
-         * `projects/{project_id}/transferConfigs/{config_id}` or
-         * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * Required. Transfer configuration name. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
+         * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. Transfer configuration name in the form:
-       `projects/{project_id}/transferConfigs/{config_id}` or
-       `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+        /** Required. Transfer configuration name. If you are using the regionless method, the location must be
+       `US` and the name should be in the following form: *
+       `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized method, the
+       name should be in the following form: *
+       `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         public java.lang.String getParent() {
           return parent;
         }
 
         /**
-         * Required. Transfer configuration name in the form:
-         * `projects/{project_id}/transferConfigs/{config_id}` or
-         * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * Required. Transfer configuration name. If you are using the regionless method, the
+         * location must be `US` and the name should be in the following form: *
+         * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         * method, the name should be in the following form: *
+         * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          */
         public StartManualRuns setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
@@ -5571,8 +5788,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
          * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
          *
-         * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+         * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+         *        regionalized method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
          * @return the request
          */
@@ -5600,8 +5819,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+           * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+         *        regionalized method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            * @since 1.13
            */
@@ -5671,15 +5892,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{project
-           * _id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
+           * Required. The name of the resource requested. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           * regionalized method, the name should be in the following form: * `projects/{project_id}
+           * /locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Required. The field will contain name of the resource requested, for example:
-         `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+          /** Required. The name of the resource requested. If you are using the regionless method, the location
+         must be `US` and the name should be in the following form: *
+         `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the regionalized
+         method, the name should be in the following form: *
          `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            */
           public java.lang.String getName() {
@@ -5687,9 +5912,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{project
-           * _id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
+           * Required. The name of the resource requested. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           * regionalized method, the name should be in the following form: * `projects/{project_id}
+           * /locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            */
           public Delete setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -5714,8 +5941,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
          * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
          *
-         * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+         * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+         *        regionalized method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
          * @return the request
          */
@@ -5743,8 +5972,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Required. The field will contain name of the resource requested, for example:
-         *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+           * @param name Required. The name of the resource requested. If you are using the regionless method, the location
+         *        must be `US` and the name should be in the following form: *
+         *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+         *        regionalized method, the name should be in the following form: *
          *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            * @since 1.13
            */
@@ -5824,15 +6055,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{project
-           * _id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
+           * Required. The name of the resource requested. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           * regionalized method, the name should be in the following form: * `projects/{project_id}
+           * /locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Required. The field will contain name of the resource requested, for example:
-         `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+          /** Required. The name of the resource requested. If you are using the regionless method, the location
+         must be `US` and the name should be in the following form: *
+         `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the regionalized
+         method, the name should be in the following form: *
          `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            */
           public java.lang.String getName() {
@@ -5840,9 +6075,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
           }
 
           /**
-           * Required. The field will contain name of the resource requested, for example:
-           * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{project
-           * _id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
+           * Required. The name of the resource requested. If you are using the regionless method,
+           * the location must be `US` and the name should be in the following form: *
+           * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           * regionalized method, the name should be in the following form: * `projects/{project_id}
+           * /locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            */
           public Get setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -5867,10 +6104,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
          * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
          * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
          *
-         * @param parent Required. Name of transfer configuration for which transfer runs should be retrieved. Format of
-         *        transfer configuration resource name is:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
-         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+         * @param parent Required. Name of transfer configuration for which transfer runs should be retrieved. If you are
+         *        using the regionless method, the location must be `US` and the name should be in the
+         *        following form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using the
+         *        regionalized method, the name should be in the following form: *
+         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
          * @return the request
          */
         public List list(java.lang.String parent) throws java.io.IOException {
@@ -5897,10 +6135,11 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
            * called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param parent Required. Name of transfer configuration for which transfer runs should be retrieved. Format of
-         *        transfer configuration resource name is:
-         *        `projects/{project_id}/transferConfigs/{config_id}` or
-         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * @param parent Required. Name of transfer configuration for which transfer runs should be retrieved. If you are
+         *        using the regionless method, the location must be `US` and the name should be in the
+         *        following form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using the
+         *        regionalized method, the name should be in the following form: *
+         *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            * @since 1.13
            */
           protected List(java.lang.String parent) {
@@ -5980,16 +6219,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
 
           /**
            * Required. Name of transfer configuration for which transfer runs should be retrieved.
-           * Format of transfer configuration resource name is:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
-           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * If you are using the regionless method, the location must be `US` and the name should
+           * be in the following form: * `projects/{project_id}/transferConfigs/{config_id}` If you
+           * are using the regionalized method, the name should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** Required. Name of transfer configuration for which transfer runs should be retrieved. Format of
-         transfer configuration resource name is: `projects/{project_id}/transferConfigs/{config_id}` or
-         `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+          /** Required. Name of transfer configuration for which transfer runs should be retrieved. If you are
+         using the regionless method, the location must be `US` and the name should be in the following
+         form: * `projects/{project_id}/transferConfigs/{config_id}` If you are using the regionalized
+         method, the name should be in the following form: *
+         `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public java.lang.String getParent() {
             return parent;
@@ -5997,9 +6239,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
 
           /**
            * Required. Name of transfer configuration for which transfer runs should be retrieved.
-           * Format of transfer configuration resource name is:
-           * `projects/{project_id}/transferConfigs/{config_id}` or
-           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
+           * If you are using the regionless method, the location must be `US` and the name should
+           * be in the following form: * `projects/{project_id}/transferConfigs/{config_id}` If you
+           * are using the regionalized method, the name should be in the following form: *
+           * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
            */
           public List setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
@@ -6121,8 +6364,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
            * This request holds the parameters needed by the bigquerydatatransfer server.  After setting any
            * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
            *
-           * @param parent Required. Transfer run name in the form:
-           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+           * @param parent Required. Transfer run name. If you are using the regionless method, the location must be `US` and
+           *        the name should be in the following form: *
+           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           *        regionalized method, the name should be in the following form: *
            *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
            * @return the request
            */
@@ -6150,8 +6395,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
              * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
              * called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param parent Required. Transfer run name in the form:
-           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+             * @param parent Required. Transfer run name. If you are using the regionless method, the location must be `US` and
+           *        the name should be in the following form: *
+           *        `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the
+           *        regionalized method, the name should be in the following form: *
            *        `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              * @since 1.13
              */
@@ -6231,15 +6478,19 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
             }
 
             /**
-             * Required. Transfer run name in the form:
-             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{proje
+             * Required. Transfer run name. If you are using the regionless method, the location
+             * must be `US` and the name should be in the following form: *
+             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using
+             * the regionalized method, the name should be in the following form: * `projects/{proje
              * ct_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             @com.google.api.client.util.Key
             private java.lang.String parent;
 
-            /** Required. Transfer run name in the form:
-           `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+            /** Required. Transfer run name. If you are using the regionless method, the location must be `US` and
+           the name should be in the following form: *
+           `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using the regionalized
+           method, the name should be in the following form: *
            `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             public java.lang.String getParent() {
@@ -6247,8 +6498,10 @@ public class BigQueryDataTransfer extends com.google.api.client.googleapis.servi
             }
 
             /**
-             * Required. Transfer run name in the form:
-             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or `projects/{proje
+             * Required. Transfer run name. If you are using the regionless method, the location
+             * must be `US` and the name should be in the following form: *
+             * `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` If you are using
+             * the regionalized method, the name should be in the following form: * `projects/{proje
              * ct_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
              */
             public List setParent(java.lang.String parent) {

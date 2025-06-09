@@ -18,9 +18,11 @@ package com.google.api.services.drive.model;
 
 /**
  * A permission for a file. A permission grants a user, group, domain, or the world access to a file
- * or a folder hierarchy. Some resource methods (such as `permissions.update`) require a
- * `permissionId`. Use the `permissions.list` method to retrieve the ID for a file, folder, or
- * shared drive.
+ * or a folder hierarchy. By default, permissions requests only return a subset of fields.
+ * Permission kind, ID, type, and role are always returned. To retrieve specific fields, see
+ * https://developers.google.com/workspace/drive/api/guides/fields-parameter. Some resource methods
+ * (such as `permissions.update`) require a `permissionId`. Use the `permissions.list` method to
+ * retrieve the ID for a file, folder, or shared drive.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Google Drive API. For a detailed explanation see:
@@ -91,6 +93,14 @@ public final class Permission extends com.google.api.client.json.GenericJson {
   private java.lang.String id;
 
   /**
+   * When true, only organizers, owners, and users with permissions added directly on the item can
+   * access it.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean inheritedPermissionsDisabled;
+
+  /**
    * Output only. Identifies what kind of resource this is. Value: the fixed string
    * `"drive#permission"`.
    * The value may be {@code null}.
@@ -107,9 +117,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean pendingOwner;
 
   /**
-   * Output only. Details of whether the permissions on this shared drive item are inherited or
-   * directly on this item. This is an output-only field which is present only for shared drive
-   * items.
+   * Output only. Details of whether the permissions on this item are inherited or directly on this
+   * item.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -162,7 +171,10 @@ public final class Permission extends com.google.api.client.json.GenericJson {
 
   /**
    * Indicates the view for this permission. Only populated for permissions that belong to a view.
-   * 'published' is the only supported value.
+   * published and metadata are the only supported values. - published: The permission's role is
+   * published_reader. - metadata: The item is only visible to the metadata view because the item
+   * has limited access and the scope has at least read access to the parent. Note: The metadata
+   * view is currently only supported on folders.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -306,6 +318,25 @@ public final class Permission extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * When true, only organizers, owners, and users with permissions added directly on the item can
+   * access it.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getInheritedPermissionsDisabled() {
+    return inheritedPermissionsDisabled;
+  }
+
+  /**
+   * When true, only organizers, owners, and users with permissions added directly on the item can
+   * access it.
+   * @param inheritedPermissionsDisabled inheritedPermissionsDisabled or {@code null} for none
+   */
+  public Permission setInheritedPermissionsDisabled(java.lang.Boolean inheritedPermissionsDisabled) {
+    this.inheritedPermissionsDisabled = inheritedPermissionsDisabled;
+    return this;
+  }
+
+  /**
    * Output only. Identifies what kind of resource this is. Value: the fixed string
    * `"drive#permission"`.
    * @return value or {@code null} for none
@@ -344,9 +375,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. Details of whether the permissions on this shared drive item are inherited or
-   * directly on this item. This is an output-only field which is present only for shared drive
-   * items.
+   * Output only. Details of whether the permissions on this item are inherited or directly on this
+   * item.
    * @return value or {@code null} for none
    */
   public java.util.List<PermissionDetails> getPermissionDetails() {
@@ -354,9 +384,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. Details of whether the permissions on this shared drive item are inherited or
-   * directly on this item. This is an output-only field which is present only for shared drive
-   * items.
+   * Output only. Details of whether the permissions on this item are inherited or directly on this
+   * item.
    * @param permissionDetails permissionDetails or {@code null} for none
    */
   public Permission setPermissionDetails(java.util.List<PermissionDetails> permissionDetails) {
@@ -444,7 +473,10 @@ public final class Permission extends com.google.api.client.json.GenericJson {
 
   /**
    * Indicates the view for this permission. Only populated for permissions that belong to a view.
-   * 'published' is the only supported value.
+   * published and metadata are the only supported values. - published: The permission's role is
+   * published_reader. - metadata: The item is only visible to the metadata view because the item
+   * has limited access and the scope has at least read access to the parent. Note: The metadata
+   * view is currently only supported on folders.
    * @return value or {@code null} for none
    */
   public java.lang.String getView() {
@@ -453,7 +485,10 @@ public final class Permission extends com.google.api.client.json.GenericJson {
 
   /**
    * Indicates the view for this permission. Only populated for permissions that belong to a view.
-   * 'published' is the only supported value.
+   * published and metadata are the only supported values. - published: The permission's role is
+   * published_reader. - metadata: The item is only visible to the metadata view because the item
+   * has limited access and the scope has at least read access to the parent. Note: The metadata
+   * view is currently only supported on folders.
    * @param view view or {@code null} for none
    */
   public Permission setView(java.lang.String view) {
@@ -485,8 +520,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
     private java.lang.Boolean inherited;
 
     /**
-     * Output only. The ID of the item from which this permission is inherited. This is an output-only
-     * field.
+     * Output only. The ID of the item from which this permission is inherited. This is only populated
+     * for items in shared drives.
      * The value may be {@code null}.
      */
     @com.google.api.client.util.Key
@@ -502,8 +537,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
 
     /**
      * Output only. The primary role for this user. While new values may be added in the future, the
-     * following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `commenter` *
-     * `reader`
+     * following are currently possible: * `owner` * `organizer` * `fileOrganizer` * `writer` *
+     * `commenter` * `reader`
      * The value may be {@code null}.
      */
     @com.google.api.client.util.Key
@@ -529,8 +564,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
     }
 
     /**
-     * Output only. The ID of the item from which this permission is inherited. This is an output-only
-     * field.
+     * Output only. The ID of the item from which this permission is inherited. This is only populated
+     * for items in shared drives.
      * @return value or {@code null} for none
      */
     public java.lang.String getInheritedFrom() {
@@ -538,8 +573,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
     }
 
     /**
-     * Output only. The ID of the item from which this permission is inherited. This is an output-only
-     * field.
+     * Output only. The ID of the item from which this permission is inherited. This is only populated
+     * for items in shared drives.
      * @param inheritedFrom inheritedFrom or {@code null} for none
      */
     public PermissionDetails setInheritedFrom(java.lang.String inheritedFrom) {
@@ -568,8 +603,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
 
     /**
      * Output only. The primary role for this user. While new values may be added in the future, the
-     * following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `commenter` *
-     * `reader`
+     * following are currently possible: * `owner` * `organizer` * `fileOrganizer` * `writer` *
+     * `commenter` * `reader`
      * @return value or {@code null} for none
      */
     public java.lang.String getRole() {
@@ -578,8 +613,8 @@ public final class Permission extends com.google.api.client.json.GenericJson {
 
     /**
      * Output only. The primary role for this user. While new values may be added in the future, the
-     * following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `commenter` *
-     * `reader`
+     * following are currently possible: * `owner` * `organizer` * `fileOrganizer` * `writer` *
+     * `commenter` * `reader`
      * @param role role or {@code null} for none
      */
     public PermissionDetails setRole(java.lang.String role) {

@@ -30,6 +30,27 @@ package com.google.api.services.aiplatform.v1.model;
 public final class CloudAiLargeModelsVisionVideo extends com.google.api.client.json.GenericJson {
 
   /**
+   * Base 64 encoded video bytes.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String encodedVideo;
+
+  /**
+   * Video encoding, for example "video/mp4".
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String encoding;
+
+  /**
+   * Text/Expanded text input for Help Me Write.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String text;
+
+  /**
    * Path to another storage (typically Google Cloud Storage).
    * The value may be {@code null}.
    */
@@ -42,6 +63,57 @@ public final class CloudAiLargeModelsVisionVideo extends com.google.api.client.j
    */
   @com.google.api.client.util.Key
   private java.lang.String video;
+
+  /**
+   * Base 64 encoded video bytes.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEncodedVideo() {
+    return encodedVideo;
+  }
+
+  /**
+   * Base 64 encoded video bytes.
+   * @param encodedVideo encodedVideo or {@code null} for none
+   */
+  public CloudAiLargeModelsVisionVideo setEncodedVideo(java.lang.String encodedVideo) {
+    this.encodedVideo = encodedVideo;
+    return this;
+  }
+
+  /**
+   * Video encoding, for example "video/mp4".
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEncoding() {
+    return encoding;
+  }
+
+  /**
+   * Video encoding, for example "video/mp4".
+   * @param encoding encoding or {@code null} for none
+   */
+  public CloudAiLargeModelsVisionVideo setEncoding(java.lang.String encoding) {
+    this.encoding = encoding;
+    return this;
+  }
+
+  /**
+   * Text/Expanded text input for Help Me Write.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getText() {
+    return text;
+  }
+
+  /**
+   * Text/Expanded text input for Help Me Write.
+   * @param text text or {@code null} for none
+   */
+  public CloudAiLargeModelsVisionVideo setText(java.lang.String text) {
+    this.text = text;
+    return this;
+  }
 
   /**
    * Path to another storage (typically Google Cloud Storage).

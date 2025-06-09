@@ -590,6 +590,29 @@ public class CloudTasks extends com.google.api.client.googleapis.services.json.A
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -3527,13 +3550,11 @@ public class CloudTasks extends com.google.api.client.googleapis.services.json.A
            * Forces a task to run now. When this method is called, Cloud Tasks will dispatch the task, even if
            * the task is already running, the queue has reached its RateLimits or is PAUSED. This command is
            * meant to be used for manual debugging. For example, RunTask can be used to retry a failed task
-           * after a fix has been made or to manually force a task to be dispatched now. The dispatched task
-           * is returned. That is, the task that is returned contains the status after the task is dispatched
-           * but before the task is received by its target. If Cloud Tasks receives a successful response from
-           * the task's target, then the task will be deleted; otherwise the task's schedule_time will be
-           * reset to the time that RunTask was called plus the retry delay specified in the queue's
-           * RetryConfig. RunTask returns NOT_FOUND when it is called on a task that has already succeeded or
-           * permanently failed.
+           * after a fix has been made or to manually force a task to be dispatched now. If Cloud Tasks
+           * receives a successful response from the task's target, then the task will be deleted; otherwise
+           * the task's schedule_time will be reset to the time that RunTask was called plus the retry delay
+           * specified in the queue's RetryConfig. RunTask returns NOT_FOUND when it is called on a task that
+           * has already succeeded or permanently failed.
            *
            * Create a request for the method "tasks.run".
            *
@@ -3562,13 +3583,11 @@ public class CloudTasks extends com.google.api.client.googleapis.services.json.A
              * Forces a task to run now. When this method is called, Cloud Tasks will dispatch the task, even
              * if the task is already running, the queue has reached its RateLimits or is PAUSED. This command
              * is meant to be used for manual debugging. For example, RunTask can be used to retry a failed
-             * task after a fix has been made or to manually force a task to be dispatched now. The dispatched
-             * task is returned. That is, the task that is returned contains the status after the task is
-             * dispatched but before the task is received by its target. If Cloud Tasks receives a successful
-             * response from the task's target, then the task will be deleted; otherwise the task's
-             * schedule_time will be reset to the time that RunTask was called plus the retry delay specified
-             * in the queue's RetryConfig. RunTask returns NOT_FOUND when it is called on a task that has
-             * already succeeded or permanently failed.
+             * task after a fix has been made or to manually force a task to be dispatched now. If Cloud Tasks
+             * receives a successful response from the task's target, then the task will be deleted; otherwise
+             * the task's schedule_time will be reset to the time that RunTask was called plus the retry delay
+             * specified in the queue's RetryConfig. RunTask returns NOT_FOUND when it is called on a task
+             * that has already succeeded or permanently failed.
              *
              * Create a request for the method "tasks.run".
              *

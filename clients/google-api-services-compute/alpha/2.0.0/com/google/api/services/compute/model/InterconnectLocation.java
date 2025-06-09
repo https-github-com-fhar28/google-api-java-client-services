@@ -50,7 +50,7 @@ public final class InterconnectLocation extends com.google.api.client.json.Gener
 
   /**
    * [Output only] List of features available at this InterconnectLocation, which can take one of
-   * the following values: - MACSEC
+   * the following values: - IF_MACSEC
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -58,7 +58,8 @@ public final class InterconnectLocation extends com.google.api.client.json.Gener
 
   /**
    * [Output only] List of link types available at this InterconnectLocation, which can take one of
-   * the following values: - LINK_TYPE_ETHERNET_10G_LR - LINK_TYPE_ETHERNET_100G_LR
+   * the following values: - LINK_TYPE_ETHERNET_10G_LR - LINK_TYPE_ETHERNET_100G_LR -
+   * LINK_TYPE_ETHERNET_400G_LR4
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -86,6 +87,15 @@ public final class InterconnectLocation extends com.google.api.client.json.Gener
    */
   @com.google.api.client.util.Key
   private java.lang.String creationTimestamp;
+
+  /**
+   * [Output Only] A list of InterconnectLocation.CrossSiteInterconnectInfo objects, that describe
+   * where Cross-Site Interconnect wires may connect to from this location and associated connection
+   * parameters. Cross-Site Interconnect isn't allowed to locations which are not listed.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<InterconnectLocationCrossSiteInterconnectInfo> crossSiteInterconnectInfos;
 
   /**
    * [Output Only] An optional description of the resource.
@@ -219,7 +229,7 @@ public final class InterconnectLocation extends com.google.api.client.json.Gener
 
   /**
    * [Output only] List of features available at this InterconnectLocation, which can take one of
-   * the following values: - MACSEC
+   * the following values: - IF_MACSEC
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getAvailableFeatures() {
@@ -228,7 +238,7 @@ public final class InterconnectLocation extends com.google.api.client.json.Gener
 
   /**
    * [Output only] List of features available at this InterconnectLocation, which can take one of
-   * the following values: - MACSEC
+   * the following values: - IF_MACSEC
    * @param availableFeatures availableFeatures or {@code null} for none
    */
   public InterconnectLocation setAvailableFeatures(java.util.List<java.lang.String> availableFeatures) {
@@ -238,7 +248,8 @@ public final class InterconnectLocation extends com.google.api.client.json.Gener
 
   /**
    * [Output only] List of link types available at this InterconnectLocation, which can take one of
-   * the following values: - LINK_TYPE_ETHERNET_10G_LR - LINK_TYPE_ETHERNET_100G_LR
+   * the following values: - LINK_TYPE_ETHERNET_10G_LR - LINK_TYPE_ETHERNET_100G_LR -
+   * LINK_TYPE_ETHERNET_400G_LR4
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getAvailableLinkTypes() {
@@ -247,7 +258,8 @@ public final class InterconnectLocation extends com.google.api.client.json.Gener
 
   /**
    * [Output only] List of link types available at this InterconnectLocation, which can take one of
-   * the following values: - LINK_TYPE_ETHERNET_10G_LR - LINK_TYPE_ETHERNET_100G_LR
+   * the following values: - LINK_TYPE_ETHERNET_10G_LR - LINK_TYPE_ETHERNET_100G_LR -
+   * LINK_TYPE_ETHERNET_400G_LR4
    * @param availableLinkTypes availableLinkTypes or {@code null} for none
    */
   public InterconnectLocation setAvailableLinkTypes(java.util.List<java.lang.String> availableLinkTypes) {
@@ -307,6 +319,27 @@ public final class InterconnectLocation extends com.google.api.client.json.Gener
    */
   public InterconnectLocation setCreationTimestamp(java.lang.String creationTimestamp) {
     this.creationTimestamp = creationTimestamp;
+    return this;
+  }
+
+  /**
+   * [Output Only] A list of InterconnectLocation.CrossSiteInterconnectInfo objects, that describe
+   * where Cross-Site Interconnect wires may connect to from this location and associated connection
+   * parameters. Cross-Site Interconnect isn't allowed to locations which are not listed.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<InterconnectLocationCrossSiteInterconnectInfo> getCrossSiteInterconnectInfos() {
+    return crossSiteInterconnectInfos;
+  }
+
+  /**
+   * [Output Only] A list of InterconnectLocation.CrossSiteInterconnectInfo objects, that describe
+   * where Cross-Site Interconnect wires may connect to from this location and associated connection
+   * parameters. Cross-Site Interconnect isn't allowed to locations which are not listed.
+   * @param crossSiteInterconnectInfos crossSiteInterconnectInfos or {@code null} for none
+   */
+  public InterconnectLocation setCrossSiteInterconnectInfos(java.util.List<InterconnectLocationCrossSiteInterconnectInfo> crossSiteInterconnectInfos) {
+    this.crossSiteInterconnectInfos = crossSiteInterconnectInfos;
     return this;
   }
 

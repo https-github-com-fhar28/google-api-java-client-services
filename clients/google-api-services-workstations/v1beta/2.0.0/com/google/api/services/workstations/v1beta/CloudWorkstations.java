@@ -199,7 +199,7 @@ public class CloudWorkstations extends com.google.api.client.googleapis.services
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -230,7 +230,7 @@ public class CloudWorkstations extends com.google.api.client.googleapis.services
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -1457,6 +1457,29 @@ public class CloudWorkstations extends com.google.api.client.googleapis.services
             return this;
           }
 
+          /**
+           * Optional. Filter the WorkstationClusters to be listed. Possible filters are described
+           * in https://google.aip.dev/160.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. Filter the WorkstationClusters to be listed. Possible filters are described in
+         https://google.aip.dev/160.
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. Filter the WorkstationClusters to be listed. Possible filters are described
+           * in https://google.aip.dev/160.
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
+            return this;
+          }
+
           /** Optional. Maximum number of items to return. */
           @com.google.api.client.util.Key
           private java.lang.Integer pageSize;
@@ -2550,6 +2573,29 @@ public class CloudWorkstations extends com.google.api.client.googleapis.services
               return this;
             }
 
+            /**
+             * Optional. Filter the WorkstationConfigs to be listed. Possible filters are described
+             * in https://google.aip.dev/160.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String filter;
+
+            /** Optional. Filter the WorkstationConfigs to be listed. Possible filters are described in
+           https://google.aip.dev/160.
+             */
+            public java.lang.String getFilter() {
+              return filter;
+            }
+
+            /**
+             * Optional. Filter the WorkstationConfigs to be listed. Possible filters are described
+             * in https://google.aip.dev/160.
+             */
+            public List setFilter(java.lang.String filter) {
+              this.filter = filter;
+              return this;
+            }
+
             /** Optional. Maximum number of items to return. */
             @com.google.api.client.util.Key
             private java.lang.Integer pageSize;
@@ -3622,7 +3668,8 @@ public class CloudWorkstations extends com.google.api.client.googleapis.services
             }
             /**
              * Returns a short-lived credential that can be used to send authenticated and authorized traffic to
-             * a workstation.
+             * a workstation. Once generated this token cannot be revoked and is good for the lifetime of the
+             * token.
              *
              * Create a request for the method "workstations.generateAccessToken".
              *
@@ -3648,7 +3695,8 @@ public class CloudWorkstations extends com.google.api.client.googleapis.services
 
               /**
                * Returns a short-lived credential that can be used to send authenticated and authorized traffic
-               * to a workstation.
+               * to a workstation. Once generated this token cannot be revoked and is good for the lifetime of
+               * the token.
                *
                * Create a request for the method "workstations.generateAccessToken".
                *
@@ -4225,6 +4273,29 @@ public class CloudWorkstations extends com.google.api.client.googleapis.services
                       "^projects/[^/]+/locations/[^/]+/workstationClusters/[^/]+/workstationConfigs/[^/]+$");
                 }
                 this.parent = parent;
+                return this;
+              }
+
+              /**
+               * Optional. Filter the Workstations to be listed. Possible filters are described in
+               * https://google.aip.dev/160.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String filter;
+
+              /** Optional. Filter the Workstations to be listed. Possible filters are described in
+             https://google.aip.dev/160.
+               */
+              public java.lang.String getFilter() {
+                return filter;
+              }
+
+              /**
+               * Optional. Filter the Workstations to be listed. Possible filters are described in
+               * https://google.aip.dev/160.
+               */
+              public List setFilter(java.lang.String filter) {
+                this.filter = filter;
                 return this;
               }
 

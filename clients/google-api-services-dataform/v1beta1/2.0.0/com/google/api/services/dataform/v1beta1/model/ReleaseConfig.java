@@ -61,6 +61,14 @@ public final class ReleaseConfig extends com.google.api.client.json.GenericJson 
   private java.lang.String gitCommitish;
 
   /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String internalMetadata;
+
+  /**
    * Identifier. The release config's name.
    * The value may be {@code null}.
    */
@@ -68,7 +76,7 @@ public final class ReleaseConfig extends com.google.api.client.json.GenericJson 
   private java.lang.String name;
 
   /**
-   * Output only. Records of the 10 most recent scheduled release attempts, ordered in in descending
+   * Output only. Records of the 10 most recent scheduled release attempts, ordered in descending
    * order of `release_time`. Updated whenever automatic creation of a compilation result is
    * triggered by cron_schedule.
    * The value may be {@code null}.
@@ -172,6 +180,25 @@ public final class ReleaseConfig extends com.google.api.client.json.GenericJson 
   }
 
   /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getInternalMetadata() {
+    return internalMetadata;
+  }
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * @param internalMetadata internalMetadata or {@code null} for none
+   */
+  public ReleaseConfig setInternalMetadata(java.lang.String internalMetadata) {
+    this.internalMetadata = internalMetadata;
+    return this;
+  }
+
+  /**
    * Identifier. The release config's name.
    * @return value or {@code null} for none
    */
@@ -189,7 +216,7 @@ public final class ReleaseConfig extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Output only. Records of the 10 most recent scheduled release attempts, ordered in in descending
+   * Output only. Records of the 10 most recent scheduled release attempts, ordered in descending
    * order of `release_time`. Updated whenever automatic creation of a compilation result is
    * triggered by cron_schedule.
    * @return value or {@code null} for none
@@ -199,7 +226,7 @@ public final class ReleaseConfig extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Output only. Records of the 10 most recent scheduled release attempts, ordered in in descending
+   * Output only. Records of the 10 most recent scheduled release attempts, ordered in descending
    * order of `release_time`. Updated whenever automatic creation of a compilation result is
    * triggered by cron_schedule.
    * @param recentScheduledReleaseRecords recentScheduledReleaseRecords or {@code null} for none

@@ -32,7 +32,7 @@ package com.google.api.services.compute.model;
 public final class Interconnect extends com.google.api.client.json.GenericJson {
 
   /**
-   * Enable or disable the Application Aware Interconnect(AAI) feature on this interconnect.
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -48,8 +48,7 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean adminEnabled;
 
   /**
-   * Configuration for enabling Application Aware Interconnect (AAI) on this Cloud Interconnect
-   * connection between Google and your on-premises router.
+   * Configuration information for application awareness on this Cloud Interconnect.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -133,6 +132,14 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   private java.util.List<java.lang.String> interconnectAttachments;
 
   /**
+   * [Output Only] URLs of InterconnectGroups that include this Interconnect. Order is arbitrary and
+   * items are unique.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> interconnectGroups;
+
+  /**
    * Type of interconnect, which can take one of the following values: - PARTNER: A partner-managed
    * interconnection shared between customers though a partner. - DEDICATED: A dedicated physical
    * interconnection with the customer. Note that a value IT_PRIVATE has been deprecated in favor of
@@ -172,8 +179,9 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   /**
    * Type of link requested, which can take one of the following values: -
    * LINK_TYPE_ETHERNET_10G_LR: A 10G Ethernet with LR optics - LINK_TYPE_ETHERNET_100G_LR: A 100G
-   * Ethernet with LR optics. Note that this field indicates the speed of each of the links in the
-   * bundle, not the speed of the entire bundle.
+   * Ethernet with LR optics. - LINK_TYPE_ETHERNET_400G_LR4: A 400G Ethernet with LR4 optics. Note
+   * that this field indicates the speed of each of the links in the bundle, not the speed of the
+   * entire bundle.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -313,7 +321,15 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   private java.lang.String state;
 
   /**
-   * Enable or disable the Application Aware Interconnect(AAI) feature on this interconnect.
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> wireGroups;
+
+  /**
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAaiEnabled() {
@@ -321,7 +337,7 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Enable or disable the Application Aware Interconnect(AAI) feature on this interconnect.
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
    * @param aaiEnabled aaiEnabled or {@code null} for none
    */
   public Interconnect setAaiEnabled(java.lang.Boolean aaiEnabled) {
@@ -351,8 +367,7 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Configuration for enabling Application Aware Interconnect (AAI) on this Cloud Interconnect
-   * connection between Google and your on-premises router.
+   * Configuration information for application awareness on this Cloud Interconnect.
    * @return value or {@code null} for none
    */
   public InterconnectApplicationAwareInterconnect getApplicationAwareInterconnect() {
@@ -360,8 +375,7 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Configuration for enabling Application Aware Interconnect (AAI) on this Cloud Interconnect
-   * connection between Google and your on-premises router.
+   * Configuration information for application awareness on this Cloud Interconnect.
    * @param applicationAwareInterconnect applicationAwareInterconnect or {@code null} for none
    */
   public Interconnect setApplicationAwareInterconnect(InterconnectApplicationAwareInterconnect applicationAwareInterconnect) {
@@ -554,6 +568,25 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * [Output Only] URLs of InterconnectGroups that include this Interconnect. Order is arbitrary and
+   * items are unique.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getInterconnectGroups() {
+    return interconnectGroups;
+  }
+
+  /**
+   * [Output Only] URLs of InterconnectGroups that include this Interconnect. Order is arbitrary and
+   * items are unique.
+   * @param interconnectGroups interconnectGroups or {@code null} for none
+   */
+  public Interconnect setInterconnectGroups(java.util.List<java.lang.String> interconnectGroups) {
+    this.interconnectGroups = interconnectGroups;
+    return this;
+  }
+
+  /**
    * Type of interconnect, which can take one of the following values: - PARTNER: A partner-managed
    * interconnection shared between customers though a partner. - DEDICATED: A dedicated physical
    * interconnection with the customer. Note that a value IT_PRIVATE has been deprecated in favor of
@@ -680,8 +713,9 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   /**
    * Type of link requested, which can take one of the following values: -
    * LINK_TYPE_ETHERNET_10G_LR: A 10G Ethernet with LR optics - LINK_TYPE_ETHERNET_100G_LR: A 100G
-   * Ethernet with LR optics. Note that this field indicates the speed of each of the links in the
-   * bundle, not the speed of the entire bundle.
+   * Ethernet with LR optics. - LINK_TYPE_ETHERNET_400G_LR4: A 400G Ethernet with LR4 optics. Note
+   * that this field indicates the speed of each of the links in the bundle, not the speed of the
+   * entire bundle.
    * @return value or {@code null} for none
    */
   public java.lang.String getLinkType() {
@@ -691,8 +725,9 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   /**
    * Type of link requested, which can take one of the following values: -
    * LINK_TYPE_ETHERNET_10G_LR: A 10G Ethernet with LR optics - LINK_TYPE_ETHERNET_100G_LR: A 100G
-   * Ethernet with LR optics. Note that this field indicates the speed of each of the links in the
-   * bundle, not the speed of the entire bundle.
+   * Ethernet with LR optics. - LINK_TYPE_ETHERNET_400G_LR4: A 400G Ethernet with LR4 optics. Note
+   * that this field indicates the speed of each of the links in the bundle, not the speed of the
+   * entire bundle.
    * @param linkType linkType or {@code null} for none
    */
   public Interconnect setLinkType(java.lang.String linkType) {
@@ -1008,6 +1043,25 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
    */
   public Interconnect setState(java.lang.String state) {
     this.state = state;
+    return this;
+  }
+
+  /**
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getWireGroups() {
+    return wireGroups;
+  }
+
+  /**
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * @param wireGroups wireGroups or {@code null} for none
+   */
+  public Interconnect setWireGroups(java.util.List<java.lang.String> wireGroups) {
+    this.wireGroups = wireGroups;
     return this;
   }
 

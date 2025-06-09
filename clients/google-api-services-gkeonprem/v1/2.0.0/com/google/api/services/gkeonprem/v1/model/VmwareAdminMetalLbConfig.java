@@ -21,7 +21,7 @@ package com.google.api.services.gkeonprem.v1.model;
  * admin clusters, currently no configurations is needed.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
- * transmitted over HTTP when working with the GDC Virtual API. For a detailed explanation see:
+ * transmitted over HTTP when working with the GKE On-Prem API. For a detailed explanation see:
  * <a href="https://developers.google.com/api-client-library/java/google-http-java-client/json">https://developers.google.com/api-client-library/java/google-http-java-client/json</a>
  * </p>
  *
@@ -29,6 +29,30 @@ package com.google.api.services.gkeonprem.v1.model;
  */
 @SuppressWarnings("javadoc")
 public final class VmwareAdminMetalLbConfig extends com.google.api.client.json.GenericJson {
+
+  /**
+   * Whether MetalLB is enabled.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean enabled;
+
+  /**
+   * Whether MetalLB is enabled.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEnabled() {
+    return enabled;
+  }
+
+  /**
+   * Whether MetalLB is enabled.
+   * @param enabled enabled or {@code null} for none
+   */
+  public VmwareAdminMetalLbConfig setEnabled(java.lang.Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
 
   @Override
   public VmwareAdminMetalLbConfig set(String fieldName, Object value) {

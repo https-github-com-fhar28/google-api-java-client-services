@@ -171,8 +171,7 @@ public final class NetworkInterface extends com.google.api.client.json.GenericJs
   private java.lang.String nicType;
 
   /**
-   * Name of the parent network interface of a VLAN based nic. If this field is specified, vlan must
-   * be set.
+   * Name of the parent network interface of a dynamic network interface.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -218,8 +217,8 @@ public final class NetworkInterface extends com.google.api.client.json.GenericJs
   private java.lang.String subnetwork;
 
   /**
-   * VLAN tag of a VLAN based network interface, must be in range from 2 to 4094 inclusively. This
-   * field is mandatory if the parent network interface name is set.
+   * VLAN tag of a dynamic network interface, must be an integer in the range from 2 to 255
+   * inclusively.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -548,8 +547,7 @@ public final class NetworkInterface extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Name of the parent network interface of a VLAN based nic. If this field is specified, vlan must
-   * be set.
+   * Name of the parent network interface of a dynamic network interface.
    * @return value or {@code null} for none
    */
   public java.lang.String getParentNicName() {
@@ -557,8 +555,7 @@ public final class NetworkInterface extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * Name of the parent network interface of a VLAN based nic. If this field is specified, vlan must
-   * be set.
+   * Name of the parent network interface of a dynamic network interface.
    * @param parentNicName parentNicName or {@code null} for none
    */
   public NetworkInterface setParentNicName(java.lang.String parentNicName) {
@@ -657,8 +654,8 @@ public final class NetworkInterface extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * VLAN tag of a VLAN based network interface, must be in range from 2 to 4094 inclusively. This
-   * field is mandatory if the parent network interface name is set.
+   * VLAN tag of a dynamic network interface, must be an integer in the range from 2 to 255
+   * inclusively.
    * @return value or {@code null} for none
    */
   public java.lang.Integer getVlan() {
@@ -666,8 +663,8 @@ public final class NetworkInterface extends com.google.api.client.json.GenericJs
   }
 
   /**
-   * VLAN tag of a VLAN based network interface, must be in range from 2 to 4094 inclusively. This
-   * field is mandatory if the parent network interface name is set.
+   * VLAN tag of a dynamic network interface, must be an integer in the range from 2 to 255
+   * inclusively.
    * @param vlan vlan or {@code null} for none
    */
   public NetworkInterface setVlan(java.lang.Integer vlan) {

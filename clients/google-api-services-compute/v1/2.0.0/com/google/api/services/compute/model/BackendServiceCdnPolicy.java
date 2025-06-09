@@ -55,7 +55,8 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
    * private, per-user (user identifiable) content. CACHE_ALL_STATIC Automatically cache static
    * content, including common image formats, media (video and audio), and web assets (JavaScript
    * and CSS). Requests and responses that are marked as uncacheable, as well as dynamic content
-   * (including HTML), will not be cached.
+   * (including HTML), will not be cached. If no value is provided for cdnPolicy.cacheMode, it
+   * defaults to CACHE_ALL_STATIC.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -77,7 +78,7 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
 
   /**
    * Specifies the default TTL for cached content served by this origin for responses that do not
-   * have an existing valid TTL (max-age or s-max-age). Setting a TTL of "0" means "always
+   * have an existing valid TTL (max-age or s-maxage). Setting a TTL of "0" means "always
    * revalidate". The value of defaultTTL cannot be set to a value greater than that of maxTTL, but
    * can be equal. When the cacheMode is set to FORCE_CACHE_ALL, the defaultTTL will overwrite the
    * TTL set in all responses. The maximum allowed value is 31,622,400s (1 year), noting that
@@ -142,7 +143,7 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
    * "max-stale" duration for any cached responses that do not specify a max-stale directive. Stale
    * responses that exceed the TTL configured here will not be served. The default limit (max-stale)
    * is 86400s (1 day), which will allow stale content to be served up to this limit beyond the max-
-   * age (or s-max-age) of a cached response. The maximum allowed value is 604800 (1 week). Set this
+   * age (or s-maxage) of a cached response. The maximum allowed value is 604800 (1 week). Set this
    * to zero (0) to disable serve-while-stale.
    * The value may be {@code null}.
    */
@@ -216,7 +217,8 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
    * private, per-user (user identifiable) content. CACHE_ALL_STATIC Automatically cache static
    * content, including common image formats, media (video and audio), and web assets (JavaScript
    * and CSS). Requests and responses that are marked as uncacheable, as well as dynamic content
-   * (including HTML), will not be cached.
+   * (including HTML), will not be cached. If no value is provided for cdnPolicy.cacheMode, it
+   * defaults to CACHE_ALL_STATIC.
    * @return value or {@code null} for none
    */
   public java.lang.String getCacheMode() {
@@ -233,7 +235,8 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
    * private, per-user (user identifiable) content. CACHE_ALL_STATIC Automatically cache static
    * content, including common image formats, media (video and audio), and web assets (JavaScript
    * and CSS). Requests and responses that are marked as uncacheable, as well as dynamic content
-   * (including HTML), will not be cached.
+   * (including HTML), will not be cached. If no value is provided for cdnPolicy.cacheMode, it
+   * defaults to CACHE_ALL_STATIC.
    * @param cacheMode cacheMode or {@code null} for none
    */
   public BackendServiceCdnPolicy setCacheMode(java.lang.String cacheMode) {
@@ -274,7 +277,7 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
 
   /**
    * Specifies the default TTL for cached content served by this origin for responses that do not
-   * have an existing valid TTL (max-age or s-max-age). Setting a TTL of "0" means "always
+   * have an existing valid TTL (max-age or s-maxage). Setting a TTL of "0" means "always
    * revalidate". The value of defaultTTL cannot be set to a value greater than that of maxTTL, but
    * can be equal. When the cacheMode is set to FORCE_CACHE_ALL, the defaultTTL will overwrite the
    * TTL set in all responses. The maximum allowed value is 31,622,400s (1 year), noting that
@@ -287,7 +290,7 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
 
   /**
    * Specifies the default TTL for cached content served by this origin for responses that do not
-   * have an existing valid TTL (max-age or s-max-age). Setting a TTL of "0" means "always
+   * have an existing valid TTL (max-age or s-maxage). Setting a TTL of "0" means "always
    * revalidate". The value of defaultTTL cannot be set to a value greater than that of maxTTL, but
    * can be equal. When the cacheMode is set to FORCE_CACHE_ALL, the defaultTTL will overwrite the
    * TTL set in all responses. The maximum allowed value is 31,622,400s (1 year), noting that
@@ -415,7 +418,7 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
    * "max-stale" duration for any cached responses that do not specify a max-stale directive. Stale
    * responses that exceed the TTL configured here will not be served. The default limit (max-stale)
    * is 86400s (1 day), which will allow stale content to be served up to this limit beyond the max-
-   * age (or s-max-age) of a cached response. The maximum allowed value is 604800 (1 week). Set this
+   * age (or s-maxage) of a cached response. The maximum allowed value is 604800 (1 week). Set this
    * to zero (0) to disable serve-while-stale.
    * @return value or {@code null} for none
    */
@@ -429,7 +432,7 @@ public final class BackendServiceCdnPolicy extends com.google.api.client.json.Ge
    * "max-stale" duration for any cached responses that do not specify a max-stale directive. Stale
    * responses that exceed the TTL configured here will not be served. The default limit (max-stale)
    * is 86400s (1 day), which will allow stale content to be served up to this limit beyond the max-
-   * age (or s-max-age) of a cached response. The maximum allowed value is 604800 (1 week). Set this
+   * age (or s-maxage) of a cached response. The maximum allowed value is 604800 (1 week). Set this
    * to zero (0) to disable serve-while-stale.
    * @param serveWhileStale serveWhileStale or {@code null} for none
    */

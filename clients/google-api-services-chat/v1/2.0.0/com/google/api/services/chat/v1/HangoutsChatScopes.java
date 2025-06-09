@@ -53,6 +53,12 @@ public class HangoutsChatScopes {
   /** Private Service: https://www.googleapis.com/auth/chat.bot. */
   public static final String CHAT_BOT = "https://www.googleapis.com/auth/chat.bot";
 
+  /** View, create, and delete custom emoji in Google Chat. */
+  public static final String CHAT_CUSTOMEMOJIS = "https://www.googleapis.com/auth/chat.customemojis";
+
+  /** View custom emoji in Google Chat. */
+  public static final String CHAT_CUSTOMEMOJIS_READONLY = "https://www.googleapis.com/auth/chat.customemojis.readonly";
+
   /** Delete conversations and spaces and remove access to associated files in Google Chat. */
   public static final String CHAT_DELETE = "https://www.googleapis.com/auth/chat.delete";
 
@@ -68,22 +74,22 @@ public class HangoutsChatScopes {
   /** View members in Google Chat conversations.. */
   public static final String CHAT_MEMBERSHIPS_READONLY = "https://www.googleapis.com/auth/chat.memberships.readonly";
 
-  /** See, compose, send, update, and delete messages and their associated attachments, and add, see, and delete reactions to messages.. */
+  /** See, compose, send, update, and delete messages as well as their message content; add, see, and delete reactions to messages.. */
   public static final String CHAT_MESSAGES = "https://www.googleapis.com/auth/chat.messages";
 
   /** Compose and send messages in Google Chat. */
   public static final String CHAT_MESSAGES_CREATE = "https://www.googleapis.com/auth/chat.messages.create";
 
-  /** See, add, and delete reactions to messages in Google Chat. */
+  /** See, add, and delete reactions as well as their reaction content to messages in Google Chat. */
   public static final String CHAT_MESSAGES_REACTIONS = "https://www.googleapis.com/auth/chat.messages.reactions";
 
   /** Add reactions to messages in Google Chat. */
   public static final String CHAT_MESSAGES_REACTIONS_CREATE = "https://www.googleapis.com/auth/chat.messages.reactions.create";
 
-  /** View reactions to messages in Google Chat. */
+  /** View reactions as well as their reaction content to messages in Google Chat. */
   public static final String CHAT_MESSAGES_REACTIONS_READONLY = "https://www.googleapis.com/auth/chat.messages.reactions.readonly";
 
-  /** See messages and their associated reactions and attachments in Google Chat. */
+  /** See messages as well as their reactions and message content in Google Chat. */
   public static final String CHAT_MESSAGES_READONLY = "https://www.googleapis.com/auth/chat.messages.readonly";
 
   /** Create conversations and spaces and see or update metadata (including history settings and access settings) in Google Chat. */
@@ -100,6 +106,9 @@ public class HangoutsChatScopes {
 
   /** View last read time for Google Chat conversations. */
   public static final String CHAT_USERS_READSTATE_READONLY = "https://www.googleapis.com/auth/chat.users.readstate.readonly";
+
+  /** Read and update your space settings. */
+  public static final String CHAT_USERS_SPACESETTINGS = "https://www.googleapis.com/auth/chat.users.spacesettings";
 
   /**
    * Returns an unmodifiable set that contains all scopes declared by this class.
@@ -118,6 +127,8 @@ public class HangoutsChatScopes {
     set.add(CHAT_APP_SPACES);
     set.add(CHAT_APP_SPACES_CREATE);
     set.add(CHAT_BOT);
+    set.add(CHAT_CUSTOMEMOJIS);
+    set.add(CHAT_CUSTOMEMOJIS_READONLY);
     set.add(CHAT_DELETE);
     set.add(CHAT_IMPORT);
     set.add(CHAT_MEMBERSHIPS);
@@ -134,6 +145,7 @@ public class HangoutsChatScopes {
     set.add(CHAT_SPACES_READONLY);
     set.add(CHAT_USERS_READSTATE);
     set.add(CHAT_USERS_READSTATE_READONLY);
+    set.add(CHAT_USERS_SPACESETTINGS);
     return java.util.Collections.unmodifiableSet(set);
   }
 

@@ -46,6 +46,13 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   private java.lang.String backendType;
 
   /**
+   * Clears private network settings when the instance is restored.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean clearNetwork;
+
+  /**
    * Connection name of the Cloud SQL instance used in connection strings.
    * The value may be {@code null}.
    */
@@ -108,6 +115,13 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   private java.lang.String dnsName;
 
   /**
+   * Output only. The list of DNS names used by this instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<DnsNameMapping> dnsNames;
+
+  /**
    * This field is deprecated and will be removed from a future version of the API. Use the
    * `settings.settingsVersion` field instead.
    * The value may be {@code null}.
@@ -137,6 +151,14 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   @com.google.api.client.util.Key
   private GeminiInstanceConfig geminiConfig;
+
+  /**
+   * Input only. Determines whether an in-place major version upgrade of replicas happens when an
+   * in-place major version upgrade of a primary instance is initiated.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean includeReplicasForMajorVersionUpgrade;
 
   /**
    * The instance type.
@@ -196,6 +218,20 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   private java.lang.String name;
 
   /**
+   * The number of read pool nodes in a read pool.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer nodeCount;
+
+  /**
+   * Output only. Entries containing information about each read pool node of the read pool.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<PoolNodeConfig> nodes;
+
+  /**
    * Configuration specific to on-premises instances.
    * The value may be {@code null}.
    */
@@ -210,6 +246,13 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   @com.google.api.client.util.Key
   private SqlOutOfDiskReport outOfDiskReport;
+
+  /**
+   * Input only. PITR related fields added for Instance Independent PITR.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private PITRFields pitrFields;
 
   /**
    * Output only. DEPRECATED: please use write_endpoint instead.
@@ -260,7 +303,7 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   /**
    * Optional. A primary instance and disaster recovery (DR) replica pair. A DR replica is a cross-
    * region replica that you designate for failover in the event that the primary instance
-   * experiences regional failure. Only applicable to MySQL.
+   * experiences regional failure. Applicable to MySQL and PostgreSQL.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -363,6 +406,17 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   private java.lang.Boolean switchTransactionLogsToCloudStorageEnabled;
 
   /**
+   * Optional. Input only. Immutable. Tag keys and tag values that are bound to this instance. You
+   * must represent each item in the map as: `"" : ""`. For example, a single resource can have the
+   * following tags: ``` "123/environment": "production", "123/costCenter": "marketing", ``` For
+   * more information on tag creation and management, see https://cloud.google.com/resource-
+   * manager/docs/tags/tags-overview.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> tags;
+
+  /**
    * Output only. All database versions that are available for upgrade.
    * The value may be {@code null}.
    */
@@ -417,6 +471,23 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   public DatabaseInstance setBackendType(java.lang.String backendType) {
     this.backendType = backendType;
+    return this;
+  }
+
+  /**
+   * Clears private network settings when the instance is restored.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getClearNetwork() {
+    return clearNetwork;
+  }
+
+  /**
+   * Clears private network settings when the instance is restored.
+   * @param clearNetwork clearNetwork or {@code null} for none
+   */
+  public DatabaseInstance setClearNetwork(java.lang.Boolean clearNetwork) {
+    this.clearNetwork = clearNetwork;
     return this;
   }
 
@@ -569,6 +640,23 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   }
 
   /**
+   * Output only. The list of DNS names used by this instance.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<DnsNameMapping> getDnsNames() {
+    return dnsNames;
+  }
+
+  /**
+   * Output only. The list of DNS names used by this instance.
+   * @param dnsNames dnsNames or {@code null} for none
+   */
+  public DatabaseInstance setDnsNames(java.util.List<DnsNameMapping> dnsNames) {
+    this.dnsNames = dnsNames;
+    return this;
+  }
+
+  /**
    * This field is deprecated and will be removed from a future version of the API. Use the
    * `settings.settingsVersion` field instead.
    * @return value or {@code null} for none
@@ -639,6 +727,25 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   public DatabaseInstance setGeminiConfig(GeminiInstanceConfig geminiConfig) {
     this.geminiConfig = geminiConfig;
+    return this;
+  }
+
+  /**
+   * Input only. Determines whether an in-place major version upgrade of replicas happens when an
+   * in-place major version upgrade of a primary instance is initiated.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getIncludeReplicasForMajorVersionUpgrade() {
+    return includeReplicasForMajorVersionUpgrade;
+  }
+
+  /**
+   * Input only. Determines whether an in-place major version upgrade of replicas happens when an
+   * in-place major version upgrade of a primary instance is initiated.
+   * @param includeReplicasForMajorVersionUpgrade includeReplicasForMajorVersionUpgrade or {@code null} for none
+   */
+  public DatabaseInstance setIncludeReplicasForMajorVersionUpgrade(java.lang.Boolean includeReplicasForMajorVersionUpgrade) {
+    this.includeReplicasForMajorVersionUpgrade = includeReplicasForMajorVersionUpgrade;
     return this;
   }
 
@@ -781,6 +888,40 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   }
 
   /**
+   * The number of read pool nodes in a read pool.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getNodeCount() {
+    return nodeCount;
+  }
+
+  /**
+   * The number of read pool nodes in a read pool.
+   * @param nodeCount nodeCount or {@code null} for none
+   */
+  public DatabaseInstance setNodeCount(java.lang.Integer nodeCount) {
+    this.nodeCount = nodeCount;
+    return this;
+  }
+
+  /**
+   * Output only. Entries containing information about each read pool node of the read pool.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<PoolNodeConfig> getNodes() {
+    return nodes;
+  }
+
+  /**
+   * Output only. Entries containing information about each read pool node of the read pool.
+   * @param nodes nodes or {@code null} for none
+   */
+  public DatabaseInstance setNodes(java.util.List<PoolNodeConfig> nodes) {
+    this.nodes = nodes;
+    return this;
+  }
+
+  /**
    * Configuration specific to on-premises instances.
    * @return value or {@code null} for none
    */
@@ -815,6 +956,23 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   public DatabaseInstance setOutOfDiskReport(SqlOutOfDiskReport outOfDiskReport) {
     this.outOfDiskReport = outOfDiskReport;
+    return this;
+  }
+
+  /**
+   * Input only. PITR related fields added for Instance Independent PITR.
+   * @return value or {@code null} for none
+   */
+  public PITRFields getPitrFields() {
+    return pitrFields;
+  }
+
+  /**
+   * Input only. PITR related fields added for Instance Independent PITR.
+   * @param pitrFields pitrFields or {@code null} for none
+   */
+  public DatabaseInstance setPitrFields(PITRFields pitrFields) {
+    this.pitrFields = pitrFields;
     return this;
   }
 
@@ -931,7 +1089,7 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   /**
    * Optional. A primary instance and disaster recovery (DR) replica pair. A DR replica is a cross-
    * region replica that you designate for failover in the event that the primary instance
-   * experiences regional failure. Only applicable to MySQL.
+   * experiences regional failure. Applicable to MySQL and PostgreSQL.
    * @return value or {@code null} for none
    */
   public ReplicationCluster getReplicationCluster() {
@@ -941,7 +1099,7 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   /**
    * Optional. A primary instance and disaster recovery (DR) replica pair. A DR replica is a cross-
    * region replica that you designate for failover in the event that the primary instance
-   * experiences regional failure. Only applicable to MySQL.
+   * experiences regional failure. Applicable to MySQL and PostgreSQL.
    * @param replicationCluster replicationCluster or {@code null} for none
    */
   public DatabaseInstance setReplicationCluster(ReplicationCluster replicationCluster) {
@@ -1177,6 +1335,31 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   public DatabaseInstance setSwitchTransactionLogsToCloudStorageEnabled(java.lang.Boolean switchTransactionLogsToCloudStorageEnabled) {
     this.switchTransactionLogsToCloudStorageEnabled = switchTransactionLogsToCloudStorageEnabled;
+    return this;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys and tag values that are bound to this instance. You
+   * must represent each item in the map as: `"" : ""`. For example, a single resource can have the
+   * following tags: ``` "123/environment": "production", "123/costCenter": "marketing", ``` For
+   * more information on tag creation and management, see https://cloud.google.com/resource-
+   * manager/docs/tags/tags-overview.
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getTags() {
+    return tags;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys and tag values that are bound to this instance. You
+   * must represent each item in the map as: `"" : ""`. For example, a single resource can have the
+   * following tags: ``` "123/environment": "production", "123/costCenter": "marketing", ``` For
+   * more information on tag creation and management, see https://cloud.google.com/resource-
+   * manager/docs/tags/tags-overview.
+   * @param tags tags or {@code null} for none
+   */
+  public DatabaseInstance setTags(java.util.Map<String, java.lang.String> tags) {
+    this.tags = tags;
     return this;
   }
 

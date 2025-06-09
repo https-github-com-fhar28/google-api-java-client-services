@@ -37,7 +37,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.util.List<java.lang.String> additionalImageLinks;
 
   /**
-   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise.
+   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise. For more
+   * information, see [Display ads attribute](https://support.google.com/merchants/answer/6069387).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -73,17 +74,18 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String ageGroup;
 
   /**
-   * A safeguard in the "Automated Discounts" (https://support.google.com/merchants/answer/10295759)
+   * A safeguard in the [automated discounts] (https://support.google.com/merchants/answer/10295759)
    * and "Dynamic Promotions" (https://support.google.com/merchants/answer/13949249) projects,
-   * ensuring that discounts on merchants' offers do not fall below this value, thereby preserving
-   * the offer's value and profitability.
+   * ensuring that discounts on business offers do not fall below this value, thereby preserving the
+   * offer's value and profitability.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private Price autoPricingMinPrice;
 
   /**
-   * Availability status of the item.
+   * [Availability](https://support.google.com/merchants/answer/6324448) status of the item. For
+   * example, "in_stock" or "out_of_stock".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -98,7 +100,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private String availabilityDate;
 
   /**
-   * Brand of the item.
+   * [Brand](https://support.google.com/merchants/answer/6324351) of the item. For example,
+   * "Google".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -128,14 +131,15 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.util.List<CloudExportAdditionalProperties> cloudExportAdditionalProperties;
 
   /**
-   * Color of the item.
+   * [Color](https://support.google.com/merchants/answer/6324487) of the item. For example, "red".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String color;
 
   /**
-   * Condition or state of the item.
+   * [Condition](https://support.google.com/merchants/answer/6324469) or state of the item. For
+   * example, "new" or "used".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -149,35 +153,40 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private Price costOfGoodsSold;
 
   /**
-   * Custom label 0 for custom grouping of items in a Shopping campaign.
+   * [Custom label 0](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String customLabel0;
 
   /**
-   * Custom label 1 for custom grouping of items in a Shopping campaign.
+   * [Custom label 1](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String customLabel1;
 
   /**
-   * Custom label 2 for custom grouping of items in a Shopping campaign.
+   * [Custom label 2](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String customLabel2;
 
   /**
-   * Custom label 3 for custom grouping of items in a Shopping campaign.
+   * [Custom label 3](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String customLabel3;
 
   /**
-   * Custom label 4 for custom grouping of items in a Shopping campaign.
+   * [Custom label 4](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -192,8 +201,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The date time when an offer becomes visible in search results across Google’s YouTube surfaces,
-   * in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format. See [Disclosure date](
-   * https://support.google.com/merchants/answer/13034208) for more information.
+   * in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format. See [Disclosure
+   * date](https://support.google.com/merchants/answer/13034208) for more information.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -214,7 +223,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String displayAdsLink;
 
   /**
-   * Advertiser-specified recommendations.
+   * Advertiser-specified recommendations. For more information, see [Display ads attribute
+   * specification](https://support.google.com/merchants/answer/6069387).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -228,7 +238,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String displayAdsTitle;
 
   /**
-   * Offer margin for dynamic remarketing campaigns.
+   * Offer margin for dynamic remarketing campaigns. For more information, see [Display ads
+   * attribute](https://support.google.com/merchants/answer/6069387).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -243,7 +254,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The list of destinations to exclude for this target (corresponds to unchecked check boxes in
-   * Merchant Center).
+   * Merchant Center). For more information, see [Excluded
+   * destination](https://support.google.com/merchants/answer/6324486). Note: We recommend setting
+   * destinations on datasources level for most use cases. Use this field within products to only
+   * setup exceptions.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -276,7 +290,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.util.List<FreeShippingThreshold> freeShippingThreshold;
 
   /**
-   * Target gender of the item.
+   * Target [gender](https://support.google.com/merchants/answer/6324479) of the item. For example,
+   * "male" or "female".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -318,7 +333,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   /**
    * The list of destinations to include for this target (corresponds to checked check boxes in
    * Merchant Center). Default destinations are always included unless provided in
-   * `excludedDestinations`.
+   * `excludedDestinations`. For more information, see [Included
+   * destination](https://support.google.com/merchants/answer/7501026). Note: We recommend setting
+   * destinations on datasources level for most use cases. Use this field within products to only
+   * setup exceptions.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -332,8 +350,9 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private Installment installment;
 
   /**
-   * Whether the item is a merchant-defined bundle. A bundle is a custom grouping of different
-   * products sold by a merchant for a single price.
+   * Whether the item is a business-defined sub-API. A [sub-API]
+   * (https://support.google.com/merchants/answer/6324449) is a custom grouping of different
+   * products sold by a business for a single price.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -363,7 +382,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String link;
 
   /**
-   * Link template for merchant hosted local storefront.
+   * [Link template](https://support.google.com/merchants/answer/13871172) for business hosted local
+   * storefront.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -385,7 +405,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.util.List<LoyaltyProgram> loyaltyPrograms;
 
   /**
-   * The material of which the item is made.
+   * The [material](https://support.google.com/merchants/answer/6324410) of which the item is made.
+   * For example, "Leather" or "Cotton".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -427,7 +448,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String mobileLink;
 
   /**
-   * Link template for merchant hosted local storefront optimized for mobile devices.
+   * [Link template](https://support.google.com/merchants/answer/13870216) for business hosted local
+   * storefront optimized for mobile devices.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -442,14 +464,15 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String mpn;
 
   /**
-   * The number of identical products in a merchant-defined multipack.
+   * The number of identical products in a business-defined multipack.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.lang.Long multipack;
 
   /**
-   * The item's pattern (for example, polka dots).
+   * The item's [pattern](https://support.google.com/merchants/answer/6324483). For example, polka
+   * dots.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -464,14 +487,15 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String pause;
 
   /**
-   * The pick up option for the item.
+   * The [pickup](https://support.google.com/merchants/answer/14634021) option for the item.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String pickupMethod;
 
   /**
-   * Item store pickup timeline.
+   * Item store pickup timeline. For more information, see [Pickup
+   * SLA](https://support.google.com/merchants/answer/14635400).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -500,7 +524,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private ProductDimension productHeight;
 
   /**
-   * Bullet points describing the most relevant highlights of a product.
+   * Bullet points describing the most relevant [product
+   * highlights](https://support.google.com/merchants/answer/9216100).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -516,7 +541,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Categories of the item (formatted as in [product data
-   * specification](https://support.google.com/merchants/answer/188494#product_type)).
+   * specification](https://support.google.com/merchants/answer/7052112#product_category)).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -553,8 +578,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private Price salePrice;
 
   /**
-   * Date range during which the item is on sale (see [product data
-   * specification](https://support.google.com/merchants/answer/188494#sale_price_effective_date)).
+   * Date range during which the item is on sale, see [product data
+   * specification](https://support.google.com/merchants/answer/7052112#price_and_availability).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -611,8 +636,9 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private ShippingDimension shippingWidth;
 
   /**
-   * List of country codes (ISO 3166-1 alpha-2) to exclude the offer from Shopping Ads destination.
-   * Countries from this list are removed from countries configured in data source settings.
+   * List of country codes [(ISO 3166-1 alpha-2)](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+   * to exclude the offer from Shopping Ads destination. Countries from this list are removed from
+   * countries configured in data source settings.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -620,15 +646,17 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Size of the item. Only one value is allowed. For variants with different sizes, insert a
-   * separate product for each size with the same `itemGroupId` value (see
-   * [https://support.google.com/merchants/answer/6324492](size definition)).
+   * separate product for each size with the same `itemGroupId` value, see
+   * [Size](https://support.google.com/merchants/answer/6324492).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String size;
 
   /**
-   * System in which the size is specified. Recommended for apparel items.
+   * System in which the size is specified. Recommended for apparel items. For example, "US", "UK",
+   * "DE". For more information, see [Size
+   * system](https://support.google.com/merchants/answer/6324502).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -636,8 +664,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The cut of the item. It can be used to represent combined size types for apparel items. Maximum
-   * two of size types can be provided (see
-   * [https://support.google.com/merchants/answer/6324497](size type)).
+   * two of size types can be provided, see [Size
+   * type](https://support.google.com/merchants/answer/6324497). For example, "petite", "plus size".
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -666,8 +694,14 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private SubscriptionCost subscriptionCost;
 
   /**
-   * The tax category of the product, used to configure detailed tax nexus in account-level tax
-   * settings.
+   * The list of sustainability incentive programs.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<ProductSustainabilityIncentive> sustainabilityIncentives;
+
+  /**
+   * The [tax category](https://support.google.com/merchants/answer/7569847) of the product.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -735,7 +769,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise.
+   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise. For more
+   * information, see [Display ads attribute](https://support.google.com/merchants/answer/6069387).
    * @return value or {@code null} for none
    */
   public java.lang.String getAdsGrouping() {
@@ -743,7 +778,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise.
+   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise. For more
+   * information, see [Display ads attribute](https://support.google.com/merchants/answer/6069387).
    * @param adsGrouping adsGrouping or {@code null} for none
    */
   public Attributes setAdsGrouping(java.lang.String adsGrouping) {
@@ -822,10 +858,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A safeguard in the "Automated Discounts" (https://support.google.com/merchants/answer/10295759)
+   * A safeguard in the [automated discounts] (https://support.google.com/merchants/answer/10295759)
    * and "Dynamic Promotions" (https://support.google.com/merchants/answer/13949249) projects,
-   * ensuring that discounts on merchants' offers do not fall below this value, thereby preserving
-   * the offer's value and profitability.
+   * ensuring that discounts on business offers do not fall below this value, thereby preserving the
+   * offer's value and profitability.
    * @return value or {@code null} for none
    */
   public Price getAutoPricingMinPrice() {
@@ -833,10 +869,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A safeguard in the "Automated Discounts" (https://support.google.com/merchants/answer/10295759)
+   * A safeguard in the [automated discounts] (https://support.google.com/merchants/answer/10295759)
    * and "Dynamic Promotions" (https://support.google.com/merchants/answer/13949249) projects,
-   * ensuring that discounts on merchants' offers do not fall below this value, thereby preserving
-   * the offer's value and profitability.
+   * ensuring that discounts on business offers do not fall below this value, thereby preserving the
+   * offer's value and profitability.
    * @param autoPricingMinPrice autoPricingMinPrice or {@code null} for none
    */
   public Attributes setAutoPricingMinPrice(Price autoPricingMinPrice) {
@@ -845,7 +881,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Availability status of the item.
+   * [Availability](https://support.google.com/merchants/answer/6324448) status of the item. For
+   * example, "in_stock" or "out_of_stock".
    * @return value or {@code null} for none
    */
   public java.lang.String getAvailability() {
@@ -853,7 +890,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Availability status of the item.
+   * [Availability](https://support.google.com/merchants/answer/6324448) status of the item. For
+   * example, "in_stock" or "out_of_stock".
    * @param availability availability or {@code null} for none
    */
   public Attributes setAvailability(java.lang.String availability) {
@@ -881,7 +919,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Brand of the item.
+   * [Brand](https://support.google.com/merchants/answer/6324351) of the item. For example,
+   * "Google".
    * @return value or {@code null} for none
    */
   public java.lang.String getBrand() {
@@ -889,7 +928,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Brand of the item.
+   * [Brand](https://support.google.com/merchants/answer/6324351) of the item. For example,
+   * "Google".
    * @param brand brand or {@code null} for none
    */
   public Attributes setBrand(java.lang.String brand) {
@@ -953,7 +993,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Color of the item.
+   * [Color](https://support.google.com/merchants/answer/6324487) of the item. For example, "red".
    * @return value or {@code null} for none
    */
   public java.lang.String getColor() {
@@ -961,7 +1001,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Color of the item.
+   * [Color](https://support.google.com/merchants/answer/6324487) of the item. For example, "red".
    * @param color color or {@code null} for none
    */
   public Attributes setColor(java.lang.String color) {
@@ -970,7 +1010,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Condition or state of the item.
+   * [Condition](https://support.google.com/merchants/answer/6324469) or state of the item. For
+   * example, "new" or "used".
    * @return value or {@code null} for none
    */
   public java.lang.String getCondition() {
@@ -978,7 +1019,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Condition or state of the item.
+   * [Condition](https://support.google.com/merchants/answer/6324469) or state of the item. For
+   * example, "new" or "used".
    * @param condition condition or {@code null} for none
    */
   public Attributes setCondition(java.lang.String condition) {
@@ -1004,7 +1046,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 0 for custom grouping of items in a Shopping campaign.
+   * [Custom label 0](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @return value or {@code null} for none
    */
   public java.lang.String getCustomLabel0() {
@@ -1012,7 +1055,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 0 for custom grouping of items in a Shopping campaign.
+   * [Custom label 0](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @param customLabel0 customLabel0 or {@code null} for none
    */
   public Attributes setCustomLabel0(java.lang.String customLabel0) {
@@ -1021,7 +1065,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 1 for custom grouping of items in a Shopping campaign.
+   * [Custom label 1](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @return value or {@code null} for none
    */
   public java.lang.String getCustomLabel1() {
@@ -1029,7 +1074,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 1 for custom grouping of items in a Shopping campaign.
+   * [Custom label 1](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @param customLabel1 customLabel1 or {@code null} for none
    */
   public Attributes setCustomLabel1(java.lang.String customLabel1) {
@@ -1038,7 +1084,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 2 for custom grouping of items in a Shopping campaign.
+   * [Custom label 2](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @return value or {@code null} for none
    */
   public java.lang.String getCustomLabel2() {
@@ -1046,7 +1093,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 2 for custom grouping of items in a Shopping campaign.
+   * [Custom label 2](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @param customLabel2 customLabel2 or {@code null} for none
    */
   public Attributes setCustomLabel2(java.lang.String customLabel2) {
@@ -1055,7 +1103,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 3 for custom grouping of items in a Shopping campaign.
+   * [Custom label 3](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @return value or {@code null} for none
    */
   public java.lang.String getCustomLabel3() {
@@ -1063,7 +1112,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 3 for custom grouping of items in a Shopping campaign.
+   * [Custom label 3](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @param customLabel3 customLabel3 or {@code null} for none
    */
   public Attributes setCustomLabel3(java.lang.String customLabel3) {
@@ -1072,7 +1122,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 4 for custom grouping of items in a Shopping campaign.
+   * [Custom label 4](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @return value or {@code null} for none
    */
   public java.lang.String getCustomLabel4() {
@@ -1080,7 +1131,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Custom label 4 for custom grouping of items in a Shopping campaign.
+   * [Custom label 4](https://support.google.com/merchants/answer/6324473) for custom grouping of
+   * items in a Shopping campaign.
    * @param customLabel4 customLabel4 or {@code null} for none
    */
   public Attributes setCustomLabel4(java.lang.String customLabel4) {
@@ -1107,8 +1159,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The date time when an offer becomes visible in search results across Google’s YouTube surfaces,
-   * in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format. See [Disclosure date](
-   * https://support.google.com/merchants/answer/13034208) for more information.
+   * in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format. See [Disclosure
+   * date](https://support.google.com/merchants/answer/13034208) for more information.
    * @return value or {@code null} for none
    */
   public String getDisclosureDate() {
@@ -1117,8 +1169,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The date time when an offer becomes visible in search results across Google’s YouTube surfaces,
-   * in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format. See [Disclosure date](
-   * https://support.google.com/merchants/answer/13034208) for more information.
+   * in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format. See [Disclosure
+   * date](https://support.google.com/merchants/answer/13034208) for more information.
    * @param disclosureDate disclosureDate or {@code null} for none
    */
   public Attributes setDisclosureDate(String disclosureDate) {
@@ -1161,7 +1213,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Advertiser-specified recommendations.
+   * Advertiser-specified recommendations. For more information, see [Display ads attribute
+   * specification](https://support.google.com/merchants/answer/6069387).
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getDisplayAdsSimilarIds() {
@@ -1169,7 +1222,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Advertiser-specified recommendations.
+   * Advertiser-specified recommendations. For more information, see [Display ads attribute
+   * specification](https://support.google.com/merchants/answer/6069387).
    * @param displayAdsSimilarIds displayAdsSimilarIds or {@code null} for none
    */
   public Attributes setDisplayAdsSimilarIds(java.util.List<java.lang.String> displayAdsSimilarIds) {
@@ -1195,7 +1249,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Offer margin for dynamic remarketing campaigns.
+   * Offer margin for dynamic remarketing campaigns. For more information, see [Display ads
+   * attribute](https://support.google.com/merchants/answer/6069387).
    * @return value or {@code null} for none
    */
   public java.lang.Double getDisplayAdsValue() {
@@ -1203,7 +1258,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Offer margin for dynamic remarketing campaigns.
+   * Offer margin for dynamic remarketing campaigns. For more information, see [Display ads
+   * attribute](https://support.google.com/merchants/answer/6069387).
    * @param displayAdsValue displayAdsValue or {@code null} for none
    */
   public Attributes setDisplayAdsValue(java.lang.Double displayAdsValue) {
@@ -1230,7 +1286,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The list of destinations to exclude for this target (corresponds to unchecked check boxes in
-   * Merchant Center).
+   * Merchant Center). For more information, see [Excluded
+   * destination](https://support.google.com/merchants/answer/6324486). Note: We recommend setting
+   * destinations on datasources level for most use cases. Use this field within products to only
+   * setup exceptions.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getExcludedDestinations() {
@@ -1239,7 +1298,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The list of destinations to exclude for this target (corresponds to unchecked check boxes in
-   * Merchant Center).
+   * Merchant Center). For more information, see [Excluded
+   * destination](https://support.google.com/merchants/answer/6324486). Note: We recommend setting
+   * destinations on datasources level for most use cases. Use this field within products to only
+   * setup exceptions.
    * @param excludedDestinations excludedDestinations or {@code null} for none
    */
   public Attributes setExcludedDestinations(java.util.List<java.lang.String> excludedDestinations) {
@@ -1309,7 +1371,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Target gender of the item.
+   * Target [gender](https://support.google.com/merchants/answer/6324479) of the item. For example,
+   * "male" or "female".
    * @return value or {@code null} for none
    */
   public java.lang.String getGender() {
@@ -1317,7 +1380,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Target gender of the item.
+   * Target [gender](https://support.google.com/merchants/answer/6324479) of the item. For example,
+   * "male" or "female".
    * @param gender gender or {@code null} for none
    */
   public Attributes setGender(java.lang.String gender) {
@@ -1406,7 +1470,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   /**
    * The list of destinations to include for this target (corresponds to checked check boxes in
    * Merchant Center). Default destinations are always included unless provided in
-   * `excludedDestinations`.
+   * `excludedDestinations`. For more information, see [Included
+   * destination](https://support.google.com/merchants/answer/7501026). Note: We recommend setting
+   * destinations on datasources level for most use cases. Use this field within products to only
+   * setup exceptions.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getIncludedDestinations() {
@@ -1416,7 +1483,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   /**
    * The list of destinations to include for this target (corresponds to checked check boxes in
    * Merchant Center). Default destinations are always included unless provided in
-   * `excludedDestinations`.
+   * `excludedDestinations`. For more information, see [Included
+   * destination](https://support.google.com/merchants/answer/7501026). Note: We recommend setting
+   * destinations on datasources level for most use cases. Use this field within products to only
+   * setup exceptions.
    * @param includedDestinations includedDestinations or {@code null} for none
    */
   public Attributes setIncludedDestinations(java.util.List<java.lang.String> includedDestinations) {
@@ -1442,8 +1512,9 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether the item is a merchant-defined bundle. A bundle is a custom grouping of different
-   * products sold by a merchant for a single price.
+   * Whether the item is a business-defined sub-API. A [sub-API]
+   * (https://support.google.com/merchants/answer/6324449) is a custom grouping of different
+   * products sold by a business for a single price.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getIsBundle() {
@@ -1451,8 +1522,9 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether the item is a merchant-defined bundle. A bundle is a custom grouping of different
-   * products sold by a merchant for a single price.
+   * Whether the item is a business-defined sub-API. A [sub-API]
+   * (https://support.google.com/merchants/answer/6324449) is a custom grouping of different
+   * products sold by a business for a single price.
    * @param isBundle isBundle or {@code null} for none
    */
   public Attributes setIsBundle(java.lang.Boolean isBundle) {
@@ -1516,7 +1588,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Link template for merchant hosted local storefront.
+   * [Link template](https://support.google.com/merchants/answer/13871172) for business hosted local
+   * storefront.
    * @return value or {@code null} for none
    */
   public java.lang.String getLinkTemplate() {
@@ -1524,7 +1597,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Link template for merchant hosted local storefront.
+   * [Link template](https://support.google.com/merchants/answer/13871172) for business hosted local
+   * storefront.
    * @param linkTemplate linkTemplate or {@code null} for none
    */
   public Attributes setLinkTemplate(java.lang.String linkTemplate) {
@@ -1569,7 +1643,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The material of which the item is made.
+   * The [material](https://support.google.com/merchants/answer/6324410) of which the item is made.
+   * For example, "Leather" or "Cotton".
    * @return value or {@code null} for none
    */
   public java.lang.String getMaterial() {
@@ -1577,7 +1652,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The material of which the item is made.
+   * The [material](https://support.google.com/merchants/answer/6324410) of which the item is made.
+   * For example, "Leather" or "Cotton".
    * @param material material or {@code null} for none
    */
   public Attributes setMaterial(java.lang.String material) {
@@ -1671,7 +1747,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Link template for merchant hosted local storefront optimized for mobile devices.
+   * [Link template](https://support.google.com/merchants/answer/13870216) for business hosted local
+   * storefront optimized for mobile devices.
    * @return value or {@code null} for none
    */
   public java.lang.String getMobileLinkTemplate() {
@@ -1679,7 +1756,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Link template for merchant hosted local storefront optimized for mobile devices.
+   * [Link template](https://support.google.com/merchants/answer/13870216) for business hosted local
+   * storefront optimized for mobile devices.
    * @param mobileLinkTemplate mobileLinkTemplate or {@code null} for none
    */
   public Attributes setMobileLinkTemplate(java.lang.String mobileLinkTemplate) {
@@ -1707,7 +1785,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The number of identical products in a merchant-defined multipack.
+   * The number of identical products in a business-defined multipack.
    * @return value or {@code null} for none
    */
   public java.lang.Long getMultipack() {
@@ -1715,7 +1793,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The number of identical products in a merchant-defined multipack.
+   * The number of identical products in a business-defined multipack.
    * @param multipack multipack or {@code null} for none
    */
   public Attributes setMultipack(java.lang.Long multipack) {
@@ -1724,7 +1802,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The item's pattern (for example, polka dots).
+   * The item's [pattern](https://support.google.com/merchants/answer/6324483). For example, polka
+   * dots.
    * @return value or {@code null} for none
    */
   public java.lang.String getPattern() {
@@ -1732,7 +1811,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The item's pattern (for example, polka dots).
+   * The item's [pattern](https://support.google.com/merchants/answer/6324483). For example, polka
+   * dots.
    * @param pattern pattern or {@code null} for none
    */
   public Attributes setPattern(java.lang.String pattern) {
@@ -1760,7 +1840,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The pick up option for the item.
+   * The [pickup](https://support.google.com/merchants/answer/14634021) option for the item.
    * @return value or {@code null} for none
    */
   public java.lang.String getPickupMethod() {
@@ -1768,7 +1848,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The pick up option for the item.
+   * The [pickup](https://support.google.com/merchants/answer/14634021) option for the item.
    * @param pickupMethod pickupMethod or {@code null} for none
    */
   public Attributes setPickupMethod(java.lang.String pickupMethod) {
@@ -1777,7 +1857,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Item store pickup timeline.
+   * Item store pickup timeline. For more information, see [Pickup
+   * SLA](https://support.google.com/merchants/answer/14635400).
    * @return value or {@code null} for none
    */
   public java.lang.String getPickupSla() {
@@ -1785,7 +1866,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Item store pickup timeline.
+   * Item store pickup timeline. For more information, see [Pickup
+   * SLA](https://support.google.com/merchants/answer/14635400).
    * @param pickupSla pickupSla or {@code null} for none
    */
   public Attributes setPickupSla(java.lang.String pickupSla) {
@@ -1847,7 +1929,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Bullet points describing the most relevant highlights of a product.
+   * Bullet points describing the most relevant [product
+   * highlights](https://support.google.com/merchants/answer/9216100).
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getProductHighlights() {
@@ -1855,7 +1938,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Bullet points describing the most relevant highlights of a product.
+   * Bullet points describing the most relevant [product
+   * highlights](https://support.google.com/merchants/answer/9216100).
    * @param productHighlights productHighlights or {@code null} for none
    */
   public Attributes setProductHighlights(java.util.List<java.lang.String> productHighlights) {
@@ -1884,7 +1968,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Categories of the item (formatted as in [product data
-   * specification](https://support.google.com/merchants/answer/188494#product_type)).
+   * specification](https://support.google.com/merchants/answer/7052112#product_category)).
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getProductTypes() {
@@ -1893,7 +1977,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Categories of the item (formatted as in [product data
-   * specification](https://support.google.com/merchants/answer/188494#product_type)).
+   * specification](https://support.google.com/merchants/answer/7052112#product_category)).
    * @param productTypes productTypes or {@code null} for none
    */
   public Attributes setProductTypes(java.util.List<java.lang.String> productTypes) {
@@ -1974,8 +2058,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Date range during which the item is on sale (see [product data
-   * specification](https://support.google.com/merchants/answer/188494#sale_price_effective_date)).
+   * Date range during which the item is on sale, see [product data
+   * specification](https://support.google.com/merchants/answer/7052112#price_and_availability).
    * @return value or {@code null} for none
    */
   public Interval getSalePriceEffectiveDate() {
@@ -1983,8 +2067,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Date range during which the item is on sale (see [product data
-   * specification](https://support.google.com/merchants/answer/188494#sale_price_effective_date)).
+   * Date range during which the item is on sale, see [product data
+   * specification](https://support.google.com/merchants/answer/7052112#price_and_availability).
    * @param salePriceEffectiveDate salePriceEffectiveDate or {@code null} for none
    */
   public Attributes setSalePriceEffectiveDate(Interval salePriceEffectiveDate) {
@@ -2114,8 +2198,9 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * List of country codes (ISO 3166-1 alpha-2) to exclude the offer from Shopping Ads destination.
-   * Countries from this list are removed from countries configured in data source settings.
+   * List of country codes [(ISO 3166-1 alpha-2)](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+   * to exclude the offer from Shopping Ads destination. Countries from this list are removed from
+   * countries configured in data source settings.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getShoppingAdsExcludedCountries() {
@@ -2123,8 +2208,9 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * List of country codes (ISO 3166-1 alpha-2) to exclude the offer from Shopping Ads destination.
-   * Countries from this list are removed from countries configured in data source settings.
+   * List of country codes [(ISO 3166-1 alpha-2)](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+   * to exclude the offer from Shopping Ads destination. Countries from this list are removed from
+   * countries configured in data source settings.
    * @param shoppingAdsExcludedCountries shoppingAdsExcludedCountries or {@code null} for none
    */
   public Attributes setShoppingAdsExcludedCountries(java.util.List<java.lang.String> shoppingAdsExcludedCountries) {
@@ -2134,8 +2220,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Size of the item. Only one value is allowed. For variants with different sizes, insert a
-   * separate product for each size with the same `itemGroupId` value (see
-   * [https://support.google.com/merchants/answer/6324492](size definition)).
+   * separate product for each size with the same `itemGroupId` value, see
+   * [Size](https://support.google.com/merchants/answer/6324492).
    * @return value or {@code null} for none
    */
   public java.lang.String getSize() {
@@ -2144,8 +2230,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Size of the item. Only one value is allowed. For variants with different sizes, insert a
-   * separate product for each size with the same `itemGroupId` value (see
-   * [https://support.google.com/merchants/answer/6324492](size definition)).
+   * separate product for each size with the same `itemGroupId` value, see
+   * [Size](https://support.google.com/merchants/answer/6324492).
    * @param size size or {@code null} for none
    */
   public Attributes setSize(java.lang.String size) {
@@ -2154,7 +2240,9 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * System in which the size is specified. Recommended for apparel items.
+   * System in which the size is specified. Recommended for apparel items. For example, "US", "UK",
+   * "DE". For more information, see [Size
+   * system](https://support.google.com/merchants/answer/6324502).
    * @return value or {@code null} for none
    */
   public java.lang.String getSizeSystem() {
@@ -2162,7 +2250,9 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * System in which the size is specified. Recommended for apparel items.
+   * System in which the size is specified. Recommended for apparel items. For example, "US", "UK",
+   * "DE". For more information, see [Size
+   * system](https://support.google.com/merchants/answer/6324502).
    * @param sizeSystem sizeSystem or {@code null} for none
    */
   public Attributes setSizeSystem(java.lang.String sizeSystem) {
@@ -2172,8 +2262,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The cut of the item. It can be used to represent combined size types for apparel items. Maximum
-   * two of size types can be provided (see
-   * [https://support.google.com/merchants/answer/6324497](size type)).
+   * two of size types can be provided, see [Size
+   * type](https://support.google.com/merchants/answer/6324497). For example, "petite", "plus size".
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getSizeTypes() {
@@ -2182,8 +2272,8 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * The cut of the item. It can be used to represent combined size types for apparel items. Maximum
-   * two of size types can be provided (see
-   * [https://support.google.com/merchants/answer/6324497](size type)).
+   * two of size types can be provided, see [Size
+   * type](https://support.google.com/merchants/answer/6324497). For example, "petite", "plus size".
    * @param sizeTypes sizeTypes or {@code null} for none
    */
   public Attributes setSizeTypes(java.util.List<java.lang.String> sizeTypes) {
@@ -2245,8 +2335,24 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The tax category of the product, used to configure detailed tax nexus in account-level tax
-   * settings.
+   * The list of sustainability incentive programs.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<ProductSustainabilityIncentive> getSustainabilityIncentives() {
+    return sustainabilityIncentives;
+  }
+
+  /**
+   * The list of sustainability incentive programs.
+   * @param sustainabilityIncentives sustainabilityIncentives or {@code null} for none
+   */
+  public Attributes setSustainabilityIncentives(java.util.List<ProductSustainabilityIncentive> sustainabilityIncentives) {
+    this.sustainabilityIncentives = sustainabilityIncentives;
+    return this;
+  }
+
+  /**
+   * The [tax category](https://support.google.com/merchants/answer/7569847) of the product.
    * @return value or {@code null} for none
    */
   public java.lang.String getTaxCategory() {
@@ -2254,8 +2360,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The tax category of the product, used to configure detailed tax nexus in account-level tax
-   * settings.
+   * The [tax category](https://support.google.com/merchants/answer/7569847) of the product.
    * @param taxCategory taxCategory or {@code null} for none
    */
   public Attributes setTaxCategory(java.lang.String taxCategory) {

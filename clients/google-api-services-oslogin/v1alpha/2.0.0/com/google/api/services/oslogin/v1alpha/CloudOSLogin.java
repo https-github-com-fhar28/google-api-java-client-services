@@ -134,6 +134,188 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
   }
 
   /**
+   * An accessor for creating requests from the Projects collection.
+   *
+   * <p>The typical use is:</p>
+   * <pre>
+   *   {@code CloudOSLogin oslogin = new CloudOSLogin(...);}
+   *   {@code CloudOSLogin.Projects.List request = oslogin.projects().list(parameters ...)}
+   * </pre>
+   *
+   * @return the resource collection
+   */
+  public Projects projects() {
+    return new Projects();
+  }
+
+  /**
+   * The "projects" collection of methods.
+   */
+  public class Projects {
+
+    /**
+     * An accessor for creating requests from the Locations collection.
+     *
+     * <p>The typical use is:</p>
+     * <pre>
+     *   {@code CloudOSLogin oslogin = new CloudOSLogin(...);}
+     *   {@code CloudOSLogin.Locations.List request = oslogin.locations().list(parameters ...)}
+     * </pre>
+     *
+     * @return the resource collection
+     */
+    public Locations locations() {
+      return new Locations();
+    }
+
+    /**
+     * The "locations" collection of methods.
+     */
+    public class Locations {
+
+      /**
+       * Signs an SSH public key for a user to authenticate to a virtual machine on Google Compute Engine.
+       *
+       * Create a request for the method "locations.signSshPublicKey".
+       *
+       * This request holds the parameters needed by the oslogin server.  After setting any optional
+       * parameters, call the {@link SignSshPublicKey#execute()} method to invoke the remote operation.
+       *
+       * @param parent Required. The parent for the signing request. Format: projects/{project}/locations/{location}
+       * @param content the {@link com.google.api.services.oslogin.v1alpha.model.GoogleCloudOsloginControlplaneRegionalV1alphaSignSshPublicKeyRequest}
+       * @return the request
+       */
+      public SignSshPublicKey signSshPublicKey(java.lang.String parent, com.google.api.services.oslogin.v1alpha.model.GoogleCloudOsloginControlplaneRegionalV1alphaSignSshPublicKeyRequest content) throws java.io.IOException {
+        SignSshPublicKey result = new SignSshPublicKey(parent, content);
+        initialize(result);
+        return result;
+      }
+
+      public class SignSshPublicKey extends CloudOSLoginRequest<com.google.api.services.oslogin.v1alpha.model.GoogleCloudOsloginControlplaneRegionalV1alphaSignSshPublicKeyResponse> {
+
+        private static final String REST_PATH = "v1alpha/{+parent}:signSshPublicKey";
+
+        private final java.util.regex.Pattern PARENT_PATTERN =
+            java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+        /**
+         * Signs an SSH public key for a user to authenticate to a virtual machine on Google Compute
+         * Engine.
+         *
+         * Create a request for the method "locations.signSshPublicKey".
+         *
+         * This request holds the parameters needed by the the oslogin server.  After setting any optional
+         * parameters, call the {@link SignSshPublicKey#execute()} method to invoke the remote operation.
+         * <p> {@link SignSshPublicKey#initialize(com.google.api.client.googleapis.services.AbstractGoogle
+         * ClientRequest)} must be called to initialize this instance immediately after invoking the
+         * constructor. </p>
+         *
+         * @param parent Required. The parent for the signing request. Format: projects/{project}/locations/{location}
+         * @param content the {@link com.google.api.services.oslogin.v1alpha.model.GoogleCloudOsloginControlplaneRegionalV1alphaSignSshPublicKeyRequest}
+         * @since 1.13
+         */
+        protected SignSshPublicKey(java.lang.String parent, com.google.api.services.oslogin.v1alpha.model.GoogleCloudOsloginControlplaneRegionalV1alphaSignSshPublicKeyRequest content) {
+          super(CloudOSLogin.this, "POST", REST_PATH, content, com.google.api.services.oslogin.v1alpha.model.GoogleCloudOsloginControlplaneRegionalV1alphaSignSshPublicKeyResponse.class);
+          this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+$");
+          }
+        }
+
+        @Override
+        public SignSshPublicKey set$Xgafv(java.lang.String $Xgafv) {
+          return (SignSshPublicKey) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public SignSshPublicKey setAccessToken(java.lang.String accessToken) {
+          return (SignSshPublicKey) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public SignSshPublicKey setAlt(java.lang.String alt) {
+          return (SignSshPublicKey) super.setAlt(alt);
+        }
+
+        @Override
+        public SignSshPublicKey setCallback(java.lang.String callback) {
+          return (SignSshPublicKey) super.setCallback(callback);
+        }
+
+        @Override
+        public SignSshPublicKey setFields(java.lang.String fields) {
+          return (SignSshPublicKey) super.setFields(fields);
+        }
+
+        @Override
+        public SignSshPublicKey setKey(java.lang.String key) {
+          return (SignSshPublicKey) super.setKey(key);
+        }
+
+        @Override
+        public SignSshPublicKey setOauthToken(java.lang.String oauthToken) {
+          return (SignSshPublicKey) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public SignSshPublicKey setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (SignSshPublicKey) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public SignSshPublicKey setQuotaUser(java.lang.String quotaUser) {
+          return (SignSshPublicKey) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public SignSshPublicKey setUploadType(java.lang.String uploadType) {
+          return (SignSshPublicKey) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public SignSshPublicKey setUploadProtocol(java.lang.String uploadProtocol) {
+          return (SignSshPublicKey) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The parent for the signing request. Format:
+         * projects/{project}/locations/{location}
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String parent;
+
+        /** Required. The parent for the signing request. Format: projects/{project}/locations/{location}
+         */
+        public java.lang.String getParent() {
+          return parent;
+        }
+
+        /**
+         * Required. The parent for the signing request. Format:
+         * projects/{project}/locations/{location}
+         */
+        public SignSshPublicKey setParent(java.lang.String parent) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                "Parameter parent must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+$");
+          }
+          this.parent = parent;
+          return this;
+        }
+
+        @Override
+        public SignSshPublicKey set(String parameterName, Object value) {
+          return (SignSshPublicKey) super.set(parameterName, value);
+        }
+      }
+
+    }
+  }
+
+  /**
    * An accessor for creating requests from the Users collection.
    *
    * <p>The typical use is:</p>
@@ -289,49 +471,49 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
         return this;
       }
 
-      /** The type of operating system associated with the account. */
+      /** Optional. The type of operating system associated with the account. */
       @com.google.api.client.util.Key
       private java.lang.String operatingSystemType;
 
-      /** The type of operating system associated with the account.
+      /** Optional. The type of operating system associated with the account.
        */
       public java.lang.String getOperatingSystemType() {
         return operatingSystemType;
       }
 
-      /** The type of operating system associated with the account. */
+      /** Optional. The type of operating system associated with the account. */
       public GetLoginProfile setOperatingSystemType(java.lang.String operatingSystemType) {
         this.operatingSystemType = operatingSystemType;
         return this;
       }
 
-      /** The project ID of the Google Cloud Platform project. */
+      /** Required. The project ID of the Google Cloud Platform project. */
       @com.google.api.client.util.Key
       private java.lang.String projectId;
 
-      /** The project ID of the Google Cloud Platform project.
+      /** Required. The project ID of the Google Cloud Platform project.
        */
       public java.lang.String getProjectId() {
         return projectId;
       }
 
-      /** The project ID of the Google Cloud Platform project. */
+      /** Required. The project ID of the Google Cloud Platform project. */
       public GetLoginProfile setProjectId(java.lang.String projectId) {
         this.projectId = projectId;
         return this;
       }
 
-      /** A system ID for filtering the results of the request. */
+      /** Optional. A system ID for filtering the results of the request. */
       @com.google.api.client.util.Key
       private java.lang.String systemId;
 
-      /** A system ID for filtering the results of the request.
+      /** Optional. A system ID for filtering the results of the request.
        */
       public java.lang.String getSystemId() {
         return systemId;
       }
 
-      /** A system ID for filtering the results of the request. */
+      /** Optional. A system ID for filtering the results of the request. */
       public GetLoginProfile setSystemId(java.lang.String systemId) {
         this.systemId = systemId;
         return this;
@@ -503,22 +685,25 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
       }
 
       /**
-       * Optional. The regions to which to assert that the key was written. If unspecified, defaults
-       * to all regions. Regions are listed at https://cloud.google.com/about/locations#region.
+       * Optional. The regions to wait for a POSIX account to be written to before returning a
+       * response. If unspecified, defaults to all regions. Regions are listed at
+       * https://cloud.google.com/about/locations#region.
        */
       @com.google.api.client.util.Key
       private java.util.List<java.lang.String> regions;
 
-      /** Optional. The regions to which to assert that the key was written. If unspecified, defaults to all
-     regions. Regions are listed at https://cloud.google.com/about/locations#region.
+      /** Optional. The regions to wait for a POSIX account to be written to before returning a response. If
+     unspecified, defaults to all regions. Regions are listed at
+     https://cloud.google.com/about/locations#region.
        */
       public java.util.List<java.lang.String> getRegions() {
         return regions;
       }
 
       /**
-       * Optional. The regions to which to assert that the key was written. If unspecified, defaults
-       * to all regions. Regions are listed at https://cloud.google.com/about/locations#region.
+       * Optional. The regions to wait for a POSIX account to be written to before returning a
+       * response. If unspecified, defaults to all regions. Regions are listed at
+       * https://cloud.google.com/about/locations#region.
        */
       public ImportSshPublicKey setRegions(java.util.List<java.lang.String> regions) {
         this.regions = regions;
@@ -704,17 +889,17 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
           return this;
         }
 
-        /** The type of operating system associated with the account. */
+        /** Optional. The type of operating system associated with the account. */
         @com.google.api.client.util.Key
         private java.lang.String operatingSystemType;
 
-        /** The type of operating system associated with the account.
+        /** Optional. The type of operating system associated with the account.
          */
         public java.lang.String getOperatingSystemType() {
           return operatingSystemType;
         }
 
-        /** The type of operating system associated with the account. */
+        /** Optional. The type of operating system associated with the account. */
         public Delete setOperatingSystemType(java.lang.String operatingSystemType) {
           this.operatingSystemType = operatingSystemType;
           return this;
@@ -723,6 +908,138 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
         @Override
         public Delete set(String parameterName, Object value) {
           return (Delete) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Create a POSIX account if it doesn't exist.
+       *
+       * Create a request for the method "projects.provisionPosixAccount".
+       *
+       * This request holds the parameters needed by the oslogin server.  After setting any optional
+       * parameters, call the {@link ProvisionPosixAccount#execute()} method to invoke the remote
+       * operation.
+       *
+       * @param name Required. The unique ID for the user in format `users/{user}/projects/{project}`.
+       * @param content the {@link com.google.api.services.oslogin.v1alpha.model.ProvisionPosixAccountRequest}
+       * @return the request
+       */
+      public ProvisionPosixAccount provisionPosixAccount(java.lang.String name, com.google.api.services.oslogin.v1alpha.model.ProvisionPosixAccountRequest content) throws java.io.IOException {
+        ProvisionPosixAccount result = new ProvisionPosixAccount(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class ProvisionPosixAccount extends CloudOSLoginRequest<com.google.api.services.oslogin.v1alpha.model.PosixAccount> {
+
+        private static final String REST_PATH = "v1alpha/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^users/[^/]+/projects/[^/]+$");
+
+        /**
+         * Create a POSIX account if it doesn't exist.
+         *
+         * Create a request for the method "projects.provisionPosixAccount".
+         *
+         * This request holds the parameters needed by the the oslogin server.  After setting any optional
+         * parameters, call the {@link ProvisionPosixAccount#execute()} method to invoke the remote
+         * operation. <p> {@link ProvisionPosixAccount#initialize(com.google.api.client.googleapis.service
+         * s.AbstractGoogleClientRequest)} must be called to initialize this instance immediately after
+         * invoking the constructor. </p>
+         *
+         * @param name Required. The unique ID for the user in format `users/{user}/projects/{project}`.
+         * @param content the {@link com.google.api.services.oslogin.v1alpha.model.ProvisionPosixAccountRequest}
+         * @since 1.13
+         */
+        protected ProvisionPosixAccount(java.lang.String name, com.google.api.services.oslogin.v1alpha.model.ProvisionPosixAccountRequest content) {
+          super(CloudOSLogin.this, "POST", REST_PATH, content, com.google.api.services.oslogin.v1alpha.model.PosixAccount.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^users/[^/]+/projects/[^/]+$");
+          }
+        }
+
+        @Override
+        public ProvisionPosixAccount set$Xgafv(java.lang.String $Xgafv) {
+          return (ProvisionPosixAccount) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public ProvisionPosixAccount setAccessToken(java.lang.String accessToken) {
+          return (ProvisionPosixAccount) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public ProvisionPosixAccount setAlt(java.lang.String alt) {
+          return (ProvisionPosixAccount) super.setAlt(alt);
+        }
+
+        @Override
+        public ProvisionPosixAccount setCallback(java.lang.String callback) {
+          return (ProvisionPosixAccount) super.setCallback(callback);
+        }
+
+        @Override
+        public ProvisionPosixAccount setFields(java.lang.String fields) {
+          return (ProvisionPosixAccount) super.setFields(fields);
+        }
+
+        @Override
+        public ProvisionPosixAccount setKey(java.lang.String key) {
+          return (ProvisionPosixAccount) super.setKey(key);
+        }
+
+        @Override
+        public ProvisionPosixAccount setOauthToken(java.lang.String oauthToken) {
+          return (ProvisionPosixAccount) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public ProvisionPosixAccount setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (ProvisionPosixAccount) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public ProvisionPosixAccount setQuotaUser(java.lang.String quotaUser) {
+          return (ProvisionPosixAccount) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public ProvisionPosixAccount setUploadType(java.lang.String uploadType) {
+          return (ProvisionPosixAccount) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public ProvisionPosixAccount setUploadProtocol(java.lang.String uploadProtocol) {
+          return (ProvisionPosixAccount) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /** Required. The unique ID for the user in format `users/{user}/projects/{project}`. */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The unique ID for the user in format `users/{user}/projects/{project}`.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /** Required. The unique ID for the user in format `users/{user}/projects/{project}`. */
+        public ProvisionPosixAccount setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^users/[^/]+/projects/[^/]+$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public ProvisionPosixAccount set(String parameterName, Object value) {
+          return (ProvisionPosixAccount) super.set(parameterName, value);
         }
       }
 
@@ -754,7 +1071,7 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
          * This request holds the parameters needed by the oslogin server.  After setting any optional
          * parameters, call the {@link SignSshPublicKey#execute()} method to invoke the remote operation.
          *
-         * @param parent The parent project and region for the signing request.
+         * @param parent Required. The parent project and region for the signing request.
          * @param content the {@link com.google.api.services.oslogin.v1alpha.model.SignSshPublicKeyRequest}
          * @return the request
          */
@@ -783,7 +1100,7 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
            * ClientRequest)} must be called to initialize this instance immediately after invoking the
            * constructor. </p>
            *
-           * @param parent The parent project and region for the signing request.
+           * @param parent Required. The parent project and region for the signing request.
            * @param content the {@link com.google.api.services.oslogin.v1alpha.model.SignSshPublicKeyRequest}
            * @since 1.13
            */
@@ -852,17 +1169,17 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
             return (SignSshPublicKey) super.setUploadProtocol(uploadProtocol);
           }
 
-          /** The parent project and region for the signing request. */
+          /** Required. The parent project and region for the signing request. */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** The parent project and region for the signing request.
+          /** Required. The parent project and region for the signing request.
            */
           public java.lang.String getParent() {
             return parent;
           }
 
-          /** The parent project and region for the signing request. */
+          /** Required. The parent project and region for the signing request. */
           public SignSshPublicKey setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
               com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
@@ -908,7 +1225,7 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
          * This request holds the parameters needed by the oslogin server.  After setting any optional
          * parameters, call the {@link SignSshPublicKey#execute()} method to invoke the remote operation.
          *
-         * @param parent The parent project and region for the signing request.
+         * @param parent Required. The parent project and region for the signing request.
          * @param content the {@link com.google.api.services.oslogin.v1alpha.model.SignSshPublicKeyRequest}
          * @return the request
          */
@@ -937,7 +1254,7 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
            * ClientRequest)} must be called to initialize this instance immediately after invoking the
            * constructor. </p>
            *
-           * @param parent The parent project and region for the signing request.
+           * @param parent Required. The parent project and region for the signing request.
            * @param content the {@link com.google.api.services.oslogin.v1alpha.model.SignSshPublicKeyRequest}
            * @since 1.13
            */
@@ -1006,17 +1323,17 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
             return (SignSshPublicKey) super.setUploadProtocol(uploadProtocol);
           }
 
-          /** The parent project and region for the signing request. */
+          /** Required. The parent project and region for the signing request. */
           @com.google.api.client.util.Key
           private java.lang.String parent;
 
-          /** The parent project and region for the signing request.
+          /** Required. The parent project and region for the signing request.
            */
           public java.lang.String getParent() {
             return parent;
           }
 
-          /** The parent project and region for the signing request. */
+          /** Required. The parent project and region for the signing request. */
           public SignSshPublicKey setParent(java.lang.String parent) {
             if (!getSuppressPatternChecks()) {
               com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
@@ -1620,17 +1937,17 @@ public class CloudOSLogin extends com.google.api.client.googleapis.services.json
           return this;
         }
 
-        /** Mask to control which fields get updated. Updates all if not present. */
+        /** Optional. Mask to control which fields get updated. Updates all if not present. */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Mask to control which fields get updated. Updates all if not present.
+        /** Optional. Mask to control which fields get updated. Updates all if not present.
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Mask to control which fields get updated. Updates all if not present. */
+        /** Optional. Mask to control which fields get updated. Updates all if not present. */
         public Patch setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;

@@ -35,12 +35,11 @@ public final class Resource extends com.google.api.client.json.GenericJson {
    * google.protobuf.Any proto, against which the policy rules are evaluated. Services not
    * integrated with custom org policy can omit this field. Services integrated with custom org
    * policy must populate this field for all requests where the API call changes the state of the
-   * resource. Custom org policy backend uses these attributes to enforce custom org policies. When
-   * a proto is wrapped, it is generally the One Platform API proto. When a JSON string is wrapped,
-   * use `google.protobuf.StringValue` for the inner value. For create operations, GCP service is
-   * expected to pass resource from customer request as is. For update/patch operations, GCP service
-   * is expected to compute the next state with the patch provided by the user. See go/custom-
-   * constraints-org-policy-integration-guide for additional details.
+   * resource. Custom org policy backend uses these attributes to enforce custom org policies. For
+   * create operations, GCP service is expected to pass resource from customer request as is. For
+   * update/patch operations, GCP service is expected to compute the next state with the patch
+   * provided by the user. See go/federated-custom-org-policy-integration-guide for additional
+   * details.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -60,6 +59,19 @@ public final class Resource extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.util.Map<String, java.lang.String> labels;
+
+  /**
+   * The locations of the resource. This field is used to determine whether the request is compliant
+   * with Trust Boundaries. Usage: - If unset or empty, the location of authorization is used as the
+   * target location. - For global resources: use a single value of "global". - For regional/multi-
+   * regional resources: use name of the GCP region(s) where the resource exists (e.g., ["us-east1",
+   * "us-west1"]). For multi-regional resources specify the name of each GCP region in the
+   * resource's multi-region. NOTE: Only GCP cloud region names are supported - go/cloud-region-
+   * names.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> locations;
 
   /**
    * The **relative** name of the resource, which is the URI path of the resource without the
@@ -121,12 +133,11 @@ public final class Resource extends com.google.api.client.json.GenericJson {
    * google.protobuf.Any proto, against which the policy rules are evaluated. Services not
    * integrated with custom org policy can omit this field. Services integrated with custom org
    * policy must populate this field for all requests where the API call changes the state of the
-   * resource. Custom org policy backend uses these attributes to enforce custom org policies. When
-   * a proto is wrapped, it is generally the One Platform API proto. When a JSON string is wrapped,
-   * use `google.protobuf.StringValue` for the inner value. For create operations, GCP service is
-   * expected to pass resource from customer request as is. For update/patch operations, GCP service
-   * is expected to compute the next state with the patch provided by the user. See go/custom-
-   * constraints-org-policy-integration-guide for additional details.
+   * resource. Custom org policy backend uses these attributes to enforce custom org policies. For
+   * create operations, GCP service is expected to pass resource from customer request as is. For
+   * update/patch operations, GCP service is expected to compute the next state with the patch
+   * provided by the user. See go/federated-custom-org-policy-integration-guide for additional
+   * details.
    * @return value or {@code null} for none
    */
   public java.util.Map<String, java.lang.Object> getExpectedNextState() {
@@ -138,12 +149,11 @@ public final class Resource extends com.google.api.client.json.GenericJson {
    * google.protobuf.Any proto, against which the policy rules are evaluated. Services not
    * integrated with custom org policy can omit this field. Services integrated with custom org
    * policy must populate this field for all requests where the API call changes the state of the
-   * resource. Custom org policy backend uses these attributes to enforce custom org policies. When
-   * a proto is wrapped, it is generally the One Platform API proto. When a JSON string is wrapped,
-   * use `google.protobuf.StringValue` for the inner value. For create operations, GCP service is
-   * expected to pass resource from customer request as is. For update/patch operations, GCP service
-   * is expected to compute the next state with the patch provided by the user. See go/custom-
-   * constraints-org-policy-integration-guide for additional details.
+   * resource. Custom org policy backend uses these attributes to enforce custom org policies. For
+   * create operations, GCP service is expected to pass resource from customer request as is. For
+   * update/patch operations, GCP service is expected to compute the next state with the patch
+   * provided by the user. See go/federated-custom-org-policy-integration-guide for additional
+   * details.
    * @param expectedNextState expectedNextState or {@code null} for none
    */
   public Resource setExpectedNextState(java.util.Map<String, java.lang.Object> expectedNextState) {
@@ -181,6 +191,35 @@ public final class Resource extends com.google.api.client.json.GenericJson {
    */
   public Resource setLabels(java.util.Map<String, java.lang.String> labels) {
     this.labels = labels;
+    return this;
+  }
+
+  /**
+   * The locations of the resource. This field is used to determine whether the request is compliant
+   * with Trust Boundaries. Usage: - If unset or empty, the location of authorization is used as the
+   * target location. - For global resources: use a single value of "global". - For regional/multi-
+   * regional resources: use name of the GCP region(s) where the resource exists (e.g., ["us-east1",
+   * "us-west1"]). For multi-regional resources specify the name of each GCP region in the
+   * resource's multi-region. NOTE: Only GCP cloud region names are supported - go/cloud-region-
+   * names.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getLocations() {
+    return locations;
+  }
+
+  /**
+   * The locations of the resource. This field is used to determine whether the request is compliant
+   * with Trust Boundaries. Usage: - If unset or empty, the location of authorization is used as the
+   * target location. - For global resources: use a single value of "global". - For regional/multi-
+   * regional resources: use name of the GCP region(s) where the resource exists (e.g., ["us-east1",
+   * "us-west1"]). For multi-regional resources specify the name of each GCP region in the
+   * resource's multi-region. NOTE: Only GCP cloud region names are supported - go/cloud-region-
+   * names.
+   * @param locations locations or {@code null} for none
+   */
+  public Resource setLocations(java.util.List<java.lang.String> locations) {
+    this.locations = locations;
     return this;
   }
 

@@ -45,6 +45,13 @@ public final class ConnectorInfraConfig extends com.google.api.client.json.Gener
   private java.lang.Long connectionRatelimitWindowSeconds;
 
   /**
+   * Indicate whether connector versioning is enabled.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean connectorVersioningEnabled;
+
+  /**
    * Indicate whether connector is deployed on GKE/CloudRun
    * The value may be {@code null}.
    */
@@ -87,11 +94,25 @@ public final class ConnectorInfraConfig extends com.google.api.client.json.Gener
   private java.lang.Boolean migrateTls;
 
   /**
+   * Indicate whether connector is being migrated to use direct VPC egress.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String networkEgressMode;
+
+  /**
    * Indicate whether cloud spanner is required for connector job.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean provisionCloudSpanner;
+
+  /**
+   * Indicate whether memstore is required for connector job.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean provisionMemstore;
 
   /**
    * Max QPS supported by the connector version before throttling of requests.
@@ -152,6 +173,23 @@ public final class ConnectorInfraConfig extends com.google.api.client.json.Gener
    */
   public ConnectorInfraConfig setConnectionRatelimitWindowSeconds(java.lang.Long connectionRatelimitWindowSeconds) {
     this.connectionRatelimitWindowSeconds = connectionRatelimitWindowSeconds;
+    return this;
+  }
+
+  /**
+   * Indicate whether connector versioning is enabled.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getConnectorVersioningEnabled() {
+    return connectorVersioningEnabled;
+  }
+
+  /**
+   * Indicate whether connector versioning is enabled.
+   * @param connectorVersioningEnabled connectorVersioningEnabled or {@code null} for none
+   */
+  public ConnectorInfraConfig setConnectorVersioningEnabled(java.lang.Boolean connectorVersioningEnabled) {
+    this.connectorVersioningEnabled = connectorVersioningEnabled;
     return this;
   }
 
@@ -258,6 +296,23 @@ public final class ConnectorInfraConfig extends com.google.api.client.json.Gener
   }
 
   /**
+   * Indicate whether connector is being migrated to use direct VPC egress.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getNetworkEgressMode() {
+    return networkEgressMode;
+  }
+
+  /**
+   * Indicate whether connector is being migrated to use direct VPC egress.
+   * @param networkEgressMode networkEgressMode or {@code null} for none
+   */
+  public ConnectorInfraConfig setNetworkEgressMode(java.lang.String networkEgressMode) {
+    this.networkEgressMode = networkEgressMode;
+    return this;
+  }
+
+  /**
    * Indicate whether cloud spanner is required for connector job.
    * @return value or {@code null} for none
    */
@@ -271,6 +326,23 @@ public final class ConnectorInfraConfig extends com.google.api.client.json.Gener
    */
   public ConnectorInfraConfig setProvisionCloudSpanner(java.lang.Boolean provisionCloudSpanner) {
     this.provisionCloudSpanner = provisionCloudSpanner;
+    return this;
+  }
+
+  /**
+   * Indicate whether memstore is required for connector job.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getProvisionMemstore() {
+    return provisionMemstore;
+  }
+
+  /**
+   * Indicate whether memstore is required for connector job.
+   * @param provisionMemstore provisionMemstore or {@code null} for none
+   */
+  public ConnectorInfraConfig setProvisionMemstore(java.lang.Boolean provisionMemstore) {
+    this.provisionMemstore = provisionMemstore;
     return this;
   }
 

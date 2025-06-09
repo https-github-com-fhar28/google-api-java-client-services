@@ -31,11 +31,65 @@ package com.google.api.services.displayvideo.v3.model;
 public final class AlgorithmRulesSignalValue extends com.google.api.client.json.GenericJson {
 
   /**
+   * Signal based on active views. Only `TIME_ON_SCREEN` is supported. This field is only supported
+   * for allowlisted partners.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String activeViewSignal;
+
+  /**
+   * Signal based on floodlight conversion events. This field is only supported for allowlisted
+   * partners.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private AlgorithmRulesFloodlightActivityConversionSignal floodlightActivityConversionSignal;
+
+  /**
    * Value to use as result.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Double number;
+
+  /**
+   * Signal based on active views. Only `TIME_ON_SCREEN` is supported. This field is only supported
+   * for allowlisted partners.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getActiveViewSignal() {
+    return activeViewSignal;
+  }
+
+  /**
+   * Signal based on active views. Only `TIME_ON_SCREEN` is supported. This field is only supported
+   * for allowlisted partners.
+   * @param activeViewSignal activeViewSignal or {@code null} for none
+   */
+  public AlgorithmRulesSignalValue setActiveViewSignal(java.lang.String activeViewSignal) {
+    this.activeViewSignal = activeViewSignal;
+    return this;
+  }
+
+  /**
+   * Signal based on floodlight conversion events. This field is only supported for allowlisted
+   * partners.
+   * @return value or {@code null} for none
+   */
+  public AlgorithmRulesFloodlightActivityConversionSignal getFloodlightActivityConversionSignal() {
+    return floodlightActivityConversionSignal;
+  }
+
+  /**
+   * Signal based on floodlight conversion events. This field is only supported for allowlisted
+   * partners.
+   * @param floodlightActivityConversionSignal floodlightActivityConversionSignal or {@code null} for none
+   */
+  public AlgorithmRulesSignalValue setFloodlightActivityConversionSignal(AlgorithmRulesFloodlightActivityConversionSignal floodlightActivityConversionSignal) {
+    this.floodlightActivityConversionSignal = floodlightActivityConversionSignal;
+    return this;
+  }
 
   /**
    * Value to use as result.

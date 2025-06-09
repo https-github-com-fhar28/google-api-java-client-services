@@ -445,6 +445,29 @@ public class CloudBuild extends com.google.api.client.googleapis.services.json.A
         }
 
         /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        @com.google.api.client.util.Key
+        private java.util.List<java.lang.String> extraLocationTypes;
+
+        /** Optional. A list of extra location types that should be used as conditions for controlling the
+       visibility of the locations.
+         */
+        public java.util.List<java.lang.String> getExtraLocationTypes() {
+          return extraLocationTypes;
+        }
+
+        /**
+         * Optional. A list of extra location types that should be used as conditions for
+         * controlling the visibility of the locations.
+         */
+        public List setExtraLocationTypes(java.util.List<java.lang.String> extraLocationTypes) {
+          this.extraLocationTypes = extraLocationTypes;
+          return this;
+        }
+
+        /**
          * A filter to narrow down results to a preferred subset. The filtering language accepts
          * strings like `"displayName=tokyo"`, and is documented in more detail in
          * [AIP-160](https://google.aip.dev/160).
@@ -1560,6 +1583,29 @@ public class CloudBuild extends com.google.api.client.googleapis.services.json.A
             return this;
           }
 
+          /**
+           * Optional. If set to true, the response will return partial results when some regions
+           * are unreachable. If set to false, the response will fail if any region is unreachable.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean returnPartialSuccess;
+
+          /** Optional. If set to true, the response will return partial results when some regions are
+         unreachable. If set to false, the response will fail if any region is unreachable.
+           */
+          public java.lang.Boolean getReturnPartialSuccess() {
+            return returnPartialSuccess;
+          }
+
+          /**
+           * Optional. If set to true, the response will return partial results when some regions
+           * are unreachable. If set to false, the response will fail if any region is unreachable.
+           */
+          public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+            this.returnPartialSuccess = returnPartialSuccess;
+            return this;
+          }
+
           @Override
           public List set(String parameterName, Object value) {
             return (List) super.set(parameterName, value);
@@ -1908,19 +1954,19 @@ public class CloudBuild extends com.google.api.client.googleapis.services.json.A
           }
 
           /**
-           * Arbitrary additional key to find the maching repository for a webhook event if needed.
+           * Arbitrary additional key to find the matching repository for a webhook event if needed.
            */
           @com.google.api.client.util.Key
           private java.lang.String webhookKey;
 
-          /** Arbitrary additional key to find the maching repository for a webhook event if needed.
+          /** Arbitrary additional key to find the matching repository for a webhook event if needed.
            */
           public java.lang.String getWebhookKey() {
             return webhookKey;
           }
 
           /**
-           * Arbitrary additional key to find the maching repository for a webhook event if needed.
+           * Arbitrary additional key to find the matching repository for a webhook event if needed.
            */
           public ProcessWebhook setWebhookKey(java.lang.String webhookKey) {
             this.webhookKey = webhookKey;
@@ -3569,6 +3615,31 @@ public class CloudBuild extends com.google.api.client.googleapis.services.json.A
               return this;
             }
 
+            /**
+             * Optional. If set to true, the response will return partial results when some regions
+             * are unreachable. If set to false, the response will fail if any region is
+             * unreachable.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.Boolean returnPartialSuccess;
+
+            /** Optional. If set to true, the response will return partial results when some regions are
+           unreachable. If set to false, the response will fail if any region is unreachable.
+             */
+            public java.lang.Boolean getReturnPartialSuccess() {
+              return returnPartialSuccess;
+            }
+
+            /**
+             * Optional. If set to true, the response will return partial results when some regions
+             * are unreachable. If set to false, the response will fail if any region is
+             * unreachable.
+             */
+            public List setReturnPartialSuccess(java.lang.Boolean returnPartialSuccess) {
+              this.returnPartialSuccess = returnPartialSuccess;
+              return this;
+            }
+
             @Override
             public List set(String parameterName, Object value) {
               return (List) super.set(parameterName, value);
@@ -3603,7 +3674,7 @@ public class CloudBuild extends com.google.api.client.googleapis.services.json.A
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -3634,7 +3705,7 @@ public class CloudBuild extends com.google.api.client.googleapis.services.json.A
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".

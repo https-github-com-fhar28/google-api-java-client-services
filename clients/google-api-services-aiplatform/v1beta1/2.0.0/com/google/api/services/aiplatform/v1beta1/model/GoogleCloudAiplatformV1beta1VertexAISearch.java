@@ -17,8 +17,8 @@
 package com.google.api.services.aiplatform.v1beta1.model;
 
 /**
- * Retrieve from Vertex AI Search datastore for grounding. See
- * https://cloud.google.com/products/agent-builder
+ * Retrieve from Vertex AI Search datastore or engine for grounding. datastore and engine are
+ * mutually exclusive. See https://cloud.google.com/products/agent-builder
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Vertex AI API. For a detailed explanation see:
@@ -31,7 +31,16 @@ package com.google.api.services.aiplatform.v1beta1.model;
 public final class GoogleCloudAiplatformV1beta1VertexAISearch extends com.google.api.client.json.GenericJson {
 
   /**
-   * Required. Fully-qualified Vertex AI Search data store resource ID. Format:
+   * Specifications that define the specific DataStores to be searched, along with configurations
+   * for those data stores. This is only considered for Engines with multiple data stores. It should
+   * only be set if engine is used.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GoogleCloudAiplatformV1beta1VertexAISearchDataStoreSpec> dataStoreSpecs;
+
+  /**
+   * Optional. Fully-qualified Vertex AI Search data store resource ID. Format:
    * `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}`
    * The value may be {@code null}.
    */
@@ -39,7 +48,51 @@ public final class GoogleCloudAiplatformV1beta1VertexAISearch extends com.google
   private java.lang.String datastore;
 
   /**
-   * Required. Fully-qualified Vertex AI Search data store resource ID. Format:
+   * Optional. Fully-qualified Vertex AI Search engine resource ID. Format:
+   * `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String engine;
+
+  /**
+   * Optional. Filter strings to be passed to the search API.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String filter;
+
+  /**
+   * Optional. Number of search results to return per query. The default value is 10. The maximumm
+   * allowed value is 10.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer maxResults;
+
+  /**
+   * Specifications that define the specific DataStores to be searched, along with configurations
+   * for those data stores. This is only considered for Engines with multiple data stores. It should
+   * only be set if engine is used.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GoogleCloudAiplatformV1beta1VertexAISearchDataStoreSpec> getDataStoreSpecs() {
+    return dataStoreSpecs;
+  }
+
+  /**
+   * Specifications that define the specific DataStores to be searched, along with configurations
+   * for those data stores. This is only considered for Engines with multiple data stores. It should
+   * only be set if engine is used.
+   * @param dataStoreSpecs dataStoreSpecs or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1VertexAISearch setDataStoreSpecs(java.util.List<GoogleCloudAiplatformV1beta1VertexAISearchDataStoreSpec> dataStoreSpecs) {
+    this.dataStoreSpecs = dataStoreSpecs;
+    return this;
+  }
+
+  /**
+   * Optional. Fully-qualified Vertex AI Search data store resource ID. Format:
    * `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}`
    * @return value or {@code null} for none
    */
@@ -48,12 +101,67 @@ public final class GoogleCloudAiplatformV1beta1VertexAISearch extends com.google
   }
 
   /**
-   * Required. Fully-qualified Vertex AI Search data store resource ID. Format:
+   * Optional. Fully-qualified Vertex AI Search data store resource ID. Format:
    * `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}`
    * @param datastore datastore or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1VertexAISearch setDatastore(java.lang.String datastore) {
     this.datastore = datastore;
+    return this;
+  }
+
+  /**
+   * Optional. Fully-qualified Vertex AI Search engine resource ID. Format:
+   * `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getEngine() {
+    return engine;
+  }
+
+  /**
+   * Optional. Fully-qualified Vertex AI Search engine resource ID. Format:
+   * `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+   * @param engine engine or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1VertexAISearch setEngine(java.lang.String engine) {
+    this.engine = engine;
+    return this;
+  }
+
+  /**
+   * Optional. Filter strings to be passed to the search API.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getFilter() {
+    return filter;
+  }
+
+  /**
+   * Optional. Filter strings to be passed to the search API.
+   * @param filter filter or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1VertexAISearch setFilter(java.lang.String filter) {
+    this.filter = filter;
+    return this;
+  }
+
+  /**
+   * Optional. Number of search results to return per query. The default value is 10. The maximumm
+   * allowed value is 10.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getMaxResults() {
+    return maxResults;
+  }
+
+  /**
+   * Optional. Number of search results to return per query. The default value is 10. The maximumm
+   * allowed value is 10.
+   * @param maxResults maxResults or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1VertexAISearch setMaxResults(java.lang.Integer maxResults) {
+    this.maxResults = maxResults;
     return this;
   }
 

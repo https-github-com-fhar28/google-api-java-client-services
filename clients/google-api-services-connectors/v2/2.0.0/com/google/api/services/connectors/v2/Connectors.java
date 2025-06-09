@@ -1190,6 +1190,22 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
               return this;
             }
 
+            /** Specified view of the action schema. */
+            @com.google.api.client.util.Key
+            private java.lang.String view;
+
+            /** Specified view of the action schema.
+             */
+            public java.lang.String getView() {
+              return view;
+            }
+
+            /** Specified view of the action schema. */
+            public Get setView(java.lang.String view) {
+              this.view = view;
+              return this;
+            }
+
             @Override
             public Get set(String parameterName, Object value) {
               return (Get) super.set(parameterName, value);
@@ -1558,6 +1574,22 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
                     "^projects/[^/]+/locations/[^/]+/connections/[^/]+/entityTypes/[^/]+$");
               }
               this.name = name;
+              return this;
+            }
+
+            /** Specifies view for entity type schema. */
+            @com.google.api.client.util.Key
+            private java.lang.String view;
+
+            /** Specifies view for entity type schema.
+             */
+            public java.lang.String getView() {
+              return view;
+            }
+
+            /** Specifies view for entity type schema. */
+            public Get setView(java.lang.String view) {
+              this.view = view;
               return this;
             }
 
@@ -2623,6 +2655,22 @@ public class Connectors extends com.google.api.client.googleapis.services.json.A
               /** List of 'sort_by' columns to use when returning the results. */
               public List setSortBy(java.util.List<java.lang.String> sortBy) {
                 this.sortBy = sortBy;
+                return this;
+              }
+
+              /** List of 'sort_order' columns to use when returning the results. */
+              @com.google.api.client.util.Key
+              private java.util.List<java.lang.String> sortOrder;
+
+              /** List of 'sort_order' columns to use when returning the results.
+               */
+              public java.util.List<java.lang.String> getSortOrder() {
+                return sortOrder;
+              }
+
+              /** List of 'sort_order' columns to use when returning the results. */
+              public List setSortOrder(java.util.List<java.lang.String> sortOrder) {
+                this.sortOrder = sortOrder;
                 return this;
               }
 

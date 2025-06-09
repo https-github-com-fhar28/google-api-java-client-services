@@ -53,6 +53,13 @@ public final class GceSetup extends com.google.api.client.json.GenericJson {
   private BootDisk bootDisk;
 
   /**
+   * Optional. Confidential instance configuration.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ConfidentialInstanceConfig confidentialInstanceConfig;
+
+  /**
    * Optional. Use a container image to start the notebook instance.
    * The value may be {@code null}.
    */
@@ -126,6 +133,13 @@ public final class GceSetup extends com.google.api.client.json.GenericJson {
   private java.util.List<NetworkInterface> networkInterfaces;
 
   /**
+   * Optional. Specifies the reservations that this instance can consume from.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ReservationAffinity reservationAffinity;
+
+  /**
    * Optional. The service account that serves as an identity for the VM instance. Currently
    * supports only one service account.
    * The value may be {@code null}.
@@ -142,8 +156,8 @@ public final class GceSetup extends com.google.api.client.json.GenericJson {
   private ShieldedInstanceConfig shieldedInstanceConfig;
 
   /**
-   * Optional. The Compute Engine tags to add to runtime (see [Tagging
-   * instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+   * Optional. The Compute Engine network tags to add to runtime (see [Add network
+   * tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -193,6 +207,23 @@ public final class GceSetup extends com.google.api.client.json.GenericJson {
    */
   public GceSetup setBootDisk(BootDisk bootDisk) {
     this.bootDisk = bootDisk;
+    return this;
+  }
+
+  /**
+   * Optional. Confidential instance configuration.
+   * @return value or {@code null} for none
+   */
+  public ConfidentialInstanceConfig getConfidentialInstanceConfig() {
+    return confidentialInstanceConfig;
+  }
+
+  /**
+   * Optional. Confidential instance configuration.
+   * @param confidentialInstanceConfig confidentialInstanceConfig or {@code null} for none
+   */
+  public GceSetup setConfidentialInstanceConfig(ConfidentialInstanceConfig confidentialInstanceConfig) {
+    this.confidentialInstanceConfig = confidentialInstanceConfig;
     return this;
   }
 
@@ -358,6 +389,23 @@ public final class GceSetup extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. Specifies the reservations that this instance can consume from.
+   * @return value or {@code null} for none
+   */
+  public ReservationAffinity getReservationAffinity() {
+    return reservationAffinity;
+  }
+
+  /**
+   * Optional. Specifies the reservations that this instance can consume from.
+   * @param reservationAffinity reservationAffinity or {@code null} for none
+   */
+  public GceSetup setReservationAffinity(ReservationAffinity reservationAffinity) {
+    this.reservationAffinity = reservationAffinity;
+    return this;
+  }
+
+  /**
    * Optional. The service account that serves as an identity for the VM instance. Currently
    * supports only one service account.
    * @return value or {@code null} for none
@@ -396,8 +444,8 @@ public final class GceSetup extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The Compute Engine tags to add to runtime (see [Tagging
-   * instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+   * Optional. The Compute Engine network tags to add to runtime (see [Add network
+   * tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getTags() {
@@ -405,8 +453,8 @@ public final class GceSetup extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The Compute Engine tags to add to runtime (see [Tagging
-   * instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+   * Optional. The Compute Engine network tags to add to runtime (see [Add network
+   * tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
    * @param tags tags or {@code null} for none
    */
   public GceSetup setTags(java.util.List<java.lang.String> tags) {

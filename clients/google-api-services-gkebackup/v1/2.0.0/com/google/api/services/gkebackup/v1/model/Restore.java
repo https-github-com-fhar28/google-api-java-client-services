@@ -63,7 +63,7 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
-   * User specified descriptive string for this Restore.
+   * Optional. User specified descriptive string for this Restore.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -84,7 +84,7 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Immutable. Filters resources for `Restore`. If not specified, the scope of the
    * restore will remain the same as defined in the `RestorePlan`. If this is specified and no
-   * resources are matched by the `inclusion_filters` or everyting is excluded by the
+   * resources are matched by the `inclusion_filters` or everything is excluded by the
    * `exclusion_filters`, nothing will be restored. This filter can only be specified if the value
    * of namespaced_resource_restore_mode is set to `MERGE_SKIP_ON_CONFLICT`,
    * `MERGE_REPLACE_VOLUME_ON_CONFLICT` or `MERGE_REPLACE_ON_CONFLICT`.
@@ -144,7 +144,9 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   private java.lang.String state;
 
   /**
-   * Output only. Human-readable description of why the Restore is in its current state.
+   * Output only. Human-readable description of why the Restore is in its current state. This field
+   * is only meant for human readability and should not be used programmatically as this field is
+   * not guaranteed to be consistent.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -257,7 +259,7 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User specified descriptive string for this Restore.
+   * Optional. User specified descriptive string for this Restore.
    * @return value or {@code null} for none
    */
   public java.lang.String getDescription() {
@@ -265,7 +267,7 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User specified descriptive string for this Restore.
+   * Optional. User specified descriptive string for this Restore.
    * @param description description or {@code null} for none
    */
   public Restore setDescription(java.lang.String description) {
@@ -303,7 +305,7 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Immutable. Filters resources for `Restore`. If not specified, the scope of the
    * restore will remain the same as defined in the `RestorePlan`. If this is specified and no
-   * resources are matched by the `inclusion_filters` or everyting is excluded by the
+   * resources are matched by the `inclusion_filters` or everything is excluded by the
    * `exclusion_filters`, nothing will be restored. This filter can only be specified if the value
    * of namespaced_resource_restore_mode is set to `MERGE_SKIP_ON_CONFLICT`,
    * `MERGE_REPLACE_VOLUME_ON_CONFLICT` or `MERGE_REPLACE_ON_CONFLICT`.
@@ -316,7 +318,7 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Immutable. Filters resources for `Restore`. If not specified, the scope of the
    * restore will remain the same as defined in the `RestorePlan`. If this is specified and no
-   * resources are matched by the `inclusion_filters` or everyting is excluded by the
+   * resources are matched by the `inclusion_filters` or everything is excluded by the
    * `exclusion_filters`, nothing will be restored. This filter can only be specified if the value
    * of namespaced_resource_restore_mode is set to `MERGE_SKIP_ON_CONFLICT`,
    * `MERGE_REPLACE_VOLUME_ON_CONFLICT` or `MERGE_REPLACE_ON_CONFLICT`.
@@ -449,7 +451,9 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. Human-readable description of why the Restore is in its current state.
+   * Output only. Human-readable description of why the Restore is in its current state. This field
+   * is only meant for human readability and should not be used programmatically as this field is
+   * not guaranteed to be consistent.
    * @return value or {@code null} for none
    */
   public java.lang.String getStateReason() {
@@ -457,7 +461,9 @@ public final class Restore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. Human-readable description of why the Restore is in its current state.
+   * Output only. Human-readable description of why the Restore is in its current state. This field
+   * is only meant for human readability and should not be used programmatically as this field is
+   * not guaranteed to be consistent.
    * @param stateReason stateReason or {@code null} for none
    */
   public Restore setStateReason(java.lang.String stateReason) {
