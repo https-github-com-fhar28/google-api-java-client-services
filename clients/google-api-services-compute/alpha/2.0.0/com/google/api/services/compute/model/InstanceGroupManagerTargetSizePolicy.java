@@ -30,14 +30,16 @@ package com.google.api.services.compute.model;
 public final class InstanceGroupManagerTargetSizePolicy extends com.google.api.client.json.GenericJson {
 
   /**
-   * Mode in which operations on size are processed.
+   * The mode of target size policy based on which the MIG creates its VMs individually or all at
+   * once.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String mode;
 
   /**
-   * Mode in which operations on size are processed.
+   * The mode of target size policy based on which the MIG creates its VMs individually or all at
+   * once.
    * @return value or {@code null} for none
    */
   public java.lang.String getMode() {
@@ -45,7 +47,8 @@ public final class InstanceGroupManagerTargetSizePolicy extends com.google.api.c
   }
 
   /**
-   * Mode in which operations on size are processed.
+   * The mode of target size policy based on which the MIG creates its VMs individually or all at
+   * once.
    * @param mode mode or {@code null} for none
    */
   public InstanceGroupManagerTargetSizePolicy setMode(java.lang.String mode) {

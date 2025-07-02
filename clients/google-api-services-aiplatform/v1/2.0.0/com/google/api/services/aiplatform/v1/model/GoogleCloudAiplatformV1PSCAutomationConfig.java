@@ -17,7 +17,7 @@
 package com.google.api.services.aiplatform.v1.model;
 
 /**
- * PSC config that is used to automatically create forwarding rule via ServiceConnectionMap.
+ * PSC config that is used to automatically create PSC endpoints in the user projects.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Vertex AI API. For a detailed explanation see:
@@ -30,16 +30,21 @@ package com.google.api.services.aiplatform.v1.model;
 public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google.api.client.json.GenericJson {
 
   /**
-   * Output only. Forwarding rule created by the PSC service automation. Note for Vector search, use
-   * IndexPrivateEndpoint instead.
+   * Output only. Error message if the PSC service automation failed.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String errorMessage;
+
+  /**
+   * Output only. Forwarding rule created by the PSC service automation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String forwardingRule;
 
   /**
-   * Output only. IP address rule created by the PSC service automation. Note for Vector search, use
-   * IndexPrivateEndpoint instead.
+   * Output only. IP address rule created by the PSC service automation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -48,9 +53,8 @@ public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google
   /**
    * Required. The full name of the Google Compute Engine
    * [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
-   * [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert):
-   * `projects/{project}/global/networks/{network}`. Where {project} is a project number, as in
-   * '12345', and {network} is network name.
+   * [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/get):
+   * `projects/{project}/global/networks/{network}`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -64,8 +68,31 @@ public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google
   private java.lang.String projectId;
 
   /**
-   * Output only. Forwarding rule created by the PSC service automation. Note for Vector search, use
-   * IndexPrivateEndpoint instead.
+   * Output only. The state of the PSC service automation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String state;
+
+  /**
+   * Output only. Error message if the PSC service automation failed.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getErrorMessage() {
+    return errorMessage;
+  }
+
+  /**
+   * Output only. Error message if the PSC service automation failed.
+   * @param errorMessage errorMessage or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1PSCAutomationConfig setErrorMessage(java.lang.String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+  /**
+   * Output only. Forwarding rule created by the PSC service automation.
    * @return value or {@code null} for none
    */
   public java.lang.String getForwardingRule() {
@@ -73,8 +100,7 @@ public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google
   }
 
   /**
-   * Output only. Forwarding rule created by the PSC service automation. Note for Vector search, use
-   * IndexPrivateEndpoint instead.
+   * Output only. Forwarding rule created by the PSC service automation.
    * @param forwardingRule forwardingRule or {@code null} for none
    */
   public GoogleCloudAiplatformV1PSCAutomationConfig setForwardingRule(java.lang.String forwardingRule) {
@@ -83,8 +109,7 @@ public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google
   }
 
   /**
-   * Output only. IP address rule created by the PSC service automation. Note for Vector search, use
-   * IndexPrivateEndpoint instead.
+   * Output only. IP address rule created by the PSC service automation.
    * @return value or {@code null} for none
    */
   public java.lang.String getIpAddress() {
@@ -92,8 +117,7 @@ public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google
   }
 
   /**
-   * Output only. IP address rule created by the PSC service automation. Note for Vector search, use
-   * IndexPrivateEndpoint instead.
+   * Output only. IP address rule created by the PSC service automation.
    * @param ipAddress ipAddress or {@code null} for none
    */
   public GoogleCloudAiplatformV1PSCAutomationConfig setIpAddress(java.lang.String ipAddress) {
@@ -104,9 +128,8 @@ public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google
   /**
    * Required. The full name of the Google Compute Engine
    * [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
-   * [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert):
-   * `projects/{project}/global/networks/{network}`. Where {project} is a project number, as in
-   * '12345', and {network} is network name.
+   * [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/get):
+   * `projects/{project}/global/networks/{network}`.
    * @return value or {@code null} for none
    */
   public java.lang.String getNetwork() {
@@ -116,9 +139,8 @@ public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google
   /**
    * Required. The full name of the Google Compute Engine
    * [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
-   * [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert):
-   * `projects/{project}/global/networks/{network}`. Where {project} is a project number, as in
-   * '12345', and {network} is network name.
+   * [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/get):
+   * `projects/{project}/global/networks/{network}`.
    * @param network network or {@code null} for none
    */
   public GoogleCloudAiplatformV1PSCAutomationConfig setNetwork(java.lang.String network) {
@@ -140,6 +162,23 @@ public final class GoogleCloudAiplatformV1PSCAutomationConfig extends com.google
    */
   public GoogleCloudAiplatformV1PSCAutomationConfig setProjectId(java.lang.String projectId) {
     this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * Output only. The state of the PSC service automation.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getState() {
+    return state;
+  }
+
+  /**
+   * Output only. The state of the PSC service automation.
+   * @param state state or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1PSCAutomationConfig setState(java.lang.String state) {
+    this.state = state;
     return this;
   }
 

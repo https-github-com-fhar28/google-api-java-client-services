@@ -45,7 +45,6 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   private java.lang.String clientState;
 
   /**
-   * Cloud KMS config for Auth Module to encrypt/decrypt credentials.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -59,6 +58,13 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   private String createTime;
 
   /**
+   * Optional. Customer configuration information for the given client.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudIntegrationsV1alphaCustomerConfig customerConfig;
+
+  /**
    * Description of what the client is used for
    * The value may be {@code null}.
    */
@@ -66,7 +72,29 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   private java.lang.String description;
 
   /**
-   * Optional. True if variable masking feature should be turned on for this region
+   * Optional.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean enableHttpCall;
+
+  /**
+   * Optional. Indicates the client enables internal IP feature, this is applicable for internal
+   * clients only.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean enableInternalIp;
+
+  /**
+   * Optional.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean enableManagedAiFeatures;
+
+  /**
+   * Optional.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -108,9 +136,6 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   private java.lang.String region;
 
   /**
-   * Default run-as service account email, set up during project provision time, that will be used
-   * to generate auth token to be used in Connector task, Rest caller task, Cloud function task and
-   * Subworkflows.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -151,7 +176,6 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   }
 
   /**
-   * Cloud KMS config for Auth Module to encrypt/decrypt credentials.
    * @return value or {@code null} for none
    */
   public GoogleCloudIntegrationsV1alphaCloudKmsConfig getCloudKmsConfig() {
@@ -159,7 +183,6 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   }
 
   /**
-   * Cloud KMS config for Auth Module to encrypt/decrypt credentials.
    * @param cloudKmsConfig cloudKmsConfig or {@code null} for none
    */
   public GoogleCloudIntegrationsV1alphaClientConfig setCloudKmsConfig(GoogleCloudIntegrationsV1alphaCloudKmsConfig cloudKmsConfig) {
@@ -185,6 +208,23 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   }
 
   /**
+   * Optional. Customer configuration information for the given client.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudIntegrationsV1alphaCustomerConfig getCustomerConfig() {
+    return customerConfig;
+  }
+
+  /**
+   * Optional. Customer configuration information for the given client.
+   * @param customerConfig customerConfig or {@code null} for none
+   */
+  public GoogleCloudIntegrationsV1alphaClientConfig setCustomerConfig(GoogleCloudIntegrationsV1alphaCustomerConfig customerConfig) {
+    this.customerConfig = customerConfig;
+    return this;
+  }
+
+  /**
    * Description of what the client is used for
    * @return value or {@code null} for none
    */
@@ -202,7 +242,60 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   }
 
   /**
-   * Optional. True if variable masking feature should be turned on for this region
+   * Optional.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEnableHttpCall() {
+    return enableHttpCall;
+  }
+
+  /**
+   * Optional.
+   * @param enableHttpCall enableHttpCall or {@code null} for none
+   */
+  public GoogleCloudIntegrationsV1alphaClientConfig setEnableHttpCall(java.lang.Boolean enableHttpCall) {
+    this.enableHttpCall = enableHttpCall;
+    return this;
+  }
+
+  /**
+   * Optional. Indicates the client enables internal IP feature, this is applicable for internal
+   * clients only.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEnableInternalIp() {
+    return enableInternalIp;
+  }
+
+  /**
+   * Optional. Indicates the client enables internal IP feature, this is applicable for internal
+   * clients only.
+   * @param enableInternalIp enableInternalIp or {@code null} for none
+   */
+  public GoogleCloudIntegrationsV1alphaClientConfig setEnableInternalIp(java.lang.Boolean enableInternalIp) {
+    this.enableInternalIp = enableInternalIp;
+    return this;
+  }
+
+  /**
+   * Optional.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getEnableManagedAiFeatures() {
+    return enableManagedAiFeatures;
+  }
+
+  /**
+   * Optional.
+   * @param enableManagedAiFeatures enableManagedAiFeatures or {@code null} for none
+   */
+  public GoogleCloudIntegrationsV1alphaClientConfig setEnableManagedAiFeatures(java.lang.Boolean enableManagedAiFeatures) {
+    this.enableManagedAiFeatures = enableManagedAiFeatures;
+    return this;
+  }
+
+  /**
+   * Optional.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getEnableVariableMasking() {
@@ -210,7 +303,7 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   }
 
   /**
-   * Optional. True if variable masking feature should be turned on for this region
+   * Optional.
    * @param enableVariableMasking enableVariableMasking or {@code null} for none
    */
   public GoogleCloudIntegrationsV1alphaClientConfig setEnableVariableMasking(java.lang.Boolean enableVariableMasking) {
@@ -304,9 +397,6 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   }
 
   /**
-   * Default run-as service account email, set up during project provision time, that will be used
-   * to generate auth token to be used in Connector task, Rest caller task, Cloud function task and
-   * Subworkflows.
    * @return value or {@code null} for none
    */
   public java.lang.String getRunAsServiceAccount() {
@@ -314,9 +404,6 @@ public final class GoogleCloudIntegrationsV1alphaClientConfig extends com.google
   }
 
   /**
-   * Default run-as service account email, set up during project provision time, that will be used
-   * to generate auth token to be used in Connector task, Rest caller task, Cloud function task and
-   * Subworkflows.
    * @param runAsServiceAccount runAsServiceAccount or {@code null} for none
    */
   public GoogleCloudIntegrationsV1alphaClientConfig setRunAsServiceAccount(java.lang.String runAsServiceAccount) {

@@ -37,6 +37,20 @@ public final class GoogleCloudDialogflowCxV3SafetySettings extends com.google.ap
   private java.util.List<GoogleCloudDialogflowCxV3SafetySettingsPhrase> bannedPhrases;
 
   /**
+   * Optional. Default phrase match strategy for banned phrases.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String defaultBannedPhraseMatchStrategy;
+
+  /**
+   * Optional. Settings for prompt security checks.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings promptSecuritySettings;
+
+  /**
    * Banned phrases for generated text.
    * @return value or {@code null} for none
    */
@@ -50,6 +64,40 @@ public final class GoogleCloudDialogflowCxV3SafetySettings extends com.google.ap
    */
   public GoogleCloudDialogflowCxV3SafetySettings setBannedPhrases(java.util.List<GoogleCloudDialogflowCxV3SafetySettingsPhrase> bannedPhrases) {
     this.bannedPhrases = bannedPhrases;
+    return this;
+  }
+
+  /**
+   * Optional. Default phrase match strategy for banned phrases.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDefaultBannedPhraseMatchStrategy() {
+    return defaultBannedPhraseMatchStrategy;
+  }
+
+  /**
+   * Optional. Default phrase match strategy for banned phrases.
+   * @param defaultBannedPhraseMatchStrategy defaultBannedPhraseMatchStrategy or {@code null} for none
+   */
+  public GoogleCloudDialogflowCxV3SafetySettings setDefaultBannedPhraseMatchStrategy(java.lang.String defaultBannedPhraseMatchStrategy) {
+    this.defaultBannedPhraseMatchStrategy = defaultBannedPhraseMatchStrategy;
+    return this;
+  }
+
+  /**
+   * Optional. Settings for prompt security checks.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings getPromptSecuritySettings() {
+    return promptSecuritySettings;
+  }
+
+  /**
+   * Optional. Settings for prompt security checks.
+   * @param promptSecuritySettings promptSecuritySettings or {@code null} for none
+   */
+  public GoogleCloudDialogflowCxV3SafetySettings setPromptSecuritySettings(GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings promptSecuritySettings) {
+    this.promptSecuritySettings = promptSecuritySettings;
     return this;
   }
 

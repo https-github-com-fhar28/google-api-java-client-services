@@ -17,9 +17,9 @@
 package com.google.api.services.compute.model;
 
 /**
- * Surfaces relevant state for a consensus peering connection update/delete semantics. Only set when
- * connection_status.update_strategy is CONSENSUS or one network peering is proposing upgrading to
- * CONSENSUS.
+ * The status of update/delete for a consensus peering connection. Only set when
+ * connection_status.update_strategy is CONSENSUS or a network peering is proposing to update the
+ * strategy to CONSENSUS.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Compute Engine API. For a detailed explanation see:

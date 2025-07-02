@@ -107,7 +107,7 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * are added/removed from the destination service. This field specifies parameters that control
    * consistent hashing. This field is only applicable when localityLbPolicy is set to MAGLEV or
    * RING_HASH. This field is applicable to either: - A regional backend service with the
-   * service_protocol set to HTTP, HTTPS, or HTTP2, and load_balancing_scheme set to
+   * service_protocol set to HTTP, HTTPS, HTTP2 or H2C, and load_balancing_scheme set to
    * INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to
    * INTERNAL_SELF_MANAGED.
    * The value may be {@code null}.
@@ -327,7 +327,7 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * balancer. Maglev is not as stable as ring hash but has faster table lookup build times and host
    * selection times. For more information about Maglev, see
    * https://ai.google/research/pubs/pub44824 This field is applicable to either: - A regional
-   * backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and
+   * backend service with the service_protocol set to HTTP, HTTPS, HTTP2 or H2C, and
    * load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the
    * load_balancing_scheme set to INTERNAL_SELF_MANAGED, INTERNAL_MANAGED, or EXTERNAL_MANAGED. If
    * sessionAffinity is not configured—that is, if session affinity remains at the default value of
@@ -385,7 +385,8 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * The URL of the network to which this backend service belongs. This field must be set for
    * Internal Passthrough Network Load Balancers when the haPolicy is enabled, and for External
    * Passthrough Network Load Balancers when the haPolicy fastIpMove is enabled. This field can only
-   * be specified when the load balancing scheme is set to INTERNAL.
+   * be specified when the load balancing scheme is set to INTERNAL, or when the load balancing
+   * scheme is set to EXTERNAL and haPolicy fastIpMove is enabled.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -407,9 +408,9 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * managed regional API endpoints or managed services published using Private Service Connect
    * Applicable backend service types can be: - A global backend service with the
    * loadBalancingScheme set to INTERNAL_SELF_MANAGED or EXTERNAL_MANAGED. - A regional backend
-   * service with the serviceProtocol set to HTTP, HTTPS, or HTTP2, and loadBalancingScheme set to
-   * INTERNAL_MANAGED or EXTERNAL_MANAGED. Not supported for Serverless NEGs. Not supported when the
-   * backend service is referenced by a URL map that is bound to target gRPC proxy that has
+   * service with the serviceProtocol set to HTTP, HTTPS, HTTP2 or H2C, and loadBalancingScheme set
+   * to INTERNAL_MANAGED or EXTERNAL_MANAGED. Not supported for Serverless NEGs. Not supported when
+   * the backend service is referenced by a URL map that is bound to target gRPC proxy that has
    * validateForProxyless field set to true.
    * The value may be {@code null}.
    */
@@ -438,10 +439,10 @@ public final class BackendService extends com.google.api.client.json.GenericJson
 
   /**
    * The protocol this BackendService uses to communicate with backends. Possible values are HTTP,
-   * HTTPS, HTTP2, TCP, SSL, UDP or GRPC. depending on the chosen load balancer or Traffic Director
-   * configuration. Refer to the documentation for the load balancers or for Traffic Director for
-   * more information. Must be set to GRPC when the backend service is referenced by a URL map that
-   * is bound to target gRPC proxy.
+   * HTTPS, HTTP2, H2C, TCP, SSL, UDP or GRPC. depending on the chosen load balancer or Traffic
+   * Director configuration. Refer to the documentation for the load balancers or for Traffic
+   * Director for more information. Must be set to GRPC when the backend service is referenced by a
+   * URL map that is bound to target gRPC proxy.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -532,6 +533,14 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    */
   @com.google.api.client.util.Key
   private java.lang.Integer timeoutSec;
+
+  /**
+   * Configuration for Backend Authenticated TLS and mTLS. May only be specified when the backend
+   * protocol is SSL, HTTPS or HTTP2.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private BackendServiceTlsSettings tlsSettings;
 
   /**
    * [Output Only] List of resources referencing given backend service.
@@ -682,7 +691,7 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * are added/removed from the destination service. This field specifies parameters that control
    * consistent hashing. This field is only applicable when localityLbPolicy is set to MAGLEV or
    * RING_HASH. This field is applicable to either: - A regional backend service with the
-   * service_protocol set to HTTP, HTTPS, or HTTP2, and load_balancing_scheme set to
+   * service_protocol set to HTTP, HTTPS, HTTP2 or H2C, and load_balancing_scheme set to
    * INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to
    * INTERNAL_SELF_MANAGED.
    * @return value or {@code null} for none
@@ -698,7 +707,7 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * are added/removed from the destination service. This field specifies parameters that control
    * consistent hashing. This field is only applicable when localityLbPolicy is set to MAGLEV or
    * RING_HASH. This field is applicable to either: - A regional backend service with the
-   * service_protocol set to HTTP, HTTPS, or HTTP2, and load_balancing_scheme set to
+   * service_protocol set to HTTP, HTTPS, HTTP2 or H2C, and load_balancing_scheme set to
    * INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to
    * INTERNAL_SELF_MANAGED.
    * @param consistentHash consistentHash or {@code null} for none
@@ -1211,7 +1220,7 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * balancer. Maglev is not as stable as ring hash but has faster table lookup build times and host
    * selection times. For more information about Maglev, see
    * https://ai.google/research/pubs/pub44824 This field is applicable to either: - A regional
-   * backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and
+   * backend service with the service_protocol set to HTTP, HTTPS, HTTP2 or H2C, and
    * load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the
    * load_balancing_scheme set to INTERNAL_SELF_MANAGED, INTERNAL_MANAGED, or EXTERNAL_MANAGED. If
    * sessionAffinity is not configured—that is, if session affinity remains at the default value of
@@ -1240,7 +1249,7 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * balancer. Maglev is not as stable as ring hash but has faster table lookup build times and host
    * selection times. For more information about Maglev, see
    * https://ai.google/research/pubs/pub44824 This field is applicable to either: - A regional
-   * backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and
+   * backend service with the service_protocol set to HTTP, HTTPS, HTTP2 or H2C, and
    * load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the
    * load_balancing_scheme set to INTERNAL_SELF_MANAGED, INTERNAL_MANAGED, or EXTERNAL_MANAGED. If
    * sessionAffinity is not configured—that is, if session affinity remains at the default value of
@@ -1352,7 +1361,8 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * The URL of the network to which this backend service belongs. This field must be set for
    * Internal Passthrough Network Load Balancers when the haPolicy is enabled, and for External
    * Passthrough Network Load Balancers when the haPolicy fastIpMove is enabled. This field can only
-   * be specified when the load balancing scheme is set to INTERNAL.
+   * be specified when the load balancing scheme is set to INTERNAL, or when the load balancing
+   * scheme is set to EXTERNAL and haPolicy fastIpMove is enabled.
    * @return value or {@code null} for none
    */
   public java.lang.String getNetwork() {
@@ -1363,7 +1373,8 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * The URL of the network to which this backend service belongs. This field must be set for
    * Internal Passthrough Network Load Balancers when the haPolicy is enabled, and for External
    * Passthrough Network Load Balancers when the haPolicy fastIpMove is enabled. This field can only
-   * be specified when the load balancing scheme is set to INTERNAL.
+   * be specified when the load balancing scheme is set to INTERNAL, or when the load balancing
+   * scheme is set to EXTERNAL and haPolicy fastIpMove is enabled.
    * @param network network or {@code null} for none
    */
   public BackendService setNetwork(java.lang.String network) {
@@ -1387,9 +1398,9 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * managed regional API endpoints or managed services published using Private Service Connect
    * Applicable backend service types can be: - A global backend service with the
    * loadBalancingScheme set to INTERNAL_SELF_MANAGED or EXTERNAL_MANAGED. - A regional backend
-   * service with the serviceProtocol set to HTTP, HTTPS, or HTTP2, and loadBalancingScheme set to
-   * INTERNAL_MANAGED or EXTERNAL_MANAGED. Not supported for Serverless NEGs. Not supported when the
-   * backend service is referenced by a URL map that is bound to target gRPC proxy that has
+   * service with the serviceProtocol set to HTTP, HTTPS, HTTP2 or H2C, and loadBalancingScheme set
+   * to INTERNAL_MANAGED or EXTERNAL_MANAGED. Not supported for Serverless NEGs. Not supported when
+   * the backend service is referenced by a URL map that is bound to target gRPC proxy that has
    * validateForProxyless field set to true.
    * @return value or {@code null} for none
    */
@@ -1413,9 +1424,9 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    * managed regional API endpoints or managed services published using Private Service Connect
    * Applicable backend service types can be: - A global backend service with the
    * loadBalancingScheme set to INTERNAL_SELF_MANAGED or EXTERNAL_MANAGED. - A regional backend
-   * service with the serviceProtocol set to HTTP, HTTPS, or HTTP2, and loadBalancingScheme set to
-   * INTERNAL_MANAGED or EXTERNAL_MANAGED. Not supported for Serverless NEGs. Not supported when the
-   * backend service is referenced by a URL map that is bound to target gRPC proxy that has
+   * service with the serviceProtocol set to HTTP, HTTPS, HTTP2 or H2C, and loadBalancingScheme set
+   * to INTERNAL_MANAGED or EXTERNAL_MANAGED. Not supported for Serverless NEGs. Not supported when
+   * the backend service is referenced by a URL map that is bound to target gRPC proxy that has
    * validateForProxyless field set to true.
    * @param outlierDetection outlierDetection or {@code null} for none
    */
@@ -1472,10 +1483,10 @@ public final class BackendService extends com.google.api.client.json.GenericJson
 
   /**
    * The protocol this BackendService uses to communicate with backends. Possible values are HTTP,
-   * HTTPS, HTTP2, TCP, SSL, UDP or GRPC. depending on the chosen load balancer or Traffic Director
-   * configuration. Refer to the documentation for the load balancers or for Traffic Director for
-   * more information. Must be set to GRPC when the backend service is referenced by a URL map that
-   * is bound to target gRPC proxy.
+   * HTTPS, HTTP2, H2C, TCP, SSL, UDP or GRPC. depending on the chosen load balancer or Traffic
+   * Director configuration. Refer to the documentation for the load balancers or for Traffic
+   * Director for more information. Must be set to GRPC when the backend service is referenced by a
+   * URL map that is bound to target gRPC proxy.
    * @return value or {@code null} for none
    */
   public java.lang.String getProtocol() {
@@ -1484,10 +1495,10 @@ public final class BackendService extends com.google.api.client.json.GenericJson
 
   /**
    * The protocol this BackendService uses to communicate with backends. Possible values are HTTP,
-   * HTTPS, HTTP2, TCP, SSL, UDP or GRPC. depending on the chosen load balancer or Traffic Director
-   * configuration. Refer to the documentation for the load balancers or for Traffic Director for
-   * more information. Must be set to GRPC when the backend service is referenced by a URL map that
-   * is bound to target gRPC proxy.
+   * HTTPS, HTTP2, H2C, TCP, SSL, UDP or GRPC. depending on the chosen load balancer or Traffic
+   * Director configuration. Refer to the documentation for the load balancers or for Traffic
+   * Director for more information. Must be set to GRPC when the backend service is referenced by a
+   * URL map that is bound to target gRPC proxy.
    * @param protocol protocol or {@code null} for none
    */
   public BackendService setProtocol(java.lang.String protocol) {
@@ -1694,6 +1705,25 @@ public final class BackendService extends com.google.api.client.json.GenericJson
    */
   public BackendService setTimeoutSec(java.lang.Integer timeoutSec) {
     this.timeoutSec = timeoutSec;
+    return this;
+  }
+
+  /**
+   * Configuration for Backend Authenticated TLS and mTLS. May only be specified when the backend
+   * protocol is SSL, HTTPS or HTTP2.
+   * @return value or {@code null} for none
+   */
+  public BackendServiceTlsSettings getTlsSettings() {
+    return tlsSettings;
+  }
+
+  /**
+   * Configuration for Backend Authenticated TLS and mTLS. May only be specified when the backend
+   * protocol is SSL, HTTPS or HTTP2.
+   * @param tlsSettings tlsSettings or {@code null} for none
+   */
+  public BackendService setTlsSettings(BackendServiceTlsSettings tlsSettings) {
+    this.tlsSettings = tlsSettings;
     return this;
   }
 

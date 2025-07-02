@@ -4503,6 +4503,146 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
         }
       }
       /**
+       * Deploys a model to a new endpoint.
+       *
+       * Create a request for the method "locations.deploy".
+       *
+       * This request holds the parameters needed by the aiplatform server.  After setting any optional
+       * parameters, call the {@link Deploy#execute()} method to invoke the remote operation.
+       *
+       * @param destination Required. The resource name of the Location to deploy the model in. Format:
+       *        `projects/{project}/locations/{location}`
+       * @param content the {@link com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1DeployRequest}
+       * @return the request
+       */
+      public Deploy deploy(java.lang.String destination, com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1DeployRequest content) throws java.io.IOException {
+        Deploy result = new Deploy(destination, content);
+        initialize(result);
+        return result;
+      }
+
+      public class Deploy extends AiplatformRequest<com.google.api.services.aiplatform.v1.model.GoogleLongrunningOperation> {
+
+        private static final String REST_PATH = "v1/{+destination}:deploy";
+
+        private final java.util.regex.Pattern DESTINATION_PATTERN =
+            java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+        /**
+         * Deploys a model to a new endpoint.
+         *
+         * Create a request for the method "locations.deploy".
+         *
+         * This request holds the parameters needed by the the aiplatform server.  After setting any
+         * optional parameters, call the {@link Deploy#execute()} method to invoke the remote operation.
+         * <p> {@link
+         * Deploy#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+         * be called to initialize this instance immediately after invoking the constructor. </p>
+         *
+         * @param destination Required. The resource name of the Location to deploy the model in. Format:
+       *        `projects/{project}/locations/{location}`
+         * @param content the {@link com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1DeployRequest}
+         * @since 1.13
+         */
+        protected Deploy(java.lang.String destination, com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1DeployRequest content) {
+          super(Aiplatform.this, "POST", REST_PATH, content, com.google.api.services.aiplatform.v1.model.GoogleLongrunningOperation.class);
+          this.destination = com.google.api.client.util.Preconditions.checkNotNull(destination, "Required parameter destination must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(DESTINATION_PATTERN.matcher(destination).matches(),
+                "Parameter destination must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+$");
+          }
+        }
+
+        @Override
+        public Deploy set$Xgafv(java.lang.String $Xgafv) {
+          return (Deploy) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public Deploy setAccessToken(java.lang.String accessToken) {
+          return (Deploy) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public Deploy setAlt(java.lang.String alt) {
+          return (Deploy) super.setAlt(alt);
+        }
+
+        @Override
+        public Deploy setCallback(java.lang.String callback) {
+          return (Deploy) super.setCallback(callback);
+        }
+
+        @Override
+        public Deploy setFields(java.lang.String fields) {
+          return (Deploy) super.setFields(fields);
+        }
+
+        @Override
+        public Deploy setKey(java.lang.String key) {
+          return (Deploy) super.setKey(key);
+        }
+
+        @Override
+        public Deploy setOauthToken(java.lang.String oauthToken) {
+          return (Deploy) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public Deploy setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (Deploy) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public Deploy setQuotaUser(java.lang.String quotaUser) {
+          return (Deploy) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public Deploy setUploadType(java.lang.String uploadType) {
+          return (Deploy) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public Deploy setUploadProtocol(java.lang.String uploadProtocol) {
+          return (Deploy) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The resource name of the Location to deploy the model in. Format:
+         * `projects/{project}/locations/{location}`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String destination;
+
+        /** Required. The resource name of the Location to deploy the model in. Format:
+       `projects/{project}/locations/{location}`
+         */
+        public java.lang.String getDestination() {
+          return destination;
+        }
+
+        /**
+         * Required. The resource name of the Location to deploy the model in. Format:
+         * `projects/{project}/locations/{location}`
+         */
+        public Deploy setDestination(java.lang.String destination) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(DESTINATION_PATTERN.matcher(destination).matches(),
+                "Parameter destination must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+$");
+          }
+          this.destination = destination;
+          return this;
+        }
+
+        @Override
+        public Deploy set(String parameterName, Object value) {
+          return (Deploy) super.set(parameterName, value);
+        }
+      }
+      /**
        * Evaluates a dataset based on a set of given metrics.
        *
        * Create a request for the method "locations.evaluateDataset".
@@ -4921,6 +5061,154 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
         }
       }
       /**
+       * Gets a RagEngineConfig.
+       *
+       * Create a request for the method "locations.getRagEngineConfig".
+       *
+       * This request holds the parameters needed by the aiplatform server.  After setting any optional
+       * parameters, call the {@link GetRagEngineConfig#execute()} method to invoke the remote operation.
+       *
+       * @param name Required. The name of the RagEngineConfig resource. Format:
+       *        `projects/{project}/locations/{location}/ragEngineConfig`
+       * @return the request
+       */
+      public GetRagEngineConfig getRagEngineConfig(java.lang.String name) throws java.io.IOException {
+        GetRagEngineConfig result = new GetRagEngineConfig(name);
+        initialize(result);
+        return result;
+      }
+
+      public class GetRagEngineConfig extends AiplatformRequest<com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1RagEngineConfig> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/ragEngineConfig$");
+
+        /**
+         * Gets a RagEngineConfig.
+         *
+         * Create a request for the method "locations.getRagEngineConfig".
+         *
+         * This request holds the parameters needed by the the aiplatform server.  After setting any
+         * optional parameters, call the {@link GetRagEngineConfig#execute()} method to invoke the remote
+         * operation. <p> {@link GetRagEngineConfig#initialize(com.google.api.client.googleapis.services.A
+         * bstractGoogleClientRequest)} must be called to initialize this instance immediately after
+         * invoking the constructor. </p>
+         *
+         * @param name Required. The name of the RagEngineConfig resource. Format:
+       *        `projects/{project}/locations/{location}/ragEngineConfig`
+         * @since 1.13
+         */
+        protected GetRagEngineConfig(java.lang.String name) {
+          super(Aiplatform.this, "GET", REST_PATH, null, com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1RagEngineConfig.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+/ragEngineConfig$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public GetRagEngineConfig set$Xgafv(java.lang.String $Xgafv) {
+          return (GetRagEngineConfig) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public GetRagEngineConfig setAccessToken(java.lang.String accessToken) {
+          return (GetRagEngineConfig) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public GetRagEngineConfig setAlt(java.lang.String alt) {
+          return (GetRagEngineConfig) super.setAlt(alt);
+        }
+
+        @Override
+        public GetRagEngineConfig setCallback(java.lang.String callback) {
+          return (GetRagEngineConfig) super.setCallback(callback);
+        }
+
+        @Override
+        public GetRagEngineConfig setFields(java.lang.String fields) {
+          return (GetRagEngineConfig) super.setFields(fields);
+        }
+
+        @Override
+        public GetRagEngineConfig setKey(java.lang.String key) {
+          return (GetRagEngineConfig) super.setKey(key);
+        }
+
+        @Override
+        public GetRagEngineConfig setOauthToken(java.lang.String oauthToken) {
+          return (GetRagEngineConfig) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public GetRagEngineConfig setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (GetRagEngineConfig) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public GetRagEngineConfig setQuotaUser(java.lang.String quotaUser) {
+          return (GetRagEngineConfig) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public GetRagEngineConfig setUploadType(java.lang.String uploadType) {
+          return (GetRagEngineConfig) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public GetRagEngineConfig setUploadProtocol(java.lang.String uploadProtocol) {
+          return (GetRagEngineConfig) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. The name of the RagEngineConfig resource. Format:
+         * `projects/{project}/locations/{location}/ragEngineConfig`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. The name of the RagEngineConfig resource. Format:
+       `projects/{project}/locations/{location}/ragEngineConfig`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. The name of the RagEngineConfig resource. Format:
+         * `projects/{project}/locations/{location}/ragEngineConfig`
+         */
+        public GetRagEngineConfig setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+/ragEngineConfig$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public GetRagEngineConfig set(String parameterName, Object value) {
+          return (GetRagEngineConfig) super.set(parameterName, value);
+        }
+      }
+      /**
        * Lists information about the supported locations for this service.
        *
        * Create a request for the method "locations.list".
@@ -5287,6 +5575,147 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
         @Override
         public RetrieveContexts set(String parameterName, Object value) {
           return (RetrieveContexts) super.set(parameterName, value);
+        }
+      }
+      /**
+       * Updates a RagEngineConfig.
+       *
+       * Create a request for the method "locations.updateRagEngineConfig".
+       *
+       * This request holds the parameters needed by the aiplatform server.  After setting any optional
+       * parameters, call the {@link UpdateRagEngineConfig#execute()} method to invoke the remote
+       * operation.
+       *
+       * @param name Identifier. The name of the RagEngineConfig. Format:
+       *        `projects/{project}/locations/{location}/ragEngineConfig`
+       * @param content the {@link com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1RagEngineConfig}
+       * @return the request
+       */
+      public UpdateRagEngineConfig updateRagEngineConfig(java.lang.String name, com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1RagEngineConfig content) throws java.io.IOException {
+        UpdateRagEngineConfig result = new UpdateRagEngineConfig(name, content);
+        initialize(result);
+        return result;
+      }
+
+      public class UpdateRagEngineConfig extends AiplatformRequest<com.google.api.services.aiplatform.v1.model.GoogleLongrunningOperation> {
+
+        private static final String REST_PATH = "v1/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/ragEngineConfig$");
+
+        /**
+         * Updates a RagEngineConfig.
+         *
+         * Create a request for the method "locations.updateRagEngineConfig".
+         *
+         * This request holds the parameters needed by the the aiplatform server.  After setting any
+         * optional parameters, call the {@link UpdateRagEngineConfig#execute()} method to invoke the
+         * remote operation. <p> {@link UpdateRagEngineConfig#initialize(com.google.api.client.googleapis.
+         * services.AbstractGoogleClientRequest)} must be called to initialize this instance immediately
+         * after invoking the constructor. </p>
+         *
+         * @param name Identifier. The name of the RagEngineConfig. Format:
+       *        `projects/{project}/locations/{location}/ragEngineConfig`
+         * @param content the {@link com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1RagEngineConfig}
+         * @since 1.13
+         */
+        protected UpdateRagEngineConfig(java.lang.String name, com.google.api.services.aiplatform.v1.model.GoogleCloudAiplatformV1RagEngineConfig content) {
+          super(Aiplatform.this, "PATCH", REST_PATH, content, com.google.api.services.aiplatform.v1.model.GoogleLongrunningOperation.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+/ragEngineConfig$");
+          }
+        }
+
+        @Override
+        public UpdateRagEngineConfig set$Xgafv(java.lang.String $Xgafv) {
+          return (UpdateRagEngineConfig) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setAccessToken(java.lang.String accessToken) {
+          return (UpdateRagEngineConfig) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setAlt(java.lang.String alt) {
+          return (UpdateRagEngineConfig) super.setAlt(alt);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setCallback(java.lang.String callback) {
+          return (UpdateRagEngineConfig) super.setCallback(callback);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setFields(java.lang.String fields) {
+          return (UpdateRagEngineConfig) super.setFields(fields);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setKey(java.lang.String key) {
+          return (UpdateRagEngineConfig) super.setKey(key);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setOauthToken(java.lang.String oauthToken) {
+          return (UpdateRagEngineConfig) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (UpdateRagEngineConfig) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setQuotaUser(java.lang.String quotaUser) {
+          return (UpdateRagEngineConfig) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setUploadType(java.lang.String uploadType) {
+          return (UpdateRagEngineConfig) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public UpdateRagEngineConfig setUploadProtocol(java.lang.String uploadProtocol) {
+          return (UpdateRagEngineConfig) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Identifier. The name of the RagEngineConfig. Format:
+         * `projects/{project}/locations/{location}/ragEngineConfig`
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Identifier. The name of the RagEngineConfig. Format:
+       `projects/{project}/locations/{location}/ragEngineConfig`
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Identifier. The name of the RagEngineConfig. Format:
+         * `projects/{project}/locations/{location}/ragEngineConfig`
+         */
+        public UpdateRagEngineConfig setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+/ragEngineConfig$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public UpdateRagEngineConfig set(String parameterName, Object value) {
+          return (UpdateRagEngineConfig) super.set(parameterName, value);
         }
       }
 

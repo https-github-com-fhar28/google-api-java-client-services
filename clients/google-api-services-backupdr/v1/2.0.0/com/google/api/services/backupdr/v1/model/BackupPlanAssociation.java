@@ -40,6 +40,22 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   private java.lang.String backupPlan;
 
   /**
+   * Output only. The user friendly revision ID of the `BackupPlanRevision`. Example: v0, v1, v2,
+   * etc.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String backupPlanRevisionId;
+
+  /**
+   * Output only. The resource id of the `BackupPlanRevision`. Format:
+   * `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision_id}`
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String backupPlanRevisionName;
+
+  /**
    * Output only. The time when the instance was created.
    * The value may be {@code null}.
    */
@@ -47,8 +63,8 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   private String createTime;
 
   /**
-   * Output only. Output Only. Resource name of data source which will be used as storage location
-   * for backups taken. Format :
+   * Output only. Resource name of data source which will be used as storage location for backups
+   * taken. Format :
    * projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}
    * The value may be {@code null}.
    */
@@ -64,14 +80,17 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   private java.lang.String name;
 
   /**
-   * Required. Immutable. Resource name of workload on which backupplan is applied
+   * Required. Immutable. Resource name of workload on which the backup plan is applied. The format
+   * can either be the resource name (e.g., "projects/my-project/zones/us-central1-a/instances/my-
+   * instance") or the full resource URI (e.g., "https://www.googleapis.com/compute/v1/projects/my-
+   * project/zones/us-central1-a/instances/my-instance").
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String resource;
 
   /**
-   * Optional. Required. Resource type of workload on which backupplan is applied
+   * Required. Immutable.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -118,6 +137,44 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   }
 
   /**
+   * Output only. The user friendly revision ID of the `BackupPlanRevision`. Example: v0, v1, v2,
+   * etc.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getBackupPlanRevisionId() {
+    return backupPlanRevisionId;
+  }
+
+  /**
+   * Output only. The user friendly revision ID of the `BackupPlanRevision`. Example: v0, v1, v2,
+   * etc.
+   * @param backupPlanRevisionId backupPlanRevisionId or {@code null} for none
+   */
+  public BackupPlanAssociation setBackupPlanRevisionId(java.lang.String backupPlanRevisionId) {
+    this.backupPlanRevisionId = backupPlanRevisionId;
+    return this;
+  }
+
+  /**
+   * Output only. The resource id of the `BackupPlanRevision`. Format:
+   * `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision_id}`
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getBackupPlanRevisionName() {
+    return backupPlanRevisionName;
+  }
+
+  /**
+   * Output only. The resource id of the `BackupPlanRevision`. Format:
+   * `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision_id}`
+   * @param backupPlanRevisionName backupPlanRevisionName or {@code null} for none
+   */
+  public BackupPlanAssociation setBackupPlanRevisionName(java.lang.String backupPlanRevisionName) {
+    this.backupPlanRevisionName = backupPlanRevisionName;
+    return this;
+  }
+
+  /**
    * Output only. The time when the instance was created.
    * @return value or {@code null} for none
    */
@@ -135,8 +192,8 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   }
 
   /**
-   * Output only. Output Only. Resource name of data source which will be used as storage location
-   * for backups taken. Format :
+   * Output only. Resource name of data source which will be used as storage location for backups
+   * taken. Format :
    * projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}
    * @return value or {@code null} for none
    */
@@ -145,8 +202,8 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   }
 
   /**
-   * Output only. Output Only. Resource name of data source which will be used as storage location
-   * for backups taken. Format :
+   * Output only. Resource name of data source which will be used as storage location for backups
+   * taken. Format :
    * projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}
    * @param dataSource dataSource or {@code null} for none
    */
@@ -175,7 +232,10 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   }
 
   /**
-   * Required. Immutable. Resource name of workload on which backupplan is applied
+   * Required. Immutable. Resource name of workload on which the backup plan is applied. The format
+   * can either be the resource name (e.g., "projects/my-project/zones/us-central1-a/instances/my-
+   * instance") or the full resource URI (e.g., "https://www.googleapis.com/compute/v1/projects/my-
+   * project/zones/us-central1-a/instances/my-instance").
    * @return value or {@code null} for none
    */
   public java.lang.String getResource() {
@@ -183,7 +243,10 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   }
 
   /**
-   * Required. Immutable. Resource name of workload on which backupplan is applied
+   * Required. Immutable. Resource name of workload on which the backup plan is applied. The format
+   * can either be the resource name (e.g., "projects/my-project/zones/us-central1-a/instances/my-
+   * instance") or the full resource URI (e.g., "https://www.googleapis.com/compute/v1/projects/my-
+   * project/zones/us-central1-a/instances/my-instance").
    * @param resource resource or {@code null} for none
    */
   public BackupPlanAssociation setResource(java.lang.String resource) {
@@ -192,7 +255,7 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   }
 
   /**
-   * Optional. Required. Resource type of workload on which backupplan is applied
+   * Required. Immutable.
    * @return value or {@code null} for none
    */
   public java.lang.String getResourceType() {
@@ -200,7 +263,7 @@ public final class BackupPlanAssociation extends com.google.api.client.json.Gene
   }
 
   /**
-   * Optional. Required. Resource type of workload on which backupplan is applied
+   * Required. Immutable.
    * @param resourceType resourceType or {@code null} for none
    */
   public BackupPlanAssociation setResourceType(java.lang.String resourceType) {

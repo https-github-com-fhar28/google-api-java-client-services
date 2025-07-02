@@ -458,13 +458,14 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
         }
 
         /**
-         * A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
-         * recommended. This request is idempotent only if a `request_id` is provided.
+         * Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A
+         * random UUID is recommended. This request is idempotent only if a `request_id` is
+         * provided.
          */
         @com.google.api.client.util.Key
         private java.lang.String requestId;
 
-        /** A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
+        /** Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
        recommended. This request is idempotent only if a `request_id` is provided.
          */
         public java.lang.String getRequestId() {
@@ -472,8 +473,9 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
         }
 
         /**
-         * A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
-         * recommended. This request is idempotent only if a `request_id` is provided.
+         * Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A
+         * random UUID is recommended. This request is idempotent only if a `request_id` is
+         * provided.
          */
         public ProcessOpenLineageRunEvent setRequestId(java.lang.String requestId) {
           this.requestId = requestId;
@@ -651,7 +653,7 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -682,7 +684,7 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -1398,13 +1400,14 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
           }
 
           /**
-           * A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID
-           * is recommended. This request is idempotent only if a `request_id` is provided.
+           * Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A
+           * random UUID is recommended. This request is idempotent only if a `request_id` is
+           * provided.
            */
           @com.google.api.client.util.Key
           private java.lang.String requestId;
 
-          /** A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
+          /** Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
          recommended. This request is idempotent only if a `request_id` is provided.
            */
           public java.lang.String getRequestId() {
@@ -1412,8 +1415,9 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
           }
 
           /**
-           * A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID
-           * is recommended. This request is idempotent only if a `request_id` is provided.
+           * Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A
+           * random UUID is recommended. This request is idempotent only if a `request_id` is
+           * provided.
            */
           public Create setRequestId(java.lang.String requestId) {
             this.requestId = requestId;
@@ -2072,6 +2076,31 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
             return this;
           }
 
+          /**
+           * Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A
+           * random UUID is recommended. This request is idempotent only if a `request_id` is
+           * provided.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String requestId;
+
+          /** Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
+         recommended. This request is idempotent only if a `request_id` is provided.
+           */
+          public java.lang.String getRequestId() {
+            return requestId;
+          }
+
+          /**
+           * Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A
+           * random UUID is recommended. This request is idempotent only if a `request_id` is
+           * provided.
+           */
+          public Patch setRequestId(java.lang.String requestId) {
+            this.requestId = requestId;
+            return this;
+          }
+
           /** The list of fields to update. Currently not used. The whole message is updated. */
           @com.google.api.client.util.Key
           private String updateMask;
@@ -2241,13 +2270,14 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
             }
 
             /**
-             * A unique identifier for this request. Restricted to 36 ASCII characters. A random
-             * UUID is recommended. This request is idempotent only if a `request_id` is provided.
+             * Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A
+             * random UUID is recommended. This request is idempotent only if a `request_id` is
+             * provided.
              */
             @com.google.api.client.util.Key
             private java.lang.String requestId;
 
-            /** A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
+            /** Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
            recommended. This request is idempotent only if a `request_id` is provided.
              */
             public java.lang.String getRequestId() {
@@ -2255,8 +2285,9 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
             }
 
             /**
-             * A unique identifier for this request. Restricted to 36 ASCII characters. A random
-             * UUID is recommended. This request is idempotent only if a `request_id` is provided.
+             * Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A
+             * random UUID is recommended. This request is idempotent only if a `request_id` is
+             * provided.
              */
             public Create setRequestId(java.lang.String requestId) {
               this.requestId = requestId;
@@ -3077,13 +3108,14 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
               }
 
               /**
-               * A unique identifier for this request. Restricted to 36 ASCII characters. A random
-               * UUID is recommended. This request is idempotent only if a `request_id` is provided.
+               * Optional. A unique identifier for this request. Restricted to 36 ASCII characters.
+               * A random UUID is recommended. This request is idempotent only if a `request_id` is
+               * provided.
                */
               @com.google.api.client.util.Key
               private java.lang.String requestId;
 
-              /** A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
+              /** Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is
              recommended. This request is idempotent only if a `request_id` is provided.
                */
               public java.lang.String getRequestId() {
@@ -3091,8 +3123,9 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
               }
 
               /**
-               * A unique identifier for this request. Restricted to 36 ASCII characters. A random
-               * UUID is recommended. This request is idempotent only if a `request_id` is provided.
+               * Optional. A unique identifier for this request. Restricted to 36 ASCII characters.
+               * A random UUID is recommended. This request is idempotent only if a `request_id` is
+               * provided.
                */
               public Create setRequestId(java.lang.String requestId) {
                 this.requestId = requestId;
@@ -3712,6 +3745,11 @@ public class Datalineage extends com.google.api.client.googleapis.services.json.
     public Builder setGoogleClientRequestInitializer(
         com.google.api.client.googleapis.services.GoogleClientRequestInitializer googleClientRequestInitializer) {
       return (Builder) super.setGoogleClientRequestInitializer(googleClientRequestInitializer);
+    }
+
+    @Override
+    public Builder setUniverseDomain(String universeDomain) {
+      return (Builder) super.setUniverseDomain(universeDomain);
     }
   }
 }

@@ -17,7 +17,8 @@
 package com.google.api.services.compute.model;
 
 /**
- * Model definition for InstanceGroupManagerStatusBulkInstanceOperation.
+ * Bulk instance operation is the creation of VMs in a MIG when the targetSizePolicy.mode is set to
+ * BULK.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Compute Engine API. For a detailed explanation see:
@@ -37,7 +38,7 @@ public final class InstanceGroupManagerStatusBulkInstanceOperation extends com.g
   private java.lang.Boolean inProgress;
 
   /**
-   * [Output Only] Information from last progress check of bulk instance operation.
+   * [Output Only] Information from the last progress check of bulk instance operation.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -61,7 +62,7 @@ public final class InstanceGroupManagerStatusBulkInstanceOperation extends com.g
   }
 
   /**
-   * [Output Only] Information from last progress check of bulk instance operation.
+   * [Output Only] Information from the last progress check of bulk instance operation.
    * @return value or {@code null} for none
    */
   public InstanceGroupManagerStatusBulkInstanceOperationLastProgressCheck getLastProgressCheck() {
@@ -69,7 +70,7 @@ public final class InstanceGroupManagerStatusBulkInstanceOperation extends com.g
   }
 
   /**
-   * [Output Only] Information from last progress check of bulk instance operation.
+   * [Output Only] Information from the last progress check of bulk instance operation.
    * @param lastProgressCheck lastProgressCheck or {@code null} for none
    */
   public InstanceGroupManagerStatusBulkInstanceOperation setLastProgressCheck(InstanceGroupManagerStatusBulkInstanceOperationLastProgressCheck lastProgressCheck) {

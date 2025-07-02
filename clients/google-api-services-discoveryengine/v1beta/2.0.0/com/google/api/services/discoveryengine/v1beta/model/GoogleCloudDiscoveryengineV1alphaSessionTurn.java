@@ -30,8 +30,8 @@ package com.google.api.services.discoveryengine.v1beta.model;
 public final class GoogleCloudDiscoveryengineV1alphaSessionTurn extends com.google.api.client.json.GenericJson {
 
   /**
-   * The resource name of the answer to the user query. Only set if the answer generation (/answer
-   * API call) happened in this turn.
+   * Optional. The resource name of the answer to the user query. Only set if the answer generation
+   * (/answer API call) happened in this turn.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -47,7 +47,8 @@ public final class GoogleCloudDiscoveryengineV1alphaSessionTurn extends com.goog
   private GoogleCloudDiscoveryengineV1alphaAnswer detailedAnswer;
 
   /**
-   * The user query.
+   * Optional. The user query. May not be set if this turn is merely regenerating an answer to a
+   * different turn
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -55,21 +56,16 @@ public final class GoogleCloudDiscoveryengineV1alphaSessionTurn extends com.goog
 
   /**
    * Optional. Represents metadata related to the query config, for example LLM model and version
-   * used, model parameters (temperature, grounding parameters, etc.). We don't want to import
-   * directly the [AnswerGenerationSpec] structure as this will serve a more general purpose and a
-   * wider set of customers. This information is used in particular when rendering alternative
-   * answers to the same prompt, providing visual information about how each answer was generated.
-   * The prefix "google." will be reserved for the key, and 1P services (Answer, Assistant, etc.)
-   * should always store their information with "google..". 3P services can use anything not
-   * starting with "google."
+   * used, model parameters (temperature, grounding parameters, etc.). The prefix "google." is
+   * reserved for Google-developed functionality.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.Map<String, java.lang.String> queryConfigs;
+  private java.util.Map<String, java.lang.String> queryConfig;
 
   /**
-   * The resource name of the answer to the user query. Only set if the answer generation (/answer
-   * API call) happened in this turn.
+   * Optional. The resource name of the answer to the user query. Only set if the answer generation
+   * (/answer API call) happened in this turn.
    * @return value or {@code null} for none
    */
   public java.lang.String getAnswer() {
@@ -77,8 +73,8 @@ public final class GoogleCloudDiscoveryengineV1alphaSessionTurn extends com.goog
   }
 
   /**
-   * The resource name of the answer to the user query. Only set if the answer generation (/answer
-   * API call) happened in this turn.
+   * Optional. The resource name of the answer to the user query. Only set if the answer generation
+   * (/answer API call) happened in this turn.
    * @param answer answer or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1alphaSessionTurn setAnswer(java.lang.String answer) {
@@ -108,7 +104,8 @@ public final class GoogleCloudDiscoveryengineV1alphaSessionTurn extends com.goog
   }
 
   /**
-   * The user query.
+   * Optional. The user query. May not be set if this turn is merely regenerating an answer to a
+   * different turn
    * @return value or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1alphaQuery getQuery() {
@@ -116,7 +113,8 @@ public final class GoogleCloudDiscoveryengineV1alphaSessionTurn extends com.goog
   }
 
   /**
-   * The user query.
+   * Optional. The user query. May not be set if this turn is merely regenerating an answer to a
+   * different turn
    * @param query query or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1alphaSessionTurn setQuery(GoogleCloudDiscoveryengineV1alphaQuery query) {
@@ -126,32 +124,22 @@ public final class GoogleCloudDiscoveryengineV1alphaSessionTurn extends com.goog
 
   /**
    * Optional. Represents metadata related to the query config, for example LLM model and version
-   * used, model parameters (temperature, grounding parameters, etc.). We don't want to import
-   * directly the [AnswerGenerationSpec] structure as this will serve a more general purpose and a
-   * wider set of customers. This information is used in particular when rendering alternative
-   * answers to the same prompt, providing visual information about how each answer was generated.
-   * The prefix "google." will be reserved for the key, and 1P services (Answer, Assistant, etc.)
-   * should always store their information with "google..". 3P services can use anything not
-   * starting with "google."
+   * used, model parameters (temperature, grounding parameters, etc.). The prefix "google." is
+   * reserved for Google-developed functionality.
    * @return value or {@code null} for none
    */
-  public java.util.Map<String, java.lang.String> getQueryConfigs() {
-    return queryConfigs;
+  public java.util.Map<String, java.lang.String> getQueryConfig() {
+    return queryConfig;
   }
 
   /**
    * Optional. Represents metadata related to the query config, for example LLM model and version
-   * used, model parameters (temperature, grounding parameters, etc.). We don't want to import
-   * directly the [AnswerGenerationSpec] structure as this will serve a more general purpose and a
-   * wider set of customers. This information is used in particular when rendering alternative
-   * answers to the same prompt, providing visual information about how each answer was generated.
-   * The prefix "google." will be reserved for the key, and 1P services (Answer, Assistant, etc.)
-   * should always store their information with "google..". 3P services can use anything not
-   * starting with "google."
-   * @param queryConfigs queryConfigs or {@code null} for none
+   * used, model parameters (temperature, grounding parameters, etc.). The prefix "google." is
+   * reserved for Google-developed functionality.
+   * @param queryConfig queryConfig or {@code null} for none
    */
-  public GoogleCloudDiscoveryengineV1alphaSessionTurn setQueryConfigs(java.util.Map<String, java.lang.String> queryConfigs) {
-    this.queryConfigs = queryConfigs;
+  public GoogleCloudDiscoveryengineV1alphaSessionTurn setQueryConfig(java.util.Map<String, java.lang.String> queryConfig) {
+    this.queryConfig = queryConfig;
     return this;
   }
 

@@ -50,8 +50,9 @@ public final class DataSegment extends com.google.api.client.json.GenericJson {
 
   /**
    * Immutable. Identifier. The unique identifier for the data segment. Account ID corresponds to
-   * the account ID that created the segment. Format:
-   * `buyers/{accountId}/dataSegments/{curatorDataSegmentId}`
+   * the account ID that created the segment. v1alpha format:
+   * `buyers/{accountId}/dataSegments/{curatorDataSegmentId}` v1beta format:
+   * `curators/{curatorAccountId}/dataSegments/{curatorDataSegmentId}`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -111,8 +112,9 @@ public final class DataSegment extends com.google.api.client.json.GenericJson {
 
   /**
    * Immutable. Identifier. The unique identifier for the data segment. Account ID corresponds to
-   * the account ID that created the segment. Format:
-   * `buyers/{accountId}/dataSegments/{curatorDataSegmentId}`
+   * the account ID that created the segment. v1alpha format:
+   * `buyers/{accountId}/dataSegments/{curatorDataSegmentId}` v1beta format:
+   * `curators/{curatorAccountId}/dataSegments/{curatorDataSegmentId}`
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -121,8 +123,9 @@ public final class DataSegment extends com.google.api.client.json.GenericJson {
 
   /**
    * Immutable. Identifier. The unique identifier for the data segment. Account ID corresponds to
-   * the account ID that created the segment. Format:
-   * `buyers/{accountId}/dataSegments/{curatorDataSegmentId}`
+   * the account ID that created the segment. v1alpha format:
+   * `buyers/{accountId}/dataSegments/{curatorDataSegmentId}` v1beta format:
+   * `curators/{curatorAccountId}/dataSegments/{curatorDataSegmentId}`
    * @param name name or {@code null} for none
    */
   public DataSegment setName(java.lang.String name) {

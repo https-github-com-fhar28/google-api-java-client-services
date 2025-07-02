@@ -32,8 +32,8 @@ package com.google.api.services.compute.model;
 public final class NetworkPeeringConnectionStatus extends com.google.api.client.json.GenericJson {
 
   /**
-   * The consensus state contains the information about the status of update and delete for a
-   * consensus peering connection.
+   * The consensus state contains information about the status of update and delete for a consensus
+   * peering connection.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -55,8 +55,8 @@ public final class NetworkPeeringConnectionStatus extends com.google.api.client.
   private java.lang.String updateStrategy;
 
   /**
-   * The consensus state contains the information about the status of update and delete for a
-   * consensus peering connection.
+   * The consensus state contains information about the status of update and delete for a consensus
+   * peering connection.
    * @return value or {@code null} for none
    */
   public NetworkPeeringConnectionStatusConsensusState getConsensusState() {
@@ -64,8 +64,8 @@ public final class NetworkPeeringConnectionStatus extends com.google.api.client.
   }
 
   /**
-   * The consensus state contains the information about the status of update and delete for a
-   * consensus peering connection.
+   * The consensus state contains information about the status of update and delete for a consensus
+   * peering connection.
    * @param consensusState consensusState or {@code null} for none
    */
   public NetworkPeeringConnectionStatus setConsensusState(NetworkPeeringConnectionStatusConsensusState consensusState) {

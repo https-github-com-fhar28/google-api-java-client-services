@@ -37,21 +37,21 @@ public final class NetworkPeeringConnectionStatusTrafficConfiguration extends co
   private java.lang.Boolean exportCustomRoutesToPeer;
 
   /**
-   * Whether subnet routes with public IP range are being exported to the peer network.
+   * Whether subnet routes with public IP ranges are being exported to the peer network.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean exportSubnetRoutesWithPublicIpToPeer;
 
   /**
-   * Whether custom routes is being imported from the peer network.
+   * Whether custom routes are being imported from the peer network.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean importCustomRoutesFromPeer;
 
   /**
-   * Whether subnet routes with public IP range are being imported from the peer network.
+   * Whether subnet routes with public IP ranges are being imported from the peer network.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -82,7 +82,7 @@ public final class NetworkPeeringConnectionStatusTrafficConfiguration extends co
   }
 
   /**
-   * Whether subnet routes with public IP range are being exported to the peer network.
+   * Whether subnet routes with public IP ranges are being exported to the peer network.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getExportSubnetRoutesWithPublicIpToPeer() {
@@ -90,7 +90,7 @@ public final class NetworkPeeringConnectionStatusTrafficConfiguration extends co
   }
 
   /**
-   * Whether subnet routes with public IP range are being exported to the peer network.
+   * Whether subnet routes with public IP ranges are being exported to the peer network.
    * @param exportSubnetRoutesWithPublicIpToPeer exportSubnetRoutesWithPublicIpToPeer or {@code null} for none
    */
   public NetworkPeeringConnectionStatusTrafficConfiguration setExportSubnetRoutesWithPublicIpToPeer(java.lang.Boolean exportSubnetRoutesWithPublicIpToPeer) {
@@ -99,7 +99,7 @@ public final class NetworkPeeringConnectionStatusTrafficConfiguration extends co
   }
 
   /**
-   * Whether custom routes is being imported from the peer network.
+   * Whether custom routes are being imported from the peer network.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getImportCustomRoutesFromPeer() {
@@ -107,7 +107,7 @@ public final class NetworkPeeringConnectionStatusTrafficConfiguration extends co
   }
 
   /**
-   * Whether custom routes is being imported from the peer network.
+   * Whether custom routes are being imported from the peer network.
    * @param importCustomRoutesFromPeer importCustomRoutesFromPeer or {@code null} for none
    */
   public NetworkPeeringConnectionStatusTrafficConfiguration setImportCustomRoutesFromPeer(java.lang.Boolean importCustomRoutesFromPeer) {
@@ -116,7 +116,7 @@ public final class NetworkPeeringConnectionStatusTrafficConfiguration extends co
   }
 
   /**
-   * Whether subnet routes with public IP range are being imported from the peer network.
+   * Whether subnet routes with public IP ranges are being imported from the peer network.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getImportSubnetRoutesWithPublicIpFromPeer() {
@@ -124,7 +124,7 @@ public final class NetworkPeeringConnectionStatusTrafficConfiguration extends co
   }
 
   /**
-   * Whether subnet routes with public IP range are being imported from the peer network.
+   * Whether subnet routes with public IP ranges are being imported from the peer network.
    * @param importSubnetRoutesWithPublicIpFromPeer importSubnetRoutesWithPublicIpFromPeer or {@code null} for none
    */
   public NetworkPeeringConnectionStatusTrafficConfiguration setImportSubnetRoutesWithPublicIpFromPeer(java.lang.Boolean importSubnetRoutesWithPublicIpFromPeer) {
