@@ -196427,6 +196427,22 @@ public class Compute extends com.google.api.client.googleapis.services.json.Abst
         return this;
       }
 
+      /** View of the Block. */
+      @com.google.api.client.util.Key
+      private java.lang.String view;
+
+      /** View of the Block.
+       */
+      public java.lang.String getView() {
+        return view;
+      }
+
+      /** View of the Block. */
+      public Get setView(java.lang.String view) {
+        this.view = view;
+        return this;
+      }
+
       @Override
       public Get set(String parameterName, Object value) {
         return (Get) super.set(parameterName, value);

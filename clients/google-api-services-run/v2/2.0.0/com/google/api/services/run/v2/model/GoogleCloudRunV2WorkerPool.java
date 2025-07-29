@@ -119,7 +119,7 @@ public final class GoogleCloudRunV2WorkerPool extends com.google.api.client.json
   private java.lang.String description;
 
   /**
-   * Output only. A system-generated fingerprint for this version of the resource. May be used to
+   * Optional. A system-generated fingerprint for this version of the resource. May be used to
    * detect modification conflict during updates.
    * The value may be {@code null}.
    */
@@ -223,7 +223,7 @@ public final class GoogleCloudRunV2WorkerPool extends com.google.api.client.json
   /**
    * The fully qualified name of this WorkerPool. In CreateWorkerPoolRequest, this field is ignored,
    * and instead composed from CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
-   * Format: projects/{project}/locations/{location}/workerPools/{worker_id}
+   * Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -495,7 +495,7 @@ public final class GoogleCloudRunV2WorkerPool extends com.google.api.client.json
   }
 
   /**
-   * Output only. A system-generated fingerprint for this version of the resource. May be used to
+   * Optional. A system-generated fingerprint for this version of the resource. May be used to
    * detect modification conflict during updates.
    * @return value or {@code null} for none
    */
@@ -504,7 +504,7 @@ public final class GoogleCloudRunV2WorkerPool extends com.google.api.client.json
   }
 
   /**
-   * Output only. A system-generated fingerprint for this version of the resource. May be used to
+   * Optional. A system-generated fingerprint for this version of the resource. May be used to
    * detect modification conflict during updates.
    * @param etag etag or {@code null} for none
    */
@@ -707,7 +707,7 @@ public final class GoogleCloudRunV2WorkerPool extends com.google.api.client.json
   /**
    * The fully qualified name of this WorkerPool. In CreateWorkerPoolRequest, this field is ignored,
    * and instead composed from CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
-   * Format: projects/{project}/locations/{location}/workerPools/{worker_id}
+   * Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -717,7 +717,7 @@ public final class GoogleCloudRunV2WorkerPool extends com.google.api.client.json
   /**
    * The fully qualified name of this WorkerPool. In CreateWorkerPoolRequest, this field is ignored,
    * and instead composed from CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
-   * Format: projects/{project}/locations/{location}/workerPools/{worker_id}
+   * Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
    * @param name name or {@code null} for none
    */
   public GoogleCloudRunV2WorkerPool setName(java.lang.String name) {

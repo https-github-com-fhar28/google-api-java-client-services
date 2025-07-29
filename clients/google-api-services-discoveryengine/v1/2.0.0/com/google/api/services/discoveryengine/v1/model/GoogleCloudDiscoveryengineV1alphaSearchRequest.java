@@ -277,9 +277,10 @@ public final class GoogleCloudDiscoveryengineV1alphaSearchRequest extends com.go
    * relevance and attractiveness of a search result from a user's perspective. A higher pCTR
    * suggests that the result is more likely to satisfy the user's query and intent, making it a
    * valuable signal for ranking. * `freshness_rank`: freshness adjustment as a rank *
-   * `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google model to determine
-   * the keyword-based overlap between the query and the document. * `base_rank`: the default rank
-   * of the result
+   * `document_age`: The time in hours elapsed since the document was last updated, a floating-point
+   * number (e.g., 0.25 means 15 minutes). * `topicality_rank`: topicality adjustment as a rank.
+   * Uses proprietary Google model to determine the keyword-based overlap between the query and the
+   * document. * `base_rank`: the default rank of the result
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -345,18 +346,15 @@ public final class GoogleCloudDiscoveryengineV1alphaSearchRequest extends com.go
   /**
    * The session resource name. Optional. Session allows users to do multi-turn /search API calls or
    * coordination between /search API calls and /answer API calls. Example #1 (multi-turn /search
-   * API calls): 1. Call /search API with the auto-session mode (see below). 2. Call /search API
-   * with the session ID generated in the first call. Here, the previous search query gets
-   * considered in query standing. I.e., if the first query is "How did Alphabet do in 2022?" and
-   * the current query is "How about 2023?", the current query will be interpreted as "How did
-   * Alphabet do in 2023?". Example #2 (coordination between /search API calls and /answer API
-   * calls): 1. Call /search API with the auto-session mode (see below). 2. Call /answer API with
-   * the session ID generated in the first call. Here, the answer generation happens in the context
-   * of the search results from the first search call. Auto-session mode: when
-   * `projects/.../sessions/-` is used, a new session gets automatically created. Otherwise, users
-   * can use the create-session API to create a session manually. Multi-turn Search feature is
-   * currently at private GA stage. Please use v1alpha or v1beta version instead before we launch
-   * this feature to public GA. Or ask for allowlisting through Google Support team.
+   * API calls): Call /search API with the session ID generated in the first call. Here, the
+   * previous search query gets considered in query standing. I.e., if the first query is "How did
+   * Alphabet do in 2022?" and the current query is "How about 2023?", the current query will be
+   * interpreted as "How did Alphabet do in 2023?". Example #2 (coordination between /search API
+   * calls and /answer API calls): Call /answer API with the session ID generated in the first call.
+   * Here, the answer generation happens in the context of the search results from the first search
+   * call. Multi-turn Search feature is currently at private GA stage. Please use v1alpha or v1beta
+   * version instead before we launch this feature to public GA. Or ask for allowlisting through
+   * Google Support team.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -946,9 +944,10 @@ public final class GoogleCloudDiscoveryengineV1alphaSearchRequest extends com.go
    * relevance and attractiveness of a search result from a user's perspective. A higher pCTR
    * suggests that the result is more likely to satisfy the user's query and intent, making it a
    * valuable signal for ranking. * `freshness_rank`: freshness adjustment as a rank *
-   * `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google model to determine
-   * the keyword-based overlap between the query and the document. * `base_rank`: the default rank
-   * of the result
+   * `document_age`: The time in hours elapsed since the document was last updated, a floating-point
+   * number (e.g., 0.25 means 15 minutes). * `topicality_rank`: topicality adjustment as a rank.
+   * Uses proprietary Google model to determine the keyword-based overlap between the query and the
+   * document. * `base_rank`: the default rank of the result
    * @return value or {@code null} for none
    */
   public java.lang.String getRankingExpression() {
@@ -994,9 +993,10 @@ public final class GoogleCloudDiscoveryengineV1alphaSearchRequest extends com.go
    * relevance and attractiveness of a search result from a user's perspective. A higher pCTR
    * suggests that the result is more likely to satisfy the user's query and intent, making it a
    * valuable signal for ranking. * `freshness_rank`: freshness adjustment as a rank *
-   * `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google model to determine
-   * the keyword-based overlap between the query and the document. * `base_rank`: the default rank
-   * of the result
+   * `document_age`: The time in hours elapsed since the document was last updated, a floating-point
+   * number (e.g., 0.25 means 15 minutes). * `topicality_rank`: topicality adjustment as a rank.
+   * Uses proprietary Google model to determine the keyword-based overlap between the query and the
+   * document. * `base_rank`: the default rank of the result
    * @param rankingExpression rankingExpression or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1alphaSearchRequest setRankingExpression(java.lang.String rankingExpression) {
@@ -1142,18 +1142,15 @@ public final class GoogleCloudDiscoveryengineV1alphaSearchRequest extends com.go
   /**
    * The session resource name. Optional. Session allows users to do multi-turn /search API calls or
    * coordination between /search API calls and /answer API calls. Example #1 (multi-turn /search
-   * API calls): 1. Call /search API with the auto-session mode (see below). 2. Call /search API
-   * with the session ID generated in the first call. Here, the previous search query gets
-   * considered in query standing. I.e., if the first query is "How did Alphabet do in 2022?" and
-   * the current query is "How about 2023?", the current query will be interpreted as "How did
-   * Alphabet do in 2023?". Example #2 (coordination between /search API calls and /answer API
-   * calls): 1. Call /search API with the auto-session mode (see below). 2. Call /answer API with
-   * the session ID generated in the first call. Here, the answer generation happens in the context
-   * of the search results from the first search call. Auto-session mode: when
-   * `projects/.../sessions/-` is used, a new session gets automatically created. Otherwise, users
-   * can use the create-session API to create a session manually. Multi-turn Search feature is
-   * currently at private GA stage. Please use v1alpha or v1beta version instead before we launch
-   * this feature to public GA. Or ask for allowlisting through Google Support team.
+   * API calls): Call /search API with the session ID generated in the first call. Here, the
+   * previous search query gets considered in query standing. I.e., if the first query is "How did
+   * Alphabet do in 2022?" and the current query is "How about 2023?", the current query will be
+   * interpreted as "How did Alphabet do in 2023?". Example #2 (coordination between /search API
+   * calls and /answer API calls): Call /answer API with the session ID generated in the first call.
+   * Here, the answer generation happens in the context of the search results from the first search
+   * call. Multi-turn Search feature is currently at private GA stage. Please use v1alpha or v1beta
+   * version instead before we launch this feature to public GA. Or ask for allowlisting through
+   * Google Support team.
    * @return value or {@code null} for none
    */
   public java.lang.String getSession() {
@@ -1163,18 +1160,15 @@ public final class GoogleCloudDiscoveryengineV1alphaSearchRequest extends com.go
   /**
    * The session resource name. Optional. Session allows users to do multi-turn /search API calls or
    * coordination between /search API calls and /answer API calls. Example #1 (multi-turn /search
-   * API calls): 1. Call /search API with the auto-session mode (see below). 2. Call /search API
-   * with the session ID generated in the first call. Here, the previous search query gets
-   * considered in query standing. I.e., if the first query is "How did Alphabet do in 2022?" and
-   * the current query is "How about 2023?", the current query will be interpreted as "How did
-   * Alphabet do in 2023?". Example #2 (coordination between /search API calls and /answer API
-   * calls): 1. Call /search API with the auto-session mode (see below). 2. Call /answer API with
-   * the session ID generated in the first call. Here, the answer generation happens in the context
-   * of the search results from the first search call. Auto-session mode: when
-   * `projects/.../sessions/-` is used, a new session gets automatically created. Otherwise, users
-   * can use the create-session API to create a session manually. Multi-turn Search feature is
-   * currently at private GA stage. Please use v1alpha or v1beta version instead before we launch
-   * this feature to public GA. Or ask for allowlisting through Google Support team.
+   * API calls): Call /search API with the session ID generated in the first call. Here, the
+   * previous search query gets considered in query standing. I.e., if the first query is "How did
+   * Alphabet do in 2022?" and the current query is "How about 2023?", the current query will be
+   * interpreted as "How did Alphabet do in 2023?". Example #2 (coordination between /search API
+   * calls and /answer API calls): Call /answer API with the session ID generated in the first call.
+   * Here, the answer generation happens in the context of the search results from the first search
+   * call. Multi-turn Search feature is currently at private GA stage. Please use v1alpha or v1beta
+   * version instead before we launch this feature to public GA. Or ask for allowlisting through
+   * Google Support team.
    * @param session session or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1alphaSearchRequest setSession(java.lang.String session) {

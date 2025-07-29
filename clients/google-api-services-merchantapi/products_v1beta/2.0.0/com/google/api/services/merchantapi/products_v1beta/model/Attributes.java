@@ -37,7 +37,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.util.List<java.lang.String> additionalImageLinks;
 
   /**
-   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise. For more
+   * Used to group items in an arbitrary way. Only for CPA, discouraged otherwise. For more
    * information, see [Display ads attribute](https://support.google.com/merchants/answer/6069387).
    * The value may be {@code null}.
    */
@@ -75,7 +75,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * A safeguard in the [automated discounts] (https://support.google.com/merchants/answer/10295759)
-   * and "Dynamic Promotions" (https://support.google.com/merchants/answer/13949249) projects,
+   * and ["dynamic promotions"](https://support.google.com/merchants/answer/13949249) projects,
    * ensuring that discounts on business offers do not fall below this value, thereby preserving the
    * offer's value and profitability.
    * The value may be {@code null}.
@@ -253,8 +253,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String energyEfficiencyClass;
 
   /**
-   * The list of destinations to exclude for this target (corresponds to unchecked check boxes in
-   * Merchant Center). For more information, see [Excluded
+   * Destinations also known as [Marketing
+   * methods](https://support.google.com/merchants/answer/15130232) selections. The list of
+   * destinations to exclude for this target (corresponds to unchecked check boxes in Merchant
+   * Center). For more information, see [Excluded
    * destination](https://support.google.com/merchants/answer/6324486). Note: We recommend setting
    * destinations on datasources level for most use cases. Use this field within products to only
    * setup exceptions.
@@ -309,11 +311,20 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Global Trade Item Numbers ([GTIN](https://support.google.com/merchants/answer/188494#gtin)) of
-   * the item. You can provide up to 10 GTINs.
+   * the item. You can provide up to 10 GTINs. Deprecated: Use `gtins` instead.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.util.List<java.lang.String> gtin;
+
+  /**
+   * A list of Global Trade Item Numbers
+   * ([GTIN](https://support.google.com/merchants/answer/188494#gtin)) of the item. You can provide
+   * up to 10 GTINs.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> gtins;
 
   /**
    * Set this value to false when the item does not have unique product identifiers appropriate to
@@ -331,9 +342,11 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   private java.lang.String imageLink;
 
   /**
-   * The list of destinations to include for this target (corresponds to checked check boxes in
-   * Merchant Center). Default destinations are always included unless provided in
-   * `excludedDestinations`. For more information, see [Included
+   * Destinations also known as [Marketing
+   * methods](https://support.google.com/merchants/answer/15130232) selections. The list of
+   * destinations to include for this target (corresponds to checked check boxes in Merchant
+   * Center). Default destinations are always included unless provided in `excludedDestinations`.
+   * For more information, see [Included
    * destination](https://support.google.com/merchants/answer/7501026). Note: We recommend setting
    * destinations on datasources level for most use cases. Use this field within products to only
    * setup exceptions.
@@ -776,7 +789,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise. For more
+   * Used to group items in an arbitrary way. Only for CPA, discouraged otherwise. For more
    * information, see [Display ads attribute](https://support.google.com/merchants/answer/6069387).
    * @return value or {@code null} for none
    */
@@ -785,7 +798,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Used to group items in an arbitrary way. Only for CPA%, discouraged otherwise. For more
+   * Used to group items in an arbitrary way. Only for CPA, discouraged otherwise. For more
    * information, see [Display ads attribute](https://support.google.com/merchants/answer/6069387).
    * @param adsGrouping adsGrouping or {@code null} for none
    */
@@ -866,7 +879,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * A safeguard in the [automated discounts] (https://support.google.com/merchants/answer/10295759)
-   * and "Dynamic Promotions" (https://support.google.com/merchants/answer/13949249) projects,
+   * and ["dynamic promotions"](https://support.google.com/merchants/answer/13949249) projects,
    * ensuring that discounts on business offers do not fall below this value, thereby preserving the
    * offer's value and profitability.
    * @return value or {@code null} for none
@@ -877,7 +890,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * A safeguard in the [automated discounts] (https://support.google.com/merchants/answer/10295759)
-   * and "Dynamic Promotions" (https://support.google.com/merchants/answer/13949249) projects,
+   * and ["dynamic promotions"](https://support.google.com/merchants/answer/13949249) projects,
    * ensuring that discounts on business offers do not fall below this value, thereby preserving the
    * offer's value and profitability.
    * @param autoPricingMinPrice autoPricingMinPrice or {@code null} for none
@@ -1292,8 +1305,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The list of destinations to exclude for this target (corresponds to unchecked check boxes in
-   * Merchant Center). For more information, see [Excluded
+   * Destinations also known as [Marketing
+   * methods](https://support.google.com/merchants/answer/15130232) selections. The list of
+   * destinations to exclude for this target (corresponds to unchecked check boxes in Merchant
+   * Center). For more information, see [Excluded
    * destination](https://support.google.com/merchants/answer/6324486). Note: We recommend setting
    * destinations on datasources level for most use cases. Use this field within products to only
    * setup exceptions.
@@ -1304,8 +1319,10 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The list of destinations to exclude for this target (corresponds to unchecked check boxes in
-   * Merchant Center). For more information, see [Excluded
+   * Destinations also known as [Marketing
+   * methods](https://support.google.com/merchants/answer/15130232) selections. The list of
+   * destinations to exclude for this target (corresponds to unchecked check boxes in Merchant
+   * Center). For more information, see [Excluded
    * destination](https://support.google.com/merchants/answer/6324486). Note: We recommend setting
    * destinations on datasources level for most use cases. Use this field within products to only
    * setup exceptions.
@@ -1421,7 +1438,7 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Global Trade Item Numbers ([GTIN](https://support.google.com/merchants/answer/188494#gtin)) of
-   * the item. You can provide up to 10 GTINs.
+   * the item. You can provide up to 10 GTINs. Deprecated: Use `gtins` instead.
    * @return value or {@code null} for none
    */
   public java.util.List<java.lang.String> getGtin() {
@@ -1430,11 +1447,32 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
 
   /**
    * Global Trade Item Numbers ([GTIN](https://support.google.com/merchants/answer/188494#gtin)) of
-   * the item. You can provide up to 10 GTINs.
+   * the item. You can provide up to 10 GTINs. Deprecated: Use `gtins` instead.
    * @param gtin gtin or {@code null} for none
    */
   public Attributes setGtin(java.util.List<java.lang.String> gtin) {
     this.gtin = gtin;
+    return this;
+  }
+
+  /**
+   * A list of Global Trade Item Numbers
+   * ([GTIN](https://support.google.com/merchants/answer/188494#gtin)) of the item. You can provide
+   * up to 10 GTINs.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getGtins() {
+    return gtins;
+  }
+
+  /**
+   * A list of Global Trade Item Numbers
+   * ([GTIN](https://support.google.com/merchants/answer/188494#gtin)) of the item. You can provide
+   * up to 10 GTINs.
+   * @param gtins gtins or {@code null} for none
+   */
+  public Attributes setGtins(java.util.List<java.lang.String> gtins) {
+    this.gtins = gtins;
     return this;
   }
 
@@ -1475,9 +1513,11 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The list of destinations to include for this target (corresponds to checked check boxes in
-   * Merchant Center). Default destinations are always included unless provided in
-   * `excludedDestinations`. For more information, see [Included
+   * Destinations also known as [Marketing
+   * methods](https://support.google.com/merchants/answer/15130232) selections. The list of
+   * destinations to include for this target (corresponds to checked check boxes in Merchant
+   * Center). Default destinations are always included unless provided in `excludedDestinations`.
+   * For more information, see [Included
    * destination](https://support.google.com/merchants/answer/7501026). Note: We recommend setting
    * destinations on datasources level for most use cases. Use this field within products to only
    * setup exceptions.
@@ -1488,9 +1528,11 @@ public final class Attributes extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The list of destinations to include for this target (corresponds to checked check boxes in
-   * Merchant Center). Default destinations are always included unless provided in
-   * `excludedDestinations`. For more information, see [Included
+   * Destinations also known as [Marketing
+   * methods](https://support.google.com/merchants/answer/15130232) selections. The list of
+   * destinations to include for this target (corresponds to checked check boxes in Merchant
+   * Center). Default destinations are always included unless provided in `excludedDestinations`.
+   * For more information, see [Included
    * destination](https://support.google.com/merchants/answer/7501026). Note: We recommend setting
    * destinations on datasources level for most use cases. Use this field within products to only
    * setup exceptions.

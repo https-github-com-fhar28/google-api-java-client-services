@@ -21868,6 +21868,31 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
           }
 
           /**
+           * Optional. Configures the Google Distributed Cloud (GDC) environment for online
+           * prediction. Only set this field when the Endpoint is to be deployed in a GDC
+           * environment.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String gdcZone;
+
+          /** Optional. Configures the Google Distributed Cloud (GDC) environment for online prediction. Only set
+         this field when the Endpoint is to be deployed in a GDC environment.
+           */
+          public java.lang.String getGdcZone() {
+            return gdcZone;
+          }
+
+          /**
+           * Optional. Configures the Google Distributed Cloud (GDC) environment for online
+           * prediction. Only set this field when the Endpoint is to be deployed in a GDC
+           * environment.
+           */
+          public List setGdcZone(java.lang.String gdcZone) {
+            this.gdcZone = gdcZone;
+            return this;
+          }
+
+          /**
            * A comma-separated list of fields to order by, sorted in ascending order. Use "desc"
            * after a field name for descending. Supported fields: * `display_name` * `create_time` *
            * `update_time` Example: `display_name, create_time desc`.
@@ -21957,8 +21982,8 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
         }
         /**
          * Updates an existing deployed model. Updatable fields include `min_replica_count`,
-         * `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
-         * `enable_container_logging` (v1beta1 only).
+         * `max_replica_count`, `required_replica_count`, `autoscaling_metric_specs`,
+         * `disable_container_logging` (v1 only), and `enable_container_logging` (v1beta1 only).
          *
          * Create a request for the method "endpoints.mutateDeployedModel".
          *
@@ -21985,8 +22010,8 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
 
           /**
            * Updates an existing deployed model. Updatable fields include `min_replica_count`,
-           * `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
-           * `enable_container_logging` (v1beta1 only).
+           * `max_replica_count`, `required_replica_count`, `autoscaling_metric_specs`,
+           * `disable_container_logging` (v1 only), and `enable_container_logging` (v1beta1 only).
            *
            * Create a request for the method "endpoints.mutateDeployedModel".
            *

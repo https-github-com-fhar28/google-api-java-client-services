@@ -3920,6 +3920,155 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
   public class Projects {
 
     /**
+     * Fetches the configs of publisher models.
+     *
+     * Create a request for the method "projects.fetchPublisherModelConfig".
+     *
+     * This request holds the parameters needed by the aiplatform server.  After setting any optional
+     * parameters, call the {@link FetchPublisherModelConfig#execute()} method to invoke the remote
+     * operation.
+     *
+     * @param name Required. The name of the publisher model, in the format of
+     *        `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+     * @return the request
+     */
+    public FetchPublisherModelConfig fetchPublisherModelConfig(java.lang.String name) throws java.io.IOException {
+      FetchPublisherModelConfig result = new FetchPublisherModelConfig(name);
+      initialize(result);
+      return result;
+    }
+
+    public class FetchPublisherModelConfig extends AiplatformRequest<com.google.api.services.aiplatform.v1beta1.model.GoogleCloudAiplatformV1beta1PublisherModelConfig> {
+
+      private static final String REST_PATH = "v1beta1/{+name}:fetchPublisherModelConfig";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+$");
+
+      /**
+       * Fetches the configs of publisher models.
+       *
+       * Create a request for the method "projects.fetchPublisherModelConfig".
+       *
+       * This request holds the parameters needed by the the aiplatform server.  After setting any
+       * optional parameters, call the {@link FetchPublisherModelConfig#execute()} method to invoke the
+       * remote operation. <p> {@link FetchPublisherModelConfig#initialize(com.google.api.client.googlea
+       * pis.services.AbstractGoogleClientRequest)} must be called to initialize this instance
+       * immediately after invoking the constructor. </p>
+       *
+       * @param name Required. The name of the publisher model, in the format of
+     *        `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+       * @since 1.13
+       */
+      protected FetchPublisherModelConfig(java.lang.String name) {
+        super(Aiplatform.this, "GET", REST_PATH, null, com.google.api.services.aiplatform.v1beta1.model.GoogleCloudAiplatformV1beta1PublisherModelConfig.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+      }
+
+      @Override
+      public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+        return super.executeUsingHead();
+      }
+
+      @Override
+      public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+        return super.buildHttpRequestUsingHead();
+      }
+
+      @Override
+      public FetchPublisherModelConfig set$Xgafv(java.lang.String $Xgafv) {
+        return (FetchPublisherModelConfig) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setAccessToken(java.lang.String accessToken) {
+        return (FetchPublisherModelConfig) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setAlt(java.lang.String alt) {
+        return (FetchPublisherModelConfig) super.setAlt(alt);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setCallback(java.lang.String callback) {
+        return (FetchPublisherModelConfig) super.setCallback(callback);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setFields(java.lang.String fields) {
+        return (FetchPublisherModelConfig) super.setFields(fields);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setKey(java.lang.String key) {
+        return (FetchPublisherModelConfig) super.setKey(key);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setOauthToken(java.lang.String oauthToken) {
+        return (FetchPublisherModelConfig) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (FetchPublisherModelConfig) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setQuotaUser(java.lang.String quotaUser) {
+        return (FetchPublisherModelConfig) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setUploadType(java.lang.String uploadType) {
+        return (FetchPublisherModelConfig) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public FetchPublisherModelConfig setUploadProtocol(java.lang.String uploadProtocol) {
+        return (FetchPublisherModelConfig) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The name of the publisher model, in the format of
+       * `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Required. The name of the publisher model, in the format of
+     `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Required. The name of the publisher model, in the format of
+       * `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+       */
+      public FetchPublisherModelConfig setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      @Override
+      public FetchPublisherModelConfig set(String parameterName, Object value) {
+        return (FetchPublisherModelConfig) super.set(parameterName, value);
+      }
+    }
+    /**
      * Gets a GenAI cache config.
      *
      * Create a request for the method "projects.getCacheConfig".
@@ -4056,6 +4205,149 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
       @Override
       public GetCacheConfig set(String parameterName, Object value) {
         return (GetCacheConfig) super.set(parameterName, value);
+      }
+    }
+    /**
+     * Sets (creates or updates) configs of publisher models. For example, sets the request/response
+     * logging config.
+     *
+     * Create a request for the method "projects.setPublisherModelConfig".
+     *
+     * This request holds the parameters needed by the aiplatform server.  After setting any optional
+     * parameters, call the {@link SetPublisherModelConfig#execute()} method to invoke the remote
+     * operation.
+     *
+     * @param name Required. The name of the publisher model, in the format of
+     *        `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+     * @param content the {@link com.google.api.services.aiplatform.v1beta1.model.GoogleCloudAiplatformV1beta1SetPublisherModelConfigRequest}
+     * @return the request
+     */
+    public SetPublisherModelConfig setPublisherModelConfig(java.lang.String name, com.google.api.services.aiplatform.v1beta1.model.GoogleCloudAiplatformV1beta1SetPublisherModelConfigRequest content) throws java.io.IOException {
+      SetPublisherModelConfig result = new SetPublisherModelConfig(name, content);
+      initialize(result);
+      return result;
+    }
+
+    public class SetPublisherModelConfig extends AiplatformRequest<com.google.api.services.aiplatform.v1beta1.model.GoogleLongrunningOperation> {
+
+      private static final String REST_PATH = "v1beta1/{+name}:setPublisherModelConfig";
+
+      private final java.util.regex.Pattern NAME_PATTERN =
+          java.util.regex.Pattern.compile("^projects/[^/]+$");
+
+      /**
+       * Sets (creates or updates) configs of publisher models. For example, sets the request/response
+       * logging config.
+       *
+       * Create a request for the method "projects.setPublisherModelConfig".
+       *
+       * This request holds the parameters needed by the the aiplatform server.  After setting any
+       * optional parameters, call the {@link SetPublisherModelConfig#execute()} method to invoke the
+       * remote operation. <p> {@link SetPublisherModelConfig#initialize(com.google.api.client.googleapi
+       * s.services.AbstractGoogleClientRequest)} must be called to initialize this instance immediately
+       * after invoking the constructor. </p>
+       *
+       * @param name Required. The name of the publisher model, in the format of
+     *        `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+       * @param content the {@link com.google.api.services.aiplatform.v1beta1.model.GoogleCloudAiplatformV1beta1SetPublisherModelConfigRequest}
+       * @since 1.13
+       */
+      protected SetPublisherModelConfig(java.lang.String name, com.google.api.services.aiplatform.v1beta1.model.GoogleCloudAiplatformV1beta1SetPublisherModelConfigRequest content) {
+        super(Aiplatform.this, "POST", REST_PATH, content, com.google.api.services.aiplatform.v1beta1.model.GoogleLongrunningOperation.class);
+        this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+      }
+
+      @Override
+      public SetPublisherModelConfig set$Xgafv(java.lang.String $Xgafv) {
+        return (SetPublisherModelConfig) super.set$Xgafv($Xgafv);
+      }
+
+      @Override
+      public SetPublisherModelConfig setAccessToken(java.lang.String accessToken) {
+        return (SetPublisherModelConfig) super.setAccessToken(accessToken);
+      }
+
+      @Override
+      public SetPublisherModelConfig setAlt(java.lang.String alt) {
+        return (SetPublisherModelConfig) super.setAlt(alt);
+      }
+
+      @Override
+      public SetPublisherModelConfig setCallback(java.lang.String callback) {
+        return (SetPublisherModelConfig) super.setCallback(callback);
+      }
+
+      @Override
+      public SetPublisherModelConfig setFields(java.lang.String fields) {
+        return (SetPublisherModelConfig) super.setFields(fields);
+      }
+
+      @Override
+      public SetPublisherModelConfig setKey(java.lang.String key) {
+        return (SetPublisherModelConfig) super.setKey(key);
+      }
+
+      @Override
+      public SetPublisherModelConfig setOauthToken(java.lang.String oauthToken) {
+        return (SetPublisherModelConfig) super.setOauthToken(oauthToken);
+      }
+
+      @Override
+      public SetPublisherModelConfig setPrettyPrint(java.lang.Boolean prettyPrint) {
+        return (SetPublisherModelConfig) super.setPrettyPrint(prettyPrint);
+      }
+
+      @Override
+      public SetPublisherModelConfig setQuotaUser(java.lang.String quotaUser) {
+        return (SetPublisherModelConfig) super.setQuotaUser(quotaUser);
+      }
+
+      @Override
+      public SetPublisherModelConfig setUploadType(java.lang.String uploadType) {
+        return (SetPublisherModelConfig) super.setUploadType(uploadType);
+      }
+
+      @Override
+      public SetPublisherModelConfig setUploadProtocol(java.lang.String uploadProtocol) {
+        return (SetPublisherModelConfig) super.setUploadProtocol(uploadProtocol);
+      }
+
+      /**
+       * Required. The name of the publisher model, in the format of
+       * `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+       */
+      @com.google.api.client.util.Key
+      private java.lang.String name;
+
+      /** Required. The name of the publisher model, in the format of
+     `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+       */
+      public java.lang.String getName() {
+        return name;
+      }
+
+      /**
+       * Required. The name of the publisher model, in the format of
+       * `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`.
+       */
+      public SetPublisherModelConfig setName(java.lang.String name) {
+        if (!getSuppressPatternChecks()) {
+          com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+              "Parameter name must conform to the pattern " +
+              "^projects/[^/]+$");
+        }
+        this.name = name;
+        return this;
+      }
+
+      @Override
+      public SetPublisherModelConfig set(String parameterName, Object value) {
+        return (SetPublisherModelConfig) super.set(parameterName, value);
       }
     }
     /**
@@ -24909,6 +25201,31 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
             return this;
           }
 
+          /**
+           * Optional. Configures the Google Distributed Cloud (GDC) environment for online
+           * prediction. Only set this field when the Endpoint is to be deployed in a GDC
+           * environment.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String gdcZone;
+
+          /** Optional. Configures the Google Distributed Cloud (GDC) environment for online prediction. Only set
+         this field when the Endpoint is to be deployed in a GDC environment.
+           */
+          public java.lang.String getGdcZone() {
+            return gdcZone;
+          }
+
+          /**
+           * Optional. Configures the Google Distributed Cloud (GDC) environment for online
+           * prediction. Only set this field when the Endpoint is to be deployed in a GDC
+           * environment.
+           */
+          public List setGdcZone(java.lang.String gdcZone) {
+            this.gdcZone = gdcZone;
+            return this;
+          }
+
           /** Optional. The standard list page size. */
           @com.google.api.client.util.Key
           private java.lang.Integer pageSize;
@@ -24973,8 +25290,8 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
         }
         /**
          * Updates an existing deployed model. Updatable fields include `min_replica_count`,
-         * `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
-         * `enable_container_logging` (v1beta1 only).
+         * `max_replica_count`, `required_replica_count`, `autoscaling_metric_specs`,
+         * `disable_container_logging` (v1 only), and `enable_container_logging` (v1beta1 only).
          *
          * Create a request for the method "endpoints.mutateDeployedModel".
          *
@@ -25001,8 +25318,8 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
 
           /**
            * Updates an existing deployed model. Updatable fields include `min_replica_count`,
-           * `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
-           * `enable_container_logging` (v1beta1 only).
+           * `max_replica_count`, `required_replica_count`, `autoscaling_metric_specs`,
+           * `disable_container_logging` (v1 only), and `enable_container_logging` (v1beta1 only).
            *
            * Create a request for the method "endpoints.mutateDeployedModel".
            *
@@ -105059,6 +105376,32 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
               }
 
               /**
+               * Optional. The standard list filter. Supported fields: * `timestamp` range (i.e.
+               * `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format)
+               * More detail in [AIP-160](https://google.aip.dev/160).
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String filter;
+
+              /** Optional. The standard list filter. Supported fields: * `timestamp` range (i.e.
+             `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format) More detail in
+             [AIP-160](https://google.aip.dev/160).
+               */
+              public java.lang.String getFilter() {
+                return filter;
+              }
+
+              /**
+               * Optional. The standard list filter. Supported fields: * `timestamp` range (i.e.
+               * `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format)
+               * More detail in [AIP-160](https://google.aip.dev/160).
+               */
+              public List setFilter(java.lang.String filter) {
+                this.filter = filter;
+                return this;
+              }
+
+              /**
                * Optional. The maximum number of events to return. The service may return fewer than
                * this value. If unspecified, at most 100 events will be returned. These events are
                * ordered by timestamp in ascending order.
@@ -129934,6 +130277,32 @@ public class Aiplatform extends com.google.api.client.googleapis.services.json.A
                   "^reasoningEngines/[^/]+/sessions/[^/]+$");
             }
             this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. The standard list filter. Supported fields: * `timestamp` range (i.e.
+           * `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format)
+           * More detail in [AIP-160](https://google.aip.dev/160).
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String filter;
+
+          /** Optional. The standard list filter. Supported fields: * `timestamp` range (i.e.
+         `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format) More detail in
+         [AIP-160](https://google.aip.dev/160).
+           */
+          public java.lang.String getFilter() {
+            return filter;
+          }
+
+          /**
+           * Optional. The standard list filter. Supported fields: * `timestamp` range (i.e.
+           * `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format)
+           * More detail in [AIP-160](https://google.aip.dev/160).
+           */
+          public List setFilter(java.lang.String filter) {
+            this.filter = filter;
             return this;
           }
 
